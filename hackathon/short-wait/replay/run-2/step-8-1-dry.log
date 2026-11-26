@@ -1,0 +1,14 @@
+buyer: address 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 (dry run)
+dry run on a fork of http://127.0.0.1:8574 (http://127.0.0.1:45039); nothing is sent to http://127.0.0.1:8574
+[dry] sent card-shop:graduate#0 approve: 0xf5a8fc4348c981d5c4a0618fb0e09b7e237c451ce5ba9d9660f91742578087d0 at 1000000000 wei/gas (the network's 1000000000), nonce 402
+[dry] sent card-shop:graduate#1 swap: 0x7f86568536b17df197579fb00d1010604df258a3a7f62c1847daa53f3ba6fd7b at 1000000000 wei/gas (the network's 1000000000), nonce 403
+[dry] sent card-shop:graduate#2 approve: 0x4184b29af3c43ced13e99f57c160135909eca4d12b49a49271220fb1d206131c at 1000000000 wei/gas (the network's 1000000000), nonce 404
+[dry] sent card-shop:graduate#3 graduate: 0x882570a43d304a9127f8e6d80411f0769e9fbe2b409394611f5e350e23b5dcc6 at 1000000000 wei/gas (the network's 1000000000), nonce 405
+[dry] done card-shop:graduate
+{
+  "command": "graduate",
+  "dry": true,
+  "result": {
+    "box": "0xBfe1e7475ccAcFFbC72bdF4e37404F0e31792D09"
+  }
+}

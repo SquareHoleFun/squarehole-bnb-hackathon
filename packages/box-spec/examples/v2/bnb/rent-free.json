@@ -1,0 +1,57 @@
+{
+  "$schema": "../schema.json",
+  "version": 1,
+  "id": "rent-free",
+  "name": "Rent Free",
+  "ticker": "RENT",
+  "status": "ready",
+  "template": {
+    "id": "collection-burn",
+    "name": "Collection that burns"
+  },
+  "priceCoin": {
+    "symbol": "USDC",
+    "decimals": "6"
+  },
+  "logo": "examples/boxes/rent-free/art/logo.png",
+  "contents": {
+    "kind": "collection",
+    "size": "500",
+    "label": "Houses",
+    "art": {
+      "mode": "open",
+      "source": "examples/boxes/rent-free/art/cover.png"
+    },
+    "seed": null,
+    "pickFeeBps": "100"
+  },
+  "raise": {
+    "policy": "listing-fixed",
+    "amount": "1000000"
+  },
+  "deadline": {
+    "days": "30"
+  },
+  "royalties": {
+    "bps": "0",
+    "destination": "none"
+  },
+  "fees": {
+    "buyers": {
+      "choice": "items",
+      "inside": "burn"
+    },
+    "sellers": {
+      "choice": "burn"
+    }
+  },
+  "life": "graduate",
+  "properties": [
+    "fee-conservation",
+    "page-state",
+    "own-pictures",
+    "graduation",
+    "supply-burn",
+    "item-claim"
+  ]
+}

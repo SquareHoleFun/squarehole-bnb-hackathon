@@ -1,0 +1,47 @@
+{
+  "chainId": 11155111,
+  "network": "Ethereum Sepolia (chain 11155111)",
+  "note": "Canonical Uniswap v4 PoolManager, WETH9 and Circle USDC on Sepolia (docs/research/sepolia-infrastructure.md § 2.1, verified 2026-09-25); the mock USDT (USDT-TEST) is deployed by this script. Registry admin and treasury default to the testnet deployer. Amounts are raw decimal strings. Template economics are testnet placeholders (G05). Launch 1 is The Misfits (F10: FIT is its fractional token, 10,000 NFTs x 100,000 FIT = the fixed 1e9 supply); FIT is then admitted as a quote; launch 2 (ORCHARD vs FIT) follows only when launches.ORCHARD.enabled (or SH_LAUNCH_ORCHARD=true) because of the deployer's gas budget (evidence SH-E). Metadata manifests: `manifestHash` pins keccak256 of the metadata lane's reviewed manifest files (sh-e-nft-metadata@02043cb); once the file at `manifest` exists its keccak256 must equal the pin (a regenerated manifest needs a re-pin after review), and while it is missing the pin stands in for simulations only (a public-chain broadcast requires the file). Never broadcast by an agent: Stage E is the founder's step.",
+  "poolManager": "0xE03A1074c86CFeDd5C142C4F04F1a1536e203543",
+  "quotes": {
+    "WETH": "0xfFf9976782d46CC05630D1f6eBAb18b2324d6B14",
+    "USDC": "0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238"
+  },
+  "deployMockTether": true,
+  "registryAdmin": "0x0000000000000000000000000000000000000000",
+  "treasury": "0x0000000000000000000000000000000000000000",
+  "withConverter": true,
+  "templates": {
+    "WETH": { "startFdvQ": "1000000000000000000", "minStartUnitValueQ": "100000000000000", "tickSpacing": 60, "rangeTicks": 69060 },
+    "USDC": { "startFdvQ": "5000000000", "minStartUnitValueQ": "500000", "tickSpacing": 60, "rangeTicks": 69060 },
+    "USDT": { "startFdvQ": "5000000000", "minStartUnitValueQ": "500000", "tickSpacing": 60, "rangeTicks": 69060 },
+    "FIT": { "startFdvQ": "1000000000000000000000000", "minStartUnitValueQ": "100000000000000000000", "tickSpacing": 60, "rangeTicks": 69060 }
+  },
+  "launches": {
+    "THE_MISFITS": {
+      "kind": "collection",
+      "name": "The Misfits",
+      "symbol": "FIT",
+      "units": "10000",
+      "fractionsPerNft": "100000",
+      "quote": "WETH",
+      "rewardSide": "Q",
+      "baseURI": "https://squarehole-7ua.pages.dev/nft/the-misfits/",
+      "manifest": "../../apps/web/public/nft/the-misfits/manifest.json",
+      "manifestHash": "0x8f4b336693549802635b2c52fb4885b33fd999c1d90a53af1b4c445d99f790e3"
+    },
+    "ORCHARD": {
+      "enabled": false,
+      "kind": "collection",
+      "name": "ORCHARD",
+      "symbol": "ORCH",
+      "units": "1000",
+      "fractionsPerNft": "1000000",
+      "quote": "FIT",
+      "rewardSide": "T",
+      "baseURI": "https://squarehole-7ua.pages.dev/nft/orchard/",
+      "manifest": "../../apps/web/public/nft/orchard/manifest.json",
+      "manifestHash": "0x4263aa5f7469f1c4f1f663417d7002c39a87fdd90e6e3cc65a9fbe178cdddbc0"
+    }
+  }
+}

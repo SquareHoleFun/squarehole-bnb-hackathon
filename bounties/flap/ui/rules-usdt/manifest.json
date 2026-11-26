@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 2,
+  "kind": "launcher-ui",
+  "artifactId": "square-hole-rules-sale-usdt",
+  "name": "Rules Sale (USDT test)",
+  "chainId": 97,
+  "factoryAddress": "0x61873ad21f3e471910c976ef7993ed40b399eec0",
+  "configContract": "launcher-config-preview/v1",
+  "surfaces": [
+    "launcher-config",
+    "launcher-ui"
+  ],
+  "entry": "Component.tsx",
+  "reads": {
+    "raised": { "functionName": "curveBalance", "returns": "uint256" },
+    "target": { "functionName": "raiseTarget", "returns": "uint256" },
+    "deadline": { "functionName": "deadline", "returns": "uint256" },
+    "launched": { "functionName": "launched", "returns": "bool" },
+    "token": { "functionName": "token", "returns": "address" },
+    "predictedToken": { "functionName": "predictedToken", "returns": "address" },
+    "holderCount": { "functionName": "holderCount", "returns": "uint256" },
+    "creator": { "functionName": "creator", "returns": "address" },
+    "pileVault": { "functionName": "pileVault", "returns": "address" },
+    "bought": { "functionName": "tokensOf", "returns": "uint256", "account": true },
+    "claimable": { "functionName": "claimable", "returns": "uint256", "account": true },
+    "owed": { "functionName": "owed", "returns": "uint256", "account": true }
+  },
+  "transactions": {
+    "create": true,
+    "actions": {
+      "claim": "nonpayable",
+      "unwind": "nonpayable"
+    }
+  }
+}

@@ -1,0 +1,311 @@
+/*
+ * Demo wallet (SH-015): the top-bar button and the demo wallet window. Every control is a 44px-class target; the
+ * window is a centred modal that scrolls inside itself on short screens.
+ */
+.sh-wallet-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sh-gap-2);
+  flex: none;
+  min-width: var(--sh-touch-target);
+  min-height: var(--sh-touch-target);
+  padding: 0 var(--sh-gap-3);
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface);
+  color: var(--sh-text);
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color var(--sh-duration-fast) var(--sh-ease), background-color var(--sh-duration-fast) var(--sh-ease);
+}
+
+.sh-wallet-button:hover {
+  border-color: var(--sh-accent);
+  background: var(--sh-surface-raised);
+}
+
+.sh-wallet-button[data-wrong-network] {
+  border-color: var(--sh-warning);
+}
+
+.sh-wallet-button__name {
+  padding: 1px 6px;
+  border: 1px solid var(--sh-warning);
+  border-radius: var(--sh-radius-pill);
+  background: var(--sh-demo-bg);
+  color: var(--sh-warning);
+  font-size: var(--sh-type-caption);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.sh-wallet-button__account {
+  font-variant-numeric: tabular-nums;
+}
+
+.sh-wallet-button__warning {
+  color: var(--sh-warning);
+  font-size: var(--sh-type-caption);
+  font-weight: 700;
+}
+
+.sh-wallet-button__compact {
+  position: relative;
+  display: none;
+  place-items: center;
+}
+
+.sh-wallet-button__dot {
+  position: absolute;
+  top: -4px;
+  right: -5px;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--sh-surface);
+  border-radius: 50%;
+  background: var(--sh-positive);
+}
+
+.sh-wallet-button[data-wrong-network] .sh-wallet-button__dot {
+  border-radius: 2px;
+  background: var(--sh-warning);
+}
+
+/* Icon rail and phones: a 44px icon button in both states (the accessible name keeps the full wording). */
+@media (max-width: 1024px) {
+  .sh-wallet-button {
+    justify-content: center;
+    width: var(--sh-touch-target);
+    padding: 0;
+  }
+
+  .sh-wallet-button__compact {
+    display: inline-grid;
+  }
+
+  .sh-wallet-button__text,
+  .sh-wallet-button__name,
+  .sh-wallet-button__account,
+  .sh-wallet-button__warning {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+/* ── Window ──────────────────────────────────────────────── */
+/* Flex + auto margins (not grid centring): a window taller than the screen overflows downwards and stays scrollable. */
+.sh-wallet-dialog__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--sh-z-popover);
+  display: flex;
+  padding: var(--sh-gap-4);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: rgba(4, 7, 12, 0.76);
+}
+
+.sh-wallet-dialog {
+  display: grid;
+  gap: var(--sh-gap-4);
+  width: min(100%, 520px);
+  margin: auto;
+  padding: var(--sh-gap-6);
+  background-color: var(--sh-surface);
+  box-shadow: var(--sh-panel-edge), var(--sh-elevation-3);
+}
+
+.sh-wallet-dialog__header {
+  display: flex;
+  align-items: center;
+  gap: var(--sh-gap-3);
+}
+
+.sh-wallet-dialog__cast {
+  flex: none;
+  margin: 0;
+}
+
+.sh-wallet-dialog__title {
+  margin: var(--sh-gap-1) 0 0;
+  font-size: var(--sh-type-section);
+  line-height: var(--sh-leading-tight);
+}
+
+.sh-wallet-dialog__lede,
+.sh-wallet-dialog__current {
+  margin: 0;
+  color: var(--sh-text-secondary);
+}
+
+.sh-wallet-dialog__current strong {
+  color: var(--sh-text);
+}
+
+.sh-wallet-dialog__mybox {
+  color: var(--sh-accent);
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.sh-wallet-dialog__form {
+  display: grid;
+  gap: var(--sh-gap-4);
+}
+
+.sh-wallet-dialog__personas {
+  display: grid;
+  gap: var(--sh-gap-2);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.sh-wallet-dialog__personas legend {
+  margin-bottom: var(--sh-gap-2);
+  padding: 0;
+  font-weight: var(--sh-weight-bold);
+}
+
+.sh-wallet-persona,
+.sh-wallet-dialog__check {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: var(--sh-gap-3);
+  min-height: var(--sh-touch-target);
+  padding: var(--sh-gap-3);
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-canvas);
+  cursor: pointer;
+}
+
+.sh-wallet-persona:has(input:checked),
+.sh-wallet-dialog__check:has(input:checked) {
+  border-color: var(--sh-accent);
+  background: var(--sh-selected);
+}
+
+.sh-wallet-persona input,
+.sh-wallet-dialog__check input {
+  width: 20px;
+  height: 20px;
+  margin: 1px 0 0;
+  accent-color: var(--sh-accent);
+}
+
+.sh-wallet-persona__body,
+.sh-wallet-dialog__check > span {
+  display: grid;
+  gap: 2px;
+}
+
+.sh-wallet-persona__title {
+  font-weight: var(--sh-weight-bold);
+}
+
+.sh-wallet-persona__hint {
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+}
+
+.sh-wallet-persona__hint .sh-numeric {
+  white-space: nowrap;
+}
+
+.sh-wallet-dialog__error {
+  margin: 0;
+  color: var(--sh-negative);
+  font-weight: 650;
+}
+
+.sh-wallet-dialog__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sh-gap-2);
+}
+
+.sh-wallet-dialog__actions .sh-button {
+  cursor: pointer;
+}
+
+.sh-wallet-dialog__actions .sh-button:disabled {
+  cursor: progress;
+  opacity: 0.75;
+}
+
+@media (max-width: 640px) {
+  .sh-wallet-dialog__backdrop {
+    padding: var(--sh-gap-2);
+  }
+
+  .sh-wallet-dialog {
+    gap: var(--sh-gap-3);
+    padding: var(--sh-gap-4);
+  }
+
+  .sh-wallet-dialog__title {
+    font-size: var(--sh-type-body-lg);
+  }
+
+  .sh-wallet-persona,
+  .sh-wallet-dialog__check {
+    padding: var(--sh-gap-2) var(--sh-gap-3);
+  }
+
+  .sh-wallet-dialog__actions .sh-button {
+    flex: 1 1 auto;
+  }
+}
+
+@media (forced-colors: active) {
+  .sh-wallet-persona:has(input:checked),
+  .sh-wallet-dialog__check:has(input:checked) {
+    outline: 2px solid Highlight;
+  }
+}
+
+/* Stage C: the browser-wallet window (wallet rows are buttons; a click connects that wallet). */
+.sh-wallet-option {
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  text-align: start;
+}
+
+.sh-wallet-option:not(:has(img)) {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.sh-wallet-option:hover:not(:disabled),
+.sh-wallet-option:focus-visible {
+  border-color: var(--sh-accent);
+}
+
+.sh-wallet-option:disabled {
+  cursor: progress;
+}
+
+.sh-wallet-option__icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+}
+
+.sh-wallet-dialog__alt {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sh-gap-2);
+  margin: 0;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+}

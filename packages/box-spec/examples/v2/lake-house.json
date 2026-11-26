@@ -1,0 +1,61 @@
+{
+  "$schema": "./schema.json",
+  "version": 1,
+  "id": "lake-house",
+  "name": "Lake House",
+  "ticker": "HOUSE",
+  "status": "pending",
+  "pendingStep": "EXAMPLE-LIFE",
+  "pendingReason": "A Sepolia example created from a company Safe through its launch pack (SH-LAKE-HOUSE). Its recipe and kit are set: a USDC pile that starts empty, both fee sides To the pile, nothing left behind. Its local contract and browser lives are not written yet; a reviewed change adds them before this row is ready.",
+  "template": {
+    "id": "pile",
+    "name": "Coin pile"
+  },
+  "priceCoin": {
+    "symbol": "USDC",
+    "decimals": "6"
+  },
+  "logo": "examples/boxes/lake-house/art/logo.png",
+  "contents": {
+    "kind": "pile",
+    "size": "0",
+    "label": "USDC pile, empty at the start",
+    "art": {
+      "mode": "none",
+      "source": null
+    },
+    "seed": {
+      "symbol": "USDC",
+      "amount": "0"
+    },
+    "pickFeeBps": "0",
+    "leaveBehindBps": "0"
+  },
+  "raise": {
+    "policy": "listing-fixed",
+    "amount": "8413960170"
+  },
+  "deadline": {
+    "days": "30"
+  },
+  "royalties": {
+    "bps": "0",
+    "destination": "none"
+  },
+  "fees": {
+    "buyers": {
+      "choice": "pile"
+    },
+    "sellers": {
+      "choice": "pile"
+    }
+  },
+  "life": "graduate",
+  "properties": [
+    "fee-conservation",
+    "page-state",
+    "own-pictures",
+    "graduation",
+    "pile-pro-rata"
+  ]
+}

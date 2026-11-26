@@ -1,0 +1,11 @@
+{
+  "format": "squarehole.plug-ins/1",
+  "about": [
+    "No plug-ins in this release (F119; ADR-0017 Amendment 3 C1, C14). Every network catalog is empty, Demo included.",
+    "Retired LEG, TARGET and RULE slots (reserved enum ids), the halving and prisoners entries wait for a later reviewed release. There are no demo stand-ins, deploy addresses or enabled plug-in choices."
+  ],
+  "networks": {
+    "demo": [],
+    "sepolia": []
+  }
+}

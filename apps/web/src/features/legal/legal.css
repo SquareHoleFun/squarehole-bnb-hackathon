@@ -1,0 +1,332 @@
+/*
+ * Entry terms gate and the Terms of Use page (F19). The gate replaces the app until the Terms are accepted, so it
+ * covers the viewport on its own: a quiet canvas, one centred window with a scrolling summary and the choice pinned
+ * at the bottom. The page reuses the shared .sh-detail-card cards (features/pair/pair.css).
+ */
+
+/* ── Gate ────────────────────────────────────────────────── */
+.sh-terms-gate {
+  position: fixed;
+  inset: 0;
+  z-index: var(--sh-z-popover);
+  display: flex;
+  padding: var(--sh-gap-4);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background:
+    radial-gradient(90% 60% at 50% 0%, var(--sh-glow) 0%, transparent 70%),
+    var(--sh-canvas);
+}
+
+/* Header, scrolling summary, footer: the choice stays visible however long the summary is. */
+.sh-terms-gate__dialog {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: var(--sh-gap-4);
+  width: min(100%, 560px);
+  max-height: 100%;
+  min-width: 0;
+  margin: auto;
+  padding: var(--sh-gap-6);
+  background-color: var(--sh-surface);
+  box-shadow: var(--sh-panel-edge), var(--sh-elevation-3);
+}
+
+.sh-terms-gate__dialog[data-state='declined'] {
+  grid-template-rows: auto auto auto;
+}
+
+.sh-terms-gate__header {
+  display: flex;
+  align-items: center;
+  gap: var(--sh-gap-3);
+  min-width: 0;
+}
+
+.sh-terms-gate__cast {
+  flex: none;
+  margin: 0;
+}
+
+.sh-terms-gate__title {
+  margin: 0;
+  font-size: var(--sh-type-section);
+  line-height: var(--sh-leading-tight);
+  border-radius: var(--sh-radius-small);
+}
+
+.sh-terms-gate__body {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-radius: var(--sh-radius-small);
+}
+
+.sh-terms-gate__status {
+  margin: var(--sh-gap-1) 0 0;
+  color: var(--sh-warning);
+  font-size: var(--sh-type-small);
+  line-height: var(--sh-leading);
+}
+
+.sh-terms-gate__lede,
+.sh-terms-gate__declined {
+  margin: 0;
+  color: var(--sh-text-secondary);
+}
+
+.sh-terms-gate__declined {
+  color: var(--sh-text);
+  border-radius: var(--sh-radius-small);
+}
+
+/*
+ * The title and the decline message take focus programmatically (tabindex=-1) so screen readers announce them; they
+ * are not controls and are not in the Tab order. On a fresh load Chrome would draw the full ring around the title,
+ * the loudest thing on the screen. The first Tab stop (the summary) shows the normal ring.
+ */
+.sh-terms-gate__title:focus-visible,
+.sh-terms-gate__declined:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.sh-terms-gate__points {
+  display: grid;
+  gap: var(--sh-gap-2);
+  margin: var(--sh-gap-3) 0 0;
+  padding-left: 20px;
+  color: var(--sh-text);
+  line-height: var(--sh-leading);
+}
+
+.sh-terms-gate__footer {
+  display: grid;
+  gap: var(--sh-gap-3);
+  min-width: 0;
+}
+
+.sh-terms-gate__more {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--sh-gap-1) var(--sh-gap-3);
+  margin: 0;
+}
+
+.sh-terms-gate__more a {
+  color: var(--sh-accent);
+  font-weight: var(--sh-weight-bold);
+}
+
+.sh-terms-gate__version {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  overflow-wrap: anywhere;
+}
+
+.sh-terms-gate__check {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: var(--sh-gap-3);
+  min-height: var(--sh-touch-target);
+  padding: var(--sh-gap-3);
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-canvas);
+  color: var(--sh-text);
+  font-weight: var(--sh-weight-medium);
+  cursor: pointer;
+}
+
+.sh-terms-gate__check:has(input:checked) {
+  border-color: var(--sh-accent);
+  background: var(--sh-selected);
+}
+
+.sh-terms-gate__check input {
+  width: 20px;
+  height: 20px;
+  margin: 1px 0 0;
+  accent-color: var(--sh-accent);
+}
+
+.sh-terms-gate__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--sh-gap-2);
+}
+
+.sh-terms-gate__actions .sh-button {
+  min-width: 112px;
+  cursor: pointer;
+}
+
+.sh-terms-gate__actions .sh-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  box-shadow: none;
+}
+
+@media (max-width: 640px) {
+  .sh-terms-gate__dialog {
+    gap: var(--sh-gap-3);
+    padding: var(--sh-gap-4);
+  }
+
+  .sh-terms-gate__title {
+    font-size: var(--sh-type-body-lg);
+  }
+
+  /* Tighter list on phones, so all seven essentials fit a 390 × 844 screen without scrolling. */
+  .sh-terms-gate__points {
+    gap: var(--sh-gap-1);
+    margin-top: var(--sh-gap-2);
+  }
+
+  .sh-terms-gate__check {
+    padding: var(--sh-gap-2) var(--sh-gap-3);
+  }
+
+  .sh-terms-gate__actions .sh-button {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+
+/* Short screens (a phone on its side): the whole window scrolls instead of a squeezed summary. */
+@media (max-height: 520px) {
+  .sh-terms-gate__dialog {
+    max-height: none;
+  }
+
+  .sh-terms-gate__body {
+    overflow: visible;
+  }
+}
+
+@media (forced-colors: active) {
+  .sh-terms-gate__check:has(input:checked) {
+    outline: 2px solid Highlight;
+  }
+
+  .sh-terms-gate__actions .sh-button:disabled {
+    color: GrayText;
+    border-color: GrayText;
+  }
+}
+
+/* ── Terms page ──────────────────────────────────────────── */
+.sh-legal {
+  max-width: 860px;
+  gap: var(--sh-gap-4);
+}
+
+.sh-legal__intro .sh-page__title {
+  margin: 0;
+}
+
+.sh-legal__intro p,
+.sh-legal__status {
+  margin: 0;
+}
+
+.sh-legal__status strong,
+.sh-legal__status em {
+  color: var(--sh-warning);
+}
+
+.sh-legal__meta {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-small);
+}
+
+.sh-legal__section {
+  line-height: var(--sh-leading);
+  scroll-margin-top: calc(var(--sh-topbar-h) + var(--sh-gap-4));
+}
+
+.sh-legal__section strong,
+.sh-legal__intro strong {
+  color: var(--sh-text);
+}
+
+.sh-legal__details {
+  margin-top: var(--sh-gap-4);
+}
+
+.sh-legal__subtitle {
+  margin: 0 0 var(--sh-gap-2);
+  cursor: pointer;
+  font-size: var(--sh-type-body);
+  font-weight: var(--sh-weight-bold);
+}
+
+.sh-legal__clause p {
+  margin: 0;
+}
+
+.sh-legal__n {
+  color: var(--sh-text);
+  font-weight: var(--sh-weight-bold);
+  font-variant-numeric: tabular-nums;
+}
+
+.sh-legal__items {
+  display: grid;
+  gap: var(--sh-gap-2);
+  margin: var(--sh-gap-2) 0 0;
+  padding-left: var(--sh-gap-4);
+  list-style: none;
+}
+
+.sh-legal__bullets {
+  display: grid;
+  gap: var(--sh-gap-2);
+  margin: var(--sh-gap-2) 0 0;
+  padding-left: 20px;
+}
+
+.sh-legal__todo {
+  padding: 0 3px;
+  border-radius: var(--sh-radius-small);
+  background: var(--sh-demo-bg);
+  color: var(--sh-warning);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.sh-legal__toc ol {
+  columns: 2 16rem;
+  column-gap: var(--sh-gap-6);
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.sh-legal__toc li {
+  break-inside: avoid;
+}
+
+.sh-legal__toc a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--sh-touch-target);
+  color: var(--sh-text-secondary);
+  text-decoration: none;
+}
+
+.sh-legal__toc a:hover {
+  color: var(--sh-text);
+  text-decoration: underline;
+}
+
+@media (forced-colors: active) {
+  .sh-legal__todo {
+    forced-color-adjust: none;
+    background: Mark;
+    color: MarkText;
+  }
+}

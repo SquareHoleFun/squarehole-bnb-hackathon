@@ -1,0 +1,26 @@
+# SH-293: Flap's helper enables a launcher factory at multiplier 0 (no Portal floor through Portal.newLauncher).
+# RPC=https://bsc-testnet-rpc.publicnode.com ; from hack-deployer; anyone may send these, and anyone may later overwrite the number.
+# Before: launcherFactoryMultiplier answers false 10000 for both live factories (read at block 144901730).
+
+# 1 our BNB launcher factory (deployments/97.json): whitelist(0x151e43d81b3Ac5DBf566A1d01B5674cc2C4c7594, 0)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x77779969a11eff7582f3bCf48135A846A3457777 'whitelist(address,uint16)' 0x151e43d81b3Ac5DBf566A1d01B5674cc2C4c7594 0 --rpc-url "$RPC"
+cast send 0x77779969a11eff7582f3bCf48135A846A3457777 'whitelist(address,uint16)' 0x151e43d81b3Ac5DBf566A1d01B5674cc2C4c7594 0 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x000042108465206185A077Edc3F3fd2b49060000 'launcherFactoryMultiplier(address)(bool,uint16)' 0x151e43d81b3Ac5DBf566A1d01B5674cc2C4c7594 --rpc-url "$RPC"   # expect true 0
+
+# 2 our test-dollar launcher factory (deployments/97-usdt.json): whitelist(0x51034cf27e4234820bCC7152583Ab8e8d95DbE77, 0)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x77779969a11eff7582f3bCf48135A846A3457777 'whitelist(address,uint16)' 0x51034cf27e4234820bCC7152583Ab8e8d95DbE77 0 --rpc-url "$RPC"
+cast send 0x77779969a11eff7582f3bCf48135A846A3457777 'whitelist(address,uint16)' 0x51034cf27e4234820bCC7152583Ab8e8d95DbE77 0 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x000042108465206185A077Edc3F3fd2b49060000 'launcherFactoryMultiplier(address)(bool,uint16)' 0x51034cf27e4234820bCC7152583Ab8e8d95DbE77 --rpc-url "$RPC"   # expect true 0
+
+# 3 TEMPLATE: the rules BNB launcher factory DeployRules.s.sol deploys: whitelist(<RULES_BNB_FACTORY>, 0)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x77779969a11eff7582f3bCf48135A846A3457777 'whitelist(address,uint16)' <RULES_BNB_FACTORY> 0 --rpc-url "$RPC"
+cast send 0x77779969a11eff7582f3bCf48135A846A3457777 'whitelist(address,uint16)' <RULES_BNB_FACTORY> 0 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x000042108465206185A077Edc3F3fd2b49060000 'launcherFactoryMultiplier(address)(bool,uint16)' <RULES_BNB_FACTORY> --rpc-url "$RPC"   # expect true 0
+
+# 4 TEMPLATE: the rules test-dollar launcher factory DeployRules.s.sol deploys: whitelist(<RULES_USD_FACTORY>, 0)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x77779969a11eff7582f3bCf48135A846A3457777 'whitelist(address,uint16)' <RULES_USD_FACTORY> 0 --rpc-url "$RPC"
+cast send 0x77779969a11eff7582f3bCf48135A846A3457777 'whitelist(address,uint16)' <RULES_USD_FACTORY> 0 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x000042108465206185A077Edc3F3fd2b49060000 'launcherFactoryMultiplier(address)(bool,uint16)' <RULES_USD_FACTORY> --rpc-url "$RPC"   # expect true 0
+
+# The live floor a page reads (the factory applies the multiplier itself; viaPortal true):
+cast call <FACTORY> 'liquidityFloor(uint256,uint256,uint256,bool)(uint256,uint256)' <raise> <poolToken> <totalSupply> true --rpc-url "$RPC"   # (pool quote USD, required USD), 18 decimals

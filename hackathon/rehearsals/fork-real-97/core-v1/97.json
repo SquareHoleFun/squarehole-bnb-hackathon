@@ -1,0 +1,158 @@
+{
+  "schema": "squarehole.core-deployment/v1",
+  "status": "deployed",
+  "chainId": 97,
+  "network": "bnb-testnet",
+  "chain": {
+    "poolManager": {
+      "address": "0xb0fd2d66040d310ed6bffbf8dba9ffcef39f52a4",
+      "codeHash": "0x592af66f55dd5f23c13395995b67c4d00ada577fce0b2d44dd0af0e790d62200"
+    },
+    "weth": {
+      "address": "0xae13d989dac2f0debff460ac112a837c89baa7cd",
+      "codeHash": "0xb7d84205eaaf83ce7b3940c6beaad6d22790255e34a9a2b486aa8cdfff118fe6"
+    },
+    "randomness": {
+      "address": "0x4d1fdc8838ddb913779b9c5e79e2b2a82c58a264",
+      "codeHash": "0xb835f0713da5f533832670cd4fa7ba4cc94b93203025f9412d87c9b575a54218"
+    },
+    "platformSafe": {
+      "address": "0x974d108cf896fb4b0981a13df759349d44296d27",
+      "codeHash": "0xde11948243591cfe979639649532f4324f69e94f4d7b018e782de3909917fdde"
+    }
+  },
+  "versions": [],
+  "evidence": {
+    "block": {
+      "number": "144755403",
+      "hash": "0x8b7b09c2710eb525c3f6b1eb8f8b965b3bbaa05ec9913566be4a9cd4f492058c"
+    },
+    "finality": "finalized"
+  },
+  "gitCommit": null,
+  "releases": [
+    {
+      "version": 2,
+      "factory": {
+        "address": "0xb954a0db33a6351e76e519b4830489531c39d4f0",
+        "codeHash": "0x646bb29ba5a53c5fd5c0ab9dfa36964d8c7e900cd8fab82d2823eb0f877430ec"
+      },
+      "registry": {
+        "address": "0xf77ef448bbc61d559ee8f657ce3a0b59f1af0daf",
+        "codeHash": "0x8507d7a0401f7866dacf877df16826047f791870849836d63b5500135cc468f4"
+      },
+      "listingRegistry": {
+        "address": "0xccf0b8cc9257db834d77f29ea9eb8e5554ba0170",
+        "codeHash": "0x521d7df53a7f4b4dbc7d26589323060404ce3973a77ad10794ba323504c3f9a3"
+      },
+      "feeModuleDirectory": {
+        "address": "0xc4cf337484488ca377d111ea1e81d77eec57f62c",
+        "codeHash": "0xfde43bf1a61ed0e2b6e45e342bcbc6b2fbd39eb03c169fe5548a444358dad300"
+      },
+      "safes": {
+        "fit": {
+          "address": "0x9573d4ae9fe9b779d0ba05848d70af641c415b1d",
+          "codeHash": "0xde11948243591cfe979639649532f4324f69e94f4d7b018e782de3909917fdde",
+          "version": "1.4.1",
+          "singleton": "0x9573d4ae9fe9b779d0ba05848d70af641c415b1d",
+          "singletonCodeHash": "0xde11948243591cfe979639649532f4324f69e94f4d7b018e782de3909917fdde",
+          "owners": [
+            "0x2ef9a78074bbf674bea16f21154a30c821a3c576"
+          ],
+          "threshold": "1",
+          "guard": "0x0000000000000000000000000000000000000000",
+          "guardCodeHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "handler": "0x0000000000000000000000000000000000000000",
+          "handlerCodeHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "modulesEnabled": false,
+          "controlTransferProof": "BNB Chain testnet: BnbTestnetCustody, a holding contract owned by the deployer; not a Safe"
+        },
+        "platform": {
+          "address": "0x974d108cf896fb4b0981a13df759349d44296d27",
+          "codeHash": "0xde11948243591cfe979639649532f4324f69e94f4d7b018e782de3909917fdde",
+          "version": "1.4.1",
+          "singleton": "0x974d108cf896fb4b0981a13df759349d44296d27",
+          "singletonCodeHash": "0xde11948243591cfe979639649532f4324f69e94f4d7b018e782de3909917fdde",
+          "owners": [
+            "0x2ef9a78074bbf674bea16f21154a30c821a3c576"
+          ],
+          "threshold": "1",
+          "guard": "0x0000000000000000000000000000000000000000",
+          "guardCodeHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "handler": "0x0000000000000000000000000000000000000000",
+          "handlerCodeHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "modulesEnabled": false,
+          "controlTransferProof": "BNB Chain testnet: BnbTestnetCustody, a holding contract owned by the deployer; not a Safe"
+        }
+      },
+      "startBlock": "144754031",
+      "implementations": {
+        "coordinator": {
+          "address": "0x112dbc9947e426a4c763eb54d72b977465d23417",
+          "codeHash": "0x6bc9480d908d00c4d61c8b74a4a8ff808303126ad1f4dd73ac6a84021a28803f"
+        },
+        "token": {
+          "address": "0xb5030440ed22431ef369408f023ba45b1c344076",
+          "codeHash": "0x3f8e2da5f9244abcdc770939da0150f14c79ee6982c6988cf51cfeccbc63a443"
+        },
+        "hook": {
+          "address": "0x223feb9c89191eae39f10df6def18e073a89d1f6",
+          "codeHash": "0x1f28ce67e9bef52de8c1f018430a2346c9d3b30b755eedf935af8a609cc45510"
+        },
+        "vault": {
+          "address": "0xf0ec5d528449f0e140888bb4450c77bad95bf5a3",
+          "codeHash": "0x7f6a1f868070f776a9d39fd93b4d76de56cb6f31c94c07ca6b95af6420b64cfe"
+        },
+        "collection": {
+          "address": "0x6f247907c9bd67747e32f934c80ab61b73073f2b",
+          "codeHash": "0xc61a58ed53bc35c6c1c8aa33d7bf4cfd6ea4d42f2f523230e1232997244070d6"
+        },
+        "receiver": {
+          "address": "0x7bb1ea95ee1282229224bed7a08f0f77d03e6f8a",
+          "codeHash": "0xdfd554ae220e22d30585ec207379c0d87300dadd0413d543aa9275c4af95be04"
+        },
+        "launchRouter": {
+          "address": "0xaf09eeff38c5580a7982616f61c02331d2e4d33a",
+          "codeHash": "0x67d2cd308ace4596f8515f916a187035374914cea4e45535c9189f50ecff0196"
+        },
+        "tickets": {
+          "address": "0x5660ea9527b80c1012e020d5aff676e70d6cb5f3",
+          "codeHash": "0xa753d64ac5176d0f13076e213a14c3cb2f451fb96ba68d27eff609da05eed8c6"
+        },
+        "royaltyRouter": {
+          "address": "0xf66639cd605f7e51d128c7f17f9b934ae14c4f6a",
+          "codeHash": "0x7435c285fe950be837b0b9249f1dd2ede453b1cd1c807a3057ec7d3e249a898e"
+        },
+        "itemLedger": {
+          "address": "0xb6e67c79ca478b193b4812e2c320a1b9de72081a",
+          "codeHash": "0x52d4e84e065ddca68f1466edeeb4523d16509c53087024de1e11a6d2ce009e54"
+        },
+        "holderLedger": {
+          "address": "0x1e1f385ca0b9942acd59591c2d3941820d17a58b",
+          "codeHash": "0xdbdb79d261a0c0c6a92851179f5cc7feb69e8bc0fe1adbc04994ef9cb6d8c71b"
+        },
+        "starterSetLoader": {
+          "address": "0x3b0812afe653a8e5091459410c74c99ab1e08760",
+          "codeHash": "0x8c16fe533a5a4f061439b92520b776ef70c779d438ca33912e0ee4ae58a362ea"
+        },
+        "tokenLedger": {
+          "address": "0x2688213d36da0ed31b246a7f6a2f07fc7fedc45c",
+          "codeHash": "0x6d65c264791c8b8746aab807323327851e6acb76a3e7408415d383b0f3197ef2"
+        },
+        "shopVault": {
+          "address": "0x73ae6e7f1c94541e27ab530d1f3ec335008453d8",
+          "codeHash": "0xd09a6a4768b221b2ad818728ad45f59228aaa51b7fadaf6741831e2069b56517"
+        },
+        "pileVault": {
+          "address": "0x2fd72f6c36f9f943af93e025c1f9d17632fb403a",
+          "codeHash": "0x776064e77bf907f663166b3bae42f4bfe2e7b99143d848a050890aa8bfebadfa"
+        },
+        "hookExtension": {
+          "address": "0xff77287e3ec064e22d4847bc803f2feb949e322b",
+          "codeHash": "0x6529b9355fc15b061ce89f6a91ee4cf9018c001dc376d497fca64451dc765c60"
+        }
+      },
+      "versionCodeHash": "0x19ffae989f53e1e7817c5dd840ef9b708087d0d0e1f5879cc79ee5e8109be8b4"
+    }
+  ]
+}

@@ -1,0 +1,415 @@
+/* The v2 create flow (M1-53-a): v1's creation page styles (create.css) plus the recipe cards, the pricing card and the plan. */
+.sh-v2 .sh-newbox__form {
+  max-width: 44rem;
+}
+
+.sh-v2-recipe {
+  display: grid;
+  gap: var(--sh-space-3, 0.75rem);
+  min-width: 0;
+}
+
+.sh-v2-rest {
+  display: grid;
+  gap: var(--sh-space-3, 0.75rem);
+  min-width: 0;
+  margin: 0;
+  padding: var(--sh-space-3, 0.75rem) 0 0;
+  border: 0;
+  border-top: 1px dashed var(--sh-border-strong, currentColor);
+}
+
+.sh-v2-pricing .sh-newbox-rows {
+  margin: 0;
+}
+
+.sh-v2-pricing dd {
+  overflow-wrap: anywhere;
+}
+
+.sh-v2-plan {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0;
+  padding-left: 1.4rem;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.sh-v2-plan li[data-done]::marker {
+  content: '✓  ';
+}
+
+/* TA-22: the step in the wallet now. */
+.sh-v2-plan li[data-current] {
+  font-weight: 600;
+}
+
+.sh-v2-plan li[data-current]::marker {
+  content: '›  ';
+}
+
+.sh-v2-status {
+  font-weight: 600;
+}
+
+/* SH-ARWEAVE-PICTURES-WEB: the pictures' line under the plan, Retry beside it. */
+.sh-v2-pictures {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+}
+
+.sh-v2 .sh-newbox-hint code {
+  font-size: 0.9em;
+}
+
+.sh-v2 .sh-newbox-side .sh-button[aria-pressed='true'] {
+  border-color: var(--sh-text);
+  box-shadow: inset 0 0 0 1px currentColor;
+  font-weight: 700;
+}
+
+.sh-v2 .sh-newbox-side legend {
+  margin-bottom: 0.75rem;
+}
+
+.sh-v2 .sh-newbox-chip {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+/* M3: an items side's in-vault rule (Keep or Burn), under its fee choices. */
+.sh-v2-vault {
+  min-width: 0;
+  margin: var(--sh-space-3, 0.75rem) 0 0;
+  padding: var(--sh-space-3, 0.75rem) 0 0;
+  border: 0;
+  border-top: 1px dashed var(--sh-border-strong, currentColor);
+}
+
+.sh-v2-vault legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0;
+}
+
+.sh-v2 .sh-v2-vault .sh-button[aria-pressed='true'] {
+  border-color: var(--sh-text);
+  box-shadow: inset 0 0 0 1px currentColor;
+  font-weight: 700;
+}
+
+/* F128 "Start from a template": icon tiles in a grid; on a phone one row that scrolls inside itself. Each name and tag
+   keeps one line (the FE3 rules sweep). */
+.sh-v2-templates {
+  min-width: 0;
+  margin: 0;
+}
+
+.sh-v2-templates__row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  gap: var(--sh-gap-2);
+  margin: var(--sh-gap-2) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-v2-template {
+  display: grid;
+  justify-items: start;
+  gap: 4px;
+  width: 100%;
+  min-height: var(--sh-touch-target);
+  padding: var(--sh-gap-3);
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface);
+  color: var(--sh-text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sh-v2-template[aria-pressed='true'] {
+  border-color: var(--sh-accent);
+  background: var(--sh-selected);
+  box-shadow: inset 0 0 0 1px var(--sh-accent);
+}
+
+.sh-v2-template:focus-visible {
+  outline: 3px solid var(--sh-focus-ring);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 7px var(--sh-focus-halo);
+}
+
+.sh-v2-template__icon {
+  display: inline-grid;
+  margin-bottom: 2px;
+  color: var(--sh-accent);
+}
+
+.sh-v2-template__name {
+  font-weight: 700;
+  line-height: var(--sh-leading-tight);
+  white-space: nowrap;
+}
+
+.sh-v2-template__tag {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+@media (max-width: 30rem) {
+  .sh-v2-templates__row {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    padding-bottom: var(--sh-gap-1);
+  }
+
+  .sh-v2-templates__row > li {
+    flex: 0 0 9.5rem;
+    scroll-snap-align: start;
+  }
+}
+
+/* SH-V21-FE13: a shop's settings on Contents. The four give tiers sit in one row (two by two on a phone); each starting
+   collection is a row of its address, its tier chips (also two by two on a phone) and a remove button. */
+.sh-v2-shop {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-6);
+  min-width: 0;
+}
+
+.sh-v2-shop-tiers,
+.sh-v2-shop-collections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-3);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.sh-v2-shop-tiers legend,
+.sh-v2-shop-collections legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0;
+}
+
+.sh-v2-shop-tiers__row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--sh-gap-2);
+}
+
+.sh-v2-shop-rows {
+  display: grid;
+  gap: var(--sh-gap-4, 1rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-v2-shop-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--sh-touch-target);
+  align-items: start;
+  gap: var(--sh-gap-2);
+  padding-top: var(--sh-gap-3);
+  border-top: 1px dashed var(--sh-border-strong, currentColor);
+}
+
+.sh-v2-shop-row > :not(.sh-newbox-remove) {
+  grid-column: 1;
+}
+
+.sh-v2-shop-row > .sh-newbox-remove {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: end;
+}
+
+.sh-v2-shop-collections > .sh-button {
+  align-self: flex-start;
+}
+
+.sh-v2-shop .sh-newbox-input {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 30rem) {
+  .sh-v2-shop-tiers__row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* A collection's four tier chips two by two on a phone: four a row left each chip too narrow for its give
+     ("1 CURIO" broke letter by letter at 375 px). */
+  .sh-v2-shop-row .sh-newbox-chips__row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* SH-V21-FE14: Into the shop's ceiling chips carry their amount on a second line; The Alchemist's fixed route is a
+   numbered list, one hop a line, and wraps on a phone. */
+.sh-v2 .sh-v2-ceiling {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .1rem;
+  min-height: var(--sh-touch-target);
+  white-space: normal;
+}
+
+.sh-v2 .sh-v2-ceiling small {
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+
+.sh-v2-route {
+  display: grid;
+  gap: .25rem;
+  margin: 0;
+  padding-left: 1.25rem;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+/* SH-V21-FE14: the coin picker for hundreds of listed coins: a search, then groups by what a coin is, each showing
+   its first coins until "Show all". */
+.sh-v2-coins__search {
+  display: grid;
+  gap: .25rem;
+  max-width: 24rem;
+}
+
+.sh-v2-coins__search input[type='search'] {
+  min-height: var(--sh-touch-target);
+}
+
+.sh-v2-coins__group {
+  display: grid;
+  gap: .4rem;
+  min-width: 0;
+}
+
+.sh-v2-coins__name {
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-label);
+  font-weight: 600;
+}
+
+.sh-v2-coins__more {
+  justify-self: start;
+}
+
+/* TA-27 Load settings: the action on Basics, the loaded setup's line, and the fields it keeps (shown read-only). */
+.sh-v2-load,
+.sh-v2-load__items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-2);
+  min-width: 0;
+}
+
+/* SH-APP8: a file name in a Load settings line ("-plan.json") stays whole on a phone, never broken after its hyphen. */
+.sh-v2-load__name {
+  white-space: nowrap;
+}
+
+.sh-v2-loaded {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sh-gap-2);
+  padding: var(--sh-gap-3);
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-control);
+}
+
+.sh-v2-loaded__line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 var(--sh-gap-1);
+  margin: 0;
+  min-width: 0;
+  font-weight: 600;
+}
+
+.sh-v2-loaded__count {
+  color: var(--sh-text-secondary);
+  font-weight: 400;
+}
+
+.sh-newbox-locked {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-6);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* Read-only: no pick, change or remove buttons; what is not chosen and every typed value shown dimmed. */
+.sh-newbox-locked[disabled] .sh-newbox-pick__button,
+.sh-newbox-locked[disabled] .sh-newbox-pick > button,
+.sh-newbox-locked[disabled] .sh-newbox-remove {
+  display: none;
+}
+
+.sh-newbox-locked[disabled] .sh-newbox-chip:not([data-checked]),
+.sh-newbox-locked[disabled] .sh-newbox-input {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* SH-218 rail 2: a switched-off Create option stays visible, dashed and muted like an off chip, and cannot be chosen. */
+.sh-v2-template[aria-disabled='true'],
+.sh-button[data-create-off] {
+  border-style: dashed;
+  color: var(--sh-text-muted);
+  cursor: not-allowed;
+}
+
+.sh-v2-template[aria-disabled='true'] .sh-v2-template__icon {
+  color: var(--sh-text-muted);
+}
+
+.sh-v2-create-options {
+  display: flex;
+  flex-basis: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sh-gap-2);
+}
+
+.sh-v2-create-options .sh-newbox-error {
+  margin: 0;
+}
+
+/* SH-218 rail 2 af1: the mark under an Overview row that holds a switched-off option. */
+.sh-v2-off-mark {
+  display: block;
+  margin-top: 2px;
+}
+
+/* SH-218 rail 2 af2: a switched-off text field (the collection page's link) stays readable, dashed and muted. */
+.sh-newbox-input[data-create-off] {
+  border-style: dashed;
+  color: var(--sh-text-muted);
+  cursor: not-allowed;
+}

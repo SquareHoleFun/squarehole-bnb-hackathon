@@ -1,0 +1,6883 @@
+{
+  "count": "404",
+  "modelPolicy": "2d",
+  "seed": "exit-liquidity/404-signs/no-way-out/v1",
+  "columns": [
+    "sign",
+    "housing",
+    "route",
+    "repair",
+    "equipment",
+    "conduit"
+  ],
+  "items": [
+    {
+      "id": "1",
+      "traits": {
+        "sign": "01",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-1.png",
+        "sha256": "0xb34829dc2ac5ee0659cdf16aa31f572e877d6060fc5e5bd40819e3a0a5d42e9b",
+        "bytes": 191526
+      },
+      "model": null
+    },
+    {
+      "id": "2",
+      "traits": {
+        "sign": "02",
+        "housing": "fins",
+        "route": "fork",
+        "repair": "patch",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-2.png",
+        "sha256": "0xcef423ff6bb11a560b1b9027b72b91ddf60716e4f6fc14ca84f1aa26fcec4e6b",
+        "bytes": 254796
+      },
+      "model": null
+    },
+    {
+      "id": "3",
+      "traits": {
+        "sign": "03",
+        "housing": "fins",
+        "route": "fork",
+        "repair": "tape",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-3.png",
+        "sha256": "0x222d6413f54f7687accae7e2b7034aca3f72537fbf26e5501a6faa2117d5e4c6",
+        "bytes": 123352
+      },
+      "model": null
+    },
+    {
+      "id": "4",
+      "traits": {
+        "sign": "04",
+        "housing": "fins",
+        "route": "fork",
+        "repair": "tape",
+        "equipment": "case",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-4.png",
+        "sha256": "0x37c00acb38c78256cb6a11a5e9249253ddb0828d1473524b8689577dcd43a323",
+        "bytes": 238533
+      },
+      "model": null
+    },
+    {
+      "id": "5",
+      "traits": {
+        "sign": "05",
+        "housing": "plain",
+        "route": "switchback",
+        "repair": "tape",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-5.png",
+        "sha256": "0xbc176354ce4907aae03e8a1acfb6409b64199db4a3c073adef1d4facc2051c8d",
+        "bytes": 181169
+      },
+      "model": null
+    },
+    {
+      "id": "6",
+      "traits": {
+        "sign": "06",
+        "housing": "visor",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "case",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-6.png",
+        "sha256": "0x2fa9013526bc8489612f6f4c38cb2c2c805b8ff9d21565f3f59d548aae8b5e09",
+        "bytes": 125547
+      },
+      "model": null
+    },
+    {
+      "id": "7",
+      "traits": {
+        "sign": "07",
+        "housing": "guards",
+        "route": "dogleg",
+        "repair": "staples",
+        "equipment": "case",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-7.png",
+        "sha256": "0xe1b9d52ecf3f6d06eebdd53d2c5e55e625065282055588b7be1f43e45618672a",
+        "bytes": 173197
+      },
+      "model": null
+    },
+    {
+      "id": "8",
+      "traits": {
+        "sign": "08",
+        "housing": "plain",
+        "route": "switchback",
+        "repair": "clean",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-8.png",
+        "sha256": "0xebf6f083c47182691948418904bbde06e212a30e5ca5d24769841ceb7b3d576a",
+        "bytes": 138043
+      },
+      "model": null
+    },
+    {
+      "id": "9",
+      "traits": {
+        "sign": "09",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "tape",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-9.png",
+        "sha256": "0xeb8348672bcb7af3fd959599602d9c2f59bd11cd0c016a3a464be5b6d28fec82",
+        "bytes": 190930
+      },
+      "model": null
+    },
+    {
+      "id": "10",
+      "traits": {
+        "sign": "10",
+        "housing": "plain",
+        "route": "switchback",
+        "repair": "staples",
+        "equipment": "tray",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-10.png",
+        "sha256": "0x7125fe43cb723849057a2d7e0e9698bbbe3b12b550705744d321d5fab163356c",
+        "bytes": 150942
+      },
+      "model": null
+    },
+    {
+      "id": "11",
+      "traits": {
+        "sign": "11",
+        "housing": "visor",
+        "route": "dogleg",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-11.png",
+        "sha256": "0xaa26fa6a83ac06a7202ac0491d3c7d8607705d65c22e8e15dafe6371a3b31f13",
+        "bytes": 262525
+      },
+      "model": null
+    },
+    {
+      "id": "12",
+      "traits": {
+        "sign": "12",
+        "housing": "visor",
+        "route": "dogleg",
+        "repair": "tape",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-12.png",
+        "sha256": "0x9bb3b88941bea23b01a4d41b0321a33b1172d0f40a91dd764d0f2e6c7cbca1a1",
+        "bytes": 167461
+      },
+      "model": null
+    },
+    {
+      "id": "13",
+      "traits": {
+        "sign": "01",
+        "housing": "fins",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-13.png",
+        "sha256": "0x669731b259d0c496d2d0607d2bc1cb21e2b148d385f1a1aeba135dd064f52fe7",
+        "bytes": 190568
+      },
+      "model": null
+    },
+    {
+      "id": "14",
+      "traits": {
+        "sign": "02",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-14.png",
+        "sha256": "0xfa69da4519a5818bec315361c0904559719869c642207747ebcaabcabb2ddc65",
+        "bytes": 250185
+      },
+      "model": null
+    },
+    {
+      "id": "15",
+      "traits": {
+        "sign": "03",
+        "housing": "visor",
+        "route": "fork",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-15.png",
+        "sha256": "0x4db1a0463031ee9abaab249669adb81175ec74e49956c047881967e20db906c4",
+        "bytes": 120423
+      },
+      "model": null
+    },
+    {
+      "id": "16",
+      "traits": {
+        "sign": "04",
+        "housing": "guards",
+        "route": "switchback",
+        "repair": "patch",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-16.png",
+        "sha256": "0x37889f5bfb057d06e063c8cbaec72b144ebb3be409a49fd9cd37c97beca9a9d3",
+        "bytes": 242549
+      },
+      "model": null
+    },
+    {
+      "id": "17",
+      "traits": {
+        "sign": "05",
+        "housing": "guards",
+        "route": "dogleg",
+        "repair": "tape",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-17.png",
+        "sha256": "0xd64e9a76dcb051d9fa1bd83e0f2d4b8b5366d5eebd065272766ad05a976ae02f",
+        "bytes": 180419
+      },
+      "model": null
+    },
+    {
+      "id": "18",
+      "traits": {
+        "sign": "06",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-18.png",
+        "sha256": "0x2b783dd4c12670ba1c03df1913b6bdfec1f26a8d18913d918fbaea13f468bd1d",
+        "bytes": 133639
+      },
+      "model": null
+    },
+    {
+      "id": "19",
+      "traits": {
+        "sign": "07",
+        "housing": "plain",
+        "route": "switchback",
+        "repair": "staples",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-19.png",
+        "sha256": "0xe99fdd60fc8d1acec108abbb4c3148a4a5fe8b1d760a951566f1ab742a1f6e0f",
+        "bytes": 175280
+      },
+      "model": null
+    },
+    {
+      "id": "20",
+      "traits": {
+        "sign": "08",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-20.png",
+        "sha256": "0x0e89582f280e1e5cb21a92f86336233903e89dde84150fea22e501b52573462f",
+        "bytes": 139040
+      },
+      "model": null
+    },
+    {
+      "id": "21",
+      "traits": {
+        "sign": "09",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-21.png",
+        "sha256": "0xeecf125c7e8da725f5892681da52834463f9f5b8aa47dc55c3149f6d3bc3ff28",
+        "bytes": 186662
+      },
+      "model": null
+    },
+    {
+      "id": "22",
+      "traits": {
+        "sign": "10",
+        "housing": "visor",
+        "route": "fork",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-22.png",
+        "sha256": "0x545a83b74a5e6a4a4bbc4dd0cac6f05a84163d2dfe2bbf26b555f7259b86c7a2",
+        "bytes": 148849
+      },
+      "model": null
+    },
+    {
+      "id": "23",
+      "traits": {
+        "sign": "11",
+        "housing": "visor",
+        "route": "switchback",
+        "repair": "tape",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-23.png",
+        "sha256": "0xb17db2452331feb4e51b1835eecd6d5d81edeaa8e50d623230b11899f0047889",
+        "bytes": 263758
+      },
+      "model": null
+    },
+    {
+      "id": "24",
+      "traits": {
+        "sign": "12",
+        "housing": "visor",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-24.png",
+        "sha256": "0x392d7f64a355e12dfae0580369bca4fab50a2d220c6200ba3ddcdd108571e5d7",
+        "bytes": 167695
+      },
+      "model": null
+    },
+    {
+      "id": "25",
+      "traits": {
+        "sign": "01",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "patch",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-25.png",
+        "sha256": "0xf0afc6187bf8a06697cd037c13230a86d7950b7fbd52c011bde85004ce443097",
+        "bytes": 193838
+      },
+      "model": null
+    },
+    {
+      "id": "26",
+      "traits": {
+        "sign": "02",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "lamp",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-26.png",
+        "sha256": "0x25998742be354d7f135763a221905b6690f506bec3a67b30e301fa8eafe27532",
+        "bytes": 253016
+      },
+      "model": null
+    },
+    {
+      "id": "27",
+      "traits": {
+        "sign": "03",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "tray",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-27.png",
+        "sha256": "0x1cdeba527e1fcff70715929efbbc09e704c21da4dbbdf90b43bca64dbb0628db",
+        "bytes": 119808
+      },
+      "model": null
+    },
+    {
+      "id": "28",
+      "traits": {
+        "sign": "04",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "patch",
+        "equipment": "lamp",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-28.png",
+        "sha256": "0x7810c93929b7397f9312d922fdef632171aa6f6160238cc78404b7ad43bc2d3e",
+        "bytes": 238245
+      },
+      "model": null
+    },
+    {
+      "id": "29",
+      "traits": {
+        "sign": "05",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-29.png",
+        "sha256": "0x13d547eef1a0d50faa0f57f0f1962d29e2dc60a267f0a32aee6dac885a8b4345",
+        "bytes": 181305
+      },
+      "model": null
+    },
+    {
+      "id": "30",
+      "traits": {
+        "sign": "06",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "patch",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-30.png",
+        "sha256": "0xc98fedb0ccb76a62e14d36fb272207a146b8f6b9df590b1235838dfbeae72b06",
+        "bytes": 127946
+      },
+      "model": null
+    },
+    {
+      "id": "31",
+      "traits": {
+        "sign": "07",
+        "housing": "visor",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-31.png",
+        "sha256": "0xdd3072957d69b2a6bec1c1c0ec5e6e3901c29d1c8506ab624add57c7f816f62d",
+        "bytes": 173486
+      },
+      "model": null
+    },
+    {
+      "id": "32",
+      "traits": {
+        "sign": "08",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "staples",
+        "equipment": "tray",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-32.png",
+        "sha256": "0xe697faabcf0d25c37a7076d2f9716cb487cd096209c767e88e8098c779a1f28c",
+        "bytes": 139109
+      },
+      "model": null
+    },
+    {
+      "id": "33",
+      "traits": {
+        "sign": "09",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "staples",
+        "equipment": "case",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-33.png",
+        "sha256": "0x02962fe0a4eaff43501cbd6a608dfb7e19836408c3df6ac2444022df48ac7488",
+        "bytes": 187312
+      },
+      "model": null
+    },
+    {
+      "id": "34",
+      "traits": {
+        "sign": "10",
+        "housing": "visor",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-34.png",
+        "sha256": "0xd67b368ba7e51bc011567f882868aa919f0529ec5b4c588b85cebb6fb48433cd",
+        "bytes": 146853
+      },
+      "model": null
+    },
+    {
+      "id": "35",
+      "traits": {
+        "sign": "11",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "tape",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-35.png",
+        "sha256": "0x71c2819a1f52442356b0a15eed2681213977d6ef812fb295f9ad5a56c1ad7879",
+        "bytes": 265716
+      },
+      "model": null
+    },
+    {
+      "id": "36",
+      "traits": {
+        "sign": "12",
+        "housing": "plain",
+        "route": "dogleg",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-36.png",
+        "sha256": "0x1aef906f48a0612d10eae2da9ceef89833921734b060afcb73ea7d634aae744e",
+        "bytes": 172153
+      },
+      "model": null
+    },
+    {
+      "id": "37",
+      "traits": {
+        "sign": "01",
+        "housing": "plain",
+        "route": "switchback",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-37.png",
+        "sha256": "0x9307c485c6e847ec18b72bf4805f896623899817f6fd53bc6885a93cca352668",
+        "bytes": 190753
+      },
+      "model": null
+    },
+    {
+      "id": "38",
+      "traits": {
+        "sign": "02",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "patch",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-38.png",
+        "sha256": "0x21da50e2d8da8d3f46737c7852831e4d09a4e830f13f271866125c2a61ae4a2d",
+        "bytes": 254505
+      },
+      "model": null
+    },
+    {
+      "id": "39",
+      "traits": {
+        "sign": "03",
+        "housing": "plain",
+        "route": "dogleg",
+        "repair": "tape",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-39.png",
+        "sha256": "0x5bd13e36e38accd7301ad7401f3ee888d26511840e420d79b4251fb30599aec6",
+        "bytes": 123594
+      },
+      "model": null
+    },
+    {
+      "id": "40",
+      "traits": {
+        "sign": "04",
+        "housing": "guards",
+        "route": "switchback",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-40.png",
+        "sha256": "0xeec59c00f0129a5af233dca82be64553941fa44d8055ab314783f8af270bb892",
+        "bytes": 238104
+      },
+      "model": null
+    },
+    {
+      "id": "41",
+      "traits": {
+        "sign": "05",
+        "housing": "plain",
+        "route": "dogleg",
+        "repair": "staples",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-41.png",
+        "sha256": "0xbc4baff294621a00311c5df00e33cbc6653c60e341053d24e6c0deec055dd7e6",
+        "bytes": 179933
+      },
+      "model": null
+    },
+    {
+      "id": "42",
+      "traits": {
+        "sign": "06",
+        "housing": "guards",
+        "route": "dogleg",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-42.png",
+        "sha256": "0xd96c3d97ce2dc383cbbe70e8e67b7938de42e5aeb44e1399ad173b079883f691",
+        "bytes": 128526
+      },
+      "model": null
+    },
+    {
+      "id": "43",
+      "traits": {
+        "sign": "07",
+        "housing": "plain",
+        "route": "dogleg",
+        "repair": "tape",
+        "equipment": "case",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-43.png",
+        "sha256": "0xc9f23bb91a1029ad2638d1c6ce190dc4b2707c9f2a9a2741f0469097f92ce7b1",
+        "bytes": 172778
+      },
+      "model": null
+    },
+    {
+      "id": "44",
+      "traits": {
+        "sign": "08",
+        "housing": "visor",
+        "route": "fork",
+        "repair": "clean",
+        "equipment": "lamp",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-44.png",
+        "sha256": "0xaa2eb72c8fdbfcf2a0867abcfd352cf4041018af8958ce73241d76629b3b4753",
+        "bytes": 136715
+      },
+      "model": null
+    },
+    {
+      "id": "45",
+      "traits": {
+        "sign": "09",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-45.png",
+        "sha256": "0x97c14034331329f71517df23294599656b9e2b7e7a280476d2d3f086f6e13f2a",
+        "bytes": 187371
+      },
+      "model": null
+    },
+    {
+      "id": "46",
+      "traits": {
+        "sign": "10",
+        "housing": "visor",
+        "route": "fork",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-46.png",
+        "sha256": "0x554a90d53df424fd52687ec1ae6b4f133a67fbd1c1461ee8569da38c89ad4eb7",
+        "bytes": 148857
+      },
+      "model": null
+    },
+    {
+      "id": "47",
+      "traits": {
+        "sign": "11",
+        "housing": "plain",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "reel",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-47.png",
+        "sha256": "0xb3873015aadc545c70bf9bfeb4560a95b97e7c7a8c788ddeae0df0ca2ea31019",
+        "bytes": 264694
+      },
+      "model": null
+    },
+    {
+      "id": "48",
+      "traits": {
+        "sign": "12",
+        "housing": "guards",
+        "route": "switchback",
+        "repair": "staples",
+        "equipment": "case",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-48.png",
+        "sha256": "0x2eecf661c152455edbe7cfe14028c140d81984b5add7237618cf28ae7676fb3e",
+        "bytes": 167699
+      },
+      "model": null
+    },
+    {
+      "id": "49",
+      "traits": {
+        "sign": "01",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-49.png",
+        "sha256": "0x4d84c47e03b883efe54998b9c015e52abb0ed4f4b8d808158f3c6d42e341b6e4",
+        "bytes": 191812
+      },
+      "model": null
+    },
+    {
+      "id": "50",
+      "traits": {
+        "sign": "02",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "tape",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-50.png",
+        "sha256": "0xf5e8c296eadd94b8057eb5561459b71d1fd8bb80019f2b5344dddecf417c096b",
+        "bytes": 252252
+      },
+      "model": null
+    },
+    {
+      "id": "51",
+      "traits": {
+        "sign": "03",
+        "housing": "plain",
+        "route": "coil",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-51.png",
+        "sha256": "0x252fb96ae677c8765b048d8617d699efa3687aa195d195713cea6ce5e472d041",
+        "bytes": 124203
+      },
+      "model": null
+    },
+    {
+      "id": "52",
+      "traits": {
+        "sign": "04",
+        "housing": "plain",
+        "route": "dogleg",
+        "repair": "staples",
+        "equipment": "tray",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-52.png",
+        "sha256": "0x089bf150f53d76eb4e136a87fe70aeae08b45d1b2be68d6663a1f62ada3d3709",
+        "bytes": 239557
+      },
+      "model": null
+    },
+    {
+      "id": "53",
+      "traits": {
+        "sign": "05",
+        "housing": "plain",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-53.png",
+        "sha256": "0xd35e80da7625cea534c4bbcff69aaf4b83cb135200b213ebb95cda444b57d6de",
+        "bytes": 179453
+      },
+      "model": null
+    },
+    {
+      "id": "54",
+      "traits": {
+        "sign": "06",
+        "housing": "visor",
+        "route": "fork",
+        "repair": "patch",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-54.png",
+        "sha256": "0xde5711281078432f3a67c13b853fdfb93ca9fa917b0de837aebcb7ff90accae9",
+        "bytes": 125867
+      },
+      "model": null
+    },
+    {
+      "id": "55",
+      "traits": {
+        "sign": "07",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "tape",
+        "equipment": "tray",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-55.png",
+        "sha256": "0x0b1466ed4551e834b100fa232cf08bca96e09b0aaf1c25e96c1896a6dd460b44",
+        "bytes": 173339
+      },
+      "model": null
+    },
+    {
+      "id": "56",
+      "traits": {
+        "sign": "08",
+        "housing": "plain",
+        "route": "coil",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-56.png",
+        "sha256": "0xfb9d6035b2f0daa1a766f771c538f58851e6af23856fa10e238a1e22a21bd368",
+        "bytes": 138435
+      },
+      "model": null
+    },
+    {
+      "id": "57",
+      "traits": {
+        "sign": "09",
+        "housing": "visor",
+        "route": "dogleg",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-57.png",
+        "sha256": "0x42399942f87c9af7af99363bff6b21b1d5ad19cdfeb6675f8fb4581f8f1823e3",
+        "bytes": 185378
+      },
+      "model": null
+    },
+    {
+      "id": "58",
+      "traits": {
+        "sign": "10",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-58.png",
+        "sha256": "0x28e32d72ba1a8507d2c5626f13955e3367239dbaa324429864ce14c2034640ca",
+        "bytes": 150999
+      },
+      "model": null
+    },
+    {
+      "id": "59",
+      "traits": {
+        "sign": "11",
+        "housing": "guards",
+        "route": "dogleg",
+        "repair": "tape",
+        "equipment": "tray",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-59.png",
+        "sha256": "0xdd684bf2df2bf91a6e8cc2be3eabd12a48a43c7c15c1bd10301c5a6a4a7288a5",
+        "bytes": 265257
+      },
+      "model": null
+    },
+    {
+      "id": "60",
+      "traits": {
+        "sign": "12",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-60.png",
+        "sha256": "0x50ff263fd3e52d64bafd2b148b0f259331e50f2b607749501e34c26c045272c1",
+        "bytes": 171779
+      },
+      "model": null
+    },
+    {
+      "id": "61",
+      "traits": {
+        "sign": "01",
+        "housing": "plain",
+        "route": "switchback",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-61.png",
+        "sha256": "0xe2f8408e522ef6fede20f4723b50d0edf21415288576d95e36c25e17df978a86",
+        "bytes": 191888
+      },
+      "model": null
+    },
+    {
+      "id": "62",
+      "traits": {
+        "sign": "02",
+        "housing": "plain",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-62.png",
+        "sha256": "0x422249213993d86b5f8b05027497b9b9304e10e9f0e410fed233ce40941cd639",
+        "bytes": 250618
+      },
+      "model": null
+    },
+    {
+      "id": "63",
+      "traits": {
+        "sign": "03",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "clean",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-63.png",
+        "sha256": "0x64a0eefaa9d25a100fd029da85f2951509ff0c1c4fd32f1b78b669a11ee5d646",
+        "bytes": 122543
+      },
+      "model": null
+    },
+    {
+      "id": "64",
+      "traits": {
+        "sign": "04",
+        "housing": "plain",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-64.png",
+        "sha256": "0x33b11b4e20649cf491ffdab4e234d82585e2912edeae6dfb8f3aef9c06ef04ec",
+        "bytes": 239745
+      },
+      "model": null
+    },
+    {
+      "id": "65",
+      "traits": {
+        "sign": "05",
+        "housing": "visor",
+        "route": "fork",
+        "repair": "tape",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-65.png",
+        "sha256": "0x87755fc32bb424d8c7ef6905cca060115040ebd292a23837cc1fb37151b0be69",
+        "bytes": 178412
+      },
+      "model": null
+    },
+    {
+      "id": "66",
+      "traits": {
+        "sign": "06",
+        "housing": "plain",
+        "route": "switchback",
+        "repair": "tape",
+        "equipment": "tray",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-66.png",
+        "sha256": "0xaed1d777151cb3d33b42d5a93e8fb4a9542415270163220734dd33938fdfdd20",
+        "bytes": 129763
+      },
+      "model": null
+    },
+    {
+      "id": "67",
+      "traits": {
+        "sign": "07",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "tape",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-67.png",
+        "sha256": "0x2b96972ec05042bcec1d0427325431fbfab2afabb6b56333d574fc87171aa864",
+        "bytes": 173449
+      },
+      "model": null
+    },
+    {
+      "id": "68",
+      "traits": {
+        "sign": "08",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-68.png",
+        "sha256": "0x1837b40cd7c08315a8ee11268515057611b6620a772263ddf43f3ff3311ae782",
+        "bytes": 141831
+      },
+      "model": null
+    },
+    {
+      "id": "69",
+      "traits": {
+        "sign": "09",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "clean",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-69.png",
+        "sha256": "0x1d41aa2ef4a0a246a0efa00f10a5e404d341229fd94b2bff006125c8f1d8936f",
+        "bytes": 189616
+      },
+      "model": null
+    },
+    {
+      "id": "70",
+      "traits": {
+        "sign": "10",
+        "housing": "visor",
+        "route": "switchback",
+        "repair": "tape",
+        "equipment": "reel",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-70.png",
+        "sha256": "0x30c57dd80d8aab95e600f09df4eecaba375188a2ba5504e045226b4d30814356",
+        "bytes": 149438
+      },
+      "model": null
+    },
+    {
+      "id": "71",
+      "traits": {
+        "sign": "11",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-71.png",
+        "sha256": "0x8c77597476ea7f50602ce554fa4a85d53d6bb802f21dcc50a93ffa8f876b7776",
+        "bytes": 262370
+      },
+      "model": null
+    },
+    {
+      "id": "72",
+      "traits": {
+        "sign": "12",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-72.png",
+        "sha256": "0xfffc1f75ac9685dc678e298f36ba92a91274a592048c5cc6d4d121e44909b517",
+        "bytes": 166977
+      },
+      "model": null
+    },
+    {
+      "id": "73",
+      "traits": {
+        "sign": "01",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "tape",
+        "equipment": "tray",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-73.png",
+        "sha256": "0x0727498d4d5c27dfaa6aba74eb2344a6d7737ba1cd8e8914b1a2dba2c9f309fc",
+        "bytes": 193088
+      },
+      "model": null
+    },
+    {
+      "id": "74",
+      "traits": {
+        "sign": "02",
+        "housing": "visor",
+        "route": "switchback",
+        "repair": "staples",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-74.png",
+        "sha256": "0xa61ff962fbc591dafd9a1b55b1b333ff5e318438fd849c069bdcc6081657f0f6",
+        "bytes": 248819
+      },
+      "model": null
+    },
+    {
+      "id": "75",
+      "traits": {
+        "sign": "03",
+        "housing": "fins",
+        "route": "coil",
+        "repair": "staples",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-75.png",
+        "sha256": "0x8d0a6503b0bf1b48481234685b93e517666904cfcfc54c1080295d5a6b743e10",
+        "bytes": 123657
+      },
+      "model": null
+    },
+    {
+      "id": "76",
+      "traits": {
+        "sign": "04",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-76.png",
+        "sha256": "0x6d8e9065b009df81edf12bdc122242e0d326ec62544da3d3961157d88e9dc697",
+        "bytes": 242420
+      },
+      "model": null
+    },
+    {
+      "id": "77",
+      "traits": {
+        "sign": "05",
+        "housing": "visor",
+        "route": "dogleg",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-77.png",
+        "sha256": "0xf62315ef05289d69ea7a94564fb54e6415b1622063080afc8c3fa66be432d579",
+        "bytes": 183036
+      },
+      "model": null
+    },
+    {
+      "id": "78",
+      "traits": {
+        "sign": "06",
+        "housing": "fins",
+        "route": "fork",
+        "repair": "tape",
+        "equipment": "tray",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-78.png",
+        "sha256": "0x2b493d1d13f737a337124f2405d7ed13f9cc635257eb569227bd45a790a419ac",
+        "bytes": 130109
+      },
+      "model": null
+    },
+    {
+      "id": "79",
+      "traits": {
+        "sign": "07",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-79.png",
+        "sha256": "0x29424dd16c57dc1f4c408b3729be81b42e5048fc14af9c76b01da516dbbaf079",
+        "bytes": 176075
+      },
+      "model": null
+    },
+    {
+      "id": "80",
+      "traits": {
+        "sign": "08",
+        "housing": "visor",
+        "route": "dogleg",
+        "repair": "tape",
+        "equipment": "case",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-80.png",
+        "sha256": "0xa04fc428d98d2fce7750bf1cdc591a0945ad7ff33b42c4dcf9b9e44137f21186",
+        "bytes": 136924
+      },
+      "model": null
+    },
+    {
+      "id": "81",
+      "traits": {
+        "sign": "09",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-81.png",
+        "sha256": "0x26c1e6eab4062a660f5c11a4b0ccf4ca9ab1e636aae0d389e44bcbc445a2e0dc",
+        "bytes": 189478
+      },
+      "model": null
+    },
+    {
+      "id": "82",
+      "traits": {
+        "sign": "10",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-82.png",
+        "sha256": "0xdf085be0cd7076456242197f1cd1197bfa987ce63b26c9af91e34a2d11afd1ad",
+        "bytes": 153330
+      },
+      "model": null
+    },
+    {
+      "id": "83",
+      "traits": {
+        "sign": "11",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-83.png",
+        "sha256": "0x95a5ec1a230b6d890d22727928c1c4479afd68f22e1021a19fefc38879cbd8c1",
+        "bytes": 265214
+      },
+      "model": null
+    },
+    {
+      "id": "84",
+      "traits": {
+        "sign": "12",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-84.png",
+        "sha256": "0x0aebb86ec27977aeb97db9fd0c3f526a6e066ed5bf2400d551c04c2d4add08fe",
+        "bytes": 169268
+      },
+      "model": null
+    },
+    {
+      "id": "85",
+      "traits": {
+        "sign": "01",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-85.png",
+        "sha256": "0x433e563acfaa9e352708e74bd5d2e850505c998412d30eaac6bd8a312f338864",
+        "bytes": 193260
+      },
+      "model": null
+    },
+    {
+      "id": "86",
+      "traits": {
+        "sign": "02",
+        "housing": "fins",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-86.png",
+        "sha256": "0xddfd4d5a1f3b1f5a8fc42cd326d7ddadcf206f478322d57a3b240e07f3a0e1e6",
+        "bytes": 251774
+      },
+      "model": null
+    },
+    {
+      "id": "87",
+      "traits": {
+        "sign": "03",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "staples",
+        "equipment": "lamp",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-87.png",
+        "sha256": "0x7aeb1736a8b3ba81f16b5c6b3ede17d16db66a70c46ae16980d01775a37bd875",
+        "bytes": 119765
+      },
+      "model": null
+    },
+    {
+      "id": "88",
+      "traits": {
+        "sign": "04",
+        "housing": "visor",
+        "route": "switchback",
+        "repair": "patch",
+        "equipment": "reel",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-88.png",
+        "sha256": "0x656e6496c8a4e692b726f5d73e15fcf28a1f7434eb107e4b6495a3f75f52edfc",
+        "bytes": 240957
+      },
+      "model": null
+    },
+    {
+      "id": "89",
+      "traits": {
+        "sign": "05",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-89.png",
+        "sha256": "0x43d198d55d225bd5cf28498723e6dc8fcb9bbe5cd28ad53f46c102fd6db239d1",
+        "bytes": 184401
+      },
+      "model": null
+    },
+    {
+      "id": "90",
+      "traits": {
+        "sign": "06",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-90.png",
+        "sha256": "0xefb220f2bd17a66a9e92e2eb857af9ff11116bfbe2ea87621278017790e2229b",
+        "bytes": 129129
+      },
+      "model": null
+    },
+    {
+      "id": "91",
+      "traits": {
+        "sign": "07",
+        "housing": "visor",
+        "route": "switchback",
+        "repair": "tape",
+        "equipment": "case",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-91.png",
+        "sha256": "0x63bcc106468b07b98e9712e58dc3cee3524294269877e3ca108db92a182341c5",
+        "bytes": 171640
+      },
+      "model": null
+    },
+    {
+      "id": "92",
+      "traits": {
+        "sign": "08",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "lamp",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-92.png",
+        "sha256": "0xd94534c170a17e4abd4366b031c7666abc591ce3adb6b37ea9518051cb707cbf",
+        "bytes": 138775
+      },
+      "model": null
+    },
+    {
+      "id": "93",
+      "traits": {
+        "sign": "09",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-93.png",
+        "sha256": "0xe79d6cf3a963f1e86be8e3056feb112858f21779445ae111b33a805fcef180c3",
+        "bytes": 187676
+      },
+      "model": null
+    },
+    {
+      "id": "94",
+      "traits": {
+        "sign": "10",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "tape",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-94.png",
+        "sha256": "0x76b50032762e4e1b48b7fbc8a3294cd7597610401f4ec23a75a619ebdda6ad17",
+        "bytes": 151264
+      },
+      "model": null
+    },
+    {
+      "id": "95",
+      "traits": {
+        "sign": "11",
+        "housing": "guards",
+        "route": "switchback",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-95.png",
+        "sha256": "0xff404973a748120033f8dfd742fc81cde149bf754dadfe8b4c144648d3eaf9f4",
+        "bytes": 266554
+      },
+      "model": null
+    },
+    {
+      "id": "96",
+      "traits": {
+        "sign": "12",
+        "housing": "visor",
+        "route": "switchback",
+        "repair": "tape",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-96.png",
+        "sha256": "0xac84e6aa5bfea58e823824b4c51104b05955a867848367def86a37a1aa49b87a",
+        "bytes": 167789
+      },
+      "model": null
+    },
+    {
+      "id": "97",
+      "traits": {
+        "sign": "01",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "lamp",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-97.png",
+        "sha256": "0x17b88e2f61c1cef3f275f412e19a9e33828c8389f2fa3632840eb627300536e4",
+        "bytes": 192234
+      },
+      "model": null
+    },
+    {
+      "id": "98",
+      "traits": {
+        "sign": "02",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-98.png",
+        "sha256": "0xe54a4f5d22c9098dbd331464174ca3da0ae05737ca51e87ae3b896195ab47829",
+        "bytes": 251195
+      },
+      "model": null
+    },
+    {
+      "id": "99",
+      "traits": {
+        "sign": "03",
+        "housing": "visor",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-99.png",
+        "sha256": "0xec2fa09fbb49a94f449167363ef75f59518306659b4c69de7793d316a15334da",
+        "bytes": 120665
+      },
+      "model": null
+    },
+    {
+      "id": "100",
+      "traits": {
+        "sign": "04",
+        "housing": "guards",
+        "route": "switchback",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-100.png",
+        "sha256": "0x1588a2544b48badf505af2fb995d47326c65b37015ff2c4c276d4629a1221755",
+        "bytes": 239409
+      },
+      "model": null
+    },
+    {
+      "id": "101",
+      "traits": {
+        "sign": "05",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "tape",
+        "equipment": "reel",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-101.png",
+        "sha256": "0xa2f5648a793b5e6bdf0c868789d371db125cfc63a0a428803655650e236450a9",
+        "bytes": 183108
+      },
+      "model": null
+    },
+    {
+      "id": "102",
+      "traits": {
+        "sign": "06",
+        "housing": "plain",
+        "route": "coil",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-102.png",
+        "sha256": "0x20fb3d5d3f097960697304d3736267bb8256ce14a4eda9025f470fbd930d51ce",
+        "bytes": 128319
+      },
+      "model": null
+    },
+    {
+      "id": "103",
+      "traits": {
+        "sign": "07",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "clean",
+        "equipment": "lamp",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-103.png",
+        "sha256": "0x203026d5611788bafe04c6b363d584a198452c4524e776c2d134fa2a2dd6f24f",
+        "bytes": 173243
+      },
+      "model": null
+    },
+    {
+      "id": "104",
+      "traits": {
+        "sign": "08",
+        "housing": "visor",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-104.png",
+        "sha256": "0xf22673e72b795b598ad9b95ee7889cad715bb5742248949b7d3b65db9ec7dc27",
+        "bytes": 140399
+      },
+      "model": null
+    },
+    {
+      "id": "105",
+      "traits": {
+        "sign": "09",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-105.png",
+        "sha256": "0x951c96715bf995024f22afae0bc80afb96870dddb79c265a70cd4f42919ad13b",
+        "bytes": 191312
+      },
+      "model": null
+    },
+    {
+      "id": "106",
+      "traits": {
+        "sign": "10",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "tape",
+        "equipment": "reel",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-106.png",
+        "sha256": "0xac714ffd64524fcf5b65ee2d4f4d0ff7c1e6a7c006b16516e09f9f9f0f361580",
+        "bytes": 153180
+      },
+      "model": null
+    },
+    {
+      "id": "107",
+      "traits": {
+        "sign": "11",
+        "housing": "plain",
+        "route": "coil",
+        "repair": "patch",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-107.png",
+        "sha256": "0x5cffd18e5c3a1f175a6cda5beae5d7d19fc15b7715467f369a43e88ab3346cda",
+        "bytes": 262417
+      },
+      "model": null
+    },
+    {
+      "id": "108",
+      "traits": {
+        "sign": "12",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-108.png",
+        "sha256": "0xd05d05fc754a3a5987362531f33acfb2896357a0138aa0c0689e732a0c02cfed",
+        "bytes": 172974
+      },
+      "model": null
+    },
+    {
+      "id": "109",
+      "traits": {
+        "sign": "01",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "patch",
+        "equipment": "lamp",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-109.png",
+        "sha256": "0xf89014d7e7a08e17e39d7c5e4ecdc0cad20eb2690a366a4422f722faf2e76a8a",
+        "bytes": 190529
+      },
+      "model": null
+    },
+    {
+      "id": "110",
+      "traits": {
+        "sign": "02",
+        "housing": "visor",
+        "route": "fork",
+        "repair": "patch",
+        "equipment": "reel",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-110.png",
+        "sha256": "0xd9dabbdf95d98b16615fa468ae6704ee44656edd8232ad1282c625e6ac1e4386",
+        "bytes": 254814
+      },
+      "model": null
+    },
+    {
+      "id": "111",
+      "traits": {
+        "sign": "03",
+        "housing": "guards",
+        "route": "switchback",
+        "repair": "tape",
+        "equipment": "case",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-111.png",
+        "sha256": "0xfc4d411d5b45ab4dcfd0732b9903be87795df9e8ab23b5e4d064c5920cc7823f",
+        "bytes": 120139
+      },
+      "model": null
+    },
+    {
+      "id": "112",
+      "traits": {
+        "sign": "04",
+        "housing": "plain",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-112.png",
+        "sha256": "0x1888ce14772d7930d431c70d7d2c4919a6089f8b7ae0920794421dd6fdb8a708",
+        "bytes": 238976
+      },
+      "model": null
+    },
+    {
+      "id": "113",
+      "traits": {
+        "sign": "05",
+        "housing": "plain",
+        "route": "switchback",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-113.png",
+        "sha256": "0xb551c3101e79b845b8f6bf24bed0101dbb48fc100a8cc060f7da139bb26b8592",
+        "bytes": 179443
+      },
+      "model": null
+    },
+    {
+      "id": "114",
+      "traits": {
+        "sign": "06",
+        "housing": "plain",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-114.png",
+        "sha256": "0x691b100a57ad1031cec1fa6f141914c372264e41ff03914eb6571222d45c83ff",
+        "bytes": 127948
+      },
+      "model": null
+    },
+    {
+      "id": "115",
+      "traits": {
+        "sign": "07",
+        "housing": "visor",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "tray",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-115.png",
+        "sha256": "0x18df1486c96808f09d84c179f4fd625a64eb2c8c315b27be990d864f7bb9c9f7",
+        "bytes": 173576
+      },
+      "model": null
+    },
+    {
+      "id": "116",
+      "traits": {
+        "sign": "08",
+        "housing": "plain",
+        "route": "dogleg",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-116.png",
+        "sha256": "0xefd98e9f2d80d09f13c4360039e9702c74dc888d40cead42527f1733490a2543",
+        "bytes": 138199
+      },
+      "model": null
+    },
+    {
+      "id": "117",
+      "traits": {
+        "sign": "09",
+        "housing": "fins",
+        "route": "coil",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-117.png",
+        "sha256": "0x62e2296d005b9ebd5174cfe4b5627e76a56e68ef4fe57ab598ad47d5a502eaf9",
+        "bytes": 188452
+      },
+      "model": null
+    },
+    {
+      "id": "118",
+      "traits": {
+        "sign": "10",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "lamp",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-118.png",
+        "sha256": "0x93c2492520eb524a36a73b62b1368b876e180d6d2efa3a3f7939ac2c9ebadc1b",
+        "bytes": 150299
+      },
+      "model": null
+    },
+    {
+      "id": "119",
+      "traits": {
+        "sign": "11",
+        "housing": "visor",
+        "route": "dogleg",
+        "repair": "clean",
+        "equipment": "case",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-119.png",
+        "sha256": "0x72714178355a1b99ea5cdace157067ec985bea7a4b8a400c0edd09d059234e2c",
+        "bytes": 261590
+      },
+      "model": null
+    },
+    {
+      "id": "120",
+      "traits": {
+        "sign": "12",
+        "housing": "visor",
+        "route": "dogleg",
+        "repair": "staples",
+        "equipment": "lamp",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-120.png",
+        "sha256": "0x0b3bb71b2e890555c3092a0a250e416cea5c79c4dace7c97ac3a54ce107cfa29",
+        "bytes": 166716
+      },
+      "model": null
+    },
+    {
+      "id": "121",
+      "traits": {
+        "sign": "01",
+        "housing": "plain",
+        "route": "switchback",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-121.png",
+        "sha256": "0x67a7dd8e8de73b1952d004a0c337564f880c8a699e2e4bdca82b3197828861a7",
+        "bytes": 193802
+      },
+      "model": null
+    },
+    {
+      "id": "122",
+      "traits": {
+        "sign": "02",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-122.png",
+        "sha256": "0xe9e1348a8bc4959f19cae75d7b3681b1d4131bbf73e2da56bfb1a1a2f2bd8700",
+        "bytes": 254386
+      },
+      "model": null
+    },
+    {
+      "id": "123",
+      "traits": {
+        "sign": "03",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "staples",
+        "equipment": "lamp",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-123.png",
+        "sha256": "0x62abe00021121e2f91b8594ce990c7c629a64628558b1a71dbb50a000cc8040b",
+        "bytes": 117392
+      },
+      "model": null
+    },
+    {
+      "id": "124",
+      "traits": {
+        "sign": "04",
+        "housing": "fins",
+        "route": "fork",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-124.png",
+        "sha256": "0x4782d58a49769a3085227dda9be79e91ba5b6ccaa4a7338840acc9f6e815937f",
+        "bytes": 238602
+      },
+      "model": null
+    },
+    {
+      "id": "125",
+      "traits": {
+        "sign": "05",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-125.png",
+        "sha256": "0x0f396699ca810c6cc943d10cd717d0e379c2e5d560bc99d1af0807808a84da8e",
+        "bytes": 179875
+      },
+      "model": null
+    },
+    {
+      "id": "126",
+      "traits": {
+        "sign": "06",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "case",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-126.png",
+        "sha256": "0x2f1de4155e8f294de8ad52b59f14ddf2942b4406e7d890f547df143f144503a5",
+        "bytes": 127646
+      },
+      "model": null
+    },
+    {
+      "id": "127",
+      "traits": {
+        "sign": "07",
+        "housing": "plain",
+        "route": "switchback",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-127.png",
+        "sha256": "0xf59fb378173371001bf137fc24e13d1c3187eed4400fd14ad50a610bdad5c373",
+        "bytes": 175953
+      },
+      "model": null
+    },
+    {
+      "id": "128",
+      "traits": {
+        "sign": "08",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "tape",
+        "equipment": "tray",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-128.png",
+        "sha256": "0xe1e5344e3c8051a7fd3a20010fd525040c88d4f1ef8e31202db0f7410bb7f3b9",
+        "bytes": 141454
+      },
+      "model": null
+    },
+    {
+      "id": "129",
+      "traits": {
+        "sign": "09",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "patch",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-129.png",
+        "sha256": "0x26eda96d5d7835a9b7c2d9202914ad183117274dd7f8d299b59bd2ab7a7c3f86",
+        "bytes": 191644
+      },
+      "model": null
+    },
+    {
+      "id": "130",
+      "traits": {
+        "sign": "10",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-130.png",
+        "sha256": "0xb0e185dde7d216943dfd7a22a20709835891e83a51cc6eae2bc73cdd65e5f5d0",
+        "bytes": 153481
+      },
+      "model": null
+    },
+    {
+      "id": "131",
+      "traits": {
+        "sign": "11",
+        "housing": "visor",
+        "route": "switchback",
+        "repair": "clean",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-131.png",
+        "sha256": "0xa2304160ede41ac1eaaac69e044449029d461e291f341771a43b8e668e031c70",
+        "bytes": 263995
+      },
+      "model": null
+    },
+    {
+      "id": "132",
+      "traits": {
+        "sign": "12",
+        "housing": "plain",
+        "route": "switchback",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-132.png",
+        "sha256": "0xb4484b91675d7e8b9bbd024a8e10a7a1ded172ae0f783025be5a9228bd345729",
+        "bytes": 172186
+      },
+      "model": null
+    },
+    {
+      "id": "133",
+      "traits": {
+        "sign": "01",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "clean",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-133.png",
+        "sha256": "0x6e6f1a0bd7ab9d664f2feae021a0274c45a3bd98a4ea870324183ef128c30954",
+        "bytes": 190670
+      },
+      "model": null
+    },
+    {
+      "id": "134",
+      "traits": {
+        "sign": "02",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "clean",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-134.png",
+        "sha256": "0x08d6d7763a02ff50889849340c248834da54e213e8726eb8c0cab5b0c412193f",
+        "bytes": 252232
+      },
+      "model": null
+    },
+    {
+      "id": "135",
+      "traits": {
+        "sign": "03",
+        "housing": "plain",
+        "route": "dogleg",
+        "repair": "tape",
+        "equipment": "tray",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-135.png",
+        "sha256": "0x40a24cdeb90c86b8acacbbd3aa0e81b1765097b355e74fc97f5dbeb2a18c04db",
+        "bytes": 120005
+      },
+      "model": null
+    },
+    {
+      "id": "136",
+      "traits": {
+        "sign": "04",
+        "housing": "plain",
+        "route": "dogleg",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-136.png",
+        "sha256": "0x617294206aeb23b21a418ff91bd9d09c8d3125b3b0930da257ee3e0522497311",
+        "bytes": 238345
+      },
+      "model": null
+    },
+    {
+      "id": "137",
+      "traits": {
+        "sign": "05",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "clean",
+        "equipment": "lamp",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-137.png",
+        "sha256": "0xfae4ed5338532be4794f7fe6d17b1aa1db956314e0d91444c315c6735b1c3923",
+        "bytes": 179238
+      },
+      "model": null
+    },
+    {
+      "id": "138",
+      "traits": {
+        "sign": "06",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "staples",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-138.png",
+        "sha256": "0x4477428a93e851bb820142fd86495f55ca08a2d8b99207d3ecf53ed1883c72f2",
+        "bytes": 129787
+      },
+      "model": null
+    },
+    {
+      "id": "139",
+      "traits": {
+        "sign": "07",
+        "housing": "visor",
+        "route": "dogleg",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-139.png",
+        "sha256": "0xb0c252f08fc3c59d8b209d99acd937cd3b415caa48cef73005827730a690981c",
+        "bytes": 171618
+      },
+      "model": null
+    },
+    {
+      "id": "140",
+      "traits": {
+        "sign": "08",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-140.png",
+        "sha256": "0x2d9fc825a2958ab8bcd9e36f9d2e1f62ae210a47b3b90dca7e56e8fc8de78376",
+        "bytes": 140287
+      },
+      "model": null
+    },
+    {
+      "id": "141",
+      "traits": {
+        "sign": "09",
+        "housing": "plain",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "lamp",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-141.png",
+        "sha256": "0xede6b797cd86f5d4444708446327100658889afcd0e1ce130a307b8a46dfe251",
+        "bytes": 187686
+      },
+      "model": null
+    },
+    {
+      "id": "142",
+      "traits": {
+        "sign": "10",
+        "housing": "fins",
+        "route": "fork",
+        "repair": "patch",
+        "equipment": "reel",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-142.png",
+        "sha256": "0xf934330dea31e1999b1ff32e3b49dd783d31e4cd95a70b1bd45fee897d75a86b",
+        "bytes": 153372
+      },
+      "model": null
+    },
+    {
+      "id": "143",
+      "traits": {
+        "sign": "11",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-143.png",
+        "sha256": "0x6cb97ce6ee0e3d74b43a9b5935a6e6a266af7962c2a82627ef6b2607e029496f",
+        "bytes": 265751
+      },
+      "model": null
+    },
+    {
+      "id": "144",
+      "traits": {
+        "sign": "12",
+        "housing": "guards",
+        "route": "dogleg",
+        "repair": "staples",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-144.png",
+        "sha256": "0x0db747c64dd35c010c5837ba705e7b258d7b498ced5f624207387d6b3aeff46f",
+        "bytes": 168913
+      },
+      "model": null
+    },
+    {
+      "id": "145",
+      "traits": {
+        "sign": "01",
+        "housing": "plain",
+        "route": "dogleg",
+        "repair": "tape",
+        "equipment": "reel",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-145.png",
+        "sha256": "0x4b300add10dc2b883257fd3ad0d4a5013bdea5709590a24bdb2c54f9e393afdf",
+        "bytes": 193796
+      },
+      "model": null
+    },
+    {
+      "id": "146",
+      "traits": {
+        "sign": "02",
+        "housing": "guards",
+        "route": "dogleg",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-146.png",
+        "sha256": "0x6093c2e93989d42189542c7b09ce2bbcf0a105ecc9820851f2866247a6f4b6f3",
+        "bytes": 254348
+      },
+      "model": null
+    },
+    {
+      "id": "147",
+      "traits": {
+        "sign": "03",
+        "housing": "plain",
+        "route": "dogleg",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-147.png",
+        "sha256": "0x5ebabfab41757a531cde966af0351a7e9d55be062e7ab26d434cf4faaf39532a",
+        "bytes": 123388
+      },
+      "model": null
+    },
+    {
+      "id": "148",
+      "traits": {
+        "sign": "04",
+        "housing": "fins",
+        "route": "coil",
+        "repair": "patch",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-148.png",
+        "sha256": "0x4ed550702c4dc12dda29c9a6a61f1f1e6a217a1968d8f401339554b262e51703",
+        "bytes": 243630
+      },
+      "model": null
+    },
+    {
+      "id": "149",
+      "traits": {
+        "sign": "05",
+        "housing": "fins",
+        "route": "fork",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-149.png",
+        "sha256": "0x2bbf11b0f0c034a635a2b47eb74fd50b1a86438a022633f4bdeb30aa1a6811a1",
+        "bytes": 182445
+      },
+      "model": null
+    },
+    {
+      "id": "150",
+      "traits": {
+        "sign": "06",
+        "housing": "plain",
+        "route": "switchback",
+        "repair": "clean",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-150.png",
+        "sha256": "0x9bcaf39614488c37b47109305c414699a0199422e316b7d71af4ea2791660073",
+        "bytes": 127791
+      },
+      "model": null
+    },
+    {
+      "id": "151",
+      "traits": {
+        "sign": "07",
+        "housing": "guards",
+        "route": "switchback",
+        "repair": "patch",
+        "equipment": "lamp",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-151.png",
+        "sha256": "0x012ca1044f57fcecf3004b18a59b428cd4b923c9b4f90a418e0f510b3f35c50e",
+        "bytes": 174072
+      },
+      "model": null
+    },
+    {
+      "id": "152",
+      "traits": {
+        "sign": "08",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-152.png",
+        "sha256": "0x10b110107b0498ecdc4a29c5afc731cd95ae167c9c624950412f4633a9ea678f",
+        "bytes": 141380
+      },
+      "model": null
+    },
+    {
+      "id": "153",
+      "traits": {
+        "sign": "09",
+        "housing": "visor",
+        "route": "switchback",
+        "repair": "staples",
+        "equipment": "lamp",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-153.png",
+        "sha256": "0x6e46d2dbb857d0a498c259b30eb453d46abfef63b8e0929cd674ff8177435d80",
+        "bytes": 185619
+      },
+      "model": null
+    },
+    {
+      "id": "154",
+      "traits": {
+        "sign": "10",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-154.png",
+        "sha256": "0x9e666d364bdfd06d20b63f743956310151ed72f4a6f4ea378f1b79abcd33c860",
+        "bytes": 152142
+      },
+      "model": null
+    },
+    {
+      "id": "155",
+      "traits": {
+        "sign": "11",
+        "housing": "visor",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-155.png",
+        "sha256": "0xd3032da05504607e0dee237a5ae33a610c5551e14bfe988194584011e56803fa",
+        "bytes": 263342
+      },
+      "model": null
+    },
+    {
+      "id": "156",
+      "traits": {
+        "sign": "12",
+        "housing": "guards",
+        "route": "dogleg",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-156.png",
+        "sha256": "0xa9043e5d740303a38dbc9123682aa4fad35980978e0093eb2eaa09e121a396fa",
+        "bytes": 171968
+      },
+      "model": null
+    },
+    {
+      "id": "157",
+      "traits": {
+        "sign": "01",
+        "housing": "visor",
+        "route": "fork",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-157.png",
+        "sha256": "0xb3a847eec0e7b40d68359b36e94d2e88062a6014407e8fa3a021a7ad9cd6cf20",
+        "bytes": 192465
+      },
+      "model": null
+    },
+    {
+      "id": "158",
+      "traits": {
+        "sign": "02",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-158.png",
+        "sha256": "0x54256d287a09209242cf4667c14ca326cf809f1d2cc9e7a3b16b59cacffefaeb",
+        "bytes": 250615
+      },
+      "model": null
+    },
+    {
+      "id": "159",
+      "traits": {
+        "sign": "03",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "clean",
+        "equipment": "case",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-159.png",
+        "sha256": "0x958b3ffa456d12af32ea64c9d069ff1a0fd2a85fd9fbd7b5018ca5e61c8d9a31",
+        "bytes": 120184
+      },
+      "model": null
+    },
+    {
+      "id": "160",
+      "traits": {
+        "sign": "04",
+        "housing": "plain",
+        "route": "switchback",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-160.png",
+        "sha256": "0x6deeff7cfe33a2e4bf88add50fb67db3462d4127a71fadaefe013075f7cfae7d",
+        "bytes": 242836
+      },
+      "model": null
+    },
+    {
+      "id": "161",
+      "traits": {
+        "sign": "05",
+        "housing": "visor",
+        "route": "switchback",
+        "repair": "tape",
+        "equipment": "reel",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-161.png",
+        "sha256": "0xb8c1bbd0ac1d038d538a9d8dc98a631822fa63e7c2cbfa877fada10fecb7261c",
+        "bytes": 183155
+      },
+      "model": null
+    },
+    {
+      "id": "162",
+      "traits": {
+        "sign": "06",
+        "housing": "fins",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "tray",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-162.png",
+        "sha256": "0xf6efb595de378b9259739549002f17eba37bb5be7ce7e4978125f3c0bd29bc71",
+        "bytes": 127938
+      },
+      "model": null
+    },
+    {
+      "id": "163",
+      "traits": {
+        "sign": "07",
+        "housing": "fins",
+        "route": "coil",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-163.png",
+        "sha256": "0xbe369823d924d364c437919fd69b55a57b120bbd9fc84ea79cf4beb6b40357a4",
+        "bytes": 175637
+      },
+      "model": null
+    },
+    {
+      "id": "164",
+      "traits": {
+        "sign": "08",
+        "housing": "fins",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "lamp",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-164.png",
+        "sha256": "0x95754546574b7437b6deb450b088ec831081cea8ca66c67410815f5fd2d014a3",
+        "bytes": 138789
+      },
+      "model": null
+    },
+    {
+      "id": "165",
+      "traits": {
+        "sign": "09",
+        "housing": "fins",
+        "route": "fork",
+        "repair": "patch",
+        "equipment": "lamp",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-165.png",
+        "sha256": "0x7e6615af2eb3c1deb963f3b5eb17d31affa89a4f6d3031e7e324c8bb06ef3f8a",
+        "bytes": 190227
+      },
+      "model": null
+    },
+    {
+      "id": "166",
+      "traits": {
+        "sign": "10",
+        "housing": "guards",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-166.png",
+        "sha256": "0x70335ad5cfa448cf0699c6344bfdff5a171291e99c5117c8398a36c515bf885b",
+        "bytes": 152486
+      },
+      "model": null
+    },
+    {
+      "id": "167",
+      "traits": {
+        "sign": "11",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "staples",
+        "equipment": "tray",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-167.png",
+        "sha256": "0xbb68c3d65f19d5b1137852beae6b0af30f6a2083da1d55beb3aaddc512a61157",
+        "bytes": 265050
+      },
+      "model": null
+    },
+    {
+      "id": "168",
+      "traits": {
+        "sign": "12",
+        "housing": "plain",
+        "route": "coil",
+        "repair": "patch",
+        "equipment": "lamp",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-168.png",
+        "sha256": "0x9eea50e9daa2f82e5fe5d02a71b6a4ad0d7eba6020909a46a50bb88367a585df",
+        "bytes": 169206
+      },
+      "model": null
+    },
+    {
+      "id": "169",
+      "traits": {
+        "sign": "01",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-169.png",
+        "sha256": "0x694bfa32896fec1044dc5e3a16ad71db22c9acf54fadf93e1b38bb1f20072399",
+        "bytes": 191983
+      },
+      "model": null
+    },
+    {
+      "id": "170",
+      "traits": {
+        "sign": "02",
+        "housing": "visor",
+        "route": "dogleg",
+        "repair": "tape",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-170.png",
+        "sha256": "0x084cd73b7cfbddf2fc0b841de67e037a7e78a27ff477c872f2bdd4acab7f896b",
+        "bytes": 253452
+      },
+      "model": null
+    },
+    {
+      "id": "171",
+      "traits": {
+        "sign": "03",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "reel",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-171.png",
+        "sha256": "0xa2a4b474e97ae16f0d2ac2aa49480b2a99a747e2beaea2ac660d8ad7d483e40b",
+        "bytes": 121097
+      },
+      "model": null
+    },
+    {
+      "id": "172",
+      "traits": {
+        "sign": "04",
+        "housing": "guards",
+        "route": "dogleg",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-172.png",
+        "sha256": "0x24c2c9e398dee94367d91828ed9d1474836ca304b7ba43c1f5666b2a8b5a3b52",
+        "bytes": 238725
+      },
+      "model": null
+    },
+    {
+      "id": "173",
+      "traits": {
+        "sign": "05",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-173.png",
+        "sha256": "0xaf04c943840aaa8e1c65fedc4f7db927980e7eb2287e632edc21b672dce8af42",
+        "bytes": 180097
+      },
+      "model": null
+    },
+    {
+      "id": "174",
+      "traits": {
+        "sign": "06",
+        "housing": "plain",
+        "route": "dogleg",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-174.png",
+        "sha256": "0x6d96bca16e185e6625f8c96ac40eae4696140e62ab6ecb4477e5971335b09f45",
+        "bytes": 130011
+      },
+      "model": null
+    },
+    {
+      "id": "175",
+      "traits": {
+        "sign": "07",
+        "housing": "guards",
+        "route": "switchback",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-175.png",
+        "sha256": "0xa4aa3e3752c014da60725239fa4a1e69b0fffd172a0c53399069ae985f5d8f7c",
+        "bytes": 173702
+      },
+      "model": null
+    },
+    {
+      "id": "176",
+      "traits": {
+        "sign": "08",
+        "housing": "fins",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-176.png",
+        "sha256": "0x5576210a1803c4d49a8646d8bce30941749393f6cf478fd6c1489c11aa632ff4",
+        "bytes": 138978
+      },
+      "model": null
+    },
+    {
+      "id": "177",
+      "traits": {
+        "sign": "09",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-177.png",
+        "sha256": "0x91edf917a6125cf0856df7aac8e5465ec2e978753ec0f372a0459800490dc36b",
+        "bytes": 190249
+      },
+      "model": null
+    },
+    {
+      "id": "178",
+      "traits": {
+        "sign": "10",
+        "housing": "fins",
+        "route": "fork",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-178.png",
+        "sha256": "0x0252b04021f02d0e65f0cd5c417665249948852e505f2ad53afd2bff8f5f6274",
+        "bytes": 152860
+      },
+      "model": null
+    },
+    {
+      "id": "179",
+      "traits": {
+        "sign": "11",
+        "housing": "fins",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "case",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-179.png",
+        "sha256": "0xd77b844d779562a8b2010f76a2aaa06faed5892aa3fcd60902e13d079489488f",
+        "bytes": 263050
+      },
+      "model": null
+    },
+    {
+      "id": "180",
+      "traits": {
+        "sign": "12",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "patch",
+        "equipment": "lamp",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-180.png",
+        "sha256": "0x15b784c216cc40e404b4ee987a14210ae6818160bf948a7075261ef9e2420d76",
+        "bytes": 168814
+      },
+      "model": null
+    },
+    {
+      "id": "181",
+      "traits": {
+        "sign": "01",
+        "housing": "fins",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "lamp",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-181.png",
+        "sha256": "0x5d5b3c401a17d92763eeb970250b54f034ccdc595edae2dde8c8a9cdf8f8de2c",
+        "bytes": 192728
+      },
+      "model": null
+    },
+    {
+      "id": "182",
+      "traits": {
+        "sign": "02",
+        "housing": "guards",
+        "route": "switchback",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-182.png",
+        "sha256": "0x3b3bfbab885253c053f984af9327e02afa1d3a96dbe7e6772540541e58d30945",
+        "bytes": 250638
+      },
+      "model": null
+    },
+    {
+      "id": "183",
+      "traits": {
+        "sign": "03",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "case",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-183.png",
+        "sha256": "0x9f2a04f8ad8952f3727cc3ee014772b75c31136e80e60244741741e5e4d29e80",
+        "bytes": 117556
+      },
+      "model": null
+    },
+    {
+      "id": "184",
+      "traits": {
+        "sign": "04",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-184.png",
+        "sha256": "0x668cfaca51116afcbcbdb79eeae5409f623691dff3e85253b416013b7b528662",
+        "bytes": 239584
+      },
+      "model": null
+    },
+    {
+      "id": "185",
+      "traits": {
+        "sign": "05",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-185.png",
+        "sha256": "0xfa98bc59a55aeb146a51538bf73bec7c250509e2871f0e2d4cadb6fb242f0702",
+        "bytes": 177831
+      },
+      "model": null
+    },
+    {
+      "id": "186",
+      "traits": {
+        "sign": "06",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "clean",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-186.png",
+        "sha256": "0xa1f9abfaa35093575509c384008d00839bceb444be2325d50e34e28e80326f0a",
+        "bytes": 127495
+      },
+      "model": null
+    },
+    {
+      "id": "187",
+      "traits": {
+        "sign": "07",
+        "housing": "fins",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-187.png",
+        "sha256": "0x0a2c33b6f3e19431fd2397a54710b312be10a2ee5ac0059b8756b62b2e0a364d",
+        "bytes": 172924
+      },
+      "model": null
+    },
+    {
+      "id": "188",
+      "traits": {
+        "sign": "08",
+        "housing": "guards",
+        "route": "dogleg",
+        "repair": "clean",
+        "equipment": "lamp",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-188.png",
+        "sha256": "0x0a0c00459f4a3476c60040d4a22f52289a91af23072e7e376a218c907f81f171",
+        "bytes": 138481
+      },
+      "model": null
+    },
+    {
+      "id": "189",
+      "traits": {
+        "sign": "09",
+        "housing": "guards",
+        "route": "switchback",
+        "repair": "tape",
+        "equipment": "tray",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-189.png",
+        "sha256": "0xd550c3d625c3e6802ff7bbc9064a6c56db9536b951b5c4431e2e6ecba23e2491",
+        "bytes": 187845
+      },
+      "model": null
+    },
+    {
+      "id": "190",
+      "traits": {
+        "sign": "10",
+        "housing": "guards",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-190.png",
+        "sha256": "0x32526c760a03d5f0e42aa88d519b361b56b5f13b57b64b218f832c0206dcdced",
+        "bytes": 150130
+      },
+      "model": null
+    },
+    {
+      "id": "191",
+      "traits": {
+        "sign": "11",
+        "housing": "fins",
+        "route": "coil",
+        "repair": "patch",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-191.png",
+        "sha256": "0xa7e71b11fb0a8946c31b5086cfb9e1a0c0860c246153c5da149a5d1c0aaf6384",
+        "bytes": 265512
+      },
+      "model": null
+    },
+    {
+      "id": "192",
+      "traits": {
+        "sign": "12",
+        "housing": "guards",
+        "route": "dogleg",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-192.png",
+        "sha256": "0x30dab3d35b0f38fce3d53a924f9ef045cb8e469f666008a0bfd8fc9bbeb1ee60",
+        "bytes": 171654
+      },
+      "model": null
+    },
+    {
+      "id": "193",
+      "traits": {
+        "sign": "01",
+        "housing": "plain",
+        "route": "dogleg",
+        "repair": "staples",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-193.png",
+        "sha256": "0xd37332562c19083caae99ca217d1c1c020d4cca733aecf16a48b6f73502931e9",
+        "bytes": 191778
+      },
+      "model": null
+    },
+    {
+      "id": "194",
+      "traits": {
+        "sign": "02",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "reel",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-194.png",
+        "sha256": "0xaebfcc14b0d6dfb47d993a3d89284756925e93fdfd94adf2de661f57fb4d35e6",
+        "bytes": 254961
+      },
+      "model": null
+    },
+    {
+      "id": "195",
+      "traits": {
+        "sign": "03",
+        "housing": "visor",
+        "route": "switchback",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-195.png",
+        "sha256": "0x0ce07913f46ab44b29a36c3bb8523912bfee82b8850bb56c3894b3695dd9e262",
+        "bytes": 118128
+      },
+      "model": null
+    },
+    {
+      "id": "196",
+      "traits": {
+        "sign": "04",
+        "housing": "guards",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-196.png",
+        "sha256": "0x84e5ca1d9c3ea582224a25169ac304a6ee140cfbdfcc02bd637d1c289b181be3",
+        "bytes": 240266
+      },
+      "model": null
+    },
+    {
+      "id": "197",
+      "traits": {
+        "sign": "05",
+        "housing": "visor",
+        "route": "switchback",
+        "repair": "clean",
+        "equipment": "lamp",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-197.png",
+        "sha256": "0xfd3eccda67593d304641c5d216ce95514c79df8c2d76fa5aa0397ad346829ff1",
+        "bytes": 179977
+      },
+      "model": null
+    },
+    {
+      "id": "198",
+      "traits": {
+        "sign": "06",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "staples",
+        "equipment": "case",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-198.png",
+        "sha256": "0x073f0330ecb51deefe186359f9d09514cda91de209f77ef69e6999edd6a650f2",
+        "bytes": 127734
+      },
+      "model": null
+    },
+    {
+      "id": "199",
+      "traits": {
+        "sign": "07",
+        "housing": "plain",
+        "route": "coil",
+        "repair": "staples",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-199.png",
+        "sha256": "0x4011e50b8dbb18c927016a540aa9d481a95bf507dab4e20ed964116e95bbfb25",
+        "bytes": 172841
+      },
+      "model": null
+    },
+    {
+      "id": "200",
+      "traits": {
+        "sign": "08",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-200.png",
+        "sha256": "0x3e92b3968bcade8e0d25102b9cd0016c5186843adf60fef5e53009cf6bcae27b",
+        "bytes": 144021
+      },
+      "model": null
+    },
+    {
+      "id": "201",
+      "traits": {
+        "sign": "09",
+        "housing": "plain",
+        "route": "switchback",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-201.png",
+        "sha256": "0x6c7568925bcc5d0a62c9499e7f17c036a4f7c1d6d18020e1d6872c2ce8f1325a",
+        "bytes": 189345
+      },
+      "model": null
+    },
+    {
+      "id": "202",
+      "traits": {
+        "sign": "10",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-202.png",
+        "sha256": "0x1a07cd879e900713d5342e75cb57f0f1d92eb7118c9cf28fd5cd0e564c8d220a",
+        "bytes": 146781
+      },
+      "model": null
+    },
+    {
+      "id": "203",
+      "traits": {
+        "sign": "11",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-203.png",
+        "sha256": "0x7d6be14a2cb60da86c93a353e47b28129a581cf840217eab1f5fe9b6beb43dba",
+        "bytes": 264371
+      },
+      "model": null
+    },
+    {
+      "id": "204",
+      "traits": {
+        "sign": "12",
+        "housing": "plain",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-204.png",
+        "sha256": "0xdc751ac0f03f730acb57f57b95c8f1390eec07f257de7836272c800074cc9c26",
+        "bytes": 168488
+      },
+      "model": null
+    },
+    {
+      "id": "205",
+      "traits": {
+        "sign": "01",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "case",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-205.png",
+        "sha256": "0x4ab46bbe27e8319b9bf28300f344f501378eeebefe928841b9d32dd1530052c6",
+        "bytes": 190276
+      },
+      "model": null
+    },
+    {
+      "id": "206",
+      "traits": {
+        "sign": "02",
+        "housing": "guards",
+        "route": "dogleg",
+        "repair": "tape",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-206.png",
+        "sha256": "0x5f87d8906a1bf9295211d30e3bcdacd30b3e1b10f4bf8e96e67e185dd2c41abe",
+        "bytes": 251611
+      },
+      "model": null
+    },
+    {
+      "id": "207",
+      "traits": {
+        "sign": "03",
+        "housing": "guards",
+        "route": "switchback",
+        "repair": "staples",
+        "equipment": "tray",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-207.png",
+        "sha256": "0x4b4565d52133dba206ab1fbb918b5316d358db7de3b8a34cf549c45b28afb553",
+        "bytes": 122647
+      },
+      "model": null
+    },
+    {
+      "id": "208",
+      "traits": {
+        "sign": "04",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "tape",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-208.png",
+        "sha256": "0xdd58bf0a93e12d79d3dcb54cc92fb57ca20e4be0a45cda9f55f74979e4d0633a",
+        "bytes": 239904
+      },
+      "model": null
+    },
+    {
+      "id": "209",
+      "traits": {
+        "sign": "05",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-209.png",
+        "sha256": "0x12f0ce17dbc11fa5dd78cd50d8ea7694616b7f38f9de037feed079018b72e789",
+        "bytes": 180257
+      },
+      "model": null
+    },
+    {
+      "id": "210",
+      "traits": {
+        "sign": "06",
+        "housing": "visor",
+        "route": "dogleg",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-210.png",
+        "sha256": "0x64185c903018b72394d4b25670e2d1ed5635d88480a09362c18b8581c896cc94",
+        "bytes": 127562
+      },
+      "model": null
+    },
+    {
+      "id": "211",
+      "traits": {
+        "sign": "07",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "tray",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-211.png",
+        "sha256": "0x241b5d8ca29f821867d40197832e43142bf10f267554179595da9ff85fb1d4bb",
+        "bytes": 173035
+      },
+      "model": null
+    },
+    {
+      "id": "212",
+      "traits": {
+        "sign": "08",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "case",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-212.png",
+        "sha256": "0x62add8ad40f7398622bcf38e279432e7d700067ad0676d04899c79b58a2605ee",
+        "bytes": 138843
+      },
+      "model": null
+    },
+    {
+      "id": "213",
+      "traits": {
+        "sign": "09",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-213.png",
+        "sha256": "0x500050f46a79394f3e877c54ad77605763df7c1963442ce998ad89bcc5e77711",
+        "bytes": 187123
+      },
+      "model": null
+    },
+    {
+      "id": "214",
+      "traits": {
+        "sign": "10",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-214.png",
+        "sha256": "0x8b3693d5215d3c93858c2b882fc78ccdeae940b5e1977bf0db1b3580c220c574",
+        "bytes": 151192
+      },
+      "model": null
+    },
+    {
+      "id": "215",
+      "traits": {
+        "sign": "11",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-215.png",
+        "sha256": "0x3b3658580f0eaae5deb74b1f8900c66f5eb4770c52b9e9a683fac0fff794a9e9",
+        "bytes": 264972
+      },
+      "model": null
+    },
+    {
+      "id": "216",
+      "traits": {
+        "sign": "12",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "lamp",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-216.png",
+        "sha256": "0x64364baf50625a74959c4c722c59ec2c598adf2e1ef07e23a0e170829bd91eb1",
+        "bytes": 166652
+      },
+      "model": null
+    },
+    {
+      "id": "217",
+      "traits": {
+        "sign": "01",
+        "housing": "visor",
+        "route": "fork",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-217.png",
+        "sha256": "0xe1fdf953c376c278cb65b82480cdb79a6154e1354f39c08d3e370f2af64289b8",
+        "bytes": 193910
+      },
+      "model": null
+    },
+    {
+      "id": "218",
+      "traits": {
+        "sign": "02",
+        "housing": "fins",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "case",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-218.png",
+        "sha256": "0x301b9f154273f34dde1332f1d0d59710d92c944234e478c0c203f395a1f63b4e",
+        "bytes": 250128
+      },
+      "model": null
+    },
+    {
+      "id": "219",
+      "traits": {
+        "sign": "03",
+        "housing": "fins",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-219.png",
+        "sha256": "0x5f81d6d221db9786332e47f8be0301b81476aabcc6d23d375c4dd172e5f521a5",
+        "bytes": 120388
+      },
+      "model": null
+    },
+    {
+      "id": "220",
+      "traits": {
+        "sign": "04",
+        "housing": "visor",
+        "route": "switchback",
+        "repair": "tape",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-220.png",
+        "sha256": "0x4f57cdb4b1a53b343d7b69decf31db132d4a4925276a929036483c188428f186",
+        "bytes": 241129
+      },
+      "model": null
+    },
+    {
+      "id": "221",
+      "traits": {
+        "sign": "05",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-221.png",
+        "sha256": "0xe16f7470e43c32abf43689e0b5cb10233e56e34e0af9d821f9507b26c81e94a7",
+        "bytes": 182978
+      },
+      "model": null
+    },
+    {
+      "id": "222",
+      "traits": {
+        "sign": "06",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-222.png",
+        "sha256": "0x9ab06a52b5ac8afd2c4c92800a4da681b457c5a4249162e29e8e6c1d6f204f5c",
+        "bytes": 127035
+      },
+      "model": null
+    },
+    {
+      "id": "223",
+      "traits": {
+        "sign": "07",
+        "housing": "fins",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "reel",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-223.png",
+        "sha256": "0xf8884d012105010da8dd68a6902eabb886e17d72aab6c025b0d8325c47d379f6",
+        "bytes": 175778
+      },
+      "model": null
+    },
+    {
+      "id": "224",
+      "traits": {
+        "sign": "08",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-224.png",
+        "sha256": "0xaf8a7091f3bbe9cdf78af47dbcbac24ea4eb9959aabc5ef5f043fa4bc41bdf81",
+        "bytes": 141191
+      },
+      "model": null
+    },
+    {
+      "id": "225",
+      "traits": {
+        "sign": "09",
+        "housing": "plain",
+        "route": "coil",
+        "repair": "staples",
+        "equipment": "lamp",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-225.png",
+        "sha256": "0xd140d4754b0bae83fcf86d7cb52267b361b4d0190eae48d4a2fd1e8ea47c1beb",
+        "bytes": 187351
+      },
+      "model": null
+    },
+    {
+      "id": "226",
+      "traits": {
+        "sign": "10",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-226.png",
+        "sha256": "0x365f693ca5312d9e246c4bbc45d7237d025a316566372f6c42708f93fad02aa9",
+        "bytes": 155163
+      },
+      "model": null
+    },
+    {
+      "id": "227",
+      "traits": {
+        "sign": "11",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "lamp",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-227.png",
+        "sha256": "0x0e3b9b7670ae12e4c800365214673947333516a43faa6aefd2462504a13e3e55",
+        "bytes": 262457
+      },
+      "model": null
+    },
+    {
+      "id": "228",
+      "traits": {
+        "sign": "12",
+        "housing": "plain",
+        "route": "switchback",
+        "repair": "tape",
+        "equipment": "tray",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-228.png",
+        "sha256": "0xdb71521351f227557297587eb8ddbc22b389f23122b626427e396f0f0e464239",
+        "bytes": 169004
+      },
+      "model": null
+    },
+    {
+      "id": "229",
+      "traits": {
+        "sign": "01",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "clean",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-229.png",
+        "sha256": "0x110bd3f3cbdddc9380f3ddd26ca757bab692f49009abd0ca78184f51182d2b78",
+        "bytes": 193314
+      },
+      "model": null
+    },
+    {
+      "id": "230",
+      "traits": {
+        "sign": "02",
+        "housing": "fins",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-230.png",
+        "sha256": "0x6a5294c6bd0d0b450b122334724afa77caab80aa9b30a866e8e509e54dafa260",
+        "bytes": 255364
+      },
+      "model": null
+    },
+    {
+      "id": "231",
+      "traits": {
+        "sign": "03",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-231.png",
+        "sha256": "0x8d3677c4b49ec2fe3af81e535ba83cf7f9b79bf371abefc511411683eb0957f2",
+        "bytes": 120018
+      },
+      "model": null
+    },
+    {
+      "id": "232",
+      "traits": {
+        "sign": "04",
+        "housing": "plain",
+        "route": "coil",
+        "repair": "patch",
+        "equipment": "reel",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-232.png",
+        "sha256": "0xd8d60fbf86ec20a9811c1d593cb5d4a5481fb55c9f9e7ec12bad417f6ceae8b3",
+        "bytes": 243096
+      },
+      "model": null
+    },
+    {
+      "id": "233",
+      "traits": {
+        "sign": "05",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-233.png",
+        "sha256": "0xe90bf633995d32f8bbacc4bdca81606f0532214b9472e2e9d6b28d7717e01176",
+        "bytes": 181719
+      },
+      "model": null
+    },
+    {
+      "id": "234",
+      "traits": {
+        "sign": "06",
+        "housing": "visor",
+        "route": "fork",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-234.png",
+        "sha256": "0x1266db90e1823e029a5926e2f78977562e710614765b9937e623769c495cb8b4",
+        "bytes": 127310
+      },
+      "model": null
+    },
+    {
+      "id": "235",
+      "traits": {
+        "sign": "07",
+        "housing": "fins",
+        "route": "coil",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-235.png",
+        "sha256": "0xfa59a7f2d0b93d505ce6844a15781ff492b9f0a0e99a1dfa5946597179e0e336",
+        "bytes": 176000
+      },
+      "model": null
+    },
+    {
+      "id": "236",
+      "traits": {
+        "sign": "08",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-236.png",
+        "sha256": "0x0d26c391c358192119cf1c6c5cf38b7d6b4ab1fcd96f283e23ff038a243d8ac5",
+        "bytes": 138903
+      },
+      "model": null
+    },
+    {
+      "id": "237",
+      "traits": {
+        "sign": "09",
+        "housing": "visor",
+        "route": "fork",
+        "repair": "patch",
+        "equipment": "lamp",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-237.png",
+        "sha256": "0xf8cfa17f7d5363e5fe9a86e408bb6a26c5e4740092e72a4d88e4f078102fa116",
+        "bytes": 186118
+      },
+      "model": null
+    },
+    {
+      "id": "238",
+      "traits": {
+        "sign": "10",
+        "housing": "fins",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-238.png",
+        "sha256": "0x7ea4468ba1d255c870c9402d912fe84f473a2f317df515dd56072b3414551151",
+        "bytes": 153440
+      },
+      "model": null
+    },
+    {
+      "id": "239",
+      "traits": {
+        "sign": "11",
+        "housing": "plain",
+        "route": "dogleg",
+        "repair": "clean",
+        "equipment": "case",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-239.png",
+        "sha256": "0xef77d7056ab0a1b5c42fdce1cb96d7ea2cf679c3466047e05bd1b17c36a86186",
+        "bytes": 261733
+      },
+      "model": null
+    },
+    {
+      "id": "240",
+      "traits": {
+        "sign": "12",
+        "housing": "visor",
+        "route": "switchback",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-240.png",
+        "sha256": "0x839004e2d2580438ea3f26ed8253999e0f37b85ede79d99c13e16d4a329f811a",
+        "bytes": 170272
+      },
+      "model": null
+    },
+    {
+      "id": "241",
+      "traits": {
+        "sign": "01",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-241.png",
+        "sha256": "0xb39ee52ad1a76d01854d0b443655585f0d73de11db56a1f89cd5be581db85fbc",
+        "bytes": 193572
+      },
+      "model": null
+    },
+    {
+      "id": "242",
+      "traits": {
+        "sign": "02",
+        "housing": "visor",
+        "route": "switchback",
+        "repair": "staples",
+        "equipment": "lamp",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-242.png",
+        "sha256": "0x9376b91b610f63708c61b35593bff06ffa7727af0eb2bb81de25908ee0bab56e",
+        "bytes": 250747
+      },
+      "model": null
+    },
+    {
+      "id": "243",
+      "traits": {
+        "sign": "03",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-243.png",
+        "sha256": "0xfa2a2a66d385d0a8254252e498eb9c92ee589cc5e4686d7e6c04671c7c09018c",
+        "bytes": 120848
+      },
+      "model": null
+    },
+    {
+      "id": "244",
+      "traits": {
+        "sign": "04",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "clean",
+        "equipment": "case",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-244.png",
+        "sha256": "0x4c93b40446f386e6b6c019a496d6867bf1160cfd9407f344ef001495d38f10f1",
+        "bytes": 237280
+      },
+      "model": null
+    },
+    {
+      "id": "245",
+      "traits": {
+        "sign": "05",
+        "housing": "guards",
+        "route": "switchback",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-245.png",
+        "sha256": "0x4c3090783fef1fb30b59fd0bb2923c393e6be0bae6654dd72267b072443e053d",
+        "bytes": 182755
+      },
+      "model": null
+    },
+    {
+      "id": "246",
+      "traits": {
+        "sign": "06",
+        "housing": "plain",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-246.png",
+        "sha256": "0x245303640c1a56bed58e43f26db41aa7567705f6adf890954aa4ff4f9803346b",
+        "bytes": 131679
+      },
+      "model": null
+    },
+    {
+      "id": "247",
+      "traits": {
+        "sign": "07",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-247.png",
+        "sha256": "0x81454e02ce118d0a71ee9f233ebc9f660f741e4a057103baa12ceace043f032d",
+        "bytes": 177446
+      },
+      "model": null
+    },
+    {
+      "id": "248",
+      "traits": {
+        "sign": "08",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-248.png",
+        "sha256": "0x7a7d987a1fed1db86956572ab2dafb54cd0c5ce3a5f154279a0962faec87312d",
+        "bytes": 140101
+      },
+      "model": null
+    },
+    {
+      "id": "249",
+      "traits": {
+        "sign": "09",
+        "housing": "guards",
+        "route": "dogleg",
+        "repair": "tape",
+        "equipment": "tray",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-249.png",
+        "sha256": "0xda40cedbc756bd071fff7f9d4a70cc77b28f2c97607c81db0287eb04baf7d520",
+        "bytes": 189898
+      },
+      "model": null
+    },
+    {
+      "id": "250",
+      "traits": {
+        "sign": "10",
+        "housing": "plain",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "tray",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-250.png",
+        "sha256": "0x0f1aedad19b0f35f074fac24f7d47dc68cf53213b1e92c8970ee314e948df54c",
+        "bytes": 153425
+      },
+      "model": null
+    },
+    {
+      "id": "251",
+      "traits": {
+        "sign": "11",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "clean",
+        "equipment": "lamp",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-251.png",
+        "sha256": "0xacffd3e2b7e327a7dcd81edca4624be37768c7a17c686febbf22dff7b97f9d1d",
+        "bytes": 262004
+      },
+      "model": null
+    },
+    {
+      "id": "252",
+      "traits": {
+        "sign": "12",
+        "housing": "guards",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-252.png",
+        "sha256": "0xae9d860d842193dad122e9b7d0c1d427830165fb989631fff0c22484a10faf82",
+        "bytes": 170501
+      },
+      "model": null
+    },
+    {
+      "id": "253",
+      "traits": {
+        "sign": "01",
+        "housing": "guards",
+        "route": "switchback",
+        "repair": "staples",
+        "equipment": "tray",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-253.png",
+        "sha256": "0xa4e4af9831161373cff22e0977b641535ee747aeaf100899c499097c463d90fd",
+        "bytes": 190977
+      },
+      "model": null
+    },
+    {
+      "id": "254",
+      "traits": {
+        "sign": "02",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-254.png",
+        "sha256": "0xb60e9ef3d6d3a21ee6239944af9e11bc27ea7295b7276422aab3b629eb8d65ae",
+        "bytes": 251436
+      },
+      "model": null
+    },
+    {
+      "id": "255",
+      "traits": {
+        "sign": "03",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-255.png",
+        "sha256": "0xa10e82289c49814c9315e44b919a97695e95e29d0d100158406e02fe13c8af48",
+        "bytes": 120881
+      },
+      "model": null
+    },
+    {
+      "id": "256",
+      "traits": {
+        "sign": "04",
+        "housing": "visor",
+        "route": "dogleg",
+        "repair": "staples",
+        "equipment": "lamp",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-256.png",
+        "sha256": "0x1915447de1843e2bd73d9915c61b26d52c1a17d9b5c27707ebcb2fc0f702aac3",
+        "bytes": 236306
+      },
+      "model": null
+    },
+    {
+      "id": "257",
+      "traits": {
+        "sign": "05",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "patch",
+        "equipment": "lamp",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-257.png",
+        "sha256": "0xd842acb1067e2d0538e0750b79ab9791c0feee82b32e419286ae41329f789c33",
+        "bytes": 180317
+      },
+      "model": null
+    },
+    {
+      "id": "258",
+      "traits": {
+        "sign": "06",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "clean",
+        "equipment": "lamp",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-258.png",
+        "sha256": "0x5ac0aca2ad83f5a03dfcdbde91097e9a507e8eeb4887cf4e6bf83665e8202a24",
+        "bytes": 129351
+      },
+      "model": null
+    },
+    {
+      "id": "259",
+      "traits": {
+        "sign": "07",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "tape",
+        "equipment": "reel",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-259.png",
+        "sha256": "0x8b6be107a703a8fbd01886f215c2a3a3140f3cde46b80e317054de2b09e42679",
+        "bytes": 177431
+      },
+      "model": null
+    },
+    {
+      "id": "260",
+      "traits": {
+        "sign": "08",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-260.png",
+        "sha256": "0xf1515910607a2e9603d2d0c6f65fa307ba3a0d3a9758584e7016a201fbf6fc86",
+        "bytes": 141902
+      },
+      "model": null
+    },
+    {
+      "id": "261",
+      "traits": {
+        "sign": "09",
+        "housing": "plain",
+        "route": "switchback",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-261.png",
+        "sha256": "0x4f55d63917b18bf0167c1b9cb18963682a535a7ed474ea35b19576bd00a1e2c1",
+        "bytes": 188347
+      },
+      "model": null
+    },
+    {
+      "id": "262",
+      "traits": {
+        "sign": "10",
+        "housing": "plain",
+        "route": "dogleg",
+        "repair": "staples",
+        "equipment": "case",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-262.png",
+        "sha256": "0xb13b9af53d87a5deb2705e136506d47d58cdd97a4a9fc1baf56f1927d982c234",
+        "bytes": 150902
+      },
+      "model": null
+    },
+    {
+      "id": "263",
+      "traits": {
+        "sign": "11",
+        "housing": "fins",
+        "route": "fork",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-263.png",
+        "sha256": "0x41fe30675ae76e04f40477f18b5553a5bfa080e7570ff8ecd7721937ca31180b",
+        "bytes": 263933
+      },
+      "model": null
+    },
+    {
+      "id": "264",
+      "traits": {
+        "sign": "12",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-264.png",
+        "sha256": "0xf37a714238f8a8711eb8b614efa8deaef42e67bada86068887971775373b15ba",
+        "bytes": 169747
+      },
+      "model": null
+    },
+    {
+      "id": "265",
+      "traits": {
+        "sign": "01",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "staples",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-265.png",
+        "sha256": "0xa3d3b58ec1b32a68f6b629db1e2d9699ca893dfa041e343b9e96b1f90f0d8307",
+        "bytes": 190539
+      },
+      "model": null
+    },
+    {
+      "id": "266",
+      "traits": {
+        "sign": "02",
+        "housing": "plain",
+        "route": "switchback",
+        "repair": "patch",
+        "equipment": "lamp",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-266.png",
+        "sha256": "0xffbd05ce2bc32e1b862b6b9e6bbc38ac463ea3bd0540c64fae8a455ac02545fa",
+        "bytes": 252737
+      },
+      "model": null
+    },
+    {
+      "id": "267",
+      "traits": {
+        "sign": "03",
+        "housing": "visor",
+        "route": "dogleg",
+        "repair": "tape",
+        "equipment": "tray",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-267.png",
+        "sha256": "0x1d1dfef212855add11683acc061d047e4ff88c8d20d5def2df65aeb33a3d829d",
+        "bytes": 120641
+      },
+      "model": null
+    },
+    {
+      "id": "268",
+      "traits": {
+        "sign": "04",
+        "housing": "plain",
+        "route": "coil",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-268.png",
+        "sha256": "0x87db96f94048d501e719c1e270dae0700d7aa96bffd607100a5969cab4d1bf5e",
+        "bytes": 241065
+      },
+      "model": null
+    },
+    {
+      "id": "269",
+      "traits": {
+        "sign": "05",
+        "housing": "plain",
+        "route": "switchback",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-269.png",
+        "sha256": "0xb6467683bf01f64913d9d66f44e5acc04f8f03f22375c8ac6ff2e6e4fb951859",
+        "bytes": 184392
+      },
+      "model": null
+    },
+    {
+      "id": "270",
+      "traits": {
+        "sign": "06",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-270.png",
+        "sha256": "0x4c66520a935d58efbf1c8b91371d4ec3ed8f4a75740d34bdd4aae298ec478236",
+        "bytes": 132164
+      },
+      "model": null
+    },
+    {
+      "id": "271",
+      "traits": {
+        "sign": "07",
+        "housing": "guards",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-271.png",
+        "sha256": "0x7a77182513afa3a99de45d3796e10b1b75e16bdf6e65fe80d2666a736c83a2df",
+        "bytes": 175944
+      },
+      "model": null
+    },
+    {
+      "id": "272",
+      "traits": {
+        "sign": "08",
+        "housing": "plain",
+        "route": "dogleg",
+        "repair": "staples",
+        "equipment": "tray",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-272.png",
+        "sha256": "0xe0a5c96c4cf62f0c14864fc87ecf38f2c1686d4dbc258d4f2b80e5da5fbc27f1",
+        "bytes": 138623
+      },
+      "model": null
+    },
+    {
+      "id": "273",
+      "traits": {
+        "sign": "09",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "patch",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-273.png",
+        "sha256": "0xe8df4a296b5575cad5b55f95d2ddd93b62722f2ccd1451867cedb59d948c00c0",
+        "bytes": 187870
+      },
+      "model": null
+    },
+    {
+      "id": "274",
+      "traits": {
+        "sign": "10",
+        "housing": "plain",
+        "route": "switchback",
+        "repair": "patch",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-274.png",
+        "sha256": "0x34e9712285a66ecd8f638fd0199d1a84a690d7f508c23f9696abeea360b357a1",
+        "bytes": 151053
+      },
+      "model": null
+    },
+    {
+      "id": "275",
+      "traits": {
+        "sign": "11",
+        "housing": "fins",
+        "route": "fork",
+        "repair": "clean",
+        "equipment": "lamp",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-275.png",
+        "sha256": "0x149cda2139d663e7df7725fe6ada00efe89d297cf042c7c9f5805fc42ded5771",
+        "bytes": 263091
+      },
+      "model": null
+    },
+    {
+      "id": "276",
+      "traits": {
+        "sign": "12",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "staples",
+        "equipment": "lamp",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-276.png",
+        "sha256": "0x11bb1d727b1091036367b179248c2a943b0d7d456a4f80bff24cfb5dbc0093c5",
+        "bytes": 169356
+      },
+      "model": null
+    },
+    {
+      "id": "277",
+      "traits": {
+        "sign": "01",
+        "housing": "guards",
+        "route": "switchback",
+        "repair": "patch",
+        "equipment": "lamp",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-277.png",
+        "sha256": "0x59811fb34aa0e1df1742681b7a59f5c728b4cad44d5743a439e47d33546a3752",
+        "bytes": 192790
+      },
+      "model": null
+    },
+    {
+      "id": "278",
+      "traits": {
+        "sign": "02",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "tray",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-278.png",
+        "sha256": "0x556c5243d187a6d0b6754541616375a5a1871c8b806daae3162bbbb794d52794",
+        "bytes": 250296
+      },
+      "model": null
+    },
+    {
+      "id": "279",
+      "traits": {
+        "sign": "03",
+        "housing": "plain",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-279.png",
+        "sha256": "0xbacebe8213d587d19b95e4640df49cad1d32d3d336c8a7729b5aa0d6c19e189b",
+        "bytes": 120063
+      },
+      "model": null
+    },
+    {
+      "id": "280",
+      "traits": {
+        "sign": "04",
+        "housing": "visor",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-280.png",
+        "sha256": "0xe76318877b1c875778e608fdf5ef182ef8bbe3e399f3bd76565ebc88682ffa92",
+        "bytes": 237860
+      },
+      "model": null
+    },
+    {
+      "id": "281",
+      "traits": {
+        "sign": "05",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "case",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-281.png",
+        "sha256": "0xee3ec11afffb556718cb6a504a4ae3918c94607d1cefe1cba1966e1128618e64",
+        "bytes": 179414
+      },
+      "model": null
+    },
+    {
+      "id": "282",
+      "traits": {
+        "sign": "06",
+        "housing": "plain",
+        "route": "switchback",
+        "repair": "staples",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-282.png",
+        "sha256": "0x89de3351d4bf8e93cff2c8776a8b81c0549335dfa58b2238e97afcc5e55c36ba",
+        "bytes": 128481
+      },
+      "model": null
+    },
+    {
+      "id": "283",
+      "traits": {
+        "sign": "07",
+        "housing": "plain",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-283.png",
+        "sha256": "0x0eb8a5bcab2bfd4631155a8749dcc40700109455ced5233b96b6e67add0cf695",
+        "bytes": 173374
+      },
+      "model": null
+    },
+    {
+      "id": "284",
+      "traits": {
+        "sign": "08",
+        "housing": "plain",
+        "route": "switchback",
+        "repair": "tape",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-284.png",
+        "sha256": "0xbb4fa548817cb9629691603bee649227573d1240ec109b8034343223d81e10b9",
+        "bytes": 141607
+      },
+      "model": null
+    },
+    {
+      "id": "285",
+      "traits": {
+        "sign": "09",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-285.png",
+        "sha256": "0x9b4f1a64e1d2a544d81103cb25de67f3378b35ffdbefd0ea19b78b36686893a5",
+        "bytes": 185647
+      },
+      "model": null
+    },
+    {
+      "id": "286",
+      "traits": {
+        "sign": "10",
+        "housing": "visor",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-286.png",
+        "sha256": "0x07fe06aad6efc9aee27db3c50debdfe72e7093a7beb29350933a8d8445b182a4",
+        "bytes": 149102
+      },
+      "model": null
+    },
+    {
+      "id": "287",
+      "traits": {
+        "sign": "11",
+        "housing": "guards",
+        "route": "switchback",
+        "repair": "clean",
+        "equipment": "case",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-287.png",
+        "sha256": "0x1ca5b4a5ed939c51c6eb58891f0d55c145f3069173546298dde2e82eb800d4ea",
+        "bytes": 263900
+      },
+      "model": null
+    },
+    {
+      "id": "288",
+      "traits": {
+        "sign": "12",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-288.png",
+        "sha256": "0x5d3bb1e729dff8a666aee37b7a91f42e97871e635642002287d551913a65f635",
+        "bytes": 172270
+      },
+      "model": null
+    },
+    {
+      "id": "289",
+      "traits": {
+        "sign": "01",
+        "housing": "fins",
+        "route": "coil",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-289.png",
+        "sha256": "0x8ee15bf135f40fed2b370cfb3824e199a7f06b8a2944c83d87959c9b7791a6c9",
+        "bytes": 195247
+      },
+      "model": null
+    },
+    {
+      "id": "290",
+      "traits": {
+        "sign": "02",
+        "housing": "fins",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-290.png",
+        "sha256": "0x971eca042cc02ca77135996fdad351673cb2ae74fa999c89f130cd7dac32996a",
+        "bytes": 252025
+      },
+      "model": null
+    },
+    {
+      "id": "291",
+      "traits": {
+        "sign": "03",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-291.png",
+        "sha256": "0x5bc878c23b0b6a98fa47722a7cdc2b9fa74990dd89d9dd508b291ea488e7a4d2",
+        "bytes": 120911
+      },
+      "model": null
+    },
+    {
+      "id": "292",
+      "traits": {
+        "sign": "04",
+        "housing": "guards",
+        "route": "dogleg",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-292.png",
+        "sha256": "0x0cff5e7e322bae2500794a8bed377a09e9aef4d46c6a14d0be3ed24719afae19",
+        "bytes": 238209
+      },
+      "model": null
+    },
+    {
+      "id": "293",
+      "traits": {
+        "sign": "05",
+        "housing": "guards",
+        "route": "switchback",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-293.png",
+        "sha256": "0x01512bdb4f5df16b5ae91841586585fad14bfc6936404ccd6e0278cdd9164795",
+        "bytes": 179486
+      },
+      "model": null
+    },
+    {
+      "id": "294",
+      "traits": {
+        "sign": "06",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "tray",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-294.png",
+        "sha256": "0x1d351768530e2aa53bf1bc1245b9f141daae17489f3c35cfbf3f281f1012bd76",
+        "bytes": 126632
+      },
+      "model": null
+    },
+    {
+      "id": "295",
+      "traits": {
+        "sign": "07",
+        "housing": "guards",
+        "route": "dogleg",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-295.png",
+        "sha256": "0x1629ed265a4458dbe03f9f088bc099b4689f50528965286d8ddf51eb3204dcd3",
+        "bytes": 175658
+      },
+      "model": null
+    },
+    {
+      "id": "296",
+      "traits": {
+        "sign": "08",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-296.png",
+        "sha256": "0xdcc14b5732f25c67ae4d28d51b603ad0f449d995e9f1d825a159e847ef1e61e9",
+        "bytes": 138950
+      },
+      "model": null
+    },
+    {
+      "id": "297",
+      "traits": {
+        "sign": "09",
+        "housing": "visor",
+        "route": "switchback",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-297.png",
+        "sha256": "0x79d8425e7d0afc36546316ad4bf4d9d8fc687d158e1de3071a92a6ef26c6d1c2",
+        "bytes": 188464
+      },
+      "model": null
+    },
+    {
+      "id": "298",
+      "traits": {
+        "sign": "10",
+        "housing": "visor",
+        "route": "switchback",
+        "repair": "staples",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-298.png",
+        "sha256": "0x8b54c07f74a94c13fca84713b4df8c2d04eddfca118709ec43822f7e7a8ad941",
+        "bytes": 146821
+      },
+      "model": null
+    },
+    {
+      "id": "299",
+      "traits": {
+        "sign": "11",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-299.png",
+        "sha256": "0x7f272ecc8a511bb0bbd36b8af08d2ebe4fbe6815bacb3272a1a91e9bc2ecd017",
+        "bytes": 264184
+      },
+      "model": null
+    },
+    {
+      "id": "300",
+      "traits": {
+        "sign": "12",
+        "housing": "guards",
+        "route": "switchback",
+        "repair": "staples",
+        "equipment": "lamp",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-300.png",
+        "sha256": "0x75f169f15bab8514cb791e524bd345ff6010c77e5df4791478b368f20dc80976",
+        "bytes": 168344
+      },
+      "model": null
+    },
+    {
+      "id": "301",
+      "traits": {
+        "sign": "01",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "tape",
+        "equipment": "tray",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-301.png",
+        "sha256": "0x13880f6b1b057868308c6602b48df10ccdf3f7ead34d06cbe3b4422baf5ad87b",
+        "bytes": 191127
+      },
+      "model": null
+    },
+    {
+      "id": "302",
+      "traits": {
+        "sign": "02",
+        "housing": "guards",
+        "route": "switchback",
+        "repair": "staples",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-302.png",
+        "sha256": "0xf808cfd3c4b6294b5c5f1758bcbc2018b5e9e3932fb7702e989e424653bdd6f4",
+        "bytes": 251161
+      },
+      "model": null
+    },
+    {
+      "id": "303",
+      "traits": {
+        "sign": "03",
+        "housing": "guards",
+        "route": "dogleg",
+        "repair": "tape",
+        "equipment": "reel",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-303.png",
+        "sha256": "0x5923a7f4719a9fae62a94c1b3731cb1d548dd10e08d83db6fdaa933800557606",
+        "bytes": 125692
+      },
+      "model": null
+    },
+    {
+      "id": "304",
+      "traits": {
+        "sign": "04",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-304.png",
+        "sha256": "0x1682c7808e5ce21ec140ee2aaa5f85585725ef408908b9de2a54c717e71beaa9",
+        "bytes": 243131
+      },
+      "model": null
+    },
+    {
+      "id": "305",
+      "traits": {
+        "sign": "05",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "staples",
+        "equipment": "tray",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-305.png",
+        "sha256": "0xd6a64b1575343a67e75d39304123946cdfd6cd0f5fdfc9de18b142406050839f",
+        "bytes": 179995
+      },
+      "model": null
+    },
+    {
+      "id": "306",
+      "traits": {
+        "sign": "06",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "staples",
+        "equipment": "lamp",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-306.png",
+        "sha256": "0x0849712d3ba4f477fee9eda8c857aa4ecc16377334a1d9c0e9dce6db50c07b18",
+        "bytes": 127817
+      },
+      "model": null
+    },
+    {
+      "id": "307",
+      "traits": {
+        "sign": "07",
+        "housing": "fins",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-307.png",
+        "sha256": "0x49fdb269ca9a012942377e2b97b670be499a4b560f07ae52bcdc2011f3a466ee",
+        "bytes": 173742
+      },
+      "model": null
+    },
+    {
+      "id": "308",
+      "traits": {
+        "sign": "08",
+        "housing": "visor",
+        "route": "fork",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-308.png",
+        "sha256": "0xc19a8326e089aa0f854b6882c2294168031392d8b85ad3c6d96d106314a7dcf0",
+        "bytes": 137112
+      },
+      "model": null
+    },
+    {
+      "id": "309",
+      "traits": {
+        "sign": "09",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-309.png",
+        "sha256": "0xebb337b1b85acdfe8ea8b45085fbdee2145f02c087d9acdf5730e2293ba95cd0",
+        "bytes": 187033
+      },
+      "model": null
+    },
+    {
+      "id": "310",
+      "traits": {
+        "sign": "10",
+        "housing": "visor",
+        "route": "fork",
+        "repair": "tape",
+        "equipment": "tray",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-310.png",
+        "sha256": "0xae693efab227e91a1bee38e4b6772c4801a290c8efb41af576037081c9b2e7f4",
+        "bytes": 147097
+      },
+      "model": null
+    },
+    {
+      "id": "311",
+      "traits": {
+        "sign": "11",
+        "housing": "guards",
+        "route": "switchback",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-311.png",
+        "sha256": "0x9a2c14dc13f6fec5f521739631f3d116c59e98d242ca5b8b070b9a251453337b",
+        "bytes": 266662
+      },
+      "model": null
+    },
+    {
+      "id": "312",
+      "traits": {
+        "sign": "12",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-312.png",
+        "sha256": "0xbfee8fcb936bc9f24f5bf24ef065bdc6b7ccb590e8c4c33df22d7c435616078d",
+        "bytes": 168633
+      },
+      "model": null
+    },
+    {
+      "id": "313",
+      "traits": {
+        "sign": "01",
+        "housing": "visor",
+        "route": "dogleg",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-313.png",
+        "sha256": "0x6ea3209745565f21359f1492b8a1824c86df8cc158025b5c359333c118202a85",
+        "bytes": 189501
+      },
+      "model": null
+    },
+    {
+      "id": "314",
+      "traits": {
+        "sign": "02",
+        "housing": "plain",
+        "route": "switchback",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-314.png",
+        "sha256": "0x85e967790349e9dff1e353e5d79a7ae4941f3613cde95871a2d5def55f111a99",
+        "bytes": 254740
+      },
+      "model": null
+    },
+    {
+      "id": "315",
+      "traits": {
+        "sign": "03",
+        "housing": "guards",
+        "route": "switchback",
+        "repair": "clean",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-315.png",
+        "sha256": "0x7269d1d5f90dd7f238c264dcf5ab979e11198400845cc91b4f4d9340e2a10133",
+        "bytes": 119510
+      },
+      "model": null
+    },
+    {
+      "id": "316",
+      "traits": {
+        "sign": "04",
+        "housing": "plain",
+        "route": "dogleg",
+        "repair": "clean",
+        "equipment": "lamp",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-316.png",
+        "sha256": "0x1285b2defd572fd14295b51c9dac03d2447f350c1d72b97cad5e63db678744d1",
+        "bytes": 238445
+      },
+      "model": null
+    },
+    {
+      "id": "317",
+      "traits": {
+        "sign": "05",
+        "housing": "guards",
+        "route": "switchback",
+        "repair": "clean",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-317.png",
+        "sha256": "0x1db31cece869381bbccdf4a245ca0a0fd5dbaafdfbe18c94b9adce3bcfde4016",
+        "bytes": 179914
+      },
+      "model": null
+    },
+    {
+      "id": "318",
+      "traits": {
+        "sign": "06",
+        "housing": "fins",
+        "route": "fork",
+        "repair": "tape",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-318.png",
+        "sha256": "0xf2315b7b5c369bba9a736f4c4049ac41f34efda32fe2180409a6a06790880f2d",
+        "bytes": 127825
+      },
+      "model": null
+    },
+    {
+      "id": "319",
+      "traits": {
+        "sign": "07",
+        "housing": "visor",
+        "route": "switchback",
+        "repair": "clean",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-319.png",
+        "sha256": "0x99fef539c020445436e78149cba3d1d089e054e7e68e017725e705300a80d8f5",
+        "bytes": 171118
+      },
+      "model": null
+    },
+    {
+      "id": "320",
+      "traits": {
+        "sign": "08",
+        "housing": "plain",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-320.png",
+        "sha256": "0xa17ea7da6ec8b2916d285786495303fe770d5d1fec37c1f6f3a45fd697719de9",
+        "bytes": 138358
+      },
+      "model": null
+    },
+    {
+      "id": "321",
+      "traits": {
+        "sign": "09",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-321.png",
+        "sha256": "0xb4e8880e809e973d6ac39fad3db85a31e75bb13f0961740b631ae2242006cb85",
+        "bytes": 188035
+      },
+      "model": null
+    },
+    {
+      "id": "322",
+      "traits": {
+        "sign": "10",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "patch",
+        "equipment": "reel",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-322.png",
+        "sha256": "0x5436588118b84f052f25161d16717546d1e03cce503cf58a712ea68b30e6fe78",
+        "bytes": 150986
+      },
+      "model": null
+    },
+    {
+      "id": "323",
+      "traits": {
+        "sign": "11",
+        "housing": "plain",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-323.png",
+        "sha256": "0xdc073f511157bf39894bb75167723dc253c3211ddb5717bad7a26ce8e0d8a41a",
+        "bytes": 262798
+      },
+      "model": null
+    },
+    {
+      "id": "324",
+      "traits": {
+        "sign": "12",
+        "housing": "guards",
+        "route": "switchback",
+        "repair": "tape",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-324.png",
+        "sha256": "0xbd89a5780b3c9f94dfb7cc5b4c8d673d1da8cc5affd7b6782577c626bdc8b554",
+        "bytes": 171860
+      },
+      "model": null
+    },
+    {
+      "id": "325",
+      "traits": {
+        "sign": "01",
+        "housing": "plain",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-325.png",
+        "sha256": "0x3df940b041e91afb29f152348b37929acee0519ad2b22efe90d8d7a7cb42d68a",
+        "bytes": 195300
+      },
+      "model": null
+    },
+    {
+      "id": "326",
+      "traits": {
+        "sign": "02",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-326.png",
+        "sha256": "0x47b46ed0e9237f1ff9554f57f6bf8f88d257fe499adb4169042ed9fc9e0a1012",
+        "bytes": 254827
+      },
+      "model": null
+    },
+    {
+      "id": "327",
+      "traits": {
+        "sign": "03",
+        "housing": "visor",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "lamp",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-327.png",
+        "sha256": "0x880001ca48efb2e57d8e3ddf16b6504eab863840c9dec5bc802380bcef225309",
+        "bytes": 117546
+      },
+      "model": null
+    },
+    {
+      "id": "328",
+      "traits": {
+        "sign": "04",
+        "housing": "visor",
+        "route": "fork",
+        "repair": "patch",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-328.png",
+        "sha256": "0xa46e8cf18cd5e8fd33fdb664a39876b148a805fe5cf87704d05e87de0971c909",
+        "bytes": 241195
+      },
+      "model": null
+    },
+    {
+      "id": "329",
+      "traits": {
+        "sign": "05",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-329.png",
+        "sha256": "0x57a29d61e0339f5e2b6593db0de17b2c09caddaad2a4d857013da6e460c7723b",
+        "bytes": 184642
+      },
+      "model": null
+    },
+    {
+      "id": "330",
+      "traits": {
+        "sign": "06",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "reel",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-330.png",
+        "sha256": "0x13c232820339e9d5eab84cef602a7f8894de1c4fbfe84d4ab4a55ac7d6ddab18",
+        "bytes": 132022
+      },
+      "model": null
+    },
+    {
+      "id": "331",
+      "traits": {
+        "sign": "07",
+        "housing": "plain",
+        "route": "dogleg",
+        "repair": "tape",
+        "equipment": "reel",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-331.png",
+        "sha256": "0x85c009e6554fa97c46c449406c7be9bb4a5e527ea2aac253c1f4e010548aa6a3",
+        "bytes": 177053
+      },
+      "model": null
+    },
+    {
+      "id": "332",
+      "traits": {
+        "sign": "08",
+        "housing": "plain",
+        "route": "coil",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-332.png",
+        "sha256": "0xf289237c8d0489d348715c9ca5b9d4113fb5697d85578e36d6344dc26aac4e69",
+        "bytes": 141622
+      },
+      "model": null
+    },
+    {
+      "id": "333",
+      "traits": {
+        "sign": "09",
+        "housing": "visor",
+        "route": "dogleg",
+        "repair": "clean",
+        "equipment": "lamp",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-333.png",
+        "sha256": "0x034143d1c787b94dfd9d6d7a9dc53cf4aed5661bbc88efc22a01d3f491480c1b",
+        "bytes": 185266
+      },
+      "model": null
+    },
+    {
+      "id": "334",
+      "traits": {
+        "sign": "10",
+        "housing": "fins",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-334.png",
+        "sha256": "0x7d025e33e85375ef0a94aa6771b37027027df5d3ab67a891da818e96eac2f5f1",
+        "bytes": 150980
+      },
+      "model": null
+    },
+    {
+      "id": "335",
+      "traits": {
+        "sign": "11",
+        "housing": "fins",
+        "route": "fork",
+        "repair": "clean",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-335.png",
+        "sha256": "0xef1479f927111c8fe70daeb573faa5fec7dbec87d9b63a46c139083c31d0bd41",
+        "bytes": 265077
+      },
+      "model": null
+    },
+    {
+      "id": "336",
+      "traits": {
+        "sign": "12",
+        "housing": "guards",
+        "route": "dogleg",
+        "repair": "staples",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-336.png",
+        "sha256": "0x1720284e57fc311b889570bffd1a8a345c8abe8f9bb5e70148dc3dcad749fd8d",
+        "bytes": 168851
+      },
+      "model": null
+    },
+    {
+      "id": "337",
+      "traits": {
+        "sign": "01",
+        "housing": "fins",
+        "route": "coil",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-337.png",
+        "sha256": "0x9700f9a7f4e8981e4d75644a87828b18400a5ed530b3839ce6a9ae0918057672",
+        "bytes": 192501
+      },
+      "model": null
+    },
+    {
+      "id": "338",
+      "traits": {
+        "sign": "02",
+        "housing": "visor",
+        "route": "dogleg",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-338.png",
+        "sha256": "0xe5c3831f6d1f3cc3dd4eb1bd8eb3f49ab81897aa873fefef7cb7e66c5cb0cc9d",
+        "bytes": 252942
+      },
+      "model": null
+    },
+    {
+      "id": "339",
+      "traits": {
+        "sign": "03",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "case",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-339.png",
+        "sha256": "0x7288c990f8c766afc696dd56e2109348879042ca33cb16c6b8982e40ba005600",
+        "bytes": 120555
+      },
+      "model": null
+    },
+    {
+      "id": "340",
+      "traits": {
+        "sign": "04",
+        "housing": "fins",
+        "route": "fork",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-340.png",
+        "sha256": "0xf7e69a3f4d8a3694879d9b80fe84ef5ac7ae8261e392443ec7b4f189b4e408ba",
+        "bytes": 243068
+      },
+      "model": null
+    },
+    {
+      "id": "341",
+      "traits": {
+        "sign": "05",
+        "housing": "fins",
+        "route": "coil",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-341.png",
+        "sha256": "0xf735cb9aacf8732ad0a541eef01cf1f6dec153e737eec3b770b1a86f26ee25ee",
+        "bytes": 179707
+      },
+      "model": null
+    },
+    {
+      "id": "342",
+      "traits": {
+        "sign": "06",
+        "housing": "guards",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "reel",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-342.png",
+        "sha256": "0xe8e1eaf6c9e85de8ff4a01a86ffd16a5aff4bd4b96f7ca50c9dd3452ecc06723",
+        "bytes": 132587
+      },
+      "model": null
+    },
+    {
+      "id": "343",
+      "traits": {
+        "sign": "07",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-343.png",
+        "sha256": "0xaedcde7bcd7f6d49206f485aee2eaee7793315ce1f02c06b8469d8726ba0b3e2",
+        "bytes": 173727
+      },
+      "model": null
+    },
+    {
+      "id": "344",
+      "traits": {
+        "sign": "08",
+        "housing": "visor",
+        "route": "switchback",
+        "repair": "staples",
+        "equipment": "tray",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-344.png",
+        "sha256": "0x5b1c58065c608812a1bbd31d9ac79e9ed65fbe8e3970d2b05bedf387acf693b5",
+        "bytes": 137304
+      },
+      "model": null
+    },
+    {
+      "id": "345",
+      "traits": {
+        "sign": "09",
+        "housing": "plain",
+        "route": "coil",
+        "repair": "patch",
+        "equipment": "lamp",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-345.png",
+        "sha256": "0x55a7758618121ecaebc5498d69fb58ff031e00686f2bc67f5dba8a2153449b4d",
+        "bytes": 190272
+      },
+      "model": null
+    },
+    {
+      "id": "346",
+      "traits": {
+        "sign": "10",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-346.png",
+        "sha256": "0x77b53d48771a5d8dce9bddd479599ab27d0745874024370b73804d64fa7dac8f",
+        "bytes": 149319
+      },
+      "model": null
+    },
+    {
+      "id": "347",
+      "traits": {
+        "sign": "11",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "staples",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-347.png",
+        "sha256": "0x5f6bca12352f43cb42074d5ee6f4df22fb4141fdfcc9711bf3d99e37845ef76d",
+        "bytes": 263215
+      },
+      "model": null
+    },
+    {
+      "id": "348",
+      "traits": {
+        "sign": "12",
+        "housing": "fins",
+        "route": "fork",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-348.png",
+        "sha256": "0xcb92b632aa77eaf35aef85d4fb1cba61e6db0307d52eea1dfc790a3374d41bef",
+        "bytes": 168865
+      },
+      "model": null
+    },
+    {
+      "id": "349",
+      "traits": {
+        "sign": "01",
+        "housing": "fins",
+        "route": "fork",
+        "repair": "tape",
+        "equipment": "reel",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-349.png",
+        "sha256": "0x6784abb00f3e890127b1e82b1d1b0529f63f9b09288799e9488603bf9face68b",
+        "bytes": 195480
+      },
+      "model": null
+    },
+    {
+      "id": "350",
+      "traits": {
+        "sign": "02",
+        "housing": "visor",
+        "route": "dogleg",
+        "repair": "staples",
+        "equipment": "tray",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-350.png",
+        "sha256": "0xcde7d534ef2109d78354ef6f909a4304ca4f3cc17afd3a282d3cb54e17de5008",
+        "bytes": 250024
+      },
+      "model": null
+    },
+    {
+      "id": "351",
+      "traits": {
+        "sign": "03",
+        "housing": "plain",
+        "route": "switchback",
+        "repair": "staples",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-351.png",
+        "sha256": "0x250d709854a153602e2995ee9d098a55d90c608a3742668b086fa2b2dc0709bd",
+        "bytes": 120706
+      },
+      "model": null
+    },
+    {
+      "id": "352",
+      "traits": {
+        "sign": "04",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-352.png",
+        "sha256": "0xf4e299064a6b0489b0e3583b537de1ef5e8f69058bf9daa17a1fd2af1ff3b06e",
+        "bytes": 238915
+      },
+      "model": null
+    },
+    {
+      "id": "353",
+      "traits": {
+        "sign": "05",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-353.png",
+        "sha256": "0x03b0eb9aed904af62772683b0a433298605f91291633b71f2bd57b3e5a3d180b",
+        "bytes": 180147
+      },
+      "model": null
+    },
+    {
+      "id": "354",
+      "traits": {
+        "sign": "06",
+        "housing": "visor",
+        "route": "dogleg",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-354.png",
+        "sha256": "0xa72f3d7636cff900046becf621713e6d9ab9a087fc24adeea281a5443814e243",
+        "bytes": 126177
+      },
+      "model": null
+    },
+    {
+      "id": "355",
+      "traits": {
+        "sign": "07",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "tape",
+        "equipment": "reel",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-355.png",
+        "sha256": "0x1d66d24edd8b8751c6607a68fb1be2edb1a7803f6b76e2d10861c64e3f1c53c1",
+        "bytes": 175510
+      },
+      "model": null
+    },
+    {
+      "id": "356",
+      "traits": {
+        "sign": "08",
+        "housing": "visor",
+        "route": "switchback",
+        "repair": "patch",
+        "equipment": "lamp",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-356.png",
+        "sha256": "0x022743e8ecec74879616e89a670d3ff931d0025ecdf437be0a9b336cd4e67ed7",
+        "bytes": 137372
+      },
+      "model": null
+    },
+    {
+      "id": "357",
+      "traits": {
+        "sign": "09",
+        "housing": "plain",
+        "route": "dogleg",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-357.png",
+        "sha256": "0x7d6e03c30b8b18a2ab470c4e10c083b7d260c3e526b77cea1c4c01a599d94f5f",
+        "bytes": 190689
+      },
+      "model": null
+    },
+    {
+      "id": "358",
+      "traits": {
+        "sign": "10",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "tape",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-358.png",
+        "sha256": "0xd4dbfc1f788f5e80cd63c2f0431c86849473856e4431ee0a48e101787066b567",
+        "bytes": 151188
+      },
+      "model": null
+    },
+    {
+      "id": "359",
+      "traits": {
+        "sign": "11",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "case",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-359.png",
+        "sha256": "0x6f4fb56568c3fbcda82bd0d29fa49244caf65583be70f1a8e3a1bd75f7fc7b26",
+        "bytes": 264432
+      },
+      "model": null
+    },
+    {
+      "id": "360",
+      "traits": {
+        "sign": "12",
+        "housing": "plain",
+        "route": "switchback",
+        "repair": "patch",
+        "equipment": "lamp",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-360.png",
+        "sha256": "0x17a755c66b3d1451e0e45c7dfd7247d0227439b2658a4d90d91322914026adef",
+        "bytes": 169143
+      },
+      "model": null
+    },
+    {
+      "id": "361",
+      "traits": {
+        "sign": "01",
+        "housing": "visor",
+        "route": "fork",
+        "repair": "tape",
+        "equipment": "tray",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-361.png",
+        "sha256": "0x27c362647463e88f95fb1b17bc1ef5359f83110c04cfa6e006bf046cfb6cdd25",
+        "bytes": 190080
+      },
+      "model": null
+    },
+    {
+      "id": "362",
+      "traits": {
+        "sign": "02",
+        "housing": "fins",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-362.png",
+        "sha256": "0x412f92a1f40d2eddad136362909d02c91215f96a72690e8ea6f8a45e3ba894d2",
+        "bytes": 252669
+      },
+      "model": null
+    },
+    {
+      "id": "363",
+      "traits": {
+        "sign": "03",
+        "housing": "fins",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "case",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-363.png",
+        "sha256": "0xbcac3ea9ecf9d7468e65d068aee116be46e82d3cbeb3ef9147f700d0bf9d29aa",
+        "bytes": 120454
+      },
+      "model": null
+    },
+    {
+      "id": "364",
+      "traits": {
+        "sign": "04",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "staples",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-364.png",
+        "sha256": "0x37db0f29c12c2f6244ce493019914828cd815af6f4a456f01569009d4aa18548",
+        "bytes": 238325
+      },
+      "model": null
+    },
+    {
+      "id": "365",
+      "traits": {
+        "sign": "05",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "case",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-365.png",
+        "sha256": "0x276821f673b2cf35fbec990da7ba3998757e9c59a72045bb3beb0a3e9de49c07",
+        "bytes": 177965
+      },
+      "model": null
+    },
+    {
+      "id": "366",
+      "traits": {
+        "sign": "06",
+        "housing": "visor",
+        "route": "dogleg",
+        "repair": "clean",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-366.png",
+        "sha256": "0x0fdb033b13e25e8b8ebfcd12005032f18a4881b1de33b5dc08a21d167601130f",
+        "bytes": 127595
+      },
+      "model": null
+    },
+    {
+      "id": "367",
+      "traits": {
+        "sign": "07",
+        "housing": "visor",
+        "route": "switchback",
+        "repair": "clean",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-367.png",
+        "sha256": "0x26d72bac1e4f37c01beef100667bf2c69a62c3fc5c1757919663f6f60e45cfd1",
+        "bytes": 172045
+      },
+      "model": null
+    },
+    {
+      "id": "368",
+      "traits": {
+        "sign": "08",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-368.png",
+        "sha256": "0x4ba4f1f882443d03c352a6bff034d297c36d5b81a65bb205127fd158a3198676",
+        "bytes": 139446
+      },
+      "model": null
+    },
+    {
+      "id": "369",
+      "traits": {
+        "sign": "09",
+        "housing": "plain",
+        "route": "switchback",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-369.png",
+        "sha256": "0xa6f4b13cde30ef1bc774a103fb76b546fce616018c0e1051242a591ccd64476c",
+        "bytes": 187764
+      },
+      "model": null
+    },
+    {
+      "id": "370",
+      "traits": {
+        "sign": "10",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "staples",
+        "equipment": "lamp",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-370.png",
+        "sha256": "0x212000be62d1da30768d6a3fb37a323873376397500b3ada6b854127f1f19c82",
+        "bytes": 150983
+      },
+      "model": null
+    },
+    {
+      "id": "371",
+      "traits": {
+        "sign": "11",
+        "housing": "visor",
+        "route": "switchback",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-371.png",
+        "sha256": "0x3030bc73e18a6ddd9d0e9756d24e78577bc7fa11193020b62f903ee2fe82c32a",
+        "bytes": 263169
+      },
+      "model": null
+    },
+    {
+      "id": "372",
+      "traits": {
+        "sign": "12",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-372.png",
+        "sha256": "0xd312d916e293e14c7966135bfe14168f51ba9a4850dfc90fe453de818dc3d587",
+        "bytes": 166906
+      },
+      "model": null
+    },
+    {
+      "id": "373",
+      "traits": {
+        "sign": "01",
+        "housing": "plain",
+        "route": "fork",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-373.png",
+        "sha256": "0x629b2dc07c813a6c79c974556de5cc765b7ce804c084989779c4a1056af391a5",
+        "bytes": 192457
+      },
+      "model": null
+    },
+    {
+      "id": "374",
+      "traits": {
+        "sign": "02",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-374.png",
+        "sha256": "0x75f8054225256697f49f59dfa3e7d1b1f69553140c33560b4d2c2439a9c2f02b",
+        "bytes": 251031
+      },
+      "model": null
+    },
+    {
+      "id": "375",
+      "traits": {
+        "sign": "03",
+        "housing": "visor",
+        "route": "fork",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-375.png",
+        "sha256": "0x3e2df046cce9125fee86f8cea6de51fde5507076575389428aa667f0c94b1b60",
+        "bytes": 118173
+      },
+      "model": null
+    },
+    {
+      "id": "376",
+      "traits": {
+        "sign": "04",
+        "housing": "plain",
+        "route": "dogleg",
+        "repair": "clean",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-376.png",
+        "sha256": "0x534d4a0810a820c2ecac91f1f07ab0df55c01e7c736ca37a6244220046181977",
+        "bytes": 237952
+      },
+      "model": null
+    },
+    {
+      "id": "377",
+      "traits": {
+        "sign": "05",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-377.png",
+        "sha256": "0x458ca59394e9fa22282ebd0fcbfead2352234741aebf41bca8015ac8be9924cd",
+        "bytes": 181840
+      },
+      "model": null
+    },
+    {
+      "id": "378",
+      "traits": {
+        "sign": "06",
+        "housing": "guards",
+        "route": "switchback",
+        "repair": "tape",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-378.png",
+        "sha256": "0x14e85715adb4815772c658be0baae942395b8d29d244c35e30aa87baa10bbfdc",
+        "bytes": 127972
+      },
+      "model": null
+    },
+    {
+      "id": "379",
+      "traits": {
+        "sign": "07",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "staples",
+        "equipment": "tray",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-379.png",
+        "sha256": "0x407b987d5ecf0ff707a458b6f34a2de3c23e8ea384ab83609e5a71b57f3d6520",
+        "bytes": 173202
+      },
+      "model": null
+    },
+    {
+      "id": "380",
+      "traits": {
+        "sign": "08",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "clean",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-380.png",
+        "sha256": "0xdf47e3f9f7e7494ba415594a661fbe6313ca88841856c25e30484f95eaf603dd",
+        "bytes": 138557
+      },
+      "model": null
+    },
+    {
+      "id": "381",
+      "traits": {
+        "sign": "09",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "staples",
+        "equipment": "case",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-381.png",
+        "sha256": "0x980e0715f7d1d0c0e7a920fd8268367945a3afb7a009ff36f93ca98a1b18cb88",
+        "bytes": 189458
+      },
+      "model": null
+    },
+    {
+      "id": "382",
+      "traits": {
+        "sign": "10",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-382.png",
+        "sha256": "0x8aecb5bcbd18c5521e7a87a7b0c297c7a2057e9bf569e506862fcf71cf5be26f",
+        "bytes": 150830
+      },
+      "model": null
+    },
+    {
+      "id": "383",
+      "traits": {
+        "sign": "11",
+        "housing": "plain",
+        "route": "coil",
+        "repair": "tape",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-383.png",
+        "sha256": "0xe077fce65a043f7febf98957e3a636d6f4695b7e958e7aa234150906bda890a8",
+        "bytes": 264539
+      },
+      "model": null
+    },
+    {
+      "id": "384",
+      "traits": {
+        "sign": "12",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "patch",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-384.png",
+        "sha256": "0x09b7db5c6662e3e1619484f0eaa71967293a6702e0ab467fb930a15eb64593c9",
+        "bytes": 169169
+      },
+      "model": null
+    },
+    {
+      "id": "385",
+      "traits": {
+        "sign": "01",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "staples",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-385.png",
+        "sha256": "0x20fa90e7f7ef73ab12662d753a98a8f289e5d9ca2fa4b219436c906682402be7",
+        "bytes": 190520
+      },
+      "model": null
+    },
+    {
+      "id": "386",
+      "traits": {
+        "sign": "02",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "patch",
+        "equipment": "tray",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-386.png",
+        "sha256": "0x5a75e2beb946fcd66439508274f72e0c6dffc4812ae13e1e7d527eee17350554",
+        "bytes": 249926
+      },
+      "model": null
+    },
+    {
+      "id": "387",
+      "traits": {
+        "sign": "03",
+        "housing": "visor",
+        "route": "switchback",
+        "repair": "patch",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-387.png",
+        "sha256": "0x225cc4a648ac00e3a94e3d7cac668c3726d234b862450b6655741abff16db83c",
+        "bytes": 117967
+      },
+      "model": null
+    },
+    {
+      "id": "388",
+      "traits": {
+        "sign": "04",
+        "housing": "guards",
+        "route": "switchback",
+        "repair": "staples",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-388.png",
+        "sha256": "0x4d4235c633a6c0b80ea4d2b86ee6d83c8d7bf3a400c3148c9740a9add38f2f16",
+        "bytes": 238372
+      },
+      "model": null
+    },
+    {
+      "id": "389",
+      "traits": {
+        "sign": "05",
+        "housing": "visor",
+        "route": "fork",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-389.png",
+        "sha256": "0xca519d503f056dbb206fa9ecedc5e93c45307d98127665b3b918b77390d6f8dc",
+        "bytes": 177964
+      },
+      "model": null
+    },
+    {
+      "id": "390",
+      "traits": {
+        "sign": "06",
+        "housing": "visor",
+        "route": "switchback",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-390.png",
+        "sha256": "0x4109ce533a922d1075a2b38a7a52bd053b2f63dfee12757895a4d9c9d743d088",
+        "bytes": 131951
+      },
+      "model": null
+    },
+    {
+      "id": "391",
+      "traits": {
+        "sign": "07",
+        "housing": "visor",
+        "route": "coil",
+        "repair": "staples",
+        "equipment": "case",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-391.png",
+        "sha256": "0x49e3bae21697f1dd456f7b6a20ff72510fd2982afd9a9629b9a1b255dfff01cf",
+        "bytes": 171378
+      },
+      "model": null
+    },
+    {
+      "id": "392",
+      "traits": {
+        "sign": "08",
+        "housing": "fins",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "lamp",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-392.png",
+        "sha256": "0x354c47c38a78b6f473cdf3a0d1f16b0e5dd053559ef84a34680280feb281b1ec",
+        "bytes": 138747
+      },
+      "model": null
+    },
+    {
+      "id": "393",
+      "traits": {
+        "sign": "09",
+        "housing": "visor",
+        "route": "dogleg",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-393.png",
+        "sha256": "0x532fe638688c54b8f049e0ebc3bff6db443be6dd4c188ae539878e4d72baa9c0",
+        "bytes": 189356
+      },
+      "model": null
+    },
+    {
+      "id": "394",
+      "traits": {
+        "sign": "10",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "patch",
+        "equipment": "case",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-394.png",
+        "sha256": "0x942c26982f4c477b417022ec03244f47e5afb1cc595bc0839ad3a4b8e56569ff",
+        "bytes": 150246
+      },
+      "model": null
+    },
+    {
+      "id": "395",
+      "traits": {
+        "sign": "11",
+        "housing": "visor",
+        "route": "dogleg",
+        "repair": "patch",
+        "equipment": "lamp",
+        "conduit": "right"
+      },
+      "picture": {
+        "path": "picture-395.png",
+        "sha256": "0x43d45bfb963e0d40473e21b7730860d207fbb16b32649fe513b49c2c86faa7e9",
+        "bytes": 262519
+      },
+      "model": null
+    },
+    {
+      "id": "396",
+      "traits": {
+        "sign": "12",
+        "housing": "fins",
+        "route": "switchback",
+        "repair": "staples",
+        "equipment": "case",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-396.png",
+        "sha256": "0x853c03cbed9b3be64b79d52e78c0b3a85416934294224726b5d2ea82ed4897bb",
+        "bytes": 168453
+      },
+      "model": null
+    },
+    {
+      "id": "397",
+      "traits": {
+        "sign": "01",
+        "housing": "guards",
+        "route": "fork",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-397.png",
+        "sha256": "0xafee4782ca1f44d44a04bc38cb84514e2e1981e1ce1bc2206f05f114d34dcefe",
+        "bytes": 191178
+      },
+      "model": null
+    },
+    {
+      "id": "398",
+      "traits": {
+        "sign": "02",
+        "housing": "guards",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "tray",
+        "conduit": "twin"
+      },
+      "picture": {
+        "path": "picture-398.png",
+        "sha256": "0xa4d6ee851039904621b63d1b1599e407073afebdd1c6f74f3733d56809294fc5",
+        "bytes": 252332
+      },
+      "model": null
+    },
+    {
+      "id": "399",
+      "traits": {
+        "sign": "03",
+        "housing": "plain",
+        "route": "coil",
+        "repair": "clean",
+        "equipment": "case",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-399.png",
+        "sha256": "0x8ba78bccefb8b166dae19e8e833e08dc96f59b3e05c72605493a7e801630a93c",
+        "bytes": 120432
+      },
+      "model": null
+    },
+    {
+      "id": "400",
+      "traits": {
+        "sign": "04",
+        "housing": "fins",
+        "route": "fork",
+        "repair": "tape",
+        "equipment": "lamp",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-400.png",
+        "sha256": "0xfd5b3f7a0c45a890f0b985f75595f9ddacf92c4a42d86a7470193d2b93fb2dfc",
+        "bytes": 239547
+      },
+      "model": null
+    },
+    {
+      "id": "401",
+      "traits": {
+        "sign": "05",
+        "housing": "fins",
+        "route": "dogleg",
+        "repair": "staples",
+        "equipment": "lamp",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-401.png",
+        "sha256": "0x8163e558db08147692e1cd1b5090ca37889d6eed02179d59b44e8f786e556242",
+        "bytes": 179586
+      },
+      "model": null
+    },
+    {
+      "id": "402",
+      "traits": {
+        "sign": "06",
+        "housing": "guards",
+        "route": "switchback",
+        "repair": "clean",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-402.png",
+        "sha256": "0x8eff0792ba91c741c61aaf55eaae384369e02196b6457f3e339a75dc3be16225",
+        "bytes": 132122
+      },
+      "model": null
+    },
+    {
+      "id": "403",
+      "traits": {
+        "sign": "07",
+        "housing": "plain",
+        "route": "dogleg",
+        "repair": "clean",
+        "equipment": "lamp",
+        "conduit": "loop"
+      },
+      "picture": {
+        "path": "picture-403.png",
+        "sha256": "0x614ce88fa471e0e5c6e31856c7436b84ccf551466aea8cac19b8c05c78f42eb6",
+        "bytes": 173267
+      },
+      "model": null
+    },
+    {
+      "id": "404",
+      "traits": {
+        "sign": "08",
+        "housing": "visor",
+        "route": "dogleg",
+        "repair": "staples",
+        "equipment": "reel",
+        "conduit": "left"
+      },
+      "picture": {
+        "path": "picture-404.png",
+        "sha256": "0x4e8c11abba4aea18c8621a0c2aa495632d96e4832fc2a31aa2a009623bb4b01b",
+        "bytes": 140089
+      },
+      "model": null
+    }
+  ]
+}

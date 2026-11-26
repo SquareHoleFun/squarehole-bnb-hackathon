@@ -1,0 +1,99 @@
+{
+  "chainId": 97,
+  "rpcUrl": "https://bsc-testnet-rpc.publicnode.com",
+  "rpcUrls": [
+    "https://bsc-testnet-rpc.publicnode.com",
+    "https://bsc-testnet-dataseed.bnbchain.org"
+  ],
+  "explorer": "https://testnet.bscscan.com",
+  "fromBlock": "144770777",
+  "flap": {
+    "portal": "0x000042108465206185A077Edc3F3fd2b49060000",
+    "tokenImpl": "0x7777c57ff7dc441c1715b2e36fa581c48B782222",
+    "pileVaultFactory": "0xdF5078057836CAd4e733C591645c3a221786E869",
+    "curveLauncherFactory": "0x151e43d81b3Ac5DBf566A1d01B5674cc2C4c7594",
+    "sales": [
+      {
+        "launcher": "0x4938E88Ecf39A4549a38B858a4D02D2326D91D8d",
+        "token": "0x7Eb53F6D508a9c24A3d0594DB3C41f04FcC37777"
+      }
+    ],
+    "tokenQuote": {
+      "quote": "0x190C989D5665a0e404B444b53CAE9AbCfb600157",
+      "label": "USDT (test)",
+      "launcherFactory": "0x51034cf27e4234820bCC7152583Ab8e8d95DbE77",
+      "pileVaultFactory": "0x148746f148a3Cea4A48BA7F94fa8F2b1C08BBB00",
+      "sales": [
+        {
+          "launcher": "0xEc913d94Cb34df026Ee724E7084275196fE83493",
+          "token": "0x115c374C655e503af579C9F426B8FA30d8d67777"
+        }
+      ]
+    },
+    "rules": {
+      "native": {
+        "launcherFactory": "0x45A2BCDc29E379585e3D424FbA0c8a290FDe2560",
+        "rulesVaultFactory": "0x114Fa92D802dF51701E1A8888c37628949504391",
+        "sales": [
+          {
+            "launcher": "0x04Ed9202ffb8eb40971D6e07ca3F94F2db659A62",
+            "token": "0xd739bF40DDD9870b8097171bf79Fb5c36fCa7777"
+          }
+        ]
+      },
+      "token": {
+        "launcherFactory": "0xD09d3D40EB9FC16B347D2778df918F33523A4C78",
+        "rulesVaultFactory": "0x0dbcdB88eF74bF55037e50Fa156fFDFfc3dAEd60",
+        "sales": [
+          {
+            "launcher": "0x7592b6a20254C0f6EB4919b02dA18f47C3E16689",
+            "token": "0xF5082302Eb06c59d01a8c083a77a08dEAc027777"
+          },
+          {
+            "launcher": "0x915A7aC8180B80153070eCD589d9020af05C1f82",
+            "token": "0xCcBD31047F8CC637fA029deCF3E9da9080557777"
+          }
+        ]
+      }
+    }
+  },
+  "openfour": {
+    "core": "0xC7A76fEcec11e1F2290Eb60B0E14671e2FEb2f82",
+    "tools": "0xB96E1091A99a9b9AD35E570c0761438cBC4236eD",
+    "wbnb": "0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd",
+    "presetId": "1778027700001",
+    "taxPresetId": "1778027615723",
+    "taxTemplate": "0x9A665580052C37A235Fb3Bf914319BCD4C386036",
+    "rulesTemplate": "0x0B41E31f8D98796fE1DB09fB8d3c4B26aCe4502A",
+    "quotes": [
+      "0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd",
+      "0x860822580d4EB2529DE0C74c3E2B1D6D7C183302"
+    ],
+    "tokens": [
+      {
+        "token": "0x64019AEA4e0322Dc6cd4e314315Cf08385C23AfC",
+        "kind": "preset",
+        "pile": "0x4586b51076B99e0480bB8144B28087571358aDe0"
+      },
+      {
+        "token": "0x00C80DFaC0465F10E9a8D3eFB9cEf8750a733835",
+        "kind": "tax",
+        "pile": "0x80E4A7FDD8bd8ADf02F41aB458f41806dB67DD73",
+        "taxVaultClone": "0x492C16Bf3Ee5092647811f2EC4aD4c494116Bfb7"
+      },
+      {
+        "token": "0xdc787179a96bC8A826F5D5b618B6361c90e4215A",
+        "kind": "tax-rules",
+        "pile": "0x7d167fba8b90f4823097CBcF3d65A56922B39B01",
+        "taxVaultClone": "0x2dEBd754FDE1Eab70EB8447377BaC058e795d074",
+        "tokenUri": "https://arweave.net/NsBB0qXX3l8SNYmdBaOQNKUhPRf6NkG4EA3ReWI3BGU#sha256=c7d2bf3b151db24a1a637b51728842bdd7f1cc4cc35f9216926688cf15dff09f"
+      }
+    ]
+  },
+  "shops": {
+    "factory": "0x8332C91c9F1d8a9058B4e499dd7e4b44a6a6ADC2"
+  },
+  "railStake": {
+    "factory": "0x653A6686565dc1d55A7816EAe783cD98a5723af1"
+  }
+}

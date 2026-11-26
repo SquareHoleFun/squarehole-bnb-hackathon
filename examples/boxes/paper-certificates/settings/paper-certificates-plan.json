@@ -1,0 +1,12 @@
+{
+  "format": "squarehole.hidden-kit-plan/1",
+  "settingsSha256": "0xdd430933e0a6836da75b87b7337ad3ec4ba1f0467afa7eb0af2bd74aa70703ea",
+  "plan": {
+    "path": "examples/boxes/paper-certificates/plan.csv",
+    "sha256": "0xcbc5e3e333b5ec2f34a1244df4a1af28d2f1d86316a9c3845d11dcc8033f06d5",
+    "count": "1929",
+    "specimen": "0",
+    "templateRoot": "0x6ade0f56c5e2cc33bc9b29cf2cdd952160eb3a275b75975ac1cfddaeb14e45e3"
+  },
+  "instructions": "Public template only. Supply the plan and its twelve private variant pictures to Create; deal new numbers and salts and replace the template root. Keep the reveal file and hidden item pictures private."
+}

@@ -1,0 +1,51 @@
+{
+  "format": "squarehole.listings/1",
+  "network": "demo",
+  "about": [
+    "Demo data (M1-11): the format 2 menu the launch skill's worked examples and configurations are checked against. Nothing here is on any chain: every token, converter and box is a stand-in, labelled Demo.",
+    "Demo addresses are the last 20 bytes of keccak256(\"Square Hole Demo <name>\"), so none is a real token. Amounts are the mainnet build profile's (F78): the raise is 4.206980085 ETH, a listed token's raise is about that much in the token.",
+    "Shape: the indexer's answer (M1-52) for one release, as listings.sepolia.json; see that file's notes."
+  ],
+  "writtenAt": "2026-10-07T00:00:00Z",
+  "release": {
+    "name": "core-v2-m1",
+    "buildProfile": "mainnet",
+    "registry": null,
+    "offered": {
+      "legs": [
+        "AsPaid",
+        "BuyT"
+      ],
+      "dests": [
+        "Eat",
+        "Creator",
+        "Depth"
+      ],
+      "targetSlot": false,
+      "addOns": [
+        1,
+        3,
+        4,
+        6
+      ],
+      "gradLayouts": [
+        3
+      ]
+    }
+  },
+  "listings": [
+    {"id": 0, "symbol": "ETH", "label": "native ETH", "address": "0x0000000000000000000000000000000000000000", "decimals": 18, "class": "NATIVE", "kind": "LISTED", "listedAt": 0, "raise": "4206980085000000000", "powers": []},
+    {"id": 1, "symbol": "LINK", "label": "Demo LINK", "address": "0x8Dd04F92D08785AfAAb6F877D26341894B8a1cC1", "decimals": 18, "class": "OTHER", "kind": "LISTED", "listedAt": 1791331200, "raise": "800000000000000000000", "powers": []},
+    {"id": 2, "symbol": "USDC", "label": "Demo USDC", "address": "0xAbcd6D779C57dEB8b852C0bCa5F3FE6B86220ff7", "decimals": 6, "class": "STABLE", "kind": "LISTED", "listedAt": 1791331212, "raise": "10000000000", "powers": ["Circle can freeze any address and upgrade the contract."]},
+    {"id": 3, "symbol": "WBTC", "label": "Demo WBTC", "address": "0x80338986f40e43505af4b171C2a4090509c99046", "decimals": 8, "class": "OTHER", "kind": "LISTED", "listedAt": 1791331224, "raise": "16000000", "powers": ["BitGo's custodians hold the bitcoin behind it."]},
+    {"id": 4, "symbol": "NVDAon", "label": "Demo NVDAon (a stock token)", "address": "0x8D1F483f28B488739e470c0B227d77Ca50460c66", "decimals": 18, "class": "STOCK", "kind": "LISTED", "listedAt": 1791331236, "raise": "55000000000000000000", "powers": ["Ondo can pause or block all its tokens at once."]},
+    {"id": 5, "symbol": "sUSDS", "label": "Demo sUSDS", "address": "0x757D956Fdd3208164E591a41f3A8888ef1C9E353", "decimals": 18, "class": "STABLE", "kind": "LISTED", "listedAt": 1791331248, "raise": "9500000000000000000000", "powers": ["Sky can upgrade the sUSDS contract and halt its PSM."], "retired": true},
+    {"id": 6, "symbol": "PAXG", "label": "Demo PAXG (gold)", "address": "0xb07b235064759b4Dc93692dafB0F31e0B50D45C2", "decimals": 18, "class": "OTHER", "kind": "LISTED", "listedAt": 1791331260, "raise": "3100000000000000000", "powers": ["Paxos can freeze any address and upgrade the contract."]},
+    {"id": 7, "symbol": "FIT", "label": "Demo FIT (box 0's token)", "address": "0x7b6Badaa405c6DAc27A4BD4555dCe0797a708060", "decimals": 18, "class": "STANDARD", "kind": "BOX_TOKEN", "listedAt": 1791331272, "raise": "42069800850000000000000000", "powers": [], "box": {"registryIndex": 1, "boxId": "0", "pricingListingId": 0}},
+    {"id": 8, "symbol": "MUG", "label": "Demo MUG (a graduated USDC box's token)", "address": "0x00a25D9Cd67D7aC08bA176c1D24944E5032E002D", "decimals": 18, "class": "STANDARD", "kind": "BOX_TOKEN", "listedAt": 1791331284, "raise": "8413960170000000000000000", "powers": [], "box": {"registryIndex": 0, "boxId": "12", "pricingListingId": 2}},
+    {"id": 10, "symbol": "ACORN", "label": "Demo ACORN (a community token)", "address": "0x7a9A59Fd14463A2a4A4812ab25C016e1E12B8486", "decimals": 18, "class": "OTHER", "kind": "LISTED", "listedAt": 1791417612, "raise": "2100000000000000000000000", "powers": []},
+    {"id": 11, "symbol": "BRAVO", "label": "Demo BRAVO (a community token)", "address": "0x68173eE4f7c8A481a53Bd37403d76B98A2078e2a", "decimals": 6, "class": "OTHER", "kind": "LISTED", "listedAt": 1791417624, "raise": "52000000000", "powers": []},
+    {"id": 14, "symbol": "HEX", "label": "Demo HEX (8 decimals)", "address": "0x07d08b378f4C0A43A439F943f2ee71Cf63724198", "decimals": 8, "class": "OTHER", "kind": "LISTED", "listedAt": 1791417636, "raise": "160000000000000", "powers": []}
+  ],
+  "byRule": []
+}

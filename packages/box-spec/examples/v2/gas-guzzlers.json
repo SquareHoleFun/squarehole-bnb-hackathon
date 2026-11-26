@@ -1,0 +1,56 @@
+{
+  "$schema": "./schema.json",
+  "version": 1,
+  "id": "gas-guzzlers",
+  "name": "Gas Guzzlers",
+  "ticker": "GUZZ",
+  "status": "ready",
+  "template": {
+    "id": "creator",
+    "name": "To the creator"
+  },
+  "priceCoin": {
+    "symbol": "ETH",
+    "decimals": "18"
+  },
+  "logo": "packages/chain/scripts/local-art/shop-logo.png",
+  "contents": {
+    "kind": "collection",
+    "size": "100",
+    "label": "Cans",
+    "art": {
+      "mode": "open",
+      "source": "packages/chain/scripts/local-art/shop-cover.png"
+    },
+    "seed": null,
+    "pickFeeBps": "100"
+  },
+  "raise": {
+    "policy": "listing-fixed",
+    "amount": "4206980085000000000"
+  },
+  "deadline": {
+    "days": "30"
+  },
+  "royalties": {
+    "bps": "250",
+    "destination": "fees"
+  },
+  "fees": {
+    "buyers": {
+      "choice": "keep"
+    },
+    "sellers": {
+      "choice": "keep"
+    }
+  },
+  "life": "graduate",
+  "properties": [
+    "fee-conservation",
+    "page-state",
+    "own-pictures",
+    "graduation",
+    "creator-claim",
+    "royalty-creator"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "squarehole.demo-boxes/1",
+  "chainId": 97,
+  "boxes": [
+    {
+      "id": "stock",
+      "kit": "gpu-poor",
+      "name": "GPU Poor",
+      "ticker": "VRAM",
+      "chainId": 97,
+      "token": "0x734C884B480159B3c993f2A95a45e81A36a13a27",
+      "coordinator": "0x3F420c889923964B703012c095571fED11F524FC",
+      "createTx": "0xe2d8bb2b5e8fd1c559355f09c3cb4a9bae3ced15221db892270cf52164c04716"
+    },
+    {
+      "id": "rentfree",
+      "kit": "rent-free",
+      "name": "Rent Free",
+      "ticker": "RENT",
+      "chainId": 97,
+      "token": "0x5539280794dd81763afE9dCAf326EF6c52327863",
+      "coordinator": "0x216262834df5811ae0B4B7d7942F8bcC82c2641B",
+      "createTx": "0x84f925e46b0fe3244f6685f0e4ae5939ec869413f4b9650e808117fe9a1694b1"
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+/* Base element styles shared by every page (SH-003). Tokens live in tokens.css. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--sh-canvas);
+  color: var(--sh-text);
+  font-family: var(--sh-font);
+  font-size: var(--sh-type-body);
+  line-height: var(--sh-leading);
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: var(--sh-leading-tight);
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--sh-accent);
+}
+
+img {
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+/* Numbers use tabular figures (02-DESIGN). */
+.sh-numeric {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+/*
+ * Focus: 3px accent ring with a dark halo on both sides, so it stays visible on dark surfaces (≥5.6:1) and on light
+ * artwork (halo 19:1 against white). Never removed without a replacement.
+ */
+:focus-visible {
+  outline: 3px solid var(--sh-focus-ring);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 7px var(--sh-focus-halo); /* dark band inside (0–2px) and outside (5–7px) the ring */
+}
+
+.sh-visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sh-panel {
+  background: var(--sh-panel-gradient);
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-card);
+  box-shadow: var(--sh-panel-edge), var(--sh-elevation-1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}

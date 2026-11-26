@@ -1,0 +1,119 @@
+{
+  "$schema": "./schema.json",
+  "version": 1,
+  "id": "junkyard",
+  "name": "The Junkyard",
+  "ticker": "TRASH",
+  "status": "ready",
+  "template": {
+    "id": "shop",
+    "name": "Shop"
+  },
+  "priceCoin": {
+    "symbol": "TEST_GOLD",
+    "decimals": "18"
+  },
+  "logo": "examples/boxes/junkyard/art/logo-256.png",
+  "contents": {
+    "kind": "shop",
+    "size": "0",
+    "label": "Listed NFTs",
+    "art": {
+      "mode": "none",
+      "source": null
+    },
+    "seed": null,
+    "pickFeeBps": "0",
+    "shop": {
+      "seedT": "180000000000000000000000000",
+      "givePricesT": [
+        "1000000000000000000000000",
+        "2000000000000000000000000",
+        "4000000000000000000000000",
+        "8000000000000000000000000"
+      ],
+      "pickBps": "20000",
+      "weeklyBps": "1000",
+      "collectionBps": "250",
+      "listDelay": "604800",
+      "curator": "creator",
+      "allowanceFloor": "cheapest-active-give",
+      "collections": [
+        {
+          "id": "bent-cans",
+          "tier": "0",
+          "starterIds": [
+            "1",
+            "2"
+          ]
+        },
+        {
+          "id": "lost-cogs",
+          "tier": "0",
+          "starterIds": [
+            "1",
+            "2"
+          ]
+        },
+        {
+          "id": "split-boots",
+          "tier": "0",
+          "starterIds": [
+            "1",
+            "2"
+          ]
+        },
+        {
+          "id": "cracked-mugs",
+          "tier": "0",
+          "starterIds": [
+            "1",
+            "2"
+          ]
+        },
+        {
+          "id": "tangled-wires",
+          "tier": "0",
+          "starterIds": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    }
+  },
+  "creator": {
+    "kind": "safe",
+    "buyEthEquivalent": "300000000000000000",
+    "registerHolder": true
+  },
+  "raise": {
+    "policy": "listing-fixed",
+    "amount": "1000000000000000000"
+  },
+  "deadline": {
+    "days": "30"
+  },
+  "royalties": {
+    "bps": "0",
+    "destination": "none"
+  },
+  "fees": {
+    "buyers": {
+      "choice": "holders"
+    },
+    "sellers": {
+      "choice": "shop",
+      "ceilingPreset": "2"
+    }
+  },
+  "life": "graduate",
+  "properties": [
+    "fee-conservation",
+    "page-state",
+    "own-pictures",
+    "graduation",
+    "holder-claim",
+    "shop-life"
+  ]
+}

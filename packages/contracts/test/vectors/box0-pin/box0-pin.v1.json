@@ -1,0 +1,850 @@
+{
+  "$comment": "Box 0's pin (M1-02; ADR-0017 section 10; BC-222, plan N16), refreshed by SH-V2-INT-FIX4 for F126: graduation never blocks, lossless stream retry, uninitialised clones refused. All source hashes and both profiles' creation/runtime hashes and runtime sizes come from clean builds of integration reference 85675164927e096c154d405de8f6895c54d0b38d; no production source changed in this ticket. Release artifacts use solc 0.8.26, Cancun, optimizer 1000, non-IR, bytecodeHash none; alternate v4-upstream artifacts are excluded. Code hashes are sha256 of lower-case hex without 0x (immutables zeroed). versionCodeHash includes deployed immutables and is measured by Box0CodePin.t.sol's local Sepolia Step 2 deployment in each profile. Evidence: docs/evidence/SH-V2-INT-FIX4.md. box0-pin.mjs --check checks sources, absent files and compiler settings; Box0CodePin.t.sol checks bytecode and deployment identities. candidate.pinDigest seals sources, absent and compiler; the companion v1-freeze.test.ts seals the complete code tables. Pin changes require explicit authorization and review.",
+  "format": "squarehole.box0-pin/1",
+  "ticket": "M1-02",
+  "case": "BC-222 (plan N16)",
+  "candidate": {
+    "what": "F143 candidate: box 0 reads its BoxBackedSource (drand first; the RANDAO backup by an on-chain rule from 5 days to 5 days 18 hours after an unposted round, one target 256 blocks ahead, the start proving a recent block's header (one of the last 8; the security review's fix round); no owner, setter, pause, upgrade or restart). BoxTickets, DrandSource and every other src/box/ runtime code are core-v21-rc7's; only BoxFactoryV1's constructor (its source pin) and the two new randomness files changed. On top of F126 (graduation never blocks, lossless stream retry, uninitialised clones refused).",
+    "merge": "85675164927e096c154d405de8f6895c54d0b38d",
+    "pinnedOn": "sh-box0-backup-source (SH-BOX0-BACKUP-SOURCE; its cross-review fix round af1 refreshed the source hashes of box-spec.v1.json, BoxSpecV1.sol and BoxBackedSource.sol after comment-only edits, code tables unchanged); previous pin 85675164927e096c154d405de8f6895c54d0b38d; then sh-audit-b0-docfix (SH-AUDIT-B0-DOCFIX, box 0's own review, F147) refreshed the source hashes of box-spec.v1.json and thirteen src/box files after comment-only edits, code tables unchanged",
+    "reviewedHashes": [
+      "docs/evidence/SH-BOX0-BACKUP-SOURCE.md",
+      "docs/evidence/SH-V2-INT-FIX4.md",
+      "docs/evidence/SH-AUDIT-B0-DOCFIX.md"
+    ],
+    "pinDigest": "f9ca6a7019befb56e2b44408ea600a12fe3419a84ae7b4571a82fce94a79354c"
+  },
+  "versionCodeHash": {
+    "where": "F143 (SH-BOX0-BACKUP-SOURCE): docs/runbooks/sepolia-core-v1.md Step 2, measured locally by test/box/sepolia/SepoliaStep2Box0.t.sol and test/box/DeployCoreV1Identities.t.sol: Sepolia id, testnet deployer nonce 13, both pinned sources initially absent (one more CREATE2 call, so the factory moved one nonce), canonical PoolManager and WETH addresses; before F143: F126, docs/evidence/SH-box0-f126.md Final deployment identities and docs/runbooks/sepolia-core-v1.md Step 2; remeasured from clean builds at 85675164927e096c154d405de8f6895c54d0b38d by SH-V2-INT-FIX4: Sepolia id, testnet deployer nonce 13, pinned DrandSource initially absent, canonical PoolManager and WETH addresses",
+    "chainId": 11155111,
+    "deployer": "0x1F1481667Ef20928d55524dfE4640f96Bd9b4eeE",
+    "nonce": 13,
+    "poolManager": "0xE03A1074c86CFeDd5C142C4F04F1a1536e203543",
+    "weth": "0xfFf9976782d46CC05630D1f6eBAb18b2324d6B14",
+    "factory": "0x93118f6F6E059B69Cba1Ce3F9ac9Ab8E7B0bc087",
+    "default": "0x6f50e7a0f487cdedfd9af1d3e341b2912504a3adbf040c120ce446255bbf7ce6",
+    "rehearsal": "0xb7c58a7f40ead74e614ca6a76f199447c9246c28f5d01c73acb17931b19c3319"
+  },
+  "sources": [
+    {
+      "file": "packages/box-spec/add-ons.v1.json",
+      "sha256": "83ce1c99c64d58834def40e53f1888ea0390129897edf39c9f62da1e5d8f4a8a"
+    },
+    {
+      "file": "packages/box-spec/box-spec.v1.json",
+      "sha256": "7ff8b1c3afc5c4678c037283a693cb335305762873043942daef7177bdd1d064"
+    },
+    {
+      "file": "packages/box-spec/build-profiles.v1.json",
+      "sha256": "8ec692b7a24180bbd94301243ef15d9950b5b92248a1c959c307e9294d93225a"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/interfaces/IExtsload.sol",
+      "sha256": "9421ef4ba198d94058cd9a4c9fd2d663c61fc682f7dafa449a873456853f0025"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/interfaces/IExttload.sol",
+      "sha256": "c21643d2c7f48d2d2407438a64a3ff0f376324cf6a0c62608977713652308c9e"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/interfaces/IHooks.sol",
+      "sha256": "6eb35c9c598eb932e963219f1ff180748bc4c30ac6a02d924893b3c29abb1d73"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/interfaces/IPoolManager.sol",
+      "sha256": "a98405333567e4ab344489728014795721cf0071c151536377d2fcc986e0600c"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/interfaces/IProtocolFees.sol",
+      "sha256": "807d68adea106ec2aa51a8009155de09ebfe09e1ee7053d5a5ae448d7e840654"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/interfaces/callback/IUnlockCallback.sol",
+      "sha256": "2e4a514730654da2e08a82eff5b3eabae12dc1c6198951396e1d466d4c0e223e"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/interfaces/external/IERC20Minimal.sol",
+      "sha256": "5e966a2d22b3b234a56af4b17e36bf7be90f9b29b1ddb6a15bfefc0b6dab4282"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/interfaces/external/IERC6909Claims.sol",
+      "sha256": "1cd65496c829036bc6aee67bc71363ab5fb6989c65e793087d0e1e2379f7d7d8"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/libraries/BitMath.sol",
+      "sha256": "e8a45eb3d57f9427fc47bbb2543c1a6a5f394113b378123ac7ca9f113a7502b4"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/libraries/CustomRevert.sol",
+      "sha256": "9d3dbe6b742cb1ac30f57df89d879ade9649389de1165fc637114bd062d39fca"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/libraries/FixedPoint96.sol",
+      "sha256": "66ee26d4fb3ac639124bdfa27d3256d196970997fa127c09e9bf7154e30d4590"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/libraries/FullMath.sol",
+      "sha256": "a9607255a6fd604d9c92f6b7416811c38b9d86e5dfdb0c345a494ebd35f7a4a3"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/libraries/Hooks.sol",
+      "sha256": "297d577998cdede64d48b47b12f15e4f442eea032fbb9676bb3c2f89da89b83c"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/libraries/LPFeeLibrary.sol",
+      "sha256": "e96c3fa7deac991dc09b6c5e560a340d01d6c68ccba483d4b29f8a66e5aa44e0"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/libraries/ParseBytes.sol",
+      "sha256": "6a6f3d1cec0143fd70ea68c34e6dce3bde72f368b213f1a225ada23dbfd99bb8"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/libraries/ProtocolFeeLibrary.sol",
+      "sha256": "f8d96d9c8b5d12ab927b34551699bd7086750475f70254c9505e636f2cafe56a"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/libraries/SafeCast.sol",
+      "sha256": "c1a815a41607be5b4c86ca588a951f368156da8ee21bdfc18b5d51b58a0f27be"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/libraries/SqrtPriceMath.sol",
+      "sha256": "42440c21bbab86c7eed4716b281ed5ca281cf14af8b5e06dc6dc3bc6864bcfdf"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/libraries/TickMath.sol",
+      "sha256": "272d4f6d3ff9ae33596ebcdb84a71a3c2d4542ae8fb5c88ddf1aca8043f5d06b"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/libraries/UnsafeMath.sol",
+      "sha256": "2de236e7ca0b9572a6b0184557565b6fd54e177224e202c727fe248785ede427"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/types/BalanceDelta.sol",
+      "sha256": "320d9c13dec135c3903729e66d3a1040fe86d537a7ee53728915012ca183af32"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/types/BeforeSwapDelta.sol",
+      "sha256": "6aee06f1553e879f5909e8f4c0eac26ec23dd4821a7e56e4d5077db39a227e12"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/types/Currency.sol",
+      "sha256": "ba6726fd24fbc66848208dfbb2899116c10729c505e6e5552316ac2444f1dfc3"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/types/PoolId.sol",
+      "sha256": "548424ac50ad58212545da70207283fb8990731578c115c85d5acbcb0e1d3c9f"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/types/PoolKey.sol",
+      "sha256": "99e1afe285b5c614ebc9586ab5196db9d24a63fd924a449f5d99f490a6a6d6a9"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/types/PoolOperation.sol",
+      "sha256": "cf72ad0c3e5e91662029e862acd841fabce8753040b0d4e802dee64ef1157232"
+    },
+    {
+      "file": "packages/contracts/lib/v4-core/src/types/Slot0.sol",
+      "sha256": "378b45486644dc7e49726358e83d0e2fffdaee088d18cac1a3df00d02c3635b4"
+    },
+    {
+      "file": "packages/contracts/lib/v4-periphery/src/libraries/LiquidityAmounts.sol",
+      "sha256": "02d6eaaa62d45ac8170b3668e92a31808d2003b0f8eb821581cb4a028b175b45"
+    },
+    {
+      "file": "packages/contracts/src/box/BoxCloneBase.sol",
+      "sha256": "88dc8713e7b3ba20971862a7fe82d3f0a2eaa9b1d70a88e6a53c7b017bb1b5b5"
+    },
+    {
+      "file": "packages/contracts/src/box/BoxCloneReader.sol",
+      "sha256": "762bacf6a57185342dc9b66e630abaa329ce033a22db04ace4b18ff5167ee316"
+    },
+    {
+      "file": "packages/contracts/src/box/BoxCollection.sol",
+      "sha256": "baeb4074128d4021434a8d5ee18d67100814799b1582533a315cef7ce6812552"
+    },
+    {
+      "file": "packages/contracts/src/box/BoxCoordinator.sol",
+      "sha256": "eab588954ffca8991e48c52fa983058062e15b9a3bf6b6bfaf8ae8fab6d55b0a"
+    },
+    {
+      "file": "packages/contracts/src/box/BoxFactoryV1.sol",
+      "sha256": "af1f4942cd2570c21fa5ab61b4e5b8460d2d11233217f4cec856ba81fa5bad04"
+    },
+    {
+      "file": "packages/contracts/src/box/BoxFactoryV1Planner.sol",
+      "sha256": "b4c6c69e079c1d6fefe30b4fb5c1ba334cfdf1e1a0b93d2dea272d57310779e5"
+    },
+    {
+      "file": "packages/contracts/src/box/BoxHook.sol",
+      "sha256": "453c1f7ff9ca375bd57dc395318847cd9ea047eed1a918d0591a9528f113ba5e"
+    },
+    {
+      "file": "packages/contracts/src/box/BoxHookBase.sol",
+      "sha256": "6c32ba837ede9c6c10efb8b8d406ffa7c4d5a50912c44c89b62a28a7a1aa59ff"
+    },
+    {
+      "file": "packages/contracts/src/box/BoxHookExtension.sol",
+      "sha256": "fe4f2284d9ba4deeefda99fc6f24d880f79d6952ac4d4d886038c33f9cd115bf"
+    },
+    {
+      "file": "packages/contracts/src/box/BoxItemStream.sol",
+      "sha256": "d10ba7154d1704407f27384eb75894c0673a95b0c8ea3ea996f2903a31087b26"
+    },
+    {
+      "file": "packages/contracts/src/box/BoxLaunchRouter.sol",
+      "sha256": "7568c12b36b3ed762af97143d291c94e8086b164a4885d599ca2003f0651e05e"
+    },
+    {
+      "file": "packages/contracts/src/box/BoxLayoutV1.sol",
+      "sha256": "499bb9ff39ff050f2d7ac5094f5a206c1bbf9138119e2284f407ed09655c77d7"
+    },
+    {
+      "file": "packages/contracts/src/box/BoxPlaceholderToken.sol",
+      "sha256": "8e5f56a55e0c50dfc2c3bc2ea185bc0689043ff3e289f67e959afffb36f840a6"
+    },
+    {
+      "file": "packages/contracts/src/box/BoxPriceSampler.sol",
+      "sha256": "c7d10e67705e51556af045c9f9703c84fd3459049f6a3bdf72a20962586d8f80"
+    },
+    {
+      "file": "packages/contracts/src/box/BoxReceiver.sol",
+      "sha256": "e7d514d89f0bd13a614be352d81bc32184c86e04a83b522697684a2f3c6ea109"
+    },
+    {
+      "file": "packages/contracts/src/box/BoxReceiverBase.sol",
+      "sha256": "4f5d14c444817e1e78535115f9dd7f04ff901d8c940da0f6cf0f36bfa34fbc44"
+    },
+    {
+      "file": "packages/contracts/src/box/BoxReceiverExtension.sol",
+      "sha256": "9cc28d524d7defc48931db459dbfddb9a9d84bf94d61614c3340855f6bc01fbc"
+    },
+    {
+      "file": "packages/contracts/src/box/BoxRegistry.sol",
+      "sha256": "df011424b0355538b28589c4c270da708759329c73b35239d79194b65719a573"
+    },
+    {
+      "file": "packages/contracts/src/box/BoxRoyaltyRouter.sol",
+      "sha256": "c2343fe1582853824be881d8918916f408ecd585f8385e4e7948b77a853aa2fd"
+    },
+    {
+      "file": "packages/contracts/src/box/BoxSpecV1.sol",
+      "sha256": "27238ab1fe678cec2c971d5ecee56280113e708231594c63c7bb0c05c3886a2f"
+    },
+    {
+      "file": "packages/contracts/src/box/BoxSwapModule.sol",
+      "sha256": "c6623a75261efe798dab0cd5bcc7c7cb56614a11d6ac1e8372d0fe49c940978a"
+    },
+    {
+      "file": "packages/contracts/src/box/BoxTickets.sol",
+      "sha256": "00d80272047a5220224c401ba22477faebb2624889cf5dbafe89f5debcea4bda"
+    },
+    {
+      "file": "packages/contracts/src/box/BoxToken.sol",
+      "sha256": "fa0fabe73ea4a31b23829fe634caa1f3e80e671251dcfd22a8de4d96b1d1780c"
+    },
+    {
+      "file": "packages/contracts/src/box/BoxVault.sol",
+      "sha256": "2088203ea1bc717b87c614bb84323388164befd99fc37d1af9b6f7abdd2ee0c3"
+    },
+    {
+      "file": "packages/contracts/src/box/FitBuybackExecutor.sol",
+      "sha256": "269c87d33b668f47db669cabfb7be71fce0ebfdcdbe93b54f17cb61ec28c5f1b"
+    },
+    {
+      "file": "packages/contracts/src/box/build/mainnet/BoxBuildV1.sol",
+      "sha256": "d7fcd3dfb6e47a593e18bcf4b5abf1ff68085d33cfc6d2b2efec140a75e91a51"
+    },
+    {
+      "file": "packages/contracts/src/box/build/rehearsal/BoxBuildV1.sol",
+      "sha256": "899652a96ad736531c0d42469f882e14d457a5fdeb273e2042cd0f82c110ce9e"
+    },
+    {
+      "file": "packages/contracts/src/box/interfaces/BoxTypes.sol",
+      "sha256": "1b8f88e16b6ab20e6a684771b713d49594e755a565307c6fd0df4eb1d6affb2d"
+    },
+    {
+      "file": "packages/contracts/src/box/interfaces/IBoxCollection.sol",
+      "sha256": "fc4c5fa6aa03f72a14151a90c86a1392acc03f59a98ed0e25a6b717de398825a"
+    },
+    {
+      "file": "packages/contracts/src/box/interfaces/IBoxCoordinator.sol",
+      "sha256": "c1181d52606d02ece5ed3273daeb05e7d1dcc8f0843fb10db0e5f3c5cf3961a7"
+    },
+    {
+      "file": "packages/contracts/src/box/interfaces/IBoxFactoryV1.sol",
+      "sha256": "8e8d04fe12976ec2cd13556062f07d6695fb9ade2f1f0abdfa9a31e2620b1fbc"
+    },
+    {
+      "file": "packages/contracts/src/box/interfaces/IBoxHook.sol",
+      "sha256": "ca7a52b8b14129fbe48ddf10ca0180fe2b142eb3beb44d083a9d1ce43c1a84da"
+    },
+    {
+      "file": "packages/contracts/src/box/interfaces/IBoxItemStream.sol",
+      "sha256": "bc6efa8e605bd4e94a692ea23b2c348af9f831159d82352d3fa8bcc602e24282"
+    },
+    {
+      "file": "packages/contracts/src/box/interfaces/IBoxLaunchRouter.sol",
+      "sha256": "aa5f838512395f8e210e240072c9269dc898e0d5e418e53214a68cd6c9c5fd01"
+    },
+    {
+      "file": "packages/contracts/src/box/interfaces/IBoxReceiver.sol",
+      "sha256": "3a2265a8ead6fb9762511e7a4e42ab954fcd5f3951a692d5143f6b46d56ceb01"
+    },
+    {
+      "file": "packages/contracts/src/box/interfaces/IBoxRegistry.sol",
+      "sha256": "8da7ef000e0e5fede7db328ab089916b4b6bc4c9c99f34cea368ac454ed58c4e"
+    },
+    {
+      "file": "packages/contracts/src/box/interfaces/IBoxRoyaltyRouter.sol",
+      "sha256": "451578d7f5c350d99ca43247df2494fb0e45d1c8551cf3cc94508ee2c00bd726"
+    },
+    {
+      "file": "packages/contracts/src/box/interfaces/IBoxSwapModule.sol",
+      "sha256": "0f7e7d9a5a2fe6dd5a2e11ac5d8419ebd737dbe08151a0b57dca0d1e4c03b2b3"
+    },
+    {
+      "file": "packages/contracts/src/box/interfaces/IBoxTickets.sol",
+      "sha256": "fee464c3b416a277b9382492ee8fb741887bce2c0f3d048c1e1e63e1fb40afd0"
+    },
+    {
+      "file": "packages/contracts/src/box/interfaces/IBoxTicketsInFlight.sol",
+      "sha256": "b56dbc0942dd69b9d04363b1b41097282fee0f98b744fe8baeeb0f087a70f328"
+    },
+    {
+      "file": "packages/contracts/src/box/interfaces/IBoxToken.sol",
+      "sha256": "7fc775d35f393b09d02219d8560bb75578d0a2a5f6eb42e6dfba860d1d1780c4"
+    },
+    {
+      "file": "packages/contracts/src/box/interfaces/IBoxVault.sol",
+      "sha256": "a2012f3b9a101392d2ee590a28215c5ddbdf651b05d45973f05a7386deaa8abe"
+    },
+    {
+      "file": "packages/contracts/src/box/interfaces/IDrandSource.sol",
+      "sha256": "f1a7184ffd45138ad335baa60afbaafb58cc871ac9ade6173547bdf817bd51b7"
+    },
+    {
+      "file": "packages/contracts/src/box/libraries/BoxCloneArgs.sol",
+      "sha256": "6d0d0f2a742dac0c3ea0f053524447db227a386d2cff25c120cdf1127aabae79"
+    },
+    {
+      "file": "packages/contracts/src/box/libraries/BoxClones.sol",
+      "sha256": "ca3a9eb90153c5f7cf93cc10a743e20eed6aee0260ec0b4bcacb32e09b457365"
+    },
+    {
+      "file": "packages/contracts/src/box/libraries/BoxData.sol",
+      "sha256": "a6254e5426b9e04161bb15a15cc39f419fb8c3d0f02fb751dafc1e504337673a"
+    },
+    {
+      "file": "packages/contracts/src/box/libraries/BoxEncoding.sol",
+      "sha256": "435a8816de4a3578d7806d51340f4707ff6e70648e7aac956ee0062148ea43d6"
+    },
+    {
+      "file": "packages/contracts/src/box/libraries/BoxIdSet.sol",
+      "sha256": "7f043a03916d71ffef9ca2cf8d3b9058d79670d98fac8063c3b120cbc334c90b"
+    },
+    {
+      "file": "packages/contracts/src/box/libraries/BoxMetadataTable.sol",
+      "sha256": "d2547e1d2e1204806ad2bad7a3ea6b706bdd3792be02cd30450499dae15ae3ed"
+    },
+    {
+      "file": "packages/contracts/src/box/libraries/BoxShuffle.sol",
+      "sha256": "24659a840d8d6c99397a1cf9f1bf2708f0728d349071970406d3eca73c52d7f5"
+    },
+    {
+      "file": "packages/contracts/src/box/libraries/BoxSwapBounds.sol",
+      "sha256": "a6c771d6b3b7f54870f9ca90d8332bd3aa099929e8f1d491b9cc11997082fa31"
+    },
+    {
+      "file": "packages/contracts/src/box/randomness/BackedSourcePins.sol",
+      "sha256": "c3995e93efa5feed33b16e35723df87b57aaa1479430bce7b7ef8443d99e3799"
+    },
+    {
+      "file": "packages/contracts/src/box/randomness/BoxBackedSource.sol",
+      "sha256": "78a2fbf8373a0fef1e26031fc4fbb54a12369deb7e46f1d3c7a6110d9a2db6cd"
+    },
+    {
+      "file": "packages/contracts/src/box/randomness/BoxDrandQuicknet.sol",
+      "sha256": "9952284fec8f2aad8a42a98686b61265c8060d9d876aad14f8e7c0998709dfcd"
+    },
+    {
+      "file": "packages/contracts/src/box/randomness/DrandSource.sol",
+      "sha256": "d07f8c9e4f2c7dcf9191e780fac0d91e2e38a949482cb9458928c54c2215b866"
+    },
+    {
+      "file": "packages/contracts/src/box/randomness/DrandSourcePins.sol",
+      "sha256": "dca245a69faf3a8781970354f337f1ae902d3edc41748865b85eaa8888481583"
+    },
+    {
+      "file": "packages/contracts/src/box/randomness/DrandWords.sol",
+      "sha256": "2e4763047cb2e6424971ce38c7d2b69be527eca55398d593ee789830a6327998"
+    },
+    {
+      "file": "packages/contracts/src/libraries/TransientReentrancyGuard.sol",
+      "sha256": "9c1b674ddcd90d98913f338eb83bbd9d1d01ef833cb37db7584c7a5a2ca824d8"
+    }
+  ],
+  "absent": [
+    "packages/contracts/remappings.txt"
+  ],
+  "compiler": {
+    "file": "packages/contracts/foundry.toml",
+    "profiles": {
+      "profile.default": {
+        "src": "\"src\"",
+        "libs": "[\"lib\"]",
+        "remappings": "[\"dn404/=lib/dn404/src/\",\"forge-std/=lib/forge-std/src/\",\"v4-core/=lib/v4-core/\",\"@uniswap/v4-core/=lib/v4-core/\",\"v4-periphery/=lib/v4-periphery/\",\"solmate/=lib/v4-core/lib/solmate/\",\"sh-public-names/=src/v2/names/launch/\",\"sh-box-build/=src/box/build/mainnet/\"]",
+        "auto_detect_remappings": "false",
+        "solc": "\"0.8.26\"",
+        "auto_detect_solc": "false",
+        "evm_version": "\"cancun\"",
+        "optimizer": "true",
+        "optimizer_runs": "1000",
+        "via_ir": "false",
+        "bytecode_hash": "\"none\"",
+        "additional_compiler_profiles": "[{name=\"v4-upstream\",via_ir=true,optimizer_runs=44444444}]",
+        "compilation_restrictions": "[{paths=\"lib/v4-core/src/PoolManager.sol\",via_ir=true,optimizer_runs=44444444}]"
+      },
+      "profile.rehearsal": {
+        "remappings": "[\"dn404/=lib/dn404/src/\",\"forge-std/=lib/forge-std/src/\",\"v4-core/=lib/v4-core/\",\"@uniswap/v4-core/=lib/v4-core/\",\"v4-periphery/=lib/v4-periphery/\",\"solmate/=lib/v4-core/lib/solmate/\",\"sh-public-names/=src/v2/names/launch/\",\"sh-box-build/=src/box/build/rehearsal/\"]"
+      }
+    }
+  },
+  "code": {
+    "default": [
+      {
+        "artifact": "src/box/BoxCollection.sol:BoxCollection",
+        "creation": "beb98e68277e18f15de6e2e9bcd05e634acbd8b29bb10d6c33cc52af1bc73278",
+        "runtime": "6710f446ab24b2e64762b0605d89c93338881784ab8a1dd33e8fe20dd697762d",
+        "runtimeBytes": 16149
+      },
+      {
+        "artifact": "src/box/BoxCoordinator.sol:BoxCoordinator",
+        "creation": "9bb22469fd0a15cc1c8ed74cfb9d44f7beef2d081fee3b5b271c05db991c220e",
+        "runtime": "0e6098de8ad01874c50d81fd7769fde6391b604033d760f9e53ffc1e8b77fb04",
+        "runtimeBytes": 10844
+      },
+      {
+        "artifact": "src/box/BoxFactoryV1.sol:BoxFactoryV1",
+        "creation": "d862e9dc44087584a088ba02dd8b47cec9b42760e9683d79d119756cfc88062b",
+        "runtime": "0f645080d260dcf34d20553703458dbcb4f966ae3e93d89c3aec44e38770bfee",
+        "runtimeBytes": 22227
+      },
+      {
+        "artifact": "src/box/BoxFactoryV1Planner.sol:BoxFactoryV1Planner",
+        "creation": "b6439c9734035f21ade526219f1a1a6cbc0b720e7af6f99c7bedffb28d402bec",
+        "runtime": "3704909bb1ab0dbf0a731dd651500b085310e847e04a10ac0e51e78fc48ee6c2",
+        "runtimeBytes": 23904
+      },
+      {
+        "artifact": "src/box/BoxHook.sol:BoxHook",
+        "creation": "37e413b6218c4e6c0f5e1f1b268569eae7098af685c9c10787868a4f204223b4",
+        "runtime": "6846664d3fcc20c18bdc3c488701a316095be2ac4b12936c00afdfd043631068",
+        "runtimeBytes": 12170
+      },
+      {
+        "artifact": "src/box/BoxHookExtension.sol:BoxHookExtension",
+        "creation": "dd3fa7bb5dba250ab8ca0b46f397ff3144fc789752394562c8b42ee06e839908",
+        "runtime": "ed45339b34cb7ea4a85d13730d45ee16de3b8efc1d5aae1538ab418d34b24729",
+        "runtimeBytes": 22367
+      },
+      {
+        "artifact": "src/box/BoxItemStream.sol:BoxItemStream",
+        "creation": "d577cad07ac626d9ef77f971f01704f72c97159f9302dc7d8a1c59ebefc3ed46",
+        "runtime": "d8e1cae2dbcd0fd36f2f4c5bf591c6100228f0b00ad4fc85c67c7f2dd3a9d3e1",
+        "runtimeBytes": 15923
+      },
+      {
+        "artifact": "src/box/BoxLaunchRouter.sol:BoxLaunchRouter",
+        "creation": "7ade8f0005fff85b4ec5af2850107b79f1169870fb359e17f9a10e8c44c90c09",
+        "runtime": "766078f9c8abb42f2f30033273cdbc3cb4309805b5dbe0746eee1c117d9d35c2",
+        "runtimeBytes": 9077
+      },
+      {
+        "artifact": "src/box/BoxLayoutV1.sol:BoxLayoutV1",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/BoxPriceSampler.sol:BoxPriceSampler",
+        "creation": "afdfd79757d56c6c6c037e8fcf7566843cc8cad7645030cf2bc20c134b200adb",
+        "runtime": "ac86c701e152665709e4e6ed7e2be95986940ea359ff98630bea9ceb8a2ce80a",
+        "runtimeBytes": 5558
+      },
+      {
+        "artifact": "src/box/BoxReceiver.sol:BoxReceiver",
+        "creation": "7546ba92eadaa883778cc2b9314836ab70ba20291ead445db5ea6c41b721b523",
+        "runtime": "b97846614326471b021ed574af9fb9330975a883800ba8281378b7da3fe5eb1f",
+        "runtimeBytes": 22443
+      },
+      {
+        "artifact": "src/box/BoxReceiverExtension.sol:BoxReceiverExtension",
+        "creation": "d1caaaca4bdaff2cdcd181a0576e8f86eccb571a2c1f90e2a94bd34eb184ebe0",
+        "runtime": "55b30857bc9a975b53c9db1d631aecbfa967678c6797ee96a047d29023154012",
+        "runtimeBytes": 4144
+      },
+      {
+        "artifact": "src/box/BoxRegistry.sol:BoxRegistry",
+        "creation": "52cc6196a41406528f956eed86aa80ee0940a914d7645199556f51054c1ba801",
+        "runtime": "1e780db890a8c3005c1c60db2cbadb4b09b8936c65053430c1fa4a4c88f5c1da",
+        "runtimeBytes": 5673
+      },
+      {
+        "artifact": "src/box/BoxRoyaltyRouter.sol:BoxRoyaltyRouter",
+        "creation": "0c3de53cee5c7c6075859c9f93437332b207056e25629a723efe5dc7b6abf12a",
+        "runtime": "bf1a82440be143c6908d8c646f42d56de30d6eca80e9cb860a481afc288ef8aa",
+        "runtimeBytes": 1805
+      },
+      {
+        "artifact": "src/box/BoxSpecV1.sol:BoxSpecV1",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/BoxSwapModule.sol:BoxSwapModule",
+        "creation": "3103b5c4547eadab8f8c9530c35d76d5be8e0194a58e04f7e15d14a974e4d92e",
+        "runtime": "bcd654d51deac3764218e3ce7c7e9bfc150fbd0b60fecd4a135567f724318ec2",
+        "runtimeBytes": 16570
+      },
+      {
+        "artifact": "src/box/BoxTickets.sol:BoxTickets",
+        "creation": "220f251969028787823038fd2e1d41c1d966dc728bd6e0e47a4b22768b0dce55",
+        "runtime": "4f8df9424b958e7fd00bea0bf895824a4faa1311d248137228b1a6f86c1f9461",
+        "runtimeBytes": 23546
+      },
+      {
+        "artifact": "src/box/BoxToken.sol:BoxToken",
+        "creation": "c5b1d67fb9149831f3ccb518548aef2f379a4abfc245899e121e53ec9738e4e6",
+        "runtime": "af755fa315363ed53994a7381b62644297e1a890aa535baac7dd511477fa2bee",
+        "runtimeBytes": 2600
+      },
+      {
+        "artifact": "src/box/BoxVault.sol:BoxVault",
+        "creation": "81c6fdcbc839327cc9a6eb439e44caa05c49046f12bcee8d6431f9e0363692ed",
+        "runtime": "e20db057c5d23c9fd0591251257ecee7527275e9e7c937c7b89328a876959150",
+        "runtimeBytes": 14537
+      },
+      {
+        "artifact": "src/box/FitBuybackExecutor.sol:FitBuybackExecutor",
+        "creation": "be7417b46f39bc44927c46b71bf8440c2b266265516006fc099660839c957fd9",
+        "runtime": "a249cce44a2bc300025f0a890cc3ce8d240e5a480429ac10df45c59a05b01ccf",
+        "runtimeBytes": 12469
+      },
+      {
+        "artifact": "src/box/build/mainnet/BoxBuildV1.sol:BoxBuildV1",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/build/rehearsal/BoxBuildV1.sol:BoxBuildV1",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/libraries/BoxCloneArgs.sol:BoxCloneArgs",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/libraries/BoxClones.sol:BoxClones",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/libraries/BoxData.sol:BoxData",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/libraries/BoxEncoding.sol:BoxEncoding",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/libraries/BoxIdSet.sol:BoxIdSet",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/libraries/BoxMetadataTable.sol:BoxMetadataTable",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/libraries/BoxShuffle.sol:BoxShuffle",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/libraries/BoxSwapBounds.sol:BoxSwapBounds",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/randomness/BackedSourcePins.sol:BackedSourcePins",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/randomness/BoxBackedSource.sol:BoxBackedSource",
+        "creation": "f652e669823f11f61cac8576010922c0197e5f260b63322a5a0289a5a4fdd5b8",
+        "runtime": "36b998505f1a0d730756e18b070753a2c76222206a9461c7f80050e0766aa0a0",
+        "runtimeBytes": 6222
+      },
+      {
+        "artifact": "src/box/randomness/BoxDrandQuicknet.sol:BoxDrandQuicknet",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/randomness/DrandSource.sol:DrandSource",
+        "creation": "a9cb29703dbba70f04d7e1a7c0d46be75a6262fa20d27250ff308d66195897f5",
+        "runtime": "2dfe963bd073b5e3d20cc14ff8f0e31792b4af10de1944fc6b73cc36c5508a0a",
+        "runtimeBytes": 7581
+      },
+      {
+        "artifact": "src/box/randomness/DrandSourcePins.sol:DrandSourcePins",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/randomness/DrandWords.sol:DrandWords",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      }
+    ],
+    "rehearsal": [
+      {
+        "artifact": "src/box/BoxCollection.sol:BoxCollection",
+        "creation": "b9e879c3e9e31f1e80ea0380917a0292d386e5be6608e6cd873b747985cd3a1d",
+        "runtime": "6710f446ab24b2e64762b0605d89c93338881784ab8a1dd33e8fe20dd697762d",
+        "runtimeBytes": 16149
+      },
+      {
+        "artifact": "src/box/BoxCoordinator.sol:BoxCoordinator",
+        "creation": "74c1e3c824936257e322b19971681e43976a0c1a23bb3958860496b87ac511e0",
+        "runtime": "21244e28b06c1349075f9ac1c9189fcf3caffab19ba5f5357dac0af80d99d5d2",
+        "runtimeBytes": 10842
+      },
+      {
+        "artifact": "src/box/BoxFactoryV1.sol:BoxFactoryV1",
+        "creation": "d8d03675b156e3d202b2fec4ea4c6b44a6b12bb6a6ad2f1e169ba6ad4c958fe6",
+        "runtime": "e3b50834dacbd3733798f96d55f791dcace80d04382dccf213e78cc4726d3932",
+        "runtimeBytes": 22224
+      },
+      {
+        "artifact": "src/box/BoxFactoryV1Planner.sol:BoxFactoryV1Planner",
+        "creation": "a3c7ffa5a1fac9199f0c1a7f576c1f242395e89193b0bfd48ed165b3d48b2ddf",
+        "runtime": "99887f500568eebe82221a27576a497faf23294d26d10e2fcc26f629cf82fae6",
+        "runtimeBytes": 23903
+      },
+      {
+        "artifact": "src/box/BoxHook.sol:BoxHook",
+        "creation": "5ac91a43340197d2ad6fb8e46ec30cbf35ab997265835bd6ce5369342b7288f3",
+        "runtime": "4f76e1345270fe44daac6c3854fb651a17bb4ce2d9a595ca14c82dcdfea9a3da",
+        "runtimeBytes": 12169
+      },
+      {
+        "artifact": "src/box/BoxHookExtension.sol:BoxHookExtension",
+        "creation": "4a18794a1c212d0e83dd14f609d4c9b1a13b7e47948b6ebd0015abd1d397494a",
+        "runtime": "f409aaf5bea6f979789287815d7bdc2c429b8f364e7a521f1f24d61c434524e8",
+        "runtimeBytes": 22366
+      },
+      {
+        "artifact": "src/box/BoxItemStream.sol:BoxItemStream",
+        "creation": "bbca3c515fa32fd6691ccd714d70f64eb01319720a24e039c81115399f314e0e",
+        "runtime": "d8e1cae2dbcd0fd36f2f4c5bf591c6100228f0b00ad4fc85c67c7f2dd3a9d3e1",
+        "runtimeBytes": 15923
+      },
+      {
+        "artifact": "src/box/BoxLaunchRouter.sol:BoxLaunchRouter",
+        "creation": "d94cb4513bd0fd3b40f65333d1b37e719f677811a6019657d37a6354663978bf",
+        "runtime": "8b1c5fbd5d500a83736dc3913b0e5b9c790c743266926c5c8060996c84b203b9",
+        "runtimeBytes": 9075
+      },
+      {
+        "artifact": "src/box/BoxLayoutV1.sol:BoxLayoutV1",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/BoxPriceSampler.sol:BoxPriceSampler",
+        "creation": "27c9526bbc2393564431909249b25ae7953ca92a6a20b6dac5fb411929c30ad3",
+        "runtime": "ac86c701e152665709e4e6ed7e2be95986940ea359ff98630bea9ceb8a2ce80a",
+        "runtimeBytes": 5558
+      },
+      {
+        "artifact": "src/box/BoxReceiver.sol:BoxReceiver",
+        "creation": "ea786c25f96da743c6a80ae261199357e653bb1b21ed8831d1af0bc0eb6f41aa",
+        "runtime": "50db1b7bd60b7730a1e564bb3a5d9e9dec43512eca6a57d2ea82cef9f2af5dd1",
+        "runtimeBytes": 22437
+      },
+      {
+        "artifact": "src/box/BoxReceiverExtension.sol:BoxReceiverExtension",
+        "creation": "e8e144c912bf7c4f7dfa241936290af9111085f252b05ec7694a40611f14620a",
+        "runtime": "55b30857bc9a975b53c9db1d631aecbfa967678c6797ee96a047d29023154012",
+        "runtimeBytes": 4144
+      },
+      {
+        "artifact": "src/box/BoxRegistry.sol:BoxRegistry",
+        "creation": "52cc6196a41406528f956eed86aa80ee0940a914d7645199556f51054c1ba801",
+        "runtime": "1e780db890a8c3005c1c60db2cbadb4b09b8936c65053430c1fa4a4c88f5c1da",
+        "runtimeBytes": 5673
+      },
+      {
+        "artifact": "src/box/BoxRoyaltyRouter.sol:BoxRoyaltyRouter",
+        "creation": "c556f7d51230da3eef136215e9cb92acf24ab53b4e78a6baccb9c59c879b02f0",
+        "runtime": "bf1a82440be143c6908d8c646f42d56de30d6eca80e9cb860a481afc288ef8aa",
+        "runtimeBytes": 1805
+      },
+      {
+        "artifact": "src/box/BoxSpecV1.sol:BoxSpecV1",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/BoxSwapModule.sol:BoxSwapModule",
+        "creation": "7386b9f73fe2cb16b5faf8ebf5ddd87ec56f0beeef420de1aacf127ce34153d7",
+        "runtime": "b8273a5508087fa5f8b513933e4ce52f10fb4c2fbc7d7eaa6c4dad4109980869",
+        "runtimeBytes": 16568
+      },
+      {
+        "artifact": "src/box/BoxTickets.sol:BoxTickets",
+        "creation": "4cf4df09d8cd2326707c9bd2df197e01d6fd3991f7f86e1337087bfd1e6f779e",
+        "runtime": "4f8df9424b958e7fd00bea0bf895824a4faa1311d248137228b1a6f86c1f9461",
+        "runtimeBytes": 23546
+      },
+      {
+        "artifact": "src/box/BoxToken.sol:BoxToken",
+        "creation": "c5b1d67fb9149831f3ccb518548aef2f379a4abfc245899e121e53ec9738e4e6",
+        "runtime": "af755fa315363ed53994a7381b62644297e1a890aa535baac7dd511477fa2bee",
+        "runtimeBytes": 2600
+      },
+      {
+        "artifact": "src/box/BoxVault.sol:BoxVault",
+        "creation": "eb5567e355255db879380ef78615657d5bb01376bd7a9d33bc55101bb5157961",
+        "runtime": "e20db057c5d23c9fd0591251257ecee7527275e9e7c937c7b89328a876959150",
+        "runtimeBytes": 14537
+      },
+      {
+        "artifact": "src/box/FitBuybackExecutor.sol:FitBuybackExecutor",
+        "creation": "be7417b46f39bc44927c46b71bf8440c2b266265516006fc099660839c957fd9",
+        "runtime": "a249cce44a2bc300025f0a890cc3ce8d240e5a480429ac10df45c59a05b01ccf",
+        "runtimeBytes": 12469
+      },
+      {
+        "artifact": "src/box/build/mainnet/BoxBuildV1.sol:BoxBuildV1",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/build/rehearsal/BoxBuildV1.sol:BoxBuildV1",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/libraries/BoxCloneArgs.sol:BoxCloneArgs",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/libraries/BoxClones.sol:BoxClones",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/libraries/BoxData.sol:BoxData",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/libraries/BoxEncoding.sol:BoxEncoding",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/libraries/BoxIdSet.sol:BoxIdSet",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/libraries/BoxMetadataTable.sol:BoxMetadataTable",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/libraries/BoxShuffle.sol:BoxShuffle",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/libraries/BoxSwapBounds.sol:BoxSwapBounds",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/randomness/BackedSourcePins.sol:BackedSourcePins",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/randomness/BoxBackedSource.sol:BoxBackedSource",
+        "creation": "f652e669823f11f61cac8576010922c0197e5f260b63322a5a0289a5a4fdd5b8",
+        "runtime": "36b998505f1a0d730756e18b070753a2c76222206a9461c7f80050e0766aa0a0",
+        "runtimeBytes": 6222
+      },
+      {
+        "artifact": "src/box/randomness/BoxDrandQuicknet.sol:BoxDrandQuicknet",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/randomness/DrandSource.sol:DrandSource",
+        "creation": "a9cb29703dbba70f04d7e1a7c0d46be75a6262fa20d27250ff308d66195897f5",
+        "runtime": "2dfe963bd073b5e3d20cc14ff8f0e31792b4af10de1944fc6b73cc36c5508a0a",
+        "runtimeBytes": 7581
+      },
+      {
+        "artifact": "src/box/randomness/DrandSourcePins.sol:DrandSourcePins",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      },
+      {
+        "artifact": "src/box/randomness/DrandWords.sol:DrandWords",
+        "creation": "805b30aa08e83712590ad0e059bf18898c8b071d19dfc6a80314d21e73d7eff5",
+        "runtime": "6866e0df76f4338e6601865ccfcee8548c07d975d4f0913cf488d515df736cbb",
+        "runtimeBytes": 44
+      }
+    ]
+  }
+}

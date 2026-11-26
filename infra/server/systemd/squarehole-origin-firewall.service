@@ -1,0 +1,18 @@
+# Only Cloudflare reaches the stack's web ports (infra/server/origin-firewall.sh). It runs before Docker at boot, so the
+# allowlist is in place before the containers come back (restart: unless-stopped); Docker keeps DOCKER-USER's rules
+# across its own restarts. A failure leaves the ports open, not closed (the site keeps working); `systemctl status`
+# shows why.
+[Unit]
+Description=Square Hole origin allowlist (only Cloudflare on 80 and 443)
+After=network-pre.target ufw.service
+Wants=network-pre.target
+Before=docker.service squarehole-stack.service
+ConditionPathExists=/srv/squarehole/current/infra/server/Caddyfile
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/sbin/squarehole-origin-firewall /srv/squarehole/current/infra/server/Caddyfile
+
+[Install]
+WantedBy=multi-user.target docker.service

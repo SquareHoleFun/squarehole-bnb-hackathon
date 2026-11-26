@@ -1,0 +1,134 @@
+/*
+ * The box interface (SH-BOX-UI-launch; docs/design/box-concept/BOX-INTERFACE-v0.2.md): a wallet as a box (its holdings by source box, the revealed items, the companion's slot is in box-base.css). Every class is
+ * prefixed `sh-box-` (css-scope.test.ts); the shared tokens and parts are in box-base.css.
+ */
+
+/* ── Wallet box ────────────────────────────────────────────── */
+.sh-box-head__cover--wallet .sh-box-shell {
+  height: 100%;
+}
+
+.sh-box-holding__open {
+  margin-left: auto;
+  color: var(--sh-accent);
+  font-size: var(--sh-type-small);
+  font-weight: 700;
+}
+
+.sh-box-wtiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-box-wtile {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+  border: 1px solid var(--sh-border);
+  border-radius: 12px;
+  background: var(--sh-surface);
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+}
+
+.sh-box-wtile > strong,
+.sh-box-wtile > span:last-child {
+  padding: 0 10px;
+}
+
+.sh-box-wtile > span:last-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding-bottom: 10px;
+}
+
+.sh-box-wtile strong {
+  color: var(--sh-text);
+  font-size: var(--sh-type-small);
+  font-variant-numeric: tabular-nums;
+}
+
+.sh-box-wtile__art {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  background: #111b2b;
+}
+
+.sh-box-wtile__art img,
+.sh-box-wtile__art .sh-box-toy {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sh-box-wtile__art--stack {
+  color: var(--sh-text-muted);
+}
+
+/* Revealed items held: up to four example pictures */
+.sh-box-mosaic {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px;
+  place-items: stretch;
+}
+
+.sh-box-mosaic[data-count='1'] {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.sh-box-mosaic[data-count='2'] {
+  grid-template-rows: minmax(0, 1fr);
+}
+
+@media (max-width: 640px) {
+  .sh-box-wtiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ── Created (boxes this wallet launched; OpenSea profile's "Created") ── */
+.sh-box-created__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-box-created__link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-2);
+  min-height: var(--sh-touch-target);
+  padding: 0 0 var(--sh-gap-2);
+  overflow: hidden;
+  border: 1px solid var(--sh-border);
+  border-radius: 12px;
+  background: var(--sh-surface);
+  color: var(--sh-text);
+  text-decoration: none;
+}
+
+.sh-box-created__link:hover {
+  border-color: var(--sh-border-strong);
+}
+
+.sh-box-created__link > .sh-box-state {
+  margin: 0 var(--sh-gap-2);
+  align-self: flex-start;
+}
+
+.sh-box-created__name {
+  padding: 0 var(--sh-gap-2);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}

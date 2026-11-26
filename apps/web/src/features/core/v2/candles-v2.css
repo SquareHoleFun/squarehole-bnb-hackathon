@@ -1,0 +1,64 @@
+/*
+ * SH-BOX-CANDLES: the box page's price chart (CandleChartV2.tsx): the step buttons, the plot the library draws in, one
+ * line for an empty or failed step, and the readout line under it (kept at its height, so nothing moves when it fills).
+ * Colours are the site's tokens (the canvas reads them from here, candle-canvas.ts).
+ */
+.sh-candles { display: grid; gap: 8px; margin: 0; min-width: 0; }
+.sh-candles__steps { display: flex; gap: 4px; padding: 3px; border: 1px solid var(--sh-border); border-radius: var(--sh-radius-pill); background: var(--sh-surface); width: fit-content; max-width: 100%; }
+.sh-candles__step {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: var(--sh-radius-pill);
+  background: none;
+  color: var(--sh-text-secondary);
+  font: inherit;
+  font-size: var(--sh-type-label);
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.sh-candles__step:hover { color: var(--sh-text); }
+.sh-candles__step[aria-pressed='true'] { background: var(--sh-selected); color: var(--sh-text); }
+/* The step Max shows: a dot under it. */
+.sh-candles__step[data-max]::after {
+  content: '';
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  margin-left: -2px;
+  border-radius: 50%;
+  background: var(--sh-accent);
+}
+.sh-candles__frame { position: relative; min-width: 0; height: 16rem; }
+.sh-candles__plot { position: absolute; inset: 0; }
+/* Reading, no trade yet or unavailable: the one line alone, no empty axes behind it. */
+.sh-candles:not([data-status='drawn']) .sh-candles__plot { visibility: hidden; }
+.sh-candles__message {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-small);
+  pointer-events: none;
+}
+/* One line, each word and its value kept together; on a phone a long candle's last pair moves to a second line whole (12 px
+   is the smallest type, so the line keeps its room for two). */
+.sh-candles__readout { display: flex; flex-wrap: wrap; gap: 0 10px; min-height: 1.4em; margin: 0; color: var(--sh-text-secondary); font-size: var(--sh-type-caption); font-variant-numeric: tabular-nums; line-height: 1.4; }
+.sh-candles__pair { white-space: nowrap; }
+.sh-candles__word { color: var(--sh-text-muted); }
+
+@media (max-width: 640px) {
+  .sh-candles__steps { width: 100%; }
+  .sh-candles__step { padding: 0 4px; }
+  .sh-candles__frame { height: 13.5rem; }
+  .sh-candles__readout { gap: 0 8px; min-height: 2.8em; }
+}

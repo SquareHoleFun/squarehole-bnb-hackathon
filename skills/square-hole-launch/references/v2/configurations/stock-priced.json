@@ -1,0 +1,56 @@
+{
+  "format": "squarehole.boxspec-draft/2",
+  "network": "demo",
+  "configuration": "Stock-priced (GPU Poor)",
+  "brief": "Worked GPU Poor example from the base registry. token-only VRAM priced in NVDAon. Both fee sides buy VRAM and burn it. Use kits/gpu-poor.md for the app settings file and Sepolia bindings; this draft uses the offline demo menu.",
+  "status": "Demo example",
+  "site": {
+    "links": []
+  },
+  "spec": {
+    "format": 2,
+    "version": 2,
+    "boxType": "TOKEN_ONLY",
+    "tokenName": "GPU Poor",
+    "tokenSymbol": "VRAM",
+    "collectionName": "",
+    "collectionSymbol": "",
+    "description": "Demo: token-only VRAM priced in NVDAon. Both fee sides buy VRAM and burn it.",
+    "n": "0",
+    "firstId": "0",
+    "pricing": "NVDAon",
+    "raise": "LISTING",
+    "layout": "CURVE_V1",
+    "gradLayout": "FULL_RANGE",
+    "launchFormat": "CURVE",
+    "openAt": 0,
+    "deadlineDays": "30",
+    "buyers": {
+      "split": "NoSplit",
+      "a": {
+        "leg": "BuyT",
+        "dest": "Eat"
+      }
+    },
+    "sellers": {
+      "split": "NoSplit",
+      "a": {
+        "leg": "BuyT",
+        "dest": "Eat"
+      }
+    },
+    "artMode": 0,
+    "revealRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "metadataTable": "0x",
+    "generatorHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coverSha256": "FROM_LAUNCH_FLOW",
+    "revealListId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "marketplaceOwner": "0x0000000000000000000000000000000000000000",
+    "creatorFeeRecipient": "0x0000000000000000000000000000000000000000",
+    "creatorBuy": "0",
+    "collectionCoverSha256": "0x0",
+    "addOns": [],
+    "contentsParams": "0x",
+    "pickFeeBps": "0"
+  }
+}

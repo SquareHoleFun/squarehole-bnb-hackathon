@@ -1,0 +1,140 @@
+# Linux only: host networking keeps Kubo's API and gateway on genuine loopback.
+# The external volume MUST have its own capacity limit; StorageMax is not a quota.
+name: squarehole-ipfs
+
+x-common: &common
+  user: "1000:1000"
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: ["no-new-privileges:true"]
+  pids_limit: 256
+  logging:
+    driver: local
+    options:
+      max-size: "10m"
+      max-file: "3"
+
+x-kubo: &kubo
+  <<: *common
+  image: ipfs/kubo:v0.32.1
+  environment:
+    IPFS_PATH: /data/ipfs
+  volumes:
+    - data:/data/ipfs
+  tmpfs:
+    - /tmp:rw,noexec,nosuid,size=64m,uid=1000,gid=1000
+
+services:
+  init:
+    <<: *kubo
+    network_mode: none
+    restart: "no"
+    mem_limit: 256m
+    entrypoint: ["/bin/sh", "-ec"]
+    command:
+      - |
+        umask 077
+        if [ ! -s "$${IPFS_PATH}/config" ]; then
+          ipfs init --profile=server
+        fi
+
+  configure:
+    <<: *common
+    image: python:3.13.2-alpine
+    network_mode: none
+    restart: "no"
+    mem_limit: 128m
+    depends_on:
+      init:
+        condition: service_completed_successfully
+    environment:
+      IPFS_PATH: /data/ipfs
+      SH_IPFS_PATCH: /settings/kubo-config.json
+    volumes:
+      - data:/data/ipfs
+      - ./kubo-config.json:/settings/kubo-config.json:ro
+    entrypoint: ["python3", "-c"]
+    # Merge only operator settings. Never replace Identity or Datastore.Spec.
+    # Run only while kubo is stopped; the runbook includes the stop before up.
+    command:
+      - |
+        import json
+        import os
+        from pathlib import Path
+        import sys
+
+        def merge(target, patch):
+            for key, value in patch.items():
+                if isinstance(value, dict):
+                    merge(target.setdefault(key, {}), value)
+                else:
+                    target[key] = value
+
+        try:
+            os.umask(0o077)
+            repo = Path(os.environ["IPFS_PATH"])
+            patch = json.loads(Path(os.environ["SH_IPFS_PATCH"]).read_text())
+            if set(patch) != {"Addresses", "Datastore", "Gateway", "Importer"}:
+                raise ValueError()
+            if set(patch["Datastore"]) != {"StorageMax", "StorageGCWatermark", "GCPeriod"}:
+                raise ValueError()
+            config = json.loads((repo / "config").read_text())
+            if not config.get("Identity", {}).get("PrivKey"):
+                raise ValueError()
+            merge(config, patch)
+            staged = repo / "config.staged"
+            with staged.open("w") as output:
+                output.write(json.dumps(config, indent=2) + "\n")
+                output.flush()
+                os.fsync(output.fileno())
+            staged.chmod(0o600)
+            staged.replace(repo / "config")
+        except Exception:
+            sys.exit("IPFS configuration failed; inspect inputs privately")
+
+  kubo:
+    <<: *kubo
+    network_mode: host
+    restart: unless-stopped
+    mem_limit: 2g
+    cpus: 1.0
+    stop_grace_period: 60s
+    depends_on:
+      configure:
+        condition: service_completed_successfully
+    entrypoint: ["ipfs"]
+    command: ["daemon", "--enable-gc=false", "--migrate=false"]
+    healthcheck:
+      # Explicit API: an offline repo's `ipfs id` alone can otherwise succeed.
+      test: ["CMD-SHELL", "ipfs --api=/ip4/127.0.0.1/tcp/5001 id >/dev/null"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 60s
+
+  gateway:
+    <<: *common
+    image: caddy:2.10.2-alpine
+    network_mode: host
+    restart: unless-stopped
+    mem_limit: 256m
+    cpus: 0.5
+    depends_on:
+      kubo:
+        condition: service_healthy
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+    tmpfs:
+      - /config:rw,noexec,nosuid,size=8m,uid=1000,gid=1000
+      - /data:rw,noexec,nosuid,size=8m,uid=1000,gid=1000
+    command: ["caddy", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8090/healthz"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+
+volumes:
+  data:
+    external: true
+    name: "${SH_IPFS_VOLUME:?Set SH_IPFS_VOLUME to an existing capacity-limited volume}"

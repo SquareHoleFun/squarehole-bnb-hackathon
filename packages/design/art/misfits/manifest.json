@@ -1,0 +1,266 @@
+{
+  "note": "Launch-set art for the box pages (SH-BOX-UI-launch). Copied byte for byte from the box mock-up (docs/design/box-concept/mock-v0.2/img), which took them from the generator packs (misfits-review img4/img5) and the box-cover renders. Teasers and avatars are ordinary family pieces only (F47): no one-of-one, Classic, Diamond, Glass or Gold art. Whether each teaser is a final edition piece is open (founder question); the page labels them \"Example\".",
+  "files": [
+    {
+      "path": "cover-claims-desk-glass.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/cover/claims-desk-glass.webp",
+      "width": 384,
+      "height": 384,
+      "bytes": 4870,
+      "sha256": "827eae9bdb6e7a386bf4f66a14a71eecd28eb247243d70251e4b817a0bf86f41",
+      "use": "Demo box cover: Tin Cans (glass box, Claims Desk)"
+    },
+    {
+      "path": "cover-collection-gallery-mirror.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/cover/collection-gallery-mirror.webp",
+      "width": 384,
+      "height": 384,
+      "bytes": 4962,
+      "sha256": "0200e52a799eb51072ff48d318931b86b7a42b4ea02c4ba8cd7b3a8bf2112de3",
+      "use": "Demo box cover: Pocket Stamps (mirror box, Collection Gallery)"
+    },
+    {
+      "path": "cover-control-nook-toy.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/cover/control-nook-toy.webp",
+      "width": 384,
+      "height": 384,
+      "bytes": 6252,
+      "sha256": "97c3bf90e9759442a3819941081caecb60690bddb2a49b646b5d0390bc13fc9a",
+      "use": "Demo box cover: Toy Trains (toy box, Control Nook)"
+    },
+    {
+      "path": "cover-feed-deck-gilded.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/cover/feed-deck-gilded.webp",
+      "width": 384,
+      "height": 384,
+      "bytes": 5874,
+      "sha256": "a802694af8f9bfc4375a70a8b8c3985226234761370558c6d374395c5abe3132",
+      "use": "Demo box cover: Paper Kites (closed gilded box on the Feed Deck plate)"
+    },
+    {
+      "path": "cover-launch-workshop-walnut.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/cover/launch-workshop-walnut.webp",
+      "width": 384,
+      "height": 384,
+      "bytes": 6090,
+      "sha256": "73f9ac767a12289250d6cff6da47975f0db9b11b69234f5e39e80cb12c0d9089",
+      "use": "Demo box cover: Clay Pots (walnut box, Launch Workshop)"
+    },
+    {
+      "path": "cover-misfits-256.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/cover/misfits-256.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 2848,
+      "sha256": "d010752290201fe38ca944937c96e94f53f481b996d1842a8fb7576dcd617660",
+      "use": "The Misfits box cover, 256 px (cards, sealed tiles)"
+    },
+    {
+      "path": "cover-misfits.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/cover/misfits.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 8178,
+      "sha256": "4f16995f331eeedac1ac20964d017f4c87d9c73abceab78812508baab9923453",
+      "use": "The Misfits box cover: the sealed box (BOX-INTERFACE \u00a7 5)"
+    },
+    {
+      "path": "m-B02-256.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/m/B02-256.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 4526,
+      "sha256": "8b049401d8013c641c5c2fe54d107c9e18c0b01cf826e5e0a5c8938a719fd641",
+      "use": "Ordinary Misfit example B02 (generator benchmark render, standard finish), 256 px"
+    },
+    {
+      "path": "m-B02.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/m/B02.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 12460,
+      "sha256": "5fa902819343504615b95a4c156f1130f3616a500800f6dd1c678df621cf81f3",
+      "use": "Ordinary Misfit example B02 (generator benchmark render, standard finish)"
+    },
+    {
+      "path": "m-B04-256.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/m/B04-256.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 4252,
+      "sha256": "45303a5c9396a55bd0dc8fad35e856048b38cac69e02998740fd070171799069",
+      "use": "Ordinary Misfit example B04 (generator benchmark render, standard finish), 256 px"
+    },
+    {
+      "path": "m-B04.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/m/B04.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 11906,
+      "sha256": "13ccdbb7d1011cfc4273da9d3272dd01d86f04fedde77c830bd332371b3371ed",
+      "use": "Ordinary Misfit example B04 (generator benchmark render, standard finish)"
+    },
+    {
+      "path": "m-B06-256.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/m/B06-256.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 4694,
+      "sha256": "1fa191821d1b6bf6eeb7868b0dca6431595f59eebd4917038f9e52eb6e3e0fe2",
+      "use": "Ordinary Misfit example B06 (generator benchmark render, standard finish), 256 px"
+    },
+    {
+      "path": "m-B06.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/m/B06.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 12406,
+      "sha256": "55607480677dd3c86c04261beb3548347def160582d5cd5abfd138e4cb46c28e",
+      "use": "Ordinary Misfit example B06 (generator benchmark render, standard finish)"
+    },
+    {
+      "path": "m-B09-256.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/m/B09-256.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 4634,
+      "sha256": "61b954094a59e4710626dee5c14322523d4644aba9f22b2e79e270f6946efa43",
+      "use": "Ordinary Misfit example B09 (generator benchmark render, standard finish), 256 px"
+    },
+    {
+      "path": "m-B09.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/m/B09.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 12454,
+      "sha256": "657a994be516fca3de977bd5674d5c9807e7dee88fa9b87eb459bc4ff522c687",
+      "use": "Ordinary Misfit example B09 (generator benchmark render, standard finish)"
+    },
+    {
+      "path": "m-B13-256.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/m/B13-256.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 4038,
+      "sha256": "f22e3f60a4374129c1680b7ed5e5878495b61abdc793b807eb76d649a9e4eee2",
+      "use": "Ordinary Misfit example B13 (generator benchmark render, standard finish), 256 px"
+    },
+    {
+      "path": "m-B13.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/m/B13.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 11792,
+      "sha256": "3d064483d5956b1d9846b576bd717c25281082ad5220c6ac5c21db49bdd0cd02",
+      "use": "Ordinary Misfit example B13 (generator benchmark render, standard finish)"
+    },
+    {
+      "path": "m-B15-256.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/m/B15-256.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 4732,
+      "sha256": "610f86c6fdcd637067dc8e7c1bdce6d28b3e8ca7101042300536719fb6b87131",
+      "use": "Ordinary Misfit example B15 (generator benchmark render, standard finish), 256 px"
+    },
+    {
+      "path": "m-B17-256.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/m/B17-256.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 4314,
+      "sha256": "827bbf4118b45b38744f8066a9a489bd53139f0a4565da114f035584a34a3105",
+      "use": "Ordinary Misfit example B17 (generator benchmark render, standard finish), 256 px"
+    },
+    {
+      "path": "m-B17.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/m/B17.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 11708,
+      "sha256": "0d30bb2678f9df552ecc1cfc76a0dd021f8d32aaf72e3f6666ade44cadec4574",
+      "use": "Ordinary Misfit example B17 (generator benchmark render, standard finish)"
+    },
+    {
+      "path": "m-B18-256.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/m/B18-256.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 4388,
+      "sha256": "031acdabf2296082cec162d2b68a17d2e9ee3f9bec37add1ea3c991b6cc87a35",
+      "use": "Ordinary Misfit example B18 (generator benchmark render, standard finish), 256 px"
+    },
+    {
+      "path": "m-B18.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/m/B18.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 11784,
+      "sha256": "737cd99050cc3f91284ec64b34753074fff586e6b2c421b59370eb156fd98651",
+      "use": "Ordinary Misfit example B18 (generator benchmark render, standard finish)"
+    },
+    {
+      "path": "m-B19-256.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/m/B19-256.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 4328,
+      "sha256": "aefeabdee7c0e518cc72aeecd044334dd0275a9cbc5522e78ab3088c021991da",
+      "use": "Ordinary Misfit example B19 (generator benchmark render, standard finish), 256 px"
+    },
+    {
+      "path": "m-B19.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/m/B19.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 11944,
+      "sha256": "9070de2f907bebf861814000a667e4d3f6a27f54d7c6450a1b2cc46da9a82e7b",
+      "use": "Ordinary Misfit example B19 (generator benchmark render, standard finish)"
+    },
+    {
+      "path": "sealed-gilded.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/sealed/gilded.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 4176,
+      "sha256": "b5ef1bb2df249498d135a201e1ecfce6686725b9e53fb8ee24f4b8353f8e98a6",
+      "use": "Demo sealed item: closed gilded box"
+    },
+    {
+      "path": "sealed-glass.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/sealed/glass.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 2120,
+      "sha256": "35e869c697c08ee7c014a958558e65e5c7ad73c6e13c803a79579dc266e160de",
+      "use": "Demo sealed item: closed glass box"
+    },
+    {
+      "path": "sealed-mirror.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/sealed/mirror.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 3026,
+      "sha256": "19f54dddb0ea1043f51833241bb02b21e0f07db756012ae20c40b62b9c7c0885",
+      "use": "Demo sealed item: closed mirror box"
+    },
+    {
+      "path": "sealed-toy.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/sealed/toy.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 4770,
+      "sha256": "64793688535aedc27232b2246e472b67eaa07e9fe2d629f1d540d27eea61daea",
+      "use": "Demo sealed item: closed toy box"
+    },
+    {
+      "path": "sealed-walnut.webp",
+      "source": "docs/design/box-concept/mock-v0.2/img/sealed/walnut.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 4140,
+      "sha256": "d84c7dfbc19bb70a912cd69a745620ca3b7b045d7f74fdd18337db4dc5cd9663",
+      "use": "Demo sealed item: closed walnut box"
+    }
+  ]
+}

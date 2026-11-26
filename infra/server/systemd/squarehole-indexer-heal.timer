@@ -1,0 +1,11 @@
+[Unit]
+Description=Check the Square Hole indexer for a hang every minute
+
+[Timer]
+OnCalendar=*-*-* *:*:00 UTC
+AccuracySec=1
+Persistent=true
+Unit=squarehole-indexer-heal.service
+
+[Install]
+WantedBy=timers.target

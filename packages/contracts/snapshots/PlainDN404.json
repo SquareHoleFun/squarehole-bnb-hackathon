@@ -1,0 +1,10 @@
+{
+  "baseline_buy10UnitsNewWallet": "240567",
+  "baseline_buy1UnitNewWallet": "144449",
+  "baseline_buyCrossesBoundary": "87502",
+  "baseline_fractionalTransfer": "48459",
+  "baseline_mirrorTransferFrom": "70755",
+  "baseline_poolSettle1Unit": "68221",
+  "baseline_poolTake1UnitNewWallet": "144449",
+  "baseline_sell1Unit": "65607"
+}

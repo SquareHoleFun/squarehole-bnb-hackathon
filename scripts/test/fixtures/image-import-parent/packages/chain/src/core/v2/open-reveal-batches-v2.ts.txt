@@ -1,0 +1,18 @@
+
+
+
+
+
+
+
+
+
+
+
+
+import { boxLeaf, verifyBoxProof } from '../../../../artwork/src/box-commitment';
+
+
+
+
+import { validateOpenBoxSpecV2, type OpenRevealCommitmentV2 } from './open-reveal-spec-v2';

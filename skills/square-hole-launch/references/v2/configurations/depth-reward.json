@@ -1,0 +1,55 @@
+{
+  "format": "squarehole.boxspec-draft/2",
+  "network": "demo",
+  "configuration": "Depth reward (the Exit shape)",
+  "brief": "Buyers: grow. Sellers: grow. Both fee sides use the pricing coin. Each box fixes the listing raise when it is created.",
+  "site": {
+    "links": []
+  },
+  "spec": {
+    "format": 2,
+    "version": 2,
+    "boxType": "TOKEN_ONLY",
+    "tokenName": "Exit Shape",
+    "tokenSymbol": "EXIT",
+    "collectionName": "",
+    "collectionSymbol": "",
+    "description": "Demo: every fee deepens the pool in USDC and EXIT.",
+    "n": 0,
+    "firstId": "0",
+    "pricing": "USDC",
+    "raise": "LISTING",
+    "layout": "CURVE_V1",
+    "gradLayout": "FULL_RANGE",
+    "launchFormat": "CURVE",
+    "openAt": 0,
+    "deadlineDays": 30,
+    "buyers": {
+      "split": "NoSplit",
+      "a": {
+        "leg": "AsPaid",
+        "dest": "Depth"
+      }
+    },
+    "sellers": {
+      "split": "NoSplit",
+      "a": {
+        "leg": "AsPaid",
+        "dest": "Depth"
+      }
+    },
+    "artMode": 0,
+    "revealRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "metadataTable": "0x",
+    "generatorHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coverSha256": "FROM_LAUNCH_FLOW",
+    "revealListId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "marketplaceOwner": "0x0000000000000000000000000000000000000000",
+    "creatorFeeRecipient": "0x0000000000000000000000000000000000000000",
+    "creatorBuy": "0",
+    "collectionCoverSha256": "0x0",
+    "addOns": [],
+    "contentsParams": "0x",
+    "pickFeeBps": 0
+  }
+}

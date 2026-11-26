@@ -1,0 +1,12 @@
+{
+  "chainId": 97,
+  "deployBlock": 144931897,
+  "launcherFactory": "0x45A2BCDc29E379585e3D424FbA0c8a290FDe2560",
+  "pileDeployer": "0x6E4c921ca563fdf57d5ed64E9d87681994F03F1D",
+  "portal": "0x000042108465206185A077Edc3F3fd2b49060000",
+  "quote": "0x0000000000000000000000000000000000000000",
+  "router": "0xc9D63ddCB9549578057EAB6A83a543DdFEE2b8c3",
+  "rulesVaultDeployer": "0x8B4eeFAeD20A49b9139881963aA1d4b0825dF5d3",
+  "rulesVaultFactory": "0x114Fa92D802dF51701E1A8888c37628949504391",
+  "variant": "native"
+}

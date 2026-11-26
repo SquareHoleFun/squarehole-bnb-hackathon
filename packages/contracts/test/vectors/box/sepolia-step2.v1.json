@@ -1,0 +1,37 @@
+{
+  "about": "TEST VECTOR (F143). docs/runbooks/sepolia-core-v1.md Step 2's identities for the Safe file at its example opening time (1791284400, 2026-10-06 11:00 UTC), computed by test/box/sepolia/SepoliaStep2Box0.t.sol on a local chain with Sepolia's id: the testnet deployer at nonce 13, Sepolia's PoolManager and WETH addresses, both sources initially absent (sixteen steps). The same method reproduces rc7's Step 2 table exactly at core-v21-rc7 (docs/evidence/SH-BOX0-BACKUP-SOURCE.md). Not live chain state.",
+  "chainId": 11155111,
+  "deployer": "0x1F1481667Ef20928d55524dfE4640f96Bd9b4eeE",
+  "nonce": 13,
+  "factory": "0x93118f6F6E059B69Cba1Ce3F9ac9Ab8E7B0bc087",
+  "registry": "0xa94936CD8994FA94FA31bc1fC992586f2468bfcb",
+  "coordinator": "0x4039f68558Fb8cfce3070712FBb1D530D5e1cb5D",
+  "t": "0xaC0B0beeEf2E3951B67c47096ad26ef45AFdD396",
+  "vault": "0x9CadBfCCE0E2D18Acf1E423f0C2f1346617297A3",
+  "collection": "0xCA1cDA4A704899735497a4014FF53b27aB638ACa",
+  "receiver": "0x4C75930f44F0b5C1D6BA0Aa6030f551F428816Dd",
+  "launchRouter": "0x73af183f31866cA1482d7cdD463a2fEEbE9e4f6C",
+  "tickets": "0x409814D2f3B9a8DC0204e67aD3C1ceAaE2d0A83D",
+  "royaltyRouter": "0x6D6B777eBBB5F98382Dd3253fD0cBB81B16E8BC0",
+  "itemStream": "0xe6aF3cE326a4ab2c5E884D61D5E9f0c69644f9fB",
+  "executor": "0xf1B15FC37BE694F70C25e1a94c1d0AdC7b145CE1",
+  "table": "0xa06B55436269C3e562F45567DaD63C090aA74dEc",
+  "rehearsal": {
+    "specFile": "script/config/box0-spec.11155111.rehearsal.sepolia-safe.json",
+    "specHash": "0xa0d749ad324e125c095089a9384647e0cca73f1b8680fdb2798825d94b2b91c6",
+    "templateId": "0xf4b0c60866afb9c087dd51ff9c9ec0f599aa3c9d1329acdf8137fda2f58545da",
+    "versionCodeHash": "0xb7c58a7f40ead74e614ca6a76f199447c9246c28f5d01c73acb17931b19c3319",
+    "hook": "0xC67bCB715D08cc773d7f81E66c90Cd716cAf2Ae0",
+    "hookSalt": "0x00000000000000000000000000000000000000000000000000000000000038a8",
+    "poolId": "0x5a263b199ce7b9a01606d00e75a311a2684acce58b2d83ee8a6effece8a24f23"
+  },
+  "default": {
+    "specFile": "script/config/box0-spec.11155111.safe.json",
+    "specHash": "0x0b3d138f0e9243193529c521f0a3fea743f548e1a2495e9afa93c78daae2253b",
+    "templateId": "0x5fe6d0844d96edb081ec9f35b687aee6c218ad2f5b69a8133f7bc64cff04fb3c",
+    "versionCodeHash": "0x6f50e7a0f487cdedfd9af1d3e341b2912504a3adbf040c120ce446255bbf7ce6",
+    "hook": "0xD94eBf5AE1215Dc1dbAe11D4E171c834f1aC6Ae0",
+    "hookSalt": "0x000000000000000000000000000000000000000000000000000000000000501a",
+    "poolId": "0xa25fa6292f38160d65067f81017e743fcfc3bc2b795297535b8df89fda3193ab"
+  }
+}

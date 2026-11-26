@@ -1,0 +1,14 @@
+# Cloudflare Pages response headers (static hosting; no server code).
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://api.squarehole.fun; font-src 'self' data:; connect-src 'self' https://api.squarehole.fun https://ethereum-sepolia-rpc.publicnode.com https://sepolia.gateway.tenderly.co https://upload.ardrive.io https://turbo-gateway.com https://arweave.net https://goldsky.arweave.net; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'
+
+/nft/*
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=300
+
+/nft/*/images/*
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=86400

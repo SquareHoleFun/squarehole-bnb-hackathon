@@ -1,0 +1,73 @@
+{
+  "format": "squarehole.boxspec-draft/2",
+  "network": "demo",
+  "example": 5,
+  "brief": "Example only: both sides pay holders in the listed price coin, with no conversion.",
+  "status": "stand-in",
+  "shows": [
+    "P-only holder batches and claims that survive failure."
+  ],
+  "differences": [
+    "CQ11 menu choices and full-range graduation."
+  ],
+  "deviations": [],
+  "converted": {
+    "from": "references/examples/gm-coin.json",
+    "by": "docs/design/box-spec-v2-draft.md \u00a7 8"
+  },
+  "site": {
+    "links": []
+  },
+  "spec": {
+    "format": 2,
+    "version": 2,
+    "boxType": "TOKEN_ONLY",
+    "tokenName": "Stock Payout Example",
+    "tokenSymbol": "STKP",
+    "collectionName": "",
+    "collectionSymbol": "",
+    "description": "Demo: holders receive the price coin from net trade batches.",
+    "n": 0,
+    "firstId": "0",
+    "pricing": "NVDAon",
+    "raise": "LISTING",
+    "layout": "CURVE_V1",
+    "gradLayout": "FULL_RANGE",
+    "launchFormat": "CURVE",
+    "openAt": 0,
+    "deadlineDays": 30,
+    "buyers": {
+      "split": "NoSplit",
+      "a": {
+        "leg": "AsPaid",
+        "dest": "Holders",
+        "destParams": {
+          "currency": "P"
+        }
+      }
+    },
+    "sellers": {
+      "split": "NoSplit",
+      "a": {
+        "leg": "AsPaid",
+        "dest": "Holders",
+        "destParams": {
+          "currency": "P"
+        }
+      }
+    },
+    "artMode": 0,
+    "revealRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "metadataTable": "0x",
+    "generatorHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coverSha256": "FROM_LAUNCH_FLOW",
+    "revealListId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "marketplaceOwner": "0x0000000000000000000000000000000000000000",
+    "creatorFeeRecipient": "0x0000000000000000000000000000000000000000",
+    "creatorBuy": "0",
+    "collectionCoverSha256": "0x0",
+    "addOns": [],
+    "contentsParams": "0x",
+    "pickFeeBps": 0
+  }
+}

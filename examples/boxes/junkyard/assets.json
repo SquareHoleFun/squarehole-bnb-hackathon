@@ -1,0 +1,163 @@
+{
+  "art/logo.png": {
+    "size": [
+      1024,
+      1024
+    ],
+    "sha256": "c98d19fedb3c6f6514d9f54d224e0fda1e7b9cd0c2302dab75e7aa0ba344e930",
+    "originalSize": [
+      1254,
+      1254
+    ],
+    "originalSha256": "70b7c05a7a80639b6a880c920070f247102ea6c2caf163bb7d49c01ec3a50604"
+  },
+  "art/x-avatar.png": {
+    "size": [
+      400,
+      400
+    ],
+    "sha256": "d498d1cb52dea4844b938ec823166107bad099661913ae66eed6b93b764cc166",
+    "originalSize": [
+      1254,
+      1254
+    ],
+    "originalSha256": "7a61528f63dc5d0342184cd6fa65c2e95526fd3d90a3e6cd344e39bd8146fbb2"
+  },
+  "art/x-banner.png": {
+    "size": [
+      1500,
+      500
+    ],
+    "sha256": "a2c58d485751af8e42e05d0d0b12a16f755ffd646dfb35f02af9344733037f00",
+    "originalSize": [
+      2164,
+      727
+    ],
+    "originalSha256": "70fd09df724c5986a916816f1eb745952c3ac1a5d3a49cd0d3cb2c5f69cf8069"
+  },
+  "art/cover.png": {
+    "size": [
+      1200,
+      630
+    ],
+    "sha256": "ce4fac0c8001d9eac51f0713332f9aaa4df74d182bca8b2f69dd613fbc4eef7d",
+    "originalSize": [
+      1730,
+      909
+    ],
+    "originalSha256": "a847d49076f4e99ba04cc39dc7cbc96f4ada8bca53443cf4765efed93131d954"
+  },
+  "art/box-banner.png": {
+    "size": [
+      1600,
+      600
+    ],
+    "sha256": "b09f956b3bf8cc220c35a15a5fea3821c29c7b4c883d57f38a1a8190f3bef5d4",
+    "originalSize": [
+      2048,
+      768
+    ],
+    "originalSha256": "ff3e236853b5834aab393d4adc602303404a8d564f4de4f337793b3f02b6f5df"
+  },
+  "art/scenes/scene-01.png": {
+    "size": [
+      1200,
+      800
+    ],
+    "sha256": "e00e49b5d12c2fae036bdc21604de568abf8290718c9143a77c8e5b9c804e0ff",
+    "originalSize": [
+      1536,
+      1024
+    ],
+    "originalSha256": "07d108fd2b7ec997f237e6a41265bc4e9d28850d784e8bbf8593438fe01a76f4"
+  },
+  "art/scenes/scene-02.png": {
+    "size": [
+      1200,
+      800
+    ],
+    "sha256": "640194e02e45acc02f4128cdd6a74812b19af3b2be2cc79ed7c6a0d3ef9a2789",
+    "originalSize": [
+      1536,
+      1024
+    ],
+    "originalSha256": "0505c4f36f565d47489193d38cd9a7b00772549a6603a81393d5d5670a34acd1"
+  },
+  "art/scenes/scene-03.png": {
+    "size": [
+      1200,
+      800
+    ],
+    "sha256": "4eb25ffab3ef0d24e8eac5f722f700142922425ecaf44314fc5111f4c8dd2fc2",
+    "originalSize": [
+      1536,
+      1024
+    ],
+    "originalSha256": "7d4acf9454dd0972f24537e77552819a5a350a12520f5b039cc662bca8cec606"
+  },
+  "art/scenes/scene-04.png": {
+    "size": [
+      1200,
+      800
+    ],
+    "sha256": "d51d8bf00972dbd0b7cf385c4f9851315c24cf1073b8e391e60f008bde820430",
+    "originalSize": [
+      1536,
+      1024
+    ],
+    "originalSha256": "c5a5874b7ab2be2ed56ffb69ef4fa708c8658312530c901864419e7fd5d104cb",
+    "earlierOriginalSize": [
+      1536,
+      1024
+    ],
+    "earlierOriginalSha256": "61b17047c6b66fe011dfb9ddb746688406c46c21e1c2381639782623ded45295"
+  },
+  "art/scenes/scene-05.png": {
+    "size": [
+      1200,
+      800
+    ],
+    "sha256": "475076e07b4b9541be3a070826e08f8aac2e89338df7e9c30083cfea8fe3babc",
+    "originalSize": [
+      1536,
+      1024
+    ],
+    "originalSha256": "fc43bd6fc9a02f326c54d8d3c3b45c67202d956c5dd912eb71ddbefbd598b7da"
+  },
+  "art/scenes/scene-06.png": {
+    "size": [
+      1200,
+      800
+    ],
+    "sha256": "452a1cb2b3cd24cf5db47ec2c6ea905f3df708bbf7969195c38849f985096ab0",
+    "originalSize": [
+      1536,
+      1024
+    ],
+    "originalSha256": "e9f099e288b5052fcfb6bbb73d22dec38df7316c4e79a642bd41b006685c9990"
+  },
+  "art/scenes/scene-07.png": {
+    "size": [
+      1200,
+      800
+    ],
+    "sha256": "482bad82f7c465c64a98c01fdc18e4ca98c66f013c770f5b9e37e23153143f87",
+    "originalSize": [
+      1536,
+      1024
+    ],
+    "originalSha256": "bcffe8c02e35cf8c49abe4b14a45d82d703644d9e0a081adf0263c175b8c9a3d"
+  },
+  "art/scenes/scene-08.png": {
+    "size": [
+      1200,
+      800
+    ],
+    "sha256": "a5f704f9d076c0961aafe53a873cea6164bd23c83fdd35d4632b09db086a3615",
+    "originalSize": [
+      1536,
+      1024
+    ],
+    "originalSha256": "efc79f65aaec90e50b709bb4d4746d60e733abfd56d221c0cff264f4f22064d5"
+  }
+}

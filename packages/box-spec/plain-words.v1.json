@@ -1,0 +1,1017 @@
+{
+  "name": "BoxSpecV1 in plain words",
+  "about": [
+    "Plain-language labels and explanations for every BoxSpecV1 field, enum member, add-on, add-on parameter, refusal reason and rule (F73: make the launch explorable for people and for other assistants). The structure (types, ranges, allowed and offered values) is never repeated here: it is read from box-spec.v1.json and add-ons.v1.json at run time.",
+    "Used by packages/box-spec/scripts/check-spec.mjs (`pnpm box-spec:check`: plain refusal sentences, the overview and `--menu`) and by skills/square-hole-launch/scripts/build-references.mjs (references/fields.md). `pnpm check:launch-skill` fails when a field, member, add-on, parameter, reason or rule has no entry here.",
+    "An entry whose member or add-on is not in box-spec.v1.json / add-ons.v1.json yet carries `planned`: it is shown as coming soon until the spec has it, then it moves into the guide on its own.",
+    "Placeholders in labels and member texts: {T} the box token's ticker, {Q} the pricing asset (ETH today). `notOffered`: a member the spec has but does not offer (why and when, in plain words); `limits`: an offered member that only some boxes can use; `source`: the decision rows and slices behind an entry, for maintainers (shown in references/fields.md, never in what the checker tells the creator). Words follow BC-091: no reward, earn or yield in user-facing copy.",
+    "`addOns.placeholders.launchFlow` holds the launch flow's own ticket texts and neutral hidden picture (apps/web create-model.ts; a web test keeps them equal), so a draft can write \"FROM_LAUNCH_FLOW\" for them and still get the exact values. `markerWords` names what the launch flow fills in, in the creator's words.",
+    "`launchFlowCanEnter`: what the launch flow (apps/web create-model.ts buildSpec) can enter, so the checker can say \"The launch flow cannot enter this yet\" for a draft the factory accepts but the site cannot build; launch-skill-words.test.ts keeps it equal to the page. The fee sides need no entry: the launch flow builds each side's menu from the spec's own members (box creation flow § 2.2), so any pair the check accepts can be entered. `comingSoon` names launch-flow features outside the spec, each with an `id` the web test probes on the page: it fails once the page has the feature, so the entry and the prose that calls it coming soon are removed together.",
+    "`advice`: the skill's recommendations the checker and the examples follow (decisions.md, proposals for the founder). `soonWords`: the words the skill's prose uses for a value that is not available yet; `pnpm check:launch-skill` fails when prose still calls such a value coming soon once the spec has it (packages/box-spec/scripts/lib/spec-soon.mjs). A rule the spec no longer has keeps its `soonWords` under a `retired` note, so prose that still describes it is caught."
+  ],
+  "marker": "FROM_LAUNCH_FLOW",
+  "markerWords": {
+    "coverSha256": "the logo's fingerprint",
+    "revealRoot": "the art's fingerprint",
+    "revealListId": "the public list of the art",
+    "metadataTable": "the trait table (from the traits file)",
+    "marketplaceOwner": "the owner address (the wallet connected, or one pasted)",
+    "creatorFeeRecipient": "the fee payout address (the owner)",
+    "collection-metadata.bannerSha256": "the banner's fingerprint",
+    "collection-metadata.teaserSha256s": "the teasers' fingerprints",
+    "collectionCoverSha256": "the collection cover's fingerprint"
+  },
+  "stringRules": {
+    "JSON_TEXT": "printable ASCII, no \" or \\",
+    "SVG": "one line of printable ASCII; quotes are fine (written \\\" in JSON)",
+    "URL": "an https:// link without spaces or quotes"
+  },
+  "launchFlowCanEnter": {
+    "zeroFields": [
+      "generatorHash"
+    ],
+    "royaltiesOffLeftOut": true,
+    "collectionPageEmptyLeftOut": true,
+    "maxRepeats": {
+      "edition-specials": 4
+    },
+    "comingSoon": [
+      {
+        "id": "import-boxspec",
+        "label": "Import BoxSpec",
+        "soonWords": [
+          "Import BoxSpec",
+          "import"
+        ]
+      },
+      {
+        "id": "hidden-svg-upload",
+        "label": "an own hidden picture (SVG upload)",
+        "soonWords": [
+          "SVG upload",
+          "own hidden picture"
+        ]
+      }
+    ]
+  },
+  "advice": {
+    "creatorBuyMaxBps": 500,
+    "royalties": [
+      {
+        "bps": 0
+      },
+      {
+        "bps": 250,
+        "destination": "FEE_HANDLING"
+      },
+      {
+        "bps": 250,
+        "destination": "CREATOR"
+      }
+    ]
+  },
+  "steps": [
+    {
+      "id": "basics",
+      "title": "Basics",
+      "fields": [
+        "q",
+        "tokenName",
+        "tokenSymbol",
+        "coverSha256",
+        "description"
+      ]
+    },
+    {
+      "id": "contents",
+      "title": "Contents",
+      "fields": [
+        "boxType",
+        "collectionName",
+        "collectionSymbol",
+        "collectionCoverSha256",
+        "n",
+        "artMode",
+        "metadataTable",
+        "revealRoot",
+        "revealListId",
+        "generatorHash",
+        "marketplaceOwner"
+      ]
+    },
+    {
+      "id": "kind",
+      "title": "Box kind",
+      "fields": [
+        "qStream",
+        "tStream",
+        "creatorFeeRecipient"
+      ]
+    },
+    {
+      "id": "addOns",
+      "title": "Add-ons (set on Contents and Box kind)",
+      "fields": [
+        "addOns"
+      ]
+    },
+    {
+      "id": "raise",
+      "title": "Raise",
+      "fields": [
+        "raise",
+        "deadlineDays"
+      ]
+    },
+    {
+      "id": "launch",
+      "title": "Opening",
+      "fields": [
+        "openAt",
+        "creatorBuy"
+      ]
+    },
+    {
+      "id": "fixed",
+      "title": "Set by the version (never asked)",
+      "fields": [
+        "version",
+        "firstId",
+        "layout",
+        "gradLayout",
+        "launchFormat"
+      ]
+    }
+  ],
+  "fields": {
+    "version": {
+      "label": "Version",
+      "what": "Which factory version builds the box. Version 1 builds only box 0 (the Misfits); every other box is version 2.",
+      "setBy": "the version (fixed)",
+      "default": "2",
+      "tell": "Nothing to choose."
+    },
+    "boxType": {
+      "label": "Contents",
+      "what": "What the box holds besides its token.",
+      "setBy": "the creator",
+      "default": "none: the creator picks one (the launch flow pre-selects neither)",
+      "tell": "Just the token (no NFTs and no vault; the logo is the token's picture) or a new NFT collection whose items sit in the box's vault and back the token."
+    },
+    "tokenName": {
+      "label": "Token name",
+      "what": "The full name of the box's token (1,000,000,000 are made, the same for every box).",
+      "setBy": "the creator",
+      "default": "the collection name",
+      "tell": "Fixed forever once created. Printable ASCII only: no emoji, accents, curly quotes or long dashes, and no \" or \\.",
+      "aliases": [
+        "name",
+        "token",
+        "tokenname"
+      ]
+    },
+    "tokenSymbol": {
+      "label": "Ticker",
+      "what": "The token's short symbol, e.g. GUZZ.",
+      "setBy": "the creator",
+      "default": "the collection symbol",
+      "tell": "Up to 11 characters, fixed forever, upper case by habit. Write it without a leading $: sites add the $ themselves. Another box may use the same ticker; a unique one avoids confusion.",
+      "aliases": [
+        "ticker",
+        "symbol",
+        "tokenticker"
+      ]
+    },
+    "collectionName": {
+      "label": "Collection name",
+      "what": "The NFT collection's name, shown on marketplaces.",
+      "setBy": "the creator",
+      "default": "the token name",
+      "tell": "Usually the same as the token name; only ask if they want them different. Empty for a token-only box."
+    },
+    "collectionSymbol": {
+      "label": "Collection symbol",
+      "what": "The NFT collection's symbol.",
+      "setBy": "the creator",
+      "default": "the ticker",
+      "tell": "Usually the same as the ticker. Empty for a token-only box."
+    },
+    "description": {
+      "label": "Description",
+      "what": "A short text about the box. Its first sentence is the box's one line on the site; it also goes into the collection's on-chain metadata.",
+      "setBy": "the creator",
+      "default": "empty",
+      "tell": "One or two plain sentences, up to 1,024 characters, the same ASCII rule as the name. Fixed forever.",
+      "aliases": [
+        "about",
+        "bio"
+      ]
+    },
+    "n": {
+      "label": "Items",
+      "what": "How many NFTs the collection holds, numbered 1 to n.",
+      "setBy": "the launch flow counts it from the art files",
+      "default": "the number of art files",
+      "tell": "10 to 10,000 items, one picture each, named by its number (1.png to n.png, or .jpg, .webp; 0007.png counts as 7; no 0 and no gaps). PNG, JPEG or WebP only (no TIFF, GIF or SVG), each up to 1 MiB and 16 to 4,096 pixels a side; pictures are stored as uploaded. The launch flow counts n from the files, so a draft's n is a plan before the art exists. A token-only box writes 0.",
+      "aliases": [
+        "items",
+        "count",
+        "supply",
+        "size"
+      ]
+    },
+    "firstId": {
+      "label": "First item number",
+      "what": "The first item's number.",
+      "setBy": "the version (fixed)",
+      "default": "1",
+      "tell": "Nothing to choose."
+    },
+    "q": {
+      "label": "Pricing asset",
+      "what": "The asset buyers pay with: the token is priced in it, the raise is counted in it and buyers' fees are paid in it.",
+      "setBy": "the creator, from the version's curated list",
+      "default": "native ETH",
+      "tell": "Today only ETH is listed: buyers pay in ETH, the raise and the buyers' fees are in ETH, and there is no dollar price. USDC, FIT, other boxes' tokens and USDY (tokenized T-bills) are planned for later.",
+      "accepts": "a listed asset's label (e.g. \"ETH\") or its address (0x000...000 is native ETH)",
+      "aliases": [
+        "pricing",
+        "pair",
+        "quote",
+        "currency"
+      ],
+      "plannedAssets": [
+        {
+          "label": "USDC",
+          "status": "a proposal for later; its ETH-equivalent raise rule is open (S12)",
+          "source": "F44 P3",
+          "qClass": "ERC20",
+          "symbol": "USDC",
+          "soonWords": [
+            "USDC"
+          ]
+        },
+        {
+          "label": "FIT",
+          "status": "once FIT trades (it is box 0's token); then the buyers' side could burn it",
+          "source": "slice S12",
+          "qClass": "FIT",
+          "soonWords": [
+            "priced in FIT",
+            "FIT as the pricing asset",
+            "FIT on the curated list"
+          ]
+        },
+        {
+          "label": "another box's token",
+          "status": "later, only a graduated box's token that Square Hole lists",
+          "source": "slice S12; F73 example 9",
+          "qClass": "BOX_T",
+          "soonWords": [
+            "another box's token",
+            "other boxes' tokens",
+            "a listed box token"
+          ]
+        },
+        {
+          "label": "USDY (tokenized T-bills)",
+          "status": "later, after a legal review",
+          "source": "F61 TB1",
+          "qClass": "ERC20",
+          "symbol": "USDY",
+          "soonWords": [
+            "USDY",
+            "T-bill"
+          ]
+        }
+      ]
+    },
+    "raise": {
+      "label": "Raise target",
+      "what": "How much the curve must collect, in the pricing asset: the same for every box (4.206980085 ETH). When it is reached the box graduates at once and the raise becomes the box's own pool (the creator does not receive it); if it is not reached by the deadline, the box fails and every token sells back for the same amount of the pricing asset from the refund range, which is not necessarily what each buyer paid.",
+      "setBy": "the version: every box raises the same amount",
+      "default": "4.206980085 ETH (the one raise)",
+      "tell": "Nothing to choose: every box raises 4.206980085 ETH, so the curve, the start price and the price at graduation are the same for every box. Show it as a fact.",
+      "amountInQ": true,
+      "choices": "the one raise, { \"decimal\": \"4.206980085\" }",
+      "aliases": [
+        "target",
+        "raiseTarget",
+        "goal"
+      ]
+    },
+    "layout": {
+      "label": "Curve",
+      "what": "The bonding curve: about 80% of the token sits on a curve whose price rises about 14.7 times from the first buy to the last.",
+      "setBy": "the version (fixed)",
+      "default": "CURVE_V1",
+      "tell": "Nothing to choose; explain it only if asked."
+    },
+    "gradLayout": {
+      "label": "Pool after graduation",
+      "what": "How the box's own pool is laid out after graduation: the rest of the token for sale above the graduation price, and the raise spread as buy orders below it (like pump.fun's pool). The box owns this liquidity: nobody can withdraw it, and nobody else can add any.",
+      "setBy": "the version (fixed)",
+      "default": "ASK_FULL_BID_SENTINEL",
+      "tell": "Nothing to choose."
+    },
+    "launchFormat": {
+      "label": "Launch format",
+      "what": "How the token is first sold: a bonding curve.",
+      "setBy": "the version (fixed)",
+      "default": "CURVE",
+      "tell": "Nothing to choose."
+    },
+    "openAt": {
+      "label": "Opening time",
+      "what": "When trading opens: Now (the block after Create), or a clock time in UTC.",
+      "setBy": "the creator",
+      "default": "0 (Now: the block after creation, about 12 seconds)",
+      "tell": "Now, the default: trading opens in the block after the creation block, never in it (the creator's own buy goes in first, in the creation block). Or a clock time (UTC) up to 14 days ahead: the window opens with the first block at or after it (on Ethereum up to 12 seconds later; on mainnet a time on a whole minute opens 11 seconds later). If Create lands at or after the time, the box opens in the next block. A draft writes the time as text ending in Z, \"2026-10-06T18:00:00Z\"; the launch flow's presets (5 min, 1 h, 24 h) and \"Pick a time\" become a time when Create is pressed. The first 6.4 minutes after the open (32 steps of 12 seconds) carry a falling launch tax (93.2% down to 8.1%) that stays in the box, so the community should not rush in.",
+      "unit": "Unix seconds, UTC (0 = Now)",
+      "choices": "0 (Now), or a UTC time from Create up to 14 days after it, written \"2026-10-06T18:00:00Z\" (also read: { \"utc\": \"2026-10-06T18:00:00Z\" }, or Unix seconds from 1,788,220,800)",
+      "clockTime": true,
+      "aliases": [
+        "opens",
+        "openDelay",
+        "openDelayBlocks",
+        "opening",
+        "openTime"
+      ]
+    },
+    "deadlineDays": {
+      "label": "Deadline",
+      "what": "Days after the open by which the raise must be reached. If it is not, the box fails: buying stops and every token sells back for the same amount of the pricing asset from the refund range (what the curve collected, plus the launch tax and held fees). The same amount per token, not what each buyer paid: late buyers paid more.",
+      "setBy": "the creator",
+      "default": "30 days",
+      "tell": "30, 60, 90 or 180 days. Shorter keeps momentum; longer gives a slow community time but keeps buyers waiting.",
+      "choices": "30, 60, 90 or 180 days (0 only in box 0)",
+      "aliases": [
+        "deadline",
+        "days"
+      ]
+    },
+    "qStream": {
+      "label": "Buyers' fees",
+      "what": "What happens to the box's 10/15 share of the 1% fee that buyers pay (in the pricing asset, ETH today). The other 5/15 is fixed: 3/15 to FIT buy-and-burn, 2/15 into the box's own pool.",
+      "setBy": "the creator",
+      "default": "BUYBACK_BURN_T",
+      "tell": "This is the 'kind of box', chosen for each fee side on its own: to the creator (in ETH, or converted into the token) or burn. Holder payouts: Demo only for now, marked pending legal review; on testnet once built, on mainnet only after the legal review.",
+      "aliases": [
+        "buyersFees",
+        "buyFees"
+      ]
+    },
+    "tStream": {
+      "label": "Sellers' fees",
+      "what": "What happens to the box's 10/15 share of the 1% fee that sellers pay (in the box's own token).",
+      "setBy": "the creator",
+      "default": "BURN_T",
+      "tell": "Paid as collected (tokens stay tokens) is the default; anything that sells the token for the pricing asset puts sell pressure on it and shows a warning.",
+      "aliases": [
+        "sellersFees",
+        "sellFees"
+      ]
+    },
+    "artMode": {
+      "label": "Art shown",
+      "what": "Whether every item's art is public from the start (open) or hidden until each item is drawn (hidden, with tickets during the curve).",
+      "setBy": "the creator",
+      "default": "OPEN",
+      "tell": "Open is simpler. Hidden needs the placeholders add-on and a reveal file the creator must keep safe; the trait names and values are public from creation either way. A token-only box writes 0 (no art).",
+      "aliases": [
+        "art",
+        "reveal"
+      ]
+    },
+    "revealRoot": {
+      "label": "Art commitment",
+      "what": "A fingerprint of every item's art, traits and secret salt, so nobody can swap the art later.",
+      "setBy": "the launch flow computes it from the art",
+      "default": "FROM_LAUNCH_FLOW",
+      "tell": "Never ask for it. Write \"FROM_LAUNCH_FLOW\" in a draft (\"0x0\" for a token-only box)."
+    },
+    "metadataTable": {
+      "label": "Trait table",
+      "what": "The trait names and values (and the description) stored on chain.",
+      "setBy": "the launch flow computes it from the traits file (optional)",
+      "default": "FROM_LAUNCH_FLOW",
+      "tell": "Optional: no traits is fine (write \"FROM_LAUNCH_FLOW\", or { \"formatV1\": { \"traitTypes\": [] } }). The launch flow reads a traits file: CSV with a first column \"id\" and one column per trait (an empty cell means none), JSON, or a folder of <id>.json metadata files (only \"attributes\" is read). At most 16 trait types with up to 255 values each, the same ASCII rule as names. A formatV1 table in a draft is a preview: the table stored is the one the launch flow builds from the file. It is public from creation, also with hidden art. A token-only box writes \"0x\" (no table)."
+    },
+    "generatorHash": {
+      "label": "Generator hash",
+      "what": "An optional fingerprint of the program that generated the art.",
+      "setBy": "the creator (optional)",
+      "default": "zero (none)",
+      "tell": "Leave it zero: the launch flow has no field for it, so a draft with a generator hash cannot be entered there yet."
+    },
+    "coverSha256": {
+      "label": "Logo",
+      "what": "The fingerprint (sha256) of the box's logo: the token's picture and the box card. Stored for good. A new collection's own picture is the collection cover.",
+      "setBy": "the launch flow, from the uploaded image (it re-encodes the image first)",
+      "default": "FROM_LAUNCH_FLOW",
+      "tell": "Ask whether they have a square logo: PNG, JPEG or WebP, 256 to 4,096 pixels a side, up to 10 MiB as uploaded; the launch flow shrinks it to at most 1,024 pixels and 1 MiB. Fixed forever. Write \"FROM_LAUNCH_FLOW\" in a draft: a hash of the original file would not match.",
+      "aliases": [
+        "logo",
+        "image",
+        "logoSha256"
+      ]
+    },
+    "revealListId": {
+      "label": "Reveal list",
+      "what": "Open art: the id of the public list of every item's art, stored at creation. Hidden art: zero (the list stays secret in the reveal file).",
+      "setBy": "the launch flow",
+      "default": "FROM_LAUNCH_FLOW for open art, zero for hidden art and for a token-only box",
+      "tell": "Never ask for it."
+    },
+    "marketplaceOwner": {
+      "label": "Collection owner",
+      "what": "The address marketplaces treat as the collection's owner (it can edit the collection page there). No box contract reads it.",
+      "setBy": "the creator",
+      "default": "the wallet connected in the launch flow (FROM_LAUNCH_FLOW); zero for a token-only box",
+      "tell": "In the launch flow one public 0x address is the collection owner and the fee payout address: the wallet the creator connects, unless they paste another address (e.g. a team Safe) under Your address on the Overview page. Royalties to the creator are paid to that same fee payout address, through the box's royalty router (marketplaces see the router). A token-only box has no collection owner: write zero. Never a private key or seed phrase.",
+      "aliases": [
+        "owner"
+      ]
+    },
+    "creatorFeeRecipient": {
+      "label": "Fee payout address",
+      "what": "Where the creator's fee share and creator royalties are credited (as claims the creator collects). Must be zero when neither goes to the creator.",
+      "setBy": "the creator",
+      "default": "the owner address with a creator option, else zero",
+      "tell": "The launch flow sets it to the owner address when a fee side or the royalties go to the creator (one payout wallet per box; teams use a Safe). Only its current holder can hand it over.",
+      "aliases": [
+        "payout",
+        "feeRecipient",
+        "recipient"
+      ]
+    },
+    "creatorBuy": {
+      "label": "Creator's ETH at start",
+      "what": "An optional first buy by the creator inside the creation transaction, before anyone else and without the launch tax. Shown on the box page.",
+      "setBy": "the creator",
+      "default": "0 (none)",
+      "tell": "Must be below the raise. It skips the launch tax that buyers pay at the open and is shown on the box page. Small amounts buy a large share at the start of the curve (at the one raise, 0.05 ETH is about 3.4% of all tokens and 0.1 ETH about 6.7%; about 0.073 ETH is 5%): show the share before they decide and recommend at most about 5%.",
+      "amountInQ": true,
+      "choices": "0, or any amount below the raise, e.g. { \"decimal\": \"0.05\" }",
+      "aliases": [
+        "firstBuy",
+        "creatorEth",
+        "devBuy"
+      ]
+    },
+    "addOns": {
+      "label": "Add-ons",
+      "what": "Optional extras from the add-on catalog, each with its own settings, listed by ascending id.",
+      "setBy": "the creator",
+      "default": "none",
+      "tell": "Hidden art needs the placeholders add-on (write its params as \"FROM_LAUNCH_FLOW\" for the launch flow's own texts and picture); royalties are off unless chosen."
+    },
+    "collectionCoverSha256": {
+      "label": "Collection cover",
+      "what": "The fingerprint (sha256) of the collection's own picture: its image on marketplaces (contractURI) and, with open art, the picture of every item not yet revealed. Stored for good. Zero for a box with no collection.",
+      "setBy": "the launch flow, from its own upload (a separate picture from the logo)",
+      "default": "FROM_LAUNCH_FLOW for a new collection, zero for just the token",
+      "tell": "A new collection needs its own cover picture, uploaded separately from the logo. With open art it is also every item's picture until that item is revealed (proposed; this may change to the logo). Write \"FROM_LAUNCH_FLOW\" in a draft; zero (\"0x0\") when the box has no collection.",
+      "aliases": [
+        "cover",
+        "collectionCover",
+        "collectionImage"
+      ]
+    }
+  },
+  "enums": {
+    "BoxType": {
+      "NEW_COLLECTION": {
+        "label": "A new collection",
+        "plain": "A new NFT collection made for the box; its items sit in the box's vault and back the token."
+      },
+      "EXISTING": {
+        "label": "Existing NFTs",
+        "plain": "NFTs that already exist, deposited into the box.",
+        "notOffered": "later, with checks that the collection is the real one",
+        "source": "slice S15; F71 (1)",
+        "soonWords": [
+          "existing NFTs",
+          "existing items"
+        ]
+      },
+      "TOKEN_ONLY": {
+        "label": "Just the token",
+        "plain": "A plain token launch: no NFTs and no vault; the logo is the token's picture.",
+        "source": "F70",
+        "soonWords": [
+          "plain token",
+          "token-only",
+          "token only",
+          "Just the token",
+          "Nothing (plain token)"
+        ]
+      }
+    },
+    "Layout": {
+      "CURVE_V1": {
+        "label": "Curve v1",
+        "plain": "About 80% of the token on a curve rising about 14.7 times."
+      }
+    },
+    "GradLayout": {
+      "B_PRIME": {
+        "label": "Old layout b'",
+        "plain": "Today's deployed layout, kept only as a name.",
+        "notOffered": "never: kept only as a name",
+        "source": "F61 L7"
+      },
+      "ASK_FULL_BID_SENTINEL": {
+        "label": "The box's own pool",
+        "plain": "The rest of the token for sale above the graduation price and the raise spread below it (like pump.fun's pool), owned by the box and never withdrawable.",
+        "source": "F61 L7; F49 D3"
+      }
+    },
+    "LaunchFormat": {
+      "CURVE": {
+        "label": "Bonding curve",
+        "plain": "The token is first sold on a bonding curve (an auction format may come later)."
+      }
+    },
+    "QStream": {
+      "BUYBACK_BURN_T": {
+        "label": "Buy back and burn {T}",
+        "plain": "The box buys its own token with the {Q} fees and burns it: less supply for holders."
+      },
+      "ALL_TO_FIT": {
+        "label": "Burn FIT",
+        "plain": "The share joins FIT's buy-and-burn (FIT is the platform token, box 0's token)."
+      },
+      "BURN_Q": {
+        "label": "Burn the pricing asset",
+        "plain": "Burns the pricing asset itself; only when it can really be burned (FIT or a listed box token).",
+        "limits": "only when the pricing asset is FIT or a listed box token (none is listed yet)"
+      },
+      "PAY_HOLDERS_Q": {
+        "label": "Pay holders in {Q}",
+        "plain": "Token holders collect the share in {Q}.",
+        "notOffered": "Demo only for now, marked pending legal review; on testnet once holder payouts are built, on mainnet only after the legal review",
+        "source": "slice S14; F42; F74 U1",
+        "soonWords": [
+          "holder payouts",
+          "pay holders",
+          "paid to holders",
+          "to holders",
+          "to my members",
+          "holders get"
+        ]
+      },
+      "TO_CREATOR": {
+        "label": "To the creator, in {Q}",
+        "plain": "The creator's payout address (a person's wallet or a team Safe) collects the share in {Q}, paid as collected. During the curve it is held until graduation and goes into the refund range if the box fails.",
+        "source": "F68 (3); F69 (C)"
+      },
+      "CREATOR_IN_T": {
+        "label": "To the creator, in {T}",
+        "plain": "The {Q} fees buy {T} in small limited steps after graduation and the creator collects that.",
+        "source": "F70; F72 (A)",
+        "soonWords": [
+          "one currency",
+          "other currency",
+          "paid all in",
+          "all in ETH",
+          "all in Q"
+        ]
+      },
+      "HOLDERS_IN_T": {
+        "label": "Pay holders in {T}",
+        "plain": "The {Q} fees buy {T} (limited steps) for token holders.",
+        "notOffered": "Demo only for now, marked pending legal review; on testnet once holder payouts are built, on mainnet only after the legal review",
+        "source": "F70; slice S14; F74 U1",
+        "soonWords": [
+          "holder payouts",
+          "pay holders",
+          "paid to holders",
+          "to holders",
+          "to my members",
+          "holders get"
+        ]
+      }
+    },
+    "TStream": {
+      "BURN_T": {
+        "label": "Burn {T}",
+        "plain": "Sellers' fee tokens are burned: less supply for holders."
+      },
+      "PAY_HOLDERS_T": {
+        "label": "Pay holders in {T}",
+        "plain": "Token holders collect the share in the box's token.",
+        "notOffered": "Demo only for now, marked pending legal review; on testnet once holder payouts are built, on mainnet only after the legal review",
+        "source": "slice S14; F42; F74 U1",
+        "soonWords": [
+          "holder payouts",
+          "pay holders",
+          "paid to holders",
+          "to holders",
+          "to my members",
+          "holders get"
+        ]
+      },
+      "SELL_FOR_Q": {
+        "label": "Burn FIT (sells {T} for {Q})",
+        "plain": "The fee tokens are sold for {Q} after graduation in limited steps; that {Q} joins FIT's share or is burned. This is sell pressure on {T}: buyers see a warning.",
+        "sells": true
+      },
+      "PER_ITEM_STREAM": {
+        "label": "Stream to each NFT",
+        "plain": "The share streams to every item in the collection.",
+        "limits": "box 0 (the Misfits) only, with its per-item-stream add-on; there it streams 13/15 of sellers' fees and 2/15 goes into the pool"
+      },
+      "TO_CREATOR": {
+        "label": "To the creator, in {T}",
+        "plain": "The creator's payout address collects the share in {T}, paid as collected (nothing is sold for them; selling it later is visible on chain). During the curve it is held until graduation and goes into the refund range if the box fails.",
+        "source": "F68 (3); F69 (C)"
+      },
+      "CREATOR_IN_Q": {
+        "label": "To the creator, in {Q}",
+        "plain": "The box sells the fee tokens for {Q} in small limited steps after graduation and the creator collects {Q}. Sell pressure: buyers see a warning.",
+        "sells": true,
+        "source": "F70; F72 (A)",
+        "soonWords": [
+          "one currency",
+          "other currency",
+          "paid all in",
+          "all in ETH",
+          "all in Q"
+        ]
+      },
+      "HOLDERS_IN_Q": {
+        "label": "Pay holders in {Q}",
+        "plain": "The fee tokens are sold for {Q} (limited steps) for token holders. Sell pressure: buyers see a warning.",
+        "notOffered": "Demo only for now, marked pending legal review; on testnet once holder payouts are built, on mainnet only after the legal review",
+        "sells": true,
+        "source": "F70; slice S14; F74 U1",
+        "soonWords": [
+          "holder payouts",
+          "pay holders",
+          "paid to holders",
+          "to holders",
+          "to my members",
+          "holders get"
+        ]
+      }
+    },
+    "ArtMode": {
+      "OPEN": {
+        "label": "Open art",
+        "plain": "Every item's art and traits are public from the start."
+      },
+      "HIDDEN": {
+        "label": "Hidden until drawn",
+        "plain": "Buyers get tickets during the curve; items are revealed one by one by random draws. Needs the placeholders add-on and a reveal file the creator keeps safe."
+      }
+    },
+    "QClass": {
+      "NATIVE_ETH": {
+        "label": "native ETH",
+        "plain": "Ether itself."
+      },
+      "ERC20": {
+        "label": "a curated token",
+        "plain": "A curated ERC-20 such as a stablecoin."
+      },
+      "FIT": {
+        "label": "FIT",
+        "plain": "FIT, the platform token (box 0's token)."
+      },
+      "BOX_T": {
+        "label": "another box's token",
+        "plain": "Another box's token, only when listed."
+      }
+    },
+    "RoyaltyDestination": {
+      "FEE_HANDLING": {
+        "label": "With the fees",
+        "plain": "Royalties are split like the buyers' fees: in a box whose fees go to the creator, 10/15 reach the creator; in a burn box, 10/15 are burned. Passed on from graduation; into the refund range if the box fails."
+      },
+      "CREATOR": {
+        "label": "To the creator",
+        "plain": "Marketplaces that honour royalties pay all of them straight to the creator's address."
+      },
+      "POOL_DEPTH": {
+        "label": "Into the pool",
+        "plain": "Royalties deepen the box's own liquidity."
+      }
+    },
+    "CapExcess": {
+      "HOLDERS": {
+        "label": "To holders",
+        "plain": "Creator fees above the cap go to token holders.",
+        "notOffered": "Demo only for now, marked pending legal review; on testnet once holder payouts are built, on mainnet only after the legal review",
+        "source": "slice S14; F42; F74 U1"
+      },
+      "BURN": {
+        "label": "Burned",
+        "plain": "Creator fees above the cap are burned."
+      },
+      "POOL_DEPTH": {
+        "label": "Into the pool",
+        "plain": "Creator fees above the cap deepen the box's own liquidity."
+      }
+    }
+  },
+  "addOns": {
+    "placeholders": {
+      "label": "Hidden art (placeholders)",
+      "what": "Tickets during the curve; hidden items revealed by random draws. Added automatically with hidden art.",
+      "tell": "The launch flow sets the ticket name ('<Name> ticket'), its symbol ('<TICKER>-T') and a neutral hidden picture; there the creator can change only the ticket text and the hidden item text. Write \"params\": \"FROM_LAUNCH_FLOW\" for all of its defaults, or only the two texts (a setting left out, or written \"FROM_LAUNCH_FLOW\", takes the launch flow's value). For buyers, a draw costs one item's price in the box's token plus 1%, and the first draw of each randomness round also pays for posting that round (about 0.0003 ETH at 0.5 gwei; any ETH sent beyond what the round still needs comes back at once), which usually goes back to the drawer's own page.",
+      "params": {
+        "placeholderName": {
+          "label": "Ticket name",
+          "what": "The ticket's name.",
+          "default": "'<Name> ticket' (the collection name cut to 25 characters)"
+        },
+        "placeholderSymbol": {
+          "label": "Ticket symbol",
+          "what": "The ticket's symbol.",
+          "default": "'<TICKER>-T' (the collection symbol cut to 9 characters)"
+        },
+        "placeholderDescription": {
+          "label": "Ticket text",
+          "what": "The ticket's description.",
+          "default": "'Opens into one item once its number is drawn.'"
+        },
+        "hiddenDescription": {
+          "label": "Hidden item text",
+          "what": "What a not-yet-revealed item says.",
+          "default": "'This item is not revealed yet.'"
+        },
+        "hiddenSvg": {
+          "label": "Hidden picture",
+          "what": "The picture of tickets and hidden items: plain SVG text on one line (no line breaks or tabs), up to 4,096 characters.",
+          "default": "the launch flow's neutral picture (it takes no upload yet)"
+        }
+      },
+      "conflict": {
+        "sentence": "Placeholders open into hidden items, so they need hidden art; an open-art box has nothing hidden to draw.",
+        "fix": "Set \"artMode\": \"HIDDEN\", or remove the placeholders add-on."
+      },
+      "launchFlow": {
+        "nameFrom": "collectionName",
+        "nameMax": 25,
+        "nameSuffix": " ticket",
+        "symbolFrom": "collectionSymbol",
+        "symbolMax": 9,
+        "symbolSuffix": "-T",
+        "placeholderDescription": "Opens into one item once its number is drawn.",
+        "hiddenDescription": "This item is not revealed yet.",
+        "hiddenSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\"><rect width=\"64\" height=\"64\" fill=\"#111b29\"/><path d=\"M14 26 32 18l18 8-18 8z\" fill=\"#30415d\"/><path d=\"M14 26v14l18 8 18-8V26M32 34v14\" fill=\"none\" stroke=\"#a78bfa\" stroke-width=\"2\" stroke-linejoin=\"round\"/></svg>",
+        "editable": [
+          "placeholderDescription",
+          "hiddenDescription"
+        ]
+      }
+    },
+    "per-item-stream": {
+      "label": "Stream to each NFT",
+      "what": "The sellers' share streams to every item in the collection.",
+      "tell": "Box 0 (the Misfits) only for now: never offer it.",
+      "params": {},
+      "conflict": {
+        "sentence": "The per-item stream is fed by the \"Stream to each NFT\" sellers' fee kind.",
+        "fix": "Remove the per-item-stream add-on (box 0 only)."
+      }
+    },
+    "edition-specials": {
+      "label": "Special series",
+      "what": "A named series of special items (e.g. 3 'Round Pegs'), shown as a count; which items they are stays secret for hidden art.",
+      "tell": "Optional. The spec stores only the series' name and how many items belong to it: mark those items with a trait in the traits file (e.g. Edition: Golden) so buyers can find them. The launch flow takes up to {launchFlowMax} series (the spec allows 8 add-ons in total); the count is at most the number of items and is not checked against the files.",
+      "params": {
+        "label": {
+          "label": "Series name",
+          "what": "The series' name as the site shows it, 1-32 characters.",
+          "default": "none"
+        },
+        "count": {
+          "label": "How many",
+          "what": "How many items belong to the series.",
+          "default": "none"
+        }
+      }
+    },
+    "royalties": {
+      "label": "Royalties",
+      "what": "A royalty rate on NFT resales that marketplaces may pay (unenforced, ERC-2981) and where it goes.",
+      "tell": "Off by default. Expect little: most marketplaces treat royalties as optional. Presets only: 0, 1, 2.5 or 5%. With the fees, a box whose fees go to the creator passes 10/15 of them on after graduation; to the creator, the box collects them and credits the fee payout address after graduation (one payout wallet per box).",
+      "params": {
+        "bps": {
+          "label": "Rate",
+          "what": "The rate in basis points: 100 = 1%, 250 = 2.5%, 500 = 5% (0 = off; then leave the add-on out).",
+          "default": "off"
+        },
+        "destination": {
+          "label": "Goes to",
+          "what": "With the fees, to the creator (the fee payout address), or into the pool.",
+          "default": "FEE_HANDLING"
+        }
+      },
+      "conflict": {
+        "sentence": "Box 0 keeps its royalties inside its fee handling or pool: it cannot send them to a creator.",
+        "fix": "Use \"FEE_HANDLING\" or \"POOL_DEPTH\" for box 0."
+      }
+    },
+    "creator-fee-cap": {
+      "label": "Creator-fee cap",
+      "what": "At most a fixed amount of ETH per 30 days goes to the creator; the rest is burned or goes into the pool.",
+      "tell": "Optional, only with a creator option on at least one fee side; the launch flow shows it under Box kind (Fee cap). Presets: 1, 4, 8, 16 or 32 ETH per 30 days (32 ETH is the platform's own cap). Shows buyers the creator cannot take unlimited fees.",
+      "params": {
+        "capPerEpoch": {
+          "label": "Cap per 30 days",
+          "what": "A fixed amount per 30 days: 1, 4, 8, 16 or 32 ETH, written like { \"decimal\": \"4\" }.",
+          "default": "none",
+          "amountInQ": true
+        },
+        "excess": {
+          "label": "Above the cap",
+          "what": "Burned or into the box's pool (to holders: Demo only for now).",
+          "default": "BURN"
+        }
+      },
+      "conflict": [
+        {
+          "sentence": "A cap on creator fees needs a creator option on at least one fee side.",
+          "fix": "Choose a creator option for buyers' or sellers' fees, or remove the creator-fee cap."
+        },
+        {
+          "sentence": "The cap is a fixed amount of ETH: it needs native ETH as the pricing asset.",
+          "fix": "Pair the box with ETH, or remove the creator-fee cap."
+        }
+      ],
+      "source": "F70; F74 U2; F75 U9",
+      "soonWords": [
+        "creator-fee cap",
+        "fee cap"
+      ]
+    },
+    "collection-metadata": {
+      "label": "Collection page (banner, teasers, link)",
+      "what": "A banner, up to 4 teaser pictures (labelled 'Teaser' until the reveal) and a website link on the collection page.",
+      "tell": "Optional, new collections only: the launch flow takes a banner (wide, shown at 4:1) and up to 4 teasers, each labelled 'Teaser' and never an item (with hidden art not one of the item pictures), under Contents (Collection page). Its link starts as the Website link from Basics; the creator may change or clear it there. Good for hidden art: it shows the vibe without revealing items. Set at creation only. In a draft write the banner and teasers as \"FROM_LAUNCH_FLOW\"; leave the add-on out when banner, teasers and link are all empty.",
+      "params": {
+        "bannerSha256": {
+          "label": "Banner",
+          "what": "The banner picture's fingerprint (the launch flow fills it).",
+          "default": "none"
+        },
+        "teaserSha256s": {
+          "label": "Teasers",
+          "what": "Up to 4 teaser pictures by fingerprint (the launch flow fills them).",
+          "default": "none"
+        },
+        "externalLink": {
+          "label": "Website link",
+          "what": "An https:// link, up to 128 characters (empty = none).",
+          "default": "the Website link from Basics (when it is a valid link)"
+        }
+      },
+      "source": "F71 (2)",
+      "soonWords": [
+        "banner",
+        "teaser"
+      ]
+    }
+  },
+  "reasons": {
+    "OK": "The spec passes every check.",
+    "UNSUPPORTED_VERSION": "The version is not one this format knows.",
+    "NOT_A_MEMBER": "The value is not one of the allowed values.",
+    "NOT_OFFERED": "The value exists but is not offered here (yet).",
+    "OUT_OF_RANGE": "The number is outside its allowed range.",
+    "LENGTH_OUT_OF_RANGE": "The text is too short or too long.",
+    "BAD_CHARACTER": "The text contains a character that is not allowed.",
+    "ZERO_VALUE": "The value must be set (not zero).",
+    "MUST_BE_ZERO": "The value must be zero (or empty) here.",
+    "Q_NOT_LISTED": "The pricing asset is not on the version's list.",
+    "RAISE_NOT_A_PRESET": "The raise is not the one raise every box has.",
+    "MENU_RULE": "This combination of fee kinds is not allowed.",
+    "DEADLINE_RULE": "The deadline does not fit the version.",
+    "TOO_MANY_ADD_ONS": "Too many add-ons.",
+    "ADD_ON_ORDER": "Add-ons are out of order or repeated.",
+    "ADD_ON_UNKNOWN": "An add-on id the catalog does not list.",
+    "ADD_ON_NOT_AVAILABLE": "The add-on is not available in this version.",
+    "ADD_ON_PARAMS_MALFORMED": "The add-on's settings are not encoded correctly.",
+    "ADD_ON_REQUIRED": "A choice needs an add-on that is missing.",
+    "ADD_ON_CONFLICT": "An add-on does not fit the rest of the box.",
+    "METADATA_TABLE_MALFORMED": "The trait table is not in the stored format."
+  },
+  "rules": {
+    "version 1 has no deadline": {
+      "sentence": "Version 1 (box 0) has no deadline.",
+      "fix": "Use version 2 for your box, with a deadline of 30, 60, 90 or 180 days."
+    },
+    "version 2 needs a deadline": {
+      "sentence": "Every version-2 box needs a deadline.",
+      "fix": "Set \"deadlineDays\" to 30, 60, 90 or 180."
+    },
+    "BURN_Q only for a Q with a real burn": {
+      "sentence": "Burning the pricing asset needs one that can really be burned (FIT or a listed box token); ETH cannot.",
+      "fix": "Pick \"BUYBACK_BURN_T\" (buy back and burn your token) or \"ALL_TO_FIT\" (burn FIT) for \"qStream\"."
+    },
+    "SELL_FOR_Q never with BUYBACK_BURN_T": {
+      "sentence": "Selling the fee tokens for the pricing asset while buying the token back with it would trade against itself.",
+      "fix": "With \"tStream\": \"SELL_FOR_Q\" pick \"ALL_TO_FIT\" for \"qStream\", or set \"tStream\" to \"BURN_T\"."
+    },
+    "open art publishes its reveal list": {
+      "sentence": "Open art publishes its reveal list at creation, so the reveal list must be set.",
+      "fix": "Write \"revealListId\": \"FROM_LAUNCH_FLOW\" (the launch flow computes it), or choose hidden art."
+    },
+    "hidden art keeps its reveal list private": {
+      "sentence": "Hidden art keeps its reveal list secret, so the reveal list must be zero.",
+      "fix": "Write \"revealListId\": \"0x0000000000000000000000000000000000000000000000000000000000000000\"."
+    },
+    "hidden art needs the placeholders add-on": {
+      "sentence": "Hidden art is revealed through the placeholders add-on (tickets and draws), so it needs that add-on.",
+      "fix": "Add { \"addOn\": \"placeholders\", \"params\": \"FROM_LAUNCH_FLOW\" } as the first add-on (the launch flow's own ticket texts and picture), or choose open art."
+    },
+    "the per-item stream action needs its add-on": {
+      "sentence": "Streaming fees to each NFT needs the per-item-stream add-on, which only box 0 may use.",
+      "fix": "Pick \"BURN_T\" or \"TO_CREATOR\" for \"tStream\"."
+    },
+    "the creator takes the whole reward side or none of it": {
+      "retired": "Before per-side fee kinds (box creation flow v2) the creator option covered both fee sides or neither; the spec no longer has this rule.",
+      "soonWords": [
+        "per side",
+        "per-side",
+        "both sides or neither",
+        "both fee sides or neither",
+        "both sides together",
+        "or neither",
+        "one side"
+      ]
+    },
+    "the creator option on the buyers' side is for other people's boxes": {
+      "sentence": "The creator option exists only in version 2 (other people's boxes), not in box 0.",
+      "fix": "Use version 2."
+    },
+    "the creator option on the sellers' side is for other people's boxes": {
+      "sentence": "The creator option exists only in version 2 (other people's boxes), not in box 0.",
+      "fix": "Use version 2."
+    },
+    "the creator option names its recipient": {
+      "sentence": "Fees or royalties that go to the creator need a payout address.",
+      "fix": "Set \"creatorFeeRecipient\" to the creator's public 0x address, or \"FROM_LAUNCH_FLOW\" for the connected wallet."
+    },
+    "no fee recipient without the creator option": {
+      "sentence": "When neither a fee side nor the royalties go to the creator, the payout address must be zero (a recipient nobody pays would only mislead).",
+      "fix": "Write \"creatorFeeRecipient\": \"0x0000000000000000000000000000000000000000\", or choose a creator option."
+    },
+    "box 0 has no creator buy": {
+      "sentence": "Box 0 has no creator buy.",
+      "fix": "Set \"creatorBuy\" to \"0\", or use version 2."
+    },
+    "the creator buy cannot fill the curve": {
+      "sentence": "The creator's ETH at start must stay below the raise, or it would fill the curve before anyone else could buy.",
+      "fix": "Lower \"creatorBuy\" below the raise (most creators put in far less: see the share it buys)."
+    },
+    "a token-only box is version 2": {
+      "sentence": "A token-only box (Just the token) exists only in version 2.",
+      "fix": "Use version 2."
+    }
+  },
+  "notes": {
+    "draft": "A draft: the launch flow adds {what}, so the final spec hash appears only there. The draft hash only tells two drafts apart.",
+    "notLive": "Demo and testnet only: no box can be created for real until the box factory is live (the launch flow keeps Create off on chain sources until then).",
+    "openAtPassed": "The opening time {time} has passed: the box would open in the block after Create, as with Now. Pick a later time, or 0 for Now.",
+    "openAtTooFar": "The opening time {time} is more than 14 days ahead: the box factory refuses it at Create until {earliest}. Pick a time within 14 days.",
+    "creatorBuy": "The creator's {amount} at start buys about {share} of all {T} before anyone else and without the launch tax; it is shown on the box page.",
+    "creatorBuyLarge": "That is more than the advice of at most about {advice} of all {T}: buyers will see one holder with {share} of the supply and may read it as a dump risk.",
+    "creatorBuyOtherQ": "The share a creator buy gets depends on the token's address when the pricing asset is not native ETH; the launch flow shows it.",
+    "creatorFees": "How the creator is paid: never the raise (it becomes the box's pool), only {share} of the {fee} fee on the fee sides chosen. Buyers' fees: {buyers}. Sellers' fees: {sellers}. Fees from the curve are held until graduation and go into the refund range if the box fails.",
+    "creatorFromBuyers": "to the creator in {Q}, about {perEth} {Q} per 1 {Q} bought",
+    "creatorFromBuyersConverted": "to the creator in {T}, bought after graduation with about {perEth} {Q} per 1 {Q} bought",
+    "creatorFromSellers": "to the creator in {T}, {share} of {fee} of the {T} sold (selling it later is visible on chain)",
+    "creatorFromSellersConverted": "to the creator in {Q}, from selling {share} of {fee} of the {T} sold after graduation",
+    "creatorFromNone": "nothing to the creator ({label})",
+    "creatorCounsel": "Fees and royalties paid to a creator are still being reviewed by Square Hole's lawyers, and they may have tax or legal consequences where the creator lives.",
+    "sells": "{label}: the box sells {T} for {Q} after graduation in small limited steps. That is steady sell pressure; buyers see a warning on the box page.",
+    "hidden": "Hidden art: the launch flow gives a reveal file before Create. Keep it safe and keep a copy: it holds the secret that reveals each item, and nobody else has it. Tickets bought during the curve get their items after graduation; later draws reveal one item at a time. Who posts the reveals for other people's hidden boxes is still being designed.",
+    "hiddenDeadline": "Hidden art with a deadline: what happens to unopened tickets if the box fails is not settled yet.",
+    "hiddenTable": "The trait table ({types}) is public from creation, also with hidden art: only which item has which traits stays hidden. Use plain names for rare values if they should be a surprise.",
+    "teasersHidden": "Teasers show on the collection page labelled 'Teaser', never as items. With hidden art, never use an item's own picture as a teaser: it would reveal that item.",
+    "placeholdersLaunchFlow": "The launch flow cannot enter this yet: an own ticket {what} (it sets {value} itself). Write \"FROM_LAUNCH_FLOW\" for it.",
+    "oneAddress": "The launch flow cannot enter this yet: different addresses for collection owner, fee payout and royalties (it uses one address for all three). Use one address (a team Safe works).",
+    "launchFlowZero": "The launch flow cannot enter this yet: a {what} (it always writes zero). Write \"{field}\": \"0x0\".",
+    "launchFlowRoyaltiesOff": "The launch flow cannot enter this yet: royalties at 0% (it leaves the add-on out when royalties are off). Remove the royalties add-on.",
+    "launchFlowCollectionPageEmpty": "The launch flow cannot enter this yet: a collection page with no banner, teasers or link (it leaves the add-on out then). Remove the collection-metadata add-on.",
+    "launchFlowRepeats": "The launch flow cannot enter this yet: {count} of \"{what}\" (it takes at most {max}). Merge or drop some.",
+    "royalties": "Royalties are optional for marketplaces: many pay none, so expect little from them.",
+    "royaltiesWithFees": "Royalties with the fees: in this box 10/15 of what marketplaces pay reach the creator, from graduation on.",
+    "deadline": "If {raise} is not reached within {days} days after the open, the box fails: buying stops and every {T} sells back for the same amount of {Q} from the refund range (what the curve collected, plus the launch tax and held fees). That is the same amount per token, not what each buyer paid: someone who bought late, at a higher price, gets back less.{items}",
+    "item": "At launch one item is 1/{n} of all {T} (about {tokens} {T}); as burns shrink the supply an item takes fewer {T}, since it costs the {T} in circulation divided by the items still in the box. {when} Returning an item gives the {T} back less {ret}.",
+    "links": "Links are not part of the spec: the creator enters them in the launch flow's Basics step (Links: Website, X, Telegram; https:// links, an X @handle works too). For a new collection the Website link also becomes the collection page's link unless the creator changes it there.",
+    "badLink": "This link is not used: {link} (links must start with https:// and contain no spaces; X also takes an @handle){suggest}",
+    "dollarTicker": "The {what} {value} starts with \"$\": sites add the $ themselves, so it would show as ${value}. Write {fixed}.",
+    "rawTable": "metadataTable is written as raw bytes{problem}: the launch flow builds the trait table itself from the About text and the art's traits, so the box would not hold these bytes. Write { \"formatV1\": { \"traitTypes\": [ ... ] } } or \"FROM_LAUNCH_FLOW\".",
+    "explicitFingerprint": "{path} holds a 64-hex value: a draft cannot know a fingerprint (the launch flow computes it from the upload). Write \"FROM_LAUNCH_FLOW\"; never paste a key here.",
+    "fixed": "Fixed for every box: 1,000,000,000 {T}; a 1% fee on every trade (10/15 as chosen above, 3/15 FIT buy-and-burn, 2/15 into the box's own pool, paired and locked); the first 6.4 minutes after the open (32 steps of 12 seconds) carry a falling launch tax from 93.2% to 8.1% that stays in the box; after graduation {T} trades in the box's own Uniswap v4 pool, whose liquidity the box owns and nobody can withdraw.",
+    "buys": "{label}: the box buys {T} with {Q} after graduation in small limited steps, then pays it out.",
+    "itemOpen": "Open art: nothing leaves the box before graduation; after it anyone holding that much {T} can pick any item still in the box by its number, for {pick} more. There is no random draw: every item's art is public from the start.",
+    "itemHidden": "Hidden art: during the curve buyers can swap one item's worth of {T} for a ticket, which opens into a random item after graduation; after graduation anyone holding that much {T} can draw a random item still in the box, plus a {draw} draw fee, and an item that was returned can be picked by name for {pick} more.",
+    "holdersPending": "Holder payouts are a Demo preview, pending legal review: not offered on testnet or mainnet yet."
+  }
+}

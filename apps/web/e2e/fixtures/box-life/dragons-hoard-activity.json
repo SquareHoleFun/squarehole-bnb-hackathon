@@ -1,0 +1,640 @@
+{
+ "asOf": {
+  "block": "12003570",
+  "hash": "0x3b7fde80c9706dc0e554aaf3860c02349694fecdfc5ddd7f690b2524367d49de",
+  "timestamp": "1793085420",
+  "tier": "head"
+ },
+ "items": [
+  {
+   "id": "12003424-86",
+   "kind": "v2_event",
+   "block": "12003424",
+   "blockHash": "0xa27b21662c2ee2b6b2d79cf0050c395234c45774fce1cd236fd92934441d9153",
+   "timestamp": "1793083668",
+   "txHash": "0xdca62c59dde5e0e437ba333261ed570541915103fc7300584b031f39d169a8be",
+   "logIndex": 86,
+   "data": {
+    "tip": "11885009909668",
+    "event": "Deepened",
+    "qUsed": "233157247034480",
+    "tUsed": "485157939066112900351657",
+    "poolId": "0x3107bfc58a7736b32a739336bf1465a6a10f8553e1eb5b21b5993a3875ca7cfc",
+    "source": "hook",
+    "emitter": "0xeeb7c7ff95a68a659e8047a62a54340c14d76ae0",
+    "liquidity": "10635698822812588731"
+   }
+  },
+  {
+   "id": "12003424-83",
+   "kind": "v2_event",
+   "block": "12003424",
+   "blockHash": "0xa27b21662c2ee2b6b2d79cf0050c395234c45774fce1cd236fd92934441d9153",
+   "timestamp": "1793083668",
+   "txHash": "0xdca62c59dde5e0e437ba333261ed570541915103fc7300584b031f39d169a8be",
+   "logIndex": 83,
+   "data": {
+    "to": "0x0000000000000000000000000000000000000000",
+    "from": "0xeEb7c7fF95A68a659e8047a62a54340c14d76AE0",
+    "event": "Transfer",
+    "amount": "30047",
+    "source": "token",
+    "emitter": "0x15166928bfca12defbe3f1f295311523959dbd96"
+   }
+  },
+  {
+   "id": "12003424-82",
+   "kind": "v2_event",
+   "block": "12003424",
+   "blockHash": "0xa27b21662c2ee2b6b2d79cf0050c395234c45774fce1cd236fd92934441d9153",
+   "timestamp": "1793083668",
+   "txHash": "0xdca62c59dde5e0e437ba333261ed570541915103fc7300584b031f39d169a8be",
+   "logIndex": 82,
+   "data": {
+    "to": "0xeEb7c7fF95A68a659e8047a62a54340c14d76AE0",
+    "from": "0xE03A1074c86CFeDd5C142C4F04F1a1536e203543",
+    "event": "Transfer",
+    "amount": "30047",
+    "source": "token",
+    "emitter": "0x15166928bfca12defbe3f1f295311523959dbd96"
+   }
+  },
+  {
+   "id": "12003424-77",
+   "kind": "v2_event",
+   "block": "12003424",
+   "blockHash": "0xa27b21662c2ee2b6b2d79cf0050c395234c45774fce1cd236fd92934441d9153",
+   "timestamp": "1793083668",
+   "txHash": "0xdca62c59dde5e0e437ba333261ed570541915103fc7300584b031f39d169a8be",
+   "logIndex": 77,
+   "data": {
+    "id": "0x3107bfc58a7736b32a739336bf1465a6a10f8553e1eb5b21b5993a3875ca7cfc",
+    "salt": "0x0000000000000000000000000000000000000000000000000000000000000003",
+    "event": "ModifyLiquidity",
+    "sender": "0xeEb7c7fF95A68a659e8047a62a54340c14d76AE0",
+    "source": "poolManager",
+    "emitter": "0xe03a1074c86cfedd5c142c4f04f1a1536e203543",
+    "tickLower": -887220,
+    "tickUpper": 887220,
+    "liquidityDelta": "10635698822812588731"
+   }
+  },
+  {
+   "kind": "trade",
+   "id": "12003424-74",
+   "block": "12003424",
+   "blockHash": "0xa27b21662c2ee2b6b2d79cf0050c395234c45774fce1cd236fd92934441d9153",
+   "timestamp": "1793083668",
+   "txHash": "0xdca62c59dde5e0e437ba333261ed570541915103fc7300584b031f39d169a8be",
+   "logIndex": 74,
+   "side": "buy",
+   "route": "hook",
+   "qRaw": "234936100465945",
+   "tRaw": "485157939066112900381704",
+   "feeQ": "2349361004660",
+   "feeT": "0",
+   "taxQ": "0",
+   "trader": null,
+   "sqrtPriceX96After": "3614071127979783467941980551370994",
+   "tickAfter": 214571
+  },
+  {
+   "id": "12003423-108",
+   "kind": "v2_event",
+   "block": "12003423",
+   "blockHash": "0x1bf89e06c929491e58296fb495743d0a4117dbabc6e17ad8df4003a0a79580e7",
+   "timestamp": "1793083656",
+   "txHash": "0x159105e64b9c711e13f862a32ecceadf01da5b56a42a0a30f9311ce985f92424",
+   "logIndex": 108,
+   "data": {
+    "pile": "0x6c6B109654E8dBabC81cbd4C52A1c0E9Dd7cfc7C",
+    "asset": "0x0000000000000000000000000000000000000000",
+    "event": "PileFeesMoved",
+    "total": "598810666794220",
+    "amount": "598810666794220",
+    "source": "receiver",
+    "emitter": "0x6f1426a2f80c8e2d6124dc2b383ce25626f1ae78"
+   }
+  },
+  {
+   "id": "12003422-81",
+   "kind": "v2_event",
+   "block": "12003422",
+   "blockHash": "0x43ba2172a7907a98727218e5df3f69182857103f40a560db6e7fdc8d6696c1c5",
+   "timestamp": "1793083644",
+   "txHash": "0x0a3a31bbf200846722844a02b842ad496f3ca1e3508c27b6d4754146658c0059",
+   "logIndex": 81,
+   "data": {
+    "tip": "11885009909668",
+    "event": "Collected",
+    "tipTo": "0x1F1481667Ef20928d55524dfE4640f96Bd9b4eeE",
+    "caller": "0x1F1481667Ef20928d55524dfE4640f96Bd9b4eeE",
+    "source": "receiver",
+    "buyersP": "898216000191343",
+    "emitter": "0x6f1426a2f80c8e2d6124dc2b383ce25626f1ae78",
+    "sellersP": "0",
+    "qToReserve": "0"
+   }
+  },
+  {
+   "id": "12003422-77",
+   "kind": "v2_event",
+   "block": "12003422",
+   "blockHash": "0x43ba2172a7907a98727218e5df3f69182857103f40a560db6e7fdc8d6696c1c5",
+   "timestamp": "1793083644",
+   "txHash": "0x0a3a31bbf200846722844a02b842ad496f3ca1e3508c27b6d4754146658c0059",
+   "logIndex": 77,
+   "data": {
+    "event": "HarvestedV2",
+    "poolId": "0x3107bfc58a7736b32a739336bf1465a6a10f8553e1eb5b21b5993a3875ca7cfc",
+    "source": "hook",
+    "buyersP": "0",
+    "emitter": "0xeeb7c7ff95a68a659e8047a62a54340c14d76ae0",
+    "sellersP": "0",
+    "qToReserve": "0"
+   }
+  },
+  {
+   "id": "12003422-76",
+   "kind": "v2_event",
+   "block": "12003422",
+   "blockHash": "0x43ba2172a7907a98727218e5df3f69182857103f40a560db6e7fdc8d6696c1c5",
+   "timestamp": "1793083644",
+   "txHash": "0x0a3a31bbf200846722844a02b842ad496f3ca1e3508c27b6d4754146658c0059",
+   "logIndex": 76,
+   "data": {
+    "id": "0x3107bfc58a7736b32a739336bf1465a6a10f8553e1eb5b21b5993a3875ca7cfc",
+    "salt": "0x0000000000000000000000000000000000000000000000000000000000000003",
+    "event": "ModifyLiquidity",
+    "sender": "0xeEb7c7fF95A68a659e8047a62a54340c14d76AE0",
+    "source": "poolManager",
+    "emitter": "0xe03a1074c86cfedd5c142c4f04f1a1536e203543",
+    "tickLower": -887220,
+    "tickUpper": 887220,
+    "liquidityDelta": "0"
+   }
+  },
+  {
+   "id": "12003420-102",
+   "kind": "v2_event",
+   "block": "12003420",
+   "blockHash": "0xa373e4b867b58ab1e9bdb1cd5261d6d890de333e4ae2ad13a2bb738a9793295a",
+   "timestamp": "1793083620",
+   "txHash": "0xdcba7598cbee6b0de028aa0f63f9ae8449fa70545bea34784bc6585bd9ac9260",
+   "logIndex": 102,
+   "data": {
+    "event": "Graduated",
+    "caller": "0x1F1481667Ef20928d55524dfE4640f96Bd9b4eeE",
+    "reward": "100000000000000",
+    "source": "coordinator",
+    "emitter": "0xbee989944fc07ac715e1b7ca99e2fedbed327510",
+    "poolShare": "198276227633481943387797380",
+    "blockNumber": "12003420",
+    "tokenDustBurned": "12037"
+   }
+  },
+  {
+   "id": "12003420-101",
+   "kind": "v2_event",
+   "block": "12003420",
+   "blockHash": "0xa373e4b867b58ab1e9bdb1cd5261d6d890de333e4ae2ad13a2bb738a9793295a",
+   "timestamp": "1793083620",
+   "txHash": "0xdcba7598cbee6b0de028aa0f63f9ae8449fa70545bea34784bc6585bd9ac9260",
+   "logIndex": 101,
+   "data": {
+    "event": "GateOpened",
+    "source": "vault",
+    "emitter": "0x6c6b109654e8dbabc81cbd4c52a1c0e9dd7cfc7c"
+   }
+  },
+  {
+   "id": "12003420-100",
+   "kind": "v2_event",
+   "block": "12003420",
+   "blockHash": "0xa373e4b867b58ab1e9bdb1cd5261d6d890de333e4ae2ad13a2bb738a9793295a",
+   "timestamp": "1793083620",
+   "txHash": "0xdcba7598cbee6b0de028aa0f63f9ae8449fa70545bea34784bc6585bd9ac9260",
+   "logIndex": 100,
+   "data": {
+    "to": "0x0000000000000000000000000000000000000000",
+    "from": "0xBeE989944Fc07Ac715E1B7CA99e2fedBed327510",
+    "event": "Transfer",
+    "amount": "12037",
+    "source": "token",
+    "emitter": "0x15166928bfca12defbe3f1f295311523959dbd96"
+   }
+  },
+  {
+   "id": "12003420-99",
+   "kind": "v2_event",
+   "block": "12003420",
+   "blockHash": "0xa373e4b867b58ab1e9bdb1cd5261d6d890de333e4ae2ad13a2bb738a9793295a",
+   "timestamp": "1793083620",
+   "txHash": "0xdcba7598cbee6b0de028aa0f63f9ae8449fa70545bea34784bc6585bd9ac9260",
+   "logIndex": 99,
+   "data": {
+    "event": "MigratedV2",
+    "qLeft": "5178136251183061",
+    "poolId": "0x3107bfc58a7736b32a739336bf1465a6a10f8553e1eb5b21b5993a3875ca7cfc",
+    "source": "hook",
+    "emitter": "0xeeb7c7ff95a68a659e8047a62a54340c14d76ae0",
+    "tBurned": "0",
+    "liquidity": "4336002933727268992989"
+   }
+  },
+  {
+   "id": "12003420-97",
+   "kind": "v2_event",
+   "block": "12003420",
+   "blockHash": "0xa373e4b867b58ab1e9bdb1cd5261d6d890de333e4ae2ad13a2bb738a9793295a",
+   "timestamp": "1793083620",
+   "txHash": "0xdcba7598cbee6b0de028aa0f63f9ae8449fa70545bea34784bc6585bd9ac9260",
+   "logIndex": 97,
+   "data": {
+    "to": "0xE03A1074c86CFeDd5C142C4F04F1a1536e203543",
+    "from": "0xBeE989944Fc07Ac715E1B7CA99e2fedBed327510",
+    "event": "Transfer",
+    "amount": "198276227633481943387785343",
+    "source": "token",
+    "emitter": "0x15166928bfca12defbe3f1f295311523959dbd96"
+   }
+  },
+  {
+   "id": "12003420-96",
+   "kind": "v2_event",
+   "block": "12003420",
+   "blockHash": "0xa373e4b867b58ab1e9bdb1cd5261d6d890de333e4ae2ad13a2bb738a9793295a",
+   "timestamp": "1793083620",
+   "txHash": "0xdcba7598cbee6b0de028aa0f63f9ae8449fa70545bea34784bc6585bd9ac9260",
+   "logIndex": 96,
+   "data": {
+    "id": "0x3107bfc58a7736b32a739336bf1465a6a10f8553e1eb5b21b5993a3875ca7cfc",
+    "salt": "0x0000000000000000000000000000000000000000000000000000000000000003",
+    "event": "ModifyLiquidity",
+    "sender": "0xeEb7c7fF95A68a659e8047a62a54340c14d76AE0",
+    "source": "poolManager",
+    "emitter": "0xe03a1074c86cfedd5c142c4f04f1a1536e203543",
+    "tickLower": -887220,
+    "tickUpper": 887220,
+    "liquidityDelta": "4336002933727268992989"
+   }
+  },
+  {
+   "id": "12003420-95",
+   "kind": "v2_event",
+   "block": "12003420",
+   "blockHash": "0xa373e4b867b58ab1e9bdb1cd5261d6d890de333e4ae2ad13a2bb738a9793295a",
+   "timestamp": "1793083620",
+   "txHash": "0xdcba7598cbee6b0de028aa0f63f9ae8449fa70545bea34784bc6585bd9ac9260",
+   "logIndex": 95,
+   "data": {
+    "id": "0x3107bfc58a7736b32a739336bf1465a6a10f8553e1eb5b21b5993a3875ca7cfc",
+    "salt": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "event": "ModifyLiquidity",
+    "sender": "0xeEb7c7fF95A68a659e8047a62a54340c14d76AE0",
+    "source": "poolManager",
+    "emitter": "0xe03a1074c86cfedd5c142c4f04f1a1536e203543",
+    "tickLower": 214620,
+    "tickUpper": 241500,
+    "liquidityDelta": "-6186280962254190124339"
+   }
+  },
+  {
+   "id": "12003420-92",
+   "kind": "v2_event",
+   "block": "12003420",
+   "blockHash": "0xa373e4b867b58ab1e9bdb1cd5261d6d890de333e4ae2ad13a2bb738a9793295a",
+   "timestamp": "1793083620",
+   "txHash": "0xdcba7598cbee6b0de028aa0f63f9ae8449fa70545bea34784bc6585bd9ac9260",
+   "logIndex": 92,
+   "data": {
+    "id": "0x3107bfc58a7736b32a739336bf1465a6a10f8553e1eb5b21b5993a3875ca7cfc",
+    "salt": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "event": "ModifyLiquidity",
+    "sender": "0xeEb7c7fF95A68a659e8047a62a54340c14d76AE0",
+    "source": "poolManager",
+    "emitter": "0xe03a1074c86cfedd5c142c4f04f1a1536e203543",
+    "tickLower": 214620,
+    "tickUpper": 241500,
+    "liquidityDelta": "0"
+   }
+  },
+  {
+   "id": "12003416-109",
+   "kind": "v2_event",
+   "block": "12003416",
+   "blockHash": "0x20049d3503d78afe44d25219dc4dffb81be0e8ddca8da274a498e9144d08c0fe",
+   "timestamp": "1793083572",
+   "txHash": "0x05fea32fcfc106416eabb9023896d09ba034e7a7ea66850ba49138ca0682253e",
+   "logIndex": 109,
+   "data": {
+    "to": "0x1F1481667Ef20928d55524dfE4640f96Bd9b4eeE",
+    "from": "0xE03A1074c86CFeDd5C142C4F04F1a1536e203543",
+    "event": "Transfer",
+    "amount": "800639822709100662257133757",
+    "source": "token",
+    "emitter": "0x15166928bfca12defbe3f1f295311523959dbd96"
+   }
+  },
+  {
+   "id": "12003416-107",
+   "kind": "v2_event",
+   "block": "12003416",
+   "blockHash": "0x20049d3503d78afe44d25219dc4dffb81be0e8ddca8da274a498e9144d08c0fe",
+   "timestamp": "1793083572",
+   "txHash": "0x05fea32fcfc106416eabb9023896d09ba034e7a7ea66850ba49138ca0682253e",
+   "logIndex": 107,
+   "data": {
+    "event": "CurveClosed",
+    "poolId": "0x3107bfc58a7736b32a739336bf1465a6a10f8553e1eb5b21b5993a3875ca7cfc",
+    "source": "hook",
+    "emitter": "0xeeb7c7ff95a68a659e8047a62a54340c14d76ae0",
+    "blockNumber": "12003416",
+    "sqrtPriceX96": "3622936014057794889566841681288405"
+   }
+  },
+  {
+   "kind": "trade",
+   "id": "12003416-106",
+   "block": "12003416",
+   "blockHash": "0x20049d3503d78afe44d25219dc4dffb81be0e8ddca8da274a498e9144d08c0fe",
+   "timestamp": "1793083572",
+   "txHash": "0x05fea32fcfc106416eabb9023896d09ba034e7a7ea66850ba49138ca0682253e",
+   "logIndex": 106,
+   "side": "buy",
+   "route": "other",
+   "qRaw": "100974445980372009",
+   "tRaw": "800639822709100662257133757",
+   "feeQ": "1009744459803721",
+   "feeT": "0",
+   "taxQ": "0",
+   "trader": null,
+   "sqrtPriceX96After": "3622936014057794889566841681288405",
+   "tickAfter": 214619
+  },
+  {
+   "id": "12003378-177",
+   "kind": "v2_event",
+   "block": "12003378",
+   "blockHash": "0x5e34819d490cc8280786aadafaf8c42ceea582ac5eed551648b29e46d7474f95",
+   "timestamp": "1793083116",
+   "txHash": "0x26602a734e776c141e011ed6d5e179a7d3c4d67665822c8a641cc51702b8ed7b",
+   "logIndex": 177,
+   "data": {
+    "asset": "0x0000000000000000000000000000000000000000",
+    "event": "SeedLoaded",
+    "amount": "1000000000000000000",
+    "seeder": "0x5583f846B0dDC80f49ea0E89C51520bA341c6658",
+    "source": "vault",
+    "emitter": "0x6c6b109654e8dbabc81cbd4c52a1c0e9dd7cfc7c"
+   }
+  },
+  {
+   "id": "12003378-176",
+   "kind": "v2_event",
+   "block": "12003378",
+   "blockHash": "0x5e34819d490cc8280786aadafaf8c42ceea582ac5eed551648b29e46d7474f95",
+   "timestamp": "1793083116",
+   "txHash": "0x26602a734e776c141e011ed6d5e179a7d3c4d67665822c8a641cc51702b8ed7b",
+   "logIndex": 176,
+   "data": {
+    "event": "StarterSetLoaded",
+    "loader": "0x6c6B109654E8dBabC81cbd4C52A1c0E9Dd7cfc7C",
+    "source": "coordinator",
+    "emitter": "0xbee989944fc07ac715e1b7ca99e2fedbed327510"
+   }
+  },
+  {
+   "id": "12003378-175",
+   "kind": "v2_event",
+   "block": "12003378",
+   "blockHash": "0x5e34819d490cc8280786aadafaf8c42ceea582ac5eed551648b29e46d7474f95",
+   "timestamp": "1793083116",
+   "txHash": "0x26602a734e776c141e011ed6d5e179a7d3c4d67665822c8a641cc51702b8ed7b",
+   "logIndex": 175,
+   "data": {
+    "event": "BoxOpenSet",
+    "source": "coordinator",
+    "emitter": "0xbee989944fc07ac715e1b7ca99e2fedbed327510",
+    "deadline": "1795675117",
+    "effectiveOpenAt": "1793083117"
+   }
+  },
+  {
+   "id": "12003378-174",
+   "kind": "v2_event",
+   "block": "12003378",
+   "blockHash": "0x5e34819d490cc8280786aadafaf8c42ceea582ac5eed551648b29e46d7474f95",
+   "timestamp": "1793083116",
+   "txHash": "0x26602a734e776c141e011ed6d5e179a7d3c4d67665822c8a641cc51702b8ed7b",
+   "logIndex": 174,
+   "data": {
+    "event": "OpenSet",
+    "openAt": "1793083117",
+    "source": "launchRouter",
+    "emitter": "0xd7b88dcad8d409e9ea634240a0e6aebe88975eb8"
+   }
+  },
+  {
+   "id": "12003378-173",
+   "kind": "v2_event",
+   "block": "12003378",
+   "blockHash": "0x5e34819d490cc8280786aadafaf8c42ceea582ac5eed551648b29e46d7474f95",
+   "timestamp": "1793083116",
+   "txHash": "0x26602a734e776c141e011ed6d5e179a7d3c4d67665822c8a641cc51702b8ed7b",
+   "logIndex": 173,
+   "data": {
+    "event": "OpenSet",
+    "openAt": "1793083117",
+    "source": "hook",
+    "emitter": "0xeeb7c7ff95a68a659e8047a62a54340c14d76ae0"
+   }
+  },
+  {
+   "id": "12003377-213",
+   "kind": "v2_event",
+   "block": "12003377",
+   "blockHash": "0x3f01ee89830dd27e4a9e061e52bcdc144a47fff5c2a462626c2749bdf2a406b6",
+   "timestamp": "1793083104",
+   "txHash": "0xa36a7ec001633b4358e816cc0ad1949619cdc9d6d2ef20d455abd44f83a6d8bc",
+   "logIndex": 213,
+   "data": {
+    "boxId": "1",
+    "event": "BoxLaunched",
+    "openAt": "1099511627775",
+    "source": "coordinator",
+    "emitter": "0xbee989944fc07ac715e1b7ca99e2fedbed327510",
+    "creatorBuyQ": "0",
+    "creatorBuyTokens": "0",
+    "bootstrapTokensBurned": "1083949657417394355068861"
+   }
+  },
+  {
+   "id": "12003377-212",
+   "kind": "v2_event",
+   "block": "12003377",
+   "blockHash": "0x3f01ee89830dd27e4a9e061e52bcdc144a47fff5c2a462626c2749bdf2a406b6",
+   "timestamp": "1793083104",
+   "txHash": "0xa36a7ec001633b4358e816cc0ad1949619cdc9d6d2ef20d455abd44f83a6d8bc",
+   "logIndex": 212,
+   "data": {
+    "to": "0x0000000000000000000000000000000000000000",
+    "from": "0xBeE989944Fc07Ac715E1B7CA99e2fedBed327510",
+    "event": "Transfer",
+    "amount": "1083949657417394355068861",
+    "source": "token",
+    "emitter": "0x15166928bfca12defbe3f1f295311523959dbd96"
+   }
+  },
+  {
+   "id": "12003377-211",
+   "kind": "v2_event",
+   "block": "12003377",
+   "blockHash": "0x3f01ee89830dd27e4a9e061e52bcdc144a47fff5c2a462626c2749bdf2a406b6",
+   "timestamp": "1793083104",
+   "txHash": "0xa36a7ec001633b4358e816cc0ad1949619cdc9d6d2ef20d455abd44f83a6d8bc",
+   "logIndex": 211,
+   "data": {
+    "qIn": "35655029729004",
+    "event": "Bootstrapped",
+    "source": "launchRouter",
+    "emitter": "0xd7b88dcad8d409e9ea634240a0e6aebe88975eb8",
+    "recipient": "0xBeE989944Fc07Ac715E1B7CA99e2fedBed327510",
+    "tokensOut": "1083949657417394355068861"
+   }
+  },
+  {
+   "id": "12003377-210",
+   "kind": "v2_event",
+   "block": "12003377",
+   "blockHash": "0x3f01ee89830dd27e4a9e061e52bcdc144a47fff5c2a462626c2749bdf2a406b6",
+   "timestamp": "1793083104",
+   "txHash": "0xa36a7ec001633b4358e816cc0ad1949619cdc9d6d2ef20d455abd44f83a6d8bc",
+   "logIndex": 210,
+   "data": {
+    "to": "0xBeE989944Fc07Ac715E1B7CA99e2fedBed327510",
+    "from": "0xE03A1074c86CFeDd5C142C4F04F1a1536e203543",
+    "event": "Transfer",
+    "amount": "1083949657417394355068861",
+    "source": "token",
+    "emitter": "0x15166928bfca12defbe3f1f295311523959dbd96"
+   }
+  },
+  {
+   "kind": "trade",
+   "id": "12003377-208",
+   "block": "12003377",
+   "blockHash": "0x3f01ee89830dd27e4a9e061e52bcdc144a47fff5c2a462626c2749bdf2a406b6",
+   "timestamp": "1793083104",
+   "txHash": "0xa36a7ec001633b4358e816cc0ad1949619cdc9d6d2ef20d455abd44f83a6d8bc",
+   "logIndex": 208,
+   "side": "buy",
+   "route": "launch_router",
+   "qRaw": "35655029729004",
+   "tRaw": "1083949657417394355068861",
+   "feeQ": "356550297291",
+   "feeT": "0",
+   "taxQ": "0",
+   "trader": null,
+   "sqrtPriceX96After": "13876790046234548420718638190298250",
+   "tickAfter": 241480
+  },
+  {
+   "id": "12003377-206",
+   "kind": "v2_event",
+   "block": "12003377",
+   "blockHash": "0x3f01ee89830dd27e4a9e061e52bcdc144a47fff5c2a462626c2749bdf2a406b6",
+   "timestamp": "1793083104",
+   "txHash": "0xa36a7ec001633b4358e816cc0ad1949619cdc9d6d2ef20d455abd44f83a6d8bc",
+   "logIndex": 206,
+   "data": {
+    "event": "PoolLaunched",
+    "poolId": "0x3107bfc58a7736b32a739336bf1465a6a10f8553e1eb5b21b5993a3875ca7cfc",
+    "source": "hook",
+    "emitter": "0xeeb7c7ff95a68a659e8047a62a54340c14d76ae0",
+    "liquidity": "6186280962254190124339",
+    "tickLower": 214620,
+    "tickUpper": 241500,
+    "sqrtPriceX96": "13890672270488367843320641608748711",
+    "tokenDeposited": "801723772366518056612202620"
+   }
+  },
+  {
+   "id": "12003377-205",
+   "kind": "v2_event",
+   "block": "12003377",
+   "blockHash": "0x3f01ee89830dd27e4a9e061e52bcdc144a47fff5c2a462626c2749bdf2a406b6",
+   "timestamp": "1793083104",
+   "txHash": "0xa36a7ec001633b4358e816cc0ad1949619cdc9d6d2ef20d455abd44f83a6d8bc",
+   "logIndex": 205,
+   "data": {
+    "to": "0xE03A1074c86CFeDd5C142C4F04F1a1536e203543",
+    "from": "0xBeE989944Fc07Ac715E1B7CA99e2fedBed327510",
+    "event": "Transfer",
+    "amount": "801723772366518056612202620",
+    "source": "token",
+    "emitter": "0x15166928bfca12defbe3f1f295311523959dbd96"
+   }
+  },
+  {
+   "id": "12003377-204",
+   "kind": "v2_event",
+   "block": "12003377",
+   "blockHash": "0x3f01ee89830dd27e4a9e061e52bcdc144a47fff5c2a462626c2749bdf2a406b6",
+   "timestamp": "1793083104",
+   "txHash": "0xa36a7ec001633b4358e816cc0ad1949619cdc9d6d2ef20d455abd44f83a6d8bc",
+   "logIndex": 204,
+   "data": {
+    "id": "0x3107bfc58a7736b32a739336bf1465a6a10f8553e1eb5b21b5993a3875ca7cfc",
+    "salt": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "event": "ModifyLiquidity",
+    "sender": "0xeEb7c7fF95A68a659e8047a62a54340c14d76AE0",
+    "source": "poolManager",
+    "emitter": "0xe03a1074c86cfedd5c142c4f04f1a1536e203543",
+    "tickLower": 214620,
+    "tickUpper": 241500,
+    "liquidityDelta": "6186280962254190124339"
+   }
+  },
+  {
+   "id": "12003377-203",
+   "kind": "v2_event",
+   "block": "12003377",
+   "blockHash": "0x3f01ee89830dd27e4a9e061e52bcdc144a47fff5c2a462626c2749bdf2a406b6",
+   "timestamp": "1793083104",
+   "txHash": "0xa36a7ec001633b4358e816cc0ad1949619cdc9d6d2ef20d455abd44f83a6d8bc",
+   "logIndex": 203,
+   "data": {
+    "id": "0x3107bfc58a7736b32a739336bf1465a6a10f8553e1eb5b21b5993a3875ca7cfc",
+    "fee": 10000,
+    "tick": 241500,
+    "event": "Initialize",
+    "hooks": "0xeEb7c7fF95A68a659e8047a62a54340c14d76AE0",
+    "source": "poolManager",
+    "emitter": "0xe03a1074c86cfedd5c142c4f04f1a1536e203543",
+    "currency0": "0x0000000000000000000000000000000000000000",
+    "currency1": "0x15166928BfCA12deFBe3F1f295311523959Dbd96",
+    "tickSpacing": 60,
+    "sqrtPriceX96": "13890672270488367843320641608748711"
+   }
+  },
+  {
+   "id": "12003377-200",
+   "kind": "v2_event",
+   "block": "12003377",
+   "blockHash": "0x3f01ee89830dd27e4a9e061e52bcdc144a47fff5c2a462626c2749bdf2a406b6",
+   "timestamp": "1793083104",
+   "txHash": "0xa36a7ec001633b4358e816cc0ad1949619cdc9d6d2ef20d455abd44f83a6d8bc",
+   "logIndex": 200,
+   "data": {
+    "to": "0xBeE989944Fc07Ac715E1B7CA99e2fedBed327510",
+    "from": "0x0000000000000000000000000000000000000000",
+    "event": "Transfer",
+    "amount": "1000000000000000000000000000",
+    "source": "token",
+    "emitter": "0x15166928bfca12defbe3f1f295311523959dbd96"
+   }
+  }
+ ],
+ "next": null
+}

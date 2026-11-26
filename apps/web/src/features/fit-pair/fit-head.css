@@ -1,0 +1,476 @@
+/*
+ * The v2 FIT / Misfits pair page (T19), page frame, header (name, phase and its line, contract address, links out) and
+ * the shared info button, info panel and disclosure. Reuses the pair detail's cards, copy button and chips.
+ * Colour rules (BOX-SYSTEM § 1.3, realtime § 10): lavender belongs to the FIT mark only; the band, the dot and the
+ * ring use a neutral ETH tone; no green or red for buys and sells; state is always also in words. Layout: container
+ * queries on the page section, like the pair detail. Split by card: fit-head.css, fit-curve.css, fit-window-tape.css,
+ * fit-side.css (imported in that order by main.tsx). Text diet (2026-10-01): labels of one to three words, numbers
+ * large, explanations behind (i) buttons.
+ */
+
+.sh-fit-page {
+  container-type: inline-size;
+  gap: var(--sh-gap-4);
+  max-width: 1240px;
+  --sh-fit-eth: #c9d3e6;
+  --sh-fit-eth-soft: rgba(201, 211, 230, 0.2);
+}
+
+.sh-fit {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-4);
+  min-width: 0;
+}
+
+/* ── Small labels, info button, info panel, details ────────── */
+.sh-fit-label {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sh-fit-label-row,
+.sh-fit-card-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+}
+
+/* A 28 px circle with a 44 px hit area (like the copy button's), outside every heading so it never joins a name. */
+.sh-info-button {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  /* An interactive boundary: the strong border token (3.79:1 on the card), as tokens.css asks for controls. */
+  border: 1px solid var(--sh-border-strong);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--sh-text-muted);
+  cursor: pointer;
+}
+
+.sh-info-button::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+}
+
+.sh-info-button:hover,
+.sh-info-button[aria-expanded='true'] {
+  border-color: var(--sh-text-muted);
+  background: var(--sh-surface-raised);
+  color: var(--sh-text);
+}
+
+.sh-info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 12px;
+  border: 1px solid var(--sh-border);
+  border-left: 3px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  background: rgba(8, 13, 22, 0.55);
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+}
+
+.sh-info-panel[hidden] {
+  display: none;
+}
+
+.sh-info-panel__list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.sh-info-panel strong {
+  color: var(--sh-text);
+}
+
+/* The small "Data:" line (block, source, scale): the least needed, so the smallest. */
+.sh-info-panel__data {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+}
+
+/* "Details" (InfoTip.tsx, SH-ALCHEMIST-LESS-TEXT): a text button with a chevron and the panel it opens below it. The
+   button is a tap-sized row that keeps its place and size when it opens; only the panel adds height. */
+.sh-details {
+  min-width: 0;
+}
+
+.sh-details__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--sh-touch-target);
+  padding: 0 var(--sh-gap-2) 0 0;
+  border: 0;
+  border-radius: var(--sh-radius-small);
+  background: none;
+  color: var(--sh-text-secondary);
+  font: inherit;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sh-details__button:hover,
+.sh-details__button[aria-expanded='true'] {
+  color: var(--sh-text);
+}
+
+.sh-details__chevron {
+  display: inline-flex;
+  flex: none;
+  transition: transform var(--sh-duration-fast) var(--sh-ease);
+}
+
+.sh-details__button[aria-expanded='true'] .sh-details__chevron {
+  transform: rotate(90deg);
+}
+
+.sh-details__panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-2);
+  min-width: 0;
+  padding-bottom: var(--sh-gap-2);
+}
+
+.sh-details__panel[hidden] {
+  display: none;
+}
+
+/* The Terms link that ends a panel holding a risk line. */
+.sh-details__terms {
+  margin: 0;
+  font-size: var(--sh-type-small);
+}
+
+.sh-fit-details > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--sh-touch-target);
+  color: var(--sh-text);
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+  cursor: pointer;
+  list-style: none;
+}
+
+.sh-fit-details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.sh-fit-details__chevron {
+  display: inline-flex;
+  transition: transform 150ms var(--sh-ease);
+}
+
+.sh-fit-details[open] .sh-fit-details__chevron {
+  transform: rotate(90deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sh-fit-details__chevron {
+    transition: none;
+  }
+}
+
+/* ── Header: name and phase, contract address, links ──────── */
+.sh-fit-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    'id ca'
+    'id links';
+  align-items: start;
+  gap: var(--sh-gap-3) var(--sh-gap-6);
+  padding: 20px 24px;
+}
+
+.sh-fit-head__id {
+  display: flex;
+  grid-area: id;
+  align-items: flex-start;
+  gap: var(--sh-gap-4);
+  min-width: 0;
+}
+
+.sh-fit-head__icon {
+  display: block;
+  flex: none;
+  filter: drop-shadow(0 6px 18px rgba(109, 74, 226, 0.35));
+}
+
+.sh-fit-head__name {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-2);
+  min-width: 0;
+  padding-top: 6px;
+}
+
+.sh-fit-head__title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+}
+
+.sh-fit-head__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 10px;
+  color: var(--sh-text);
+}
+
+.sh-fit-head__pair {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-body-lg);
+  font-weight: 650;
+}
+
+.sh-fit-head__phase {
+  border-color: var(--sh-border-strong);
+  background: var(--sh-surface-raised);
+  color: var(--sh-text);
+}
+
+/* The phase's one line under the name: the launch tax and countdown, "Graduation pending", "Since block N". */
+.sh-fit-phase {
+  color: var(--sh-text);
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+}
+
+.sh-fit-ca {
+  display: flex;
+  flex-direction: column;
+  grid-area: ca;
+  gap: 4px;
+  min-width: 0;
+}
+
+.sh-fit-ca__network {
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-caption);
+  font-weight: 650;
+}
+
+.sh-fit-ca__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  min-width: 0;
+}
+
+.sh-fit-ca__address {
+  min-width: 0;
+  color: var(--sh-text);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  overflow-wrap: anywhere;
+}
+
+/* The box header's one-line form: "FIT 0x12…ab Copy" (ContractAddress compact). */
+.sh-fit-ca--compact {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  color: var(--sh-text);
+  font-size: var(--sh-type-small);
+}
+
+.sh-fit-ca__short {
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+  font-weight: 600;
+}
+
+.sh-fit-links {
+  display: flex;
+  flex-direction: column;
+  grid-area: links;
+  gap: 6px;
+  min-width: 0;
+}
+
+.sh-fit-links__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-fit-link {
+  display: flex;
+  min-width: 0;
+}
+
+/* A live link: a framed tile with the external-link arrow, provider and host. */
+.sh-fit-link__body {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  min-height: var(--sh-touch-target);
+  padding: 0 12px;
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface-raised);
+  color: var(--sh-text);
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+  line-height: var(--sh-touch-target);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.sh-fit-link__body > .sh-glyph {
+  align-self: center;
+  color: var(--sh-text-muted);
+}
+
+a.sh-fit-link__body:hover {
+  border-color: var(--sh-accent);
+}
+
+/* Not a link: plain text, no frame, no arrow, so it never looks tappable. */
+.sh-fit-link__off {
+  align-self: center;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+}
+
+.sh-fit-link__state {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 600;
+}
+
+/* No link at all yet: one muted line instead of three empty boxes. */
+.sh-fit-links__none {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-small);
+}
+
+.sh-fit-links__warning {
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-caption);
+}
+
+/* ── Two columns ───────────────────────────────────────────── */
+.sh-fit-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+  grid-template-areas: 'main side';
+  gap: var(--sh-gap-4);
+  align-items: start;
+}
+
+.sh-fit-grid__main {
+  grid-area: main;
+}
+
+.sh-fit-grid__side {
+  grid-area: side;
+}
+
+.sh-fit-grid__main,
+.sh-fit-grid__side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-4);
+  min-width: 0;
+}
+
+/* ── Narrower containers ───────────────────────────────────── */
+@container (max-width: 1100px) {
+  .sh-fit-head {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'id'
+      'ca'
+      'links';
+  }
+}
+
+@container (max-width: 980px) {
+  .sh-fit-grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'main'
+      'side';
+  }
+}
+
+@container (max-width: 520px) {
+  .sh-fit-head {
+    gap: var(--sh-gap-3);
+    padding: 16px;
+  }
+
+  .sh-fit-head__id {
+    gap: var(--sh-gap-3);
+  }
+
+  .sh-fit-head__icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .sh-fit-head__name {
+    padding-top: 2px;
+  }
+
+  /* A 42-character address fits one line of a phone-width card at this size. */
+  .sh-fit-ca__address {
+    font-size: 12px;
+    letter-spacing: 0;
+  }
+
+  /* A live link wraps to name over host on a phone; plain-text items stay inline. */
+  .sh-fit-link__body {
+    min-width: 0;
+    padding: 4px 10px;
+    line-height: 1.25;
+    white-space: normal;
+  }
+
+  .sh-fit-link__state {
+    overflow-wrap: anywhere;
+  }
+}
+
+/*
+ * The top bar is sticky from 641 px up: keep anything focused or scrolled into view below it (WCAG 2.4.11 Focus Not
+ * Obscured). Scoped to this page: other pages already set scroll-margin-top on their anchors, and the two would add up.
+ */
+@media (min-width: 641px) {
+  html:has(.sh-fit-page) {
+    scroll-padding-top: calc(var(--sh-topbar-h) + var(--sh-gap-2));
+  }
+}

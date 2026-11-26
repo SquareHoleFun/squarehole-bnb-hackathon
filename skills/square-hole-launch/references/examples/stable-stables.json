@@ -1,0 +1,83 @@
+{
+  "format": "squarehole.boxspec-draft/1",
+  "context": "v2",
+  "example": 5,
+  "brief": "Demo example 5. Stablecoins, 'stable' as in horses: 250 horses, open art, priced in USDC. The creator is paid all in USDC (the sellers' side sells NEIGH in small steps, with the sell warning) and caps their fees at about 2,500 USDC a month, the rest burned. The longest deadline.",
+  "status": "stand-in",
+  "shows": [
+    "creator box, paid all in ETH (the sellers' side sells NEIGH, with the sell warning)",
+    "creator-fee cap: 1 ETH per 30 days, the rest burned",
+    "longest deadline (180 days)"
+  ],
+  "differences": [
+    "USDC (6 decimals) is not on the curated list yet, and its raise and cap amounts (the 'ETH equivalent') are not decided; priced in ETH until it is. The cap is a fixed amount of ETH per 30 days: about 2,500 USDC a month is about 1 ETH at $2,500 per ETH, the smallest preset."
+  ],
+  "site": {
+    "links": []
+  },
+  "spec": {
+    "version": 2,
+    "boxType": "NEW_COLLECTION",
+    "tokenName": "Stable Stables",
+    "tokenSymbol": "NEIGH",
+    "collectionName": "Stable Stables",
+    "collectionSymbol": "NEIGH",
+    "description": "Demo: 250 horses that never leave their stable. Steady as they go.",
+    "n": 250,
+    "firstId": "1",
+    "q": "ETH",
+    "raise": {
+      "decimal": "4.206980085"
+    },
+    "layout": "CURVE_V1",
+    "gradLayout": "ASK_FULL_BID_SENTINEL",
+    "launchFormat": "CURVE",
+    "openAt": 0,
+    "deadlineDays": 180,
+    "qStream": "TO_CREATOR",
+    "tStream": "CREATOR_IN_Q",
+    "artMode": "OPEN",
+    "revealRoot": "FROM_LAUNCH_FLOW",
+    "metadataTable": {
+      "formatV1": {
+        "traitTypes": [
+          {
+            "name": "Coat",
+            "values": [
+              "Bay",
+              "Grey",
+              "Palomino",
+              "Pinto"
+            ]
+          },
+          {
+            "name": "Peg",
+            "values": [
+              "Dollar",
+              "Euro",
+              "None"
+            ]
+          }
+        ]
+      }
+    },
+    "generatorHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coverSha256": "FROM_LAUNCH_FLOW",
+    "revealListId": "FROM_LAUNCH_FLOW",
+    "marketplaceOwner": "FROM_LAUNCH_FLOW",
+    "creatorFeeRecipient": "FROM_LAUNCH_FLOW",
+    "creatorBuy": "0",
+    "collectionCoverSha256": "FROM_LAUNCH_FLOW",
+    "addOns": [
+      {
+        "addOn": "creator-fee-cap",
+        "params": {
+          "capPerEpoch": {
+            "decimal": "1"
+          },
+          "excess": "BURN"
+        }
+      }
+    ]
+  }
+}

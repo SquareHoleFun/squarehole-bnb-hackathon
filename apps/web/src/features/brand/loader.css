@@ -1,0 +1,235 @@
+/*
+ * The logo loader (F51; Loader.tsx). Every layer fills the loader's fixed box, so the keyframes' percentages mean the
+ * same at every size and nothing around it moves. Only transform and opacity animate. Reduced motion: the global
+ * rules (base.css, settings.css) stop every animation and the component leaves the moving layers out.
+ */
+.sh-loader {
+  --sh-loader-size: 24px;
+  position: relative;
+  display: inline-block;
+  flex: none;
+  width: var(--sh-loader-size);
+  height: var(--sh-loader-size);
+  vertical-align: middle;
+  contain: layout paint;
+  isolation: isolate;
+}
+
+.sh-loader[data-size='button'] {
+  --sh-loader-size: 16px;
+}
+
+.sh-loader[data-size='card'] {
+  --sh-loader-size: 48px;
+}
+
+.sh-loader[data-size='page'] {
+  --sh-loader-size: 160px;
+}
+
+/*
+ * A quick read never flashes the big mark: it fades in after a beat. A waiting block fades in as a whole (mark and
+ * words together), so a fast load never shows a lone line under an empty box.
+ */
+.sh-loader[data-size='card'],
+.sh-loader[data-size='page'],
+.sh-loader-wait {
+  animation: sh-loader-in 200ms ease-out 250ms backwards;
+}
+
+.sh-loader-wait .sh-loader {
+  animation: none;
+}
+
+.sh-loader__layer {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Card and page: the shapes find the hole, one every 1.6 s; the hole glows as each goes in. */
+.sh-loader__glow {
+  animation: sh-loader-glow 1.6s infinite;
+}
+
+.sh-loader__flash {
+  opacity: 0;
+  animation: sh-loader-flash 1.6s infinite;
+}
+
+.sh-loader__shape {
+  opacity: 0;
+  animation: sh-loader-drop 8s infinite;
+}
+
+.sh-loader__shape[data-shape='ball'] {
+  animation-delay: -6.4s;
+}
+
+.sh-loader__shape[data-shape='pyramid'] {
+  animation-delay: -4.8s;
+}
+
+.sh-loader__shape[data-shape='star'] {
+  animation-delay: -3.2s;
+}
+
+.sh-loader__shape[data-shape='heart'] {
+  animation-delay: -1.6s;
+}
+
+/* Button and inline: the brand's 16 and 24 px drawings, where only the glow breathes. */
+.sh-loader[data-size='button'] .sh-loader__glow,
+.sh-loader[data-size='inline'] .sh-loader__glow {
+  opacity: 0;
+  animation: sh-loader-breathe 2.4s ease-in-out infinite;
+}
+
+@keyframes sh-loader-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes sh-loader-breathe {
+  45% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes sh-loader-glow {
+  0%,
+  50% {
+    opacity: 0.74;
+    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  }
+
+  58% {
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
+  }
+
+  100% {
+    opacity: 0.74;
+  }
+}
+
+@keyframes sh-loader-flash {
+  0%,
+  51% {
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  }
+
+  58% {
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
+  }
+
+  90%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* One drop in the first fifth of 8 s (1.6 s): appear above the tile, settle, fall, squash into the hole, vanish. */
+@keyframes sh-loader-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-36%) scale(0.5) rotate(-18deg);
+    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  }
+
+  2.8% {
+    opacity: 1;
+    transform: translateY(-36%) scale(1.04) rotate(-6deg);
+    animation-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
+  }
+
+  4.8% {
+    opacity: 1;
+    transform: translateY(-34.56%) scale(1.08, 0.86) rotate(-3deg);
+    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  }
+
+  6.2% {
+    opacity: 1;
+    transform: translateY(-37.08%) scale(0.96, 1.06) rotate(0deg);
+    animation-timing-function: cubic-bezier(0.32, 0, 0.67, 0);
+  }
+
+  10.4% {
+    opacity: 1;
+    transform: translateY(0%) scale(0.9, 0.94) rotate(0deg);
+    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  }
+
+  11.6% {
+    opacity: 1;
+    transform: translateY(1%) scale(0.96, 0.8) rotate(0deg);
+    animation-timing-function: cubic-bezier(0.32, 0, 0.67, 0);
+  }
+
+  15.2%,
+  100% {
+    opacity: 0;
+    transform: translateY(1%) scale(0.12) rotate(0deg);
+  }
+}
+
+/* Waiting: the mark, one short label and an optional status line, centred. */
+.sh-loader-wait {
+  display: grid;
+  justify-items: center;
+  gap: var(--sh-gap-2);
+  text-align: center;
+  color: var(--sh-text-secondary);
+}
+
+.sh-loader-wait__status {
+  display: grid;
+  justify-items: center;
+  gap: var(--sh-gap-3);
+}
+
+.sh-loader-wait__label {
+  font-weight: var(--sh-weight-medium);
+}
+
+.sh-loader-wait__line {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-small);
+  font-variant-numeric: tabular-nums;
+}
+
+.sh-loader-wait[data-size='page'] {
+  min-height: min(60vh, 480px);
+  align-content: center;
+  padding-block: var(--sh-gap-8);
+}
+
+.sh-loader-wait[data-size='page'] .sh-loader-wait__status {
+  gap: var(--sh-gap-4);
+}
+
+.sh-loader-wait[data-size='page'] .sh-loader-wait__label {
+  color: var(--sh-text);
+  font-size: var(--sh-type-body-lg);
+}
+
+/*
+ * A line of text led by a small loader, centred on the first line when the text wraps (a phone). The margin is the
+ * gap between the line height and the box, negative when the box is taller, so the line keeps its height.
+ */
+.sh-loader-line {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sh-gap-2);
+}
+
+.sh-loader-line > .sh-loader {
+  margin-block: calc((1lh - var(--sh-loader-size)) / 2);
+}

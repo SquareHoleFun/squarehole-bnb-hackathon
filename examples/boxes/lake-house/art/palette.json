@@ -1,0 +1,247 @@
+{
+  "format": "squarehole.kit-palette/1",
+  "kit": "lake-house",
+  "policy": "ADR-0004: colours sampled from the approved reference PNGs, inside approved cast crops, clear of excluded crops",
+  "samples": [
+    {
+      "name": "sky",
+      "hex": "#13182B",
+      "source": "square-hole-handoff/design/reference/feed.png",
+      "sourceSha256": "5d3242973e7bee30564e3cba89744f51927be371c68062bd13ac6987068c668f",
+      "crop": "platform-tile",
+      "cropBox": [
+        240,
+        140,
+        405,
+        305
+      ],
+      "patch": [
+        398,
+        148,
+        403,
+        153
+      ],
+      "use": "the night sky"
+    },
+    {
+      "name": "hole",
+      "hex": "#090D32",
+      "source": "square-hole-handoff/design/reference/feed.png",
+      "sourceSha256": "5d3242973e7bee30564e3cba89744f51927be371c68062bd13ac6987068c668f",
+      "crop": "platform-tile",
+      "cropBox": [
+        240,
+        140,
+        405,
+        305
+      ],
+      "patch": [
+        318,
+        213,
+        323,
+        218
+      ],
+      "use": "every outline and the square hole in the window"
+    },
+    {
+      "name": "glow",
+      "hex": "#93CFFA",
+      "source": "square-hole-handoff/design/reference/feed.png",
+      "sourceSha256": "5d3242973e7bee30564e3cba89744f51927be371c68062bd13ac6987068c668f",
+      "crop": "platform-tile",
+      "cropBox": [
+        240,
+        140,
+        405,
+        305
+      ],
+      "patch": [
+        308,
+        203,
+        313,
+        208
+      ],
+      "use": "the window ring and the star glints"
+    },
+    {
+      "name": "glowMid",
+      "hex": "#6F85DB",
+      "source": "square-hole-handoff/design/reference/feed.png",
+      "sourceSha256": "5d3242973e7bee30564e3cba89744f51927be371c68062bd13ac6987068c668f",
+      "crop": "platform-tile",
+      "cropBox": [
+        240,
+        140,
+        405,
+        305
+      ],
+      "patch": [
+        310,
+        228,
+        315,
+        233
+      ],
+      "use": "the soft light around the ring and its reflection"
+    },
+    {
+      "name": "glowDeep",
+      "hex": "#3744A5",
+      "source": "square-hole-handoff/design/reference/feed.png",
+      "sourceSha256": "5d3242973e7bee30564e3cba89744f51927be371c68062bd13ac6987068c668f",
+      "crop": "platform-tile",
+      "cropBox": [
+        240,
+        140,
+        405,
+        305
+      ],
+      "patch": [
+        316,
+        188,
+        321,
+        193
+      ],
+      "use": "the outer edge of the ring"
+    },
+    {
+      "name": "wood",
+      "hex": "#E3C1A4",
+      "source": "square-hole-handoff/design/reference/feed.png",
+      "sourceSha256": "5d3242973e7bee30564e3cba89744f51927be371c68062bd13ac6987068c668f",
+      "crop": "square-hole-box",
+      "cropBox": [
+        1130,
+        237,
+        1470,
+        320
+      ],
+      "patch": [
+        1298,
+        283,
+        1303,
+        288
+      ],
+      "use": "the walls and the moon"
+    },
+    {
+      "name": "woodMid",
+      "hex": "#D1A78F",
+      "source": "square-hole-handoff/design/reference/feed.png",
+      "sourceSha256": "5d3242973e7bee30564e3cba89744f51927be371c68062bd13ac6987068c668f",
+      "crop": "square-hole-box",
+      "cropBox": [
+        1130,
+        237,
+        1470,
+        320
+      ],
+      "patch": [
+        1248,
+        283,
+        1253,
+        288
+      ],
+      "use": "the planks and the door"
+    },
+    {
+      "name": "woodDark",
+      "hex": "#624846",
+      "source": "square-hole-handoff/design/reference/feed.png",
+      "sourceSha256": "5d3242973e7bee30564e3cba89744f51927be371c68062bd13ac6987068c668f",
+      "crop": "square-hole-box",
+      "cropBox": [
+        1130,
+        237,
+        1470,
+        320
+      ],
+      "patch": [
+        1178,
+        298,
+        1183,
+        303
+      ],
+      "use": "the roof, the deck and the posts"
+    },
+    {
+      "name": "pine",
+      "hex": "#2A6C43",
+      "source": "square-hole-handoff/design/reference/feed.png",
+      "sourceSha256": "5d3242973e7bee30564e3cba89744f51927be371c68062bd13ac6987068c668f",
+      "crop": "shape-gem",
+      "cropBox": [
+        1554,
+        350,
+        1616,
+        412
+      ],
+      "patch": [
+        1578,
+        373,
+        1583,
+        378
+      ],
+      "use": "the near pines"
+    },
+    {
+      "name": "pineDark",
+      "hex": "#265D39",
+      "source": "square-hole-handoff/design/reference/feed.png",
+      "sourceSha256": "5d3242973e7bee30564e3cba89744f51927be371c68062bd13ac6987068c668f",
+      "crop": "shape-gem",
+      "cropBox": [
+        1554,
+        350,
+        1616,
+        412
+      ],
+      "patch": [
+        1583,
+        383,
+        1588,
+        388
+      ],
+      "use": "the far pines"
+    },
+    {
+      "name": "lake",
+      "hex": "#1E4ACD",
+      "source": "square-hole-handoff/design/reference/feed.png",
+      "sourceSha256": "5d3242973e7bee30564e3cba89744f51927be371c68062bd13ac6987068c668f",
+      "crop": "shape-pyramid",
+      "cropBox": [
+        1485,
+        350,
+        1545,
+        410
+      ],
+      "patch": [
+        1518,
+        378,
+        1523,
+        383
+      ],
+      "use": "the lake, mixed into the sky"
+    },
+    {
+      "name": "lakeDeep",
+      "hex": "#193997",
+      "source": "square-hole-handoff/design/reference/feed.png",
+      "sourceSha256": "5d3242973e7bee30564e3cba89744f51927be371c68062bd13ac6987068c668f",
+      "crop": "shape-pyramid",
+      "cropBox": [
+        1485,
+        350,
+        1545,
+        410
+      ],
+      "patch": [
+        1508,
+        388,
+        1513,
+        393
+      ],
+      "use": "the ripples, mixed into the lake"
+    }
+  ]
+}

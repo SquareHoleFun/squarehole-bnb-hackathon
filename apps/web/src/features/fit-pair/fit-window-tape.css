@@ -1,0 +1,222 @@
+/*
+ * The v2 FIT / Misfits pair page (T19), the launch window strip and the tape. Reuses the pair detail's cards, copy button, destinations and chips.
+ * Colour rules (BOX-SYSTEM § 1.3, realtime § 10): lavender belongs to the FIT mark only; the band, the dot and the
+ * ring use a neutral ETH tone; no green or red for buys and sells; state is always also in words. Layout: container
+ * queries on the page section, like the pair detail. Split by card: fit-head.css, fit-curve.css, fit-window-tape.css,
+ * fit-side.css (imported in that order by main.tsx).
+ */
+
+/* ── Launch window strip ───────────────────────────────────── */
+.sh-fit-window__text {
+  color: var(--sh-text);
+  font-size: var(--sh-type-small);
+  font-weight: 600;
+}
+
+/* "Launch tax per block": a visible label for the cells, so the tax is named before the open too. */
+.sh-fit-window__caption {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 750;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* After the window: the same cells, folded under the same label. */
+.sh-fit-window__details[open] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-2);
+}
+
+.sh-fit-window__cells {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-fit-window__cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  min-width: 0;
+  padding: 5px 2px;
+  border: 1px solid var(--sh-border);
+  border-radius: 6px;
+  color: var(--sh-text-secondary);
+  /* The design system's smallest size (--sh-type-caption); two-decimal taxes fit 8 cells a row down to ~520 px. */
+  font-size: var(--sh-type-caption);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.sh-fit-window__offset {
+  color: var(--sh-text-muted);
+}
+
+.sh-fit-window__tax {
+  font-weight: 700;
+}
+
+/* Passed: dashed with a check mark, text at full contrast (muted 6.1:1, secondary 9.6:1 on the card; WCAG 1.4.3). */
+.sh-fit-window__cell[data-state='past'] {
+  border-style: dashed;
+  background: transparent;
+}
+
+.sh-fit-window__cell[data-state='past'] .sh-fit-window__tax {
+  color: var(--sh-text-muted);
+  font-weight: 600;
+}
+
+.sh-fit-window__mark {
+  color: var(--sh-text-muted);
+}
+
+.sh-fit-window__cell[data-state='next'] {
+  border: 2px solid var(--sh-fit-eth);
+  color: var(--sh-text);
+}
+
+/* ── Tape: one compact row per trade ───────────────────────── */
+.sh-fit-tape__list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-fit-tape__row {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1.5fr) minmax(0, 0.9fr) minmax(0, 1fr) auto;
+  grid-template-areas: 'side eth fit who when';
+  align-items: baseline;
+  gap: 2px 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--sh-border);
+  font-size: var(--sh-type-small);
+  font-variant-numeric: tabular-nums;
+}
+
+.sh-fit-tape__row:last-child {
+  border-bottom: 0;
+}
+
+.sh-fit-tape__row[data-kind='folded'] {
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 2fr) auto;
+  grid-template-areas: 'side eth when';
+}
+
+.sh-fit-tape__row > .sh-fit-side {
+  grid-area: side;
+  color: var(--sh-text);
+  font-weight: 650;
+}
+
+.sh-fit-tape__eth {
+  grid-area: eth;
+  min-width: 0;
+  color: var(--sh-text);
+}
+
+.sh-fit-tape__fit {
+  grid-area: fit;
+  min-width: 0;
+  color: var(--sh-text-secondary);
+}
+
+.sh-fit-tape__who {
+  grid-area: who;
+  min-width: 0;
+}
+
+.sh-fit-tape__when {
+  display: inline-flex;
+  grid-area: when;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 6px;
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  white-space: nowrap;
+}
+
+.sh-fit-tape__note,
+.sh-fit-tape__empty {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 500;
+}
+
+.sh-fit-tape__note {
+  white-space: nowrap;
+}
+
+.sh-fit-tape__more {
+  display: flex;
+  justify-content: center;
+}
+
+.sh-fit-side {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.sh-fit-side[data-side='sell'] {
+  color: var(--sh-text-secondary);
+}
+
+.sh-fit-trader {
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-caption);
+}
+
+/* Shown only for "not final" (the one tier that is news), dashed like the drawing's newest-block ring. */
+.sh-fit-tier {
+  display: inline-flex;
+  padding: 0 6px;
+  border: 1px dashed var(--sh-border-strong);
+  border-radius: var(--sh-radius-pill);
+  color: var(--sh-text-secondary);
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+/* Narrow: two lines a row (side, ETH, FIT / trader, time, tier). */
+@container (max-width: 760px) {
+  .sh-fit-tape__row {
+    grid-template-columns: 56px minmax(0, 1fr) auto;
+    grid-template-areas:
+      'side eth fit'
+      '. who when';
+  }
+
+  .sh-fit-tape__row[data-kind='folded'] {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      'side when'
+      'eth eth';
+  }
+
+  .sh-fit-tape__fit {
+    text-align: right;
+  }
+}
+
+/* Phones: four cells a row (eight rows), so a two-decimal tax at 12 px always fits its cell. */
+@container (max-width: 520px) {
+  .sh-fit-window__cells {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .sh-fit-window__cell {
+    padding: 3px 2px;
+  }
+}

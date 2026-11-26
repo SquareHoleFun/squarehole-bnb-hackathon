@@ -1,0 +1,6 @@
+/* SH-294: the launch's picture field (components/PictureField.tsx). */
+.picture-field__row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.picture-field__thumb { width: 48px; height: 48px; border-radius: 12px; object-fit: cover; border: 1px solid var(--sh-border, #30415d); }
+.picture-field__add { position: relative; cursor: pointer; }
+.picture-field__add input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.picture-field__add[data-busy] { opacity: 0.6; }

@@ -1,0 +1,339 @@
+{
+  "name": "Square Hole add-on catalog",
+  "catalogVersion": 1,
+  "decision": "F55 (2026-10-02, founder): \"each new NFT collection that launches will want placeholders, but lets start a collection of add-ons and not extend the core too much to keep things flexible.\" The core stays minimal; each add-on has an id, its parameters (validated per add-on by BoxSpecV1.validate()) and the core hook points it uses.",
+  "encoding": [
+    "A BoxSpec carries `addOns` as (uint16 id, bytes params). params must be exactly abi.encode(<the add-on's parameter tuple>) in the order listed here: canonical offsets, zero padding, no trailing bytes, each value inside its type. An add-on without parameters carries empty params (0x).",
+    "Ids ascend in the list; an add-on marked repeatable may appear more than once in a row, others at most once.",
+    "Field ids in a verdict: 100 x add-on id for the add-on itself, 100 x id + i + 1 for its i-th parameter.",
+    "Parameter checks: strings by their rule and length; uint `min`/`max` (OUT_OF_RANGE); `allowed`, a preset list (v2 C16: presets, not sliders), and `enum`, a member of an enum below (both NOT_A_MEMBER), with `offered` the members this format offers (NOT_OFFERED otherwise); `nonZeroIff` (ZERO_VALUE when the named earlier parameter has the value, MUST_BE_ZERO otherwise); a `bytes32[]` (canonical: its offset the next free position, a length word, the items, nothing after) holds at most `maxItems` items (LENGTH_OUT_OF_RANGE), each non-zero with `nonZeroItems` (ZERO_VALUE). An add-on's `requires` may also name its own uint parameters ({ \"param\": name, \"eq\" | \"ne\": value }).",
+    "Order of an add-on's checks: its `versions` (ADD_ON_NOT_AVAILABLE), its `boxTypes` (ADD_ON_CONFLICT; F70: TOKEN_ONLY boxes take no collection add-on), its params (decoding, then each parameter), its `requires`."
+  ],
+  "paramTypes": ["uint8", "uint16", "uint32", "uint64", "uint128", "uint256", "bool", "address", "bytes32", "string", "bytes32[]"],
+  "enums": [
+    {
+      "name": "RoyaltyDestination",
+      "members": [
+        { "name": "FEE_HANDLING", "value": 1, "note": "default (F65): into the box's own fee handling, split like its trading fees; box 0: its capped receiver, so the platform part counts inside the cap" },
+        { "name": "CREATOR", "value": 2, "note": "to the creator payee, creatorFeeRecipient (F65: 'maybe some creators want to have that royalties for themselves'; F72 (3): one payout wallet): through the box's royalty router to the receiver's fundCreator(), credited to the current payee after graduation and held before (F69 C1)" },
+        { "name": "POOL_DEPTH", "value": 3, "note": "into the box's own pool depth (F65)" }
+      ]
+    },
+    {
+      "name": "CapExcess",
+      "members": [
+        { "name": "HOLDERS", "value": 1, "offeredOn": ["demo"], "pending": "pending legal review", "note": "to T holders: needs the ledger T (S14, after counsel). P: a holder payout, so it follows F74 U1: offered in Demo with a 'pending legal review' note, on Sepolia once S14 builds holder payouts, never on mainnet until counsel; validate() refuses it (NOT_OFFERED)" },
+        { "name": "BURN", "value": 2, "note": "burned: T burned; Q burned where Q has a real burn, else T bought and burned (F70)" },
+        { "name": "POOL_DEPTH", "value": 3, "note": "into the box's own pool depth, as the 2/15 depth share (F64)" }
+      ]
+    }
+  ],
+  "hookPoints": [
+    {
+      "key": "vault.ticketAdapter",
+      "layer": "contract",
+      "coreMustExpose": true,
+      "what": "The vault's one adapter slot: the only caller of the ticket functions (takes during the curve, draws, picks of hidden items). Zero: no hidden item can ever leave.",
+      "today": "MisfitsVault.hiddenAdapter (V MisfitsVault.sol:207-209)",
+      "coreV1": "Built: the vault clone's ticket adapter argument (V BoxCloneArgs.sol:146 V_TICKET_ADAPTER), the box's BoxTickets clone or zero",
+      "usedBy": ["placeholders"]
+    },
+    {
+      "key": "collection.hiddenView",
+      "layer": "contract",
+      "coreMustExpose": true,
+      "what": "The collection's hidden branch of tokenURI: the add-on supplies the hidden description and picture (base64 inline SVG).",
+      "today": "MisfitsCollection.PLACEHOLDER_DESCRIPTION / PLACEHOLDER_SVG (V MisfitsCollection.sol:110-111) from PublicNames.sol, rendered in tokenJSON (V :475-490)",
+      "coreV1": "Built: the add-on's hidden description and SVG are collection clone arguments (V BoxCloneArgs.sol:81-82), rendered by BoxCollection._hiddenJSON; without the add-on (open art) an unrevealed item shows the collection description and the collection cover (field 28; P, add-on 6 defaults)",
+      "usedBy": ["placeholders"]
+    },
+    {
+      "key": "collection.revealUnlocker",
+      "layer": "contract",
+      "coreMustExpose": true,
+      "what": "The REVEAL_ON_UNLOCK trigger: the draw adapter unlocks an item's reveal while it is drawn.",
+      "today": "MisfitsCollection Config.revealUnlocker (V MisfitsCollection.sol:138, 162)",
+      "coreV1": "Built: the collection clone's revealUnlocker argument (V BoxCloneArgs.sol:24), the box's BoxTickets clone",
+      "usedBy": ["placeholders"]
+    },
+    {
+      "key": "coordinator.graduation",
+      "layer": "contract",
+      "coreMustExpose": true,
+      "what": "Graduation opens the vault's gate; add-ons that start at graduation read it, and module pokes have a gas floor (plan § 3.4, BC-098); F126 records the stream baseline independently so graduation stays fail-safe and a delayed retry keeps all earnings.",
+      "today": "MisfitsGenesis.graduate() opens the gate (V MisfitsGenesis.sol:59-65); the placeholder contract stores its graduation word itself (V MisfitsPlaceholders.sol:119)",
+      "coreV1": "Built: BoxCoordinator.graduate() pokes the receiver, the tickets, FIT's executor and (S8) the per-item stream, after the receiver so the stream's start follows the settlement, each capped at POKE_GAS (2,600,000 since F95 R19M) with optional pokes fail-safe (BC-098); F126 / M28 makes the stream start mandatory, including its receiver settlement, rolling back graduation if it fails; launch() initialises the stream after the receiver (S8); it does not re-check the randomness source (D1)",
+      "usedBy": ["placeholders", "per-item-stream", "creator-fee-cap"]
+    },
+    {
+      "key": "coordinator.failure",
+      "layer": "contract",
+      "coreMustExpose": true,
+      "what": "The failure path at a deadline (version 2, S11): what an add-on holds must have a defined exit when the box fails.",
+      "today": "Not built (plan § 3.7; FLR-02). Open for placeholders in deadline boxes: FLR-08 to FLR-11 (tickets outstanding at failure).",
+      "coreV1": "Not built (S11)",
+      "usedBy": ["placeholders"]
+    },
+    {
+      "key": "collection.transferObserver",
+      "layer": "contract",
+      "coreMustExpose": true,
+      "what": "A capped, fail-safe call on every ownership change (checkpoint before state changes).",
+      "today": "MisfitsCollection.transferObserver (V MisfitsCollection.sol:140, 163; OBSERVER_GAS 100,000 at :103)",
+      "coreV1": "Built: the collection clone's transferObserver argument, called with OBSERVER_GAS 460,000 since F90 R16H (250,000 before F87; V BoxCollection.sol:62, :713-720); S8's BoxItemStream checkpoints each transfer within it (measured under Glamsterdam: 196,358 gas for a first-time seller, at most half the cap: BoxItemStreamGas.t.sol, Box0StreamCeiling.t.sol)",
+      "usedBy": ["per-item-stream"]
+    },
+    {
+      "key": "vault.observer",
+      "layer": "contract",
+      "coreMustExpose": true,
+      "what": "A capped observer call at the vault's STREAM HOOK points (before n changes).",
+      "today": "Marked, not built: STREAM HOOK comments at V MisfitsVault.sol:342, 374, 607, 656",
+      "coreV1": "Built: BoxVault calls its observer argument at the four STREAM HOOK points, capped at OBSERVER_GAS 460,000 since F90 R16H (250,000 before F87; V BoxVault.sol:57, :621-631)",
+      "usedBy": ["per-item-stream"]
+    },
+    {
+      "key": "receiver.tStreamAction",
+      "layer": "contract",
+      "coreMustExpose": true,
+      "what": "The T-side fee action PER_ITEM_STREAM in the box's receiver (S5): the reward share streams to items instead of being burned.",
+      "today": "Not built (plan § 3.6, S5/S8)",
+      "coreV1": "Built on box 0's receiver: tStream PER_ITEM_STREAM sends 13/15 of the T side (BOX0_FEE_SHARE_T_BURN; F77: the other 2/15 goes into box 0's own pool, BC-139) to the stream after graduation, notified with STREAM_NOTIFY_GAS (200,000 since S8; V BoxReceiver.sol `_split`, `_payOut`); the stream is S8's BoxItemStream, which burns the items-inside share in that notice",
+      "usedBy": ["per-item-stream"]
+    },
+    {
+      "key": "collection.royaltyInfo",
+      "layer": "contract",
+      "coreMustExpose": true,
+      "what": "The collection's ERC-2981 royaltyInfo(tokenId, salePrice) and supportsInterface(0x2a55205a), fixed at creation from the royalties add-on: (receiver, salePrice x bps / 10,000). Unenforced: marketplaces may ignore it (no 721C, no transfer restriction). The receiver is the box's admin-free royalty router for every destination, CREATOR included (core v1: a payee that refuses ETH must not make royalty-paying sales revert).",
+      "today": "Not built: MisfitsCollection has no royaltyInfo (ADR-0014 § G05 said 'No on-chain royalty (ERC-2981 unset) (P)' up to main a89a86d2, superseded by F65); the collection is immutable at deploy, so the rate must be in it before S3 (F63 (3), F67 (3)).",
+      "coreV1": "Built: BoxCollection.royaltyInfo names the royalty router argument at every destination and never reverts (V BoxCollection.sol:188-195)",
+      "usedBy": ["royalties"]
+    },
+    {
+      "key": "receiver.ethIntake",
+      "layer": "contract",
+      "coreMustExpose": true,
+      "what": "An admin-free royalty router per box whose receive() never reverts (marketplaces push ETH with limited gas) and which unwraps WETH; anyone flushes it into the box receiver's ETH intake, which splits it by the destination like the box's trading fees (FEE_HANDLING, fundFees()), adds it to the box's pool depth (POOL_DEPTH, fundDepth()) or credits the creator payee (CREATOR, fundCreator()). Box 0: the intake is the capped box-0 receiver's, so the platform part counts inside PLATFORM_CAP_WEI. The router is a receiving clone: BoxClones.receivingRuntime / initCodeReceiving put a 6-byte prefix (RECEIVE_PREFIX) in front of the EIP-1167 code so a stipend payment is accepted without a DELEGATECALL; its arguments start at byte 51 (RECEIVING_ARGS_OFFSET; explorers may show it as unverified bytecode, founder question 3, P).",
+      "today": "Not built (S5). S5 requirement: FIT's executor must no longer pay the Safe 2/15 of any ETH sent to its receive() (V BuybackBurner.sol:334-349 pays it uncapped), or royalties and other ETH sent there bypass the 32 ETH cap (F67 (2); BC-107, BC-108, BC-114).",
+      "coreV1": "Built: BoxRoyaltyRouter (V BoxRoyaltyRouter.sol:57-70, a receiving clone, V BoxClones.sol:34-38, :48-67) flushes to BoxReceiver fundFees / fundDepth / fundCreator (V BoxReceiver.sol:292-301 for fundCreator); FitBuybackExecutor's receive() credits the whole budget, no treasury cut (BC-108)",
+      "usedBy": ["royalties"]
+    },
+    {
+      "key": "metadataTable",
+      "layer": "contract",
+      "coreMustExpose": false,
+      "what": "Core data every box already has (spec field metadataTable): trait names and values, fixed at creation.",
+      "today": "MisfitsCollection metadata table v1 (V MisfitsCollection.sol:57-63)",
+      "usedBy": ["edition-specials"]
+    },
+    {
+      "key": "site.packByCollection",
+      "layer": "off-chain",
+      "coreMustExpose": false,
+      "what": "The site attaches a content pack (teasers, composition, counts) by collection address, never by name (BC-095).",
+      "today": "Planned (S10a)",
+      "usedBy": ["edition-specials", "collection-metadata"]
+    },
+    {
+      "key": "receiver.creatorCap",
+      "layer": "contract",
+      "coreMustExpose": true,
+      "what": "The box receiver's creator payouts (either fee side, any creator kind) pass one counter per 30-day epoch from graduation, in Q raw units against the add-on's fixed capPerEpoch (F74 U2), no carry-over; what the cap leaves goes to the add-on's excess destination.",
+      "today": "Built in S5.M3 (V BoxReceiver.sol `_capQ`, `_valueHeldT`, `creatorCap()`): one counter per 30-day epoch, the one box 0's platform cap (PLATFORM_CAP_WEI per PLATFORM_EPOCH_SECONDS) uses for its payee; a box has at most one of the two.",
+      "coreV1": "Built (S5.M3): the receiver's clone arguments carry capPerEpoch (16 bytes) and excess (1 byte), and initialize refuses a cap without a creator stream kind, with an excess other than BURN or POOL_DEPTH, or on box 0 (CreatorCapRefused; V BoxReceiverExtension.sol `initialize`). Q counts at face when owed, T paid as T at the box's sampler's quoteTInQ, held until that average is ready. Open for S7: the factory encodes the spec's add-on 5 params into those two arguments (zero without the add-on)",
+      "usedBy": ["creator-fee-cap"]
+    },
+    {
+      "key": "collection.contractURI",
+      "layer": "contract",
+      "coreMustExpose": true,
+      "what": "The collection's fixed contractURI() (ERC-7572): name, description, image (ipfs:// + rawCidV1(collectionCoverSha256), the collection cover since F74 U3, BC-054) and, from the add-on, banner_image (ipfs:// + rawCidV1(bannerSha256)) and external_link; nothing can change it after initialize.",
+      "today": "MisfitsCollection.contractURI() (V MisfitsCollection.sol:296-321) returns name, description, the image inline and generator_hash; no banner_image or external_link. F71's 'today's MisfitsCollection has none' holds for those two fields only.",
+      "coreV1": "Built: BoxCollection.contractURI() from the clone's cover, banner and external link arguments (V BoxCollection.sol, contractURI; BoxCloneArgs C_COLLECTION_COVER_SHA256, C_BANNER_SHA256 and the link text, which initialize refuses when it holds a quote, a backslash, a control byte or DEL: InvalidExternalLink); ContractURIUpdated once at initialize",
+      "usedBy": ["collection-metadata"]
+    }
+  ],
+  "addOns": [
+    {
+      "id": 1,
+      "key": "placeholders",
+      "title": "Placeholders: tickets during the curve, hidden art revealed by draws",
+      "status": "General (F55): any new-collection box may choose it. Box 0 uses it.",
+      "versions": [1, 2],
+      "boxTypes": ["NEW_COLLECTION"],
+      "repeatable": false,
+      "params": [
+        { "name": "placeholderName", "type": "string", "rule": "JSON_TEXT", "minBytes": 1, "maxBytes": 32, "what": "The ticket token's ERC-721 name", "box0Today": "PLACEHOLDER_NAME (V PublicNames.sol)" },
+        { "name": "placeholderSymbol", "type": "string", "rule": "JSON_TEXT", "minBytes": 1, "maxBytes": 11, "what": "The ticket token's symbol", "box0Today": "PLACEHOLDER_SYMBOL (V PublicNames.sol)" },
+        { "name": "placeholderDescription", "type": "string", "rule": "JSON_TEXT", "minBytes": 0, "maxBytes": 1024, "what": "The ticket's description", "box0Today": "PLACEHOLDER_DESCRIPTION (V PublicNames.sol)" },
+        { "name": "hiddenDescription", "type": "string", "rule": "JSON_TEXT", "minBytes": 0, "maxBytes": 1024, "what": "A hidden item's description in tokenURI", "box0Today": "COLLECTION_HIDDEN_DESCRIPTION (V PublicNames.sol)" },
+        { "name": "hiddenSvg", "type": "string", "rule": "SVG", "minBytes": 1, "maxBytes": 4096, "what": "A hidden item's (and the ticket's) picture, inline SVG, base64-encoded before JSON", "box0Today": "COLLECTION_HIDDEN_IMAGE_SVG (V PublicNames.sol), a core field 'hiddenSvg' in plan § 1, moved here by F55" }
+      ],
+      "requires": [
+        { "predicate": { "field": "artMode", "eq": "HIDDEN" }, "reason": "ADD_ON_CONFLICT", "why": "Placeholders open into hidden items; an open-art box has nothing hidden to draw." }
+      ],
+      "constants": [
+        { "name": "SILENCE_DAYS", "value": "7", "status": "V", "slice": "S3", "source": "DrandSource.SILENCE (V DrandSource.sol:70; BoxTickets.sol:57; DRAND_SILENCE_SECONDS); v2 MisfitsPlaceholders.sol:178 (SILENCE = 7 days)", "what": "A randomness word counts only if ready at most this long after its request; past it, the queue's head is dead." },
+        { "name": "SILENCE_UNREQUESTED_DAYS", "value": "30", "status": "V", "slice": "S3", "source": "BoxTickets.sol:59; MisfitsPlaceholders.sol:180 (SILENCE_UNREQUESTED = 30 days)", "what": "A graduation word nobody requested is silent this long after graduation." },
+        { "name": "REVEAL_GRACE_DAYS", "value": "30", "status": "V", "slice": "S3", "source": "BoxTickets.sol:61; MisfitsPlaceholders.sol:182 (REVEAL_GRACE = 30 days)", "what": "After its number is fixed, a holder may open without the reveal data." },
+        { "name": "TAKE_DELAY_DAYS", "value": "3", "status": "V", "slice": "S3", "source": "BoxTickets.sol:63; MisfitsPlaceholders.sol:184 (TAKE_DELAY = 3 days)", "what": "Takes by number start this long after terminal mode began: a public moment, time to publish the art list." },
+        { "name": "RETURN_GRACE_DAYS", "value": "30", "status": "P", "slice": "S3", "source": "auto-reveal-and-fast-draws.md § 1.7 (from 180 to 30 days): built in core v1 (BoxTickets.sol:66, 30 days), P until the founder confirms; v2 keeps 180 days at MisfitsPlaceholders.sol:186", "what": "An item that left unrevealed can be handed back this long after it left." }
+      ],
+      "safetyNet": "Ships with this add-on: an unrevealed item can be handed back about 60 days after assignment (REVEAL_GRACE_DAYS 30 + RETURN_GRACE_DAYS 30), with a picture of its own until a reveal, so withheld reveal data never locks a holder's T (auto-reveal-and-fast-draws.md § 1.7; data-continuity.md § 2.10).",
+      "hookPoints": ["vault.ticketAdapter", "collection.hiddenView", "collection.revealUnlocker", "coordinator.graduation", "coordinator.failure"],
+      "defaults": [
+        "Core v1 (S3, BoxTickets on the pinned DrandSource; R F75 W3, 'the draw pays the drand round's posting'): a draw's price is the vault's quote for one item plus the 1% draw fee in T, plus, for the first draw of a round, the round's posting bounty in ETH: the draw tops the round's pot up to DRAND_BOUNTY_GAS x the block's base fee (about 0.0003 ETH at 0.5 gwei) and the rest of the ETH sent goes back to the drawer in the same transaction (review of sh-f75, P: the block that includes a draw fixes its round, so a page cannot see that round's pot or the other draws of the block; it sends the whole target at its maxFeePerGas). A draw whose ETH cannot reach the target reverts BountyTooLow(pot + sent, needed). Later draws of the same round get all they sent back (on mainnet each block fixes its own round, so the first draw in a block, of any box, pays: one pot per round). A drawer that refuses ETH (a contract without receive) still draws; its rest joins the pot. The pot pays whoever posts the round, usually the drawer's own page. The graduation word's request stays free; our keeper posts it (founder question 5, P).",
+        "P (review of sh-core-v1, finding 3): anyone may open a settled draw at once for a drawer without code or with an EIP-7702 delegation (the keeper's fast open, auto-reveal § 3.4 step 3); a contract drawer opens its own draws first, anyone else only after REVEAL_GRACE_DAYS (BoxTickets.openDraw, DrawerOpensFirst). v2 lets anyone open any settled draw (MisfitsPlaceholders.sol:431-453)."
+      ],
+      "openQuestions": [
+        "Deadline boxes (version 2) with placeholders: plan question 4 and BC-066 refused them; F55 makes placeholders general, so S11 must define the failure path for outstanding tickets (FLR-08 to FLR-11). validate() accepts the combination; nothing is built.",
+        "RETURN_GRACE 180 -> 30 days is a proposal (auto-reveal § 1.7), built in core v1's BoxTickets; the deployed v2 contract keeps 180 days; the founder confirms.",
+        "Founder question 5: a bounty for the graduation word (none today; our keeper posts it). Question 4, the draw's posting bounty, is answered by F75 W3: in the draw price, built."
+      ],
+      "sources": ["F36 a", "F54", "F55", "F75 W3", "plan § 1 'What stays Misfits-only' (read as general per F55)", "BC-051", "BC-066 (superseded in part by F55)"]
+    },
+    {
+      "id": 2,
+      "key": "per-item-stream",
+      "title": "Per-item stream: the T-side reward share streams to each item",
+      "status": "Box 0 only for now (version 1). Built in S8 (BoxItemStream, one clone per box): checkpoint accounting under D2 batch fees, equal to the per-swap allocation within a stated rounding bound (plan § 3.6, SH-S8-stream); each draw from its own request, exact for any number of open draws (R1, SH-box0-r1). Factory v1 creates it with box 0 (the coordinator's nonce 9, wired into the collection, vault and receiver) and template 0 requires it (S7 × S8, SH-misfits-line). F55 may widen it later.",
+      "versions": [1],
+      "boxTypes": ["NEW_COLLECTION"],
+      "repeatable": false,
+      "params": [],
+      "requires": [
+        { "predicate": { "field": "tStream", "eq": "PER_ITEM_STREAM" }, "reason": "ADD_ON_CONFLICT", "why": "The stream is fed by the PER_ITEM_STREAM T-side action." }
+      ],
+      "constants": [
+        { "name": "OBSERVER_GAS", "value": "460000", "status": "V", "slice": "S3", "source": "F90 R16H (2026-10-05, desk round 16: 'Raise to 460,000 (2x from cold)'), after F87 (founder: 'Raise it, better safe than sorry - not spent gas will be returned anyways'; 440,000 in its first build): 460,000 (V BoxCollection.sol:62, BoxVault.sol:57; SH-box0-stream-gas). Since F126 (initialisation guards; SH-box0-f126; R1 keeps each draw earning from its own request) the built stream's worst path is a draw's cancel in terminal mode to a first-time earner: 225,168 from cold under Glamsterdam (the tickets' in-flight view counted from cold) and 117,458 today, so 460,000 is 2.0429x (3.9162x today); a draw's request, its J written from zero, needs 223,991. Before R1 the worst was a terminal-mode release, 226,116 at the gas base's 64-gas step (226,085 to the unit) with the tickets' status() read for real (S8's 219,800 read it mocked free). A first-time seller's transfer needs 196,358 (2.34x; SH-S8-stream § 5). Box0StreamCeiling.t.sol holds the worst path to at least 2x and checks that every capped call receives the whole cap at the least gas. A Misfit transfer with the stream on needs 477,301 gas left at the observer call (460,000 + 460,000 / 63 + 10,000): at least 497,130 call gas from cold today and 498,038 under Glamsterdam, measured; only what is used is paid. Before F87: 250,000 (S3 decision, SH-S0-spikes § 3 option (a); 1.11x the worst path from cold), which replaced v2's 100,000 at MisfitsCollection.sol:103", "what": "Gas the transfer checkpoint gets; BC-065 requires the worst case to stay under it (F90 R16H: the cap at least 2x the worst case from cold)." }
+      ],
+      "hookPoints": ["collection.transferObserver", "vault.observer", "receiver.tStreamAction", "coordinator.graduation"],
+      "openQuestions": ["None from S8: the stream takes no parameters (its caps are version constants: OBSERVER_GAS here, STREAM_NOTIFY_GAS in box-spec.v1.json). Whether boxes other than box 0 may choose it is the founder's (F55)."],
+      "sources": ["F23 A3", "ADR-0014 G07", "plan § 1 and § 3.6", "BC-065"]
+    },
+    {
+      "id": 3,
+      "key": "edition-specials",
+      "title": "Edition specials: named series of special items, shown as counts",
+      "status": "General: data, not code. Box 0 carries one-of-ones, Icons and Diamonds.",
+      "versions": [1, 2],
+      "boxTypes": ["NEW_COLLECTION"],
+      "repeatable": true,
+      "params": [
+        { "name": "label", "type": "string", "rule": "JSON_TEXT", "minBytes": 1, "maxBytes": 32, "what": "The series' name, as the site shows it" },
+        { "name": "count", "type": "uint32", "min": 1, "max": { "field": "n" }, "what": "How many items belong to the series (at most n)" }
+      ],
+      "requires": [],
+      "constants": [],
+      "hookPoints": ["metadataTable", "site.packByCollection"],
+      "openQuestions": ["validate() checks each count against n, not the sum of all series; which numbers hold which special stays secret for hidden art (F47: specials shown only as counts)."],
+      "sources": ["plan § 1 'Data, not code'", "F44 E2 (12 one-of-ones), E4 (26 Diamonds)", "F47", "F49 E8 (69 Icons)"]
+    },
+    {
+      "id": 4,
+      "key": "royalties",
+      "title": "Royalties: an unenforced ERC-2981 rate and where the royalty goes",
+      "status": "General (F65): any box may choose it; unenforced (ERC-2981 only, no 721C). Box 0 carries 250 bps into its own fee handling (F65, F67 (2)). Expect little income: OpenSea has had no royalty minimum since Aug 2023/Feb 2024; Blur's 0.5% floor was reported in Nov 2024, status unknown (F67 (3)). Only this on-chain rate must be fixed before deploy; the collection's owner() can still set optional marketplace royalties later, but for box 0 (owner() is the platform Safe, F44) only at the on-chain rate and paid to box 0's royalty router, never to the Safe, or the platform would be paid outside the 32 ETH cap (F64, F65).",
+      "versions": [1, 2],
+      "boxTypes": ["NEW_COLLECTION"],
+      "repeatable": false,
+      "params": [
+        { "name": "bps", "type": "uint16", "allowed": [0, 100, 250, 500], "what": "The ERC-2981 rate in basis points: one of the presets 0, 1, 2.5 or 5% (F68 (4) default: presets, not sliders; v2 C16)" },
+        { "name": "destination", "type": "uint8", "enum": "RoyaltyDestination", "what": "Where the royalty goes: the box's fee handling (default), the creator payee (creatorFeeRecipient, F72 (3)), or the box's pool depth (F65)" }
+      ],
+      "requires": [
+        {
+          "predicate": { "any": [{ "field": "version", "ne": 1 }, { "param": "destination", "ne": "CREATOR" }] },
+          "reason": "ADD_ON_CONFLICT",
+          "why": "Box 0's royalties stay inside its fee handling or depth: a CREATOR destination would pay the platform outside the 32 ETH cap (F64, F65, F67 (2))."
+        }
+      ],
+      "constants": [
+        { "name": "BPS_DENOMINATOR", "value": "10000", "status": "P", "slice": "S3", "source": "ERC-2981: royaltyAmount = salePrice x bps / 10,000", "what": "The rate's denominator." }
+      ],
+      "defaults": [
+        "Core v1 (review of sh-core-v1, finding 4; F72 (3)): every destination goes through the box's royalty router, so a box with this add-on has one (a receiving clone, 112 bytes). CREATOR flushes after graduation to the receiver's fundCreator(), credited to the current creator payee (creatorFeeRecipient, or whoever it handed over to) and pulled with claimCreator(); before graduation it is held (F69 C1). A payee that refuses ETH can no longer make royalty-paying sales revert. The add-on has no recipient of its own (dropped: one payout wallet).",
+        "P: FEE_HANDLING and POOL_DEPTH go through the box's royalty router. Before graduation the router's ETH is held for the box; at graduation it follows the destination; if the box fails it joins the refund range. Built: the router refuses to flush before graduation (NotGraduated); the failure path is S11.",
+        "P: a box whose Q is not native ETH cannot split ETH or add it to a Q/T pool without a swap, so its FEE_HANDLING and POOL_DEPTH royalties go to FIT's executor through fundBudget() (no platform cut), and on failure there too.",
+        "Box 0 (native ETH, no deadline): into its capped receiver's ETH intake, split 11/15 FIT, 2/15 its own pool and 2/15 platform (F77), the platform part inside PLATFORM_CAP_WEI and its excess into box 0's pool; held until graduation.",
+        "Rule (follows from F64, F65): box 0's marketplace-side royalty settings (OpenSea Studio, the Royalty Registry), set by owner() = the platform Safe, may use only the on-chain rate and box 0's royalty router as payout address, never the Safe; a marketplace payout to the Safe would pay the platform outside the 32 ETH cap. A counsel and launch-day item (nft-royalties.md § 5)."
+      ],
+      "hookPoints": ["collection.royaltyInfo", "receiver.ethIntake"],
+      "openQuestions": [
+        "The non-ETH-Q, pre-graduation and failure defaults are proposals (P) for S5 and S11.",
+        "S5 must remove the treasury cut from the executor's receive() (receiver.ethIntake), else box 0's royalties and any other ETH sent there bypass the cap. Built in core v1: FitBuybackExecutor's receive() credits the whole budget (BC-108).",
+        "Founder question 3: the router's clone carries six bytes in front of the standard EIP-1167 code (stipend payments work); explorers may show it as unverified bytecode beside the verified implementation (P).",
+        "Founder question 11: POOL_DEPTH royalties arrive as Q only; a Standard box places depth only by pair and lock, so they wait for matching T (built default: keep and say so, P)."
+      ],
+      "sources": ["F63 (3)", "F65", "F67 (2), (3)", "F68 (4)", "F72 (3)", "review of sh-core-v1 (finding 4)", "ADR-0014 § G05 (superseded)", "conformance cases BC-112 to BC-115"]
+    },
+    {
+      "id": 5,
+      "key": "creator-fee-cap",
+      "title": "Creator-fee cap: at most a fixed amount per 30 days to the creator",
+      "status": "P (F70: 'for the creator fees a maximum can be chosen via an add-on'; F74 U2: a fixed amount of Q per 30-day epoch, not a share of the raise: 'Raise is not where the money should come from it should be from fees ... I don't want 10% 25% or 50%, a fixed number is good for me. But what is true for me might not be true for others. So options are good.'; F75 U9 decides the presets 1, 4, 8, 16 or 32 ETH per 30 days): any version-2 box with a creator kind on either fee side may choose it, token-only boxes included; optional. S5.M3 builds the cap ledger in the receiver (receiver.creatorCap; version 2 boxes); S7's factory encodes the params into the receiver's arguments.",
+      "versions": [2],
+      "boxTypes": ["NEW_COLLECTION", "TOKEN_ONLY"],
+      "repeatable": false,
+      "params": [
+        { "name": "capPerEpoch", "type": "uint256", "allowed": ["1000000000000000000", "4000000000000000000", "8000000000000000000", "16000000000000000000", "32000000000000000000"], "what": "The most the creator receives per 30-day epoch, in Q raw units (native ETH only today): 1, 4, 8, 16 or 32 ETH (presets, not sliders, v2 C16; R F75 U9). 32 ETH per 30 days is the platform's own cap on box 0 (F62, PLATFORM_CAP_WEI); the founder limits FIT/Misfit creation to it (F74 U2)" },
+        { "name": "excess", "type": "uint8", "enum": "CapExcess", "offered": ["BURN", "POOL_DEPTH"], "what": "Where creator fees above the cap go: burned or into the box's own pool depth (F70: 'reward, burn or the pool'); HOLDERS is a holder payout: Demo only (F74 U1, P), S14 elsewhere" }
+      ],
+      "requires": [
+        {
+          "predicate": { "any": [{ "field": "qStream", "in": ["TO_CREATOR", "CREATOR_IN_T"] }, { "field": "tStream", "in": ["TO_CREATOR", "CREATOR_IN_Q"] }] },
+          "reason": "ADD_ON_CONFLICT",
+          "why": "A cap on creator fees needs a creator kind on at least one fee side (F70)."
+        },
+        {
+          "predicate": { "field": "q", "zero": true },
+          "reason": "ADD_ON_CONFLICT",
+          "why": "The presets are amounts of native ETH (F74 U2); another Q needs its own amounts, by the 'ETH equivalent' rule that is open for S12."
+        }
+      ],
+      "constants": [
+        { "name": "EPOCH_SECONDS", "value": "2592000", "status": "P", "slice": "S5", "source": "F70; the epoch rule of box 0's platform cap (PLATFORM_EPOCH_SECONDS, F62): epoch = floor((now - graduation) / 30 days), no carry-over; used by BoxReceiver (S5.M3, `_CREATOR_EPOCH_SECONDS`) in the one epoch counter it shares with box 0's platform cap", "what": "The cap's period." }
+      ],
+      "defaults": [
+        "P (F74 U2): one counter per 30-day epoch from graduation, no carry-over, in Q raw units (ETH): a creator payout in Q (TO_CREATOR on the buyers' side, CREATOR_IN_Q) counts at face value, and CREATOR_IN_T counts the exact Q its buy spent; only T paid as T (TO_CREATOR on the sellers' side) has no Q amount, so it counts at its ETH value at the box's own price sampler's 1-hour average when it is credited (BoxPriceSampler, EXECUTOR_TWAP_WINDOW_SECONDS; the same average deepen() reads), so one cap covers both sides.",
+        "P: a creator's fees held during the curve (F69 C1) count in epoch 0; a box that fails pays the creator nothing from them (refund range), so the cap never applies there.",
+        "P: the excess is routed in the currency it arrives in: BURN burns T, burns Q where Q has a real burn (FIT, a box T) and otherwise buys T and burns it; POOL_DEPTH adds it to the box's own depth like the 2/15 depth share (pair and lock, no platform part). Built so in S5.M3 for native-ETH Q (no real burn): BURN's Q joins the swap module's burn-buy ledger, its T is burned by the receiver; with CREATOR_IN_Q and the epoch's room spent, BURN burns the creator's T instead of selling it (swap-module § 13 point 7, decided by size), at most what one sale would have sold, one step a block (S5 review; whether a backlog should wait for the next epoch's room instead is open for the founder).",
+        "S5.M3 builds it in core v1's receiver (receiver.creatorCap): capPerEpoch and excess are receiver clone arguments (initialize refuses a cap without a creator stream kind, with HOLDERS or another destination, or on box 0); TO_CREATOR Q and creator royalties (fundCreator, P) count when credited, CREATOR_IN_T at the Q handed for its buy at the split, CREATOR_IN_Q at the Q its sale paid; T paid as T waits in creatorHeld until the first collect that finds the box's sampler ready (quoteTInQ, the 1-hour average, rounded up; try/catch, so nothing waits for it); curve-time payouts count in epoch 0 at the settlement, however late. S7's factory encodes the arguments from the spec (BC-126); until it exists no Standard box carries the add-on."
+      ],
+      "hookPoints": ["receiver.creatorCap", "coordinator.graduation"],
+      "openQuestions": [
+        "Other Q: the 'ETH equivalent' rule for the raise and the cap is open (S12; only native ETH is listed today); until then the add-on requires native ETH (ADD_ON_CONFLICT).",
+        "Valuing T paid as T (TO_CREATOR on the sellers' side) in ETH needs a price: the box's own price sampler's 1-hour average is proposed (P) and built so in S5.M3 (BoxPriceSampler.quoteTInQ, rounded up; the T held until it is ready); counting T against a separate cap is the alternative. CREATOR_IN_T needs no price: it counts the Q handed for its buy.",
+        "S5.M3 built the receiver's cap ledger; S7's factory must encode the add-on's capPerEpoch and excess into the receiver's arguments (zero without the add-on), so the cap a spec shows is the one the receiver keeps (P, open for S7; BC-126)."
+      ],
+      "sources": ["F70", "F74 U2", "F75 U9", "F62 (the epoch rule; 32 ETH)", "F69 C1", "v2 C16 (presets)"]
+    },
+    {
+      "id": 6,
+      "key": "collection-metadata",
+      "title": "Collection page: banner, teasers and link (contractURI, ERC-7572)",
+      "status": "P (F71 (2)): any new-collection box may choose it; box 0 too (version 1), as F71 gives box 0 a banner and link in contractURI (F74 U4: the Misfits banner). Box 0 carries it (R F75 U10): banner A by sha256 (0xa8202b69...dd921afe, raw CIDv1 bafkreifieavwsfyzifdmnuwj3w2tkko5t4debcozagoztco7w4rn3eq27y), no teasers, no link. Built in core v1: bannerSha256 is the collection clone's banner argument (contractURI banner_image, S3) and externalLink its link text (contractURI external_link, sh-f74-spec); teasers are site-only.",
+      "versions": [1, 2],
+      "boxTypes": ["NEW_COLLECTION"],
+      "repeatable": false,
+      "params": [
+        { "name": "bannerSha256", "type": "bytes32", "what": "sha256 of the banner (zero = none): one raw IPFS block (<= 1 MiB) stored with the collection cover; contractURI's banner_image = ipfs:// + rawCidV1(bannerSha256) (V BoxCloneArgs.sol:43 C_BANNER_SHA256)" },
+        { "name": "teaserSha256s", "type": "bytes32[]", "maxItems": 4, "nonZeroItems": true, "what": "Up to 4 teaser pictures by sha256, stored with the cover: the site shows them labelled 'Teaser' until the reveal and never as items. Not in contractURI (ERC-7572 has no field for them)" },
+        { "name": "externalLink", "type": "string", "rule": "URL", "minBytes": 0, "maxBytes": 128, "what": "contractURI's external_link (empty = none): https:// only; the page pre-fills it with the website link of step 1. The collection clone's link text (BoxCloneArgs, the sixth text after the hidden SVG)" }
+      ],
+      "requires": [],
+      "constants": [],
+      "defaults": [
+        "contractURI (every new collection, with or without this add-on): { name: collectionName, symbol: collectionSymbol, description, image: ipfs:// + rawCidV1(collectionCoverSha256) } plus banner_image and external_link from this add-on when set, and generator_hash when non-zero (as box 0's today). Built (S3; external_link sh-f74-spec); the creation page shows the same JSON before Create (F71 (2): 'the flow produces it now'). F74 U3: the image is the collection cover (field 28), no longer the logo.",
+        "P (founder question: the collection cover or the logo): in an open-art box the collection cover (field 28) is also every not-yet-revealed item's picture, its tokenURI image until the reveal (V BoxCollection._hiddenJSON: open art has no hidden picture; test_hiddenViewOfOpenArtIsTheCover). F74 U3 decided the marketplace picture only; hidden art shows the placeholders add-on's picture.",
+        "P: the page leaves the add-on out when the banner, the teasers and the link are all empty (one spec, one meaning)."
+      ],
+      "hookPoints": ["collection.contractURI", "site.packByCollection"],
+      "openQuestions": [
+        "Teasers and hidden art: a teaser may show more than the hidden art reveals; the label and the creator's rights confirmation are the only guards (F71: 'without having to reveal the artwork in advance')."
+      ],
+      "sources": ["F71 (2)", "F74 U4", "F75 U10", "ERC-7572", "BC-054 (the cover link this follows)", "BC-095 (content by collection address)"]
+    }
+  ]
+}

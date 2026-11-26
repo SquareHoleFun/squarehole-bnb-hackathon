@@ -1,0 +1,28 @@
+No files changed, compilation skipped
+Script ran successfully.
+
+== Logs ==
+  BNB|cardsTo|0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+## Setting up 1 EVM.
+
+==========================
+
+Chain 97
+
+Estimated gas price: 0.1 gwei
+
+Estimated total gas used for script: 1228832
+
+Estimated amount required: 0.0001228832 BNB
+
+==========================
+
+
+==========================
+
+ONCHAIN EXECUTION COMPLETE & SUCCESSFUL.
+
+Transactions saved to: /home/sh/work/c/packages/contracts/broadcast/ShortWaitCards.s.sol/97/run-latest.json
+
+Sensitive values saved to: /home/sh/work/c/packages/contracts/cache/ShortWaitCards.s.sol/97/run-latest.json

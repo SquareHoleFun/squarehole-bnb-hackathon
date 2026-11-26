@@ -1,0 +1,41 @@
+// @squarehole/chain: read-only chain adapters (Stage C read side, ADR-0012). Browser-safe: no node:* imports here
+// (the Node-only manifest file loader lives in ./node.ts). No wallet client, no transaction sending, no swap building.
+export * from './errors';
+export * from './config/chains';
+export * from './config/manifest';
+export * from './config/config';
+export * from './config/core-evidence';
+export * from './config/core-manifest';
+export { coreDeploymentState } from './core/v2/manifest-v2';
+export * from './core/roles';
+export { drandSourceOf } from './core/drand-source';
+export * from './core/box-row';
+export * from './core/open-time';
+export * from './core/core-manifest-writer';
+export * from './core/core-reads';
+export * from './core/box0-calls';
+export * from './client';
+export * from './reads/pool-math';
+export * from './reads/fit-market';
+export * from './placeholder-shuffle';
+export * from './reads/registry-pair';
+export * from './reads/reader';
+export * from './indexer/events';
+export * from './indexer/store';
+export * from './indexer/log-fetch';
+export * from './indexer/indexer';
+export * from './indexer/metrics';
+export * from './providers/usd';
+export * from './providers/model';
+export * from './providers/context';
+export * from './providers/snapshot';
+export * from './providers/detail';
+export * from './providers/feed-provider';
+export * from './providers/account-provider';
+export * from './providers/registry-provider';
+export * from './providers/create';
+
+export * from './core/v2/create-salts';
+export * from './core/v2/create-calls-v2';
+export * from './core/v2/create-send-v2';
+export * from './core/v2/open-reveal-batches-v2';

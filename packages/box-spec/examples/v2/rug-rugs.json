@@ -1,0 +1,54 @@
+{
+  "$schema": "./schema.json",
+  "version": 1,
+  "id": "rug-rugs",
+  "name": "Rug Rugs",
+  "ticker": "RUGS",
+  "status": "ready",
+  "template": {
+    "id": "creator",
+    "name": "To the creator"
+  },
+  "priceCoin": {
+    "symbol": "ETH",
+    "decimals": "18"
+  },
+  "logo": "packages/chain/scripts/local-art/failure-logo.png",
+  "contents": {
+    "kind": "token",
+    "size": "0",
+    "label": "Token",
+    "art": {
+      "mode": "none",
+      "source": null
+    },
+    "seed": null,
+    "pickFeeBps": "0"
+  },
+  "raise": {
+    "policy": "listing-fixed",
+    "amount": "4206980085000000000"
+  },
+  "deadline": {
+    "days": "30"
+  },
+  "royalties": {
+    "bps": "0",
+    "destination": "none"
+  },
+  "fees": {
+    "buyers": {
+      "choice": "keep"
+    },
+    "sellers": {
+      "choice": "keep"
+    }
+  },
+  "life": "failure",
+  "properties": [
+    "fee-conservation",
+    "page-state",
+    "own-pictures",
+    "failure-refunds"
+  ]
+}

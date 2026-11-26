@@ -1,0 +1,10 @@
+{
+  "chainId": 97,
+  "deployBlock": 144798348,
+  "portal": "0x000042108465206185A077Edc3F3fd2b49060000",
+  "quote": "0x190C989D5665a0e404B444b53CAE9AbCfb600157",
+  "tokenCurveLauncherFactory": "0x51034cf27e4234820bCC7152583Ab8e8d95DbE77",
+  "tokenCurveLauncherImplementation": "0xad118f9B80a70c0d2fa185339d196A300ECA9683",
+  "tokenImpl": "0x7777c57ff7dc441c1715b2e36fa581c48B782222",
+  "tokenPileVaultFactory": "0x148746f148a3Cea4A48BA7F94fa8F2b1C08BBB00"
+}

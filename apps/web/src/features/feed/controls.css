@@ -1,0 +1,260 @@
+/*
+ * Feed controls (SH-006): the one search field, sort and type segments, reward and lifecycle selects.
+ * Two groups: search + sort (the search keeps priority and grows), then the filters, which wrap to their own row when
+ * the bar is narrow. Every control is a 44px-class touch target (02-DESIGN).
+ */
+.sh-feed-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.sh-feed-controls__query {
+  display: flex;
+  flex: 1 1 640px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.sh-feed-controls__filters {
+  display: flex;
+  flex: 0 1 auto;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+/* The primary discovery search: wide enough for a pasted 42-character address. */
+.sh-feed-search {
+  display: block;
+  flex: 1 1 360px;
+  min-width: 300px;
+}
+
+.sh-feed-search__form {
+  position: relative;
+  margin: 0;
+}
+
+.sh-feed-search__icon {
+  position: absolute;
+  top: 50%;
+  left: 13px;
+  display: grid;
+  color: var(--sh-text-muted);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.sh-feed-search__input {
+  width: 100%;
+  height: var(--sh-touch-target);
+  padding: 0 12px 0 42px;
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface);
+  font-size: var(--sh-type-body);
+  font-variant-numeric: tabular-nums;
+}
+
+.sh-feed-search__input::placeholder {
+  color: var(--sh-text-muted);
+  opacity: 1;
+}
+
+.sh-feed-search__input:hover {
+  border-color: #7a8cb0;
+}
+
+/* ── Segmented radio groups ────────────────────────────────── */
+.sh-segmented {
+  display: inline-flex;
+  flex: none;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--sh-border-strong);
+  border-radius: 12px;
+  background: var(--sh-surface);
+}
+
+.sh-segmented__option {
+  position: relative;
+  display: inline-flex;
+}
+
+/*
+ * The native radio covers its segment and the pill's padding above and below it: clicks, taps and arrow keys all use
+ * the real control, and the hit area is the full 44px height of the pill.
+ */
+.sh-segmented__input {
+  position: absolute;
+  inset: -4px 0;
+  width: 100%;
+  height: calc(100% + 8px);
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.sh-segmented__text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 10px;
+  border-radius: 9px;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+  white-space: nowrap;
+  transition: background-color var(--sh-duration-fast) var(--sh-ease), color var(--sh-duration-fast) var(--sh-ease);
+}
+
+.sh-segmented__option:hover .sh-segmented__text {
+  color: var(--sh-text);
+}
+
+/* Selected: fill + weight + inner edge, never colour alone. */
+.sh-segmented__input:checked + .sh-segmented__text {
+  background: var(--sh-selected);
+  color: var(--sh-text);
+  font-weight: 750;
+  box-shadow: inset 0 0 0 1px rgba(167, 139, 250, 0.65);
+}
+
+/* Asset type follows Reference A: the active type is the filled primary chip. */
+.sh-segmented[aria-label='Asset type'] .sh-segmented__input:checked + .sh-segmented__text {
+  background: var(--sh-action);
+  color: var(--sh-on-action);
+  box-shadow: none;
+}
+
+.sh-segmented__input:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.sh-segmented__input:focus-visible + .sh-segmented__text {
+  outline: 3px solid var(--sh-focus-ring);
+  outline-offset: 1px;
+}
+
+/* Windows High Contrast drops fills and shadows: keep a visible outline on the selected segment. */
+@media (forced-colors: active) {
+  .sh-segmented__input:checked + .sh-segmented__text {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
+  }
+}
+
+/* ── Filter selects ────────────────────────────────────────── */
+/*
+ * The select itself is the whole 44px pill (label drawn above the value, pointer-events off), so a tap anywhere on it
+ * opens the picker.
+ */
+.sh-filter {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+}
+
+.sh-filter__label {
+  position: absolute;
+  top: 6px;
+  left: 12px;
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.sh-filter__select {
+  width: 100%;
+  height: var(--sh-touch-target);
+  min-width: 120px;
+  max-width: 200px;
+  padding: 17px 28px 1px 11px;
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' fill='none' stroke='%23b5c0d5' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    no-repeat right 9px center / 14px 14px;
+  color: var(--sh-text);
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.sh-filter__select:hover {
+  border-color: #7a8cb0;
+}
+
+.sh-filter__select option {
+  background: var(--sh-surface);
+  color: var(--sh-text);
+}
+
+/*
+ * Phones: the search keeps its full-width row; the sort segments and then the filters each get one row that scrolls
+ * sideways instead of wrapping, so the controls take three 44px rows and the first card starts high on the screen.
+ */
+@media (max-width: 640px) {
+  /* Single-line columns: a wrapping column would size its line to the widest control instead of the screen. */
+  .sh-feed-controls,
+  .sh-feed-controls__query {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .sh-feed-controls__query,
+  .sh-feed-controls__filters {
+    flex: none;
+  }
+
+  .sh-feed-search {
+    flex: none;
+    min-width: 0;
+  }
+
+  .sh-feed-controls__query > .sh-segmented > .sh-segmented__option {
+    flex: 1 1 auto;
+  }
+
+  .sh-feed-controls__query .sh-segmented__text {
+    width: 100%;
+    padding: 0 8px;
+  }
+
+  /* Bleeds to the screen edges so a partly visible last control hints that the row scrolls; the block padding keeps
+     focus rings inside the scroll box. */
+  .sh-feed-controls__filters {
+    flex-wrap: nowrap;
+    gap: 8px;
+    margin: -6px calc(-1 * var(--sh-main-pad-compact));
+    padding: 6px var(--sh-main-pad-compact);
+    overflow-x: auto;
+    scroll-padding-inline: var(--sh-main-pad-compact);
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+
+  .sh-feed-controls__filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sh-feed-controls__filters > * {
+    scroll-snap-align: start;
+  }
+}

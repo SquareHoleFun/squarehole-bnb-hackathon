@@ -1,0 +1,1958 @@
+{
+  "$comment": "Core v2's per-ticket mutation runs (ticket M1-62, core-v2-m1-tickets.md § 2 and § 4; file map core-v2-m1-file-owners.md § 8). Read by script-py/mutation_v2.py and .github/workflows/mutation-v2.yml; checked by test/box-v2/m1-62/. tickets: the parts M1-62's entry names, each with its money-path sources under src/box-v2/ (owner as in the file map; extra = a source the goal does not name, with why) and its test folders. A file with newFile is its owner's new file that no file-map row names (open point 1), with where the owner says so. moneyPaths: M1-62's goal, item by item, with the sources that carry it. notInRun: every other v2 source outside interfaces/ and stubs/, with why (the runner warns about a source in neither list, and test_mutation_v2_round1.py fails). equivalents: survivors argued equivalent, one by one, each with its reason and the evidence file that argues it (the ticket's review lens); each row argues one mutant (the mutants forge skips behind a survivor are run by the runner itself, from forge's results file; span 'all' is retired); occurrence names which line where the text repeats in the file; sha256 pins the file (rows on frozen files must, or the manifest is refused). forge: the Foundry version the runner requires (forge --version), the workflow's too. Each ticket lists its rows in its evidence and the integrator writes them here at merge (file map rule 5). excludeTests: fork tests never run in a mutation run (no network). artifacts: built before a run (forge build; the M1-03 kit loads the PoolManager by artifact). sharedPaths: a change there starts every ticket's run (--changed-since).",
+  "schema": 1,
+  "forge": "1.8.3",
+  "excludeTests": "{**/*Fork*.t.sol,test/box-v2/fork/**}",
+  "artifacts": ["out/PoolManager.sol/PoolManager.json"],
+  "sharedPaths": ["src/box-v2/interfaces/", "src/box-v2/stubs/", "src/box-v2/libraries/HopTypes.sol", "test/box-v2/kit/"],
+  "tickets": {
+    "M1-20": {
+      "title": "Listings",
+      "tests": ["test/box-v2/m1-20a/**", "test/box-v2/m1-20b/**", "test/box-v2/m1-20c/**"],
+      "files": [
+        {"path": "src/box-v2/libraries/RouteChecks.sol", "owner": "M1-20-a"},
+        {"path": "src/box-v2/ListingRegistry.sol", "owner": "M1-20-b"},
+        {"path": "src/box-v2/ListingRouteChecker.sol", "owner": "M1-20-b", "newFile": "M1-20-b's new file, in no file-map row (SH-V2-M1-20B.md, its files table): the registry's checks at listing that read pools or the curve (listedRoute, checkRoute with DepthTooThin, checkLayout)"},
+        {"path": "src/box-v2/ConverterDeployer.sol", "owner": "M1-20-b", "extra": "deploys each listing's converter at the address predictConverter gives, where deposits are sent"},
+        {"path": "src/box-v2/libraries/ListingChecks.sol", "owner": "M1-20-c"},
+        {"path": "src/box-v2/libraries/BoxTokenProof.sol", "owner": "M1-20-c"}
+      ]
+    },
+    "M1-21": {
+      "title": "Converter",
+      "tests": ["test/box-v2/m1-21a/**", "test/box-v2/m1-21b/**", "test/box-v2/m1-21c/**", "test/box-v2/m1-21d/**", "test/box-v2/m1-21e/**", "test/box-v2/m1-21f/**"],
+      "files": [
+        {"path": "src/box-v2/libraries/HopV3.sol", "owner": "M1-21-a"},
+        {"path": "src/box-v2/libraries/HopV2Snapshot.sol", "owner": "M1-21-b"},
+        {"path": "src/box-v2/libraries/HopBoxPool.sol", "owner": "M1-21-c"},
+        {"path": "src/box-v2/libraries/HopFixedRate.sol", "owner": "M1-21-d"},
+        {"path": "src/box-v2/libraries/ConverterLedgers.sol", "owner": "M1-21-e"},
+        {"path": "src/box-v2/Converter.sol", "owner": "M1-21-f"},
+        {"path": "src/box-v2/libraries/ConverterStep.sol", "owner": "M1-21-f"},
+        {"path": "src/box-v2/ConverterExtension.sol", "owner": "M1-21-f"}
+      ]
+    },
+    "M1-30": {
+      "title": "ERC-20 pricing",
+      "tests": ["test/box-v2/m1-30a/**", "test/box-v2/m1-30b/**"],
+      "files": [
+        {"path": "src/box-v2/libraries/PricingToken.sol", "owner": "M1-30-a"},
+        {"path": "src/box-v2/libraries/BoxSwapBoundsV2.sol", "owner": "M1-30-a"}
+      ]
+    },
+    "M1-31": {
+      "title": "Fail and the closing pool",
+      "tests": ["test/box-v2/m1-31/**", "test/box-v2/failure/**"],
+      "files": [
+        {"path": "src/box-v2/libraries/CoordinatorFailure.sol", "owner": "M1-31"},
+        {"path": "src/box-v2/libraries/ReceiverFailure.sol", "owner": "M1-31"},
+        {"path": "src/box-v2/libraries/ClosingRange.sol", "owner": "M1-31"},
+        {"path": "src/box-v2/libraries/VaultFailure.sol", "owner": "M1-31"},
+        {"path": "src/box-v2/interfaces/FailureTableV2.sol", "owner": "M1-00 (frozen)", "frozen": true}
+      ]
+    },
+    "M1-32": {
+      "title": "Factory and registry (its box-token checks and the chunk loader, not its last-day wiring)",
+      "tests": ["test/box-v2/m1-32a/**", "test/box-v2/m1-32b/**"],
+      "files": [
+        {"path": "src/box-v2/BoxFactoryV2Planner.sol", "owner": "M1-32-a"},
+        {"path": "src/box-v2/libraries/ChunkLoader.sol", "owner": "M1-32-b"},
+        {"path": "src/box-v2/PlatformCapV2.sol", "owner": "M1-32-b", "extra": "F106's platform cap with F108's 16 ETH ceiling, added by change queue 3 after the ticket's text: it caps money paid to the platform"}
+      ]
+    },
+    "M1-40": {
+      "title": "Recipe engine",
+      "tests": ["test/box-v2/m1-40a/**", "test/box-v2/m1-40b/**"],
+      "files": [
+        {"path": "src/box-v2/BoxReceiverV2.sol", "owner": "M1-40-a"},
+        {"path": "src/box-v2/BoxReceiverV2Base.sol", "owner": "M1-40-a", "extra": "the receiver's storage base and wiring under the settlement; mutated as the shell's part"},
+        {"path": "src/box-v2/BoxReceiverV2Cold.sol", "owner": "M1-40-a", "newFile": "M1-40-a's new file, in no file-map row (SH-V2-M1-40A.md, its files table): the cold entries the extension inherits (initialize, chargeHumble, payFit, payPlatform, claimCreator, burnPending, enterFailure)"},
+        {"path": "src/box-v2/libraries/BoxReceiverV2Args.sol", "owner": "M1-40-a", "newFile": "M1-40-a's clone-argument layout (file map rule 9 names v2/libraries/<Part>Args.sol, no row this file): besides offsets it builds and reads the recipe word (split kind, FixedShare bps, each branch's leg, destination and Convert target)"},
+        {"path": "src/box-v2/libraries/RecipeSplit.sol", "owner": "M1-40-a"},
+        {"path": "src/box-v2/libraries/CreatorCaps.sol", "owner": "M1-40-a"},
+        {"path": "src/box-v2/libraries/VaultCountIntegral.sol", "owner": "M1-40-a", "extra": "the vault's count integral, which sets the inside share split off before the item ledger's booking"},
+        {"path": "src/box-v2/BoxReceiverV2Extension.sol", "owner": "M1-40-b"},
+        {"path": "src/box-v2/libraries/ConverterIntake.sol", "owner": "M1-40-b"},
+        {"path": "src/box-v2/libraries/ForwardBooking.sol", "owner": "M1-40-b"},
+        {"path": "src/box-v2/libraries/IntakeLedgers.sol", "owner": "M1-40-b", "newFile": "M1-40-b's new file, in no file-map row (SH-V2-M1-40B.md, its files table): ConverterIntake's ledgers, what waits for collect and running it (deposits, burns, Eat as claims, the forward calls)"}
+      ]
+    },
+    "M1-41": {
+      "title": "Legs",
+      "tests": ["test/box-v2/m1-41a/**", "test/box-v2/m1-41b/**"],
+      "files": [
+        {"path": "src/box-v2/BoxSwapModuleV2.sol", "owner": "M1-41-a"},
+        {"path": "src/box-v2/libraries/ModuleSteps.sol", "owner": "M1-41-a"},
+        {"path": "src/box-v2/libraries/ModuleForward.sol", "owner": "M1-41-a"},
+        {"path": "src/box-v2/libraries/ModuleConvert.sol", "owner": "M1-41-b"},
+        {"path": "src/box-v2/libraries/BoxSwapModuleV2Args.sol", "owner": "M1-41-a", "newFile": "M1-41-a's clone-argument layout (file map rule 9 names v2/libraries/<Part>Args.sol, no row this file; SH-V2-M1-41A.md, part 1's files): besides offsets it reads the leg's tipMaxQ (each step's tip cap) and swapStepMinQ (a step's least budget) and range-checks them (AmountTooLarge), as BoxReceiverV2Args runs with M1-40"}
+      ]
+    },
+    "M1-42": {
+      "title": "RULE slot",
+      "tests": ["test/box-v2/hostile/**", "test/box-v2/m1-42/**"],
+      "files": [
+        {"path": "src/box-v2/libraries/RuleCall.sol", "owner": "M1-42"}
+      ]
+    },
+    "M1-44": {
+      "title": "Royalties",
+      "tests": ["test/box-v2/m1-44/**"],
+      "files": [
+        {"path": "src/box-v2/BoxRoyaltyRouterV2.sol", "owner": "M1-44"},
+        {"path": "src/box-v2/libraries/RoyaltyBooking.sol", "owner": "M1-44"}
+      ]
+    },
+    "M1-50": {
+      "title": "ETH-in helper",
+      "tests": ["test/box-v2/m1-50/**"],
+      "files": [
+        {"path": "src/box-v2/periphery/EthInHelper.sol", "owner": "M1-50"}
+      ]
+    }
+  },
+  "moneyPaths": {
+    "listing checks": ["src/box-v2/libraries/ListingChecks.sol", "src/box-v2/libraries/RouteChecks.sol", "src/box-v2/ListingRegistry.sol", "src/box-v2/ListingRouteChecker.sol"],
+    "the relisting rule": ["src/box-v2/ListingRegistry.sol"],
+    "the box-token rule": ["src/box-v2/libraries/BoxTokenProof.sol", "src/box-v2/ListingRegistry.sol", "src/box-v2/ListingRouteChecker.sol"],
+    "converter: four hop kinds": ["src/box-v2/libraries/HopV3.sol", "src/box-v2/libraries/HopV2Snapshot.sol", "src/box-v2/libraries/HopBoxPool.sol", "src/box-v2/libraries/HopFixedRate.sol"],
+    "converter: FIXED_RATE's pins": ["src/box-v2/libraries/HopFixedRate.sol", "src/box-v2/libraries/RouteChecks.sol"],
+    "converter: two hops": ["src/box-v2/libraries/ConverterStep.sol", "src/box-v2/libraries/RouteChecks.sol", "src/box-v2/ConverterExtension.sol"],
+    "converter: box-token routes": ["src/box-v2/libraries/HopBoxPool.sol", "src/box-v2/libraries/RouteChecks.sol"],
+    "converter: the clocks": ["src/box-v2/libraries/ConverterLedgers.sol", "src/box-v2/Converter.sol"],
+    "converter: the tips": ["src/box-v2/libraries/ConverterStep.sol", "src/box-v2/ConverterExtension.sol"],
+    "ERC-20 intake and pulls": ["src/box-v2/libraries/PricingToken.sol"],
+    "fail() and its table": ["src/box-v2/libraries/CoordinatorFailure.sol", "src/box-v2/libraries/ReceiverFailure.sol", "src/box-v2/libraries/ClosingRange.sol", "src/box-v2/libraries/VaultFailure.sol", "src/box-v2/interfaces/FailureTableV2.sol"],
+    "recipe engine and the forward calls": ["src/box-v2/libraries/RecipeSplit.sol", "src/box-v2/BoxReceiverV2.sol", "src/box-v2/BoxReceiverV2Extension.sol", "src/box-v2/libraries/ConverterIntake.sol", "src/box-v2/libraries/ForwardBooking.sol", "src/box-v2/BoxReceiverV2Cold.sol", "src/box-v2/libraries/IntakeLedgers.sol", "src/box-v2/libraries/BoxReceiverV2Args.sol"],
+    "the Cap30Days and humble caps with the box-pool floor": ["src/box-v2/libraries/CreatorCaps.sol", "src/box-v2/BoxReceiverV2Cold.sol"],
+    "legs": ["src/box-v2/BoxSwapModuleV2.sol", "src/box-v2/libraries/ModuleSteps.sol", "src/box-v2/libraries/ModuleForward.sol", "src/box-v2/libraries/ModuleConvert.sol", "src/box-v2/libraries/BoxSwapModuleV2Args.sol"],
+    "the RULE call checks": ["src/box-v2/libraries/RuleCall.sol"],
+    "royalties": ["src/box-v2/libraries/RoyaltyBooking.sol", "src/box-v2/BoxRoyaltyRouterV2.sol"],
+    "the ETH-in helper": ["src/box-v2/periphery/EthInHelper.sol"],
+    "box-pool converter room and pace": ["src/box-v2/ListingRegistry.sol", "src/box-v2/libraries/ConverterStep.sol", "src/box-v2/ConverterExtension.sol"],
+    "module room, pace and alternation": ["src/box-v2/libraries/ModuleSteps.sol", "src/box-v2/libraries/ModuleConvert.sol"],
+    "outside-hop start-of-block limits": ["src/box-v2/libraries/HopV3.sol", "src/box-v2/libraries/HopV2Snapshot.sol", "src/box-v2/libraries/ConverterStep.sol"],
+    "spot step limits and the kept deepen guard": ["src/box-v2/libraries/BoxSwapBoundsV2.sol"],
+    "the chunk loader": ["src/box-v2/libraries/ChunkLoader.sol"],
+    "M1-32's box-token raise band, T_TOO_HIGH and depth floor at creation": ["src/box-v2/BoxFactoryV2Planner.sol"]
+  },
+  "notInRun": [
+    {"path": "src/box-v2/BoxFactoryV2.sol", "owner": "M1-32-a", "why": "M1-32's last-day wiring, which M1-62's entry leaves out; its money checks are the planner's"},
+    {"path": "src/box-v2/BoxSpecV2Validator.sol", "owner": "M1-32-a", "why": "format 2's validate() from M1-10's generated library: spec rules, not a money path M1-62 names"},
+    {"path": "src/box-v2/BoxRegistryV2.sol", "owner": "M1-32-b", "why": "roles and the fixed directory, part of M1-32's wiring; no money held or moved"},
+    {"path": "src/box-v2/libraries/HopTypes.sol", "owner": "M1-00 (frozen)", "why": "one struct (HopEnv) and its rules in comments: no code to mutate; frozen (file map § 2), so a change to it starts every ticket's run (sharedPaths)"},
+    {"path": "src/box-v2/libraries/ReceiverV2Seam.sol", "owner": "M1-40-b", "why": "M1-40-b's new file: two structs, the halves' two self-call interfaces and op-code constants, no function body; the halves that use them are in M1-40's run"},
+    {"path": "src/box-v2/BoxSpecV2.sol", "owner": "M1-10-b", "why": "generated by M1-10-b's emitter: format 2's fixed values, validate() and specHash(); spec rules, not a money path M1-62's goal names (as BoxSpecV2Validator.sol)"},
+    {"path": "src/box-v2/plugins/HalvingRule.sol", "owner": "M1-43", "why": "a RULE plug-in (catalog RULE 1); M1-43 is not in M1-62's list, a plug-in holds and owes no money (ADR-0017 § 1), and RuleCall's clamp and default (M1-42's run) bound its answer"},
+    {"path": "src/box-v2/plugins/PrisonersRule.sol", "owner": "M1-43", "why": "a RULE plug-in (catalog RULE 2); M1-43 is not in M1-62's list, a plug-in holds and owes no money (ADR-0017 § 1), and RuleCall's clamp and default (M1-42's run) bound its answer"},
+    {"path": "src/box-v2/BoxCoordinatorV2.sol", "owner": "M1-30-a", "why": "M1-30-a's shell over v1's coordinator; its fail() and the chunk loader are CoordinatorFailure's and ChunkLoader's (in the run); the goal names no other coordinator path; founder question 2 in SH-V2-M1-62.md"},
+    {"path": "src/box-v2/BoxLaunchRouterV2.sol", "owner": "M1-30-a", "why": "a copy of v1's launch router (the window, the 32-entry tax table); the goal does not name it; founder question 2 in SH-V2-M1-62.md"},
+    {"path": "src/box-v2/BoxPriceSamplerV2.sol", "owner": "M1-30-a", "why": "v1's price sampler for v2's coordinator (the 1-hour average); it holds and moves no money; the goal does not name it; founder question 2 in SH-V2-M1-62.md"},
+    {"path": "src/box-v2/BoxHookV2.sol", "owner": "M1-30-b", "why": "a copy of v1's hook (ADR-0017 § 10) for any P; its kept deepen guard and spot step limits are BoxSwapBoundsV2's (M1-30's run) and its closing range ClosingRange's (M1-31's run); founder question 2 in SH-V2-M1-62.md"},
+    {"path": "src/box-v2/BoxHookV2Base.sol", "owner": "M1-30-b", "why": "the hook copy's storage, constants and shared internals (v1's base); as BoxHookV2.sol; founder question 2 in SH-V2-M1-62.md"},
+    {"path": "src/box-v2/BoxHookV2Extension.sol", "owner": "M1-30-b", "why": "the hook copy's cold half (launch, migrate, deepen, v1's); as BoxHookV2.sol; founder question 2 in SH-V2-M1-62.md"},
+    {"path": "src/box-v2/BoxVaultV2.sol", "owner": "M1-30-b", "why": "a copy of v1's vault with IBoxVaultV2's changes (the item-ledger calls, the pick fee from the spec's preset); VaultCountIntegral and VaultFailure are in the run; the goal names no other vault path; founder question 2 in SH-V2-M1-62.md"},
+    {"path": "src/box-v2/BoxCollectionV2.sol", "owner": "M1-30-b", "why": "a copy of v1's ERC-721 collection reading its texts from the chunks; the goal does not name it; founder question 2 in SH-V2-M1-62.md"},
+    {"path": "src/box-v2/BoxTicketsV2.sol", "owner": "M1-30-b", "why": "add-on 1's tickets, a copy of v1's; the goal does not name it; founder question 2 in SH-V2-M1-62.md"},
+    {"path": "src/box-v2/BoxTokenV2.sol", "owner": "M1-30-b", "why": "T's implementation, an ERC-20 every box's T clones (F102); the goal names no T path; founder question 2 in SH-V2-M1-62.md"},
+    {"path": "src/box-v2/libraries/BoxCoordinatorV2Args.sol", "owner": "M1-30-a", "why": "BoxCoordinatorV2's clone-argument layout (file map rule 9): encode() and its reader at fixed offsets; it carries the raise, the creator buy and bootstrapQ with a uint128 range check (AmountTooLarge), and no arithmetic on them; out with its shell (founder question 2 in SH-V2-M1-62.md)"},
+    {"path": "src/box-v2/libraries/BoxLaunchRouterV2Args.sol", "owner": "M1-30-a", "why": "BoxLaunchRouterV2's clone-argument layout (file map rule 9): encode() and its reader at fixed offsets; it carries bootstrapQ with a uint128 range check (AmountTooLarge), and no arithmetic on it; out with its router (founder question 2 in SH-V2-M1-62.md)"},
+    {"path": "src/box-v2/libraries/BoxPriceSamplerV2Args.sol", "owner": "M1-30-a", "why": "BoxPriceSamplerV2's clone-argument layout (file map rule 9): encode() and its reader at fixed offsets; four addresses, no amount and no check"},
+    {"path": "src/box-v2/libraries/BoxHookV2Args.sol", "owner": "M1-30-b", "why": "BoxHookV2's clone-argument layout (file map rule 9): encode() and its reader at fixed offsets; it carries the box's liquidity, tipMaxQ and depthConvertMinQ with a uint128 range check (AmountTooLarge), and no arithmetic on them; out with its hook copy (founder question 2 in SH-V2-M1-62.md)"},
+    {"path": "src/box-v2/libraries/BoxVaultV2Args.sol", "owner": "M1-30-b", "why": "BoxVaultV2's clone-argument layout (file map rule 9): encode() and its reader at fixed offsets; it carries the pick fee in bps (uint16, the spec's preset), and no arithmetic on it; out with its vault copy (founder question 2 in SH-V2-M1-62.md)"},
+    {"path": "src/box-v2/libraries/BoxCollectionV2Args.sol", "owner": "M1-30-b", "why": "BoxCollectionV2's clone-argument layout (file map rule 9): encode() and its reader at fixed offsets; addresses and texts with a length check (TextTooLong), no amount"},
+    {"path": "src/box-v2/libraries/BoxTicketsV2Args.sol", "owner": "M1-30-b", "why": "BoxTicketsV2's clone-argument layout (file map rule 9): encode() and its reader at fixed offsets; addresses and texts with a length check (TextTooLong), no amount"},
+    {"path": "src/box-v2/libraries/BoxRoyaltyRouterV2Args.sol", "owner": "M1-44", "why": "BoxRoyaltyRouterV2's clone-argument layout (file map rule 9): encode() and its reader at fixed offsets; four addresses and the destination byte, no amount and no check"}
+  ],
+  "equivalents": [
+    {"ticket": "M1-31", "file": "src/box-v2/interfaces/FailureTableV2.sol", "line": "if (kind == HeldKind.PLATFORM_SHARE) return FailRoute.PLATFORM;", "original": "kind == HeldKind.PLATFORM_SHARE", "mutant": "kind >= HeldKind.PLATFORM_SHARE", "reason": "PLATFORM_SHARE is HeldKind's last member and Solidity 0.8 refuses an enum value past the last (a conversion panics with 0x21, the ABI decoder reverts), so >= and == agree on every value a HeldKind holds; it stops being equivalent if a member is appended after PLATFORM_SHARE", "evidence": "docs/evidence/SH-V2-M1-62.md", "sha256": "05ce1bca8e534082643bc894aa81ebd1daf0aadd26b6fe50318bfb602c2bb75c"}
+  ],
+  "cq11": {
+    "description": "SH-V2-M1-62b directed production money mutations. Run --cq11; the older tickets/moneyPaths/equivalents above describe the historical pre-CQ11 automatic engine and are not used by this campaign. No equivalent, invalid, skipped or timed-out mutant satisfies CQ11 G3.",
+    "forge": "1.8.3",
+    "mutants": [
+      {
+        "id": "sale-in-floor",
+        "area": "sale-fee",
+        "file": "src/box-v2/BoxHookV2.sol",
+        "sha256": "84cef5f0d8701e4bf546cb754590f16a1195ad4ecc0ebcd4c47602b603c93f7a",
+        "before": "(uint256(int256(output)) + 99) / 100",
+        "after": "uint256(int256(output)) / 100",
+        "testFile": "test/box-v2/m1-62/HookMutation.t.sol",
+        "contract": "HookMutationTest",
+        "requirement": "C3.3-5; C15.1-3"
+      },
+      {
+        "id": "sale-in-rate",
+        "area": "sale-fee",
+        "file": "src/box-v2/BoxHookV2.sol",
+        "sha256": "84cef5f0d8701e4bf546cb754590f16a1195ad4ecc0ebcd4c47602b603c93f7a",
+        "before": "(uint256(int256(output)) + 99) / 100",
+        "after": "(uint256(int256(output)) + 98) / 99",
+        "testFile": "test/box-v2/m1-62/HookMutation.t.sol",
+        "contract": "HookMutationTest",
+        "requirement": "C3.3-5; C15.1-3"
+      },
+      {
+        "id": "sale-out-floor",
+        "area": "sale-fee",
+        "file": "src/box-v2/BoxHookV2.sol",
+        "sha256": "84cef5f0d8701e4bf546cb754590f16a1195ad4ecc0ebcd4c47602b603c93f7a",
+        "before": "out / 99 + (out % 99 == 0 ? 0 : 1)",
+        "after": "out / 99",
+        "testFile": "test/box-v2/m1-62/HookMutation.t.sol",
+        "contract": "HookMutationTest",
+        "requirement": "C3.3-5; C15.1-3"
+      },
+      {
+        "id": "sale-out-divisor",
+        "area": "sale-fee",
+        "file": "src/box-v2/BoxHookV2.sol",
+        "sha256": "84cef5f0d8701e4bf546cb754590f16a1195ad4ecc0ebcd4c47602b603c93f7a",
+        "before": "out / 99 + (out % 99 == 0 ? 0 : 1)",
+        "after": "out / 100 + (out % 100 == 0 ? 0 : 1)",
+        "testFile": "test/box-v2/m1-62/HookMutation.t.sol",
+        "contract": "HookMutationTest",
+        "requirement": "C3.3-5; C15.1-3"
+      },
+      {
+        "id": "sale-out-partial",
+        "area": "sale-fee",
+        "file": "src/box-v2/BoxHookV2.sol",
+        "sha256": "84cef5f0d8701e4bf546cb754590f16a1195ad4ecc0ebcd4c47602b603c93f7a",
+        "before": "if (int256(output) != specified + int256(fee)) revert PartialExactOutSale();",
+        "after": "if (false) revert PartialExactOutSale();",
+        "testFile": "test/box-v2/m1-62/HookMutation.t.sol",
+        "contract": "HookMutationTest",
+        "requirement": "C3.3-5; C15.1-3"
+      },
+      {
+        "id": "sale-counter-double",
+        "area": "sale-fee",
+        "file": "src/box-v2/BoxHookV2.sol",
+        "sha256": "84cef5f0d8701e4bf546cb754590f16a1195ad4ecc0ebcd4c47602b603c93f7a",
+        "before": "_saleFeesPending += fee;",
+        "after": "_saleFeesPending += 2 * fee;",
+        "testFile": "test/box-v2/m1-62/HookMutation.t.sol",
+        "contract": "HookMutationTest",
+        "requirement": "C3.3-5; C15.1-3"
+      },
+      {
+        "id": "buy-default-zero",
+        "area": "default-override",
+        "file": "src/box-v2/BoxHookV2.sol",
+        "sha256": "84cef5f0d8701e4bf546cb754590f16a1195ad4ecc0ebcd4c47602b603c93f7a",
+        "before": "BeforeSwapDeltaLibrary.ZERO_DELTA, C.FEE_PIPS | C.FEE_OVERRIDE",
+        "after": "BeforeSwapDeltaLibrary.ZERO_DELTA, C.FEE_OVERRIDE",
+        "testFile": "test/box-v2/m1-62/HookMutation.t.sol",
+        "contract": "HookMutationTest",
+        "requirement": "C3.3-5; C15.1-3"
+      },
+      {
+        "id": "buy-default-no-flag",
+        "area": "default-override",
+        "file": "src/box-v2/BoxHookV2.sol",
+        "sha256": "84cef5f0d8701e4bf546cb754590f16a1195ad4ecc0ebcd4c47602b603c93f7a",
+        "before": "BeforeSwapDeltaLibrary.ZERO_DELTA, C.FEE_PIPS | C.FEE_OVERRIDE",
+        "after": "BeforeSwapDeltaLibrary.ZERO_DELTA, C.FEE_PIPS",
+        "testFile": "test/box-v2/m1-62/HookMutation.t.sol",
+        "contract": "HookMutationTest",
+        "requirement": "C3.3-5; C15.1-3"
+      },
+      {
+        "id": "split-divisor",
+        "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol",
+        "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "uint256 unit = total / 15;",
+        "after": "uint256 unit = total / 14;",
+        "testFile": "test/box-v2/m1-62/MoneyMutation.t.sol",
+        "contract": "SplitMutationTest",
+        "requirement": "C5.4; C15.4-7"
+      },
+      {
+        "id": "split-carry-lost",
+        "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol",
+        "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "uint256 total = amount + (sourced ? 0 : _p[carry]);",
+        "after": "uint256 total = amount;",
+        "testFile": "test/box-v2/m1-62/MoneyMutation.t.sol",
+        "contract": "SplitMutationTest",
+        "requirement": "C5.4; C15.4-7"
+      },
+      {
+        "id": "split-carry-shared",
+        "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol",
+        "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "sellers ? SELLERS_CARRY : BUYERS_CARRY",
+        "after": "BUYERS_CARRY",
+        "testFile": "test/box-v2/m1-62/MoneyMutation.t.sol",
+        "contract": "SplitMutationTest",
+        "requirement": "C5.4; C15.4-7"
+      },
+      {
+        "id": "split-fit",
+        "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol",
+        "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "_p[FIT] += 2 * unit;",
+        "after": "_p[FIT] += unit;",
+        "testFile": "test/box-v2/m1-62/MoneyMutation.t.sol",
+        "contract": "SplitMutationTest",
+        "requirement": "C5.4; C15.4-7"
+      },
+      {
+        "id": "split-platform",
+        "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol",
+        "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "_p[PLATFORM] += unit;",
+        "after": "_p[PLATFORM] += 2 * unit;",
+        "testFile": "test/box-v2/m1-62/MoneyMutation.t.sol",
+        "contract": "SplitMutationTest",
+        "requirement": "C5.4; C15.4-7"
+      },
+      {
+        "id": "split-pool",
+        "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol",
+        "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "_p[POOL] += 2 * unit;",
+        "after": "_p[POOL] += unit;",
+        "testFile": "test/box-v2/m1-62/MoneyMutation.t.sol",
+        "contract": "SplitMutationTest",
+        "requirement": "C5.4; C15.4-7"
+      },
+      {
+        "id": "split-choice-crossed",
+        "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol",
+        "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "sellers ? A.SELLERS_CHOICE : A.BUYERS_CHOICE",
+        "after": "sellers ? A.BUYERS_CHOICE : A.SELLERS_CHOICE",
+        "testFile": "test/box-v2/m1-62/MoneyMutation.t.sol",
+        "contract": "SplitMutationTest",
+        "requirement": "C5.4; C15.4-7"
+      },
+      {
+        "id": "split-keep",
+        "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol",
+        "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "else _p[choice == 1 ? CREATOR : choice == 2 ? BUY_BACK : GROW] += 10 * unit;",
+        "after": "else _p[choice == 1 ? CREATOR : choice == 2 ? BUY_BACK : GROW] += (choice == 1 ? 9 : 10) * unit;",
+        "testFile": "test/box-v2/m1-62/MoneyMutation.t.sol",
+        "contract": "SplitMutationTest",
+        "requirement": "C5.4; C15.4-7"
+      },
+      {
+        "id": "split-burn",
+        "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol",
+        "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "else _p[choice == 1 ? CREATOR : choice == 2 ? BUY_BACK : GROW] += 10 * unit;",
+        "after": "else _p[choice == 1 ? CREATOR : choice == 2 ? BUY_BACK : GROW] += (choice == 2 ? 9 : 10) * unit;",
+        "testFile": "test/box-v2/m1-62/MoneyMutation.t.sol",
+        "contract": "SplitMutationTest",
+        "requirement": "C5.4; C15.4-7"
+      },
+      {
+        "id": "split-grow",
+        "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol",
+        "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "else _p[choice == 1 ? CREATOR : choice == 2 ? BUY_BACK : GROW] += 10 * unit;",
+        "after": "else _p[choice == 1 ? CREATOR : choice == 2 ? BUY_BACK : GROW] += (choice == 3 ? 9 : 10) * unit;",
+        "testFile": "test/box-v2/m1-62/MoneyMutation.t.sol",
+        "contract": "SplitMutationTest",
+        "requirement": "C5.4; C15.4-7"
+      },
+      {
+        "id": "claim-round-up",
+        "area": "claim",
+        "file": "src/box-v2/libraries/CoordinatorViews.sol",
+        "sha256": "66292bd03abadd47fe4ed509096e959858185436f12492958159e47e0e998706",
+        "before": "FullMath.mulDiv(pot, t, left)",
+        "after": "FullMath.mulDivRoundingUp(pot, t, left)",
+        "testFile": "test/box-v2/m1-62/MoneyMutation.t.sol",
+        "contract": "FailureMutationTest",
+        "requirement": "C11.3; C15.14"
+      },
+      {
+        "id": "claim-denominator",
+        "area": "claim",
+        "file": "src/box-v2/libraries/CoordinatorViews.sol",
+        "sha256": "66292bd03abadd47fe4ed509096e959858185436f12492958159e47e0e998706",
+        "before": "FullMath.mulDiv(pot, t, left)",
+        "after": "FullMath.mulDiv(pot, t, left + 1)",
+        "testFile": "test/box-v2/m1-62/MoneyMutation.t.sol",
+        "contract": "FailureMutationTest",
+        "requirement": "C11.3; C15.14"
+      },
+      {
+        "id": "claim-no-decrement",
+        "area": "claim",
+        "file": "src/box-v2/BoxCoordinatorV2.sol",
+        "sha256": "faafb9affcdf9210e709d0ad0725845de6c8dd47419a130e91a747da2f189494",
+        "before": "s.tLeft -= t;",
+        "after": "s.tLeft -= 0;",
+        "testFile": "test/box-v2/m1-62/MoneyMutation.t.sol",
+        "contract": "FailureMutationTest",
+        "requirement": "C11.3; C15.14"
+      },
+      {
+        "id": "claim-last-dust",
+        "area": "claim",
+        "file": "src/box-v2/libraries/CoordinatorViews.sol",
+        "sha256": "66292bd03abadd47fe4ed509096e959858185436f12492958159e47e0e998706",
+        "before": "t == left ? pot :",
+        "after": "t == left ? pot - 1 :",
+        "testFile": "test/box-v2/m1-62/MoneyMutation.t.sol",
+        "contract": "FailureMutationTest",
+        "requirement": "C11.3; C15.14"
+      },
+      {
+        "id": "reserve-splits-principal",
+        "area": "split",
+        "file": "src/box-v2/BoxCoordinatorV2.sol",
+        "sha256": "faafb9affcdf9210e709d0ad0725845de6c8dd47419a130e91a747da2f189494",
+        "before": "_forwardFees(receiver_, reserve_);",
+        "after": "_forwardFees(receiver_, balance);",
+        "testFile": "test/box-v2/m1-62/MoneyMutation.t.sol",
+        "contract": "FailureMutationTest",
+        "requirement": "F122 R36D; C11.2.5"
+      },
+      {
+        "id": "hatch-one-second-late",
+        "area": "hatch",
+        "file": "src/box-v2/BoxCoordinatorV2.sol",
+        "sha256": "faafb9affcdf9210e709d0ad0725845de6c8dd47419a130e91a747da2f189494",
+        "before": "if (block.timestamp < end) revert GraduationEscapeNotReached(end);",
+        "after": "if (block.timestamp <= end) revert GraduationEscapeNotReached(end);",
+        "testFile": "test/box-v2/m1-62/MoneyMutation.t.sol",
+        "contract": "FailureMutationTest",
+        "requirement": "F122 R36K; C15.20"
+      },
+      {
+        "id": "hatch-one-second-early",
+        "area": "hatch",
+        "file": "src/box-v2/BoxCoordinatorV2.sol",
+        "sha256": "faafb9affcdf9210e709d0ad0725845de6c8dd47419a130e91a747da2f189494",
+        "before": "h.closedAt() + ReleaseConstantsV2.GRADUATION_ESCAPE_DELAY",
+        "after": "h.closedAt() + ReleaseConstantsV2.GRADUATION_ESCAPE_DELAY - 1",
+        "testFile": "test/box-v2/m1-62/MoneyMutation.t.sol",
+        "contract": "FailureMutationTest",
+        "requirement": "F122 R36K; C15.20"
+      },
+      {
+        "id": "late-before-last",
+        "area": "late-money",
+        "file": "src/box-v2/BoxCoordinatorV2.sol",
+        "sha256": "faafb9affcdf9210e709d0ad0725845de6c8dd47419a130e91a747da2f189494",
+        "before": "if (t == 0 || t > left) revert InvalidClaim();",
+        "after": "if (t == 0 || t >= left) revert InvalidClaim();",
+        "testFile": "test/box-v2/m1-62/RC5Failure.t.sol",
+        "contract": "RC5ClaimsMutationTest",
+        "requirement": "RC5-A: late money stays with permanent holder claims and the fixed creator return"
+      },
+      {
+        "id": "late-steals-creator",
+        "area": "late-money",
+        "file": "src/box-v2/BoxCoordinatorV2.sol",
+        "sha256": "faafb9affcdf9210e709d0ad0725845de6c8dd47419a130e91a747da2f189494",
+        "before": "p = s.creatorRemainder;",
+        "after": "p = _potBalance();",
+        "testFile": "test/box-v2/m1-62/RC5Failure.t.sol",
+        "contract": "RC5ClaimsMutationTest",
+        "requirement": "RC5-A: late money stays with permanent holder claims and the fixed creator return"
+      },
+      {
+        "id": "late-wrong-payee",
+        "area": "late-money",
+        "file": "src/box-v2/BoxReceiverV2.sol",
+        "sha256": "93c9f067d4b05310be1224951b4dd137b4ac6ec2f72e2e2b1a227d16432bb7a0",
+        "before": "batch.buyersP = _toPot();",
+        "after": "batch.buyersP = _unbooked(); _p[FIT] += batch.buyersP;",
+        "testFile": "test/box-v2/m1-62/RC5Failure.t.sol",
+        "contract": "RC5ClaimsMutationTest",
+        "requirement": "RC5-A: late money stays with permanent holder claims and the fixed creator return"
+      },
+      {
+        "id": "raise-live-threshold",
+        "area": "raise",
+        "file": "src/box-v2/BoxFactoryV2Planner.sol",
+        "sha256": "b35507046055b51db00e399695481f2cef6df8692d0650c6275a48863bf94bd4",
+        "before": "return ListingRaises.parameters(raise);",
+        "after": "return ListingRaises.parameters(IListingRegistry(r.listingRegistry).listing(id).raise);",
+        "testFile": "test/box-v2/m1-62/MoneyMutation.t.sol",
+        "contract": "RaiseMutationTest",
+        "requirement": "F123 R38B; C13; C15.22"
+      },
+      {
+        "id": "raise-wrong-snapshot",
+        "area": "raise",
+        "file": "src/box-v2/BoxFactoryV2Planner.sol",
+        "sha256": "b35507046055b51db00e399695481f2cef6df8692d0650c6275a48863bf94bd4",
+        "before": "raise: s.raise,",
+        "after": "raise: s.raise + 1,",
+        "testFile": "test/box-v2/m1-62/MoneyMutation.t.sol",
+        "contract": "RaiseMutationTest",
+        "requirement": "F123 R38B; C13; C15.22"
+      },
+      {
+        "id": "step-receiver-unmarked",
+        "area": "step",
+        "file": "src/box-v2/BoxHookV2.sol",
+        "sha256": "84cef5f0d8701e4bf546cb754590f16a1195ad4ecc0ebcd4c47602b603c93f7a",
+        "before": "_markProtocol();",
+        "after": "assert(true);",
+        "testFile": "test/box-v2/m1-62/HookMutation.t.sol",
+        "contract": "StepMutationTest",
+        "requirement": "F118; C9; C15.9"
+      },
+      {
+        "id": "step-receiver-unchecked",
+        "area": "step",
+        "file": "src/box-v2/BoxHookV2.sol",
+        "sha256": "84cef5f0d8701e4bf546cb754590f16a1195ad4ecc0ebcd4c47602b603c93f7a",
+        "before": "if ((w >> _O_PROTOCOL) & _M40 == block.number) revert ProtocolStepTaken();",
+        "after": "if (false) revert ProtocolStepTaken();",
+        "testFile": "test/box-v2/m1-62/HookMutation.t.sol",
+        "contract": "StepMutationTest",
+        "requirement": "F118; C9; C15.9"
+      },
+      {
+        "id": "step-deepen-unmarked",
+        "area": "step",
+        "file": "src/box-v2/BoxHookV2Extension.sol",
+        "sha256": "1afa3aad5186484cf3062ecd95f6e4043e9e7356dea8f6ff3dcc3ea0b434a960",
+        "before": "_markProtocol();",
+        "after": "assert(true);",
+        "testFile": "test/box-v2/m1-62/HookMutation.t.sol",
+        "contract": "StepMutationTest",
+        "requirement": "F118; C9; C15.9"
+      },
+      {
+        "id": "step-deepen-unchecked",
+        "area": "step",
+        "file": "src/box-v2/BoxHookV2Extension.sol",
+        "sha256": "1afa3aad5186484cf3062ecd95f6e4043e9e7356dea8f6ff3dcc3ea0b434a960",
+        "before": "if ((w >> _O_PROTOCOL) & _M40 == block.number) skip = ProtocolSkip.StepTaken;",
+        "after": "if (false) skip = ProtocolSkip.StepTaken;",
+        "testFile": "test/box-v2/m1-62/HookMutation.t.sol",
+        "contract": "StepMutationTest",
+        "requirement": "F118; C9; C15.9"
+      },
+      {
+        "id": "step-wrong-block",
+        "area": "step",
+        "file": "src/box-v2/BoxHookV2Base.sol",
+        "sha256": "1129c3fc1316c48cb7528ec424f467787c3aecb447d1c79b2ba5792d3ad38a50",
+        "before": "(block.number << _O_PROTOCOL)",
+        "after": "((block.number - 1) << _O_PROTOCOL)",
+        "testFile": "test/box-v2/m1-62/HookMutation.t.sol",
+        "contract": "StepMutationTest",
+        "requirement": "F118; C9; C15.9"
+      },
+      {
+        "id": "late-one-holder-left",
+        "area": "late-money",
+        "file": "src/box-v2/BoxCoordinatorV2.sol",
+        "sha256": "faafb9affcdf9210e709d0ad0725845de6c8dd47419a130e91a747da2f189494",
+        "before": "if (t == 0 || t > left) revert InvalidClaim();",
+        "after": "if (t == 0 || t > left || left == 1) revert InvalidClaim();",
+        "testFile": "test/box-v2/m1-62/RC5Failure.t.sol",
+        "contract": "RC5ClaimsMutationTest",
+        "requirement": "RC5-A: late money stays with permanent holder claims and the fixed creator return"
+      }
+    ]
+  },
+  "m2": {
+    "description": "SH-V2-M2-62 directed M2 faults and all inherited CQ11 faults. No compile errors, setup errors, skipped tests or stale artifacts count as kills; both default and Amsterdam must kill each fault. See docs/evidence/SH-V2-M2-62.md.",
+    "forge": "1.8.3",
+    "mutants": [
+      {
+        "id": "inherited-sale-in-floor", "area": "sale-fee",
+        "file": "src/box-v2/BoxHookV2.sol", "sha256": "84cef5f0d8701e4bf546cb754590f16a1195ad4ecc0ebcd4c47602b603c93f7a",
+        "before": "(uint256(int256(output)) + 99) / 100",
+        "after": "uint256(int256(output)) / 100",
+        "testFile": "test/box-v2/m2-62/M262Hook.t.sol", "contract": "M262Hook",
+        "requirement": "C3.3-5; C15.1-3",
+        "inherited": "sale-in-floor"
+      },
+      {
+        "id": "inherited-sale-in-rate", "area": "sale-fee",
+        "file": "src/box-v2/BoxHookV2.sol", "sha256": "84cef5f0d8701e4bf546cb754590f16a1195ad4ecc0ebcd4c47602b603c93f7a",
+        "before": "(uint256(int256(output)) + 99) / 100",
+        "after": "(uint256(int256(output)) + 98) / 99",
+        "testFile": "test/box-v2/m2-62/M262Hook.t.sol", "contract": "M262Hook",
+        "requirement": "C3.3-5; C15.1-3",
+        "inherited": "sale-in-rate"
+      },
+      {
+        "id": "inherited-sale-out-floor", "area": "sale-fee",
+        "file": "src/box-v2/BoxHookV2.sol", "sha256": "84cef5f0d8701e4bf546cb754590f16a1195ad4ecc0ebcd4c47602b603c93f7a",
+        "before": "out / 99 + (out % 99 == 0 ? 0 : 1)",
+        "after": "out / 99",
+        "testFile": "test/box-v2/m2-62/M262Hook.t.sol", "contract": "M262Hook",
+        "requirement": "C3.3-5; C15.1-3",
+        "inherited": "sale-out-floor"
+      },
+      {
+        "id": "inherited-sale-out-divisor", "area": "sale-fee",
+        "file": "src/box-v2/BoxHookV2.sol", "sha256": "84cef5f0d8701e4bf546cb754590f16a1195ad4ecc0ebcd4c47602b603c93f7a",
+        "before": "out / 99 + (out % 99 == 0 ? 0 : 1)",
+        "after": "out / 100 + (out % 100 == 0 ? 0 : 1)",
+        "testFile": "test/box-v2/m2-62/M262Hook.t.sol", "contract": "M262Hook",
+        "requirement": "C3.3-5; C15.1-3",
+        "inherited": "sale-out-divisor"
+      },
+      {
+        "id": "inherited-sale-out-partial", "area": "sale-fee",
+        "file": "src/box-v2/BoxHookV2.sol", "sha256": "84cef5f0d8701e4bf546cb754590f16a1195ad4ecc0ebcd4c47602b603c93f7a",
+        "before": "if (int256(output) != specified + int256(fee)) revert PartialExactOutSale();",
+        "after": "if (false) revert PartialExactOutSale();",
+        "testFile": "test/box-v2/m2-62/M262Hook.t.sol", "contract": "M262Hook",
+        "requirement": "C3.3-5; C15.1-3",
+        "inherited": "sale-out-partial"
+      },
+      {
+        "id": "inherited-sale-counter-double", "area": "sale-fee",
+        "file": "src/box-v2/BoxHookV2.sol", "sha256": "84cef5f0d8701e4bf546cb754590f16a1195ad4ecc0ebcd4c47602b603c93f7a",
+        "before": "_saleFeesPending += fee;",
+        "after": "_saleFeesPending += 2 * fee;",
+        "testFile": "test/box-v2/m2-62/M262Hook.t.sol", "contract": "M262Hook",
+        "requirement": "C3.3-5; C15.1-3",
+        "inherited": "sale-counter-double"
+      },
+      {
+        "id": "inherited-buy-default-zero", "area": "default-override",
+        "file": "src/box-v2/BoxHookV2.sol", "sha256": "84cef5f0d8701e4bf546cb754590f16a1195ad4ecc0ebcd4c47602b603c93f7a",
+        "before": "BeforeSwapDeltaLibrary.ZERO_DELTA, C.FEE_PIPS | C.FEE_OVERRIDE",
+        "after": "BeforeSwapDeltaLibrary.ZERO_DELTA, C.FEE_OVERRIDE",
+        "testFile": "test/box-v2/m2-62/M262Hook.t.sol", "contract": "M262Hook",
+        "requirement": "C3.3-5; C15.1-3",
+        "inherited": "buy-default-zero"
+      },
+      {
+        "id": "inherited-buy-default-no-flag", "area": "default-override",
+        "file": "src/box-v2/BoxHookV2.sol", "sha256": "84cef5f0d8701e4bf546cb754590f16a1195ad4ecc0ebcd4c47602b603c93f7a",
+        "before": "BeforeSwapDeltaLibrary.ZERO_DELTA, C.FEE_PIPS | C.FEE_OVERRIDE",
+        "after": "BeforeSwapDeltaLibrary.ZERO_DELTA, C.FEE_PIPS",
+        "testFile": "test/box-v2/m2-62/M262Hook.t.sol", "contract": "M262Hook",
+        "requirement": "C3.3-5; C15.1-3",
+        "inherited": "buy-default-no-flag"
+      },
+      {
+        "id": "inherited-split-divisor", "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "uint256 unit = total / 15;",
+        "after": "uint256 unit = total / 14;",
+        "testFile": "test/box-v2/m2-62/M262Split.t.sol", "contract": "M262Split",
+        "requirement": "C5.4; C15.4-7",
+        "inherited": "split-divisor"
+      },
+      {
+        "id": "inherited-split-carry-lost", "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "uint256 total = amount + (sourced ? 0 : _p[carry]);",
+        "after": "uint256 total = amount;",
+        "testFile": "test/box-v2/m2-62/M262Split.t.sol", "contract": "M262Split",
+        "requirement": "C5.4; C15.4-7",
+        "inherited": "split-carry-lost"
+      },
+      {
+        "id": "inherited-split-carry-shared", "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "sellers ? SELLERS_CARRY : BUYERS_CARRY",
+        "after": "BUYERS_CARRY",
+        "testFile": "test/box-v2/m2-62/M262Split.t.sol", "contract": "M262Split",
+        "requirement": "C5.4; C15.4-7",
+        "inherited": "split-carry-shared"
+      },
+      {
+        "id": "inherited-split-fit", "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "_p[FIT] += 2 * unit;",
+        "after": "_p[FIT] += unit;",
+        "testFile": "test/box-v2/m2-62/M262Split.t.sol", "contract": "M262Split",
+        "requirement": "C5.4; C15.4-7",
+        "inherited": "split-fit"
+      },
+      {
+        "id": "inherited-split-platform", "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "_p[PLATFORM] += unit;",
+        "after": "_p[PLATFORM] += 2 * unit;",
+        "testFile": "test/box-v2/m2-62/M262Split.t.sol", "contract": "M262Split",
+        "requirement": "C5.4; C15.4-7",
+        "inherited": "split-platform"
+      },
+      {
+        "id": "inherited-split-pool", "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "_p[POOL] += 2 * unit;",
+        "after": "_p[POOL] += unit;",
+        "testFile": "test/box-v2/m2-62/M262Split.t.sol", "contract": "M262Split",
+        "requirement": "C5.4; C15.4-7",
+        "inherited": "split-pool"
+      },
+      {
+        "id": "inherited-split-choice-crossed", "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "sellers ? A.SELLERS_CHOICE : A.BUYERS_CHOICE",
+        "after": "sellers ? A.BUYERS_CHOICE : A.SELLERS_CHOICE",
+        "testFile": "test/box-v2/m2-62/M262Split.t.sol", "contract": "M262Split",
+        "requirement": "C5.4; C15.4-7",
+        "inherited": "split-choice-crossed"
+      },
+      {
+        "id": "inherited-split-keep", "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "else _p[choice == 1 ? CREATOR : choice == 2 ? BUY_BACK : GROW] += 10 * unit;",
+        "after": "else _p[choice == 1 ? CREATOR : choice == 2 ? BUY_BACK : GROW] += (choice == 1 ? 9 : 10) * unit;",
+        "testFile": "test/box-v2/m2-62/M262Split.t.sol", "contract": "M262Split",
+        "requirement": "C5.4; C15.4-7",
+        "inherited": "split-keep"
+      },
+      {
+        "id": "inherited-split-burn", "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "else _p[choice == 1 ? CREATOR : choice == 2 ? BUY_BACK : GROW] += 10 * unit;",
+        "after": "else _p[choice == 1 ? CREATOR : choice == 2 ? BUY_BACK : GROW] += (choice == 2 ? 9 : 10) * unit;",
+        "testFile": "test/box-v2/m2-62/M262Split.t.sol", "contract": "M262Split",
+        "requirement": "C5.4; C15.4-7",
+        "inherited": "split-burn"
+      },
+      {
+        "id": "inherited-split-grow", "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "else _p[choice == 1 ? CREATOR : choice == 2 ? BUY_BACK : GROW] += 10 * unit;",
+        "after": "else _p[choice == 1 ? CREATOR : choice == 2 ? BUY_BACK : GROW] += (choice == 3 ? 9 : 10) * unit;",
+        "testFile": "test/box-v2/m2-62/M262Split.t.sol", "contract": "M262Split",
+        "requirement": "C5.4; C15.4-7",
+        "inherited": "split-grow"
+      },
+      {
+        "id": "inherited-claim-round-up", "area": "claim",
+        "file": "src/box-v2/libraries/CoordinatorViews.sol", "sha256": "66292bd03abadd47fe4ed509096e959858185436f12492958159e47e0e998706",
+        "before": "FullMath.mulDiv(pot, t, left)",
+        "after": "FullMath.mulDivRoundingUp(pot, t, left)",
+        "testFile": "test/box-v2/m2-62/M262Failure.t.sol", "contract": "M262Failure",
+        "requirement": "C11.3; C15.14",
+        "inherited": "claim-round-up"
+      },
+      {
+        "id": "inherited-claim-denominator", "area": "claim",
+        "file": "src/box-v2/libraries/CoordinatorViews.sol", "sha256": "66292bd03abadd47fe4ed509096e959858185436f12492958159e47e0e998706",
+        "before": "FullMath.mulDiv(pot, t, left)",
+        "after": "FullMath.mulDiv(pot, t, left + 1)",
+        "testFile": "test/box-v2/m2-62/M262Failure.t.sol", "contract": "M262Failure",
+        "requirement": "C11.3; C15.14",
+        "inherited": "claim-denominator"
+      },
+      {
+        "id": "inherited-claim-no-decrement", "area": "claim",
+        "file": "src/box-v2/BoxCoordinatorV2.sol", "sha256": "faafb9affcdf9210e709d0ad0725845de6c8dd47419a130e91a747da2f189494",
+        "before": "s.tLeft -= t;",
+        "after": "s.tLeft -= 0;",
+        "testFile": "test/box-v2/m2-62/M262Failure.t.sol", "contract": "M262Failure",
+        "requirement": "C11.3; C15.14",
+        "inherited": "claim-no-decrement"
+      },
+      {
+        "id": "inherited-claim-last-dust", "area": "claim",
+        "file": "src/box-v2/libraries/CoordinatorViews.sol", "sha256": "66292bd03abadd47fe4ed509096e959858185436f12492958159e47e0e998706",
+        "before": "t == left ? pot :",
+        "after": "t == left ? pot - 1 :",
+        "testFile": "test/box-v2/m2-62/M262Failure.t.sol", "contract": "M262Failure",
+        "requirement": "C11.3; C15.14",
+        "inherited": "claim-last-dust"
+      },
+      {
+        "id": "inherited-reserve-splits-principal", "area": "split",
+        "file": "src/box-v2/BoxCoordinatorV2.sol", "sha256": "faafb9affcdf9210e709d0ad0725845de6c8dd47419a130e91a747da2f189494",
+        "before": "_forwardFees(receiver_, reserve_);",
+        "after": "_forwardFees(receiver_, balance);",
+        "testFile": "test/box-v2/m2-62/M262Failure.t.sol", "contract": "M262Failure",
+        "requirement": "F122 R36D; C11.2.5",
+        "inherited": "reserve-splits-principal"
+      },
+      {
+        "id": "inherited-hatch-one-second-late", "area": "hatch",
+        "file": "src/box-v2/BoxCoordinatorV2.sol", "sha256": "faafb9affcdf9210e709d0ad0725845de6c8dd47419a130e91a747da2f189494",
+        "before": "if (block.timestamp < end) revert GraduationEscapeNotReached(end);",
+        "after": "if (block.timestamp <= end) revert GraduationEscapeNotReached(end);",
+        "testFile": "test/box-v2/m2-62/M262Failure.t.sol", "contract": "M262Failure",
+        "requirement": "F122 R36K; C15.20",
+        "inherited": "hatch-one-second-late"
+      },
+      {
+        "id": "inherited-hatch-one-second-early", "area": "hatch",
+        "file": "src/box-v2/BoxCoordinatorV2.sol", "sha256": "faafb9affcdf9210e709d0ad0725845de6c8dd47419a130e91a747da2f189494",
+        "before": "h.closedAt() + ReleaseConstantsV2.GRADUATION_ESCAPE_DELAY",
+        "after": "h.closedAt() + ReleaseConstantsV2.GRADUATION_ESCAPE_DELAY - 1",
+        "testFile": "test/box-v2/m2-62/M262Failure.t.sol", "contract": "M262Failure",
+        "requirement": "F122 R36K; C15.20",
+        "inherited": "hatch-one-second-early"
+      },
+      {
+        "id": "inherited-late-before-last",
+        "area": "late-money",
+        "file": "src/box-v2/BoxCoordinatorV2.sol",
+        "sha256": "faafb9affcdf9210e709d0ad0725845de6c8dd47419a130e91a747da2f189494",
+        "before": "if (t == 0 || t > left) revert InvalidClaim();",
+        "after": "if (t == 0 || t >= left) revert InvalidClaim();",
+        "testFile": "test/box-v2/m2-62/RC5Failure.t.sol",
+        "contract": "RC5ClaimsMutationTest",
+        "requirement": "RC5-A: late money stays with permanent holder claims and the fixed creator return",
+        "inherited": "late-before-last"
+      },
+      {
+        "id": "inherited-late-steals-creator",
+        "area": "late-money",
+        "file": "src/box-v2/BoxCoordinatorV2.sol",
+        "sha256": "faafb9affcdf9210e709d0ad0725845de6c8dd47419a130e91a747da2f189494",
+        "before": "p = s.creatorRemainder;",
+        "after": "p = _potBalance();",
+        "testFile": "test/box-v2/m2-62/RC5Failure.t.sol",
+        "contract": "RC5ClaimsMutationTest",
+        "requirement": "RC5-A: late money stays with permanent holder claims and the fixed creator return",
+        "inherited": "late-steals-creator"
+      },
+      {
+        "id": "inherited-late-wrong-payee",
+        "area": "late-money",
+        "file": "src/box-v2/BoxReceiverV2.sol",
+        "sha256": "93c9f067d4b05310be1224951b4dd137b4ac6ec2f72e2e2b1a227d16432bb7a0",
+        "before": "batch.buyersP = _toPot();",
+        "after": "batch.buyersP = _unbooked(); _p[FIT] += batch.buyersP;",
+        "testFile": "test/box-v2/m2-62/RC5Failure.t.sol",
+        "contract": "RC5ClaimsMutationTest",
+        "requirement": "RC5-A: late money stays with permanent holder claims and the fixed creator return",
+        "inherited": "late-wrong-payee"
+      },
+      {
+        "id": "inherited-raise-live-threshold", "area": "raise",
+        "file": "src/box-v2/BoxFactoryV2Planner.sol", "sha256": "b35507046055b51db00e399695481f2cef6df8692d0650c6275a48863bf94bd4",
+        "before": "return ListingRaises.parameters(raise);",
+        "after": "return ListingRaises.parameters(IListingRegistry(r.listingRegistry).listing(id).raise);",
+        "testFile": "test/box-v2/m2-62/M262Raise.t.sol", "contract": "M262Raise",
+        "requirement": "F123 R38B; C13; C15.22",
+        "inherited": "raise-live-threshold"
+      },
+      {
+        "id": "inherited-raise-wrong-snapshot", "area": "raise",
+        "file": "src/box-v2/BoxFactoryV2Planner.sol", "sha256": "b35507046055b51db00e399695481f2cef6df8692d0650c6275a48863bf94bd4",
+        "before": "raise: s.raise,",
+        "after": "raise: s.raise + 1,",
+        "testFile": "test/box-v2/m2-62/M262Raise.t.sol", "contract": "M262Raise",
+        "requirement": "F123 R38B; C13; C15.22",
+        "inherited": "raise-wrong-snapshot"
+      },
+      {
+        "id": "inherited-step-receiver-unmarked", "area": "step",
+        "file": "src/box-v2/BoxHookV2.sol", "sha256": "84cef5f0d8701e4bf546cb754590f16a1195ad4ecc0ebcd4c47602b603c93f7a",
+        "before": "_markProtocol();",
+        "after": "assert(true);",
+        "testFile": "test/box-v2/m2-62/M262Step.t.sol", "contract": "M262Step",
+        "requirement": "F118; C9; C15.9",
+        "inherited": "step-receiver-unmarked"
+      },
+      {
+        "id": "inherited-step-receiver-unchecked", "area": "step",
+        "file": "src/box-v2/BoxHookV2.sol", "sha256": "84cef5f0d8701e4bf546cb754590f16a1195ad4ecc0ebcd4c47602b603c93f7a",
+        "before": "if ((w >> _O_PROTOCOL) & _M40 == block.number) revert ProtocolStepTaken();",
+        "after": "if (false) revert ProtocolStepTaken();",
+        "testFile": "test/box-v2/m2-62/M262Step.t.sol", "contract": "M262Step",
+        "requirement": "F118; C9; C15.9",
+        "inherited": "step-receiver-unchecked"
+      },
+      {
+        "id": "inherited-step-deepen-unmarked", "area": "step",
+        "file": "src/box-v2/BoxHookV2Extension.sol", "sha256": "1afa3aad5186484cf3062ecd95f6e4043e9e7356dea8f6ff3dcc3ea0b434a960",
+        "before": "_markProtocol();",
+        "after": "assert(true);",
+        "testFile": "test/box-v2/m2-62/M262Step.t.sol", "contract": "M262Step",
+        "requirement": "F118; C9; C15.9",
+        "inherited": "step-deepen-unmarked"
+      },
+      {
+        "id": "inherited-step-deepen-unchecked", "area": "step",
+        "file": "src/box-v2/BoxHookV2Extension.sol", "sha256": "1afa3aad5186484cf3062ecd95f6e4043e9e7356dea8f6ff3dcc3ea0b434a960",
+        "before": "if ((w >> _O_PROTOCOL) & _M40 == block.number) skip = ProtocolSkip.StepTaken;",
+        "after": "if (false) skip = ProtocolSkip.StepTaken;",
+        "testFile": "test/box-v2/m2-62/M262Step.t.sol", "contract": "M262Step",
+        "requirement": "F118; C9; C15.9",
+        "inherited": "step-deepen-unchecked"
+      },
+      {
+        "id": "inherited-step-wrong-block", "area": "step",
+        "file": "src/box-v2/BoxHookV2Base.sol", "sha256": "1129c3fc1316c48cb7528ec424f467787c3aecb447d1c79b2ba5792d3ad38a50",
+        "before": "(block.number << _O_PROTOCOL)",
+        "after": "((block.number - 1) << _O_PROTOCOL)",
+        "testFile": "test/box-v2/m2-62/M262Step.t.sol", "contract": "M262Step",
+        "requirement": "F118; C9; C15.9",
+        "inherited": "step-wrong-block"
+      },
+      {
+        "id": "inherited-late-one-holder-left",
+        "area": "late-money",
+        "file": "src/box-v2/BoxCoordinatorV2.sol",
+        "sha256": "faafb9affcdf9210e709d0ad0725845de6c8dd47419a130e91a747da2f189494",
+        "before": "if (t == 0 || t > left) revert InvalidClaim();",
+        "after": "if (t == 0 || t > left || left == 1) revert InvalidClaim();",
+        "testFile": "test/box-v2/m2-62/RC5Failure.t.sol",
+        "contract": "RC5ClaimsMutationTest",
+        "requirement": "RC5-A: late money stays with permanent holder claims and the fixed creator return",
+        "inherited": "late-one-holder-left"
+      },
+      {
+        "id": "holder-no-hook-auth", "area": "holder",
+        "file": "src/box-v2/HolderLedgerV2.sol", "sha256": "52bd4ea76e7faf628e746e18fb3a98ba11a028445757c4903f06cd87d3be7b50",
+        "before": "if (msg.sender != Args.addressAt(40)) revert Unauthorized(msg.sender);",
+        "after": "if (false) revert Unauthorized(msg.sender);",
+        "testFile": "test/box-v2/m2-62/M262Holder.t.sol", "contract": "M262Holder",
+        "requirement": "M200-B1/B2/B3/C1; F127"
+      },
+      {
+        "id": "holder-wrong-side", "area": "holder",
+        "file": "src/box-v2/HolderLedgerV2.sol", "sha256": "52bd4ea76e7faf628e746e18fb3a98ba11a028445757c4903f06cd87d3be7b50",
+        "before": "(id % 2 == 1) != buy",
+        "after": "false",
+        "testFile": "test/box-v2/m2-62/Gaps.t.sol", "contract": "M262HolderGaps",
+        "requirement": "M200-B1/B2/B3/C1; F127"
+      },
+      {
+        "id": "holder-gross-funding", "area": "holder",
+        "file": "src/box-v2/HolderLedgerV2.sol", "sha256": "52bd4ea76e7faf628e746e18fb3a98ba11a028445757c4903f06cd87d3be7b50",
+        "before": "uint256 funding = _receiver().holderBatchPaid(id);",
+        "after": "uint256 funding = source.netP;",
+        "testFile": "test/box-v2/m2-62/M262Holder.t.sol", "contract": "M262Holder",
+        "requirement": "M200-B1/B2/B3/C1; F127"
+      },
+      {
+        "id": "holder-drops-protocol", "area": "holder",
+        "file": "src/box-v2/HolderLedgerV2.sol", "sha256": "52bd4ea76e7faf628e746e18fb3a98ba11a028445757c4903f06cd87d3be7b50",
+        "before": "source.tradeUnits + source.protocolUnits",
+        "after": "source.tradeUnits",
+        "testFile": "test/box-v2/m2-62/M262Holder.t.sol", "contract": "M262Holder",
+        "requirement": "M200-B1/B2/B3/C1; F127"
+      },
+      {
+        "id": "holder-current-balance", "area": "holder",
+        "file": "src/box-v2/HolderLedgerV2.sol", "sha256": "52bd4ea76e7faf628e746e18fb3a98ba11a028445757c4903f06cd87d3be7b50",
+        "before": "eligibleBalanceAt(holder, n.checkpoint)",
+        "after": "eligibleBalanceAt(holder, _token().holderCheckpoint())",
+        "testFile": "test/box-v2/m2-62/M262Holder.t.sol", "contract": "M262Holder",
+        "requirement": "M200-B1/B2/B3/C1; F127"
+      },
+      {
+        "id": "holder-rounds-up", "area": "holder",
+        "file": "src/box-v2/HolderLedgerV2.sol", "sha256": "52bd4ea76e7faf628e746e18fb3a98ba11a028445757c4903f06cd87d3be7b50",
+        "before": "FullMath.mulDiv(funding, b.units, denominator)",
+        "after": "FullMath.mulDivRoundingUp(funding, b.units, denominator)",
+        "testFile": "test/box-v2/m2-62/M262Holder.t.sol", "contract": "M262Holder",
+        "requirement": "M200-B1/B2/B3/C1; F127"
+      },
+      {
+        "id": "holder-replay-claim", "area": "holder",
+        "file": "src/box-v2/HolderLedgerV2.sol", "sha256": "52bd4ea76e7faf628e746e18fb3a98ba11a028445757c4903f06cd87d3be7b50",
+        "before": "_credit[id][holder] = 0;",
+        "after": "_credit[id][holder] = amount;",
+        "testFile": "test/box-v2/m2-62/M262Holder.t.sol", "contract": "M262Holder",
+        "requirement": "M200-B1/B2/B3/C1; F127"
+      },
+      {
+        "id": "holder-premature-credit", "area": "holder",
+        "file": "src/box-v2/HolderLedgerV2.sol", "sha256": "52bd4ea76e7faf628e746e18fb3a98ba11a028445757c4903f06cd87d3be7b50",
+        "before": "return _batches[id].complete ? _credit[id][holder] : 0;",
+        "after": "return _credit[id][holder];",
+        "testFile": "test/box-v2/m2-62/Gaps.t.sol", "contract": "M262HolderGaps",
+        "requirement": "M200-B1/B2/B3/C1; F127"
+      },
+      {
+        "id": "holder-residue-replay", "area": "holder",
+        "file": "src/box-v2/HolderLedgerV2.sol", "sha256": "52bd4ea76e7faf628e746e18fb3a98ba11a028445757c4903f06cd87d3be7b50",
+        "before": "amountP = b.residue; b.residue = 0;",
+        "after": "amountP = b.residue;",
+        "testFile": "test/box-v2/m2-62/Gaps.t.sol", "contract": "M262HolderGaps",
+        "requirement": "M200-B1/B2/B3/C1; F127"
+      },
+      {
+        "id": "token-system-eligible", "area": "token-history",
+        "file": "src/box-v2/BoxTokenV2Ledger.sol", "sha256": "69f42f3605ac14dac5fb2dffe790ba2ff3d09271ba2ce353126d3660777dc55e",
+        "before": "for (uint256 i; i < 24; ++i) _status[c.roleAddress(i)] = 3;",
+        "after": "for (uint256 i; i < 0; ++i) _status[c.roleAddress(i)] = 3;",
+        "testFile": "test/box-v2/m2-62/M262Token.t.sol", "contract": "M262Token",
+        "requirement": "M200-N1; BC-056; M2 money 1/5"
+      },
+      {
+        "id": "token-contract-eligible", "area": "token-history",
+        "file": "src/box-v2/BoxTokenV2Ledger.sol", "sha256": "69f42f3605ac14dac5fb2dffe790ba2ff3d09271ba2ce353126d3660777dc55e",
+        "before": "if (size == 0 || (size == 23 && prefix == hex\"ef0100\"))",
+        "after": "if (true)",
+        "testFile": "test/box-v2/m2-62/M262Token.t.sol", "contract": "M262Token",
+        "requirement": "M200-N1; BC-056; M2 money 1/5"
+      },
+      {
+        "id": "token-registration-backdates", "area": "token-history",
+        "file": "src/box-v2/BoxTokenV2Ledger.sol", "sha256": "69f42f3605ac14dac5fb2dffe790ba2ff3d09271ba2ce353126d3660777dc55e",
+        "before": "uint256 supply = _currentEligibleSupply() + balanceOf[holder];\n        ++holderCheckpoint;",
+        "after": "uint256 supply = _currentEligibleSupply() + balanceOf[holder];",
+        "testFile": "test/box-v2/m2-62/M262Token.t.sol", "contract": "M262Token",
+        "requirement": "M200-N1; BC-056; M2 money 1/5"
+      },
+      {
+        "id": "token-missed-sender-history", "area": "token-history",
+        "file": "src/box-v2/BoxTokenV2Ledger.sol", "sha256": "69f42f3605ac14dac5fb2dffe790ba2ff3d09271ba2ce353126d3660777dc55e",
+        "before": "_write(from);",
+        "after": "// mutant: omit sender history",
+        "testFile": "test/box-v2/m2-62/M262Token.t.sol", "contract": "M262Token",
+        "requirement": "M200-N1; BC-056; M2 money 1/5"
+      },
+      {
+        "id": "token-hint-bubbles", "area": "token-history",
+        "file": "src/box-v2/BoxTokenV2Ledger.sol", "sha256": "69f42f3605ac14dac5fb2dffe790ba2ff3d09271ba2ce353126d3660777dc55e",
+        "before": "pop(call(cap, l, 0, add(data, 32), mload(data), 0, 0))",
+        "after": "if iszero(call(cap, l, 0, add(data, 32), mload(data), 0, 0)) { revert(0, 0) }",
+        "testFile": "test/box-v2/m2-62/M262Token.t.sol", "contract": "M262Token",
+        "requirement": "M200-N1; BC-056; M2 money 1/5"
+      },
+      {
+        "id": "notice-wrong-batch", "area": "hook-notice",
+        "file": "src/box-v2/BoxHookV2Base.sol", "sha256": "1129c3fc1316c48cb7528ec424f467787c3aecb447d1c79b2ba5792d3ad38a50",
+        "before": "return 2 * _batchPair + (buy ? 1 : 2);",
+        "after": "return 2 * _batchPair + (buy ? 2 : 1);",
+        "testFile": "test/box-v2/m2-62/M262Notice.t.sol", "contract": "M262Notice",
+        "requirement": "M200-B1/N1; C10"
+      },
+      {
+        "id": "notice-loses-skipped-units", "area": "hook-notice",
+        "file": "src/box-v2/BoxHookV2Base.sol", "sha256": "1129c3fc1316c48cb7528ec424f467787c3aecb447d1c79b2ba5792d3ad38a50",
+        "before": "b.tradeUnits += units;",
+        "after": "b.tradeUnits += 0;",
+        "testFile": "test/box-v2/m2-62/M262Notice.t.sol", "contract": "M262Notice",
+        "requirement": "M200-B1/N1; C10"
+      },
+      {
+        "id": "notice-credits-protocol", "area": "hook-notice",
+        "file": "src/box-v2/BoxHookV2Base.sol", "sha256": "1129c3fc1316c48cb7528ec424f467787c3aecb447d1c79b2ba5792d3ad38a50",
+        "before": "if (sender == _argAddress(A.RECEIVER) || bootstrap) { b.protocolUnits += units; return; }",
+        "after": "if (false) { b.protocolUnits += units; return; }",
+        "testFile": "test/box-v2/m2-62/M262Notice.t.sol", "contract": "M262Notice",
+        "requirement": "M200-B1/N1; C10"
+      },
+      {
+        "id": "notice-bubbles", "area": "hook-notice",
+        "file": "src/box-v2/BoxHookV2Base.sol", "sha256": "1129c3fc1316c48cb7528ec424f467787c3aecb447d1c79b2ba5792d3ad38a50",
+        "before": "pop(call(cap, ledger, 0, add(data, 32), mload(data), 0, 0))",
+        "after": "if iszero(call(cap, ledger, 0, add(data, 32), mload(data), 0, 0)) { revert(0, 0) }",
+        "testFile": "test/box-v2/m2-62/M262Notice.t.sol", "contract": "M262Notice",
+        "requirement": "M200-B1/N1; C10"
+      },
+      {
+        "id": "notice-gross-d6", "area": "hook-notice",
+        "file": "src/box-v2/BoxHookV2Base.sol", "sha256": "1129c3fc1316c48cb7528ec424f467787c3aecb447d1c79b2ba5792d3ad38a50",
+        "before": "_tradeBatches[_batchId(true)].netP += fees - reserve;",
+        "after": "_tradeBatches[_batchId(true)].netP += fees;",
+        "testFile": "test/box-v2/m2-62/M262Notice.t.sol", "contract": "M262Notice",
+        "requirement": "M200-B1/N1; C10"
+      },
+      {
+        "id": "funding-gross", "area": "receiver-funding",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "funding = 10 * unit;",
+        "after": "funding = amount;",
+        "testFile": "test/box-v2/m2-62/M262Funding.t.sol", "contract": "M262Funding",
+        "requirement": "M200-B2/B3; C10; F109 R24E"
+      },
+      {
+        "id": "funding-borrow-next", "area": "receiver-funding",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "uint256 backed = available > remaining ? available - remaining : 0;",
+        "after": "uint256 backed = available;",
+        "testFile": "test/box-v2/m2-62/M262Funding.t.sol", "contract": "M262Funding",
+        "requirement": "M200-B2/B3; C10; F109 R24E"
+      },
+      {
+        "id": "funding-spends-debt", "area": "receiver-funding",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "uint256 available = _unbooked();",
+        "after": "uint256 available = _claimBalance();",
+        "testFile": "test/box-v2/m2-62/M262Funding.t.sol", "contract": "M262Funding",
+        "requirement": "M200-B2/B3; C10; F109 R24E"
+      },
+      {
+        "id": "funding-ignores-tip", "area": "receiver-funding",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "backed -= tip;",
+        "after": "backed -= 0;",
+        "testFile": "test/box-v2/m2-62/M262Funding.t.sol", "contract": "M262Funding",
+        "requirement": "M200-B2/B3; C10; F109 R24E"
+      },
+      {
+        "id": "funding-reopens-batch", "area": "receiver-funding",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "unchecked { _lastHolderBatch += count; }",
+        "after": "unchecked { _lastHolderBatch += 0; }",
+        "testFile": "test/box-v2/m2-62/M262Funding.t.sol", "contract": "M262Funding",
+        "requirement": "M200-B2/B3; C10; F109 R24E"
+      },
+      {
+        "id": "funding-merges-carry", "area": "receiver-funding",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "if (!sourced) _p[carry] = dust;",
+        "after": "if (true) _p[carry] = dust;",
+        "testFile": "test/box-v2/m2-62/M262Funding.t.sol", "contract": "M262Funding",
+        "requirement": "M200-B2/B3; C10; F109 R24E"
+      },
+      {
+        "id": "funding-wrong-id", "area": "receiver-funding",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "if (id != 0 && A.addressAt(A.HOLDER_LEDGER) != address(0)) _recordHolderBatch(id, funding);",
+        "after": "if (id != 0 && A.addressAt(A.HOLDER_LEDGER) != address(0)) _recordHolderBatch(id + 1, funding);",
+        "testFile": "test/box-v2/m2-62/M262Funding.t.sol", "contract": "M262Funding",
+        "requirement": "M200-B2/B3; C10; F109 R24E"
+      },
+      {
+        "id": "funding-calls-ledger", "area": "receiver-funding",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "_moveClaims(A.addressAt(A.HOLDER_LEDGER), netP);",
+        "after": "_moveClaims(A.addressAt(A.HOLDER_LEDGER), netP);\n        (bool ok,) = A.addressAt(A.HOLDER_LEDGER).call(abi.encodeWithSignature(\"onFunding(uint256)\", netP)); require(ok);",
+        "testFile": "test/box-v2/m2-62/M262Funding.t.sol", "contract": "M262Funding",
+        "requirement": "M200-B2/B3; C10; F109 R24E"
+      },
+      {
+        "id": "shop-weekly-unbounded", "area": "shop",
+        "file": "src/box-v2/ShopVaultV2.sol", "sha256": "28228219c8e69468ae0f02e9e5a5349c2de15202adc7e24e241f51780b8c96f9",
+        "before": "_spent + paidT > FullMath.mulDiv(_snapshot, _weeklyBps, 10000)",
+        "after": "false",
+        "testFile": "test/box-v2/m2-62/M262Shop.t.sol", "contract": "M262Shop",
+        "requirement": "M200-S1; BC-185/195/198; M2 money 7"
+      },
+      {
+        "id": "shop-collection-unbounded", "area": "shop",
+        "file": "src/box-v2/ShopVaultV2.sol", "sha256": "28228219c8e69468ae0f02e9e5a5349c2de15202adc7e24e241f51780b8c96f9",
+        "before": "e.spent + paidT > FullMath.mulDiv(_snapshot, _collectionBps, 10000)",
+        "after": "false",
+        "testFile": "test/box-v2/m2-62/M262Shop.t.sol", "contract": "M262Shop",
+        "requirement": "M200-S1; BC-185/195/198; M2 money 7"
+      },
+      {
+        "id": "shop-last-item", "area": "shop",
+        "file": "src/box-v2/ShopVaultV2.sol", "sha256": "28228219c8e69468ae0f02e9e5a5349c2de15202adc7e24e241f51780b8c96f9",
+        "before": "_inside <= 1",
+        "after": "_inside < 1",
+        "testFile": "test/box-v2/m2-62/M262Shop.t.sol", "contract": "M262Shop",
+        "requirement": "M200-S1; BC-185/195/198; M2 money 7"
+      },
+      {
+        "id": "shop-spend-not-debited", "area": "shop",
+        "file": "src/box-v2/ShopVaultV2.sol", "sha256": "28228219c8e69468ae0f02e9e5a5349c2de15202adc7e24e241f51780b8c96f9",
+        "before": "_budget -= paidT;",
+        "after": "_budget -= 0;",
+        "testFile": "test/box-v2/m2-62/Gaps.t.sol", "contract": "M262ShopGaps",
+        "requirement": "M200-S1; BC-185/195/198; M2 money 7",
+        "survivorExplanation": "For admitted bounded histories, only seed and picks add liquid T; gives subtract it. T refuses direct vault sends and PM claims are not live budget. budgetT=min(liquid,_budget) therefore masks the missing private debit. This is a scoped explanation, not proof for unbounded accumulated turnover or approval to remove the production debit.",
+        "survivorEvidence": "docs/evidence/SH-V2-M2-62.md"
+      },
+      {
+        "id": "shop-receipt-expands-week", "area": "shop",
+        "file": "src/box-v2/ShopVaultV2.sol", "sha256": "28228219c8e69468ae0f02e9e5a5349c2de15202adc7e24e241f51780b8c96f9",
+        "before": "_held[key] = false; _changeCount(false); _budget += paidT;",
+        "after": "_held[key] = false; _changeCount(false); _budget += paidT; _snapshot += paidT;",
+        "testFile": "test/box-v2/m2-62/Gaps.t.sol", "contract": "M262ShopGaps",
+        "requirement": "M200-S1; BC-185/195/198; M2 money 7"
+      },
+      {
+        "id": "shop-no-pick-payment", "area": "shop",
+        "file": "src/box-v2/ShopVaultV2.sol", "sha256": "28228219c8e69468ae0f02e9e5a5349c2de15202adc7e24e241f51780b8c96f9",
+        "before": "_pullT(msg.sender, paidT); _sendItem(collection, id, to);",
+        "after": "_sendItem(collection, id, to);",
+        "testFile": "test/box-v2/m2-62/M262Shop.t.sol", "contract": "M262Shop",
+        "requirement": "M200-S1; BC-185/195/198; M2 money 7"
+      },
+      {
+        "id": "starter-no-seed", "area": "starter",
+        "file": "src/box-v2/StarterSetLoaderV2.sol", "sha256": "a5063ee40f8ea69291ba6a838cf86176ac2807fef58a4c33d348e90123b2ea6d",
+        "before": "|| !IShopVaultV2(_argAddress(20)).seedReady()",
+        "after": "|| false",
+        "testFile": "test/box-v2/m2-62/M262Starter.t.sol", "contract": "M262Starter",
+        "requirement": "M200-G1; BC-192; M2 money 8"
+      },
+      {
+        "id": "starter-no-hash", "area": "starter",
+        "file": "src/box-v2/StarterSetLoaderV2.sol", "sha256": "a5063ee40f8ea69291ba6a838cf86176ac2807fef58a4c33d348e90123b2ea6d",
+        "before": "if (hash != _remainingHash()) revert InvalidRequest();",
+        "after": "if (false) revert InvalidRequest();",
+        "testFile": "test/box-v2/m2-62/M262Starter.t.sol", "contract": "M262Starter",
+        "requirement": "M200-G1; BC-192; M2 money 8"
+      },
+      {
+        "id": "starter-incomplete", "area": "starter",
+        "file": "src/box-v2/StarterSetLoaderV2.sol", "sha256": "a5063ee40f8ea69291ba6a838cf86176ac2807fef58a4c33d348e90123b2ea6d",
+        "before": "if (_loaded != _argUint(72, 4) || _remainingHash() != bytes32(0)",
+        "after": "if (false",
+        "testFile": "test/box-v2/m2-62/M262Starter.t.sol", "contract": "M262Starter",
+        "requirement": "M200-G1; BC-192; M2 money 8"
+      },
+      {
+        "id": "starter-no-creator", "area": "starter",
+        "file": "src/box-v2/StarterSetLoaderV2.sol", "sha256": "a5063ee40f8ea69291ba6a838cf86176ac2807fef58a4c33d348e90123b2ea6d",
+        "before": "if (msg.sender != c.creator()) revert Unauthorized(msg.sender);",
+        "after": "if (false) revert Unauthorized(msg.sender);",
+        "testFile": "test/box-v2/m2-62/M262Starter.t.sol", "contract": "M262Starter",
+        "requirement": "M200-G1; BC-192; M2 money 8"
+      },
+      {
+        "id": "failure-omits-shop", "area": "failure-h",
+        "file": "src/box-v2/libraries/CoordinatorFailure.sol", "sha256": "ff1ddff61f8103dec745f5acbc970d9fd8d13a0efbe1a57836f4b95ac1d9aad7",
+        "before": "held += _heldT(pm, t, vault, id);",
+        "after": "held += 0;",
+        "testFile": "test/box-v2/m2-62/M262Custody.t.sol", "contract": "M262Custody",
+        "requirement": "M200-S1; M2 money 9; R40A"
+      },
+      {
+        "id": "failure-omits-claims", "area": "failure-h",
+        "file": "src/box-v2/libraries/CoordinatorFailure.sol", "sha256": "ff1ddff61f8103dec745f5acbc970d9fd8d13a0efbe1a57836f4b95ac1d9aad7",
+        "before": "return t.balanceOf(owner) + pm.balanceOf(owner, id);",
+        "after": "return t.balanceOf(owner);",
+        "testFile": "test/box-v2/m2-62/M262Custody.t.sol", "contract": "M262Custody",
+        "requirement": "C11; M200-S1; R40A"
+      },
+      {
+        "id": "failure-double-shop", "area": "failure-h",
+        "file": "src/box-v2/libraries/CoordinatorFailure.sol", "sha256": "ff1ddff61f8103dec745f5acbc970d9fd8d13a0efbe1a57836f4b95ac1d9aad7",
+        "before": "held += _heldT(pm, t, vault, id);",
+        "after": "held += 2 * _heldT(pm, t, vault, id);",
+        "testFile": "test/box-v2/m2-62/M262Custody.t.sol", "contract": "M262Custody",
+        "requirement": "C11; M200-S1; R40A"
+      },
+      {
+        "id": "rc5-expiry",
+        "area": "permanent-failure-claims",
+        "file": "src/box-v2/BoxCoordinatorV2.sol",
+        "sha256": "faafb9affcdf9210e709d0ad0725845de6c8dd47419a130e91a747da2f189494",
+        "before": "if (s.cause == FailCause.None) revert NotFailed();",
+        "after": "if (s.cause == FailCause.None || block.timestamp >= uint256(s.failedAt) + 365 days) revert NotFailed();",
+        "testFile": "test/box-v2/m2-62/RC5Failure.t.sol",
+        "contract": "RC5ClaimsMutationTest",
+        "requirement": "SH-RC5-A-FAILED-BOX; founder 2026-10-15 overrides R40A"
+      },
+      {
+        "id": "rc5-late-collect-fit",
+        "area": "permanent-failure-claims",
+        "file": "src/box-v2/BoxReceiverV2.sol",
+        "sha256": "93c9f067d4b05310be1224951b4dd137b4ac6ec2f72e2e2b1a227d16432bb7a0",
+        "before": "batch.buyersP = _toPot();",
+        "after": "batch.buyersP = _unbooked(); _p[FIT] += batch.buyersP;",
+        "testFile": "test/box-v2/m2-62/RC5Failure.t.sol",
+        "contract": "RC5ClaimsMutationTest",
+        "requirement": "SH-RC5-A-FAILED-BOX; founder 2026-10-15 overrides R40A"
+      },
+      {
+        "id": "rc5-grow-fit",
+        "area": "permanent-failure-claims",
+        "file": "src/box-v2/libraries/ReceiverBooksV21.sol",
+        "sha256": "0bdbae2fe0f662cd097b610538680eb66c0f201469470f8b1db9fff50943ab17",
+        "before": "_routePot(st, pm, GROW, HeldKind.DEPTH_BRANCH);",
+        "after": "st._p[FIT] += st._p[GROW]; st._p[GROW] = 0;",
+        "testFile": "test/box-v2/m2-62/RC5Failure.t.sol",
+        "contract": "RC5RoutingMutationTest",
+        "requirement": "SH-RC5-A-FAILED-BOX; founder 2026-10-15 overrides R40A"
+      },
+      {
+        "id": "rc5-carry-fit",
+        "area": "permanent-failure-claims",
+        "file": "src/box-v2/libraries/ReceiverBooksV21.sol",
+        "sha256": "0bdbae2fe0f662cd097b610538680eb66c0f201469470f8b1db9fff50943ab17",
+        "before": "_routePot(st, pm, BUYERS_CARRY, HeldKind.SIDE_CARRY);",
+        "after": "st._p[FIT] += st._p[BUYERS_CARRY]; st._p[BUYERS_CARRY] = 0;",
+        "testFile": "test/box-v2/m2-62/RC5Failure.t.sol",
+        "contract": "RC5RoutingMutationTest",
+        "requirement": "SH-RC5-A-FAILED-BOX; founder 2026-10-15 overrides R40A"
+      },
+      {
+        "id": "failure-live-count", "area": "year-sweep",
+        "file": "src/box-v2/BoxCoordinatorV2.sol", "sha256": "faafb9affcdf9210e709d0ad0725845de6c8dd47419a130e91a747da2f189494",
+        "before": "if (t == 0 || t > left) revert InvalidClaim();",
+        "after": "left = IBoxToken(token()).totalSupply();\n        if (t == 0 || t > left) revert InvalidClaim();",
+        "testFile": "test/box-v2/m2-62/M262Sweep.t.sol", "contract": "M262Sweep",
+        "requirement": "R40A fixed count; C11"
+      },
+      {
+        "id": "token-uncapped-hint", "area": "token-history",
+        "file": "src/box-v2/BoxTokenV2Ledger.sol", "sha256": "69f42f3605ac14dac5fb2dffe790ba2ff3d09271ba2ce353126d3660777dc55e",
+        "before": "pop(call(cap, l, 0, add(data, 32), mload(data), 0, 0))",
+        "after": "pop(call(gas(), l, 0, add(data, 32), mload(data), 0, 0))",
+        "testFile": "test/box-v2/m2-62/M262Token.t.sol", "contract": "M262Token",
+        "requirement": "M200-B1; TOKEN_SETTLEMENT_GAS"
+      },
+      {
+        "id": "notice-uncapped-call", "area": "hook-notice",
+        "file": "src/box-v2/BoxHookV2Base.sol", "sha256": "1129c3fc1316c48cb7528ec424f467787c3aecb447d1c79b2ba5792d3ad38a50",
+        "before": "pop(call(cap, ledger, 0, add(data, 32), mload(data), 0, 0))",
+        "after": "pop(call(gas(), ledger, 0, add(data, 32), mload(data), 0, 0))",
+        "testFile": "test/box-v2/m2-62/M262Notice.t.sol", "contract": "M262Notice",
+        "requirement": "M200-B1/B2; HOLDER_NOTICE_GAS"
+      }
+    ]
+  },
+  "m3": {
+    "forge": "1.8.3",
+    "description": "M3-62 directed production faults and every inherited M2 fault on M3 money files; default Cancun and Amsterdam; no invalid run counts as a kill.",
+    "mutants": [
+      {
+        "id": "m2-inherited-split-divisor", "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "uint256 unit = total / 15;",
+        "after": "uint256 unit = total / 14;",
+        "testFile": "test/box-v2/m3-62/M362Split.t.sol", "contract": "M362Split",
+        "requirement": "C5.4; C15.4-7", "inherited": "inherited-split-divisor"
+      },
+      {
+        "id": "m2-inherited-split-carry-lost", "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "uint256 total = amount + (sourced ? 0 : _p[carry]);",
+        "after": "uint256 total = amount;",
+        "testFile": "test/box-v2/m3-62/M362Split.t.sol", "contract": "M362Split",
+        "requirement": "C5.4; C15.4-7", "inherited": "inherited-split-carry-lost"
+      },
+      {
+        "id": "m2-inherited-split-carry-shared", "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "sellers ? SELLERS_CARRY : BUYERS_CARRY",
+        "after": "BUYERS_CARRY",
+        "testFile": "test/box-v2/m3-62/M362Split.t.sol", "contract": "M362Split",
+        "requirement": "C5.4; C15.4-7", "inherited": "inherited-split-carry-shared"
+      },
+      {
+        "id": "m2-inherited-split-fit", "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "_p[FIT] += 2 * unit;",
+        "after": "_p[FIT] += unit;",
+        "testFile": "test/box-v2/m3-62/M362Split.t.sol", "contract": "M362Split",
+        "requirement": "C5.4; C15.4-7", "inherited": "inherited-split-fit"
+      },
+      {
+        "id": "m2-inherited-split-platform", "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "_p[PLATFORM] += unit;",
+        "after": "_p[PLATFORM] += 2 * unit;",
+        "testFile": "test/box-v2/m3-62/M362Split.t.sol", "contract": "M362Split",
+        "requirement": "C5.4; C15.4-7", "inherited": "inherited-split-platform"
+      },
+      {
+        "id": "m2-inherited-split-pool", "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "_p[POOL] += 2 * unit;",
+        "after": "_p[POOL] += unit;",
+        "testFile": "test/box-v2/m3-62/M362Split.t.sol", "contract": "M362Split",
+        "requirement": "C5.4; C15.4-7", "inherited": "inherited-split-pool"
+      },
+      {
+        "id": "m2-inherited-split-choice-crossed", "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "sellers ? A.SELLERS_CHOICE : A.BUYERS_CHOICE",
+        "after": "sellers ? A.BUYERS_CHOICE : A.SELLERS_CHOICE",
+        "testFile": "test/box-v2/m3-62/M362Split.t.sol", "contract": "M362Split",
+        "requirement": "C5.4; C15.4-7", "inherited": "inherited-split-choice-crossed"
+      },
+      {
+        "id": "m2-inherited-split-keep", "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "else _p[choice == 1 ? CREATOR : choice == 2 ? BUY_BACK : GROW] += 10 * unit;",
+        "after": "else _p[choice == 1 ? CREATOR : choice == 2 ? BUY_BACK : GROW] += (choice == 1 ? 9 : 10) * unit;",
+        "testFile": "test/box-v2/m3-62/M362Split.t.sol", "contract": "M362Split",
+        "requirement": "C5.4; C15.4-7", "inherited": "inherited-split-keep"
+      },
+      {
+        "id": "m2-inherited-split-burn", "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "else _p[choice == 1 ? CREATOR : choice == 2 ? BUY_BACK : GROW] += 10 * unit;",
+        "after": "else _p[choice == 1 ? CREATOR : choice == 2 ? BUY_BACK : GROW] += (choice == 2 ? 9 : 10) * unit;",
+        "testFile": "test/box-v2/m3-62/M362Split.t.sol", "contract": "M362Split",
+        "requirement": "C5.4; C15.4-7", "inherited": "inherited-split-burn"
+      },
+      {
+        "id": "m2-inherited-split-grow", "area": "split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "else _p[choice == 1 ? CREATOR : choice == 2 ? BUY_BACK : GROW] += 10 * unit;",
+        "after": "else _p[choice == 1 ? CREATOR : choice == 2 ? BUY_BACK : GROW] += (choice == 3 ? 9 : 10) * unit;",
+        "testFile": "test/box-v2/m3-62/M362Split.t.sol", "contract": "M362Split",
+        "requirement": "C5.4; C15.4-7", "inherited": "inherited-split-grow"
+      },
+      {
+        "id": "m2-inherited-claim-round-up", "area": "claim",
+        "file": "src/box-v2/libraries/CoordinatorViews.sol", "sha256": "66292bd03abadd47fe4ed509096e959858185436f12492958159e47e0e998706",
+        "before": "FullMath.mulDiv(pot, t, left)",
+        "after": "FullMath.mulDivRoundingUp(pot, t, left)",
+        "testFile": "test/box-v2/m3-62/M362Failure.t.sol", "contract": "M362Failure",
+        "requirement": "C11.3; C15.14", "inherited": "inherited-claim-round-up"
+      },
+      {
+        "id": "m2-inherited-claim-denominator", "area": "claim",
+        "file": "src/box-v2/libraries/CoordinatorViews.sol", "sha256": "66292bd03abadd47fe4ed509096e959858185436f12492958159e47e0e998706",
+        "before": "FullMath.mulDiv(pot, t, left)",
+        "after": "FullMath.mulDiv(pot, t, left + 1)",
+        "testFile": "test/box-v2/m3-62/M362Failure.t.sol", "contract": "M362Failure",
+        "requirement": "C11.3; C15.14", "inherited": "inherited-claim-denominator"
+      },
+      {
+        "id": "m2-inherited-claim-no-decrement", "area": "claim",
+        "file": "src/box-v2/BoxCoordinatorV2.sol", "sha256": "faafb9affcdf9210e709d0ad0725845de6c8dd47419a130e91a747da2f189494",
+        "before": "s.tLeft -= t;",
+        "after": "s.tLeft -= 0;",
+        "testFile": "test/box-v2/m3-62/M362Failure.t.sol", "contract": "M362Failure",
+        "requirement": "C11.3; C15.14", "inherited": "inherited-claim-no-decrement"
+      },
+      {
+        "id": "m2-inherited-claim-last-dust", "area": "claim",
+        "file": "src/box-v2/libraries/CoordinatorViews.sol", "sha256": "66292bd03abadd47fe4ed509096e959858185436f12492958159e47e0e998706",
+        "before": "t == left ? pot :",
+        "after": "t == left ? pot - 1 :",
+        "testFile": "test/box-v2/m3-62/M362Failure.t.sol", "contract": "M362Failure",
+        "requirement": "C11.3; C15.14", "inherited": "inherited-claim-last-dust"
+      },
+      {
+        "id": "m2-inherited-reserve-splits-principal", "area": "split",
+        "file": "src/box-v2/BoxCoordinatorV2.sol", "sha256": "faafb9affcdf9210e709d0ad0725845de6c8dd47419a130e91a747da2f189494",
+        "before": "_forwardFees(receiver_, reserve_);",
+        "after": "_forwardFees(receiver_, balance);",
+        "testFile": "test/box-v2/m3-62/M362Failure.t.sol", "contract": "M362Failure",
+        "requirement": "F122 R36D; C11.2.5", "inherited": "inherited-reserve-splits-principal"
+      },
+      {
+        "id": "m2-inherited-hatch-one-second-late", "area": "hatch",
+        "file": "src/box-v2/BoxCoordinatorV2.sol", "sha256": "faafb9affcdf9210e709d0ad0725845de6c8dd47419a130e91a747da2f189494",
+        "before": "if (block.timestamp < end) revert GraduationEscapeNotReached(end);",
+        "after": "if (block.timestamp <= end) revert GraduationEscapeNotReached(end);",
+        "testFile": "test/box-v2/m3-62/M362Failure.t.sol", "contract": "M362Failure",
+        "requirement": "F122 R36K; C15.20", "inherited": "inherited-hatch-one-second-late"
+      },
+      {
+        "id": "m2-inherited-hatch-one-second-early", "area": "hatch",
+        "file": "src/box-v2/BoxCoordinatorV2.sol", "sha256": "faafb9affcdf9210e709d0ad0725845de6c8dd47419a130e91a747da2f189494",
+        "before": "h.closedAt() + ReleaseConstantsV2.GRADUATION_ESCAPE_DELAY",
+        "after": "h.closedAt() + ReleaseConstantsV2.GRADUATION_ESCAPE_DELAY - 1",
+        "testFile": "test/box-v2/m3-62/M362Failure.t.sol", "contract": "M362Failure",
+        "requirement": "F122 R36K; C15.20", "inherited": "inherited-hatch-one-second-early"
+      },
+      {
+        "id": "m2-inherited-late-before-last",
+        "area": "late-money",
+        "file": "src/box-v2/BoxCoordinatorV2.sol",
+        "sha256": "faafb9affcdf9210e709d0ad0725845de6c8dd47419a130e91a747da2f189494",
+        "before": "if (t == 0 || t > left) revert InvalidClaim();",
+        "after": "if (t == 0 || t >= left) revert InvalidClaim();",
+        "testFile": "test/box-v2/m3-62/RC5Failure.t.sol",
+        "contract": "RC5ClaimsMutationTest",
+        "requirement": "RC5-A: late money stays with permanent holder claims and the fixed creator return",
+        "inherited": "inherited-late-before-last"
+      },
+      {
+        "id": "m2-inherited-late-steals-creator",
+        "area": "late-money",
+        "file": "src/box-v2/BoxCoordinatorV2.sol",
+        "sha256": "faafb9affcdf9210e709d0ad0725845de6c8dd47419a130e91a747da2f189494",
+        "before": "p = s.creatorRemainder;",
+        "after": "p = _potBalance();",
+        "testFile": "test/box-v2/m3-62/RC5Failure.t.sol",
+        "contract": "RC5ClaimsMutationTest",
+        "requirement": "RC5-A: late money stays with permanent holder claims and the fixed creator return",
+        "inherited": "inherited-late-steals-creator"
+      },
+      {
+        "id": "m2-inherited-late-wrong-payee",
+        "area": "late-money",
+        "file": "src/box-v2/BoxReceiverV2.sol",
+        "sha256": "93c9f067d4b05310be1224951b4dd137b4ac6ec2f72e2e2b1a227d16432bb7a0",
+        "before": "batch.buyersP = _toPot();",
+        "after": "batch.buyersP = _unbooked(); _p[FIT] += batch.buyersP;",
+        "testFile": "test/box-v2/m3-62/RC5Failure.t.sol",
+        "contract": "RC5ClaimsMutationTest",
+        "requirement": "RC5-A: late money stays with permanent holder claims and the fixed creator return",
+        "inherited": "inherited-late-wrong-payee"
+      },
+      {
+        "id": "m2-inherited-raise-live-threshold", "area": "raise",
+        "file": "src/box-v2/BoxFactoryV2Planner.sol", "sha256": "b35507046055b51db00e399695481f2cef6df8692d0650c6275a48863bf94bd4",
+        "before": "return ListingRaises.parameters(raise);",
+        "after": "return ListingRaises.parameters(IListingRegistry(r.listingRegistry).listing(id).raise);",
+        "testFile": "test/box-v2/m3-62/M362Raise.t.sol", "contract": "M362Raise",
+        "requirement": "F123 R38B; C13; C15.22", "inherited": "inherited-raise-live-threshold"
+      },
+      {
+        "id": "m2-inherited-raise-wrong-snapshot", "area": "raise",
+        "file": "src/box-v2/BoxFactoryV2Planner.sol", "sha256": "b35507046055b51db00e399695481f2cef6df8692d0650c6275a48863bf94bd4",
+        "before": "raise: s.raise,",
+        "after": "raise: s.raise + 1,",
+        "testFile": "test/box-v2/m3-62/M362Raise.t.sol", "contract": "M362Raise",
+        "requirement": "F123 R38B; C13; C15.22", "inherited": "inherited-raise-wrong-snapshot"
+      },
+      {
+        "id": "m2-inherited-late-one-holder-left",
+        "area": "late-money",
+        "file": "src/box-v2/BoxCoordinatorV2.sol",
+        "sha256": "faafb9affcdf9210e709d0ad0725845de6c8dd47419a130e91a747da2f189494",
+        "before": "if (t == 0 || t > left) revert InvalidClaim();",
+        "after": "if (t == 0 || t > left || left == 1) revert InvalidClaim();",
+        "testFile": "test/box-v2/m3-62/RC5Failure.t.sol",
+        "contract": "RC5ClaimsMutationTest",
+        "requirement": "RC5-A: late money stays with permanent holder claims and the fixed creator return",
+        "inherited": "inherited-late-one-holder-left"
+      },
+      {
+        "id": "m2-funding-gross", "area": "receiver-funding",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "funding = 10 * unit;",
+        "after": "funding = amount;",
+        "testFile": "test/box-v2/m3-62/M362Funding.t.sol", "contract": "M362Funding",
+        "requirement": "M200-B2/B3; C10; F109 R24E", "inherited": "funding-gross"
+      },
+      {
+        "id": "m2-funding-borrow-next", "area": "receiver-funding",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "uint256 backed = available > remaining ? available - remaining : 0;",
+        "after": "uint256 backed = available;",
+        "testFile": "test/box-v2/m3-62/M362Funding.t.sol", "contract": "M362Funding",
+        "requirement": "M200-B2/B3; C10; F109 R24E", "inherited": "funding-borrow-next"
+      },
+      {
+        "id": "m2-funding-spends-debt", "area": "receiver-funding",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "uint256 available = _unbooked();",
+        "after": "uint256 available = _claimBalance();",
+        "testFile": "test/box-v2/m3-62/M362Funding.t.sol", "contract": "M362Funding",
+        "requirement": "M200-B2/B3; C10; F109 R24E", "inherited": "funding-spends-debt"
+      },
+      {
+        "id": "m2-funding-ignores-tip", "area": "receiver-funding",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "backed -= tip;",
+        "after": "backed -= 0;",
+        "testFile": "test/box-v2/m3-62/M362Funding.t.sol", "contract": "M362Funding",
+        "requirement": "M200-B2/B3; C10; F109 R24E", "inherited": "funding-ignores-tip"
+      },
+      {
+        "id": "m2-funding-reopens-batch", "area": "receiver-funding",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "unchecked { _lastHolderBatch += count; }",
+        "after": "unchecked { _lastHolderBatch += 0; }",
+        "testFile": "test/box-v2/m3-62/M362Funding.t.sol", "contract": "M362Funding",
+        "requirement": "M200-B2/B3; C10; F109 R24E", "inherited": "funding-reopens-batch"
+      },
+      {
+        "id": "m2-funding-merges-carry", "area": "receiver-funding",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "if (!sourced) _p[carry] = dust;",
+        "after": "if (true) _p[carry] = dust;",
+        "testFile": "test/box-v2/m3-62/M362Funding.t.sol", "contract": "M362Funding",
+        "requirement": "M200-B2/B3; C10; F109 R24E", "inherited": "funding-merges-carry"
+      },
+      {
+        "id": "m2-funding-wrong-id", "area": "receiver-funding",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "if (id != 0 && A.addressAt(A.HOLDER_LEDGER) != address(0)) _recordHolderBatch(id, funding);",
+        "after": "if (id != 0 && A.addressAt(A.HOLDER_LEDGER) != address(0)) _recordHolderBatch(id + 1, funding);",
+        "testFile": "test/box-v2/m3-62/M362Funding.t.sol", "contract": "M362Funding",
+        "requirement": "M200-B2/B3; C10; F109 R24E", "inherited": "funding-wrong-id"
+      },
+      {
+        "id": "m2-funding-calls-ledger", "area": "receiver-funding",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "_moveClaims(A.addressAt(A.HOLDER_LEDGER), netP);",
+        "after": "_moveClaims(A.addressAt(A.HOLDER_LEDGER), netP);\n        (bool ok,) = A.addressAt(A.HOLDER_LEDGER).call(abi.encodeWithSignature(\"onFunding(uint256)\", netP)); require(ok);",
+        "testFile": "test/box-v2/m3-62/M362Funding.t.sol", "contract": "M362Funding",
+        "requirement": "M200-B2/B3; C10; F109 R24E", "inherited": "funding-calls-ledger"
+      },
+      {
+        "id": "m2-failure-omits-shop", "area": "failure-h",
+        "file": "src/box-v2/libraries/CoordinatorFailure.sol", "sha256": "ff1ddff61f8103dec745f5acbc970d9fd8d13a0efbe1a57836f4b95ac1d9aad7",
+        "before": "held += _heldT(pm, t, vault, id);",
+        "after": "held += 0;",
+        "testFile": "test/box-v2/m3-62/M362Custody.t.sol", "contract": "M362Custody",
+        "requirement": "S5 / R11: inherited held-T fault now exercises authenticated PILE; SHOP stays counted", "inherited": "failure-omits-shop"
+      },
+      {
+        "id": "m2-failure-omits-claims", "area": "failure-h",
+        "file": "src/box-v2/libraries/CoordinatorFailure.sol", "sha256": "ff1ddff61f8103dec745f5acbc970d9fd8d13a0efbe1a57836f4b95ac1d9aad7",
+        "before": "return t.balanceOf(owner) + pm.balanceOf(owner, id);",
+        "after": "return t.balanceOf(owner);",
+        "testFile": "test/box-v2/m3-62/M362Custody.t.sol", "contract": "M362Custody",
+        "requirement": "S5 / R11: inherited held-T fault now exercises authenticated PILE; SHOP stays counted", "inherited": "failure-omits-claims"
+      },
+      {
+        "id": "m2-failure-double-shop", "area": "failure-h",
+        "file": "src/box-v2/libraries/CoordinatorFailure.sol", "sha256": "ff1ddff61f8103dec745f5acbc970d9fd8d13a0efbe1a57836f4b95ac1d9aad7",
+        "before": "held += _heldT(pm, t, vault, id);",
+        "after": "held += 2 * _heldT(pm, t, vault, id);",
+        "testFile": "test/box-v2/m3-62/M362Custody.t.sol", "contract": "M362Custody",
+        "requirement": "S5 / R11: inherited held-T fault now exercises authenticated PILE; SHOP stays counted", "inherited": "failure-double-shop"
+      },
+      {
+        "id": "m2-rc5-expiry",
+        "area": "permanent-failure-claims",
+        "file": "src/box-v2/BoxCoordinatorV2.sol",
+        "sha256": "faafb9affcdf9210e709d0ad0725845de6c8dd47419a130e91a747da2f189494",
+        "before": "if (s.cause == FailCause.None) revert NotFailed();",
+        "after": "if (s.cause == FailCause.None || block.timestamp >= uint256(s.failedAt) + 365 days) revert NotFailed();",
+        "testFile": "test/box-v2/m3-62/RC5Failure.t.sol",
+        "contract": "RC5ClaimsMutationTest",
+        "requirement": "SH-RC5-A-FAILED-BOX; founder 2026-10-15 overrides R40A",
+        "inherited": "rc5-expiry"
+      },
+      {
+        "id": "m2-rc5-late-collect-fit",
+        "area": "permanent-failure-claims",
+        "file": "src/box-v2/BoxReceiverV2.sol",
+        "sha256": "93c9f067d4b05310be1224951b4dd137b4ac6ec2f72e2e2b1a227d16432bb7a0",
+        "before": "batch.buyersP = _toPot();",
+        "after": "batch.buyersP = _unbooked(); _p[FIT] += batch.buyersP;",
+        "testFile": "test/box-v2/m3-62/RC5Failure.t.sol",
+        "contract": "RC5ClaimsMutationTest",
+        "requirement": "SH-RC5-A-FAILED-BOX; founder 2026-10-15 overrides R40A",
+        "inherited": "rc5-late-collect-fit"
+      },
+      {
+        "id": "m2-rc5-grow-fit",
+        "area": "permanent-failure-claims",
+        "file": "src/box-v2/libraries/ReceiverBooksV21.sol",
+        "sha256": "0bdbae2fe0f662cd097b610538680eb66c0f201469470f8b1db9fff50943ab17",
+        "before": "_routePot(st, pm, GROW, HeldKind.DEPTH_BRANCH);",
+        "after": "st._p[FIT] += st._p[GROW]; st._p[GROW] = 0;",
+        "testFile": "test/box-v2/m3-62/RC5Failure.t.sol",
+        "contract": "RC5RoutingMutationTest",
+        "requirement": "SH-RC5-A-FAILED-BOX; founder 2026-10-15 overrides R40A",
+        "inherited": "rc5-grow-fit"
+      },
+      {
+        "id": "m2-rc5-carry-fit",
+        "area": "permanent-failure-claims",
+        "file": "src/box-v2/libraries/ReceiverBooksV21.sol",
+        "sha256": "0bdbae2fe0f662cd097b610538680eb66c0f201469470f8b1db9fff50943ab17",
+        "before": "_routePot(st, pm, BUYERS_CARRY, HeldKind.SIDE_CARRY);",
+        "after": "st._p[FIT] += st._p[BUYERS_CARRY]; st._p[BUYERS_CARRY] = 0;",
+        "testFile": "test/box-v2/m3-62/RC5Failure.t.sol",
+        "contract": "RC5RoutingMutationTest",
+        "requirement": "SH-RC5-A-FAILED-BOX; founder 2026-10-15 overrides R40A",
+        "inherited": "rc5-carry-fit"
+      },
+      {
+        "id": "m2-failure-live-count", "area": "year-sweep",
+        "file": "src/box-v2/BoxCoordinatorV2.sol", "sha256": "faafb9affcdf9210e709d0ad0725845de6c8dd47419a130e91a747da2f189494",
+        "before": "if (t == 0 || t > left) revert InvalidClaim();",
+        "after": "left = IBoxToken(token()).totalSupply();\n        if (t == 0 || t > left) revert InvalidClaim();",
+        "testFile": "test/box-v2/m3-62/M362Sweep.t.sol", "contract": "M362Sweep",
+        "requirement": "R40A / S5: fixed count and permanent holder pot on a real M3 pile", "inherited": "failure-live-count"
+      },
+      {
+        "id": "request-start-zero", "area": "request-index",
+        "file": "src/box-v2/ItemLedgerV2.sol", "sha256": "db21d33bdf8048633135580391197269e48af46103490a7a347fe55f145ba9b2",
+        "before": "t.start = _outsideIndex;",
+        "after": "t.start = 0;",
+        "testFile": "test/box-v2/m3-62/M362Accounting.t.sol", "contract": "M362Accounting",
+        "requirement": "S4 / R4-R8 / M3-62"
+      },
+      {
+        "id": "request-start-keep", "area": "request-index",
+        "file": "src/box-v2/ItemLedgerV2.sol", "sha256": "db21d33bdf8048633135580391197269e48af46103490a7a347fe55f145ba9b2",
+        "before": "t.start = _outsideIndex;",
+        "after": "t.start = _keepIndex;",
+        "testFile": "test/box-v2/m3-62/Payouts.t.sol", "contract": "M362Payouts",
+        "requirement": "S4 / R4-R8 / M3-62"
+      },
+      {
+        "id": "delivery-start-lost", "area": "request-index",
+        "file": "src/box-v2/ItemLedgerV2.sol", "sha256": "db21d33bdf8048633135580391197269e48af46103490a7a347fe55f145ba9b2",
+        "before": "a.outsideP += _outsideIndex - t.start;",
+        "after": "a.outsideP += _outsideIndex;",
+        "testFile": "test/box-v2/m3-62/Payouts.t.sol", "contract": "M362Payouts",
+        "requirement": "S4 / R4-R8 / M3-62"
+      },
+      {
+        "id": "ledger-wrong-count", "area": "count-split",
+        "file": "src/box-v2/ItemLedgerV2.sol", "sha256": "db21d33bdf8048633135580391197269e48af46103490a7a347fe55f145ba9b2",
+        "before": "uint256 u = r.choiceP / _n;",
+        "after": "uint256 u = r.choiceP / (_n + 1);",
+        "testFile": "test/box-v2/m3-62/M362Accounting.t.sol", "contract": "M362Accounting",
+        "requirement": "S4 / R4-R8 / M3-62"
+      },
+      {
+        "id": "ledger-rounds-up", "area": "rounding",
+        "file": "src/box-v2/ItemLedgerV2.sol", "sha256": "db21d33bdf8048633135580391197269e48af46103490a7a347fe55f145ba9b2",
+        "before": "uint256 u = r.choiceP / _n;",
+        "after": "uint256 u = (r.choiceP + _n - 1) / _n;",
+        "testFile": "test/box-v2/m3-62/M362Accounting.t.sol", "contract": "M362Accounting",
+        "requirement": "S4 / R4-R8 / M3-62"
+      },
+      {
+        "id": "slot-rounds-down-wrong-denominator", "area": "stash",
+        "file": "src/box-v2/ItemLedgerV2.sol", "sha256": "db21d33bdf8048633135580391197269e48af46103490a7a347fe55f145ba9b2",
+        "before": "stash = _hiddenStash / _hidden;",
+        "after": "stash = _hiddenStash / (_hidden + 1);",
+        "testFile": "test/box-v2/m3-62/M362Accounting.t.sol", "contract": "M362Accounting",
+        "requirement": "S4 / R4-R8 / M3-62"
+      },
+      {
+        "id": "cancel-stash-to-residue", "area": "stash",
+        "file": "src/box-v2/ItemLedgerV2.sol", "sha256": "db21d33bdf8048633135580391197269e48af46103490a7a347fe55f145ba9b2",
+        "before": "_hiddenStash += t.stash;",
+        "after": "_residue += t.stash;",
+        "testFile": "test/box-v2/m3-62/M362Accounting.t.sol", "contract": "M362Accounting",
+        "requirement": "S4 / R4-R8 / M3-62"
+      },
+      {
+        "id": "cancel-earnings-to-hidden", "area": "stash",
+        "file": "src/box-v2/ItemLedgerV2.sol", "sha256": "db21d33bdf8048633135580391197269e48af46103490a7a347fe55f145ba9b2",
+        "before": "_residue += _outsideIndex - t.start;",
+        "after": "_hiddenStash += _outsideIndex - t.start;",
+        "testFile": "test/box-v2/m3-62/M362Accounting.t.sol", "contract": "M362Accounting",
+        "requirement": "S4 / R4-R8 / M3-62"
+      },
+      {
+        "id": "base-double-credit", "area": "stash",
+        "file": "src/box-v2/ItemLedgerV2.sol", "sha256": "db21d33bdf8048633135580391197269e48af46103490a7a347fe55f145ba9b2",
+        "before": "a.stash += _basePerItem;",
+        "after": "a.stash += 2 * _basePerItem;",
+        "testFile": "test/box-v2/m3-62/M362Accounting.t.sol", "contract": "M362Accounting",
+        "requirement": "S4 / R4-R8 / M3-62"
+      },
+      {
+        "id": "hidden-uses-inside-count", "area": "stash",
+        "file": "src/box-v2/ItemLedgerV2.sol", "sha256": "db21d33bdf8048633135580391197269e48af46103490a7a347fe55f145ba9b2",
+        "before": "_hiddenStash += _hidden * u;",
+        "after": "_hiddenStash += _inside * u;",
+        "testFile": "test/box-v2/m3-62/M362Accounting.t.sol", "contract": "M362Accounting",
+        "requirement": "S4 / R4-R8 / M3-62"
+      },
+      {
+        "id": "return-rejoins-hidden", "area": "stash",
+        "file": "src/box-v2/ItemLedgerV2.sol", "sha256": "db21d33bdf8048633135580391197269e48af46103490a7a347fe55f145ba9b2",
+        "before": "a.checkpoint = _keepIndex;\n                ++_inside;",
+        "after": "a.checkpoint = _keepIndex;\n                ++_inside;\n                ++_hidden;",
+        "testFile": "test/box-v2/m3-62/M362Accounting.t.sol", "contract": "M362Accounting",
+        "requirement": "S4 / R4-R8 / M3-62"
+      },
+      {
+        "id": "claim-any-caller", "area": "ownership",
+        "file": "src/box-v2/ItemLedgerV2.sol", "sha256": "db21d33bdf8048633135580391197269e48af46103490a7a347fe55f145ba9b2",
+        "before": "if (owner != msg.sender) revert Unauthorized();",
+        "after": "if (owner == address(0)) revert Unauthorized();",
+        "testFile": "test/box-v2/m3-62/M362Claims.t.sol", "contract": "M362Claims",
+        "requirement": "F127 / R7: only current owner spends item credit"
+      },
+      {
+        "id": "claim-to-vault", "area": "ownership",
+        "file": "src/box-v2/ItemLedgerV2.sol", "sha256": "db21d33bdf8048633135580391197269e48af46103490a7a347fe55f145ba9b2",
+        "before": "if (to == address(0) || to == _argAddress(20)) revert InvalidClaim();",
+        "after": "if (to == address(0)) revert InvalidClaim();",
+        "testFile": "test/box-v2/m3-62/M362Claims.t.sol", "contract": "M362Claims",
+        "requirement": "S4 / R4-R8 / M3-62"
+      },
+      {
+        "id": "claim-forgets-stash", "area": "stash",
+        "file": "src/box-v2/ItemLedgerV2.sol", "sha256": "db21d33bdf8048633135580391197269e48af46103490a7a347fe55f145ba9b2",
+        "before": "gross = a.outsideP + a.stash;",
+        "after": "gross = a.outsideP;",
+        "testFile": "test/box-v2/m3-62/M362Claims.t.sol", "contract": "M362Claims",
+        "requirement": "S4 / R4-R8 / M3-62"
+      },
+      {
+        "id": "claim-replay-outside", "area": "ownership",
+        "file": "src/box-v2/ItemLedgerV2.sol", "sha256": "db21d33bdf8048633135580391197269e48af46103490a7a347fe55f145ba9b2",
+        "before": "a.outsideP -= gross;",
+        "after": "a.outsideP -= 0;",
+        "testFile": "test/box-v2/m3-62/M362Claims.t.sol", "contract": "M362Claims",
+        "requirement": "S4 / R4-R8 / M3-62"
+      },
+      {
+        "id": "claim-ignores-lifecycle-backlog", "area": "request-index",
+        "file": "src/box-v2/ItemLedgerV2.sol", "sha256": "db21d33bdf8048633135580391197269e48af46103490a7a347fe55f145ba9b2",
+        "before": "|| _lifecycleCursor != IBoxVaultItemsV2(_argAddress(20)).itemLifecycleCount()",
+        "after": "|| false",
+        "testFile": "test/box-v2/m3-62/Payouts.t.sol", "contract": "M362Payouts",
+        "requirement": "S4 / R4-R8 / M3-62"
+      },
+      {
+        "id": "residue-replayed", "area": "rounding",
+        "file": "src/box-v2/ItemLedgerV2.sol", "sha256": "db21d33bdf8048633135580391197269e48af46103490a7a347fe55f145ba9b2",
+        "before": "_residue = 0;",
+        "after": "_residue += 0;",
+        "testFile": "test/box-v2/m3-62/M362Replay.t.sol", "contract": "M362Replay",
+        "requirement": "S4 / R4-R8 / M3-62"
+      },
+      {
+        "id": "claim-short-receipt-accepted", "area": "ownership",
+        "file": "src/box-v2/ItemLedgerV2.sol", "sha256": "db21d33bdf8048633135580391197269e48af46103490a7a347fe55f145ba9b2",
+        "before": "if (p != address(0) && PricingToken.balanceOf(p, to) - beforeTo != amount) revert PayoutFailed();",
+        "after": "if (false) revert PayoutFailed();",
+        "testFile": "test/box-v2/m3-62/M362Hostile.t.sol", "contract": "M362Hostile",
+        "requirement": "S4 / R4-R8 / M3-62"
+      },
+      {
+        "id": "claim-uncapped-call", "area": "ownership",
+        "file": "src/box-v2/ItemLedgerV2.sol", "sha256": "db21d33bdf8048633135580391197269e48af46103490a7a347fe55f145ba9b2",
+        "before": "ok := call(cap, pm,",
+        "after": "ok := call(gas(), pm,",
+        "testFile": "test/box-v2/m3-62/M362Hostile.t.sol", "contract": "M362Hostile",
+        "requirement": "S4 / R4-R8 / M3-62"
+      },
+      {
+        "id": "burn-counts-hidden-only", "area": "count-split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "inside * (amount / _itemCount)",
+        "after": "hidden * (amount / _itemCount)",
+        "testFile": "test/box-v2/m3-62/M362Booking.t.sol", "contract": "M362Booking",
+        "requirement": "S2 / R2-R3 / R9: actual backed per-side funding"
+      },
+      {
+        "id": "burn-multiply-before-rounding", "area": "rounding",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "inside * (amount / _itemCount)",
+        "after": "FullMath.mulDiv(inside, amount, _itemCount)",
+        "testFile": "test/box-v2/m3-62/M362Booking.t.sol", "contract": "M362Booking",
+        "requirement": "S2 / R2-R3 / R9: actual backed per-side funding"
+      },
+      {
+        "id": "burn-graduation-credited", "area": "count-split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "retained = source == 3 ? amount : inside * (amount / _itemCount);",
+        "after": "retained = source == 3 ? 0 : inside * (amount / _itemCount);",
+        "testFile": "test/box-v2/m3-62/M362Booking.t.sol", "contract": "M362Booking",
+        "requirement": "S2 / R2-R3 / R9: actual backed per-side funding"
+      },
+      {
+        "id": "receiver-crosses-policies", "area": "count-split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "uint8 policy = uint8(_itemPolicies >> (sellers ? 8 : 0));",
+        "after": "uint8 policy = uint8(_itemPolicies >> (sellers ? 0 : 8));",
+        "testFile": "test/box-v2/m3-62/M362Booking.t.sol", "contract": "M362Booking",
+        "requirement": "S2 / R2-R3 / R9: actual backed per-side funding"
+      },
+      {
+        "id": "receiver-forgets-retained-burn", "area": "count-split",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "_p[BUY_BACK] += retained;",
+        "after": "_p[BUY_BACK] += 0;",
+        "testFile": "test/box-v2/m3-62/M362Booking.t.sol", "contract": "M362Booking",
+        "requirement": "S2 / R2-R3 / R9: actual backed per-side funding"
+      },
+      {
+        "id": "receiver-old-lifecycle-cursor", "area": "journal",
+        "file": "src/box-v2/BoxReceiverV2Base.sol", "sha256": "0bf8e2032ca0a50a9257a54f29462921903966fb941261406f05a86cdaf4c1ce",
+        "before": "uint256 cursor = IBoxVaultItemsV2(_itemVault).itemLifecycleCount();",
+        "after": "uint256 cursor = 0;",
+        "testFile": "test/box-v2/m3-62/M362Booking.t.sol", "contract": "M362Booking",
+        "requirement": "S2 / R2-R3 / R9: actual backed per-side funding"
+      },
+      {
+        "id": "seed-return-caller", "area": "seed-recipient",
+        "file": "src/box-v2/PileVaultV2.sol", "sha256": "3b121f68579b8ec3f9ad2cdbaf596433155f90434284848c052a134fb4e330c7",
+        "before": "_pay(seeder(), amount);",
+        "after": "_pay(msg.sender, amount);",
+        "testFile": "test/box-v2/m3-62/M362Pile.t.sol", "contract": "M362Pile",
+        "requirement": "S5 / R10-R11: exact seed and pre-burn live share"
+      },
+      {
+        "id": "seed-return-surplus", "area": "seed-recipient",
+        "file": "src/box-v2/PileVaultV2.sol", "sha256": "3b121f68579b8ec3f9ad2cdbaf596433155f90434284848c052a134fb4e330c7",
+        "before": "if (_state & _LOADED != 0) amount = seedAmount();",
+        "after": "if (_state & _LOADED != 0) amount = PricingToken.balanceOf(asset(), address(this));",
+        "testFile": "test/box-v2/m3-62/M362Pile.t.sol", "contract": "M362Pile",
+        "requirement": "S5 / R10-R11: exact seed and pre-burn live share"
+      },
+      {
+        "id": "seed-pull-caller", "area": "seed-recipient",
+        "file": "src/box-v2/PileVaultV2.sol", "sha256": "3b121f68579b8ec3f9ad2cdbaf596433155f90434284848c052a134fb4e330c7",
+        "before": "_pull(a, seeder(), amount);",
+        "after": "_pull(a, msg.sender, amount);",
+        "testFile": "test/box-v2/m3-62/M362Pile.t.sol", "contract": "M362Pile",
+        "requirement": "S5 / R10-R11: exact seed and pre-burn live share"
+      },
+      {
+        "id": "pile-post-burn-denominator", "area": "pile-denominator",
+        "file": "src/box-v2/PileVaultV2.sol", "sha256": "3b121f68579b8ec3f9ad2cdbaf596433155f90434284848c052a134fb4e330c7",
+        "before": "assetOut = FullMath.mulDiv(beforeAsset, tIn, supply);",
+        "after": "assetOut = FullMath.mulDiv(beforeAsset, tIn, supply - tIn);",
+        "testFile": "test/box-v2/m3-62/M362Pile.t.sol", "contract": "M362Pile",
+        "requirement": "S5 / R10-R11: exact seed and pre-burn live share"
+      },
+      {
+        "id": "pile-rounds-up", "area": "rounding",
+        "file": "src/box-v2/PileVaultV2.sol", "sha256": "3b121f68579b8ec3f9ad2cdbaf596433155f90434284848c052a134fb4e330c7",
+        "before": "assetOut = FullMath.mulDiv(beforeAsset, tIn, supply);",
+        "after": "assetOut = FullMath.mulDivRoundingUp(beforeAsset, tIn, supply);",
+        "testFile": "test/box-v2/m3-62/M362Pile.t.sol", "contract": "M362Pile",
+        "requirement": "S5 / R10-R11: exact seed and pre-burn live share"
+      },
+      {
+        "id": "pile-quote-wrong-denominator", "area": "pile-denominator",
+        "file": "src/box-v2/PileVaultV2.sol", "sha256": "3b121f68579b8ec3f9ad2cdbaf596433155f90434284848c052a134fb4e330c7",
+        "before": "return FullMath.mulDiv(PricingToken.balanceOf(asset(), address(this)), tIn, supply);",
+        "after": "return FullMath.mulDiv(PricingToken.balanceOf(asset(), address(this)), tIn, supply + 1);",
+        "testFile": "test/box-v2/m3-62/M362Pile.t.sol", "contract": "M362Pile",
+        "requirement": "S5 / R10-R11: exact seed and pre-burn live share"
+      },
+      {
+        "id": "pile-pulls-seeder-t", "area": "ownership",
+        "file": "src/box-v2/PileVaultV2.sol", "sha256": "3b121f68579b8ec3f9ad2cdbaf596433155f90434284848c052a134fb4e330c7",
+        "before": "_pull(t, msg.sender, tIn);",
+        "after": "_pull(t, seeder(), tIn);",
+        "testFile": "test/box-v2/m3-62/M362Pile.t.sol", "contract": "M362Pile",
+        "requirement": "S5 / R10-R11: exact seed and pre-burn live share"
+      },
+      {
+        "id": "seed-no-exact-debit", "area": "seed-recipient",
+        "file": "src/box-v2/PileVaultV2.sol", "sha256": "3b121f68579b8ec3f9ad2cdbaf596433155f90434284848c052a134fb4e330c7",
+        "before": "if (afterFrom > beforeFrom || beforeFrom - afterFrom != amount) revert InexactMovement();",
+        "after": "if (false) revert InexactMovement();",
+        "testFile": "test/box-v2/m3-62/M362Pile.t.sol", "contract": "M362Pile",
+        "requirement": "S5 / R10-R11: exact seed and pre-burn live share"
+      },
+      {
+        "id": "failure-counts-shop-in-h", "area": "failure-h",
+        "file": "src/box-v2/libraries/CoordinatorFailure.sol", "sha256": "ff1ddff61f8103dec745f5acbc970d9fd8d13a0efbe1a57836f4b95ac1d9aad7",
+        "before": "if (vaultKind == A.PILE_KIND && vault != address(0)) {",
+        "after": "if ((vaultKind == A.PILE_KIND || vaultKind == A.SHOP_KIND) && vault != address(0)) {",
+        "testFile": "test/box-v2/m3-62/M362Boundaries.t.sol", "contract": "M362Boundaries",
+        "requirement": "S5 / R11: PILE-only custody exclusion; SHOP stays counted"
+      },
+      {
+        "id": "failure-subtracts-manager-inventory", "area": "failure-h",
+        "file": "src/box-v2/libraries/CoordinatorFailure.sol", "sha256": "ff1ddff61f8103dec745f5acbc970d9fd8d13a0efbe1a57836f4b95ac1d9aad7",
+        "before": "left = t.totalSupply() - held - k - closedTResidue;",
+        "after": "left = t.totalSupply() - held - k - t.balanceOf(address(pm));",
+        "testFile": "test/box-v2/m3-62/ManagerCustody.t.sol", "contract": "M362ManagerCustody",
+        "requirement": "S5 / R11: unrelated PM custody remains claimable"
+      },
+      {
+        "id": "journal-loses-funding-cursor", "area": "journal",
+        "file": "src/box-v2/libraries/ItemTimes.sol", "sha256": "40be874e6ddca9a85b545841bfdbfda02b154d758da73d3f824d4bab36edeeeb",
+        "before": "s.operations.push(ItemLifecycleV2(key, id, funding, at, kind));",
+        "after": "s.operations.push(ItemLifecycleV2(key, id, 0, at, kind));",
+        "testFile": "test/box-v2/m3-62/M362Journal.t.sol", "contract": "M362Journal",
+        "requirement": "S3 / R5: immutable opposite cursor orders same-second requests"
+      },
+      {
+        "id": "journal-loses-ticket-key", "area": "journal",
+        "file": "src/box-v2/libraries/ItemTimes.sol", "sha256": "40be874e6ddca9a85b545841bfdbfda02b154d758da73d3f824d4bab36edeeeb",
+        "before": "s.operations.push(ItemLifecycleV2(key, id, funding, at, kind));",
+        "after": "s.operations.push(ItemLifecycleV2(bytes32(0), id, funding, at, kind));",
+        "testFile": "test/box-v2/m3-62/M362Journal.t.sol", "contract": "M362Journal",
+        "requirement": "S3 / R4-R5: exact ticket identity survives reverse delivery"
+      },
+      {
+        "id": "failure-items-sent-to-fit", "area": "count-split",
+        "file": "src/box-v2/BoxReceiverV2.sol", "sha256": "93c9f067d4b05310be1224951b4dd137b4ac6ec2f72e2e2b1a227d16432bb7a0",
+        "before": "_routePot(ITEMS, HeldKind.ITEMS_CREDITS);",
+        "after": "_p[FIT] += _p[ITEMS]; _p[ITEMS] = 0;",
+        "testFile": "test/box-v2/m3-62/M362ItemsFailure.t.sol", "contract": "M362ItemsFailure",
+        "requirement": "F122 / R9: both held item policies and final D6 belong to pot"
+      }
+    ]
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "$schema": "./schema.json",
+  "version": 1,
+  "id": "one-collection-shop",
+  "name": "One-collection shop",
+  "ticker": "SHOP",
+  "status": "ready",
+  "template": {
+    "id": "shop",
+    "name": "Shop"
+  },
+  "priceCoin": {
+    "symbol": "ETH",
+    "decimals": "18"
+  },
+  "logo": "examples/boxes/one-collection-shop/art/logo.png",
+  "contents": {
+    "kind": "shop",
+    "size": "0",
+    "label": "One outside collection",
+    "art": {
+      "mode": "none",
+      "source": null
+    },
+    "seed": null,
+    "pickFeeBps": "0",
+    "shop": {
+      "seedT": "2000000000000000000000000",
+      "givePricesT": [
+        "1000000000000000000000000",
+        "2000000000000000000000000",
+        "4000000000000000000000000",
+        "8000000000000000000000000"
+      ],
+      "pickBps": "20000",
+      "weeklyBps": "1000",
+      "collectionBps": "250",
+      "listDelay": "604800",
+      "curator": "none",
+      "allowanceFloor": "cheapest-active-give",
+      "collections": [
+        {
+          "id": "bent-cans",
+          "tier": "0",
+          "starterIds": [
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"
+          ]
+        }
+      ]
+    }
+  },
+  "creator": {
+    "kind": "safe",
+    "buyEthEquivalent": "10000000000000000",
+    "registerHolder": true
+  },
+  "raise": {
+    "policy": "listing-fixed",
+    "amount": "4206980085000000000"
+  },
+  "deadline": {
+    "days": "30"
+  },
+  "royalties": {
+    "bps": "0",
+    "destination": "none"
+  },
+  "fees": {
+    "buyers": {
+      "choice": "holders"
+    },
+    "sellers": {
+      "choice": "shop",
+      "ceilingPreset": "2"
+    }
+  },
+  "life": "graduate",
+  "properties": [
+    "fee-conservation",
+    "page-state",
+    "own-pictures",
+    "graduation",
+    "holder-claim",
+    "shop-life"
+  ]
+}

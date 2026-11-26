@@ -1,0 +1,57 @@
+{
+  "$schema": "./schema.json",
+  "version": 1,
+  "id": "bag-holders",
+  "name": "Bag Holders",
+  "ticker": "TOTE",
+  "status": "ready",
+  "template": {
+    "id": "collection",
+    "name": "Collection"
+  },
+  "priceCoin": {
+    "symbol": "LINK",
+    "decimals": "18"
+  },
+  "logo": "examples/boxes/bag-holders/art/logo.png",
+  "contents": {
+    "kind": "collection",
+    "size": "420",
+    "label": "Bags",
+    "art": {
+      "mode": "open",
+      "source": "examples/boxes/bag-holders/art/cover.png"
+    },
+    "seed": null,
+    "pickFeeBps": "100"
+  },
+  "raise": {
+    "policy": "listing-fixed",
+    "amount": "420698008500000000000"
+  },
+  "deadline": {
+    "days": "30"
+  },
+  "royalties": {
+    "bps": "0",
+    "destination": "none"
+  },
+  "fees": {
+    "buyers": {
+      "choice": "items",
+      "inside": "keep"
+    },
+    "sellers": {
+      "choice": "items",
+      "inside": "keep"
+    }
+  },
+  "life": "graduate",
+  "properties": [
+    "fee-conservation",
+    "page-state",
+    "own-pictures",
+    "graduation",
+    "item-claim"
+  ]
+}

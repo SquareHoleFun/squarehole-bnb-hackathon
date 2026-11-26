@@ -1,0 +1,73 @@
+{
+  "artifactId": "vaultui_square-hole-rules_01M8BRB08ESKMGFVAE3CJ9V6HN",
+  "name": "Square Hole Rules",
+  "match": {
+    "bindings": [
+      {
+        "chainId": 97,
+        "factoryAddress": "0x8C130C16A099e19B809FE726Cd0590CDD4B9F0D1",
+        "tokenAddresses": [
+          "0x6c3cf0DB5a825425cB13fDB0D35566dc75e37777"
+        ],
+        "resolvedContracts": [
+          {
+            "id": "pile",
+            "label": "vault",
+            "resolver": "function pileOf(address token_) view returns (address pile)",
+            "allow": [
+              "function redeem(uint256 amount, uint256 minOut) returns (uint256 assetOut)"
+            ],
+            "read": [
+              "function pile() view returns (uint256)",
+              "function circulatingSupply() view returns (uint256)",
+              "function quoteRedeem(uint256 amount) view returns (uint256 assetOut)"
+            ],
+            "checks": [
+              {
+                "kind": "balance",
+                "function": "function redeem(uint256 amount, uint256 minOut) returns (uint256 assetOut)",
+                "amountArg": 0,
+                "token": "token",
+                "owner": "user"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "chainId": 97,
+        "factoryAddress": "0x73aBa498C5415bb587E8f249314c619a5C3a55a2",
+        "tokenAddresses": [
+          "0x9b98CA3e3a119Ab17E86f041c9a791AAf1d57777"
+        ],
+        "resolvedContracts": [
+          {
+            "id": "pile",
+            "label": "vault",
+            "resolver": "function pileOf(address token_) view returns (address pile)",
+            "allow": [
+              "function redeem(uint256 amount, uint256 minOut) returns (uint256 assetOut)"
+            ],
+            "read": [
+              "function pile() view returns (uint256)",
+              "function circulatingSupply() view returns (uint256)",
+              "function quoteRedeem(uint256 amount) view returns (uint256 assetOut)"
+            ],
+            "checks": [
+              {
+                "kind": "balance",
+                "function": "function redeem(uint256 amount, uint256 minOut) returns (uint256 assetOut)",
+                "amountArg": 0,
+                "token": "token",
+                "owner": "user"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "i18n": [
+    "en"
+  ]
+}

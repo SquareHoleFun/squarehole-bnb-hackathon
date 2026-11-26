@@ -1,0 +1,51 @@
+{
+  "format": "squarehole.boxspec-draft/1",
+  "context": "v2",
+  "example": 4,
+  "brief": "Demo example 4. A plain token box for 'gm' culture: nothing inside, holders paid in GM on both sides (the buyers' side buys GM in limited steps). The one raise (4.206980085 ETH), 30 days.",
+  "status": "stand-in",
+  "shows": [
+    "a plain token: just the token, no NFTs and no vault",
+    "burn box (buy back and burn, burn)",
+    "the one raise (4.206980085 ETH), 30 days"
+  ],
+  "differences": [
+    "Holder payouts in GM (\"qStream\": \"HOLDERS_IN_T\", \"tStream\": \"PAY_HOLDERS_T\") are Demo only for now, marked pending legal review (--network demo); on testnet once they are built, on mainnet only after the legal review. This draft burns GM on both sides, which helps every holder by shrinking the supply, and the creator takes nothing."
+  ],
+  "site": {
+    "links": []
+  },
+  "spec": {
+    "version": 2,
+    "boxType": "TOKEN_ONLY",
+    "tokenName": "gm Coin",
+    "tokenSymbol": "GM",
+    "collectionName": "",
+    "collectionSymbol": "",
+    "description": "Demo: gm. A coin for everyone who says it first. Every fee burns GM.",
+    "n": 0,
+    "firstId": "1",
+    "q": "ETH",
+    "raise": {
+      "decimal": "4.206980085"
+    },
+    "layout": "CURVE_V1",
+    "gradLayout": "ASK_FULL_BID_SENTINEL",
+    "launchFormat": "CURVE",
+    "openAt": 0,
+    "deadlineDays": 30,
+    "qStream": "BUYBACK_BURN_T",
+    "tStream": "BURN_T",
+    "artMode": 0,
+    "revealRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "metadataTable": "0x",
+    "generatorHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coverSha256": "FROM_LAUNCH_FLOW",
+    "revealListId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "marketplaceOwner": "0x0000000000000000000000000000000000000000",
+    "creatorFeeRecipient": "0x0000000000000000000000000000000000000000",
+    "creatorBuy": "0",
+    "collectionCoverSha256": "0x0",
+    "addOns": []
+  }
+}

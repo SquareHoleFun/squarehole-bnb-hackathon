@@ -1,0 +1,57 @@
+{
+  "name": "demo-placeholders",
+  "title": "Demo: a third-party box with placeholders (version 2)",
+  "about": [
+    "DEMO data, not a real collection. A creator's box in version 2 that chooses the placeholders add-on (F55: placeholders are general) and one edition-specials series.",
+    "Version 2 needs a deadline (BC-045). How outstanding tickets exit at a failure is open (FLR-08 to FLR-11, S11): validate() accepts the combination, nothing is built.",
+    "The creator takes the whole reward side (F68 (3), qStream and tStream TO_CREATOR): 10/15 of the fees to the creator, 3/15 to FIT buy-and-burn, 2/15 into the box's own pool depth; and buys 0.1 ETH before the open (F61 O2), shown on the box page."
+  ],
+  "spec": {
+    "version": 2,
+    "boxType": "NEW_COLLECTION",
+    "tokenName": "Demo Hidden Token",
+    "tokenSymbol": "DEMOH",
+    "collectionName": "Demo Hidden Box",
+    "collectionSymbol": "DEMOHBOX",
+    "description": "Demo only, not a real collection: a third-party box with placeholders. Items stay hidden until they are drawn.",
+    "n": 69,
+    "firstId": "1",
+    "q": "0x0000000000000000000000000000000000000000",
+    "raise": "4206980085000000000",
+    "layout": "CURVE_V1",
+    "gradLayout": "ASK_FULL_BID_SENTINEL",
+    "launchFormat": "CURVE",
+    "openAt": 0,
+    "deadlineDays": 30,
+    "qStream": "TO_CREATOR",
+    "tStream": "TO_CREATOR",
+    "artMode": "HIDDEN",
+    "revealRoot": { "keccakOfText": "DEMO placeholders box revealRoot" },
+    "metadataTable": {
+      "formatV1": {
+        "description": "Demo only: a third-party box with hidden art.",
+        "traitTypes": [{ "name": "Shape", "values": ["Square", "Circle", "Star"] }]
+      }
+    },
+    "generatorHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coverSha256": { "sha256OfText": "DEMO placeholders box cover" },
+    "revealListId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "marketplaceOwner": { "addressOfText": "DEMO creator of the placeholders box" },
+    "creatorFeeRecipient": { "addressOfText": "DEMO creator of the placeholders box" },
+    "creatorBuy": "100000000000000000",
+    "collectionCoverSha256": { "sha256OfText": "DEMO placeholders box collection cover" },
+    "addOns": [
+      {
+        "addOn": "placeholders",
+        "params": {
+          "placeholderName": "Demo Hidden ticket",
+          "placeholderSymbol": "DEMOH-T",
+          "placeholderDescription": "Demo only: opens into one hidden item once its number is drawn.",
+          "hiddenDescription": "Demo only: this item is not revealed yet.",
+          "hiddenSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 8 8\"><rect width=\"8\" height=\"8\" fill=\"#334\"/></svg>"
+        }
+      },
+      { "addOn": "edition-specials", "params": { "label": "Demo rares", "count": 3 } }
+    ]
+  }
+}

@@ -1,0 +1,70 @@
+[
+  {
+    "id": "1",
+    "attributes": [
+      {
+        "trait_type": "Rarity",
+        "value": "Rare"
+      },
+      {
+        "trait_type": "Card",
+        "value": "Comet"
+      },
+      {
+        "trait_type": "Number",
+        "value": "09/16"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "attributes": [
+      {
+        "trait_type": "Rarity",
+        "value": "Rare"
+      },
+      {
+        "trait_type": "Card",
+        "value": "Crystal"
+      },
+      {
+        "trait_type": "Number",
+        "value": "10/16"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "attributes": [
+      {
+        "trait_type": "Rarity",
+        "value": "Rare"
+      },
+      {
+        "trait_type": "Card",
+        "value": "Lighthouse"
+      },
+      {
+        "trait_type": "Number",
+        "value": "11/16"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "attributes": [
+      {
+        "trait_type": "Rarity",
+        "value": "Rare"
+      },
+      {
+        "trait_type": "Card",
+        "value": "Anchor"
+      },
+      {
+        "trait_type": "Number",
+        "value": "12/16"
+      }
+    ]
+  }
+]

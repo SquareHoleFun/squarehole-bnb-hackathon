@@ -1,0 +1,45 @@
+anvil 270253 on 8578, fork block 144930369
+start balances (wei): hack-deployer 1270209208100812079, hack-alice 37636802234409326, hack-bob 49140322268836009
+STEP  1 ok  gas 13,274,406 | tBNB spent: deployer 0.001327 | check '0x0000000000000000000000000000000000000000' expect '0x0000000000000000000000000000000000000000' | deploy the rules pair for BNB (4 tx) -> deployments/97-rules-native.json
+STEP  2 ok  gas 13,840,726 | tBNB spent: deployer 0.001384 | check '0x190C989D5665a0e404B444b53CAE9AbCfb600157' expect '0x190C989D5665a0e404B444b53CAE9AbCfb600157' | deploy the rules pair for the test dollar (4 tx) -> deployments/97-rules-usdt.json
+STEP  3 ok  gas  1,698,558 | tBNB spent: deployer 0.000170 | check '3600' expect '3600' | deploy the RailStakeFactory (1 tx) -> deployments/97-stake.json
+STEP  4 ok  gas     73,569 | tBNB spent: deployer 0.000007 | check 'true 0' expect 'true 0' | Flap's helper: whitelist the rules BNB launcher factory at multiplier 0
+STEP  5 ok  gas     73,628 | tBNB spent: deployer 0.000007 | check 'true 0' expect 'true 0' | Flap's helper: whitelist the rules test-dollar launcher factory at multiplier 0
+STEP  6 ok  gas     21,000 | tBNB spent: deployer 0.060002, alice -0.060000 | check '97636802234409326' expect '>=60000000000000000' | alice gets 0.06 tBNB from hack-deployer (curve buy, pool trade, gas)
+STEP  7 ok  gas     21,000 | tBNB spent: deployer 0.060002, bob -0.060000 | check '109140322268836009' expect '>=60000000000000000' | bob gets 0.06 tBNB from hack-deployer (curve buy, pool trade, gas)
+STEP  8 ok  gas    769,131 | tBNB spent: deployer 0.005077 | check '0' expect '0' | Sweet Jar: set the rules, then create the sale through Portal.newLauncher (2 tx; 0.005 salt fee)
+STEP  9 ok  gas    204,150 | tBNB spent: alice 0.020020 | check '132427843803056020794996555' expect '>=1' | Sweet Jar: alice buys 0.02 tBNB on the curve
+STEP 10 ok  gas    118,672 | tBNB spent: bob 0.020012 | check '125139575019178419551155741' expect '>=1' | Sweet Jar: bob buys 0.02 tBNB on the curve
+STEP 11 ok  gas  8,708,856 | tBNB spent: deployer 0.061871 | check '1' expect '1' | Sweet Jar: the deployer buys the rest and launches (the fill)
+STEP 12 ok  gas    187,998 | tBNB spent: alice 0.000019 | check '132427843803056020794996555' expect '>=1' | Sweet Jar: alice claims
+STEP 13 ok  gas    170,898 | tBNB spent: bob 0.000017 | check '125139575019178419551155741' expect '>=1' | Sweet Jar: bob claims
+STEP 14 ok  gas    166,098 | tBNB spent: deployer 0.000017 | check '342432581177765559653847704' expect '>=1' | Sweet Jar: deployer claims
+STEP 15 ok  gas    230,206 | tBNB spent: alice 0.005023 | check '156519974180655751159407588' expect '>=1' | Sweet Jar: alice buys on the pool for 0.005 tBNB
+STEP 16 ok  gas    485,681 | tBNB spent: bob -0.001906 | check '115139575019178419551155741' expect '>=1' | Sweet Jar: bob sells 10,000,000 tokens on the pool
+STEP 17 ok  gas    140,576 | tBNB spent: deployer 0.000014 | check '3' expect '3' | Sweet Jar: dispatch the tax processor's waiting vault share to the splitter (a measured zero is fine)
+STEP 18 ok  gas    324,744 | tBNB spent: deployer -0.000079 | check '111883935252605' expect '>=1' | Sweet Jar: the share-out among the rules (creator, pile, buy and burn)
+STEP 19 ok  gas          0 | tBNB spent: 0 | check '1598109707361075495688377' expect '>=1' | Sweet Jar: the reads of each rule (no transaction): status, then the pile's and the burn's amounts
+STEP 20 ok  gas     34,114 | tBNB spent: deployer 0.000003 | check '8276432831845871778680' expect '>=5000000000000000000000' | Pay Packet: deployer mints 5000 test dollars (Flap's test USDT mints openly)
+STEP 21 ok  gas     34,102 | tBNB spent: alice 0.000003 | check '1898828813221368356709' expect '>=1000000000000000000000' | Pay Packet: alice mints 1000 test dollars (Flap's test USDT mints openly)
+STEP 22 ok  gas     51,202 | tBNB spent: bob 0.000005 | check '1000000000000000000000' expect '>=1000000000000000000000' | Pay Packet: bob mints 1000 test dollars (Flap's test USDT mints openly)
+STEP 23 ok  gas  2,021,016 | tBNB spent: deployer 0.005202 | check '86400' expect '86400' | Pay Packet: the creator's stake for the token to come, the rules naming it, then the sale (3 tx; 0.005 salt fee)
+STEP 24 ok  gas    289,759 | tBNB spent: alice 0.000029 | check '117196678937886739249254662' expect '>=1' | Pay Packet: alice buys for up to 300 test dollars on the curve
+STEP 25 ok  gas    187,181 | tBNB spent: bob 0.000019 | check '74933218207611931731181932' expect '>=1' | Pay Packet: bob buys for up to 200 test dollars on the curve
+STEP 26 ok  gas  8,969,218 | tBNB spent: deployer 0.000897 | check '1' expect '1' | Pay Packet: the deployer buys the rest and launches (the fill)
+STEP 27 ok  gas    187,998 | tBNB spent: alice 0.000019 | check '117196678937886739249254662' expect '>=1' | Pay Packet: alice claims
+STEP 28 ok  gas    170,898 | tBNB spent: bob 0.000017 | check '74933218207611931731181932' expect '>=1' | Pay Packet: bob claims
+STEP 29 ok  gas    166,098 | tBNB spent: deployer 0.000017 | check '407870102854501329019563406' expect '>=1' | Pay Packet: deployer claims
+STEP 30 ok  gas    273,357 | tBNB spent: alice 0.000027 | check '145317265451679138233043996' expect '>=1' | Pay Packet: alice buys on the pool for 100 test dollars
+STEP 31 ok  gas    287,235 | tBNB spent: bob 0.000029 | check '64933218207611931731181932' expect '>=1' | Pay Packet: bob sells 10,000,000 tokens on the pool
+STEP 32 ok  gas    256,893 | tBNB spent: alice 0.000026 | check '145317265451679138233043996' expect '>=1' | Pay Packet: alice stakes all her or his tokens
+STEP 33 ok  gas    208,056 | tBNB spent: bob 0.000021 | check '64933218207611931731181932' expect '>=1' | Pay Packet: bob stakes all her or his tokens
+STEP 34 ok  gas          0 | tBNB spent: 0 | check '4' expect '4' | Pay Packet: dispatch the tax processor's waiting vault share to the splitter (a measured zero is fine)
+STEP 35 ok  gas    417,678 | tBNB spent: deployer 0.000042 | check '6800000000000000000' expect '>=1' | Pay Packet: the share-out: creator, pile, the holders' stake, buy and burn
+STEP 36 ok  gas     96,621 | tBNB spent: deployer 0.000010 | check '6800000000000000000' expect '>=1' | Pay Packet: a sync counts the holders' part and streams it over a day
+STEP 37 ok  gas    171,008 | tBNB spent: alice 0.000017 | check '108794108856129' expect '>=1' | Pay Packet: alice claims what she earned so far (cast: gas estimated when it is sent)
+STEP 38 ok  gas    224,032 | tBNB spent: bob 0.000022 | check '0' expect '0' | Pay Packet: bob unstakes all his tokens
+STEP 39 ok  gas          0 | tBNB spent: 0 | check '6800000000000000000' expect '>=1' | Pay Packet: the reads of each rule and of the stake (no transaction)
+TOTAL gas 54,556,363 = 0.005456 tBNB at 0.1 gwei
+  hack-deployer: spent 0.195970 tBNB (gas, salt fees, curve and pool buys, transfers)
+  hack-alice: spent -0.034816 tBNB (gas, salt fees, curve and pool buys, transfers)
+  hack-bob: spent -0.041764 tBNB (gas, salt fees, curve and pool buys, transfers)

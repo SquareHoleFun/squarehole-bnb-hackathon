@@ -1,0 +1,10 @@
+{
+  "fancy-canvas@2.1.0": {
+    "license": "MIT",
+    "copyright": "Copyright (c) 2019 TradingView, Inc",
+    "source": {
+      "url": "https://github.com/tradingview/fancy-canvas/blob/master/LICENSE",
+      "dateRead": "2026-10-29"
+    }
+  }
+}

@@ -1,0 +1,321 @@
+/*
+ * Compact platform pin (SH-005, UI-05): ~160–190px at 1440×900, a feed component rather than a hero.
+ * Container queries let the same markup fit the wide feed, the icon-rail layout and phones.
+ */
+.sh-pin {
+  container-type: inline-size;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: var(--sh-pin-min-h);
+  padding: 14px 16px 14px 18px;
+  overflow: hidden;
+  border-color: rgba(167, 139, 250, 0.4);
+  background:
+    radial-gradient(70% 120% at 100% 55%, rgba(109, 74, 226, 0.3) 0%, transparent 62%),
+    radial-gradient(50% 140% at 0% 0%, rgba(167, 139, 250, 0.14) 0%, transparent 60%),
+    linear-gradient(180deg, #16223a 0%, var(--sh-surface) 100%);
+}
+
+.sh-pin__content {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    'avatar title title'
+    'avatar detail stats';
+  align-items: center;
+  gap: 10px 18px;
+}
+
+.sh-pin__avatar {
+  grid-area: avatar;
+  box-shadow: 0 10px 30px rgba(109, 74, 226, 0.35);
+}
+
+.sh-pin__title {
+  grid-area: title;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.sh-pin__eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+}
+
+.sh-pin__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 22px;
+  padding: 0 9px 0 7px;
+  border: 1px solid rgba(167, 139, 250, 0.55);
+  border-radius: var(--sh-radius-pill);
+  background: rgba(167, 139, 250, 0.16);
+  color: #d9ceff;
+  font-weight: 750;
+  letter-spacing: 0.02em;
+}
+
+.sh-pin__label > .sh-glyph {
+  width: 13px;
+  height: 13px;
+  color: var(--sh-accent);
+}
+
+.sh-pin__nomatch {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 0 9px;
+  border: 1px dashed rgba(255, 209, 122, 0.7);
+  border-radius: var(--sh-radius-pill);
+  color: var(--sh-warning);
+  font-weight: 700;
+}
+
+.sh-pin__nameline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+}
+
+.sh-pin__name {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+}
+
+.sh-pin__ticker {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-small);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.sh-pin__ticker[data-unset='true'] {
+  padding: 1px 8px;
+  border: 1px dashed var(--sh-border-strong);
+  border-radius: var(--sh-radius-pill);
+  font-size: var(--sh-type-caption);
+  font-weight: 650;
+  letter-spacing: 0;
+}
+
+.sh-pin__soon {
+  align-self: center;
+  padding: 2px 10px;
+  border: 1px solid rgba(167, 139, 250, 0.6);
+  border-radius: var(--sh-radius-pill);
+  background: rgba(109, 74, 226, 0.25);
+  color: var(--sh-text);
+  font-size: var(--sh-type-label);
+  font-weight: 750;
+  letter-spacing: 0;
+}
+
+/* Top-right corner of the card; the accent's Replay control moves to its bottom edge to stay clear. */
+.sh-pin__toggle {
+  position: absolute;
+  z-index: 1;
+  top: 12px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 0 12px 0 10px;
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-pill);
+  background: rgba(8, 13, 22, 0.55);
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-label);
+  font-weight: 650;
+  cursor: pointer;
+}
+
+/* 44px-class hit area without a bigger pill. */
+.sh-pin__toggle::before {
+  content: '';
+  position: absolute;
+  inset: -7px; /* from the padding box: 32px + 2 × (7 − 1px border) = 44px */
+}
+
+.sh-pin__toggle:hover {
+  color: var(--sh-text);
+  border-color: var(--sh-accent);
+}
+
+.sh-pin__detail {
+  grid-area: detail;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.sh-pin__detail[hidden] {
+  display: none;
+}
+
+.sh-pin__tagline {
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+  font-weight: 600;
+}
+
+.sh-pin__chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.sh-pin__chips > .sh-pairing,
+.sh-pin__chips > .sh-reward {
+  white-space: nowrap;
+  min-height: 26px;
+  padding: 0 10px 0 3px;
+  border: 1px solid rgba(99, 118, 155, 0.6);
+  border-radius: var(--sh-radius-pill);
+  background: rgba(8, 13, 22, 0.4);
+}
+
+.sh-pin__chips > .sh-reward {
+  padding-left: 9px;
+}
+
+
+.sh-pin__note {
+  max-width: 64ch;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+}
+
+.sh-pin__loading {
+  display: grid;
+  gap: 8px;
+  width: min(320px, 100%);
+}
+
+.sh-pin__stats {
+  grid-area: stats;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-self: end;
+}
+
+.sh-pin__metrics {
+  display: flex;
+  margin: 0;
+  padding: 7px 4px;
+  border: 1px solid rgba(99, 118, 155, 0.45);
+  border-radius: 12px;
+  background: rgba(8, 13, 22, 0.45);
+}
+
+.sh-pin__metrics > div {
+  padding: 0 12px;
+  white-space: nowrap;
+}
+
+.sh-pin__metrics > div + div {
+  border-left: 1px solid rgba(99, 118, 155, 0.45);
+}
+
+.sh-pin__metrics dd {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.sh-pin__accent {
+  flex: 0 0 280px;
+  align-self: center;
+  margin: 0 -4px 0 0;
+}
+
+/* The accent's Replay control: an icon-only circle in the bottom-left corner, clear of the shapes and the Hide toggle. */
+.sh-pin__accent [data-scene-variant] > button {
+  top: auto;
+  right: auto;
+  bottom: 7px;
+  left: 7px;
+  justify-content: center;
+  width: 32px;
+  padding: 0;
+  gap: 0;
+  font-size: 0;
+}
+
+.sh-pin__accent [data-scene-variant] > button::before {
+  inset: -7px;
+}
+
+/* The loading pin keeps the populated pin's height, so nothing below it moves when data arrives (phones: pin-compact). */
+@media (min-width: 641px) {
+  .sh-pin[data-kind='loading'] {
+    min-height: var(--sh-pin-populated-h, 182px);
+  }
+}
+
+.sh-pin__dt-short {
+  display: none;
+}
+
+/* Collapsed: one slim row that still names the platform. */
+.sh-pin[data-collapsed='true'] {
+  min-height: 0;
+  padding-block: 10px;
+}
+
+.sh-pin[data-collapsed='true'] .sh-pin__content {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: 'title';
+}
+
+.sh-pin[data-collapsed='true'] .sh-pin__title {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 14px;
+}
+
+.sh-pin[data-collapsed='true'] .sh-pin__placement {
+  display: none;
+}
+
+.sh-pin[data-collapsed='true'] .sh-pin__name {
+  font-size: var(--sh-type-body-lg);
+}
+
+.sh-pin[data-collapsed='true'] .sh-pin__title {
+  padding-right: 92px;
+}
+
+.sh-pin[data-collapsed='true'] .sh-pin__toggle {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Narrower feed (icon rail, small laptops): smaller accent, holders move out. */
+@container (max-width: 1080px) {
+  .sh-pin__accent {
+    flex-basis: 220px;
+  }
+
+  .sh-pin__holders {
+    display: none;
+  }
+}

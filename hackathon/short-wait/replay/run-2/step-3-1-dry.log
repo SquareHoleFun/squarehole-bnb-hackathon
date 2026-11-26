@@ -1,0 +1,25 @@
+No files changed, compilation skipped
+Script ran successfully.
+
+== Logs ==
+  BNB|listings|0x6755eaDC78F0D28ef027C6C6D63b197997f453ae
+
+## Setting up 1 EVM.
+
+==========================
+
+Chain 97
+
+Estimated gas price: 0.1 gwei
+
+Estimated total gas used for script: 5243139
+
+Estimated amount required: 0.0005243139 BNB
+
+==========================
+
+SIMULATION COMPLETE. To broadcast these transactions, add --broadcast and wallet configuration(s) to the previous command. See forge script --help for more.
+
+Transactions saved to: /home/sh/work/c/packages/contracts/broadcast/BnbTestnetSetup.s.sol/97/dry-run/runListings-latest.json
+
+Sensitive values saved to: /home/sh/work/c/packages/contracts/cache/BnbTestnetSetup.s.sol/97/dry-run/runListings-latest.json

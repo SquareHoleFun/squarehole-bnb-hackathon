@@ -1,0 +1,849 @@
+{
+ "schema": "sh.core-box.v2",
+ "chainId": 11155111,
+ "token": "0x27ffa84723187584a29f723514bc0185c4a9bed4",
+ "row": {
+  "boxId": "3",
+  "templateId": "0x3d98571dae29e4509eb705b2ca8e038cb3c0968954f8d6e2670068af71cdd235",
+  "specHash": "0x25ddd03b67d18df678d0049dcd658ceaf1fa77cb7dacff94b06227d9d553cb82",
+  "creator": "0x5583f846B0dDC80f49ea0E89C51520bA341c6658",
+  "pricingListingId": 5,
+  "q": "0x1C5231c8BDde9ED7AA80Fe13EDb634db9Bd3E1c7",
+  "raise": "100000000000000000000000",
+  "poolManager": "0xE03A1074c86CFeDd5C142C4F04F1a1536e203543",
+  "poolId": "0x6dc7df8993f68e58b596067cca46cb7889072271059ec2cb21578fed1f6fe266",
+  "creationBlock": "12009005",
+  "openAt": "1793150713",
+  "randomness": "0xbeEcE13fBdd67D0A696cB7cfD28103Ed37ba79A6",
+  "contracts": {
+   "coordinator": "0xa8644687cD33905A4e4bB3fb62FC53D418FbDd24",
+   "token": "0x27ffA84723187584a29f723514bC0185c4a9bED4",
+   "hook": "0xddaDfBDcb228D884D3dB62A4D8b9988e35C4AAe0",
+   "vault": "0xA74a0b3C9Ab44a45cb203A89eb4DdAE9e448F780",
+   "collection": null,
+   "receiver": "0xf028902928374E939D79Bd13786577c921f423D6",
+   "launchRouter": "0xc2b3F1B470E8409a60a5e73780B582d9854479C8",
+   "tickets": null,
+   "royaltyRouter": "0x7C6cC7492C79df422aF1BCc21dB4331eEc3A7F35",
+   "executor": null,
+   "itemStream": null,
+   "swapModule": null,
+   "metadataTable": null,
+   "sampler": null,
+   "leg0": null,
+   "leg1": null,
+   "itemLedger": null,
+   "holderLedger": null,
+   "heldItemEarnings": null,
+   "starterSetLoader": null,
+   "reserved20": null,
+   "reserved21": null,
+   "reserved22": null,
+   "reserved23": null
+  },
+  "protocol": 2,
+  "chainId": 11155111,
+  "registry": "0x5D2866EF084d801aE734D3A2A6E4F7179898737C",
+  "record": {
+   "boxId": "3",
+   "templateId": "0x3d98571dae29e4509eb705b2ca8e038cb3c0968954f8d6e2670068af71cdd235",
+   "specHash": "0x25ddd03b67d18df678d0049dcd658ceaf1fa77cb7dacff94b06227d9d553cb82",
+   "creator": "0x5583f846B0dDC80f49ea0E89C51520bA341c6658",
+   "pricingListingId": 5,
+   "q": "0x1C5231c8BDde9ED7AA80Fe13EDb634db9Bd3E1c7",
+   "raise": "100000000000000000000000",
+   "poolManager": "0xE03A1074c86CFeDd5C142C4F04F1a1536e203543",
+   "poolId": "0x6dc7df8993f68e58b596067cca46cb7889072271059ec2cb21578fed1f6fe266",
+   "creationBlock": "12009005",
+   "openAt": "1793150713",
+   "randomness": "0xbeEcE13fBdd67D0A696cB7cfD28103Ed37ba79A6",
+   "contracts": [
+    "0xa8644687cD33905A4e4bB3fb62FC53D418FbDd24",
+    "0x27ffA84723187584a29f723514bC0185c4a9bED4",
+    "0xddaDfBDcb228D884D3dB62A4D8b9988e35C4AAe0",
+    "0xA74a0b3C9Ab44a45cb203A89eb4DdAE9e448F780",
+    "0x0000000000000000000000000000000000000000",
+    "0xf028902928374E939D79Bd13786577c921f423D6",
+    "0xc2b3F1B470E8409a60a5e73780B582d9854479C8",
+    "0x0000000000000000000000000000000000000000",
+    "0x7C6cC7492C79df422aF1BCc21dB4331eEc3A7F35",
+    "0x0000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000"
+   ],
+   "codeHashes": [
+    "0x9108ba5727e93fa377ca14d846c9a9622ca14436891de4ceafd37482b4b5140f",
+    "0xf05ca8a36b922a6b2a1a2919398ace351a41b2eb564eba8d3a7a2298846ed9b7",
+    "0x60f58fd1755e201e0d1f62dddd46bd9f1f67b565b706953251e6d18f0745a6bb",
+    "0x5ed6b6ab50de7ad08b470a6d57138c53ef1a70988a489849ebcb80e82de6e527",
+    "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "0xa4cfad4f5bfd9182fdd2eb9362eca287b0ceff1a9dfafa44796af4190fcbb465",
+    "0xfa4eb8077b2e25529d019e90538ce3c0d79da91bebd904de5a851774b64c7fb4",
+    "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "0x563aa127bf157a15df47a8b1ec177eece96178d2615f5edf848b59e58225dc94",
+    "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "0x0000000000000000000000000000000000000000000000000000000000000000"
+   ]
+  },
+  "spec": {
+   "format": 2,
+   "version": 2,
+   "boxType": 5,
+   "tokenName": "The Alchemist",
+   "tokenSymbol": "LEAD",
+   "collectionName": "",
+   "collectionSymbol": "",
+   "description": "Fees buy the pile coin. Buyers use The Alchemist; sellers buy LEAD and burn it. A zero-seed pile in another listed test coin keeps 5% of each share except a whole-supply exit. LEAD does not turn into metal. Resolve a mature Alchemist row for the selected price coin and pile coin. No route is presumed.",
+   "n": 0,
+   "firstId": "0",
+   "pricing": {
+    "listingId": 5,
+    "token": "0x1C5231c8BDde9ED7AA80Fe13EDb634db9Bd3E1c7"
+   },
+   "raise": "100000000000000000000000",
+   "layout": 1,
+   "gradLayout": 3,
+   "launchFormat": 1,
+   "openAt": 0,
+   "deadlineDays": 30,
+   "buyers": {
+    "a": {
+     "leg": 1,
+     "dest": 9,
+     "legParams": "0x",
+     "destParams": "0x0000000000000000000000000000000000000000000000000000000000000004"
+    },
+    "b": {
+     "leg": 0,
+     "dest": 0,
+     "legParams": "0x",
+     "destParams": "0x"
+    },
+    "split": 1,
+    "splitParams": "0x"
+   },
+   "sellers": {
+    "a": {
+     "leg": 2,
+     "dest": 1,
+     "legParams": "0x",
+     "destParams": "0x"
+    },
+    "b": {
+     "leg": 0,
+     "dest": 0,
+     "legParams": "0x",
+     "destParams": "0x"
+    },
+    "split": 1,
+    "splitParams": "0x"
+   },
+   "artMode": 0,
+   "revealRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+   "metadataTable": "0x",
+   "generatorHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+   "coverSha256": "0x7c9e0e4061a98ce620038393f59097a2df4ca47420ab03ad81f041ad8256ecfa",
+   "revealListId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+   "marketplaceOwner": "0x0000000000000000000000000000000000000000",
+   "creatorFeeRecipient": "0x0000000000000000000000000000000000000000",
+   "creatorBuy": "0",
+   "collectionCoverSha256": "0x0000000000000000000000000000000000000000000000000000000000000000",
+   "addOns": [],
+   "contentsParams": "0x00000000000000000000000025f276ce776f5c9b0686250e78ea34bf7ab4c17a000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001f4",
+   "pickFeeBps": 0
+  },
+  "encodedSpec": "0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000050000000000000000000000000000000000000000000000000000000000000420000000000000000000000000000000000000000000000000000000000000046000000000000000000000000000000000000000000000000000000000000004a000000000000000000000000000000000000000000000000000000000000004c000000000000000000000000000000000000000000000000000000000000004e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000050000000000000000000000001c5231c8bdde9ed7aa80fe13edb634db9bd3e1c700000000000000000000000000000000000000000000152d02c7e14af68000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001e00000000000000000000000000000000000000000000000000000000000006400000000000000000000000000000000000000000000000000000000000000880000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000aa000000000000000000000000000000000000000000000000000000000000000007c9e0e4061a98ce620038393f59097a2df4ca47420ab03ad81f041ad8256ecfa000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ac00000000000000000000000000000000000000000000000000000000000000ae00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000d54686520416c6368656d6973740000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000044c4541440000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000012e4665657320627579207468652070696c6520636f696e2e20427579657273207573652054686520416c6368656d6973743b2073656c6c65727320627579204c45414420616e64206275726e2069742e2041207a65726f2d736565642070696c6520696e20616e6f74686572206c6973746564207465737420636f696e206b65657073203525206f6620656163682073686172652065786365707420612077686f6c652d737570706c7920657869742e204c45414420646f6573206e6f74207475726e20696e746f206d6574616c2e205265736f6c76652061206d617475726520416c6368656d69737420726f7720666f72207468652073656c656374656420707269636520636f696e20616e642070696c6520636f696e2e204e6f20726f7574652069732070726573756d65642e000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000001600000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000022000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000009000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000a000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000001400000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000a000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006000000000000000000000000025f276ce776f5c9b0686250e78ea34bf7ab4c17a000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001f4",
+  "release": {
+   "version": 2,
+   "factory": {
+    "address": "0xFAe1E6CFF43CAdcBE01885BdD0AA6218263de393",
+    "codeHash": "0x82003f3ea538e2c56d8eba669a0175bd8c9908ddc5163463095963caf78d1fdc"
+   },
+   "registry": {
+    "address": "0x5D2866EF084d801aE734D3A2A6E4F7179898737C",
+    "codeHash": "0xd962e1f1785b2f7f7cf3d6b9f7752d5e795b6f9a3ac309858ea4d966f289075e"
+   },
+   "listingRegistry": {
+    "address": "0x84Dc1E9Cd7da248f85133E5e03EF3A303a51072D",
+    "codeHash": "0xf65bd4112d418434487cf0c9d8a00a3a988c766707c669c04047cd385b34a308"
+   },
+   "feeModuleDirectory": {
+    "address": "0xF856948cEc46e79249Ba4E3Fdb9796CB5f182c93",
+    "codeHash": "0x846c54958a4a6e7564eed649a64ec755c61b6075398ce0b1d402e1b9709955fa"
+   },
+   "safes": {
+    "fit": {
+     "version": "1.5.0",
+     "codeHash": "0x4e381985ca68b3e5d27b4425fa581c19cf33146d3f887a3cfca96f55528ea46f",
+     "singleton": "0xedd160febbd92e350d4d398fb636302fccd67c7e",
+     "singletonCodeHash": "0x180193227186ccb85316c94db1f0d156ed932b14712cfaac78901899178572dc",
+     "guard": "0x0000000000000000000000000000000000000000",
+     "guardCodeHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+     "handler": "0x3efcbb83a4a7afcb4f68d501e2c2203a38be77f4",
+     "handlerCodeHash": "0x3c6a85bcf7b563daa624b884b4e9a1b9fa5371edde7be945d998071a48f28bbc",
+     "address": "0x19a17f066b1920b1e7ac6d9176b7091a42c0446f",
+     "owners": [
+      "0x3e51f79343d4754367d842184aa46a76235b21ce",
+      "0x0363f3c31076a64b85ceb69a28f958a7c1181cee",
+      "0x15b5359fd05a37ba6546aacabe92d9354ad18d07"
+     ],
+     "threshold": "2",
+     "modulesEnabled": false,
+     "controlTransferProof": "pending"
+    },
+    "platform": {
+     "version": "1.5.0",
+     "codeHash": "0x4e381985ca68b3e5d27b4425fa581c19cf33146d3f887a3cfca96f55528ea46f",
+     "singleton": "0xedd160febbd92e350d4d398fb636302fccd67c7e",
+     "singletonCodeHash": "0x180193227186ccb85316c94db1f0d156ed932b14712cfaac78901899178572dc",
+     "guard": "0x0000000000000000000000000000000000000000",
+     "guardCodeHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+     "handler": "0x3efcbb83a4a7afcb4f68d501e2c2203a38be77f4",
+     "handlerCodeHash": "0x3c6a85bcf7b563daa624b884b4e9a1b9fa5371edde7be945d998071a48f28bbc",
+     "address": "0x9432380a67745b453886698f9539ac035df80b34",
+     "owners": [
+      "0x0363f3c31076a64b85ceb69a28f958a7c1181cee"
+     ],
+     "threshold": "1",
+     "modulesEnabled": false,
+     "controlTransferProof": "pending"
+    }
+   },
+   "startBlock": "11973601",
+   "implementations": {
+    "coordinator": {
+     "address": "0xe93B776a256d54dB2ABEcA4bBa68e44703dDB2C7",
+     "codeHash": "0xfe5347d5e4dc20b780026740f9bdaee457259ea5bf9a1904943fda58d522cab9"
+    },
+    "hook": {
+     "address": "0xCBCD98dE71Caa80F708AaeE6c0aba352d919f3c6",
+     "codeHash": "0x0fcd9047ff0d03617149fddb53d498ed19986a5705020477d5bc570c31470c63"
+    },
+    "hookExtension": {
+     "address": "0xaC3a9fee3dA22425d4698938709B01cB40D90cBf",
+     "codeHash": "0x7818439bbb8a5e8646c382757d349fa6916a31c197561139ef566dcd6211a472"
+    },
+    "launchRouter": {
+     "address": "0xFcF1515689DbE818736Ce82131b0Cf353f142c3B",
+     "codeHash": "0xaf489c78842cbd3e83ca90550eefec95be7578e1e7da90f11996876c2e2d66fd"
+    },
+    "receiver": {
+     "address": "0x3dE38b84592d3B633905c96a2cef08740e4b72E0",
+     "codeHash": "0x0d93d4eec07dadf572b2eca5cae9ab5d76a53ba1876edc7e0830b57b836b363c"
+    },
+    "collection": {
+     "address": "0x176Fea2b97A6Bb17Cea528646166cbc76aCccf9D",
+     "codeHash": "0xedce785b042e8d2b41b2b6e6d2bbe4d030ac4396c3d76c1c13378661f85ec013"
+    },
+    "vault": {
+     "address": "0x440Dca04F3F00fcbD2BAddA2078c542923A55643",
+     "codeHash": "0x18b8ea9f2c64e52c4702b2c987337acbfabefda85259001868c723a3be60b295"
+    },
+    "tickets": {
+     "address": "0x47F6F11A7f52Cb02b87B6D0CDFB7BaBc6E4Dc841",
+     "codeHash": "0x8359f491f9e97f4a3bd050435dbe8e07be37f9e0cfe3b03348d902b8d8f6e853"
+    },
+    "royaltyRouter": {
+     "address": "0x46DBd8275d35f6AE052971c243c9dB09086352b3",
+     "codeHash": "0x908f79a01b1f65569982d7259b38001399ba1bb8dd2e294bf866c8d2d1811b65"
+    },
+    "token": {
+     "address": "0xEC7Cf0F87FBdDAf393d1f9d67AB6711f77783e58",
+     "codeHash": "0xc80f3ee2e185888a551907395562d73fc1258bdef05e34ced9393ad5a9425aba"
+    },
+    "itemLedger": {
+     "address": "0xB7fdA2a6156004E4122B617caD0807feFA367d3B",
+     "codeHash": "0xf6d34974375e354e21dc3edb9117136986f498c6730819af58568c086281d905"
+    },
+    "pileVault": {
+     "address": "0xD33E50d2bf03FB52c1a0aa9473325Ba1E8b6B135",
+     "codeHash": "0x741d72db494d10c4ecf38856e21b66576604c60f06638169c09a510af6b4a81b"
+    },
+    "tokenLedger": {
+     "address": "0x74f6b59B103F017f0d71b18B03c6A93B0Ab457D5",
+     "codeHash": "0x6e98e788243cc180dc440d95be2bfa830b7455fdc541b0069cb9be07992a2879"
+    },
+    "holderLedger": {
+     "address": "0xDBd97479c02A695FE6484b4d528bBEd8dF419f8f",
+     "codeHash": "0xac5b1416962a32b527861707431f7b77c82e2a93c082f9840cba3615a2b3872d"
+    },
+    "shopVault": {
+     "address": "0x37664634dEc6AD775C762A9Ad7652B8BbC5C10b6",
+     "codeHash": "0xd3169ffa5c5368bcbd53a369c46f8ffb558291727058f9bc8d176352abf62599"
+    },
+    "starterSetLoader": {
+     "address": "0x6a08Caa0c39fcB8bE436EA09e21B84771853A5D5",
+     "codeHash": "0x7e8518aae668243e35fd9f3c398fe59c048a34d6825eb915ba7a874e2d884bdd"
+    }
+   },
+   "versionCodeHash": "0x31927f086fff14638c18ca1194dc874c12d6faec88b9356fc939d066f485baaa"
+  },
+  "marks": [],
+  "pDecimals": 18,
+  "origin": {
+   "blockHash": "0xbad4e6f297b4b5044ad0d8b4625b01576e8b57660923d634a912defaa2e38f14",
+   "txHash": "0x42e44acb45ba2de681de145d6afa2f45f657265fb0f7af4f3baa51695d9ce36c",
+   "logIndex": 86
+  },
+  "feeModules": [
+   {
+    "module": "0x3a03eb2986fa2f56221f1e1f1858b08d65172e4c",
+    "codeHash": "0xb73ca9efea619e8b1a6004d0b970a57bf90d2b57412f70d75f786c2af3bcf6a6"
+   }
+  ],
+  "inbox": {
+   "router": "0x7C6cC7492C79df422aF1BCc21dB4331eEc3A7F35",
+   "handler": "0x3EbB3783789c0229A3912B698bBbE45326fBf86e",
+   "settlement": "0x9008D19f58AAbD9eD0D60971565AA8510560ab41"
+  }
+ },
+ "asOf": {
+  "block": "12195510",
+  "hash": "0x2fa015ae530b263da8268e2b8e7c168f6f340088b0853d4c296b8f3122c6afad",
+  "timestamp": "1795434660",
+  "tier": "head"
+ },
+ "stale": false,
+ "verified": true,
+ "audit": {
+  "block": "12195498",
+  "ok": true,
+  "mismatches": [],
+  "reads": {
+   "receiver.fitOwed": "0",
+   "receiver.platformOwed": "0",
+   "receiver.poolHeldP": "0",
+   "receiver.growHeldP": "0",
+   "receiver.creatorP": "0",
+   "receiver.buyBackP": "0",
+   "receiver.itemsHeldP": "0",
+   "receiver.royaltyHeldP": "0",
+   "receiver.tBurnPending": "0",
+   "receiver.FIT_SAFE": "0x19a17f066b1920b1E7AC6D9176B7091a42c0446F",
+   "receiver.PLATFORM_SAFE": "0x9432380a67745b453886698F9539aC035DF80B34",
+   "receiver.buyersChoice": "10",
+   "receiver.sellersChoice": "2",
+   "receiver.graduationSettled": "1",
+   "receiver.creatorPayee": "0x5583f846B0dDC80f49ea0E89C51520bA341c6658",
+   "receiver.bookedP": "9",
+   "receiver.creatorOwed": "0",
+   "receiver.creatorHeld": "0",
+   "receiver.balanceP": "9",
+   "hook.closedAt": "1793153892",
+   "hook.depthBudget": "8701524738650275464",
+   "hook.saleFeesPending": "0",
+   "hook.lastProtocolBlock": "12155143",
+   "hook.pairedLiquidity": "4434268395402862613400384",
+   "coordinator.failed": "0",
+   "coordinator.graduated": "1",
+   "coordinator.pot": "100000000000000000000",
+   "coordinator.tLeft": "0",
+   "token.totalSupply": "998917998169334959350555466",
+   "pool.sqrtPriceX96": "1856485828461428975613107119354",
+   "pool.tick": "63085",
+   "pool.liquidity": "4434268395402862613400384",
+   "coordinator.creatorEntitlement": "0",
+   "receiver.buyersModule": "0x3A03eb2986fA2f56221F1e1F1858B08D65172e4c",
+   "receiver.buyersModuleHash": "0xb73ca9efea619e8b1a6004d0b970a57bf90d2b57412f70d75f786c2af3bcf6a6",
+   "receiver.buyersModulePendingP": "0",
+   "receiver.sellersModule": "0x0000000000000000000000000000000000000000",
+   "receiver.sellersModuleHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+   "receiver.sellersModulePendingP": "0"
+  }
+ },
+ "inbox": {
+  "refreshes": {},
+  "sales": {},
+  "flushed": "0",
+  "unwrapped": "0"
+ },
+ "alchemist": {
+  "inputP": "1205872552250026030860",
+  "receivedAsset": "1195777224538945",
+  "dustToDepthP": "0"
+ },
+ "m3": {
+  "items": null,
+  "pile": {
+   "asset": "0x25f276ce776f5c9b0686250e78ea34bf7ab4c17a",
+   "seedAmount": "0",
+   "leaveBehindBps": "500",
+   "seeder": "0x5583f846b0ddc80f49ea0e89c51520ba341c6658",
+   "seedLoaded": true,
+   "loadedAmount": "0",
+   "seedReturned": false,
+   "returnedAmount": "0",
+   "graduated": true,
+   "failed": false,
+   "redeemedT": "0",
+   "redeemedAsset": "0"
+  }
+ },
+ "boxId": "3",
+ "gate": {
+  "open": true,
+  "effectiveOpenAt": "1793150713",
+  "deadline": "1795742713",
+  "chunks": {
+   "Table": {
+    "loaded": 0,
+    "done": false
+   },
+   "Texts": {
+    "loaded": 0,
+    "done": false
+   }
+  }
+ },
+ "failed": null,
+ "graduated": true,
+ "closedAt": "1793153892",
+ "choices": {
+  "buyers": "module",
+  "sellers": "burn"
+ },
+ "position": {
+  "kind": "full_range",
+  "tickLower": -887220,
+  "tickUpper": 887220,
+  "liquidity": "4434268395402862613400384",
+  "salt": "3"
+ },
+ "fees": {
+  "buyersP": "1808808828375039046299",
+  "sellersP": "0",
+  "qToReserve": "0",
+  "tipsP": "23770019819335560274"
+ },
+ "safePaid": {
+  "fit": {
+   "0x1c5231c8bdde9ed7aa80fe13edb634db9bd3e1c7": "241174510450005206172"
+  },
+  "platform": {
+   "0x1c5231c8bdde9ed7aa80fe13edb634db9bd3e1c7": "120587255225002603086"
+  }
+ },
+ "safePayments": [
+  {
+   "kind": "fit",
+   "token": "0x1C5231c8BDde9ED7AA80Fe13EDb634db9Bd3E1c7",
+   "safe": "0x19a17f066b1920b1E7AC6D9176B7091a42c0446F",
+   "amount": "120078225562109376536",
+   "ref": {
+    "blockNumber": "12024418",
+    "blockHash": "0x8dea69e85a758a9d15ef74bfe25634c58eaaa295f0ce5a6343616e948cc99af8",
+    "txHash": "0x2cc37c2d543e4e8e622d9d5456f09ec154c1199c5475be31c6ff3f33f1c96613",
+    "txIndex": 69,
+    "logIndex": 101
+   }
+  },
+  {
+   "kind": "platform",
+   "token": "0x1C5231c8BDde9ED7AA80Fe13EDb634db9Bd3E1c7",
+   "safe": "0x9432380a67745b453886698F9539aC035DF80B34",
+   "amount": "60039112781054688268",
+   "ref": {
+    "blockNumber": "12024418",
+    "blockHash": "0x8dea69e85a758a9d15ef74bfe25634c58eaaa295f0ce5a6343616e948cc99af8",
+    "txHash": "0x1508fc8da524c38d58fecfc4f5b9041f1bfc22f240d2f0971220123968654c44",
+    "txIndex": 70,
+    "logIndex": 104
+   }
+  },
+  {
+   "kind": "fit",
+   "token": "0x1C5231c8BDde9ED7AA80Fe13EDb634db9Bd3E1c7",
+   "safe": "0x19a17f066b1920b1E7AC6D9176B7091a42c0446F",
+   "amount": "118732976790178718432",
+   "ref": {
+    "blockNumber": "12155062",
+    "blockHash": "0x83752adb5862e708d09f0a0c290e4fb0a497f8fa2438870ead0bc4686639c852",
+    "txHash": "0x3be0dd3b7fc60a5f02b137fb6256df94886006cc90808b18d7080b1754957750",
+    "txIndex": 126,
+    "logIndex": 499
+   }
+  },
+  {
+   "kind": "platform",
+   "token": "0x1C5231c8BDde9ED7AA80Fe13EDb634db9Bd3E1c7",
+   "safe": "0x9432380a67745b453886698F9539aC035DF80B34",
+   "amount": "59366488395089359216",
+   "ref": {
+    "blockNumber": "12155063",
+    "blockHash": "0xba071d65685b1b76f6d566ed0518867135ff9239738a429b7b294da1aeb825a3",
+    "txHash": "0xdf23406900d69e5d389816ad1b26cf8402bf3b2e8a12e409d24595711efaa649",
+    "txIndex": 38,
+    "logIndex": 70
+   }
+  },
+  {
+   "kind": "fit",
+   "token": "0x1C5231c8BDde9ED7AA80Fe13EDb634db9Bd3E1c7",
+   "safe": "0x19a17f066b1920b1E7AC6D9176B7091a42c0446F",
+   "amount": "613550688135712212",
+   "ref": {
+    "blockNumber": "12155140",
+    "blockHash": "0x8bdbb5f513d85c2653bbf4ba6e33da87edcfe25ff6502e0e6749e635a6aeb26f",
+    "txHash": "0x6cc7d2a0f154f4aaa966268d342f19ddcae5a20adea64eb479a6e72da98b8932",
+    "txIndex": 60,
+    "logIndex": 131
+   }
+  },
+  {
+   "kind": "platform",
+   "token": "0x1C5231c8BDde9ED7AA80Fe13EDb634db9Bd3E1c7",
+   "safe": "0x9432380a67745b453886698F9539aC035DF80B34",
+   "amount": "306775344067856106",
+   "ref": {
+    "blockNumber": "12155140",
+    "blockHash": "0x8bdbb5f513d85c2653bbf4ba6e33da87edcfe25ff6502e0e6749e635a6aeb26f",
+    "txHash": "0x113f220e97d7f8f2250ddd6bb26e93192e762b1995b8f9fa8798d74b418b5e5c",
+    "txIndex": 61,
+    "logIndex": 134
+   }
+  },
+  {
+   "kind": "fit",
+   "token": "0x1C5231c8BDde9ED7AA80Fe13EDb634db9Bd3E1c7",
+   "safe": "0x19a17f066b1920b1E7AC6D9176B7091a42c0446F",
+   "amount": "1749757409581398992",
+   "ref": {
+    "blockNumber": "12155166",
+    "blockHash": "0x833c0088304307322b1ff60a63b1003a597f5f8e9994c2ff2213e17b8d402843",
+    "txHash": "0xe6e33623a4e2e01e62dc04c415cbc12491ee90854232f28db4ebb222335eecc4",
+    "txIndex": 51,
+    "logIndex": 85
+   }
+  },
+  {
+   "kind": "platform",
+   "token": "0x1C5231c8BDde9ED7AA80Fe13EDb634db9Bd3E1c7",
+   "safe": "0x9432380a67745b453886698F9539aC035DF80B34",
+   "amount": "874878704790699496",
+   "ref": {
+    "blockNumber": "12155166",
+    "blockHash": "0x833c0088304307322b1ff60a63b1003a597f5f8e9994c2ff2213e17b8d402843",
+    "txHash": "0x246a3537811a30dab048b54977bf5ef0b221a999276888364e8eadbc22c8214c",
+    "txIndex": 52,
+    "logIndex": 88
+   }
+  }
+ ],
+ "royaltyInKind": {},
+ "royaltyFunded": {},
+ "buyBack": {
+  "pSpent": "0",
+  "tBought": "0",
+  "tBurned": "0",
+  "tipsP": "0"
+ },
+ "eatenP": "0",
+ "pileMovedP": "0",
+ "claim": null,
+ "creatorAddresses": [
+  {
+   "address": "0x5583f846B0dDC80f49ea0E89C51520bA341c6658",
+   "namedBy": "creator",
+   "ref": null
+  }
+ ],
+ "creatorTOut": [],
+ "creatorClaims": [],
+ "releasedToCreator": [],
+ "statistics": {
+  "pricePPerTX18": "1821276528614549520780135326352160",
+  "marketCapP": "1819305904076441307908617",
+  "raiseProgress": null,
+  "totalSupplyT": "998917998169334959350555466",
+  "burnedT": "1082001830665040649444534",
+  "holderCount": "3",
+  "volume24hP": "0",
+  "tradeCount": "3",
+  "hourlyCandles": [
+   {
+    "start": "1794924000",
+    "open": "1796239935702599345336549029535875",
+    "high": "1821276528614549520780135326352160",
+    "low": "1796239935702599345336549029535875",
+    "close": "1821276528614549520780135326352160",
+    "volumeP": "0",
+    "tradeCount": "0"
+   }
+  ]
+ },
+ "money": {
+  "modules": {
+   "buyers": {
+    "module": "0x3A03eb2986fA2f56221F1e1F1858B08D65172e4c",
+    "codeHash": "0xb73ca9efea619e8b1a6004d0b970a57bf90d2b57412f70d75f786c2af3bcf6a6",
+    "pendingP": "0"
+   },
+   "sellers": {
+    "module": "0x0000000000000000000000000000000000000000",
+    "codeHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "pendingP": "0"
+   }
+  },
+  "m3": {
+   "hash": "0x2fa015ae530b263da8268e2b8e7c168f6f340088b0853d4c296b8f3122c6afad",
+   "itemBalanceP": null,
+   "pile": {
+    "asset": "0x25f276Ce776f5C9b0686250e78EA34bF7aB4C17A",
+    "seeder": "0x5583f846B0dDC80f49ea0E89C51520bA341c6658",
+    "seedAmount": "0",
+    "leaveBehindBps": "500",
+    "balance": "1195777224538945",
+    "balanceStatus": "verified",
+    "supply": "998917998169334959350555466",
+    "graduated": true,
+    "failed": false,
+    "seedReceived": true,
+    "seedReturnDue": "0",
+    "seedReturnBacked": true,
+    "redemptionOpen": true
+   }
+  },
+  "block": "12195510",
+  "hash": "0x2fa015ae530b263da8268e2b8e7c168f6f340088b0853d4c296b8f3122c6afad",
+  "values": {
+   "receiver.fitOwed": "0",
+   "receiver.platformOwed": "0",
+   "receiver.poolHeldP": "0",
+   "receiver.growHeldP": "0",
+   "receiver.creatorP": "0",
+   "receiver.buyBackP": "0",
+   "receiver.itemsHeldP": "0",
+   "receiver.royaltyHeldP": "0",
+   "receiver.tBurnPending": "0",
+   "receiver.FIT_SAFE": "0x19a17f066b1920b1E7AC6D9176B7091a42c0446F",
+   "receiver.PLATFORM_SAFE": "0x9432380a67745b453886698F9539aC035DF80B34",
+   "receiver.buyersChoice": "10",
+   "receiver.sellersChoice": "2",
+   "receiver.graduationSettled": "1",
+   "receiver.creatorPayee": "0x5583f846B0dDC80f49ea0E89C51520bA341c6658",
+   "receiver.bookedP": "9",
+   "receiver.creatorOwed": "0",
+   "receiver.creatorHeld": "0",
+   "receiver.balanceP": "9",
+   "hook.closedAt": "1793153892",
+   "hook.depthBudget": "8701524738650275464",
+   "hook.saleFeesPending": "0",
+   "hook.lastProtocolBlock": "12155143",
+   "hook.pairedLiquidity": "4434268395402862613400384",
+   "coordinator.failed": "0",
+   "coordinator.graduated": "1",
+   "coordinator.pot": "100000000000000000000",
+   "coordinator.tLeft": "0",
+   "token.totalSupply": "998917998169334959350555466",
+   "pool.sqrtPriceX96": "1856485828461428975613107119354",
+   "pool.tick": "63085",
+   "pool.liquidity": "4434268395402862613400384",
+   "coordinator.creatorEntitlement": "0",
+   "receiver.buyersModule": "0x3A03eb2986fA2f56221F1e1F1858B08D65172e4c",
+   "receiver.buyersModuleHash": "0xb73ca9efea619e8b1a6004d0b970a57bf90d2b57412f70d75f786c2af3bcf6a6",
+   "receiver.buyersModulePendingP": "0",
+   "receiver.sellersModule": "0x0000000000000000000000000000000000000000",
+   "receiver.sellersModuleHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+   "receiver.sellersModulePendingP": "0"
+  },
+  "royalty": {
+   "router": "0x7C6cC7492C79df422aF1BCc21dB4331eEc3A7F35",
+   "payee": "0x5583f846B0dDC80f49ea0E89C51520bA341c6658",
+   "balances": {
+    "0x0000000000000000000000000000000000000000": "0",
+    "0xfff9976782d46cc05630d1f6ebab18b2324d6b14": "0",
+    "0x1c5231c8bdde9ed7aa80fe13edb634db9bd3e1c7": "0",
+    "0x27ffa84723187584a29f723514bc0185c4a9bed4": "0"
+   },
+   "complete": true,
+   "listVersion": "7",
+   "coins": [
+    {
+     "coin": "0x0000000000000000000000000000000000000000",
+     "lot": "0",
+     "balance": "0",
+     "oldestUnsoldAt": "0",
+     "registered": false,
+     "belowOneLot": false,
+     "lastRefresh": null,
+     "lastSale": null,
+     "inKindClaimed": "0",
+     "funded": "0",
+     "flushed": "0",
+     "unwrapped": "0"
+    },
+    {
+     "coin": "0xfff9976782d46cc05630d1f6ebab18b2324d6b14",
+     "lot": "50000000000000000",
+     "balance": "0",
+     "oldestUnsoldAt": "0",
+     "registered": false,
+     "belowOneLot": false,
+     "lastRefresh": null,
+     "lastSale": null,
+     "inKindClaimed": "0",
+     "funded": "0",
+     "flushed": "0",
+     "unwrapped": "0"
+    },
+    {
+     "coin": "0x1c5231c8bdde9ed7aa80fe13edb634db9bd3e1c7",
+     "lot": "0",
+     "balance": "0",
+     "oldestUnsoldAt": "0",
+     "registered": false,
+     "belowOneLot": false,
+     "lastRefresh": null,
+     "lastSale": null,
+     "inKindClaimed": "0",
+     "funded": "0",
+     "flushed": "0",
+     "unwrapped": "0"
+    },
+    {
+     "coin": "0x27ffa84723187584a29f723514bc0185c4a9bed4",
+     "lot": "0",
+     "balance": "0",
+     "oldestUnsoldAt": "0",
+     "registered": false,
+     "belowOneLot": false,
+     "lastRefresh": null,
+     "lastSale": null,
+     "inKindClaimed": "0",
+     "funded": "0",
+     "flushed": "0",
+     "unwrapped": "0"
+    },
+    {
+     "coin": "0xb1b5cddb6be298e9188984e53513b0db38eea6d7",
+     "lot": "1000000000000000000",
+     "balance": "0",
+     "oldestUnsoldAt": "0",
+     "registered": false,
+     "belowOneLot": false,
+     "lastRefresh": null,
+     "lastSale": null,
+     "inKindClaimed": "0",
+     "funded": "0",
+     "flushed": "0",
+     "unwrapped": "0"
+    },
+    {
+     "coin": "0x5b397f65571def193ba5dbe8b2a353c3963c65f6",
+     "lot": "1000000",
+     "balance": "0",
+     "oldestUnsoldAt": "0",
+     "registered": false,
+     "belowOneLot": false,
+     "lastRefresh": null,
+     "lastSale": null,
+     "inKindClaimed": "0",
+     "funded": "0",
+     "flushed": "0",
+     "unwrapped": "0"
+    },
+    {
+     "coin": "0x2cbbad2607fccfee778d959d386997862099f33b",
+     "lot": "1000000000000000000",
+     "balance": "0",
+     "oldestUnsoldAt": "0",
+     "registered": false,
+     "belowOneLot": false,
+     "lastRefresh": null,
+     "lastSale": null,
+     "inKindClaimed": "0",
+     "funded": "0",
+     "flushed": "0",
+     "unwrapped": "0"
+    },
+    {
+     "coin": "0x25f276ce776f5c9b0686250e78ea34bf7ab4c17a",
+     "lot": "1000000000000000000",
+     "balance": "0",
+     "oldestUnsoldAt": "0",
+     "registered": false,
+     "belowOneLot": false,
+     "lastRefresh": null,
+     "lastSale": null,
+     "inKindClaimed": "0",
+     "funded": "0",
+     "flushed": "0",
+     "unwrapped": "0"
+    },
+    {
+     "coin": "0x86d5c2533a78077c125630d4d1d1b2321a07eb35",
+     "lot": "1000000000000000000",
+     "balance": "0",
+     "oldestUnsoldAt": "0",
+     "registered": false,
+     "belowOneLot": false,
+     "lastRefresh": null,
+     "lastSale": null,
+     "inKindClaimed": "0",
+     "funded": "0",
+     "flushed": "0",
+     "unwrapped": "0"
+    }
+   ]
+  },
+  "owed": {
+   "fitOwed": "0",
+   "platformOwed": "0",
+   "poolHeldP": "0",
+   "growHeldP": "0",
+   "creatorP": "0",
+   "buyBackP": "0",
+   "itemsHeldP": "0",
+   "royaltyHeldP": "0",
+   "tBurnPending": "0"
+  },
+  "safes": {
+   "fit": "0x19a17f066b1920b1E7AC6D9176B7091a42c0446F",
+   "platform": "0x9432380a67745b453886698F9539aC035DF80B34"
+  },
+  "claim": {
+   "pot": "100000000000000000000",
+   "tLeft": "0",
+   "creatorEntitlement": "0",
+   "inboxP": null
+  }
+ },
+ "pool": {
+  "sqrtPriceX96": "1856485828461428975613107119354",
+  "tick": 63085
+ },
+ "supply": "998917998169334959350555466",
+ "volumeQ": "191010101010101010101013",
+ "volumeT": "896095577955910728559745029",
+ "closing": null,
+ "hatch": {
+  "eligibleAt": "1793758692",
+  "eligible": false
+ },
+ "links": null
+}

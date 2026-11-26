@@ -1,0 +1,17 @@
+creator: hack-deployer, address 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 (impersonated on the local node)
+sent card-shop:create#0 approve: 0x5ee8d27e686b6a9158dc0907c4af1f9dca4ce25325fd1233df28f76ac395640b, nonce 380
+sent card-shop:create#1 createBox: 0x96c6faa52d7d6a08a937e44b871cfce5a066248d111b38706c48749517f60592, nonce 381
+done card-shop:create
+{
+  "command": "create",
+  "dry": false,
+  "result": {
+    "box": "0xBfe1e7475ccAcFFbC72bdF4e37404F0e31792D09",
+    "specHash": "0xf926486de73c99f14eb896e4b45e1c25d234e4f7cd6734673a9eaf30c671dde5",
+    "bootstrapQ": "357",
+    "creatorBuyP": "100000",
+    "block": "144938655",
+    "createdAt": "1795677777",
+    "alreadyCreated": false
+  }
+}

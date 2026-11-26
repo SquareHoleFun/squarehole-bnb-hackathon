@@ -1,0 +1,67 @@
+# SH-300: the second chain-97 release (the ten-minute card shop), its six listings and the new box's sixteen starter
+# cards. The orchestrator runs these on the machine from packages/contracts of a folder that holds this branch merged
+# and the contract build. Sender: hack-deployer (0x2EF9A78074bbf674bEA16f21154a30c821A3C576). No nonce is assumed:
+# every forge step reads the wallet's nonce when it runs. A forge step's dry call is its simulation (no --broadcast);
+# its send is the same command with --broadcast. Every value below comes from the committed first-release files.
+# The box itself (create, load, graduate, pick) is lane e's life script on the SECOND release, after step 6.
+#
+# Cost (fork rehearsal of this table at 0.1 gwei, hackathon/rehearsals/short-wait-fork/result.json): step 2 31
+# transactions 0.008725 tBNB, step 3 9 transactions 0.000367 (11 if the platform holding contract lacks the probe
+# funds), step 4 16 transactions 0.000091; together 0.009183 tBNB, with 50% added 0.0138 tBNB.
+
+export RPC=https://bsc-testnet-rpc.publicnode.com
+export DEPLOYER=0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+export SIGN='--account hack-deployer --password-file ~/.secrets/hack-deployer.pass'
+export SEND="--broadcast --slow --legacy --with-gas-price 100000000"
+M=deployments/core-v1/97.json
+X=deployments/bnb-testnet/97-extras.json
+export FACTORY1=$(jq -r '.releases[0].factory.address' $M)
+export PM=$(jq -r '.chain.poolManager.address' $M)
+export WETH=$(jq -r '.chain.weth.address' $M)
+export DRAND=$(jq -r '.chain.randomness.address' $M)
+export FIT=$(jq -r '.releases[0].safes.fit.address' $M)
+export PLATFORM=$(jq -r '.releases[0].safes.platform.address' $M)
+export USDC=$(jq -r '.coins.tUSDC.address' $X) NVDA=$(jq -r '.coins.tNVDA.address' $X) GOLD=$(jq -r '.coins.tGOLD.address' $X) PEPE=$(jq -r '.coins.tPEPE.address' $X) TETH=$(jq -r '.coins.tETH.address' $X)
+export CARDS='[0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174,0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577,0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC,0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143]'
+
+# 1 the five reused addresses are the live first release's (read on chain, before anything is sent)
+cast call $FACTORY1 'poolManager()(address)' --rpc-url "$RPC" # expect $PM
+cast call $FACTORY1 'weth()(address)' --rpc-url "$RPC" # expect $WETH
+cast call $FACTORY1 'randomness()(address)' --rpc-url "$RPC" # expect $DRAND
+cast call $(cast call $FACTORY1 'implementation(uint256)(address)' 5 --rpc-url "$RPC") 'FIT_SAFE()(address)' --rpc-url "$RPC" # expect $FIT
+cast call $(cast call $FACTORY1 'implementation(uint256)(address)' 5 --rpc-url "$RPC") 'PLATFORM_SAFE()(address)' --rpc-url "$RPC" # expect $PLATFORM
+cast call $PLATFORM 'getOwners()(address[])' --rpc-url "$RPC" # expect [0x2EF9A78074bbf674bEA16f21154a30c821A3C576]
+cast balance $DEPLOYER --rpc-url "$RPC" # expect >= 14000000000000000 (0.014 tBNB)
+export START=$(cast block-number --rpc-url "$RPC")
+
+# 2 the second release (31 transactions; the 8 linked libraries exist already and are skipped by forge)
+forge script script/bnb/DeployCoreV2BnbShortWait.s.sol:DeployCoreV2BnbShortWait --sig 'run(address,address,address,address,address)' $PM $WETH $DRAND $FIT $PLATFORM --rpc-url "$RPC" --sender $DEPLOYER
+forge script script/bnb/DeployCoreV2BnbShortWait.s.sol:DeployCoreV2BnbShortWait --sig 'run(address,address,address,address,address)' $PM $WETH $DRAND $FIT $PLATFORM --rpc-url "$RPC" --sender $DEPLOYER $SEND $SIGN
+export FACTORY2=$(jq -r '.returns.factory.value' broadcast/DeployCoreV2BnbShortWait.s.sol/97/run-latest.json)
+cast call $FACTORY2 'poolManager()(address)' --rpc-url "$RPC" # expect $PM
+cast call $FACTORY2 'versionCodeHash()(bytes32)' --rpc-url "$RPC" # expect a hash (the factory answers)
+export LISTINGS2=$(cast call $FACTORY2 'listingRegistry()(address)' --rpc-url "$RPC")
+cast call $LISTINGS2 'lister()(address)' --rpc-url "$RPC" # expect $PLATFORM
+node --experimental-transform-types script/bnb/short-wait.mjs check --rpc-url "$RPC" --factory $FACTORY2 # expect "ok": true: every implementation role (0-8, 16, 17, 19, 20, 21, 22) has code; the planner's validator is the ten-minute variant byte for byte; the shop implementation (role 21) is the variant with only its immutables differing; the royalty minimum lot is 0.05 BNB; poolManager, weth, randomness and both holding contracts are the first release's
+
+# 3 its six listings (9 to 11 transactions): row 0 lowered to 0.001 BNB, tUSDC STABLE, tNVDA STOCK, tGOLD, tPEPE, tETH OTHER
+forge script script/bnb/BnbTestnetSetup.s.sol:BnbTestnetSetup --sig 'runListings(address,(address,address,address,address,address),(uint256,uint256,uint256,uint256,uint256,uint256))' $FACTORY2 "($USDC,$NVDA,$GOLD,$PEPE,$TETH)" "(1000000000000000,1000000,1000000000000000,1000000000000000,1000000000000000,100000000000000000)" --rpc-url "$RPC" --sender $DEPLOYER
+forge script script/bnb/BnbTestnetSetup.s.sol:BnbTestnetSetup --sig 'runListings(address,(address,address,address,address,address),(uint256,uint256,uint256,uint256,uint256,uint256))' $FACTORY2 "($USDC,$NVDA,$GOLD,$PEPE,$TETH)" "(1000000000000000,1000000,1000000000000000,1000000000000000,1000000000000000,100000000000000000)" --rpc-url "$RPC" --sender $DEPLOYER $SEND $SIGN
+cast call $LISTINGS2 'listingCount()(uint32)' --rpc-url "$RPC" # expect 6
+cast call $LISTINGS2 'listing(uint32)((uint32,address,uint8,uint8,uint8,uint64,uint256,(uint256,uint256,uint256,uint256)))' 1 --rpc-url "$RPC" # expect token $USDC, class 3, raise 1000000
+
+# 4 the new box's sixteen starter cards: ids 9 to 12 of each collection, minted to the deploy wallet (16 transactions)
+forge script script/bnb/ShortWaitCards.s.sol:ShortWaitCards --sig 'run(address[4],address,uint256[4])' "$CARDS" $DEPLOYER '[9,10,11,12]' --rpc-url "$RPC" --sender $DEPLOYER
+forge script script/bnb/ShortWaitCards.s.sol:ShortWaitCards --sig 'run(address[4],address,uint256[4])' "$CARDS" $DEPLOYER '[9,10,11,12]' --rpc-url "$RPC" --sender $DEPLOYER $SEND $SIGN
+cast call 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'ownerOf(uint256)(address)' 12 --rpc-url "$RPC" # expect $DEPLOYER (and ids 9 to 12 of all four collections)
+
+# 5 the site's files with two releases (read at one finalized block, checked with SH-258's parser and on-chain check;
+#   the first release byte for byte; published all or nothing): core-v1/97.json, 97-extras.json, the new
+#   create-options file. Wait about 5 seconds after step 4. Then approve them as lane a says.
+node --experimental-transform-types script/bnb/short-wait.mjs files --rpc-url "$RPC" --factory $FACTORY2 --start-block $START
+node --experimental-transform-types script/bnb/short-wait.mjs files --rpc-url "$RPC" --factory $FACTORY2 --start-block $START --write-repo
+jq '.releases | length' $M # expect 2
+jq -r '.releases[1].factory.address' $M # expect $FACTORY2 in lower case
+
+# 6 the box: lane e's life script on the second release ($FACTORY2), lane d's sheet (listDelay 600, starters ids 9 to
+#   12 of each tier); gives open ten minutes after its creation block.

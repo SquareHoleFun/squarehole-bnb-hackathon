@@ -1,0 +1,11 @@
+[Unit]
+Description=Run the independent rescue poster hourly
+
+[Timer]
+OnCalendar=*:17
+Persistent=true
+RandomizedDelaySec=0
+Unit=squarehole-rescue.service
+
+[Install]
+WantedBy=timers.target

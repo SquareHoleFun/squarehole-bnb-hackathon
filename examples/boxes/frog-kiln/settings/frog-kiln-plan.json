@@ -1,0 +1,12 @@
+{
+  "format": "squarehole.hidden-kit-plan/1",
+  "settingsSha256": "0x1831787c320dabd8efa510c933e804f66c15fca1be0f7661035874e20cabf9ab",
+  "plan": {
+    "path": "examples/boxes/frog-kiln/plan.csv",
+    "sha256": "0xfd72a6b45cc9ed235d1e3dd2e6ec828ef2aa1af2463b8d8dc67b68156671abad",
+    "count": "420",
+    "specimen": null,
+    "templateRoot": "0x5a537620f5e67ddf023c384c68871c6db230184cc43d75c98c6d385010f6ee56"
+  },
+  "instructions": "Public template only. Supply the plan and its twelve private variant pictures to Create; deal new numbers and salts and replace the template root. Keep the reveal file and hidden item pictures private."
+}

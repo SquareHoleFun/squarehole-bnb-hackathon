@@ -1,0 +1,6 @@
+Interface files of the corrected Flap contracts (SH-308), built by the coordinator from the merged tree at
+3031bdb927a6d210f083986cade29cb6c9777dee (only comments could still change). Copied from
+the coordinator's build output of that tree on 26 Nov 2026 for SH-309's tests;
+replace them with bounties/flap/abi/ once the merged contracts' interface files land there.
+The coordinator rebuilt the set from the final contracts commit 3272b398051055ba7e4454de5307e171fc76eba2: RulesVault,
+PileVault and both rules launchers are byte-identical to these four (cmp, 26 Nov 20:2x); the folder keeps its name.

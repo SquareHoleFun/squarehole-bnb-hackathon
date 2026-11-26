@@ -1,0 +1,427 @@
+/*
+ * The box interface (SH-BOX-UI-launch; docs/design/box-concept/BOX-INTERFACE-v0.2.md): the sections (the tab bar, the lead, the blocks), the price picture and the tiles of Owning one, About. Every class is
+ * prefixed `sh-box-` (css-scope.test.ts); the shared tokens and parts are in box-base.css.
+ */
+
+/* ── Sections ──────────────────────────────────────────────── */
+.sh-box-sections {
+  position: sticky;
+  top: var(--sh-topbar-h);
+  z-index: var(--sh-z-sticky);
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  padding: 6px;
+  border: 1px solid var(--sh-border);
+  border-radius: 12px;
+  background: var(--sh-canvas);
+}
+
+.sh-box-sections__tab {
+  flex: none;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--sh-text-secondary);
+  font: inherit;
+  font-size: var(--sh-type-small);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.sh-box-sections__tab[aria-selected='true'] {
+  background: var(--sh-selected);
+  color: var(--sh-text);
+  box-shadow: inset 0 -2px 0 var(--sh-accent);
+}
+
+.sh-box-panel {
+  min-width: 0;
+}
+
+.sh-box-contents,
+.sh-box-owning,
+.sh-box-about,
+.sh-box-token {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-4);
+  min-width: 0;
+}
+
+.sh-box-lead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sh-box-lead h2,
+h2.sh-box-lead {
+  color: var(--sh-text);
+  font-size: 20px;
+  font-weight: 750;
+}
+
+.sh-box-card-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-3);
+  padding: 16px;
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-card);
+  background: var(--sh-panel-gradient);
+}
+
+.sh-box-block-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+}
+
+.sh-box-block-head h3 {
+  color: var(--sh-text);
+  font-size: var(--sh-type-body-lg);
+  font-weight: 750;
+}
+
+/* ── Owning one, price ─────────────────────────────────────── */
+.sh-box-price {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-card);
+  background: var(--sh-panel-gradient);
+}
+
+.sh-box-price__row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+
+.sh-box-price__row > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--sh-surface);
+}
+
+.sh-box-price__row dt {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 750;
+}
+
+.sh-box-price__row dd {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.sh-box-price__row strong {
+  color: var(--sh-text);
+  font-size: 20px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.sh-box-price__row small {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+}
+
+/* In and out: what each move does to the tokens in the vault, then the totals */
+.sh-box-flow {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-box-flow li {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 9em) minmax(0, 1fr);
+  align-items: center;
+  gap: 4px 10px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: var(--sh-surface);
+  font-size: var(--sh-type-small);
+}
+
+.sh-box-flow__icon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: var(--sh-selected);
+  color: var(--sh-accent);
+}
+
+.sh-box-flow li[data-flow='in'] .sh-box-flow__icon {
+  background: rgba(98, 220, 163, 0.14);
+  color: var(--sh-box-graduated);
+}
+
+.sh-box-flow__what {
+  color: var(--sh-text);
+  font-weight: 700;
+}
+
+.sh-box-flow__does {
+  color: var(--sh-text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.sh-box-flow__does strong {
+  color: var(--sh-text);
+  font-weight: 800;
+}
+
+.sh-box-flow__total {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+  font-variant-numeric: tabular-nums;
+}
+
+.sh-box-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-box-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px;
+  border: 1px solid var(--sh-border);
+  border-radius: 12px;
+  background: var(--sh-surface);
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+}
+
+.sh-box-tile strong {
+  color: var(--sh-text);
+  font-size: var(--sh-type-body);
+}
+
+.sh-box-tile__icon {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--sh-surface-raised);
+  color: var(--sh-text-secondary);
+}
+
+/* ── About ─────────────────────────────────────────────────── */
+.sh-box-about__tagline {
+  color: var(--sh-text);
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.sh-box-about__line {
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-body);
+}
+
+/* A new collection's own cover (F74 U3): the picture marketplaces show, beside the logo the card shows. */
+/* SH-BOX-PICTURE-FIT: the collection cover at its own shape (a wide cover shows whole), 48 px high. */
+.sh-box-about__cover {
+  display: block;
+  width: auto;
+  max-width: 160px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.sh-box-kv {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.sh-box-kv > div {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--sh-border);
+}
+
+.sh-box-kv dt {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-small);
+  font-weight: 700;
+}
+
+.sh-box-kv dd {
+  margin: 0;
+  color: var(--sh-text);
+  font-size: var(--sh-type-small);
+}
+
+.sh-box-kv__address {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.sh-box-kv__address code {
+  overflow-wrap: anywhere;
+}
+
+.sh-box-collection dd {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.sh-box-collection__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  font-size: var(--sh-type-caption);
+}
+
+.sh-box-collection__badge {
+  width: fit-content;
+}
+
+.sh-box-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-wrap: anywhere;
+}
+
+/* A sell (F70): one plain line under the side's kind, an icon and words, never colour alone. */
+.sh-box-flag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  color: var(--sh-warning);
+  font-weight: 650;
+}
+
+.sh-box-flag::before {
+  /* The icon is decoration: the words carry the meaning (an empty alternative keeps "!" out of the accessible text). */
+  content: '!';
+  content: '!' / '';
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+/* Teasers (F71 (2)): pictures that show the style, never items; each carries its "Teaser" label. */
+.sh-box-teasers {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-box-teasers li {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--sh-border);
+  border-radius: 10px;
+  aspect-ratio: 1;
+  background: var(--sh-surface);
+}
+
+.sh-box-teasers img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sh-box-teasers__label {
+  position: absolute;
+  left: 6px;
+  bottom: 6px;
+  padding: 1px 6px;
+  border-radius: var(--sh-radius-pill);
+  background: var(--sh-box-chip-bg);
+  color: var(--sh-text);
+  font-size: var(--sh-type-caption);
+  font-weight: 750;
+}
+
+.sh-box-token__figure {
+  color: var(--sh-text);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.sh-box-demo-states ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (max-width: 640px) {
+  .sh-box-sections {
+    top: 0;
+    gap: 2px;
+    padding: 4px;
+  }
+
+  .sh-box-sections__tab {
+    padding: 0 9px;
+    font-size: var(--sh-type-label);
+  }
+
+  .sh-box-flow li {
+    grid-template-columns: 32px minmax(0, 1fr);
+  }
+
+  .sh-box-flow__does {
+    grid-column: 2;
+  }
+
+  .sh-box-kv > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+
+  .sh-box-tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

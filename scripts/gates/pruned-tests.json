@@ -1,0 +1,604 @@
+{
+  "forge": [
+    {
+      "path": "packages/contracts/test/box-v2/cq8-1/ReleaseCarriesTicket.t.sol",
+      "sha256": "1d5d6a25d07663a5f4256232bff24c377f94b6c8141a569519fff71912e54771",
+      "tests": [
+        "test_deferred_0_test_sameSecondRequestsCancelNewestFirstWithDistinctIds",
+        "test_deferred_1_testFuzz_requestTimesAndCancellationOrderKeepEachId",
+        "test_deferred_2_test_placeholderBatchesUseZeroBeforeGraduationAndBesideDrawOne",
+        "test_deferred_3_test_R28B_failureWindowBatchCarriesZeroAndKeepsFrozenQuote"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/fork/GridFloor.t.sol",
+      "sha256": "56e7f886f0c4f2aca2a2e70f23f2105331c899120b52fef5505aab08f0cb09e9",
+      "tests": [
+        "test_deferred_0_test_CQ8F13_floor_aFullStepReachesMinInAtTheLine",
+        "test_deferred_1_test_CQ8F13_floor_candidatesMeasured",
+        "test_deferred_2_test_CQ8F13_starve_dustStepsLeaveTheRestOfTheRoom",
+        "test_deferred_3_test_CQ8F13_starve_aCallerWhoPicksTheDirection"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/fork/GridHold.t.sol",
+      "sha256": "a9ea6cd603edfa5910caa84c3c6da36f6de1677f2e10db8b3120c5cea974ebc4",
+      "tests": [
+        "test_deferred_0_test_CQ8F13_hold_lumpsByLiftAtPace25",
+        "test_deferred_1_test_CQ8F13_hold_paceChangesTheTimeNotTheTake",
+        "test_deferred_2_test_CQ8F13_hold_paceWithOtherSellers",
+        "test_deferred_3_test_CQ8F13_hold_alternationAgainstAHold",
+        "test_deferred_4_test_CQ8F13_fitPool_converterThroughputPerDay",
+        "test_deferred_5_test_CQ8F13_caps_boxPoolLagAfterAPumpAndACrash",
+        "test_deferred_6_test_CQ8F13_caps_aSameTransactionPushTurnsTNotReady"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/fork/GridOutside.t.sol",
+      "sha256": "be277f9448991c41d258359b7eacf2dc7d133e60f93e31336598450781dae22f",
+      "tests": [
+        "test_deferred_0_test_CQ8F13_narrow_aPushPastTheFeeWaitsAtBothFloors",
+        "test_deferred_1_test_CQ8F13_narrow_aPushWithinTheFeeLosesAtMostTwoFees",
+        "test_deferred_2_test_CQ8F13_narrow_burnStepMintFailsTheStep",
+        "test_deferred_3_test_CQ8F13_narrow_aPositionHeldAtItsEdgeFailsOneWay",
+        "test_deferred_4_test_CQ8F13_narrow_depthReadsStartOfBlockLiquidity",
+        "test_deferred_5_test_CQ8F13_outside_theCapsReadingLagsOneBlock",
+        "test_deferred_6_test_CQ8F13_paxg_v3RouteMeasured"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/fork/GridStack.t.sol",
+      "sha256": "860e0768f221174758e99dc144b3df7afaf65aa1660fc592503548aad313d0be",
+      "tests": [
+        "test_deferred_0_test_CQ8F13_stack_v2BoxPoolPaysNoSandwichAt49",
+        "test_deferred_1_test_CQ8F13_stack_fitPoolMeasuredAt49",
+        "test_deferred_2_test_CQ8F13_stack_fitPoolOnTheGraduatedLayout",
+        "test_deferred_3_test_CQ8F13_stack_theLineInTicks",
+        "test_deferred_4_test_CQ8F13_stack_99TicksSharedRoomMeasured",
+        "test_deferred_5_test_CQ8F13_twoWindows_atABoundaryMeasured",
+        "test_deferred_6_test_CQ8F13_pin_theConverterStepIsTheRoomStepAt49"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/fork/Guard.t.sol",
+      "sha256": "98be8cc39f69db2c23a6bd6577282f501f534024afbe2f31eec0744ea4113e1f",
+      "tests": [
+        "test_deferred_0_test_M123_guard_noSandwichGainsAt49Ticks",
+        "test_deferred_1_test_M123_guard_stepSizeGridMeasured",
+        "test_deferred_2_test_M123_guard_fixedSizeWithNoLimitLoses",
+        "test_deferred_3_test_M123_guard_stepperIsTheHopAt49Ticks",
+        "test_deferred_4_test_M123_guard_pushAndHoldMeasured",
+        "test_deferred_5_test_M123_guard_crashThenPushBackMeasured"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/fork/Volatility.t.sol",
+      "sha256": "6e02c73d882ca71c2e6ec91428c216a7a5b5a407780e8732fe7ae23880566154",
+      "tests": [
+        "test_deferred_0_test_M123_volatility_pumpThenCrash",
+        "test_deferred_1_test_M123_volatility_memecoinCrash100xKeepsTheStepEthSize"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/interfaces/M1_00cShapes.t.sol",
+      "sha256": "c3e95c85ba5d46c60bc8a22195923d3fd874be0d621152127e602438fdf3dcb8",
+      "tests": [
+        "test_deferred_0_test_M100c_rolesV1Unchanged",
+        "test_deferred_1_test_M100c_rolesV2",
+        "test_deferred_2_test_M100c_registryShape",
+        "test_deferred_3_test_M100c_openGateConstants",
+        "test_deferred_4_test_M100c_coordinatorShape",
+        "test_deferred_5_test_M100c_createBoxShape",
+        "test_deferred_6_test_M100c_hookShape",
+        "test_deferred_7_test_M100c_vaultShape",
+        "test_deferred_8_test_M100c_ethInHelperShape"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/kit/BoxV2TestBase.t.sol",
+      "sha256": "c284ae6f0339c55cca593831c6bc859cf71e4a1e98b2c56c8c2c8550b149c3f3",
+      "tests": [
+        "test_deferred_0_test_kit_poolManagerWiring",
+        "test_deferred_1_test_kit_actorsAreDistinctEoas",
+        "test_deferred_2_test_kit_codeByteGasShowsTheSchedule",
+        "test_deferred_3_test_kit_gasAtAmsterdamCountsTheNewSlot",
+        "test_deferred_4_test_kit_capCoversTwiceTheNeed",
+        "test_deferred_5_test_kit_v2DeployOverMocks",
+        "test_deferred_6_test_kit_aBoxWiredAsTheTestSays",
+        "test_deferred_7_test_kit_aMissingArtifactSaysToBuildFirst"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/kit/ForkFixture.t.sol",
+      "sha256": "e9d65a46bbcdc3e236960932579d92bef0c1d901635fd8b42d10f48112399338",
+      "tests": [
+        "test_deferred_0_test_kit_forkIsPinned",
+        "test_deferred_1_test_kit_deepAndThinV3",
+        "test_deferred_2_test_kit_v3WhoseOracleDoesNotCoverTheHour",
+        "test_deferred_3_test_kit_v2PairPaxgWeth",
+        "test_deferred_4_test_kit_twoHopStockRouteThroughUsdc",
+        "test_deferred_5_test_kit_susdsThroughSkysVaultAndPsm",
+        "test_deferred_6_test_kit_oracleBuffersOnlyGrowBelowTwo"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/kit/PricePush.t.sol",
+      "sha256": "925692d3d118084349f7821d0c3aa49bb5b0cc3c2a73f129e7ab1e3b320f50f9",
+      "tests": [
+        "test_deferred_0_test_kit_pushReproducesAtomicLogRow",
+        "test_deferred_1_test_kit_sandwichRevertsItsState",
+        "test_deferred_2_test_kit_holdWaitsForTheAverage",
+        "test_deferred_3_test_kit_crashThenPushBackAtTheStaleEdge",
+        "test_deferred_4_test_kit_crashWithoutAttacker",
+        "test_deferred_5_test_boxLimitFollowsSpotAndOnlyTheRoomLeft",
+        "test_deferred_6_test_outsideLimitStopsAtHalfFeeAndStartOfBlockBand",
+        "test_deferred_7_test_gridDepthsDirectionsPartialFillsAndStacks",
+        "test_deferred_8_test_sameBlockNarrowLiquidityCannotLiftTheOutsideBand",
+        "test_deferred_9_test_dustConsumesASliverAndZeroConsumesNothing",
+        "test_deferred_10_test_tickExtremesWaitAndSubTickMovesStillConsumeRoom",
+        "test_deferred_11_testFuzz_fillNeverPassesLimitOrBudget"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/kit/Warp.t.sol",
+      "sha256": "37c53be42ef55462aac4a112e19c4933445bd7da3400f7e46de3b4b96a03ec45",
+      "tests": [
+        "test_deferred_0_test_kit_constants",
+        "test_deferred_1_test_kit_blocksMoveTwelveSecondsEach",
+        "test_deferred_2_test_kit_pastHourCrossesTheAverageWindow",
+        "test_deferred_3_test_kit_pokingAcrossTheHour",
+        "test_deferred_4_test_kit_toRoundsBlocksUp",
+        "test_deferred_5_test_kit_clockEdges",
+        "test_deferred_6_test_kit_gateCapEdges",
+        "test_deferred_7_test_kit_neverWarpsBack"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/kit/mocks/MockBoxPartsRules.t.sol",
+      "sha256": "5e38cb299568e90e8bce7fabb4b772eb54c0dc84cba9bd182af9fcbaf2c523f4",
+      "tests": [
+        "test_deferred_0_test_rule_tokenIsItsCoordinatorsCloneWithItsArguments",
+        "test_deferred_1_test_rule_tokenInitialisesOnceFromItsHolderAndItsImplementationIsInert",
+        "test_deferred_2_test_rule_tokenKeepsV1sSendAndBurnRules",
+        "test_deferred_3_test_rule_closingFromTheCoordinatorOnceWithItsCappedTip",
+        "test_deferred_4_test_rule_closingTipNeverMoreThanTheHookHolds"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/kit/mocks/MockCq8ReviewFixes.t.sol",
+      "sha256": "d59458b09be11ccd0897ca7351178f7fa2f118ec1d7900c4ebcca7a9fcd0c140",
+      "tests": [
+        "test_deferred_0_test_pairZeroFeeSpecStepsForwardWhenBusy",
+        "test_deferred_1_test_pairZeroFeeSpecStepsReverseWhenBusy",
+        "test_deferred_2_test_hundredPpmFractionalFillForward",
+        "test_deferred_3_test_hundredPpmFractionalFillReverse",
+        "test_deferred_4_test_nearBandFractionalFillForward",
+        "test_deferred_5_test_nearBandFractionalFillReverse"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/kit/mocks/MockF108Rules.t.sol",
+      "sha256": "a209207dfad5fcdec63b1341ea8c1efc1b80886ae4d1a4f3e2b518abd0c4816d",
+      "tests": [
+        "test_deferred_0_test_rule_capCeilingFollowsTheBuildProfile",
+        "test_deferred_1_test_rule_capKeepsAtMostTheCeilingWhenBox0KeptNothing",
+        "test_deferred_2_test_rule_capKeepsWhatBox0LeftBelowTheCeiling",
+        "test_deferred_3_testFuzz_rule_platformTotalNeverPassesCapPlusCeiling"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/kit/mocks/MockFinalCheckRules.t.sol",
+      "sha256": "183747c01c75085a81d00bf7c93144a524ab6dde2b6214b2fab23c2f65c8ba40",
+      "tests": [
+        "test_deferred_0_test_rule_capKeepsFirstThenBox0KeepsItsWholeCap"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/kit/mocks/MockReceiverLifeRules.t.sol",
+      "sha256": "a9a77787c01c18f8e624652c91efebf7cb2f1da614151ffacdc166163f258136",
+      "tests": [
+        "test_deferred_0_test_rule_lifeFromTheCoordinatorThenGraduationOnce",
+        "test_deferred_1_test_rule_wiringViewsNameTheBoxsParts",
+        "test_deferred_2_test_rule_fitShareReleasedAtGraduationByItsPricingToken",
+        "test_deferred_3_test_rule_fitTShareIsBranchNone",
+        "test_deferred_4_test_rule_theHooksFeeNoteIsPOnly",
+        "test_deferred_5_test_rule_payFitOnceTheBoxEndedAndFitGraduated",
+        "test_deferred_6_test_rule_aPendingBurnIsRetriedByAnyone",
+        "test_deferred_7_test_rule_failureRoutesEachHeldLedgerByTheTable",
+        "test_deferred_8_test_rule_aRefusedBurnAtFailureStaysPending",
+        "test_deferred_9_test_rule_redeemHeldTByAnyoneOnceTheClosingRangeExists",
+        "test_deferred_10_test_rule_aReceiverIsProvedByItsBoxIdOrItsCoordinatorExactly"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/kit/mocks/MockReceiverRules.t.sol",
+      "sha256": "81c38d40e84b9dc50586b6138f2a4a30d9d06b6944f330a841333d55640fd1d0",
+      "tests": [
+        "test_deferred_0_test_rule_intakeOpensOnlyForItsCallers",
+        "test_deferred_1_test_rule_proceedsBookAtMostWhatArrived",
+        "test_deferred_2_test_rule_proceedsOnlyFromTheRightConverterInItsToken",
+        "test_deferred_3_test_rule_bookedClaimsThatLeaveNeverBlockTheNextBooking",
+        "test_deferred_4_test_rule_ethIntakesOnlyOnAnEthPricedBox",
+        "test_deferred_5_test_rule_earnedIntakeOnlyFromTheVaultExactly",
+        "test_deferred_6_test_rule_earnedIntakeRefusesWhatHasNoBoxTokenListing",
+        "test_deferred_7_test_rule_earnedIntakeFromRole18AndNoLedgersWhileUnset",
+        "test_deferred_8_test_rule_fundRoyaltyOnlyFromRole8Exactly",
+        "test_deferred_9_test_rule_moduleHandOffOnlyFromRole11PerBranch",
+        "test_deferred_10_test_rule_moduleFeesClippedToTheBranchAllowance",
+        "test_deferred_11_test_rule_entriesTheKitDoesNotModelRefuseByName",
+        "test_deferred_12_test_rule_chargeHumbleOnlyFromRoles16And17OneCounter",
+        "test_deferred_13_test_rule_ledgerTakesExactClaimsThenOneCall",
+        "test_deferred_14_test_rule_ledgerRecordsTheVaultCallsAndCanFail",
+        "test_deferred_15_test_rule_ruleReadsOnlyCtxAndItsCfg"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/kit/mocks/MockRegistryRules.t.sol",
+      "sha256": "30f2618f31b8f060d6127a3e538806c481ad588a17516ae1b8c6cd66b65c9647",
+      "tests": [
+        "test_deferred_0_test_F118_boxListingIsManualEvenWhenPriceIsUnready",
+        "test_deferred_1_test_rule_registryRecordsEachBoxOnceFromTheFactory",
+        "test_deferred_2_test_rule_registryRolesRecordAndDirectory",
+        "test_deferred_3_test_rule_listingZeroIsNativeEth",
+        "test_deferred_4_test_rule_addRefusesWhatNeedsNoPool",
+        "test_deferred_5_test_rule_addListsWithItsOwnConverter",
+        "test_deferred_6_test_rule_relistAtOnceWhileUnusedThenOnlyThirtyDaysAfterAFailedStep",
+        "test_deferred_7_test_rule_fixedRateHopsOnTheReleasesRoutes",
+        "test_deferred_8_test_rule_aLaterAddBoxTokenReturnsTheSameIdUnchecked",
+        "test_deferred_9_test_rule_addBoxTokenByManualDecision",
+        "test_deferred_10_test_rule_boxTokenRouteCrossesAtMostThreePools",
+        "test_deferred_11_test_rule_boxTokenMovesOnlyOffADeadPricingListing",
+        "test_deferred_12_test_rule_markUsedByTheFactoryOnce",
+        "test_deferred_13_test_rule_listerHandsOverInTwoStepsAndMayRenounce"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/kit/mocks/MockShapes.t.sol",
+      "sha256": "7145f8de6c878a4fe4c72a8e87d813544b455cdec71bb85aac2f739a52706705",
+      "tests": [
+        "test_deferred_0_test_mock_registryAnswersIBoxRegistryV2",
+        "test_deferred_1_test_mock_directoryAndBoxesAnswerV1Reads",
+        "test_deferred_2_test_mock_listingRegistryAnswersIListingRegistry",
+        "test_deferred_3_test_mock_converterAnswersIConverter",
+        "test_deferred_4_test_mock_receiverAnswersIBoxReceiverV2",
+        "test_deferred_5_test_mock_ledgerAnswersILedgerCalls",
+        "test_deferred_6_test_mock_ruleIsAReviewableView",
+        "test_deferred_7_test_mock_constantsAreTheFrozenOnes",
+        "test_deferred_8_test_mock_registryEvents",
+        "test_deferred_9_test_mock_listingRegistryEvents",
+        "test_deferred_10_test_mock_converterEvents",
+        "test_deferred_11_test_mock_receiverEvents",
+        "test_deferred_12_test_mock_receiverM1EntryEvents",
+        "test_deferred_13_test_mock_m2EntriesRefuseNotOffered",
+        "test_deferred_14_test_mock_m2EntriesAnswerAsM1_00sStubs"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/kit/mocks/MockShapesSecondReview.t.sol",
+      "sha256": "de5e729888843c2f689460d12ed6259c5c11a9ad661da9b6f3cbd7b6fc8ee1ed",
+      "tests": [
+        "test_deferred_0_test_mock_tokenAnswersIBoxTokenV2AsAClone",
+        "test_deferred_1_test_mock_hookAnswersItsClosingEntries",
+        "test_deferred_2_test_mock_receiverSecondReviewEvents"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/kit/mocks/MockWaveZeroRules.t.sol",
+      "sha256": "72b827cd39f6010030bcb2bd001ea96d00e2a327c8fafd5a6cbe8c29d80de521",
+      "tests": [
+        "test_deferred_0_test_F118_removedRoomEntryCannotBeCalled",
+        "test_deferred_1_test_rule_platformCapKeepsWhatBox0Left",
+        "test_deferred_2_test_rule_platformShareReleasedAtGraduation",
+        "test_deferred_3_test_rule_platformShareAtFailure",
+        "test_deferred_4_test_rule_converterPlatformOwedPaysTheCap",
+        "test_deferred_5_test_rule_converterRaiseCheckNeedsNoReadiness",
+        "test_deferred_6_test_rule_branchOfAsScripted",
+        "test_deferred_7_test_rule_moduleWiringAndLife",
+        "test_deferred_8_test_mock_newMocksAnswerTheirInterfaces",
+        "test_deferred_9_test_rule_graduateAnswersAReward",
+        "test_deferred_10_test_rule_fitExecutorReceiveCreditsTheBudget"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/m1-00a/Owner1Pins.t.sol",
+      "sha256": "cf6ebcf45b443779f52e60240ad65ea3630bf5efa8b4d850156daf614c5a45fe",
+      "tests": [
+        "test_deferred_0_test_owner1_legValues",
+        "test_deferred_1_test_owner1_destValues",
+        "test_deferred_2_test_owner1_splitValues",
+        "test_deferred_3_test_owner1_paramEnumValues",
+        "test_deferred_4_test_owner1_boxTypeValues",
+        "test_deferred_5_test_owner1_recipeStructAbi",
+        "test_deferred_6_test_owner1_paramStructAbi",
+        "test_deferred_7_test_owner1_specStructAbi",
+        "test_deferred_8_test_owner1_memberNames",
+        "test_deferred_9_test_owner1_canonicalParamsEncoding",
+        "test_deferred_10_test_owner1_plugInSelectors",
+        "test_deferred_11_test_owner1_plugInSlotConstants"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/m1-00b/FailureTableShape.t.sol",
+      "sha256": "0aeb83eb7938eaa02b85a0861daa93190fde7907cffc6c0c8a9fff241cd950b9",
+      "tests": [
+        "test_deferred_0_test_kindsAndRoutes",
+        "test_deferred_1_test_tableRows",
+        "test_deferred_2_test_creatorRowIsTheQuestion",
+        "test_deferred_3_test_event_FailureRouted"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/m1-00b/LedgerCallsShape.t.sol",
+      "sha256": "8b60aa583b249a61df3fb4063413d3bb22cd4dc79017f035b82b660653782c59",
+      "tests": [
+        "test_deferred_0_test_vaultCalls",
+        "test_deferred_1_test_forwardBookingCalls",
+        "test_deferred_2_test_aggregate"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/m1-00b/ListingRegistryShape.t.sol",
+      "sha256": "cdf44c7c1c4efe17dc6f58bbad7697e8b2551c613133b581bbaf549ffd92a48a",
+      "tests": [
+        "test_deferred_0_test_entryPointSelectors",
+        "test_deferred_1_test_roomAndPriceGatesRemovedFromAbi",
+        "test_deferred_2_test_snapshotStoreRemovedFromAbi",
+        "test_deferred_3_test_viewSelectors",
+        "test_deferred_4_test_errorSelectors",
+        "test_deferred_5_test_classes",
+        "test_deferred_6_test_kinds",
+        "test_deferred_7_test_hopKinds",
+        "test_deferred_8_test_refusalCodes",
+        "test_deferred_9_test_qParametersAbi",
+        "test_deferred_10_test_hopAbi",
+        "test_deferred_11_test_fixedRateAbiAndSlot",
+        "test_deferred_12_test_listingRecordAbi",
+        "test_deferred_13_test_event_ListingAdded",
+        "test_deferred_14_test_event_ListingUsed",
+        "test_deferred_15_test_event_BoxTokenListed",
+        "test_deferred_16_test_event_listerHandover"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/m1-00b/ReceiverMoneyShape.t.sol",
+      "sha256": "d89122efb1ed008c59477fa918e8391c416fa2e3983d43a18f5339c1b64e0d76",
+      "tests": [
+        "test_deferred_0_test_entryPointSelectors",
+        "test_deferred_1_test_viewSelectors",
+        "test_deferred_2_test_errorSelectors",
+        "test_deferred_3_test_chargeHumbleReturnsReadyAndKept",
+        "test_deferred_4_test_enums",
+        "test_deferred_5_test_giftEntryPointsRefuse",
+        "test_deferred_6_test_event_intake",
+        "test_deferred_7_test_event_caps",
+        "test_deferred_8_test_event_eatBurnDepth",
+        "test_deferred_9_test_event_forward"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/m1-00b/ReleaseConstantsShape.t.sol",
+      "sha256": "a1b91964ab5063df5937def4b15535ac73fb49042c9524b8a77bfe9969e66b51",
+      "tests": [
+        "test_deferred_0_test_raiseFromBuildProfile",
+        "test_deferred_1_test_converterBoundsInRequiredOrder",
+        "test_deferred_2_test_swapGuardTicks",
+        "test_deferred_3_test_tokenCreateNonce",
+        "test_deferred_4_test_routeLimitsAndAddressCeiling",
+        "test_deferred_5_test_clocksAndWindows",
+        "test_deferred_6_test_capPresetsInEth"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/m1-30a/PricingToken.t.sol",
+      "sha256": "72d780b58c2df118939956787caa48829396b8b7d1fe1ecf506484e070129740",
+      "tests": [
+        "test_deferred_0_test_M130a_BC157_readsEthAndErc20",
+        "test_deferred_1_testFuzz_M130a_BC157_pullExactAtEachDecimals",
+        "test_deferred_2_test_M130a_BC159_pullRefusesNativeShortHostile",
+        "test_deferred_3_test_M130a_BC157_sendExactEthAndErc20"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/shape/IntegratedReview.t.sol",
+      "sha256": "e213c3a23d972350e9acaa6dc44554d367b64d98ce6b0bd2e29b986eeb53128f",
+      "tests": [
+        "test_deferred_0_test_F118_roomBudgetRemoved",
+        "test_deferred_1_test_wave0_f106Shares",
+        "test_deferred_2_test_wave0_platformOwedPurpose",
+        "test_deferred_3_test_wave0_platformHeldKindAndRoute",
+        "test_deferred_4_test_wave0_receiverPlatformEntries",
+        "test_deferred_5_test_wave0_receiverPlatformEvents",
+        "test_deferred_6_test_wave0_converterPlatformEvent",
+        "test_deferred_7_test_wave0_platformCapEntries",
+        "test_deferred_8_test_wave0_platformCapEvents",
+        "test_deferred_9_test_wave0_moduleWiringIsV1s",
+        "test_deferred_10_test_wave0_receiverBranchViewAndModuleCheck",
+        "test_deferred_11_test_wave0_converterArgs",
+        "test_deferred_12_test_wave0_converterCloneForm",
+        "test_deferred_13_test_wave0_converterRaiseCheckAndExtension",
+        "test_deferred_14_test_wave0_heldRoyaltiesJoinTheClosingPool",
+        "test_deferred_15_test_wave0_feeNoteEvents",
+        "test_deferred_16_test_wave0_budgetNamesTheNewCode"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/shape/LibraryStubs.t.sol",
+      "sha256": "b3fab9de638000234087ae9dd1482e119cba537d02719121adc2ea54260cd2d0",
+      "tests": [
+        "test_deferred_0_test_wave0_builtLibrariesAnswerTheirDefaults",
+        "test_deferred_1_test_cq8_v2ReadingsBusyThenReadyWithoutStore",
+        "test_deferred_2_test_wave0_stubSharedShapes"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/shape/ListingShape.t.sol",
+      "sha256": "42cc1935e4ebcdccdb567a53093ab0e8a916d9b4f40b2ffc3fc0973529ebb864",
+      "tests": [
+        "test_deferred_0_test_shape_listingClassValues",
+        "test_deferred_1_test_shape_listingKindValues",
+        "test_deferred_2_test_shape_hopKindValues",
+        "test_deferred_3_test_shape_qParameters",
+        "test_deferred_4_test_shape_converterBounds",
+        "test_deferred_5_test_shape_identitySlotAndRouteLimit",
+        "test_deferred_6_test_shape_converterBoundOrder",
+        "test_deferred_7_test_shape_selectors",
+        "test_deferred_8_test_shape_refusals",
+        "test_deferred_9_test_shape_eventListingAdded",
+        "test_deferred_10_test_shape_eventListingUsed",
+        "test_deferred_11_test_shape_eventBoxTokenListed"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/shape/M2M3Members.t.sol",
+      "sha256": "1136f472888288daec47af1caeb3d0d587e1caaa069199d4b1ded091ff60fab8",
+      "tests": [
+        "test_deferred_0_test_shape_m2m3MembersCompile"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/shape/ReceiverShape.t.sol",
+      "sha256": "cf754d823afd63814a02e0ded6e6213f121c477e4a5d77d147825f7c72ebcfd6",
+      "tests": [
+        "test_deferred_0_test_shape_converterIntake",
+        "test_deferred_1_test_shape_giftIntakes",
+        "test_deferred_2_test_shape_ethGiftEntriesAsV1",
+        "test_deferred_3_test_shape_earnedIntakeAndChargeHumble",
+        "test_deferred_4_test_shape_receiverEntriesDistinct",
+        "test_deferred_5_test_shape_capPresetsInEth",
+        "test_deferred_6_test_shape_stepAndBandTicks",
+        "test_deferred_7_test_shape_moduleStubs",
+        "test_deferred_8_test_shape_forwardBookingCalls",
+        "test_deferred_9_test_shape_eventEaten",
+        "test_deferred_10_test_shape_eventBurned",
+        "test_deferred_11_test_shape_eventCap30DaysPaid",
+        "test_deferred_12_test_shape_eventHumblePaid"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/shape/RegistryShape.t.sol",
+      "sha256": "fad0e12bde7bb307f04b6e3906fa2e87a1e742a1a3d50536b1e1c7d84585782d",
+      "tests": [
+        "test_deferred_0_test_shape_v1RolesUnchanged",
+        "test_deferred_1_test_shape_v2Roles",
+        "test_deferred_2_test_shape_registryReadsAsV1",
+        "test_deferred_3_test_shape_eventBoxSpec",
+        "test_deferred_4_test_shape_coordinatorReadsAsV1",
+        "test_deferred_5_test_shape_gateAndLoader",
+        "test_deferred_6_test_shape_gateCapAndFailWhileClosed",
+        "test_deferred_7_test_shape_eventChunkLoaded",
+        "test_deferred_8_test_shape_eventOpenSet",
+        "test_deferred_9_test_shape_createBox",
+        "test_deferred_10_test_shape_hookReadsAsV1",
+        "test_deferred_11_test_shape_hookOpenAndHolderNotice",
+        "test_deferred_12_test_shape_eventDepthPaired",
+        "test_deferred_13_test_shape_eventDepthWaiting"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/shape/ReviewFixes.t.sol",
+      "sha256": "4a30089c32353c36d57f16a9275553df64eecbfabfa7a3b701274187ff051082",
+      "tests": [
+        "test_deferred_0_test_review_moduleHandOffPerBranch",
+        "test_deferred_1_test_review_moduleHandOffEvents",
+        "test_deferred_2_test_review_royaltyIntake",
+        "test_deferred_3_test_review_royaltyEvents",
+        "test_deferred_4_test_review_collectAndPayouts",
+        "test_deferred_5_test_review_collectEvents",
+        "test_deferred_6_test_review_receiverProofViews",
+        "test_deferred_7_test_review_giftGivingSide",
+        "test_deferred_8_test_review_giftGivingEvents",
+        "test_deferred_9_test_review_factoryRaiseViews",
+        "test_deferred_10_test_review_laterStubs",
+        "test_deferred_11_test_review_vaultForwardEarned",
+        "test_deferred_12_test_review_converterTipCap",
+        "test_deferred_13_test_review_peripheryV2"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/shape/ReviewFixes2.t.sol",
+      "sha256": "fcfc708f12160228f5167cfaa6cc727bb7aef4de6f0f5429e77a5eaac5245fd0",
+      "tests": [
+        "test_deferred_0_test_second_fitShareBranchIsNone",
+        "test_deferred_1_test_second_receiverLifecycle",
+        "test_deferred_2_test_second_receiverWiringViews",
+        "test_deferred_3_test_second_pendingBurn",
+        "test_deferred_4_test_second_oneFeeNote",
+        "test_deferred_5_test_second_graduationSettledEvent",
+        "test_deferred_6_test_second_tokenCloneEntries",
+        "test_deferred_7_test_second_tokenArgsOrder",
+        "test_deferred_8_test_second_tokenArgsEncoding",
+        "test_deferred_9_test_second_tokenRuntimeIsStandardClone",
+        "test_deferred_10_test_second_closingPoolTakesPOnly",
+        "test_deferred_11_test_second_failurePathEntries",
+        "test_deferred_12_test_second_closingTipEvent",
+        "test_deferred_13_test_second_closingNames",
+        "test_deferred_14_test_second_fitShareHeldKind",
+        "test_deferred_15_test_second_wrongValue",
+        "test_deferred_16_test_second_budgetHasNoTCreationCode"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/shape/SpecShape.t.sol",
+      "sha256": "ea3c979cdb599c28c0c6254e61f8a4d844efb02426efd5dae0105849fbd4510c",
+      "tests": [
+        "test_deferred_0_test_shape_boxSpecAbi",
+        "test_deferred_1_test_shape_listingTargetContextAbi",
+        "test_deferred_2_test_shape_boxSpecFieldsByName",
+        "test_deferred_3_test_shape_listingFieldsByName",
+        "test_deferred_4_test_shape_targetAndContextFieldsByName",
+        "test_deferred_5_test_shape_boxTypeValues"
+      ]
+    },
+    {
+      "path": "packages/contracts/test/box-v2/shape/VaultShape.t.sol",
+      "sha256": "f565df470e5bc8a6f12b7571ba733a0164213faf6b0ba1e5d71e25e4434d202e",
+      "tests": [
+        "test_deferred_0_test_shape_vaultSupplyFloor",
+        "test_deferred_1_test_shape_vaultCountIntegralAndItemTimes",
+        "test_deferred_2_test_shape_releaseCarriesTicketId",
+        "test_deferred_3_test_shape_itemLedgerFivePoints",
+        "test_deferred_4_test_shape_ethInHelper"
+      ]
+    }
+  ],
+  "e2e": [
+    {
+      "path": "apps/web/e2e/acceptance/feed-layout.spec.ts",
+      "sha256": "dd5ad57a4e49c433acf7c0ccfd1f4aec2c561e6596d7ca891e80e7ec9cd8a4b2",
+      "proof": "Excluded by LEGACY_SPECS in apps/web/playwright.config.ts; no other config includes this directory."
+    },
+    {
+      "path": "apps/web/e2e/acceptance/feed-search-filters.spec.ts",
+      "sha256": "fc0557221fa2b1b827dc7de459bdbda1dd9095b5c072123f8684d45bead5e410",
+      "proof": "Excluded by LEGACY_SPECS in apps/web/playwright.config.ts; no other config includes this directory."
+    },
+    {
+      "path": "apps/web/e2e/acceptance/feed-states.spec.ts",
+      "sha256": "b5b42f0a2caca9efb1204cd94dd5d83807ed5994ea3eff01a96caaaf2792d702",
+      "proof": "Excluded by LEGACY_SPECS in apps/web/playwright.config.ts; no other config includes this directory."
+    },
+    {
+      "path": "apps/web/e2e/acceptance/feed-url.spec.ts",
+      "sha256": "39988702d2a55ed7296a5581497dbab0e51aa0dbb2b3851ff1190badba06b4e2",
+      "proof": "Excluded by LEGACY_SPECS in apps/web/playwright.config.ts; no other config includes this directory."
+    },
+    {
+      "path": "apps/web/e2e/feed-evidence.spec.ts",
+      "sha256": "1ed2ed5f476a1185a5db4bbd96859bcd1230a36a07593f5840187a0f1b15e078",
+      "proof": "Excluded by LEGACY_SPECS in apps/web/playwright.config.ts; no other config includes this directory."
+    },
+    {
+      "path": "apps/web/e2e/feed-responsive.spec.ts",
+      "sha256": "048ab7724557e0b3b37b17adb4c2418e9b008a0eebf2b7dc1a88f446da99085f",
+      "proof": "Excluded by LEGACY_SPECS in apps/web/playwright.config.ts; no other config includes this directory."
+    }
+  ],
+  "retained": [
+    "All always-skipped browser cases: monetary, fee, price, claim or wallet assertions are mixed into the bodies.",
+    "f74-polish-shots.spec.ts: SH_F74_POLISH_SHOTS=1 can run it.",
+    "Legacy oracle, rows, order, pin, safety, feed and pair-detail specs: preserve data, amount, fee and safety assertions.",
+    "m1-40a/VaultCount.t.sol: outside the safe path group.",
+    "SetPoolGas.t.sol, SetVault.t.sol and ForkCow.t.sol: contain executing tests.",
+    "Safe exact-rerun, retired-page and parametrised groups: execute; outside this pruning task."
+  ]
+}

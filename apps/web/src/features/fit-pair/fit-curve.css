@@ -1,0 +1,376 @@
+/*
+ * The v2 FIT / Misfits pair page (T19), the live curve (freshness chip, phase, band, chart, figures). Reuses the pair detail's cards, copy button, destinations and chips.
+ * Colour rules (BOX-SYSTEM § 1.3, realtime § 10): lavender belongs to the FIT mark only; the band, the dot and the
+ * ring use a neutral ETH tone; no green or red for buys and sells; state is always also in words. Layout: container
+ * queries on the page section, like the pair detail. Split by card: fit-head.css, fit-curve.css, fit-window-tape.css,
+ * fit-side.css (imported in that order by main.tsx).
+ */
+
+/* ── Freshness chip ────────────────────────────────────────── */
+.sh-fit-chip {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 6px;
+  padding: 3px 10px;
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-pill);
+  background: var(--sh-surface-raised);
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-caption);
+  font-weight: 650;
+}
+
+.sh-fit-chip__word {
+  color: var(--sh-text);
+  font-weight: 750;
+}
+
+.sh-fit-chip[data-freshness='live'] > .sh-glyph,
+.sh-fit-chip[data-freshness='polling'] > .sh-glyph {
+  color: var(--sh-fit-eth);
+}
+
+.sh-fit-chip[data-freshness='stale'],
+.sh-fit-chip[data-freshness='unverified'],
+.sh-fit-chip[data-freshness='unavailable'] {
+  border-style: dashed;
+  border-color: var(--sh-warning);
+}
+
+.sh-fit-chip[data-freshness='stale'] > .sh-glyph,
+.sh-fit-chip[data-freshness='unverified'] > .sh-glyph,
+.sh-fit-chip[data-freshness='unavailable'] > .sh-glyph {
+  color: var(--sh-warning);
+}
+
+.sh-fit-reason,
+.sh-fit-reorg {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px dashed var(--sh-warning);
+  border-radius: var(--sh-radius-control);
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+}
+
+.sh-fit-reason > .sh-glyph {
+  flex: none;
+  margin-top: 2px;
+  color: var(--sh-warning);
+}
+
+.sh-fit-reason > .sh-loader {
+  margin-top: 2px;
+}
+
+/* The live service catching up is a wait, not a fault. */
+.sh-fit-reason[data-catching-up] {
+  border-color: var(--sh-border-strong);
+}
+
+.sh-fit-reason[data-freshness='direct'] {
+  border-color: var(--sh-border-strong);
+}
+
+.sh-fit-reason[data-freshness='direct'] > .sh-glyph {
+  color: var(--sh-text-muted);
+}
+
+/* ── Curve: hero (price, band), chart, figures ─────────────── */
+/* Both blocks start at the top, so "Price" and "Progress to graduation" share one line. */
+.sh-fit-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  align-items: start;
+  gap: var(--sh-gap-3) var(--sh-gap-6);
+}
+
+.sh-fit-hero__price {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+}
+
+.sh-fit-hero__price dt,
+.sh-fit-band__label {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sh-fit-hero__price dd {
+  margin: 0;
+}
+
+.sh-fit-hero__value {
+  color: var(--sh-text);
+  font-size: 30px;
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.15;
+}
+
+.sh-fit-hero__unit {
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.sh-fit-band {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sh-fit-band__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sh-gap-2);
+}
+
+.sh-fit-band__pct {
+  color: var(--sh-text);
+  font-size: 22px;
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+/* ETH tiles: engraved outlines that fill from the left; the level reads without colour. */
+.sh-fit-band__track {
+  position: relative;
+  height: 22px;
+  overflow: hidden;
+  border: 1px solid var(--sh-border-strong);
+  border-radius: 6px;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 14px, rgba(137, 154, 182, 0.35) 14px 15px),
+    var(--sh-canvas);
+}
+
+.sh-fit-band__fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background:
+    repeating-linear-gradient(90deg, var(--sh-fit-eth) 0 12px, transparent 12px 15px),
+    var(--sh-fit-eth-soft);
+  transition: width 300ms var(--sh-ease);
+}
+
+.sh-fit-band__text {
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.sh-fit-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+}
+
+/*
+ * The plot box: short and wide from 521 px of page width up (about 4:1 on a desktop card, so the figures stay on the
+ * first screen), the drawing's own 640:280 on a phone. The SVG stretches to it; the markers are HTML, so they stay round.
+ */
+.sh-fit-chart__plot {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-control);
+  background: linear-gradient(180deg, rgba(20, 32, 51, 0.6), rgba(8, 13, 22, 0.6));
+}
+
+.sh-fit-chart__svg {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.sh-fit-chart__axis {
+  stroke: var(--sh-border-strong);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.sh-fit-chart__line {
+  fill: none;
+  stroke: var(--sh-text-muted);
+  stroke-width: 2;
+  stroke-dasharray: 1 0;
+  vector-effect: non-scaling-stroke;
+}
+
+.sh-fit-chart__bought {
+  fill: var(--sh-fit-eth-soft);
+  stroke: none;
+}
+
+.sh-fit-chart__target {
+  stroke: var(--sh-text-secondary);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 5;
+  vector-effect: non-scaling-stroke;
+}
+
+.sh-fit-chart__mark {
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sh-fit-chart__mark--dot {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--sh-canvas);
+  background: var(--sh-fit-eth);
+}
+
+.sh-fit-chart__mark--ring {
+  width: 18px;
+  height: 18px;
+  border: 2px dashed var(--sh-fit-eth);
+}
+
+.sh-fit-chart__caption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 2px var(--sh-gap-3);
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+}
+
+.sh-fit-chart__legend {
+  white-space: nowrap;
+}
+
+.sh-fit-chart__key {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 2px 0 8px;
+  border-radius: 50%;
+  vertical-align: -1px;
+}
+
+.sh-fit-chart__key--dot {
+  background: var(--sh-fit-eth);
+}
+
+.sh-fit-chart__key--ring {
+  border: 2px dashed var(--sh-fit-eth);
+}
+
+.sh-fit-figures {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sh-gap-3);
+}
+
+.sh-fit-figure {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-control);
+  background: rgba(8, 13, 22, 0.35);
+}
+
+.sh-fit-figure dt {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 750;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.sh-fit-figure dd {
+  margin: 0;
+  color: var(--sh-text);
+  font-size: var(--sh-type-body-lg);
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.sh-fit-empty {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-2);
+  padding: 20px;
+  border: 1px dashed var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  text-align: center;
+}
+
+.sh-fit-empty__loader {
+  align-self: center;
+}
+
+.sh-fit-empty__title {
+  color: var(--sh-text);
+  font-weight: 750;
+}
+
+/* ── Stale and unverified: desaturated, dashed, no motion ──── */
+.sh-fit[data-stale='true'] .sh-fit-curve,
+.sh-fit[data-stale='true'] .sh-fit-tape,
+.sh-fit[data-stale='true'] .sh-fit-window {
+  border-style: dashed;
+  filter: saturate(0.4);
+}
+
+.sh-fit[data-stale='true'] .sh-fit-band__fill {
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sh-fit-band__fill {
+    transition: none;
+  }
+}
+
+@container (max-width: 760px) {
+  .sh-fit-hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@container (max-width: 520px) {
+  .sh-fit-hero__value {
+    font-size: 28px;
+  }
+
+  .sh-fit-chart__plot {
+    height: auto;
+    aspect-ratio: 640 / 280;
+  }
+
+  .sh-fit-figures {
+    gap: var(--sh-gap-2);
+  }
+
+  .sh-fit-figure {
+    padding: 8px 10px;
+  }
+
+  .sh-fit-figure dd {
+    font-size: var(--sh-type-small);
+  }
+}

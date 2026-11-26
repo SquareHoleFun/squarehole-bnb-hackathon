@@ -1,0 +1,55 @@
+{
+  "$schema": "./schema.json",
+  "version": 1,
+  "id": "staking-snails",
+  "name": "Staking Snails",
+  "ticker": "SNAIL",
+  "status": "ready",
+  "template": {
+    "id": "holders",
+    "name": "To holders"
+  },
+  "priceCoin": {
+    "symbol": "ETH",
+    "decimals": "18"
+  },
+  "logo": "packages/chain/scripts/local-art/holders-logo.png",
+  "contents": {
+    "kind": "token",
+    "size": "0",
+    "label": "Token",
+    "art": {
+      "mode": "none",
+      "source": null
+    },
+    "seed": null,
+    "pickFeeBps": "0"
+  },
+  "raise": {
+    "policy": "listing-fixed",
+    "amount": "4206980085000000000"
+  },
+  "deadline": {
+    "days": "30"
+  },
+  "royalties": {
+    "bps": "0",
+    "destination": "none"
+  },
+  "fees": {
+    "buyers": {
+      "choice": "holders"
+    },
+    "sellers": {
+      "choice": "holders"
+    }
+  },
+  "life": "graduate",
+  "properties": [
+    "fee-conservation",
+    "page-state",
+    "own-pictures",
+    "graduation",
+    "holder-claim"
+  ]
+}

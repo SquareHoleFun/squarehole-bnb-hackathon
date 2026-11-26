@@ -1,0 +1,6 @@
+{
+  "schema": "square-hole-bnb-keeper-fees/1",
+  "chainId": 97,
+  "floorWei": "100000000",
+  "ceilingWei": "200000000"
+}

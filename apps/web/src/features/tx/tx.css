@@ -1,0 +1,201 @@
+/*
+ * Transaction status panel (SH-015; UI-08). Tone is carried by text and a mark, never by colour alone; the only motion
+ * is the logo loader's breathing glow on "waiting" states (F51; still under reduced motion), and success never animates.
+ */
+.sh-tx {
+  display: grid;
+  gap: var(--sh-gap-3);
+  min-width: 0;
+  padding: var(--sh-gap-4);
+}
+
+.sh-tx p {
+  margin: 0;
+}
+
+.sh-tx__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sh-gap-2);
+}
+
+.sh-tx__heading {
+  margin: 0;
+  font-size: var(--sh-type-body-lg);
+  line-height: var(--sh-leading-tight);
+}
+
+.sh-tx__status {
+  display: grid;
+  gap: var(--sh-gap-1);
+}
+
+.sh-tx__title {
+  display: flex;
+  align-items: center;
+  gap: var(--sh-gap-2);
+  font-size: var(--sh-type-body-lg);
+  font-weight: var(--sh-weight-bold);
+}
+
+.sh-tx__body {
+  color: var(--sh-text-secondary);
+}
+
+/* A 10 px mark in the waiting loader's 16 px box, so the title never moves when the tone changes. */
+.sh-tx__mark {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  margin: 3px;
+  border-radius: 50%;
+  background: var(--sh-text-muted);
+}
+
+.sh-tx__mark[data-tone='warning'] {
+  border-radius: 2px;
+  background: var(--sh-warning);
+}
+
+.sh-tx__mark[data-tone='error'] {
+  border-radius: 2px;
+  background: var(--sh-negative);
+  transform: rotate(45deg);
+}
+
+.sh-tx__mark[data-tone='success'] {
+  background: var(--sh-positive);
+}
+
+.sh-tx__details {
+  display: grid;
+  gap: var(--sh-gap-1);
+  min-width: 0;
+  margin: 0;
+  font-size: var(--sh-type-small);
+}
+
+.sh-tx__detail {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--sh-gap-2);
+  min-width: 0;
+}
+
+.sh-tx__detail dt {
+  color: var(--sh-text-muted);
+}
+
+/*
+ * Values are 40-hex addresses, 64-hex hashes and 24-28-digit raw integers: they must wrap inside the panel on a phone
+ * (UI-06: every figure the person checks before "Confirm in wallet" stays visible), never widen the page.
+ */
+.sh-tx__detail dd {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Phones: each label above its value, so a long value gets the whole panel width. */
+@media (max-width: 480px) {
+  .sh-tx__detail {
+    flex-direction: column;
+  }
+}
+
+.sh-tx__hash {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: var(--sh-type-label);
+  overflow-wrap: anywhere;
+}
+
+.sh-tx__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sh-gap-2);
+}
+
+.sh-tx__actions .sh-button {
+  cursor: pointer;
+}
+
+.sh-tx__actions .sh-button:disabled {
+  cursor: progress;
+  opacity: 0.75;
+}
+
+.sh-tx__error {
+  color: var(--sh-negative);
+  font-weight: 650;
+}
+
+.sh-tx__wallet {
+  display: grid;
+  gap: var(--sh-gap-2);
+  min-width: 0;
+  padding: var(--sh-gap-3);
+  border: 1px dashed var(--sh-warning);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-canvas);
+}
+
+.sh-tx__wallet-title {
+  font-weight: var(--sh-weight-bold);
+}
+
+.sh-tx__wallet-note {
+  color: var(--sh-warning);
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+}
+
+.sh-tx__wallet-meta {
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+  overflow-wrap: anywhere;
+}
+
+.sh-tx__wallet-meta .sh-numeric {
+  white-space: nowrap;
+}
+
+.sh-tx__scenario {
+  display: grid;
+  gap: var(--sh-gap-1);
+  padding-top: var(--sh-gap-3);
+  border-top: 1px solid var(--sh-border);
+  font-size: var(--sh-type-small);
+}
+
+.sh-tx__scenario label {
+  font-weight: var(--sh-weight-bold);
+}
+
+.sh-tx__scenario select {
+  width: 100%;
+  max-width: 420px;
+  min-height: var(--sh-touch-target);
+  padding: 0 var(--sh-gap-3);
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface);
+  color: var(--sh-text);
+  cursor: pointer;
+}
+
+.sh-tx__scenario-hint,
+.sh-tx__footnote {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+}
+
+/* Stage C: the sold-out emergency payout offer (a separate, labelled request). */
+.sh-tx__fallback {
+  display: grid;
+  gap: var(--sh-gap-2);
+  padding: var(--sh-gap-3);
+  border: 1px dashed currentColor;
+  border-radius: 8px;
+}

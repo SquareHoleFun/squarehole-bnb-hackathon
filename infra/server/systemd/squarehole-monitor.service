@@ -1,0 +1,36 @@
+[Unit]
+Description=Square Hole health checks and founder alerts
+Wants=network-online.target
+After=network-online.target squarehole-stack.service
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+WorkingDirectory=/opt/squarehole-monitor
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+EnvironmentFile=/etc/squarehole/monitor.env
+ExecStart=/bin/bash /opt/squarehole-monitor/check.sh --run
+SuccessExitStatus=1 75
+TimeoutStartSec=120
+StateDirectory=squarehole-monitor
+StateDirectoryMode=0700
+UMask=0077
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/squarehole-monitor
+# SQLite read-only connections still need to create WAL/SHM after the bot closes.
+# Keep the database read-only within this narrow writable sidecar directory.
+ReadWritePaths=-/var/lib/squarehole/burn-bot
+ReadOnlyPaths=-/var/lib/squarehole/burn-bot/journal.sqlite
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+RestrictRealtime=true
+LockPersonality=true
+CapabilityBoundingSet=CAP_DAC_READ_SEARCH
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6

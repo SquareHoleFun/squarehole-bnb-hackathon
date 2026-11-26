@@ -1,0 +1,325 @@
+/* SH-224: the page is as wide as the first box's (.sh-fit-page, 1240 px); its parts are spaced by the grids below. */
+.sh-v2-page .sh-panel { margin-block: 0; padding: 1rem; }
+/* A closed disclosure is one tap-sized row: inside a panel it sits flush with the panel's words; the page's own ones
+   (held royalties, burn log, Safes, contract) stack without empty bands between them (SH-V2-FE3). */
+.sh-v2-page details { margin-block: .25rem; padding-inline: 1rem; }
+.sh-v2-page .sh-panel details { margin-block: .5rem 0; padding-inline: 0; }
+.sh-v2-page details > p { margin-block: .4rem; }
+/* SH-ALCHEMIST-LESS-TEXT: a panel's Details button (the shared one, InfoTip.tsx) sits where its <details> did. */
+.sh-v2-page .sh-panel .sh-details { margin-top: .5rem; }
+/* SH-235: the Items card's info panel (InfoTip.tsx) opens under its heading row, as far from it as a Details panel. */
+.sh-v2-page .sh-vault > .sh-info-panel { margin-top: .5rem; }
+.sh-v2-page dl:not(.sh-box-stats) { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 1rem; }
+.sh-v2-page dd { margin: .25rem 0 0; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.sh-v2-value { font-size: 1.5rem; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+/* SH-266: "about $X" under a coin figure, its (i) beside it. */
+.sh-v2-usd { color: var(--sh-text-secondary); font-variant-numeric: tabular-nums; margin: 0; }
+.sh-v2-usd .sh-info-panel { color: inherit; }
+.sh-v2-address { overflow-wrap: anywhere; font-family: monospace; }
+.sh-v2-actions { display: flex; gap: .75rem; flex-wrap: wrap; align-items: end; }
+.sh-v2-actions label, .sh-v2-actions [role="group"], .sh-v2-actions [role="status"] { flex-basis: 100%; }
+.sh-v2-actions input { display: block; max-width: 100%; }
+.sh-m2-shop table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.sh-m2-shop th, .sh-m2-shop td { padding: .6rem .25rem; text-align: left; overflow-wrap: anywhere; }
+.sh-m2-shop progress { width: 100%; accent-color: currentColor; }
+.sh-v2-page .sh-panel { min-width: 0; }
+.sh-m2-chips { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+.sh-m2-batches { list-style: none; margin: .75rem 0; padding: 0; }
+.sh-m2-batches li { display: flex; align-items: center; gap: .5rem .75rem; padding-block: .5rem; border-top: 1px solid var(--sh-border); }
+.sh-m2-payout { display: flex; flex-direction: column; flex: 1 1 auto; min-width: 0; }
+.sh-m2-batch { color: var(--sh-text-secondary); font-size: var(--sh-type-label); }
+.sh-m2-amount { font-variant-numeric: tabular-nums; font-weight: 600; overflow-wrap: anywhere; }
+.sh-m2-batches li > .sh-chip { flex: 0 1 auto; }
+.sh-m2-batches li > .sh-button { flex: none; }
+.sh-v2-page .sh-panel input { display: block; width: 100%; max-width: 24rem; }
+/* The closing price's unit after its exact digits (SH-V2-FE4). */
+.sh-v2-unit { white-space: nowrap; }
+@media (max-width: 30rem) {
+  /* A 24-decimal closing price keeps its digits on one line at 375 px. */
+  .sh-v2-price { font-size: 1.05rem; }
+  /* Phone: an exact amount keeps its digits on one line where it can, and figures sit two to a row (SH-V2-FE3). */
+  .sh-v2-value { font-size: 1.25rem; overflow-wrap: break-word; }
+  .sh-v2-page dl:not(.sh-box-stats) { grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); gap: .75rem 1rem; }
+  /* "Buyers Keep · Sellers Buy back and burn …" takes its own row rather than breaking at the dot. */
+  .sh-m3-figures__wide { grid-column: 1 / -1; }
+  .sh-m2-shop table { table-layout: fixed; font-size: .875rem; }
+  .sh-m2-shop th:first-child { width: 15%; }
+  .sh-v2-page .sh-button { min-height: 2.75rem; }
+}
+.sh-m3-figures { margin: .75rem 0; }
+/* A long vault rule ("Buyers Keep · Sellers Buy back and burn …", SH-194 IR-2) takes its own row at every width rather
+   than breaking inside one figure column. */
+.sh-m3-figures__row { grid-column: 1 / -1; }
+.sh-m3-quote { flex-basis: 100%; margin: 0; }
+.sh-m3-pile [data-no-rescue] { color: var(--sh-text-secondary); }
+/* SH-APP8: the Alchemist trigger's short address in the pile panel's words (tabular figures, .sh-numeric, so the body
+   font's contextual alternates never draw "0x1F14" as "0×1F14") stays whole on one line. */
+.sh-m3-pile p > .sh-numeric { white-space: nowrap; }
+.sh-m3-items .sh-m2-batches li > .sh-chip { flex: none; white-space: nowrap; }
+/* F128 "Your claims": one Claim all for every claim a wallet has (box page and My Box). */
+.sh-v2-claims { min-width: 0; padding: 1rem; }
+.sh-v2-claim-list { display: grid; gap: .25rem; }
+/* Totals in different coins are never added up: one line per coin. */
+.sh-v2-claims__sum { display: block; }
+@media (max-width: 30rem) { .sh-v2-claims .sh-v2-value[data-coins] { font-size: 1.05rem; } }
+.sh-v2-claim-box h3 { margin: .75rem 0 0; font-size: var(--sh-type-body); }
+.sh-v2-claims .sh-m2-batches { margin: .5rem 0; }
+.sh-v2-claim-head { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+.sh-v2-claim-head .sh-chip { flex: none; white-space: nowrap; }
+/* RC6-RR-INBOX: a final hand-in or creator remainder says how much inbox P its claim first moves into the pot. */
+.sh-v2-claim-note { display: block; color: var(--sh-text-secondary); }
+.sh-v2-claims [role="group"] > p { margin-block: .5rem; }
+/* SH-V2-FE5: the scan standing in for the claims index is marked, as the FIT page marks its direct chain read. */
+.sh-v2-fresh { white-space: nowrap; border-style: dashed; }
+.sh-v2-fresh > .sh-glyph { flex: none; }
+/* Mined claims (this session's and the index's recent payments): a closed list under its count. */
+.sh-v2-claimed { margin-block: .5rem; }
+.sh-v2-claimed > summary { cursor: pointer; width: fit-content; font-weight: 600; }
+/* SH-ARWEAVE-PICTURES-WEB: Add picture under a missing box picture: a file button (a file can be dropped on it) and one line. */
+.sh-v2-add-picture { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem .75rem; margin-top: .5rem; }
+.sh-v2-add-picture > p { margin: 0; color: var(--sh-text-secondary); }
+.sh-v2-add-picture__button { position: relative; overflow: hidden; }
+.sh-v2-add-picture__button[data-busy] { color: var(--sh-text-muted); }
+.sh-v2-add-picture__button > input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.sh-v2-add-picture__button:has(> input:focus-visible) { outline: 3px solid var(--sh-focus-ring); outline-offset: 2px; box-shadow: 0 0 0 7px var(--sh-focus-halo); }
+/* SH-V21-FE13: a shop's give, pick and addition, each its own block under the prices; items are one tap each. */
+.sh-v2-shop-actions { display: grid; gap: 1rem; margin-block: 1rem; min-width: 0; }
+.sh-v2-shop-act { display: grid; gap: .75rem; min-width: 0; padding-top: .75rem; border-top: 1px solid var(--sh-border); }
+.sh-v2-shop-act h3 { margin: 0; font-size: var(--sh-type-body); }
+.sh-v2-shop-act > p, .sh-v2-shop-act dl { margin: 0; }
+.sh-v2-shop-act .sh-m2-chips .sh-button[aria-pressed='true'] { border-color: var(--sh-text); box-shadow: inset 0 0 0 1px currentColor; font-weight: 700; }
+/* Names and addresses wrap inside their buttons on a phone; a price never breaks. */
+.sh-v2-shop-act .sh-m2-chips .sh-button { max-width: 100%; min-height: var(--sh-touch-target); padding-block: .5rem; white-space: normal; overflow-wrap: anywhere; text-align: left; }
+.sh-v2-shop-field { display: grid; gap: .25rem; }
+/*
+ * SH-283: the shop's items as cards (ShopCardsV2.tsx): a grid of the items' pictures, each card its picture in a fixed
+ * 5:7 place (the cards are 500x700; the place never changes size, so nothing jumps while pictures arrive), its short name
+ * and its price. The pick list scrolls inside itself past a few rows, as the list did; the giver's own items are small.
+ */
+.sh-v2-shop-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr)); gap: .75rem; margin: 0; padding: .25rem; list-style: none; min-width: 0; }
+.sh-v2-shop-cards--small { grid-template-columns: repeat(auto-fill, minmax(4.75rem, 1fr)); gap: .5rem; }
+.sh-v2-shop-items { max-height: min(34rem, 70vh); overflow-y: auto; overscroll-behavior: contain; }
+.sh-v2-shop-cards > li { display: flex; min-width: 0; }
+.sh-v2-shop-card {
+  display: grid; grid-template-rows: auto auto 1fr; align-content: start; gap: .3rem; width: 100%; min-width: 0; padding: .4rem .4rem .55rem;
+  border: 1px solid var(--sh-border); border-radius: var(--sh-radius-small, 10px); background: var(--sh-surface-raised, transparent); color: inherit;
+  font: inherit; text-align: center; cursor: pointer;
+}
+.sh-v2-shop-card:hover:not(:disabled) { border-color: var(--sh-text-secondary, currentColor); }
+.sh-v2-shop-card:focus-visible { outline: 2px solid var(--sh-focus, currentColor); outline-offset: 2px; }
+.sh-v2-shop-card[aria-pressed='true'] { border-color: var(--sh-text); box-shadow: inset 0 0 0 2px currentColor; }
+.sh-v2-shop-card[aria-pressed='true'] .sh-v2-shop-card__name { font-weight: 700; }
+.sh-v2-shop-card:disabled { cursor: default; opacity: .7; }
+.sh-v2-shop-card__art { display: block; width: 100%; aspect-ratio: 5 / 7; border-radius: 8px; overflow: hidden; }
+.sh-v2-shop-card__picture { display: block; width: 100%; height: 100%; object-fit: cover; background: var(--sh-surface-2, rgba(127, 127, 127, .12)); }
+.sh-v2-shop-card__name { min-width: 0; font-size: var(--sh-type-label, 13px); line-height: 1.25; overflow-wrap: anywhere; }
+.sh-v2-shop-card .sh-v2-shop-price { font-size: var(--sh-type-label, 13px); color: var(--sh-text-secondary); font-variant-numeric: tabular-nums; white-space: normal; overflow-wrap: anywhere; }
+.sh-v2-shop-card--small { padding: .3rem .3rem .4rem; }
+.sh-v2-shop-price { flex: none; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.sh-v2-shop-list { display: grid; gap: .5rem; margin: .5rem 0; padding: 0; list-style: none; }
+.sh-v2-shop-list li { overflow-wrap: anywhere; }
+.sh-v2-shop-list li > .sh-v2-address { display: block; font-size: var(--sh-type-caption); color: var(--sh-text-secondary); }
+/* SH-V21-FE14: a shop's fees into the shop (ShopT), and its accepted warning in the create flow's warning style. */
+.sh-v2-shop-fees { display: grid; gap: .5rem; min-width: 0; margin-block: 1rem; padding-top: .75rem; border-top: 1px solid var(--sh-border); }
+.sh-v2-shop-fees h3 { margin: 0; font-size: var(--sh-type-body); }
+.sh-v2-shop-fees > p, .sh-v2-shop-fees dl { margin: 0; }
+.sh-v2-warnings { display: grid; gap: var(--sh-gap-1); margin: 0; padding: 0; list-style: none; }
+.sh-v2-warnings li { display: flex; align-items: center; gap: var(--sh-gap-2); margin: 0; color: var(--sh-warning); font-size: var(--sh-type-small); font-weight: 700; }
+.sh-v2-warnings li::before { content: '!'; content: '!' / ''; display: inline-grid; flex: none; place-items: center; width: 18px; height: 18px; border: 1.5px solid currentColor; border-radius: 50%; font-size: var(--sh-type-caption); }
+/* SH-RC7-SITE-INBOX: an inbox coin's row, its public control and its history on demand; the payee's in-kind claim. */
+.sh-v2-inbox-coin { margin-block: .5rem; }
+.sh-v2-inbox-coin > p { margin: 0; }
+.sh-v2-inbox-coin > .sh-button { margin-top: .4rem; }
+.sh-v2-history { margin-top: .25rem; }
+.sh-v2-history > summary { cursor: pointer; font-size: var(--sh-type-caption); color: var(--sh-text-secondary); }
+.sh-v2-history dl { margin: .4rem 0 0; }
+.sh-v2-in-kind { display: grid; gap: .5rem; margin-top: .75rem; }
+.sh-v2-in-kind label { display: grid; gap: .25rem; }
+.sh-v2-in-kind input { width: 100%; max-width: 32rem; }
+.sh-v2-in-kind p { margin: 0; }
+.sh-v2-in-kind__ready { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; }
+/* TA-50: a hidden-art box's draws. An item is a square: its placeholder until revealed, then its checked picture. */
+.sh-v2-draws__rows { list-style: none; margin: .75rem 0; padding: 0; }
+.sh-v2-draws__rows li { display: flex; align-items: center; gap: .5rem .75rem; padding-block: .5rem; border-top: 1px solid var(--sh-border); flex-wrap: wrap; }
+.sh-v2-draws__rows li > span { flex: 1 1 8rem; min-width: 0; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.sh-v2-draws__rows li > .sh-button { flex: none; }
+.sh-v2-draws__placeholder, .sh-v2-draws__figure img { width: 4rem; height: 4rem; border-radius: .5rem; flex: none; }
+.sh-v2-draws__placeholder { display: block; background: var(--sh-surface-raised); }
+.sh-v2-draws__figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: .25rem; flex: none; }
+.sh-v2-draws__figure img { object-fit: cover; image-rendering: pixelated; }
+.sh-v2-draws__figure figcaption { font-size: var(--sh-type-label); color: var(--sh-text-secondary); }
+.sh-v2-draws__file { margin-block: .75rem; }
+.sh-v2-draws__file p { margin-block: .4rem 0; color: var(--sh-text-secondary); }
+
+/* SH-TA-33: the vault's items, pictures first; on a phone two to a row. */
+.sh-vault-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 9rem), 1fr)); gap: .75rem; margin: .75rem 0; padding: 0; list-style: none; }
+.sh-vault-item { display: flex; flex-direction: column; align-items: stretch; gap: .375rem; min-width: 0; }
+.sh-vault-item__picture { display: block; width: 100%; height: auto; aspect-ratio: 1; border-radius: 12px; object-fit: cover; background: var(--sh-surface-2, rgba(127, 127, 127, .12)); }
+.sh-vault-item__id { font-variant-numeric: tabular-nums; font-weight: 600; }
+/* SH-203 on the line: why an unrevealed item's button is off, one short line under its number (ITEM_NOT_REVEALED). */
+.sh-vault-item__note { margin: 0; color: var(--sh-text-secondary); font-size: var(--sh-type-small); }
+@media (max-width: 30rem) { .sh-vault-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* T06: an item with a 3D model has a 3D button on its picture; the model opens in the sheet, its picture under it until drawn. */
+.sh-vault-item__art { position: relative; }
+.sh-vault-item__3d {
+  position: absolute; top: .375rem; right: .375rem; min-width: 2.75rem; min-height: 2.75rem; padding: 0 .625rem;
+  border: 1px solid var(--sh-border-strong); border-radius: var(--sh-radius-pill); background: rgba(8, 13, 22, .78); color: var(--sh-text);
+  font: inherit; font-weight: 750; font-size: var(--sh-type-small); cursor: pointer;
+}
+.sh-vault-item__3d:hover { border-color: var(--sh-accent); }
+.sh-box-sheet--model { width: min(560px, 100%); }
+.sh-vault-model { position: relative; width: 100%; aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: var(--sh-surface-raised); }
+.sh-vault-model__view { position: absolute; inset: 0; touch-action: none; cursor: grab; }
+.sh-vault-model__view:focus-visible { outline-offset: -3px; }
+.sh-vault-model__view canvas { display: block; width: 100%; height: 100%; }
+.sh-vault-model__picture { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
+.sh-vault-model[data-model='loading'] .sh-vault-model__picture { animation: sh-vault-model-wait 1.4s ease-in-out infinite alternate; }
+@keyframes sh-vault-model-wait { to { opacity: .55; } }
+@media (prefers-reduced-motion: reduce) { .sh-vault-model[data-model='loading'] .sh-vault-model__picture { animation: none; } }
+.sh-vault-model__status { margin: 0; color: var(--sh-text-secondary); }
+/*
+ * LINKS-WEB: the creator's signed links under the header. The website's whole host shows and wraps, never an ellipsis
+ * (an ellipsis would make junkyard.fun.other.example read as junkyard.fun). The editor and the card after Create share it.
+ */
+.sh-v2-links-bar { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem; min-width: 0; margin-block: .75rem 0; }
+.sh-v2-links { min-width: 0; margin: 0; overflow-wrap: anywhere; }
+.sh-v2-links a { overflow-wrap: anywhere; }
+.sh-v2-links__dot { color: var(--sh-text-secondary); }
+.sh-v2-links-edit, .sh-v2-links-card { display: grid; gap: .75rem; min-width: 0; padding: 1rem; }
+.sh-v2-links-edit { max-width: 36rem; }
+.sh-v2-links-edit fieldset { display: grid; gap: .75rem; min-width: 0; margin: 0; padding: 0; border: 0; }
+.sh-v2-links-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem; }
+.sh-v2-links-edit > p, .sh-v2-links-card > p { margin: 0; }
+/* After Create the card takes the action bar's whole width, below Open your box. */
+.sh-newbox__bar > .sh-v2-links-card { flex: 1 1 100%; }
+/* SH-203: the creator's Reveal items view (RevealItemsV2.tsx) and its entry (RevealEntryV2.tsx). */
+.sh-v2-reveal-entry { margin-block: .75rem; }
+.sh-v2-reveal h3 { margin: .25rem 0 0; font-size: var(--sh-type-body-lg); }
+.sh-v2-reveal ul { margin: 0; padding-inline-start: 1.2rem; display: grid; gap: .5rem; }
+.sh-v2-reveal p { margin-block: .25rem; overflow-wrap: anywhere; }
+.sh-v2-reveal [data-reason-owner] { color: var(--sh-text-secondary); }
+
+/*
+ * SH-224: a v2 box's page with the first box's top (BoxHeader, box-head.css). The header's side holds the box's life
+ * strip, drawn as a column of steps beside the name (on a phone a row of four under the state band); the market's
+ * figures are its number tiles. The header's panel look is the strip's frame, so the strip itself has none.
+ */
+.sh-v2-page .sh-box-stat dd { margin: 0; }
+.sh-v2-head .sh-box-head__id > .sh-v2-links-bar { margin: 0; }
+.sh-v2-head .sh-box-head__id > .sh-v2-add-picture { margin: 0; }
+.sh-v2-page .sh-v2-head .sh-life { padding: 0; border: 0; background: none; box-shadow: none; }
+.sh-v2-head .sh-box-head__side { justify-content: center; }
+@media (min-width: 641px) {
+  .sh-v2-head .sh-life__steps { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .sh-v2-head .sh-life__step { grid-template-columns: 36px minmax(0, 1fr); align-items: center; justify-items: stretch; gap: 0 12px; }
+  .sh-v2-head .sh-life__step:not(:last-child)::after { top: 38px; right: auto; bottom: -14px; left: 17px; width: 2px; height: auto; }
+}
+@media (max-width: 640px) {
+  .sh-v2-page .sh-box-head.sh-v2-head { grid-template-areas: 'cover id' 'band band' 'life life' 'stats stats'; }
+  .sh-v2-head .sh-life { grid-area: life; }
+  .sh-v2-head .sh-box-head__title { font-size: 22px; overflow-wrap: anywhere; }
+  /* SH-224 phase 3 (F1): the description's phone copy takes a full-width row under the band, when the box has one. */
+  .sh-v2-page .sh-box-head.sh-v2-head:has(.sh-v2-head__line) { grid-template-areas: 'cover id' 'band band' 'line line' 'life life' 'stats stats'; }
+  .sh-v2-page .sh-v2-head .sh-v2-head__line { display: block; grid-area: line; }
+}
+/* SH-224 phase 3 (F1): BoxHeader's own description line (beside the picture) is hidden at 640 px and below, the first
+   box's rule; a v2 box shows the same text there from this copy, and nowhere else. */
+.sh-v2-head__line { display: none; margin: 0; color: var(--sh-text-secondary); font-size: var(--sh-type-body); overflow-wrap: anywhere; }
+/* SH-224 phase 3 (N1): a long name, description or ticker without a space breaks rather than widening the page. */
+.sh-v2-head .sh-box-head__title, .sh-v2-head .sh-box-head__line { min-width: 0; overflow-wrap: anywhere; }
+.sh-v2-head .sh-fit-ca--compact > strong, .sh-v2-head .sh-fit-ca__short { min-width: 0; overflow-wrap: anywhere; }
+.sh-v2-head .sh-box-band__label, .sh-v2-head .sh-box-band__figure { min-width: 0; overflow-wrap: anywhere; }
+/* SH-224 phase 4: the page without its data (V2BoxPage's fallback) wraps its name the same way. */
+.sh-v2-fallback .sh-page__title { min-width: 0; overflow-wrap: anywhere; }
+
+/*
+ * Under the header: the chart (or a closed box's closing price) and the live activity, with the trade box and the claims
+ * in a column beside them on a wide page (it stays in view while the trades scroll by); on a phone one column, in the
+ * order of the page: chart, trade box, claims, activity. Then the box's own parts, its money in short cards side by side,
+ * and the closed disclosures.
+ */
+.sh-v2-top, .sh-v2-parts, .sh-v2-cards, .sh-v2-more { display: grid; gap: var(--sh-gap-4); min-width: 0; }
+.sh-v2-top > div { display: grid; gap: var(--sh-gap-4); align-content: start; min-width: 0; }
+.sh-v2-parts:empty, .sh-v2-top__aside:empty, .sh-v2-cards:empty { display: none; }
+.sh-v2-more { gap: 0; }
+.sh-v2-top__aside > .sh-v2-actions:not(:has(> :not(dialog))) { display: none; }
+/* SH-255: an entry's place around a control: no grid item of its own when the control draws nothing. */
+.sh-v2-place:empty { display: none; }
+/*
+ * SH-273: the picture and the market (V2BoxPage .sh-v2-lead). On a phone one column in the page's order: the name and
+ * the strip, the picture, the figures, What you can do here, Where the fees go, then the chart, the trade box and the
+ * claims, the trades and holders. Where the picture takes two columns (box-page-picture.css, 900 px), two columns that
+ * run on their own: the picture, the chart, the trades and holders on the left; the name and the strip, the figures,
+ * What you can do here, Where the fees go, then the trade box, the claims and the actions on the right. Floats keep the
+ * document in the phone's order (the reading and focus order), where a grid would tie the two columns' rows together
+ * and leave the space under the picture empty. Only while the picture is shown (`:has`); its fallback and its loading
+ * header keep the page's layout below.
+ */
+.sh-v2-lead { display: grid; gap: inherit; min-width: 0; }
+@media (min-width: 900px) {
+  .sh-v2-lead:has(> .sh-bpic) {
+    display: flow-root;
+    --sh-v2-lead-right: max(320px, calc((100% - var(--sh-gap-5, 24px)) / 2.4));
+  }
+  .sh-v2-lead:has(> .sh-bpic) > .sh-bpic, .sh-v2-lead:has(> .sh-bpic) > .sh-bpic > .sh-bpic-layout, .sh-v2-lead:has(> .sh-bpic) > .sh-v2-top { display: contents; }
+  .sh-v2-lead:has(> .sh-bpic) .sh-bpic-layout > .sh-bpic-main,
+  .sh-v2-lead:has(> .sh-bpic) > .sh-v2-top > .sh-v2-top__market,
+  .sh-v2-lead:has(> .sh-bpic) > .sh-v2-top > .sh-v2-top__activity {
+    float: left; clear: left; position: static; width: calc(100% - var(--sh-gap-5, 24px) - var(--sh-v2-lead-right)); margin-bottom: var(--sh-gap-4, 16px);
+  }
+  .sh-v2-lead:has(> .sh-bpic) .sh-bpic-layout > .sh-bpic-head,
+  .sh-v2-lead:has(> .sh-bpic) .sh-bpic-layout > .sh-bpic-side,
+  .sh-v2-lead:has(> .sh-bpic) > .sh-v2-top > .sh-v2-top__aside {
+    float: right; clear: right; position: static; width: var(--sh-v2-lead-right); margin-bottom: var(--sh-gap-4, 16px);
+  }
+}
+@container (min-width: 60rem) {
+  .sh-v2-top[data-aside] { grid-template-columns: minmax(0, 1fr) minmax(20rem, 23rem); grid-template-rows: auto 1fr; grid-template-areas: 'market aside' 'activity aside'; }
+  .sh-v2-top[data-aside] > .sh-v2-top__market { grid-area: market; }
+  .sh-v2-top[data-aside] > .sh-v2-top__activity { grid-area: activity; }
+  .sh-v2-top[data-aside] > .sh-v2-top__aside { position: sticky; top: calc(var(--sh-topbar-h) + var(--sh-gap-3)); grid-area: aside; align-self: start; }
+  .sh-v2-cards { grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); align-items: start; }
+}
+/* SH-291: My Box for v2 boxes: coins held (logo, name, amount, worth), items as small cards, claims waiting. */
+.sh-v2-holdings { display: grid; gap: 1.25rem; min-width: 0; }
+.sh-v2-holdings__part { display: grid; gap: .5rem; min-width: 0; }
+.sh-v2-holdings__part > h3 { margin: 0; font-size: var(--sh-type-small, 14px); color: var(--sh-text-secondary); }
+.sh-v2-holdings__list { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; min-width: 0; }
+.sh-v2-holding {
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: 'mark name amount' 'mark name value'; align-items: center; column-gap: .75rem;
+  padding: .6rem .75rem; border: 1px solid var(--sh-border); border-radius: var(--sh-radius-small, 10px); background: var(--sh-surface-raised, transparent); color: inherit; text-decoration: none; min-width: 0;
+}
+.sh-v2-holding:hover { border-color: var(--sh-text-secondary, currentColor); }
+.sh-v2-holding:focus-visible { outline: 2px solid var(--sh-focus, currentColor); outline-offset: 2px; }
+.sh-v2-holding__mark { grid-area: mark; display: inline-flex; }
+.sh-v2-holding--plain { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: 'name amount' 'name value'; }
+.sh-v2-holding__name { grid-area: name; min-width: 0; font-weight: 600; overflow-wrap: anywhere; }
+.sh-v2-holding__amount { grid-area: amount; text-align: right; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.sh-v2-holding__value { grid-area: value; text-align: right; color: var(--sh-text-secondary); font-size: var(--sh-type-label, 13px); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.sh-v2-holding__go { grid-area: value; text-align: right; color: var(--sh-accent); font-size: var(--sh-type-label, 13px); font-weight: 700; }
+.sh-v2-holdings .sh-v2-shop-cards > li > a { text-decoration: none; }
+.sh-v2-holdings__nothing { display: grid; gap: .75rem; }
+.sh-v2-holdings__nothing > p { margin: 0; }
+.sh-v2-holdings__ways { display: flex; flex-wrap: wrap; gap: .5rem; }
+/* A phone: the amount and its worth go under the name (a long amount never squeezes the name to one letter a line). */
+@media (max-width: 640px) {
+  .sh-v2-holding { grid-template-columns: auto minmax(0, 1fr); grid-template-areas: 'mark name' 'mark amount' 'mark value'; column-gap: .6rem; row-gap: .15rem; padding: .55rem .65rem; }
+  .sh-v2-holding--plain { grid-template-columns: minmax(0, 1fr); grid-template-areas: 'name' 'amount' 'value'; }
+  .sh-v2-holding__amount, .sh-v2-holding__value, .sh-v2-holding__go { text-align: left; }
+}
+/* SH-297: a press's two steps under Pick or Give, as the buy and sell box shows them (trade-box.css .sh-trade-steps). */
+.sh-v2-steps { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem 1.25rem; margin: .5rem 0 0; padding: 0; list-style: none; color: var(--sh-text-secondary); font-size: var(--sh-type-small); }
+.sh-v2-steps__step { display: inline-flex; align-items: center; gap: .4rem; }
+.sh-v2-steps__mark { display: inline-grid; place-items: center; width: 1.25rem; height: 1.25rem; border: 1px solid var(--sh-border-strong); border-radius: 50%; font-size: .75rem; line-height: 1; }
+.sh-v2-steps__step[data-state='active'] { color: var(--sh-text); font-weight: 650; }
+.sh-v2-steps__step[data-state='active'] .sh-v2-steps__mark { border-color: var(--sh-accent); color: var(--sh-accent); animation: sh-v2-steps-pulse 1.2s ease-in-out infinite; }
+.sh-v2-steps__step[data-state='done'] { color: var(--sh-text); }
+.sh-v2-steps__step[data-state='done'] .sh-v2-steps__mark { border-color: var(--sh-positive); color: var(--sh-positive); font-weight: 700; }
+.sh-v2-steps__step[data-state='stopped'] .sh-v2-steps__mark { border-color: var(--sh-negative); color: var(--sh-negative); }
+@keyframes sh-v2-steps-pulse { 50% { opacity: .35; } }
+@media (prefers-reduced-motion: reduce) { .sh-v2-steps__step[data-state='active'] .sh-v2-steps__mark { animation: none; } }
+/* SH-297: the shop's heading with its (?), and its two figures under the cards. */
+.sh-v2-shop-head { display: flex; align-items: center; gap: .5rem; }
+.sh-v2-shop-head > h2 { margin: 0; }
+.sh-v2-shop-figures { margin-top: .75rem; }
+.sh-v2-shop-card__later { display: block; color: var(--sh-text-secondary); font-size: .75rem; }

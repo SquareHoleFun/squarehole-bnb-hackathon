@@ -1,0 +1,7 @@
+{
+  "name": "ORCHARD",
+  "symbol": "ORCH",
+  "description": "ORCHARD: a small orchard of cartoon trees, the showcase fractionalized NFT collection on Square Hole. Artwork: the four approved ORCHARD tree illustrations from the Square Hole reference design (ADR-0004), at their native size. Testnet only (Ethereum Sepolia): test assets with no monetary value, not an investment, not audited. Traits are cosmetic and never change fees or reward rights. Identity is the chain id and contract address, never this name or image.",
+  "image": "https://squarehole-7ua.pages.dev/nft/orchard/images/orchard-hero.webp",
+  "external_link": "https://squarehole-7ua.pages.dev/"
+}

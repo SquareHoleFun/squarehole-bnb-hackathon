@@ -1,0 +1,4 @@
+{
+  "extends": "../tsconfig.json",
+  "include": ["reveal-open-v2.ts", "reveal-open-v2.test.ts", "reveal-open-v2.vitest.ts", "reveal-open-v2-batch.ts", "reveal-open-v2-batch.test.ts"]
+}

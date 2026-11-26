@@ -1,0 +1,211 @@
+/* Responsive frame (SH-003): icon rail 641–1024px, compact disclosure menu ≤640px. Loaded after shell.css. */
+/* ── Icon rail: 641–1024px ─────────────────────────────────── */
+@media (max-width: 1024px) {
+  .sh-app {
+    grid-template-columns: var(--sh-rail-w) minmax(0, 1fr);
+  }
+
+  .sh-brand {
+    min-width: 0;
+  }
+
+  .sh-brand__tagline {
+    display: none;
+  }
+
+  .sh-source-badge__long {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .sh-source-badge__short {
+    display: inline;
+  }
+
+  .sh-nav {
+    padding: var(--sh-gap-3) var(--sh-gap-2);
+  }
+
+  .sh-nav__link {
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--sh-gap-1);
+    min-height: 56px;
+    padding: var(--sh-gap-2) var(--sh-gap-1);
+    font-size: var(--sh-type-caption);
+    line-height: var(--sh-leading-tight);
+    text-align: center;
+  }
+
+  .sh-nav__card {
+    display: none;
+  }
+}
+
+/* ── Compact: ≤640px ───────────────────────────────────────── */
+@media (max-width: 640px) {
+  .sh-app {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas: 'top' 'nav' 'main' 'foot';
+  }
+
+  /* One row, 56px (02-DESIGN 56–64): menu, brand, Demo badge, search trigger. The search field is in the feed. */
+  .sh-topbar {
+    position: static;
+    flex-wrap: nowrap;
+    gap: var(--sh-gap-2);
+    height: var(--sh-topbar-h-compact);
+    padding: 0 var(--sh-main-pad-compact);
+  }
+
+  .sh-topbar__menu {
+    display: inline-grid;
+  }
+
+  .sh-brand {
+    flex: 0 1 auto;
+    min-width: 0;
+    gap: var(--sh-gap-2);
+  }
+
+  .sh-brand__logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
+
+  .sh-brand__name {
+    font-size: var(--sh-type-body-lg);
+  }
+
+  .sh-topbar__end {
+    gap: var(--sh-gap-2);
+    margin-left: auto;
+  }
+
+  .sh-source-badge {
+    padding: 0 10px;
+  }
+
+  /* Icon-only trigger at the end of the row. */
+  .sh-search-trigger {
+    order: 10;
+    flex: none;
+    justify-content: center;
+    width: var(--sh-touch-target);
+    height: var(--sh-touch-target);
+    margin-left: 0;
+    padding: 0;
+    border-color: var(--sh-border-strong);
+    border-radius: var(--sh-radius-control);
+  }
+
+  .sh-search-trigger__text,
+  .sh-search-trigger__key {
+    display: none;
+  }
+
+  /*
+   * SH-277: the open site's sign-in entry as a 44px icon button, like the wallet and search buttons beside it; its words
+   * stay in the link for screen readers (its accessible name is still "Sign in with X").
+   */
+  .sh-topbar__join {
+    width: var(--sh-touch-target);
+    height: var(--sh-touch-target);
+    padding: 0;
+    border-radius: var(--sh-radius-control);
+  }
+
+  .sh-topbar__join-icon {
+    display: inline-grid;
+  }
+
+  .sh-topbar__join-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  /*
+   * With the entry in the bar the wordmark gives way to the logo, at its full 32px (the link is named "Square Hole
+   * home"), as it does for the setup's chip in the same place (trade-sepolia/setup.css).
+   */
+  .sh-topbar:has(.sh-topbar__join) .sh-brand__text {
+    display: none;
+  }
+
+  /* Launch stays one tap away in the menu; the row keeps brand, menu and the Demo badge. */
+  .sh-topbar__launch {
+    display: none;
+  }
+
+  .sh-nav {
+    position: static;
+    display: none;
+    height: auto;
+    padding: var(--sh-gap-2) var(--sh-main-pad-compact) var(--sh-gap-4);
+    overflow: visible;
+    border-right: 0;
+    border-bottom: 1px solid var(--sh-border);
+  }
+
+  .sh-nav[data-open='true'] {
+    display: flex;
+  }
+
+  .sh-nav__link {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: var(--sh-gap-3);
+    min-height: 48px;
+    padding: 0 var(--sh-gap-3);
+    font-size: var(--sh-type-body);
+    text-align: left;
+  }
+
+  .sh-main {
+    padding: var(--sh-main-pad-compact);
+  }
+
+  .sh-footer {
+    padding: var(--sh-gap-4) var(--sh-main-pad-compact) var(--sh-gap-6);
+  }
+}
+
+/*
+ * Narrow phones: keep the one-row top bar (menu, brand, Demo badge, wallet, search) by shortening the badge to "Demo"
+ * (full text stays for screen readers). Since SH-015 added the 44px wallet button this starts at 480px, not 400px.
+ */
+@media (max-width: 480px) {
+  .sh-source-badge__short {
+    display: none;
+  }
+}
+
+/* ≤400px: tighter gaps; the wordmark may wrap to two lines rather than run under the badge. */
+@media (max-width: 400px) {
+  .sh-topbar,
+  .sh-topbar__end {
+    gap: var(--sh-gap-1);
+  }
+
+  .sh-brand__name {
+    white-space: normal;
+    line-height: 1.05;
+  }
+}
+
+/* Below the 360px phone budget the logo alone brands the bar (the link is named "Square Hole home"). */
+@media (max-width: 359px) {
+  .sh-brand__text {
+    display: none;
+  }
+}

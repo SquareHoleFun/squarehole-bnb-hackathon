@@ -1,0 +1,217 @@
+/*
+ * Settings (01-PRODUCT `/settings`) and the saved "Reduce motion" choice. `data-motion="reduce"` on <html> mirrors the
+ * system prefers-reduced-motion rules in @squarehole/design (tokens.css, base.css), so either one turns motion off.
+ */
+:root[data-motion='reduce'] {
+  --sh-duration-fast: 0ms;
+  --sh-duration: 0ms;
+}
+
+:root[data-motion='reduce'] *,
+:root[data-motion='reduce'] *::before,
+:root[data-motion='reduce'] *::after {
+  scroll-behavior: auto !important;
+  animation: none !important;
+  transition: none !important;
+}
+
+.sh-settings__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: var(--sh-gap-6);
+}
+
+.sh-settings__sections {
+  display: grid;
+  gap: var(--sh-gap-4);
+  min-width: 0;
+  max-width: 760px;
+}
+
+.sh-settings__section {
+  display: grid;
+  gap: var(--sh-gap-3);
+  min-width: 0;
+  margin: 0;
+  padding: var(--sh-gap-6);
+  color: var(--sh-text-secondary);
+}
+
+.sh-settings__section p {
+  margin: 0;
+}
+
+.sh-settings__section > legend {
+  float: left;
+  width: 100%;
+  margin-bottom: var(--sh-gap-3);
+  padding: 0;
+}
+
+.sh-settings__section > legend + * {
+  clear: both;
+}
+
+.sh-settings__facts {
+  display: grid;
+  gap: var(--sh-gap-2);
+  margin: 0;
+}
+
+.sh-settings__facts > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sh-gap-1) var(--sh-gap-3);
+}
+
+.sh-settings__facts dt {
+  min-width: 120px;
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-label);
+  font-weight: 650;
+}
+
+.sh-settings__facts dd {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sh-gap-2);
+  margin: 0;
+  color: var(--sh-text);
+}
+
+.sh-settings__option {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sh-gap-3);
+  min-height: var(--sh-touch-target);
+  padding: var(--sh-gap-3);
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface);
+  cursor: pointer;
+}
+
+.sh-settings__option:has(input:checked) {
+  border-color: var(--sh-accent);
+  background: var(--sh-selected);
+}
+
+.sh-settings__option input {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  margin: 1px 0 0;
+  accent-color: var(--sh-accent);
+  cursor: pointer;
+}
+
+.sh-settings__option > span {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.sh-settings__option-title {
+  color: var(--sh-text);
+  font-weight: 700;
+}
+
+/* Data source (SH-C): an option this build cannot serve stays visible with its reason, and cannot be chosen. */
+.sh-settings__option[data-disabled] {
+  border-style: dashed;
+  cursor: not-allowed;
+}
+
+.sh-settings__option[data-disabled] input {
+  cursor: not-allowed;
+}
+
+.sh-settings__option[data-disabled] .sh-settings__option-title {
+  color: var(--sh-text-secondary);
+}
+
+.sh-settings__option-title .sh-chip {
+  margin-left: var(--sh-gap-2);
+  vertical-align: middle;
+}
+
+.sh-settings__option .sh-settings__hint {
+  overflow-wrap: anywhere;
+}
+
+.sh-settings__option kbd,
+.sh-settings__section kbd {
+  display: inline-grid;
+  place-items: center;
+  min-width: 22px;
+  padding: 0 5px;
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-small);
+  background: var(--sh-surface-raised);
+  font-family: inherit;
+  font-size: var(--sh-type-label);
+}
+
+.sh-settings__hint {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-small);
+}
+
+.sh-settings__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sh-gap-3);
+}
+
+.sh-settings__status {
+  min-height: 1.5em;
+  margin: 0;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+}
+
+.sh-settings__status[data-save-result='not_saved'] {
+  color: var(--sh-warning);
+}
+
+.sh-settings__cast {
+  position: sticky;
+  top: calc(var(--sh-topbar-h) + var(--sh-gap-6));
+  display: grid;
+  justify-items: center;
+  gap: var(--sh-gap-3);
+  max-width: 180px;
+}
+
+.sh-settings__cast-line {
+  margin: 0;
+  padding: 10px 14px;
+  border: 1px solid var(--sh-border-strong);
+  border-radius: 14px;
+  background: var(--sh-surface-raised);
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+  line-height: 1.45;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .sh-settings__layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sh-settings__cast {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .sh-settings__section {
+    padding: var(--sh-gap-4);
+  }
+}

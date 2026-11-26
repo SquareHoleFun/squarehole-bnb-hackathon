@@ -1,0 +1,106 @@
+{
+  "format": "squarehole.boxspec-draft/1",
+  "context": "v2",
+  "example": 2,
+  "brief": "Demo example 2. A burn box that nods to 'ultrasound money' and the EIP-1559 burn: 420 owls, hidden until drawn. Buyers' fees buy HOOT back and burn it, sellers' fees burn HOOT. Royalties go with the fees. No creator buy. The one raise, 60 days, opens at a set time (UTC) a day or so after creation to build up the reveal.",
+  "status": "ready",
+  "shows": [
+    "burn box (buy back and burn, burn)",
+    "new collection, hidden art with placeholders",
+    "royalties with the fees",
+    "collection page: a banner and 3 teasers",
+    "the one raise (4.206980085 ETH), 60 days",
+    "opens at a set UTC time"
+  ],
+  "differences": [
+    "An own hidden picture (an owl face) waits for an SVG upload in the launch flow; until then tickets show its neutral picture (\"hiddenSvg\": \"FROM_LAUNCH_FLOW\")."
+  ],
+  "site": {
+    "links": []
+  },
+  "spec": {
+    "version": 2,
+    "boxType": "NEW_COLLECTION",
+    "tokenName": "Ultrasound Owls",
+    "tokenSymbol": "HOOT",
+    "collectionName": "Ultrasound Owls",
+    "collectionSymbol": "HOOT",
+    "description": "Demo: 420 owls that only hoot about the burn. Every fee burns HOOT.",
+    "n": 420,
+    "firstId": "1",
+    "q": "ETH",
+    "raise": {
+      "decimal": "4.206980085"
+    },
+    "layout": "CURVE_V1",
+    "gradLayout": "ASK_FULL_BID_SENTINEL",
+    "launchFormat": "CURVE",
+    "openAt": "2026-10-20T18:00:00Z",
+    "deadlineDays": 60,
+    "qStream": "BUYBACK_BURN_T",
+    "tStream": "BURN_T",
+    "artMode": "HIDDEN",
+    "revealRoot": "FROM_LAUNCH_FLOW",
+    "metadataTable": {
+      "formatV1": {
+        "traitTypes": [
+          {
+            "name": "Eyes",
+            "values": [
+              "Wide",
+              "Sleepy",
+              "Laser"
+            ]
+          },
+          {
+            "name": "Feathers",
+            "values": [
+              "Night",
+              "Snow",
+              "Ember",
+              "Ultrasound"
+            ]
+          }
+        ]
+      }
+    },
+    "generatorHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coverSha256": "FROM_LAUNCH_FLOW",
+    "revealListId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "marketplaceOwner": "FROM_LAUNCH_FLOW",
+    "creatorFeeRecipient": "0x0000000000000000000000000000000000000000",
+    "creatorBuy": "0",
+    "collectionCoverSha256": "FROM_LAUNCH_FLOW",
+    "addOns": [
+      {
+        "addOn": "placeholders",
+        "params": {
+          "placeholderName": "Ultrasound Owls ticket",
+          "placeholderSymbol": "HOOT-T",
+          "placeholderDescription": "Opens into one hidden owl once its number is drawn.",
+          "hiddenDescription": "This owl is not revealed yet.",
+          "hiddenSvg": "FROM_LAUNCH_FLOW"
+        }
+      },
+      {
+        "addOn": "royalties",
+        "params": {
+          "bps": 250,
+          "destination": "FEE_HANDLING"
+        }
+      },
+      {
+        "addOn": "collection-metadata",
+        "params": {
+          "bannerSha256": "FROM_LAUNCH_FLOW",
+          "teaserSha256s": [
+            "FROM_LAUNCH_FLOW",
+            "FROM_LAUNCH_FLOW",
+            "FROM_LAUNCH_FLOW"
+          ],
+          "externalLink": ""
+        }
+      }
+    ]
+  }
+}

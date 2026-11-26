@@ -1,0 +1,15 @@
+# Contracts for the page's local test chain only: a plain token, plus the shared pile from ../../../core.
+[profile.default]
+src = "src"
+out = "out"
+cache_path = "cache"
+libs = []
+solc_version = "0.8.24"
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 200
+allow_paths = ["../../../core"]
+remappings = ["fee-rules-core/=../../../core/src/"]
+
+[lint]
+lint_on_build = false

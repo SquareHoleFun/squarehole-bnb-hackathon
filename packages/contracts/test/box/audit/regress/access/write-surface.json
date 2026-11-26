@@ -1,0 +1,144 @@
+{
+  "BoxFactoryV1": [
+    "createBox((uint16,uint8,string,string,string,string,string,uint32,uint256,address,uint256,uint8,uint8,uint8,uint32,uint16,uint8,uint8,uint8,bytes32,bytes,bytes32,bytes32,bytes32,address,address,uint256,bytes32,(uint16,bytes)[]),bytes32,bytes):payable"
+  ],
+  "BoxFactoryV1Planner": [],
+  "BoxRegistry": [
+    "record(address,bytes32,bytes):nonpayable"
+  ],
+  "BoxCoordinator": [
+    "claimReward(address):nonpayable",
+    "deploy(bytes[],bytes,bytes32,uint256):nonpayable",
+    "graduate():nonpayable",
+    "launch():payable",
+    "unlockCallback(bytes):nonpayable"
+  ],
+  "BoxHook": [
+    "afterSwap(address,(address,address,uint24,int24,address),(bool,int256,uint160),int256,bytes):nonpayable",
+    "deepen(address):nonpayable",
+    "harvest():nonpayable",
+    "initialize():nonpayable",
+    "launch():nonpayable",
+    "migrate(uint256):nonpayable",
+    "unlockCallback(bytes):nonpayable"
+  ],
+  "BoxHookExtension": [
+    "deepen(address):nonpayable",
+    "launch():nonpayable",
+    "migrate(uint256):nonpayable",
+    "unlockCallback(bytes):nonpayable"
+  ],
+  "BoxLaunchRouter": [
+    "bootstrap():payable",
+    "buy(uint256,uint256,address,uint256):payable",
+    "creatorBuy(address,uint256):payable",
+    "initialize():nonpayable",
+    "sweep():nonpayable",
+    "unlockCallback(bytes):nonpayable"
+  ],
+  "BoxReceiver": [
+    "acceptCreatorPayee():nonpayable",
+    "claimCreator(address):nonpayable",
+    "collect(address):nonpayable",
+    "fundCreator():payable",
+    "fundDepth():payable",
+    "fundFees():payable",
+    "initialize():nonpayable",
+    "moduleProceeds(uint8,uint256):nonpayable",
+    "noteModuleFees(uint256,uint256):nonpayable",
+    "onGraduation():nonpayable",
+    "payFit():nonpayable",
+    "payPlatform():nonpayable",
+    "proposeCreatorPayee(address):nonpayable",
+    "pullForModule():nonpayable",
+    "receive:payable",
+    "unlockCallback(bytes):nonpayable"
+  ],
+  "BoxReceiverExtension": [
+    "acceptCreatorPayee():nonpayable",
+    "initialize():nonpayable",
+    "noteModuleFees(uint256,uint256):nonpayable",
+    "proposeCreatorPayee(address):nonpayable"
+  ],
+  "BoxCollection": [
+    "approve(address,uint256):nonpayable",
+    "initialize():nonpayable",
+    "reveal(uint256,uint128,bytes32,bytes32,bytes32,bytes32,bytes32[]):nonpayable",
+    "safeTransferFrom(address,address,uint256):nonpayable",
+    "safeTransferFrom(address,address,uint256,bytes):nonpayable",
+    "setApprovalForAll(address,bool):nonpayable",
+    "transferFrom(address,address,uint256):nonpayable",
+    "unlockReveal(uint256):nonpayable"
+  ],
+  "BoxVault": [
+    "deliverTicket(uint256,address):nonpayable",
+    "initialize():nonpayable",
+    "openGate():nonpayable",
+    "openTickets(uint256,uint256):nonpayable",
+    "releaseTickets(uint256,address,uint256):nonpayable",
+    "returnItem(uint256,uint256,uint256):nonpayable",
+    "returnItems(uint256[],uint256,uint256):nonpayable",
+    "waiveHandBackFee():nonpayable",
+    "withdraw(uint256,uint256,uint256):nonpayable",
+    "withdrawBatch(uint256[],uint256,uint256):nonpayable"
+  ],
+  "BoxTickets": [
+    "acceptGraduationWord():nonpayable",
+    "approve(address,uint256):nonpayable",
+    "cancelDraw(uint256):nonpayable",
+    "draw(uint256,uint256):payable",
+    "enterTerminal():nonpayable",
+    "handBack(uint256[],uint256,uint256):nonpayable",
+    "initialize():nonpayable",
+    "open(uint256,(uint128,bytes32,bytes32,bytes32,bytes32,bytes32[])):nonpayable",
+    "openDraw(uint256,address,(uint128,bytes32,bytes32,bytes32,bytes32,bytes32[])):nonpayable",
+    "requestGraduationWord():payable",
+    "safeTransferFrom(address,address,uint256):nonpayable",
+    "safeTransferFrom(address,address,uint256,bytes):nonpayable",
+    "setApprovalForAll(address,bool):nonpayable",
+    "settle(uint256):nonpayable",
+    "take(uint256,uint256,uint256):nonpayable",
+    "takeByNumber(uint256,uint256,uint256,uint256,(uint128,bytes32,bytes32,bytes32,bytes32,bytes32[])):nonpayable",
+    "transferFrom(address,address,uint256):nonpayable"
+  ],
+  "BoxItemStream": [
+    "burn():nonpayable",
+    "claim(uint256[],address):nonpayable",
+    "claimFor(address,uint256[]):nonpayable",
+    "initialize():nonpayable",
+    "onGraduation():nonpayable",
+    "onItemTransfer(address,address,uint256):nonpayable",
+    "onStreamFunds(uint256):nonpayable",
+    "onVaultAction(uint8,address,uint256,uint256):nonpayable"
+  ],
+  "BoxRoyaltyRouter": [
+    "flush():nonpayable",
+    "receive:payable",
+    "sweep(address):nonpayable"
+  ],
+  "BoxToken": [
+    "approve(address,uint256):nonpayable",
+    "burn(uint256):nonpayable",
+    "transfer(address,uint256):nonpayable",
+    "transferFrom(address,address,uint256):nonpayable"
+  ],
+  "FitBuybackExecutor": [
+    "execute(uint256):nonpayable",
+    "fundBudget():payable",
+    "poke():nonpayable",
+    "receive:payable",
+    "unlockCallback(bytes):nonpayable"
+  ],
+  "DrandSource": [
+    "addBounty(uint256):payable",
+    "postRound(uint256,bytes):nonpayable",
+    "request(uint256):payable",
+    "withdrawBounty(address):nonpayable"
+  ],
+  "BoxBackedSource": [
+    "addBounty(uint256):payable",
+    "fixBackup(uint256,bytes):nonpayable",
+    "request(uint256):payable",
+    "startBackup(uint256,uint256,bytes):nonpayable"
+  ]
+}

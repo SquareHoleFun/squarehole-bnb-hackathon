@@ -1,0 +1,87 @@
+{
+  "format": "squarehole.boxspec-draft/1",
+  "context": "v2",
+  "example": 3,
+  "brief": "Demo example 3. Meant as a reward box that pays holders in ETH, nodding to slow withdrawal queues: 1,000 snails, open art, the one raise over 90 days, royalties into the pool and 0.2 ETH from the creator at the start.",
+  "status": "stand-in",
+  "shows": [
+    "the one raise (4.206980085 ETH), 90 days",
+    "royalties into the pool",
+    "a creator buy above the advice",
+    "new collection, open art"
+  ],
+  "differences": [
+    "Holder payouts (pay holders in ETH: \"qStream\": \"PAY_HOLDERS_Q\", \"tStream\": \"HOLDERS_IN_Q\") are Demo only for now, marked pending legal review (check that version with --network demo); on testnet once they are built (ref. slice S14), on mainnet only after the legal review. This draft burns SLOW on both sides, the nearest choice everywhere: it helps holders by shrinking the supply instead of paying them."
+  ],
+  "deviations": [
+    "the creator buy of 0.2 ETH is about 12.6% of all SLOW, above the advice of at most about 5% (about 0.073 ETH at the one raise every box has): it keeps the example set's figure.",
+    "royalties are 1% into the pool, to show that choice; the advice is off, or 2.5% with the fees."
+  ],
+  "site": {
+    "links": []
+  },
+  "spec": {
+    "version": 2,
+    "boxType": "NEW_COLLECTION",
+    "tokenName": "Staking Snails",
+    "tokenSymbol": "SLOW",
+    "collectionName": "Staking Snails",
+    "collectionSymbol": "SLOW",
+    "description": "Demo: 1,000 snails in no hurry. Withdrawals take a while; the shell is worth it.",
+    "n": 1000,
+    "firstId": "1",
+    "q": "ETH",
+    "raise": {
+      "decimal": "4.206980085"
+    },
+    "layout": "CURVE_V1",
+    "gradLayout": "ASK_FULL_BID_SENTINEL",
+    "launchFormat": "CURVE",
+    "openAt": 0,
+    "deadlineDays": 90,
+    "qStream": "BUYBACK_BURN_T",
+    "tStream": "BURN_T",
+    "artMode": "OPEN",
+    "revealRoot": "FROM_LAUNCH_FLOW",
+    "metadataTable": {
+      "formatV1": {
+        "traitTypes": [
+          {
+            "name": "Shell",
+            "values": [
+              "Spiral",
+              "Striped",
+              "Golden"
+            ]
+          },
+          {
+            "name": "Speed",
+            "values": [
+              "Slow",
+              "Slower",
+              "Queued"
+            ]
+          }
+        ]
+      }
+    },
+    "generatorHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coverSha256": "FROM_LAUNCH_FLOW",
+    "revealListId": "FROM_LAUNCH_FLOW",
+    "marketplaceOwner": "FROM_LAUNCH_FLOW",
+    "creatorFeeRecipient": "0x0000000000000000000000000000000000000000",
+    "creatorBuy": {
+      "decimal": "0.2"
+    },
+    "collectionCoverSha256": "FROM_LAUNCH_FLOW",
+    "addOns": [
+      {
+        "addOn": "royalties",
+        "params": {
+          "bps": 100,
+          "destination": "POOL_DEPTH"
+        }
+      }
+    ]
+  }
+}

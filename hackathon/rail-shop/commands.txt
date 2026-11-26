@@ -1,0 +1,273 @@
+# SH-288: a Flap launch whose rules feed a card shop, on the test dollar rules pair, with the shop stocked and both directions tried.
+# RPC=https://bsc-testnet-rpc.publicnode.com ; run every line from the repository's top (the forge lines cd into their folder).
+# Before: lane f's pack has deployed the test dollar rules pair (bounties/flap/deployments/97-rules-usdt.json: rulesVaultFactory,
+# launcherFactory, quote); fill the placeholder META_SHOP in step 21 (the picture: https://arweave.net/ID#sha256=HEX); and set:
+# export SHOP_NAME="Swap Deck" SHOP_SYMBOL=SDECK
+# Card ids 13 to 16 of the four collections were free at block 144929524 (ownerOf reverted; ids 9 to 12 are reserved for the Quick Deck box);
+# the collections' owner is hack-deployer; bob holds #5 to #8 of all four and gives his Common #8.
+# Wallets: hack-deployer 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 (creator), hack-alice 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F, hack-bob 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0.
+# Every forge step writes or reads a deployment file; later steps read the addresses from those files with jq.
+
+# 1 the card shop factory: Flap's DEX router, PancakeSwap's router, our four test card collections; writes bounties/core/deployments/97-rail-shop.json (from hack-deployer)
+(cd bounties/core && forge script script/DeployRailShopFactory.s.sol --sender 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow)
+(cd bounties/core && forge script script/DeployRailShopFactory.s.sol --sender 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --broadcast)
+cast call $(jq -r .factory bounties/core/deployments/97-rail-shop.json) 'acceptsCollection(address)(bool)' 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 --rpc-url "$RPC" # expect true
+
+# 2 a starter card for the shop: Common #13 (picture 1) to the creator (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 13 1 --rpc-url "$RPC"
+cast send 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 13 1 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'ownerOf(uint256)(address)' 13 --rpc-url "$RPC" # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 3 a starter card for the shop: Common #14 (picture 2) to the creator (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 14 2 --rpc-url "$RPC"
+cast send 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 14 2 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'ownerOf(uint256)(address)' 14 --rpc-url "$RPC" # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 4 a starter card for the shop: Common #15 (picture 3) to the creator (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 15 3 --rpc-url "$RPC"
+cast send 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 15 3 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'ownerOf(uint256)(address)' 15 --rpc-url "$RPC" # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 5 a starter card for the shop: Common #16 (picture 4) to the creator (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 16 4 --rpc-url "$RPC"
+cast send 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 16 4 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'ownerOf(uint256)(address)' 16 --rpc-url "$RPC" # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 6 a starter card for the shop: Uncommon #13 (picture 1) to the creator (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 13 1 --rpc-url "$RPC"
+cast send 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 13 1 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'ownerOf(uint256)(address)' 13 --rpc-url "$RPC" # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 7 a starter card for the shop: Uncommon #14 (picture 2) to the creator (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 14 2 --rpc-url "$RPC"
+cast send 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 14 2 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'ownerOf(uint256)(address)' 14 --rpc-url "$RPC" # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 8 a starter card for the shop: Uncommon #15 (picture 3) to the creator (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 15 3 --rpc-url "$RPC"
+cast send 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 15 3 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'ownerOf(uint256)(address)' 15 --rpc-url "$RPC" # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 9 a starter card for the shop: Uncommon #16 (picture 4) to the creator (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 16 4 --rpc-url "$RPC"
+cast send 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 16 4 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'ownerOf(uint256)(address)' 16 --rpc-url "$RPC" # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 10 a starter card for the shop: Rare #13 (picture 1) to the creator (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 13 1 --rpc-url "$RPC"
+cast send 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 13 1 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'ownerOf(uint256)(address)' 13 --rpc-url "$RPC" # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 11 a starter card for the shop: Rare #14 (picture 2) to the creator (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 14 2 --rpc-url "$RPC"
+cast send 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 14 2 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'ownerOf(uint256)(address)' 14 --rpc-url "$RPC" # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 12 a starter card for the shop: Rare #15 (picture 3) to the creator (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 15 3 --rpc-url "$RPC"
+cast send 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 15 3 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'ownerOf(uint256)(address)' 15 --rpc-url "$RPC" # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 13 a starter card for the shop: Rare #16 (picture 4) to the creator (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 16 4 --rpc-url "$RPC"
+cast send 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 16 4 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'ownerOf(uint256)(address)' 16 --rpc-url "$RPC" # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 14 a starter card for the shop: Legendary #13 (picture 1) to the creator (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 13 1 --rpc-url "$RPC"
+cast send 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 13 1 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'ownerOf(uint256)(address)' 13 --rpc-url "$RPC" # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 15 a starter card for the shop: Legendary #14 (picture 2) to the creator (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 14 2 --rpc-url "$RPC"
+cast send 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 14 2 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'ownerOf(uint256)(address)' 14 --rpc-url "$RPC" # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 16 a starter card for the shop: Legendary #15 (picture 3) to the creator (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 15 3 --rpc-url "$RPC"
+cast send 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 15 3 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'ownerOf(uint256)(address)' 15 --rpc-url "$RPC" # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 17 a starter card for the shop: Legendary #16 (picture 4) to the creator (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 16 4 --rpc-url "$RPC"
+cast send 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 16 4 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'ownerOf(uint256)(address)' 16 --rpc-url "$RPC" # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 18 5,000 test dollars for the creator (the test dollar mints openly) (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x190C989D5665a0e404B444b53CAE9AbCfb600157 'mint(address,uint256)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 5000000000000000000000 --rpc-url "$RPC"
+cast send 0x190C989D5665a0e404B444b53CAE9AbCfb600157 'mint(address,uint256)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 5000000000000000000000 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x190C989D5665a0e404B444b53CAE9AbCfb600157 'balanceOf(address)(uint256)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 --rpc-url "$RPC" # expect >=5000000000000000000000
+
+# 19 1,000 test dollars for alice (the test dollar mints openly) (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x190C989D5665a0e404B444b53CAE9AbCfb600157 'mint(address,uint256)' 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F 1000000000000000000000 --rpc-url "$RPC"
+cast send 0x190C989D5665a0e404B444b53CAE9AbCfb600157 'mint(address,uint256)' 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F 1000000000000000000000 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x190C989D5665a0e404B444b53CAE9AbCfb600157 'balanceOf(address)(uint256)' 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F --rpc-url "$RPC" # expect >=1000000000000000000000
+
+# 20 1,000 test dollars for bob (the test dollar mints openly) (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x190C989D5665a0e404B444b53CAE9AbCfb600157 'mint(address,uint256)' 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0 1000000000000000000000 --rpc-url "$RPC"
+cast send 0x190C989D5665a0e404B444b53CAE9AbCfb600157 'mint(address,uint256)' 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0 1000000000000000000000 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x190C989D5665a0e404B444b53CAE9AbCfb600157 'balanceOf(address)(uint256)' 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0 --rpc-url "$RPC" # expect >=1000000000000000000000
+
+# 21 the launch with a shop in its rules: the shop, setRules (creator 10, pile 30, shop 40, buy and burn 20 last), the sale; writes bounties/flap/deployments/97-shop-rules-usdt-sale.json (from hack-deployer)
+(cd bounties/flap && RAIL_SHOP_FACTORY=$(jq -r .factory ../core/deployments/97-rail-shop.json) NAME="$SHOP_NAME" SYMBOL="$SHOP_SYMBOL" META='https://arweave.net/21EtTM1PdOW-ySITdLSCSRU2o2o5j-jXSztdaztvLHM#sha256=4ec8f959b78b7659d6aa6c762dba7aac66f9046633d7f264bfb8e888f7fbb5c5' CREATOR_BPS=1000 PILE_BPS=3000 SHOP_BPS=4000 BURN_BPS=2000 GIVE_COMMON=1000 GIVE_UNCOMMON=2000 GIVE_RARE=4000 GIVE_LEGENDARY=8000 PICK_BPS=10000 CAP=100000 forge script script/CreateShopRulesSale.s.sol --sender 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow)
+(cd bounties/flap && RAIL_SHOP_FACTORY=$(jq -r .factory ../core/deployments/97-rail-shop.json) NAME="$SHOP_NAME" SYMBOL="$SHOP_SYMBOL" META='https://arweave.net/21EtTM1PdOW-ySITdLSCSRU2o2o5j-jXSztdaztvLHM#sha256=4ec8f959b78b7659d6aa6c762dba7aac66f9046633d7f264bfb8e888f7fbb5c5' CREATOR_BPS=1000 PILE_BPS=3000 SHOP_BPS=4000 BURN_BPS=2000 GIVE_COMMON=1000 GIVE_UNCOMMON=2000 GIVE_RARE=4000 GIVE_LEGENDARY=8000 PICK_BPS=10000 CAP=100000 forge script script/CreateShopRulesSale.s.sol --sender 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --broadcast)
+cast call $(jq -r .factory bounties/core/deployments/97-rail-shop.json) 'isShop(address)(bool)' $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) --rpc-url "$RPC" # expect true
+
+# 22 the creator buys on the curve for at most 300 test dollars (from hack-deployer)
+(cd bounties/flap && ACTION=buy MAX_COST_WEI=300000000000000000000 SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow)
+(cd bounties/flap && ACTION=buy MAX_COST_WEI=300000000000000000000 SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --broadcast)
+cast call $(jq -r .launcher bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'phase()(uint8)' --rpc-url "$RPC" # expect 0
+
+# 23 the creator completes the sale: buys the rest and launches (from hack-deployer)
+(cd bounties/flap && ACTION=complete SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow)
+(cd bounties/flap && ACTION=complete SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --broadcast)
+cast call $(jq -r .launcher bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'phase()(uint8)' --rpc-url "$RPC" # expect 1
+
+# 24 the creator claims its tokens (from hack-deployer)
+(cd bounties/flap && ACTION=claim SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow)
+(cd bounties/flap && ACTION=claim SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --broadcast)
+cast call $(jq -r .token bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'balanceOf(address)(uint256)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 --rpc-url "$RPC" # expect >=1
+
+# 25 pool round 1: alice buys for 100 test dollars (from hack-alice)
+(cd bounties/flap && ACTION=pool-buy AMOUNT_WEI=100000000000000000000 SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow)
+(cd bounties/flap && ACTION=pool-buy AMOUNT_WEI=100000000000000000000 SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow --account hack-alice --password-file ~/.secrets/hack-alice.pass --broadcast)
+cast call $(jq -r .token bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'balanceOf(address)(uint256)' 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F --rpc-url "$RPC" # expect >=10000000000000000000000000
+
+# 26 pool round 1: bob buys for 100 test dollars (from hack-bob)
+(cd bounties/flap && ACTION=pool-buy AMOUNT_WEI=100000000000000000000 SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0 --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow)
+(cd bounties/flap && ACTION=pool-buy AMOUNT_WEI=100000000000000000000 SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0 --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow --account hack-bob --password-file ~/.secrets/hack-bob.pass --broadcast)
+cast call $(jq -r .token bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'balanceOf(address)(uint256)' 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0 --rpc-url "$RPC" # expect >=10000000000000000000000000
+
+# 27 pool round 1: alice sells 10,000,000 tokens (from hack-alice)
+(cd bounties/flap && ACTION=pool-sell TOKENS_WEI=10000000000000000000000000 SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow)
+(cd bounties/flap && ACTION=pool-sell TOKENS_WEI=10000000000000000000000000 SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow --account hack-alice --password-file ~/.secrets/hack-alice.pass --broadcast)
+cast call 0x190C989D5665a0e404B444b53CAE9AbCfb600157 'balanceOf(address)(uint256)' 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F --rpc-url "$RPC" # expect >=1
+
+# 28 pool round 1: bob sells 10,000,000 tokens (from hack-bob)
+(cd bounties/flap && ACTION=pool-sell TOKENS_WEI=10000000000000000000000000 SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0 --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow)
+(cd bounties/flap && ACTION=pool-sell TOKENS_WEI=10000000000000000000000000 SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0 --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow --account hack-bob --password-file ~/.secrets/hack-bob.pass --broadcast)
+cast call 0x190C989D5665a0e404B444b53CAE9AbCfb600157 'balanceOf(address)(uint256)' 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0 --rpc-url "$RPC" # expect >=1
+
+# 29 pool round 2: alice buys for 100 test dollars (from hack-alice)
+(cd bounties/flap && ACTION=pool-buy AMOUNT_WEI=100000000000000000000 SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow)
+(cd bounties/flap && ACTION=pool-buy AMOUNT_WEI=100000000000000000000 SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow --account hack-alice --password-file ~/.secrets/hack-alice.pass --broadcast)
+cast call $(jq -r .token bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'balanceOf(address)(uint256)' 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F --rpc-url "$RPC" # expect >=10000000000000000000000000
+
+# 30 pool round 2: bob buys for 100 test dollars (from hack-bob)
+(cd bounties/flap && ACTION=pool-buy AMOUNT_WEI=100000000000000000000 SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0 --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow)
+(cd bounties/flap && ACTION=pool-buy AMOUNT_WEI=100000000000000000000 SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0 --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow --account hack-bob --password-file ~/.secrets/hack-bob.pass --broadcast)
+cast call $(jq -r .token bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'balanceOf(address)(uint256)' 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0 --rpc-url "$RPC" # expect >=10000000000000000000000000
+
+# 31 pool round 2: alice sells 10,000,000 tokens (from hack-alice)
+(cd bounties/flap && ACTION=pool-sell TOKENS_WEI=10000000000000000000000000 SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow)
+(cd bounties/flap && ACTION=pool-sell TOKENS_WEI=10000000000000000000000000 SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow --account hack-alice --password-file ~/.secrets/hack-alice.pass --broadcast)
+cast call 0x190C989D5665a0e404B444b53CAE9AbCfb600157 'balanceOf(address)(uint256)' 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F --rpc-url "$RPC" # expect >=1
+
+# 32 pool round 2: bob sells 10,000,000 tokens (from hack-bob)
+(cd bounties/flap && ACTION=pool-sell TOKENS_WEI=10000000000000000000000000 SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0 --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow)
+(cd bounties/flap && ACTION=pool-sell TOKENS_WEI=10000000000000000000000000 SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0 --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow --account hack-bob --password-file ~/.secrets/hack-bob.pass --broadcast)
+cast call 0x190C989D5665a0e404B444b53CAE9AbCfb600157 'balanceOf(address)(uint256)' 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0 --rpc-url "$RPC" # expect >=1
+
+# 33 pool round 3: alice buys for 100 test dollars (from hack-alice)
+(cd bounties/flap && ACTION=pool-buy AMOUNT_WEI=100000000000000000000 SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow)
+(cd bounties/flap && ACTION=pool-buy AMOUNT_WEI=100000000000000000000 SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow --account hack-alice --password-file ~/.secrets/hack-alice.pass --broadcast)
+cast call $(jq -r .token bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'balanceOf(address)(uint256)' 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F --rpc-url "$RPC" # expect >=10000000000000000000000000
+
+# 34 pool round 3: bob buys for 100 test dollars (from hack-bob)
+(cd bounties/flap && ACTION=pool-buy AMOUNT_WEI=100000000000000000000 SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0 --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow)
+(cd bounties/flap && ACTION=pool-buy AMOUNT_WEI=100000000000000000000 SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0 --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow --account hack-bob --password-file ~/.secrets/hack-bob.pass --broadcast)
+cast call $(jq -r .token bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'balanceOf(address)(uint256)' 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0 --rpc-url "$RPC" # expect >=10000000000000000000000000
+
+# 35 pool round 3: alice sells 10,000,000 tokens (from hack-alice)
+(cd bounties/flap && ACTION=pool-sell TOKENS_WEI=10000000000000000000000000 SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow)
+(cd bounties/flap && ACTION=pool-sell TOKENS_WEI=10000000000000000000000000 SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow --account hack-alice --password-file ~/.secrets/hack-alice.pass --broadcast)
+cast call 0x190C989D5665a0e404B444b53CAE9AbCfb600157 'balanceOf(address)(uint256)' 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F --rpc-url "$RPC" # expect >=1
+
+# 36 pool round 3: bob sells 10,000,000 tokens (from hack-bob)
+(cd bounties/flap && ACTION=pool-sell TOKENS_WEI=10000000000000000000000000 SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0 --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow)
+(cd bounties/flap && ACTION=pool-sell TOKENS_WEI=10000000000000000000000000 SALE_FILE=deployments/97-shop-rules-usdt-sale.json DEPLOYMENTS_FILE=deployments/97-rules-usdt.json VARIANT=usdt forge script script/TokenSale.s.sol --sender 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0 --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow --account hack-bob --password-file ~/.secrets/hack-bob.pass --broadcast)
+cast call $(cast call $(jq -r .token bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'taxProcessor()(address)' --rpc-url "$RPC") 'marketQuoteBalance()(uint256)' --rpc-url "$RPC" # expect >=1
+
+# 37 dispatch: the tax processor's waiting share to the rules vault (from hack-deployer)
+(cd bounties/flap && ACTION=dispatch VARIANT=usdt SALE_FILE=deployments/97-shop-rules-usdt-sale.json forge script script/RulesSale.s.sol --sender 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow)
+(cd bounties/flap && ACTION=dispatch VARIANT=usdt SALE_FILE=deployments/97-shop-rules-usdt-sale.json forge script script/RulesSale.s.sol --sender 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --broadcast)
+cast call $(cast call $(jq -r .launcher bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'pileVault()(address)' --rpc-url "$RPC") 'pending()(uint256)' --rpc-url "$RPC" # expect >=1
+
+# 38 the share-out: creator 10%, pile 30%, the shop 40%, buy and burn 20% (from hack-deployer)
+(cd bounties/flap && ACTION=distribute VARIANT=usdt SALE_FILE=deployments/97-shop-rules-usdt-sale.json forge script script/RulesSale.s.sol --sender 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow)
+(cd bounties/flap && ACTION=distribute VARIANT=usdt SALE_FILE=deployments/97-shop-rules-usdt-sale.json forge script script/RulesSale.s.sol --sender 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 --rpc-url "$RPC" --legacy --with-gas-price 100000000 --slow --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --broadcast)
+cast call $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'waiting()(uint256)' --rpc-url "$RPC" # expect >=1
+
+# 39 the creator lets the shop take its Common cards (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'setApprovalForAll(address,bool)' $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) true --rpc-url "$RPC"
+cast send 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'setApprovalForAll(address,bool)' $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) true --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'isApprovedForAll(address,address)(bool)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) --rpc-url "$RPC" # expect true
+
+# 40 the creator lets the shop take its Uncommon cards (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'setApprovalForAll(address,bool)' $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) true --rpc-url "$RPC"
+cast send 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'setApprovalForAll(address,bool)' $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) true --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'isApprovedForAll(address,address)(bool)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) --rpc-url "$RPC" # expect true
+
+# 41 the creator lets the shop take its Rare cards (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'setApprovalForAll(address,bool)' $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) true --rpc-url "$RPC"
+cast send 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'setApprovalForAll(address,bool)' $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) true --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'isApprovedForAll(address,address)(bool)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) --rpc-url "$RPC" # expect true
+
+# 42 the creator lets the shop take its Legendary cards (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'setApprovalForAll(address,bool)' $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) true --rpc-url "$RPC"
+cast send 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'setApprovalForAll(address,bool)' $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) true --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'isApprovedForAll(address,address)(bool)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) --rpc-url "$RPC" # expect true
+
+# 43 stock the four Common cards #13 to #16 (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'stock(address,uint256[])' 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 '[13,14,15,16]' --rpc-url "$RPC"
+cast send $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'stock(address,uint256[])' 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 '[13,14,15,16]' --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'cardCount()(uint256)' --rpc-url "$RPC" # expect 4
+
+# 44 stock the four Uncommon cards #13 to #16 (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'stock(address,uint256[])' 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 '[13,14,15,16]' --rpc-url "$RPC"
+cast send $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'stock(address,uint256[])' 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 '[13,14,15,16]' --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'cardCount()(uint256)' --rpc-url "$RPC" # expect 8
+
+# 45 stock the four Rare cards #13 to #16 (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'stock(address,uint256[])' 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC '[13,14,15,16]' --rpc-url "$RPC"
+cast send $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'stock(address,uint256[])' 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC '[13,14,15,16]' --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'cardCount()(uint256)' --rpc-url "$RPC" # expect 12
+
+# 46 stock the four Legendary cards #13 to #16 (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'stock(address,uint256[])' 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 '[13,14,15,16]' --rpc-url "$RPC"
+cast send $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'stock(address,uint256[])' 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 '[13,14,15,16]' --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'cardCount()(uint256)' --rpc-url "$RPC" # expect 16
+
+# 47 refill: everything waiting (the shop's 40%, in test dollars) buys the token into the shop (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'refill(uint256)' $(cast call $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'waiting()(uint256)' --rpc-url "$RPC" | cut -d' ' -f1) --rpc-url "$RPC"
+cast send $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'refill(uint256)' $(cast call $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'waiting()(uint256)' --rpc-url "$RPC" | cut -d' ' -f1) --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'waiting()(uint256)' --rpc-url "$RPC" # expect 0
+
+# 48 alice approves the shop for exactly a Common's pick price (2,000 tokens) (from hack-alice)
+cast call --from 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F $(jq -r .token bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'approve(address,uint256)(bool)' $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 2000000000000000000000 --rpc-url "$RPC"
+cast send $(jq -r .token bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'approve(address,uint256)(bool)' $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 2000000000000000000000 --account hack-alice --password-file ~/.secrets/hack-alice.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call $(jq -r .token bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'allowance(address,address)(uint256)' 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) --rpc-url "$RPC" # expect 2000000000000000000000
+
+# 49 alice picks Common #13 for exactly 2,000 tokens; the week's room grows by the card's give price (from hack-alice)
+cast call --from 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'pick(address,uint256,uint256,address)(uint256)' 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 13 2000000000000000000000 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F --rpc-url "$RPC"
+cast send $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'pick(address,uint256,uint256,address)(uint256)' 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 13 2000000000000000000000 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F --account hack-alice --password-file ~/.secrets/hack-alice.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'capLeft()(uint256)' --rpc-url "$RPC" # expect 101000000000000000000000
+
+# 50 bob lets the shop take his Common #8 (he holds Common, Uncommon, Rare and Legendary #5 to #8) (from hack-bob)
+cast call --from 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'approve(address,uint256)' $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 8 --rpc-url "$RPC"
+cast send 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'approve(address,uint256)' $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 8 --account hack-bob --password-file ~/.secrets/hack-bob.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+[ "$(cast call 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'getApproved(uint256)(address)' 8 --rpc-url "$RPC")" = "$(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json)" ] && echo same || echo differs; true --rpc-url "$RPC" # expect same
+
+# 51 bob gives Common #8 and is paid exactly 1,000 tokens from the budget; the week's room falls by 1,000 (from hack-bob)
+cast call --from 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0 $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'give(address,uint256,uint256)(uint256)' 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 8 1000000000000000000000 --rpc-url "$RPC"
+cast send $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'give(address,uint256,uint256)(uint256)' 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 8 1000000000000000000000 --account hack-bob --password-file ~/.secrets/hack-bob.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'capLeft()(uint256)' --rpc-url "$RPC" # expect 100000000000000000000000
+
+# The reads a page shows at the end (no transaction):
+cast call $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'budget()(uint256)' --rpc-url "$RPC"   # expect >=1
+cast call $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'waiting()(uint256)' --rpc-url "$RPC"   # expect 0
+cast call $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'capLeft()(uint256)' --rpc-url "$RPC"   # expect 100000000000000000000000
+cast call $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'cardCount()(uint256)' --rpc-url "$RPC"   # expect 16
+cast call $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'cards(uint256,uint256)(address[],uint256[])' 0 20 --rpc-url "$RPC"   # the sixteen cards (Common #13 out, Common #8 in)
+cast call $(jq -r .shop bounties/flap/deployments/97-shop-rules-usdt-sale.json) 'periodEnds()(uint256)' --rpc-url "$RPC"   # the week's end, seven days after the shop's creation
+cast call $(jq -r .factory bounties/core/deployments/97-rail-shop.json) 'shopOfBy(address,address,uint256)(address)' $(jq -r .token bounties/flap/deployments/97-shop-rules-usdt-sale.json) 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0 --rpc-url "$RPC"   # the shop, as the launch page finds it

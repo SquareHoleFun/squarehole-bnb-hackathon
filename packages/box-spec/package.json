@@ -1,0 +1,18 @@
+{
+  "name": "@squarehole/box-spec",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "description": "BoxSpecV1 (launch pipeline v1 § 1, S1): the single JSON source of every box parameter, the add-on catalog (F55), the generated TypeScript types, zod schema, validate() and specHash() (twin of packages/contracts/src/box/BoxSpecV1.sol), the fixtures and the layout library's TypeScript mirror.",
+  "exports": { ".": "./src/index.ts", "./v2": "./src/generated/box-spec.v2.ts", "./v4-math": "./src/v4-math.ts", "./layout-v2": "./src/layout-v2.ts" },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p .",
+    "generate": "node scripts/generate.mjs",
+    "check": "node scripts/generate.mjs --check"
+  },
+  "dependencies": {
+    "viem": "2.56.8",
+    "zod": "4.6.5"
+  }
+}

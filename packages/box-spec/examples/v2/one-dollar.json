@@ -1,0 +1,59 @@
+{
+  "$schema": "./schema.json",
+  "version": 1,
+  "id": "one-dollar",
+  "name": "One Dollar is all you need",
+  "ticker": "1",
+  "status": "ready",
+  "template": {
+    "id": "pile",
+    "name": "Coin pile"
+  },
+  "priceCoin": {
+    "symbol": "USDC",
+    "decimals": "6"
+  },
+  "logo": "examples/boxes/one-dollar/art/logo.png",
+  "contents": {
+    "kind": "pile",
+    "size": "0",
+    "label": "USDC seed",
+    "art": {
+      "mode": "none",
+      "source": null
+    },
+    "seed": {
+      "symbol": "USDC",
+      "amount": "1000000"
+    },
+    "pickFeeBps": "0"
+  },
+  "raise": {
+    "policy": "listing-fixed",
+    "amount": "8413960170"
+  },
+  "deadline": {
+    "days": "30"
+  },
+  "royalties": {
+    "bps": "0",
+    "destination": "none"
+  },
+  "fees": {
+    "buyers": {
+      "choice": "burn"
+    },
+    "sellers": {
+      "choice": "burn"
+    }
+  },
+  "life": "graduate",
+  "properties": [
+    "fee-conservation",
+    "page-state",
+    "own-pictures",
+    "graduation",
+    "supply-burn",
+    "pile-pro-rata"
+  ]
+}

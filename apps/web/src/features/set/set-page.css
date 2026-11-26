@@ -1,0 +1,40 @@
+/* SH-EXISTING-NFTS-E08C: a set box's page, numbers first; on a phone the figures sit two to a row. The section also
+   carries sh-box-page for the box tokens (the bar's fill, the cover). */
+.sh-set-page { max-width: 58rem; }
+.sh-set-page .sh-panel { margin-block: 1rem; padding: 1rem; min-width: 0; }
+.sh-set-page details { margin-block: .25rem; padding-inline: 1rem; }
+.sh-set-page .sh-panel details { margin-block: .5rem 0; padding-inline: 0; }
+.sh-set-page details > p { margin-block: .4rem; }
+.sh-set-head { display: flex; align-items: center; gap: 1rem; }
+.sh-set-head > div { min-width: 0; }
+.sh-set-head .sh-set-head__cover { flex: none; width: 6rem; border-radius: .75rem; }
+.sh-set-head__line { margin: .25rem 0 0; color: var(--sh-text-secondary); font-variant-numeric: tabular-nums; }
+.sh-set-figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 1rem; margin: 1rem 0 .5rem; }
+.sh-set-figures dt { color: var(--sh-text-secondary); font-size: var(--sh-type-label); }
+.sh-set-figures dd { margin: .25rem 0 0; font-size: 1.35rem; font-weight: var(--sh-weight-bold); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.sh-set-details { display: grid; gap: .5rem; margin: .5rem 0; }
+.sh-set-details dt { color: var(--sh-text-secondary); font-size: var(--sh-type-label); }
+.sh-set-details dd { margin: 0; }
+.sh-set-tabs { display: flex; gap: .5rem; flex-wrap: wrap; }
+.sh-set-tabs .sh-button[aria-pressed='true'] { border-color: var(--sh-text); box-shadow: inset 0 0 0 1px currentColor; font-weight: 700; }
+.sh-set-find { display: grid; gap: .25rem; margin-block: .75rem; max-width: 24rem; }
+.sh-set-find > span { color: var(--sh-text-secondary); font-size: var(--sh-type-label); }
+.sh-set-collection { display: flex; flex-wrap: wrap; gap: .25rem .5rem; margin: .5rem 0; min-width: 0; }
+.sh-set-collection > span { color: var(--sh-text-secondary); font-size: var(--sh-type-label); }
+.sh-set-count { margin: .5rem 0; color: var(--sh-text-secondary); font-variant-numeric: tabular-nums; }
+.sh-set-quote { margin: .75rem 0 .25rem; font-weight: 600; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.sh-set-note { margin: .5rem 0 0; color: var(--sh-text-secondary); font-size: var(--sh-type-small); }
+.sh-set-claim { display: grid; gap: .5rem; margin-top: 1rem; }
+.sh-set-claim h3 { margin: 0; font-size: var(--sh-type-body); }
+.sh-set-claim .sh-button { justify-self: start; }
+.sh-set-item--pick { width: 100%; height: 100%; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.sh-set-item--pick[aria-pressed='true'] { font-weight: 700; }
+.sh-set-item--pick:focus-visible { outline: 2px solid var(--sh-focus-ring); outline-offset: -2px; }
+.sh-set-item__check { flex: none; display: inline-grid; place-items: center; width: 1.25rem; height: 1.25rem; border: 1.5px solid var(--sh-border-strong); border-radius: var(--sh-radius-small); font-size: var(--sh-type-caption); }
+.sh-set-item--pick[aria-pressed='true'] .sh-set-item__check { border-color: currentColor; }
+@media (max-width: 30rem) {
+  .sh-set-head .sh-set-head__cover { width: 4.5rem; }
+  .sh-set-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem 1rem; }
+  .sh-set-figures dd { font-size: 1.1rem; }
+  .sh-set-page .sh-button { min-height: 2.75rem; }
+}

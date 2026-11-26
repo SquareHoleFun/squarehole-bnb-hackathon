@@ -1,0 +1,28 @@
+{
+  "name": "@squarehole/contracts",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Square Hole Solidity contracts (Foundry 1.8.3, solc 0.8.26). Local tests by default; opt-in read-only fork tests; a local anvil end-to-end run; nothing is deployed to a public network.",
+  "license": "MIT",
+  "scripts": {
+    "build": "forge build --sizes",
+    "test": "forge test",
+    "test:invariant": "forge test --match-contract Invariants",
+    "test:v2-traces": "forge test --match-path test/v2/VaultTraceFixtures.t.sol",
+    "test:deep": "FOUNDRY_PROFILE=deep forge test --match-contract Invariants",
+    "test:fork:sepolia": "SH_FORK_SEPOLIA=true forge test --match-contract 'Sepolia.*ForkTest'",
+    "test:fork:mainnet": "SH_FORK_MAINNET=true forge test --match-contract 'Mainnet.*ForkTest'",
+    "e2e:local": "./scripts/local-e2e.sh",
+    "e2e:hook-squat": "./scripts/local-hook-squat.sh",
+    "deploy:sepolia:simulate": "./scripts/deploy-sepolia.sh --simulate-only --sender 0x1F1481667Ef20928d55524dfE4640f96Bd9b4eeE",
+    "manifest:finalize": "forge script script/WriteManifest.s.sol",
+    "manifest:verify": "forge script script/VerifyManifest.s.sol",
+    "snapshot": "forge snapshot --isolate --match-contract GasTest",
+    "snapshot:check": "forge snapshot --isolate --match-contract GasTest --check",
+    "coverage": "forge coverage --report summary --no-match-coverage 'test/|lib/|script/' --no-match-contract 'Invariants|HandlerSequence|Fork'",
+    "vectors": "python3 script-py/gen_vectors.py",
+    "vectors:check": "python3 script-py/gen_vectors.py --check",
+    "mutation": "python3 script-py/mutation_smoke_b2.py",
+    "licences": "python3 script-py/check_src_licences.py"
+  }
+}

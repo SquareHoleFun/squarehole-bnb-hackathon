@@ -1,0 +1,88 @@
+{
+  "format": "squarehole.boxspec-draft/1",
+  "context": "v2",
+  "example": 1,
+  "brief": "Demo example 1. A creator box that nods to the 2021 gas wars: 100 toy fuel cans, open art. The creator takes the fees as collected (ETH from buys, GUZZ from sells) and the royalties, and puts 0.1 ETH in at the start. The one raise every box has, short deadline.",
+  "status": "ready",
+  "shows": [
+    "creator box, paid as collected",
+    "royalties to the creator",
+    "creator's ETH at start (shows how much 0.1 ETH buys)",
+    "the one raise (4.206980085 ETH), 30 days",
+    "new collection, open art"
+  ],
+  "differences": [],
+  "deviations": [
+    "the creator buy of 0.1 ETH is about 6.7% of all GUZZ, above the advice of at most about 5%: it is here to show the large-share note. At the one raise every box has, about 0.073 ETH is 5%.",
+    "royalties are 5% to the creator, the highest preset, to show the add-on; the advice for an artist who wants direct income is 2.5% to the creator, and most marketplaces pay none."
+  ],
+  "site": {
+    "links": []
+  },
+  "spec": {
+    "version": 2,
+    "boxType": "NEW_COLLECTION",
+    "tokenName": "Gas Guzzlers",
+    "tokenSymbol": "GUZZ",
+    "collectionName": "Gas Guzzlers",
+    "collectionSymbol": "GUZZ",
+    "description": "Demo: 100 toy fuel cans from the 2021 gas wars. Every trade pays the creator a little gas money.",
+    "n": 100,
+    "firstId": "1",
+    "q": "ETH",
+    "raise": {
+      "decimal": "4.206980085"
+    },
+    "layout": "CURVE_V1",
+    "gradLayout": "ASK_FULL_BID_SENTINEL",
+    "launchFormat": "CURVE",
+    "openAt": 0,
+    "deadlineDays": 30,
+    "qStream": "TO_CREATOR",
+    "tStream": "TO_CREATOR",
+    "artMode": "OPEN",
+    "revealRoot": "FROM_LAUNCH_FLOW",
+    "metadataTable": {
+      "formatV1": {
+        "traitTypes": [
+          {
+            "name": "Fuel",
+            "values": [
+              "Regular",
+              "Premium",
+              "Diesel",
+              "Jet"
+            ]
+          },
+          {
+            "name": "Gwei",
+            "values": [
+              "10",
+              "100",
+              "1000",
+              "9001"
+            ]
+          }
+        ]
+      }
+    },
+    "generatorHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coverSha256": "FROM_LAUNCH_FLOW",
+    "revealListId": "FROM_LAUNCH_FLOW",
+    "marketplaceOwner": "FROM_LAUNCH_FLOW",
+    "creatorFeeRecipient": "FROM_LAUNCH_FLOW",
+    "creatorBuy": {
+      "decimal": "0.1"
+    },
+    "collectionCoverSha256": "FROM_LAUNCH_FLOW",
+    "addOns": [
+      {
+        "addOn": "royalties",
+        "params": {
+          "bps": 500,
+          "destination": "CREATOR"
+        }
+      }
+    ]
+  }
+}

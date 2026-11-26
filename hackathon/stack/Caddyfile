@@ -1,0 +1,229 @@
+# The BNB Chain testnet build's one site (SH-259 Part 4). SH_BNB_HOST is the machine's name (by default
+# <address with dashes>.sslip.io); Caddy takes its certificate by itself on ports 80 and 443.
+{
+	admin off
+	# Empty on the machine. The 127.0.0.1 trial (test/trial.sh) sets it to `local_certs`: Caddy's own certificate.
+	{$SH_BNB_CADDY_TRIAL}
+}
+
+# SH-275 (begin): the alpha's sign-in on this site, by SH_BNB_ALPHA in the web container's environment (unset or 0;
+# 1 from alpha.compose.yaml). 0: the platform's policy and no route, the site as without the alpha. 1: Privy's two
+# origins in the platform's policy (as the test site's alpha build, infra/server/app/config.mjs) and the routes: the
+# sign-in API at /alpha/ and the join page at /join/, with no page lock (the site stays open to look at); /desk is 404.
+# SH-285: both policies connect to Turbo's upload origin and the three Arweave gateways, exactly PICTURE_ORIGINS of
+# apps/web/src/features/pictures/arweave-hosts.ts (pinned by apps/web/src/share/bnb-stack-policy.test.ts), for a box’s logo
+# and cover.
+(platform_csp_0) {
+	header @platform Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://{$SH_BNB_HOST}; font-src 'self' data:; connect-src 'self' https://{$SH_BNB_HOST} https://bsc-testnet-rpc.publicnode.com https://bsc-prebsc-dataseed.bnbchain.org https://upload.ardrive.io https://turbo-gateway.com https://arweave.net https://goldsky.arweave.net; media-src 'self' blob:; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
+}
+(platform_csp_1) {
+	header @platform Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://{$SH_BNB_HOST}; font-src 'self' data:; connect-src 'self' https://{$SH_BNB_HOST} https://bsc-testnet-rpc.publicnode.com https://bsc-prebsc-dataseed.bnbchain.org https://upload.ardrive.io https://turbo-gateway.com https://arweave.net https://goldsky.arweave.net https://auth.privy.io https://*.rpc.privy.systems; media-src 'self' blob:; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; frame-src https://auth.privy.io; child-src https://auth.privy.io"
+}
+# SH-280 (begin): the launch page's policy. 0: today's, byte for byte. 1: with what the made wallet of the site's sign-in
+# needs there, as the platform's policy adds it (platform_csp_1): Privy's two origins in connect-src, its frame, the
+# made wallet's second read endpoint of the platform's profile (Privy's chain settings name it), and inline styles
+# (Privy's provider writes its own style element).
+# SH-294: both add the platform's four picture origins to connect-src (a launch's picture is published to Arweave
+# and read from its gateways, as the platform's are) and blob: to img-src (the checked bytes are drawn from a blob: URL).
+(launch_csp_0) {
+	header @launch Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' blob:; font-src 'self'; connect-src 'self' https://bsc-testnet-rpc.publicnode.com https://bsc-testnet-dataseed.bnbchain.org https://upload.ardrive.io https://turbo-gateway.com https://arweave.net https://goldsky.arweave.net; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
+}
+(launch_csp_1) {
+	header @launch Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' blob:; font-src 'self'; connect-src 'self' https://bsc-testnet-rpc.publicnode.com https://bsc-testnet-dataseed.bnbchain.org https://bsc-prebsc-dataseed.bnbchain.org https://auth.privy.io https://*.rpc.privy.systems https://upload.ardrive.io https://turbo-gateway.com https://arweave.net https://goldsky.arweave.net; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; frame-src https://auth.privy.io; child-src https://auth.privy.io"
+}
+# SH-280 (end)
+(alpha_routes_0) {
+}
+(alpha_routes_1) {
+	@alpha_api path /alpha /alpha/*
+	handle @alpha_api {
+		header Cache-Control no-store
+		request_body {
+			max_size 16KiB
+		}
+		# The upstream accepts POST only on session, signout and claim; other methods return 405.
+		reverse_proxy alpha-api:5396
+	}
+	# No desk in this deployment (alpha-api answers 404 there too).
+	@alpha_desk path /desk /desk/*
+	handle @alpha_desk {
+		header Cache-Control no-store
+		respond "not found" 404
+	}
+	# The join page as the web build makes it (apps/web/build/alpha-pages.ts): join/index.html and join/assets/.
+	@alpha_join path /join /join/ /join/index.html
+	handle @alpha_join {
+		header Cache-Control no-store
+		@join_write not method GET HEAD
+		respond @join_write "read-only" 405
+		rewrite * /join/index.html
+		root * /srv/app
+		file_server
+	}
+	handle /join/assets/* {
+		@join_asset_write not method GET HEAD
+		respond @join_asset_write "read-only" 405
+		root * /srv/app
+		header Cache-Control no-store
+		file_server
+	}
+}
+(alpha_errors_0) {
+}
+(alpha_errors_1) {
+	# The sign-in API without its service (alpha-api not up yet, or SH_ALPHA_ENABLED=0): a plain 503.
+	@alpha_down expression `{http.request.uri.path}.startsWith('/alpha/') && {err.status_code} in [502, 503, 504]`
+	handle @alpha_down {
+		header Cache-Control no-store
+		respond "unavailable" 503
+	}
+}
+# SH-275 (end)
+
+{$SH_BNB_HOST} {
+	encode zstd gzip
+	# The site's policy as the test site's (apps/web/public/_headers, infra/server/app/config.mjs), for this build: the
+	# indexer and the item pictures on this origin, and the two BNB Chain testnet endpoints of SH-258's profile that the
+	# pages read the chain from (both serve eth_getLogs). Kept here: infra/server/app/config.mjs is the test site's.
+	header {
+		-Server
+		X-Content-Type-Options nosniff
+		Referrer-Policy no-referrer
+		X-Frame-Options DENY
+	}
+	# The platform's policy on every path but the launch page's, unchanged.
+	@platform not path /launches/*
+	# The platform's policy (SH-275: with Privy's two origins when SH_BNB_ALPHA is 1; the snippets above).
+	import platform_csp_{$SH_BNB_ALPHA:0}
+	# The launch page (lane h's app, /launches/ and below; /launch stays the platform's own redirect): its own files and
+	# its two chain endpoints only; SH-280: with the made wallet's Privy origins when SH_BNB_ALPHA is 1 (snippets above).
+	@launch path /launches/*
+	import launch_csp_{$SH_BNB_ALPHA:0}
+
+	# The build's hosting notes for another host are not pages.
+	@unpublished path /_headers /_routes.json
+	handle @unpublished {
+		respond "not found" 404
+	}
+
+	# The indexer's gateway (packages/indexer core-gateway.ts), streams flushed at once.
+	@api path /healthz /v1 /v1/* /v2 /v2/*
+	handle @api {
+		# Read-only but for the gateway's two posts (a picture hint, a box's links); every other method is refused
+		# here, before the indexer (STEP B point 9).
+		@api_refused {
+			not method GET HEAD OPTIONS
+			not {
+				method POST
+				expression `{http.request.uri.path} == '/v2/pictures/hint' || {http.request.uri.path}.matches('^/v2/boxes/97/0x[0-9a-fA-F]{40}/links$')`
+			}
+		}
+		respond @api_refused "read-only" 405
+		request_body {
+			max_size 4KiB
+		}
+		reverse_proxy indexer:5394 {
+			flush_interval -1
+			header_up X-Forwarded-For {client_ip}
+		}
+	}
+
+	# Item pictures and models: canonical raw CIDs only, through the test site's guard (infra/server/ipfs/server.mjs),
+	# which serves only blocks imported into this machine's Kubo whose bytes are a picture or a GLB model.
+	@ipfs_art {
+		method GET HEAD
+		path_regexp ipfs_raw ^/ipfs/bafkrei[a-h][a-z2-7]{50}[aeimquy4]$
+		expression `{http.request.orig_uri}.matches('^/ipfs/bafkrei[a-h][a-z2-7]{50}[aeimquy4]$')`
+	}
+	handle @ipfs_art {
+		reverse_proxy kubo:8081 {
+			header_up -Authorization
+			header_up -Cookie
+			transport http {
+				dial_timeout 1s
+				response_header_timeout 4s
+			}
+			# This stack serves pictures and models only: the guard's other type (a kit's JSON list) answers 415,
+			# as the guard answers any block that is not media (STEP B point 15).
+			@not_media header Content-Type application/json*
+			handle_response @not_media {
+				header Cache-Control no-store
+				respond 415
+			}
+		}
+	}
+	@ipfs_other expression `path('/ipfs', '/ipfs/*') || {http.request.orig_uri}.startsWith('/ipfs/')`
+	handle @ipfs_other {
+		header Cache-Control no-store
+		respond "not found" 404
+	}
+
+	# SH-275: the alpha routes, or nothing (snippets above).
+	import alpha_routes_{$SH_BNB_ALPHA:0}
+
+	# The launch page: its files only, never the platform's page; a missing file is 404 (hash routes: no rewrite).
+	# Hashed assets are kept for a year; the page and its addresses file are asked again every time.
+	redir /launches /launches/ 308
+	# The Four.meme signing endpoint (hackathon/stack/sign/): POST JSON of at most 2,048 bytes to the signer, and its health;
+	# no cross-origin answer. Without the service (SH_BNB_SIGN off, or not up yet) a plain 503 (handle_errors below).
+	@sign path /launches/api/four/sign-create /launches/api/four/health
+	handle @sign {
+		header Cache-Control no-store
+		request_body {
+			max_size 2KiB
+		}
+		reverse_proxy sign:8080 {
+			header_up X-Forwarded-For {client_ip}
+			header_down -Access-Control-Allow-Origin
+		}
+	}
+	handle /launches/api/* {
+		header Cache-Control no-store
+		respond "not found" 404
+	}
+	handle /launches/* {
+		@launch_write not method GET HEAD
+		respond @launch_write "read-only" 405
+		root * /srv/app
+		@launch_assets path /launches/assets/*
+		header @launch_assets Cache-Control "public, max-age=31536000, immutable"
+		@launch_fresh path /launches/ /launches/index.html /launches/addresses.json
+		header @launch_fresh Cache-Control "no-cache"
+		file_server
+	}
+
+	# The build's hashed files: a file or 404, never the single-page app (a missing chunk must not answer as a page).
+	handle /assets/* {
+		@asset_write not method GET HEAD
+		respond @asset_write "read-only" 405
+		root * /srv/app
+		header Cache-Control "public, max-age=31536000, immutable"
+		file_server
+	}
+
+	# The app: static files; any other path is the single-page app. Its HTML entries (index.html, which every app route
+	# falls back to, and a folder's index such as /join/ when the sign-in is off) are asked again every time (no-cache:
+	# revalidated by their ETag, a 304 when nothing changed), so a browser never keeps an old entry naming an old bundle
+	# after a release. The unhashed public files (apps/web/public: /nft/, /examples/, /share/, /favicon.svg) keep the
+	# browser's own heuristic, as before; the hashed assets above (/assets/*) keep their year.
+	handle {
+		@write not method GET HEAD
+		respond @write "read-only" 405
+		root * /srv/app
+		@entry not path /nft/* /examples/* /share/* /favicon.svg
+		header @entry Cache-Control "no-cache"
+		try_files {path} /index.html
+		file_server
+	}
+
+	# The signing endpoint without its service: a plain 503 (any other error keeps Caddy's own answer).
+	handle_errors {
+		# SH-275: the sign-in API without its service, or nothing (snippets above).
+		import alpha_errors_{$SH_BNB_ALPHA:0}
+		@sign_down expression `{http.request.uri.path}.startsWith('/launches/api/four/') && {err.status_code} in [502, 503, 504]`
+		handle @sign_down {
+			header Cache-Control no-store
+			respond "unavailable" 503
+		}
+	}
+}

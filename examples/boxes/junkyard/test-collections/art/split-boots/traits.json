@@ -1,0 +1,28 @@
+[
+  {
+    "id": "1",
+    "attributes": [
+      {
+        "trait_type": "Material",
+        "value": "Rubber"
+      },
+      {
+        "trait_type": "Condition",
+        "value": "Worn"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "attributes": [
+      {
+        "trait_type": "Material",
+        "value": "Rubber"
+      },
+      {
+        "trait_type": "Condition",
+        "value": "Battered"
+      }
+    ]
+  }
+]

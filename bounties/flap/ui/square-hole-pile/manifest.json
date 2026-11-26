@@ -1,0 +1,25 @@
+{
+  "artifactId": "vaultui_square-hole-pile_01M8BRAYS5WVYPCM6CBZPCWN4K",
+  "name": "Square Hole Pile",
+  "match": {
+    "bindings": [
+      {
+        "chainId": 97,
+        "factoryAddress": "0x06871dC0A75bA96282A59021e66D894A6637FeF3",
+        "tokenAddresses": [
+          "0xd70b90722e39a073C6DFC927bDaa8BC7b1967777"
+        ]
+      },
+      {
+        "chainId": 97,
+        "factoryAddress": "0xE76819C5761ceFE8c7C90e6401b77E9066f59d34",
+        "tokenAddresses": [
+          "0x671C0ceA24b9C4dEC0E8FE6e9Cce5a91a0157777"
+        ]
+      }
+    ]
+  },
+  "i18n": [
+    "en"
+  ]
+}

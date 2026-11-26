@@ -1,0 +1,148 @@
+{
+  "about": "F126 local identity rehearsal using CoreV1Deployment at the runbook nonce, updated for F143 (box 0's BoxBackedSource: one more CREATE2 call, so the factory moves one nonce; the source and the factory's code hashes remeasured after its security review fix round). Both profiles on Sepolia; canonical dependency addresses, both sources initially absent. Not evidence of live chain state.",
+  "chainId": 11155111,
+  "deployer": "0x1F1481667Ef20928d55524dfE4640f96Bd9b4eeE",
+  "nonce": 13,
+  "factory": "0x93118f6F6E059B69Cba1Ce3F9ac9Ab8E7B0bc087",
+  "registry": "0xa94936CD8994FA94FA31bc1fC992586f2468bfcb",
+  "rehearsal": {
+    "templateId": "0xf4b0c60866afb9c087dd51ff9c9ec0f599aa3c9d1329acdf8137fda2f58545da",
+    "versionCodeHash": "0xb7c58a7f40ead74e614ca6a76f199447c9246c28f5d01c73acb17931b19c3319",
+    "runtimeCodeHashes": [
+      {
+        "role": "implementation: BoxCoordinator (names the factory)",
+        "codeHash": "0x2c62e0b1d41c3977aa173922e6d45026ed756e39b5fd12c77b7d0204935f206d"
+      },
+      {
+        "role": "implementation: BoxHookExtension",
+        "codeHash": "0xe63f99f04af2fb363e51dbe9059a0e93a70f9783065877f4a891906d3aa5ae9c"
+      },
+      {
+        "role": "implementation: BoxHook",
+        "codeHash": "0x4bb9e5b404151ec6f80fc7c5d1a7c18c8ec0bc3001287310ee63bbf60871f1fb"
+      },
+      {
+        "role": "implementation: BoxLaunchRouter",
+        "codeHash": "0x7e2fbbf37846589f51a9e85416cda5bfbcd69e896773c4a2d7d3cb0191ed001f"
+      },
+      {
+        "role": "implementation: BoxReceiverExtension",
+        "codeHash": "0x83242fe44674ab87018fea595b15fe6b4fafda43b0123938ba1c9919f323c515"
+      },
+      {
+        "role": "implementation: BoxReceiver",
+        "codeHash": "0x79416f1d91701316110a31de441630242a256e8659f3e4e737703518a542272c"
+      },
+      {
+        "role": "implementation: BoxCollection",
+        "codeHash": "0x651b544442ba36d173c4c2cd1757be4de984c9c1d3b43fc1e036d5a02a70aa6e"
+      },
+      {
+        "role": "implementation: BoxVault",
+        "codeHash": "0x7486b63c01646a36d3cbc10e967f91b9a1b1d4fec27a654f089a874af635b722"
+      },
+      {
+        "role": "implementation: BoxTickets",
+        "codeHash": "0x27dd3128489f1a9cd7b3ce8fc4eebb7f0c39160224eae83f3ef35414c2e1bb98"
+      },
+      {
+        "role": "implementation: BoxRoyaltyRouter",
+        "codeHash": "0xfa0aa6a8ef27fc01dc29178f6e3507f46720694266f206fdc4a74c01b0bd2f5f"
+      },
+      {
+        "role": "implementation: BoxItemStream",
+        "codeHash": "0x1df8cad7f92bef2ac173db6167df5d74365bf21d670233e9e9e037f09d26d6bb"
+      },
+      {
+        "role": "BoxFactoryV1Planner",
+        "codeHash": "0x92fb0c4a9d70038a85bd2888e6b6dd0f5c6ca3827478f609fc167d61a6627c62"
+      },
+      {
+        "role": "DrandSource through the CREATE2 deployer (absent on this chain)",
+        "codeHash": "0xb835f0713da5f533832670cd4fa7ba4cc94b93203025f9412d87c9b575a54218"
+      },
+      {
+        "role": "BoxBackedSource through the CREATE2 deployer (absent on this chain)",
+        "codeHash": "0x7b3be4b9531713d98f065160d3c2dd2f517a0d5203672d8cd3df590d82f2ffa3"
+      },
+      {
+        "role": "BoxFactoryV1 (and its BoxRegistry)",
+        "codeHash": "0xfa15171c7bc642788254aa06eac72c8ff1e51f064952335dd7c76383de33f0ce"
+      },
+      {
+        "role": "registry",
+        "codeHash": "0xe00e650fea06022e8fa7bbff3472b06e3fd070432baf92d6f0750141e938579b"
+      }
+    ]
+  },
+  "mainnet": {
+    "templateId": "0x5fe6d0844d96edb081ec9f35b687aee6c218ad2f5b69a8133f7bc64cff04fb3c",
+    "versionCodeHash": "0x6f50e7a0f487cdedfd9af1d3e341b2912504a3adbf040c120ce446255bbf7ce6",
+    "runtimeCodeHashes": [
+      {
+        "role": "implementation: BoxCoordinator (names the factory)",
+        "codeHash": "0x3aceb6df00484abf9ac31ff1f320cd0698549c8fee534c2260d2ea821bf8c24e"
+      },
+      {
+        "role": "implementation: BoxHookExtension",
+        "codeHash": "0xc24517dcbc7437a5288bf3efa7c7e929aff7b29be5d65a5214c10fb367ed0850"
+      },
+      {
+        "role": "implementation: BoxHook",
+        "codeHash": "0xc443f01ce6911f3ea0df4a94832a1462f1055926668464ea631d88aa4e4362d6"
+      },
+      {
+        "role": "implementation: BoxLaunchRouter",
+        "codeHash": "0xa501a50289d6308f278194280e829455c2c000139be2c1454afc8fd38007dadd"
+      },
+      {
+        "role": "implementation: BoxReceiverExtension",
+        "codeHash": "0x83242fe44674ab87018fea595b15fe6b4fafda43b0123938ba1c9919f323c515"
+      },
+      {
+        "role": "implementation: BoxReceiver",
+        "codeHash": "0x41f587cb9af2888601060944da18118e16922d7e911327294b85d4ab171b6938"
+      },
+      {
+        "role": "implementation: BoxCollection",
+        "codeHash": "0x651b544442ba36d173c4c2cd1757be4de984c9c1d3b43fc1e036d5a02a70aa6e"
+      },
+      {
+        "role": "implementation: BoxVault",
+        "codeHash": "0x7486b63c01646a36d3cbc10e967f91b9a1b1d4fec27a654f089a874af635b722"
+      },
+      {
+        "role": "implementation: BoxTickets",
+        "codeHash": "0x27dd3128489f1a9cd7b3ce8fc4eebb7f0c39160224eae83f3ef35414c2e1bb98"
+      },
+      {
+        "role": "implementation: BoxRoyaltyRouter",
+        "codeHash": "0xfa0aa6a8ef27fc01dc29178f6e3507f46720694266f206fdc4a74c01b0bd2f5f"
+      },
+      {
+        "role": "implementation: BoxItemStream",
+        "codeHash": "0x1df8cad7f92bef2ac173db6167df5d74365bf21d670233e9e9e037f09d26d6bb"
+      },
+      {
+        "role": "BoxFactoryV1Planner",
+        "codeHash": "0x04bd15b72d0270851f1c6092126336ce3e43792f9387165aaa7184e1eb2fea13"
+      },
+      {
+        "role": "DrandSource through the CREATE2 deployer (absent on this chain)",
+        "codeHash": "0xb835f0713da5f533832670cd4fa7ba4cc94b93203025f9412d87c9b575a54218"
+      },
+      {
+        "role": "BoxBackedSource through the CREATE2 deployer (absent on this chain)",
+        "codeHash": "0x7b3be4b9531713d98f065160d3c2dd2f517a0d5203672d8cd3df590d82f2ffa3"
+      },
+      {
+        "role": "BoxFactoryV1 (and its BoxRegistry)",
+        "codeHash": "0x142f5030aa2298249d846fca5915b8ca21b77f2d85a38c0859c2425558a28a71"
+      },
+      {
+        "role": "registry",
+        "codeHash": "0xe00e650fea06022e8fa7bbff3472b06e3fd070432baf92d6f0750141e938579b"
+      }
+    ]
+  }
+}

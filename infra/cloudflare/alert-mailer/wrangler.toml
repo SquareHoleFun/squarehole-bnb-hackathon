@@ -1,0 +1,13 @@
+name = "square-hole-alert-mailer"
+main = "entry.mjs"
+compatibility_date = "2026-10-21"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = true
+
+# No recipient restriction here: the handler selects only its deployment secret,
+# and Cloudflare permits only account-verified destinations.
+[[send_email]]
+name = "MAILER"
+
+[observability]
+enabled = false

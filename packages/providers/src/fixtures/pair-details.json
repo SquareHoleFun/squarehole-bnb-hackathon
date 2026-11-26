@@ -1,0 +1,1803 @@
+{
+  "schemaVersion": "1.0",
+  "mode": "demo",
+  "chainId": 31337,
+  "asOf": "2026-09-25T12:00:00Z",
+  "feedSnapshotId": "demo-20260925T120000Z",
+  "details": [
+    {
+      "pairId": "31337:0x0000000000000000000000000000000000000065",
+      "description": "Demo record for the Square Hole platform asset. The root ticker is not set and nothing is deployed; every value here is illustrative.",
+      "artwork": {
+        "state": "ok",
+        "artId": "platform-tile"
+      },
+      "canonicalStatus": "demo_not_deployed",
+      "showcase": false,
+      "supply": {
+        "currentRaw": "110000000000000000000000",
+        "initialCapRaw": "110120000000000000000000",
+        "initialCapBasis": "demo_derived_total_plus_burned",
+        "feeBurnedRaw": "120000000000000000000",
+        "wholeUnitCapacity": null,
+        "activeNftCount": null,
+        "circulatingRaw": "100000000000000000000000",
+        "exclusionBasis": "demo_fixture_declared"
+      },
+      "priceHistory": {
+        "state": "unavailable",
+        "reason": "demo_no_history"
+      },
+      "rewards": [
+        {
+          "asset": {
+            "chainId": 31337,
+            "address": "0x000000000000000000000000000000000000232a",
+            "symbol": "USDC-DEMO",
+            "decimals": 6,
+            "issuerStatus": "mock"
+          },
+          "paidRaw": null,
+          "accruedRaw": null
+        }
+      ],
+      "activity": [
+        {
+          "kind": "launch",
+          "at": "2026-09-21T12:00:00Z",
+          "block": "10800",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003e9",
+                "symbol": "UNSET-DEMO",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "110120000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "burn",
+          "at": "2026-09-23T12:00:00Z",
+          "block": "25200",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003e9",
+                "symbol": "UNSET-DEMO",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "120000000000000000000"
+            }
+          ]
+        }
+      ],
+      "feeTerms": {
+        "policyId": "BURN_NATIVE_T_ROUTE_Q_V1",
+        "status": "draft",
+        "headlineFeeTargetBps": 300,
+        "qProtocolShare": {
+          "num": 1,
+          "den": 3
+        }
+      },
+      "provenance": {
+        "state": "mock",
+        "asOf": "2026-09-25T12:00:00Z",
+        "blockNumber": "39600",
+        "source": "Square Hole mock pair detail: deterministic demo fixture, not chain or market data",
+        "coverage": "demo"
+      }
+    },
+    {
+      "pairId": "31337:0x0000000000000000000000000000000000000066",
+      "description": "Demo showcase: a fractionalized NFT collection of orchard trees paired with a mock tokenized-stock wrapper (AAPLx-DEMO). Holder fee share paid in the quote asset. Not deployed and not endorsed by any issuer.",
+      "artwork": {
+        "state": "ok",
+        "artId": "orchard-hero"
+      },
+      "canonicalStatus": "demo_not_deployed",
+      "showcase": true,
+      "supply": {
+        "currentRaw": "260000000000000000000000",
+        "initialCapRaw": "260120000000000000000000",
+        "initialCapBasis": "demo_derived_total_plus_burned",
+        "feeBurnedRaw": "120000000000000000000",
+        "wholeUnitCapacity": {
+          "count": "260000",
+          "basis": "floor_current_supply_over_unit"
+        },
+        "activeNftCount": null,
+        "circulatingRaw": "250000000000000000000000",
+        "exclusionBasis": "demo_fixture_declared"
+      },
+      "nft": {
+        "mirrorAddress": "0x00000000000000000000000000000000000007d2",
+        "unitRaw": "1000000000000000000",
+        "gallery": [
+          {
+            "tokenId": "7",
+            "artId": "orchard-tree",
+            "name": "ORCHARD #7",
+            "attributes": [
+              {
+                "trait": "Season",
+                "value": "Summer"
+              },
+              {
+                "trait": "Accessory",
+                "value": "None"
+              }
+            ]
+          },
+          {
+            "tokenId": "12",
+            "artId": "orchard-tree-sunglasses",
+            "name": "ORCHARD #12",
+            "attributes": [
+              {
+                "trait": "Season",
+                "value": "Summer"
+              },
+              {
+                "trait": "Accessory",
+                "value": "Sunglasses"
+              }
+            ]
+          },
+          {
+            "tokenId": "31",
+            "artId": "orchard-tree-blossom",
+            "name": "ORCHARD #31",
+            "attributes": [
+              {
+                "trait": "Season",
+                "value": "Spring"
+              },
+              {
+                "trait": "Accessory",
+                "value": "None"
+              }
+            ]
+          },
+          {
+            "tokenId": "44",
+            "artId": "orchard-tree-winter",
+            "name": "ORCHARD #44",
+            "attributes": [
+              {
+                "trait": "Season",
+                "value": "Winter"
+              },
+              {
+                "trait": "Accessory",
+                "value": "Ski goggles"
+              }
+            ]
+          },
+          {
+            "tokenId": "58",
+            "artId": null,
+            "name": "ORCHARD #58",
+            "attributes": [
+              {
+                "trait": "Season",
+                "value": "Autumn"
+              }
+            ]
+          }
+        ]
+      },
+      "priceHistory": {
+        "state": "observed",
+        "unit": "usd_per_t",
+        "points": [
+          {
+            "t": "2026-09-22T12:00:00Z",
+            "priceUsd": "1.80"
+          },
+          {
+            "t": "2026-09-23T00:00:00Z",
+            "priceUsd": "1.95"
+          },
+          {
+            "t": "2026-09-23T12:00:00Z",
+            "priceUsd": null
+          },
+          {
+            "t": "2026-09-24T00:00:00Z",
+            "priceUsd": "2.10"
+          },
+          {
+            "t": "2026-09-24T12:00:00Z",
+            "priceUsd": "2.25"
+          },
+          {
+            "t": "2026-09-25T00:00:00Z",
+            "priceUsd": "2.30"
+          },
+          {
+            "t": "2026-09-25T12:00:00Z",
+            "priceUsd": "2.40"
+          }
+        ]
+      },
+      "rewards": [
+        {
+          "asset": {
+            "chainId": 31337,
+            "address": "0x0000000000000000000000000000000000002329",
+            "symbol": "AAPLx-DEMO",
+            "decimals": 18,
+            "issuerStatus": "mock",
+            "underlyingAddress": "0x000000000000000000000000000000000000238d",
+            "wrapperVersion": "mock-current-not-deployable"
+          },
+          "paidRaw": "13588773871356902",
+          "accruedRaw": "70186411226128643095"
+        }
+      ],
+      "activity": [
+        {
+          "kind": "launch",
+          "at": "2026-09-22T12:00:00Z",
+          "block": "18000",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ea",
+                "symbol": "ORCH",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "260120000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "swap_observation",
+          "at": "2026-09-22T12:10:00Z",
+          "block": "18050",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ea",
+                "symbol": "ORCH",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "1000000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "swap_observation",
+          "at": "2026-09-22T13:00:00Z",
+          "block": "18300",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ea",
+                "symbol": "ORCH",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "3250000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "swap_observation",
+          "at": "2026-09-22T18:00:00Z",
+          "block": "19800",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ea",
+                "symbol": "ORCH",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "50000000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "swap_observation",
+          "at": "2026-09-23T00:00:00Z",
+          "block": "21600",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ea",
+                "symbol": "ORCH",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "110000000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "swap_observation",
+          "at": "2026-09-23T06:00:00Z",
+          "block": "23400",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ea",
+                "symbol": "ORCH",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "90000000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "claim",
+          "at": "2026-09-23T12:00:00Z",
+          "block": "25200",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x0000000000000000000000000000000000002329",
+                "symbol": "AAPLx-DEMO",
+                "decimals": 18,
+                "issuerStatus": "mock",
+                "underlyingAddress": "0x000000000000000000000000000000000000238d",
+                "wrapperVersion": "mock-current-not-deployable"
+              },
+              "amountRaw": "13588773871356902"
+            }
+          ]
+        },
+        {
+          "kind": "swap_observation",
+          "at": "2026-09-24T00:00:00Z",
+          "block": "28800",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ea",
+                "symbol": "ORCH",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "50000000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "burn",
+          "at": "2026-09-24T00:00:00Z",
+          "block": "28800",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ea",
+                "symbol": "ORCH",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "40000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "swap_observation",
+          "at": "2026-09-24T06:00:00Z",
+          "block": "30600",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ea",
+                "symbol": "ORCH",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "10000000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "burn",
+          "at": "2026-09-24T06:00:00Z",
+          "block": "30600",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ea",
+                "symbol": "ORCH",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "50000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "swap_observation",
+          "at": "2026-09-24T12:00:00Z",
+          "block": "32400",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ea",
+                "symbol": "ORCH",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "61996750000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "swap_observation",
+          "at": "2026-09-24T18:00:00Z",
+          "block": "34200",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ea",
+                "symbol": "ORCH",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "5000000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "burn",
+          "at": "2026-09-24T18:00:00Z",
+          "block": "34200",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ea",
+                "symbol": "ORCH",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "30000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "swap_observation",
+          "at": "2026-09-25T08:00:00Z",
+          "block": "38400",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ea",
+                "symbol": "ORCH",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "2000000000000000000000"
+            }
+          ]
+        }
+      ],
+      "feeTerms": {
+        "policyId": "BURN_NATIVE_T_ROUTE_Q_V1",
+        "status": "draft",
+        "headlineFeeTargetBps": 300,
+        "qProtocolShare": {
+          "num": 1,
+          "den": 3
+        }
+      },
+      "provenance": {
+        "state": "mock",
+        "asOf": "2026-09-25T12:00:00Z",
+        "blockNumber": "39600",
+        "source": "Square Hole mock pair detail: deterministic demo fixture, not chain or market data",
+        "coverage": "demo"
+      }
+    },
+    {
+      "pairId": "31337:0x0000000000000000000000000000000000000067",
+      "description": "Demo token paired with WETH-DEMO. Holder fee share paid in ROUND, converted from their credited WETH-DEMO entitlement when they claim.",
+      "artwork": {
+        "state": "ok",
+        "artId": "shape-sphere"
+      },
+      "canonicalStatus": "demo_not_deployed",
+      "showcase": false,
+      "supply": {
+        "currentRaw": "510000000000000000000000",
+        "initialCapRaw": "510120000000000000000000",
+        "initialCapBasis": "demo_derived_total_plus_burned",
+        "feeBurnedRaw": "120000000000000000000",
+        "wholeUnitCapacity": null,
+        "activeNftCount": null,
+        "circulatingRaw": "500000000000000000000000",
+        "exclusionBasis": "demo_fixture_declared"
+      },
+      "priceHistory": {
+        "state": "unavailable",
+        "reason": "demo_no_history"
+      },
+      "rewards": [
+        {
+          "asset": {
+            "chainId": 31337,
+            "address": "0x00000000000000000000000000000000000003eb",
+            "symbol": "ROUND",
+            "decimals": 18,
+            "issuerStatus": "mock"
+          },
+          "paidRaw": "0",
+          "accruedRaw": null
+        },
+        {
+          "asset": {
+            "chainId": 31337,
+            "address": "0x000000000000000000000000000000000000232b",
+            "symbol": "WETH-DEMO",
+            "decimals": 18,
+            "issuerStatus": "mock"
+          },
+          "paidRaw": "0",
+          "accruedRaw": "1003999999999999999"
+        }
+      ],
+      "activity": [
+        {
+          "kind": "launch",
+          "at": "2026-09-23T12:00:00Z",
+          "block": "25200",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003eb",
+                "symbol": "ROUND",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "510120000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "swap_observation",
+          "at": "2026-09-23T13:00:00Z",
+          "block": "25500",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003eb",
+                "symbol": "ROUND",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "400000000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "swap_observation",
+          "at": "2026-09-23T18:00:00Z",
+          "block": "27000",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003eb",
+                "symbol": "ROUND",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "101000000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "swap_observation",
+          "at": "2026-09-24T12:00:00Z",
+          "block": "32400",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003eb",
+                "symbol": "ROUND",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "2500000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "burn",
+          "at": "2026-09-24T12:00:00Z",
+          "block": "32400",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003eb",
+                "symbol": "ROUND",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "120000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "swap_observation",
+          "at": "2026-09-25T09:00:00Z",
+          "block": "38700",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003eb",
+                "symbol": "ROUND",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "1500000000000000000000"
+            }
+          ]
+        }
+      ],
+      "feeTerms": {
+        "policyId": "BURN_NATIVE_T_ROUTE_Q_V1",
+        "status": "draft",
+        "headlineFeeTargetBps": 300,
+        "qProtocolShare": {
+          "num": 1,
+          "den": 3
+        }
+      },
+      "provenance": {
+        "state": "mock",
+        "asOf": "2026-09-25T12:00:00Z",
+        "blockNumber": "39600",
+        "source": "Square Hole mock pair detail: deterministic demo fixture, not chain or market data",
+        "coverage": "demo"
+      }
+    },
+    {
+      "pairId": "31337:0x0000000000000000000000000000000000000068",
+      "description": "Demo NFT collection paired with USDC-DEMO. Holder fee share paid in USDC-DEMO.",
+      "artwork": {
+        "state": "ok",
+        "artId": "sorter"
+      },
+      "canonicalStatus": "demo_not_deployed",
+      "showcase": false,
+      "supply": {
+        "currentRaw": "70000000000000000000000",
+        "initialCapRaw": "70120000000000000000000",
+        "initialCapBasis": "demo_derived_total_plus_burned",
+        "feeBurnedRaw": "120000000000000000000",
+        "wholeUnitCapacity": {
+          "count": "70000",
+          "basis": "floor_current_supply_over_unit"
+        },
+        "activeNftCount": null,
+        "circulatingRaw": "60000000000000000000000",
+        "exclusionBasis": "demo_fixture_declared"
+      },
+      "nft": {
+        "mirrorAddress": "0x00000000000000000000000000000000000007d4",
+        "unitRaw": "1000000000000000000",
+        "gallery": []
+      },
+      "priceHistory": {
+        "state": "unavailable",
+        "reason": "demo_no_history"
+      },
+      "rewards": [
+        {
+          "asset": {
+            "chainId": 31337,
+            "address": "0x000000000000000000000000000000000000232a",
+            "symbol": "USDC-DEMO",
+            "decimals": 6,
+            "issuerStatus": "mock"
+          },
+          "paidRaw": null,
+          "accruedRaw": null
+        }
+      ],
+      "activity": [
+        {
+          "kind": "launch",
+          "at": "2026-09-24T06:00:00Z",
+          "block": "30600",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ec",
+                "symbol": "MISFIT",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "70120000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "burn",
+          "at": "2026-09-24T21:00:00Z",
+          "block": "35100",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ec",
+                "symbol": "MISFIT",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "120000000000000000000"
+            }
+          ]
+        }
+      ],
+      "feeTerms": {
+        "policyId": "BURN_NATIVE_T_ROUTE_Q_V1",
+        "status": "draft",
+        "headlineFeeTargetBps": 300,
+        "qProtocolShare": {
+          "num": 1,
+          "den": 3
+        }
+      },
+      "provenance": {
+        "state": "mock",
+        "asOf": "2026-09-25T12:00:00Z",
+        "blockNumber": "39600",
+        "source": "Square Hole mock pair detail: deterministic demo fixture, not chain or market data",
+        "coverage": "demo"
+      }
+    },
+    {
+      "pairId": "31337:0x0000000000000000000000000000000000000069",
+      "description": "Demo token paired with the mock AAPLx-DEMO wrapper. Holder fee share paid in AAPLx-DEMO. Pairing implies no stock ownership or issuer endorsement.",
+      "artwork": {
+        "state": "ok",
+        "artId": "shape-sphere"
+      },
+      "canonicalStatus": "demo_not_deployed",
+      "showcase": false,
+      "supply": {
+        "currentRaw": "610000000000000000000000",
+        "initialCapRaw": "610120000000000000000000",
+        "initialCapBasis": "demo_derived_total_plus_burned",
+        "feeBurnedRaw": "120000000000000000000",
+        "wholeUnitCapacity": null,
+        "activeNftCount": null,
+        "circulatingRaw": "600000000000000000000000",
+        "exclusionBasis": "demo_fixture_declared"
+      },
+      "priceHistory": {
+        "state": "unavailable",
+        "reason": "demo_no_history"
+      },
+      "rewards": [
+        {
+          "asset": {
+            "chainId": 31337,
+            "address": "0x0000000000000000000000000000000000002329",
+            "symbol": "AAPLx-DEMO",
+            "decimals": 18,
+            "issuerStatus": "mock",
+            "underlyingAddress": "0x000000000000000000000000000000000000238d",
+            "wrapperVersion": "mock-current-not-deployable"
+          },
+          "paidRaw": null,
+          "accruedRaw": null
+        }
+      ],
+      "activity": [
+        {
+          "kind": "launch",
+          "at": "2026-09-24T18:00:00Z",
+          "block": "34200",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ed",
+                "symbol": "APPLH",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "610120000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "burn",
+          "at": "2026-09-25T03:00:00Z",
+          "block": "36900",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ed",
+                "symbol": "APPLH",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "120000000000000000000"
+            }
+          ]
+        }
+      ],
+      "feeTerms": {
+        "policyId": "BURN_NATIVE_T_ROUTE_Q_V1",
+        "status": "draft",
+        "headlineFeeTargetBps": 300,
+        "qProtocolShare": {
+          "num": 1,
+          "den": 3
+        }
+      },
+      "provenance": {
+        "state": "mock",
+        "asOf": "2026-09-25T12:00:00Z",
+        "blockNumber": "39600",
+        "source": "Square Hole mock pair detail: deterministic demo fixture, not chain or market data",
+        "coverage": "demo"
+      }
+    },
+    {
+      "pairId": "31337:0x000000000000000000000000000000000000006a",
+      "description": "Demo NFT collection of tiny picture frames paired with WETH-DEMO. Holder fee share paid in FRAME, converted from their credited WETH-DEMO entitlement when they claim.",
+      "artwork": {
+        "state": "ok",
+        "artId": "collector-frame"
+      },
+      "canonicalStatus": "demo_not_deployed",
+      "showcase": false,
+      "supply": {
+        "currentRaw": "110000000000000000000000",
+        "initialCapRaw": "110120000000000000000000",
+        "initialCapBasis": "demo_derived_total_plus_burned",
+        "feeBurnedRaw": "120000000000000000000",
+        "wholeUnitCapacity": {
+          "count": "110000",
+          "basis": "floor_current_supply_over_unit"
+        },
+        "activeNftCount": null,
+        "circulatingRaw": "100000000000000000000000",
+        "exclusionBasis": "demo_fixture_declared"
+      },
+      "nft": {
+        "mirrorAddress": "0x00000000000000000000000000000000000007d6",
+        "unitRaw": "1000000000000000000",
+        "gallery": []
+      },
+      "priceHistory": {
+        "state": "unavailable",
+        "reason": "demo_no_history"
+      },
+      "rewards": [
+        {
+          "asset": {
+            "chainId": 31337,
+            "address": "0x00000000000000000000000000000000000003ee",
+            "symbol": "FRAME",
+            "decimals": 18,
+            "issuerStatus": "mock"
+          },
+          "paidRaw": "500000000000000000000",
+          "accruedRaw": null
+        },
+        {
+          "asset": {
+            "chainId": 31337,
+            "address": "0x000000000000000000000000000000000000232b",
+            "symbol": "WETH-DEMO",
+            "decimals": 18,
+            "issuerStatus": "mock"
+          },
+          "paidRaw": "0",
+          "accruedRaw": "4969999999999999997"
+        }
+      ],
+      "activity": [
+        {
+          "kind": "launch",
+          "at": "2026-09-25T00:00:00Z",
+          "block": "36000",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ee",
+                "symbol": "FRAME",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "110120000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "swap_observation",
+          "at": "2026-09-25T00:05:00Z",
+          "block": "36025",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ee",
+                "symbol": "FRAME",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "60000000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "swap_observation",
+          "at": "2026-09-25T01:00:00Z",
+          "block": "36300",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ee",
+                "symbol": "FRAME",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "20000000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "swap_observation",
+          "at": "2026-09-25T02:00:00Z",
+          "block": "36600",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ee",
+                "symbol": "FRAME",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "25000000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "claim",
+          "at": "2026-09-25T03:00:00Z",
+          "block": "36900",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ee",
+                "symbol": "FRAME",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "500000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "swap_observation",
+          "at": "2026-09-25T03:30:00Z",
+          "block": "37050",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ee",
+                "symbol": "FRAME",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "1000000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "swap_observation",
+          "at": "2026-09-25T04:00:00Z",
+          "block": "37200",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ee",
+                "symbol": "FRAME",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "500000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "swap_observation",
+          "at": "2026-09-25T05:00:00Z",
+          "block": "37500",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ee",
+                "symbol": "FRAME",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "20500000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "burn",
+          "at": "2026-09-25T05:00:00Z",
+          "block": "37500",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ee",
+                "symbol": "FRAME",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "60000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "swap_observation",
+          "at": "2026-09-25T06:00:00Z",
+          "block": "37800",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ee",
+                "symbol": "FRAME",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "9000000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "swap_observation",
+          "at": "2026-09-25T07:00:00Z",
+          "block": "38100",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ee",
+                "symbol": "FRAME",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "9999500000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "swap_observation",
+          "at": "2026-09-25T09:00:00Z",
+          "block": "38700",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ee",
+                "symbol": "FRAME",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "5000000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "burn",
+          "at": "2026-09-25T09:00:00Z",
+          "block": "38700",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ee",
+                "symbol": "FRAME",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "60000000000000000000"
+            }
+          ]
+        }
+      ],
+      "feeTerms": {
+        "policyId": "BURN_NATIVE_T_ROUTE_Q_V1",
+        "status": "draft",
+        "headlineFeeTargetBps": 300,
+        "qProtocolShare": {
+          "num": 1,
+          "den": 3
+        }
+      },
+      "provenance": {
+        "state": "mock",
+        "asOf": "2026-09-25T12:00:00Z",
+        "blockNumber": "39600",
+        "source": "Square Hole mock pair detail: deterministic demo fixture, not chain or market data",
+        "coverage": "demo"
+      }
+    },
+    {
+      "pairId": "31337:0x000000000000000000000000000000000000006b",
+      "description": "Demo token paired with USDC-DEMO. Holder fee share paid in USDC-DEMO.",
+      "artwork": {
+        "state": "ok",
+        "artId": "shape-cube"
+      },
+      "canonicalStatus": "demo_not_deployed",
+      "showcase": false,
+      "supply": {
+        "currentRaw": "610000000000000000000000",
+        "initialCapRaw": "610120000000000000000000",
+        "initialCapBasis": "demo_derived_total_plus_burned",
+        "feeBurnedRaw": "120000000000000000000",
+        "wholeUnitCapacity": null,
+        "activeNftCount": null,
+        "circulatingRaw": "600000000000000000000000",
+        "exclusionBasis": "demo_fixture_declared"
+      },
+      "priceHistory": {
+        "state": "unavailable",
+        "reason": "demo_no_history"
+      },
+      "rewards": [
+        {
+          "asset": {
+            "chainId": 31337,
+            "address": "0x000000000000000000000000000000000000232a",
+            "symbol": "USDC-DEMO",
+            "decimals": 6,
+            "issuerStatus": "mock"
+          },
+          "paidRaw": null,
+          "accruedRaw": null
+        }
+      ],
+      "activity": [
+        {
+          "kind": "launch",
+          "at": "2026-09-25T07:00:00Z",
+          "block": "38100",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ef",
+                "symbol": "SOFT",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "610120000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "burn",
+          "at": "2026-09-25T09:30:00Z",
+          "block": "38850",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003ef",
+                "symbol": "SOFT",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "120000000000000000000"
+            }
+          ]
+        }
+      ],
+      "feeTerms": {
+        "policyId": "BURN_NATIVE_T_ROUTE_Q_V1",
+        "status": "draft",
+        "headlineFeeTargetBps": 300,
+        "qProtocolShare": {
+          "num": 1,
+          "den": 3
+        }
+      },
+      "provenance": {
+        "state": "mock",
+        "asOf": "2026-09-25T12:00:00Z",
+        "blockNumber": "39600",
+        "source": "Square Hole mock pair detail: deterministic demo fixture, not chain or market data",
+        "coverage": "demo"
+      }
+    },
+    {
+      "pairId": "31337:0x000000000000000000000000000000000000006c",
+      "description": "Demo NFT collection paired with the mock AAPLx-DEMO wrapper. Holder fee share paid in AAPLx-DEMO.",
+      "artwork": {
+        "state": "ok",
+        "artId": "shape-pyramid"
+      },
+      "canonicalStatus": "demo_not_deployed",
+      "showcase": false,
+      "supply": {
+        "currentRaw": "310000000000000000000000",
+        "initialCapRaw": "310120000000000000000000",
+        "initialCapBasis": "demo_derived_total_plus_burned",
+        "feeBurnedRaw": "120000000000000000000",
+        "wholeUnitCapacity": {
+          "count": "310000",
+          "basis": "floor_current_supply_over_unit"
+        },
+        "activeNftCount": null,
+        "circulatingRaw": "300000000000000000000000",
+        "exclusionBasis": "demo_fixture_declared"
+      },
+      "nft": {
+        "mirrorAddress": "0x00000000000000000000000000000000000007d8",
+        "unitRaw": "1000000000000000000",
+        "gallery": []
+      },
+      "priceHistory": {
+        "state": "unavailable",
+        "reason": "demo_no_history"
+      },
+      "rewards": [
+        {
+          "asset": {
+            "chainId": 31337,
+            "address": "0x0000000000000000000000000000000000002329",
+            "symbol": "AAPLx-DEMO",
+            "decimals": 18,
+            "issuerStatus": "mock",
+            "underlyingAddress": "0x000000000000000000000000000000000000238d",
+            "wrapperVersion": "mock-current-not-deployable"
+          },
+          "paidRaw": null,
+          "accruedRaw": null
+        }
+      ],
+      "activity": [
+        {
+          "kind": "launch",
+          "at": "2026-09-25T07:00:00Z",
+          "block": "38100",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003f0",
+                "symbol": "ANGLE",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "310120000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "burn",
+          "at": "2026-09-25T09:30:00Z",
+          "block": "38850",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003f0",
+                "symbol": "ANGLE",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "120000000000000000000"
+            }
+          ]
+        }
+      ],
+      "feeTerms": {
+        "policyId": "BURN_NATIVE_T_ROUTE_Q_V1",
+        "status": "draft",
+        "headlineFeeTargetBps": 300,
+        "qProtocolShare": {
+          "num": 1,
+          "den": 3
+        }
+      },
+      "provenance": {
+        "state": "mock",
+        "asOf": "2026-09-25T12:00:00Z",
+        "blockNumber": "39600",
+        "source": "Square Hole mock pair detail: deterministic demo fixture, not chain or market data",
+        "coverage": "demo"
+      }
+    },
+    {
+      "pairId": "31337:0x000000000000000000000000000000000000006d",
+      "description": "Demo token paired with WETH-DEMO. Holder fee share paid in CONF.",
+      "artwork": {
+        "state": "ok",
+        "artId": "shape-gem"
+      },
+      "canonicalStatus": "demo_not_deployed",
+      "showcase": false,
+      "supply": {
+        "currentRaw": "510000000000000000000000",
+        "initialCapRaw": "510120000000000000000000",
+        "initialCapBasis": "demo_derived_total_plus_burned",
+        "feeBurnedRaw": "120000000000000000000",
+        "wholeUnitCapacity": null,
+        "activeNftCount": null,
+        "circulatingRaw": "500000000000000000000000",
+        "exclusionBasis": "demo_fixture_declared"
+      },
+      "priceHistory": {
+        "state": "unavailable",
+        "reason": "demo_no_history"
+      },
+      "rewards": [
+        {
+          "asset": {
+            "chainId": 31337,
+            "address": "0x00000000000000000000000000000000000003f1",
+            "symbol": "CONF",
+            "decimals": 18,
+            "issuerStatus": "mock"
+          },
+          "paidRaw": null,
+          "accruedRaw": null
+        },
+        {
+          "asset": {
+            "chainId": 31337,
+            "address": "0x000000000000000000000000000000000000232b",
+            "symbol": "WETH-DEMO",
+            "decimals": 18,
+            "issuerStatus": "mock"
+          },
+          "paidRaw": null,
+          "accruedRaw": null
+        }
+      ],
+      "activity": [
+        {
+          "kind": "launch",
+          "at": "2026-09-25T10:00:00Z",
+          "block": "39000",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003f1",
+                "symbol": "CONF",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "510120000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "burn",
+          "at": "2026-09-25T11:00:00Z",
+          "block": "39300",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003f1",
+                "symbol": "CONF",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "120000000000000000000"
+            }
+          ]
+        }
+      ],
+      "feeTerms": {
+        "policyId": "BURN_NATIVE_T_ROUTE_Q_V1",
+        "status": "draft",
+        "headlineFeeTargetBps": 300,
+        "qProtocolShare": {
+          "num": 1,
+          "den": 3
+        }
+      },
+      "provenance": {
+        "state": "mock",
+        "asOf": "2026-09-25T12:00:00Z",
+        "blockNumber": "39600",
+        "source": "Square Hole mock pair detail: deterministic demo fixture, not chain or market data",
+        "coverage": "demo"
+      }
+    },
+    {
+      "pairId": "31337:0x000000000000000000000000000000000000006e",
+      "description": "Demo NFT collection paired with the mock AAPLx-DEMO wrapper. Holder fee share paid in LORCH. Not the ORCHARD showcase.",
+      "artwork": {
+        "state": "ok",
+        "artId": "orchard-tree-blossom"
+      },
+      "canonicalStatus": "demo_not_deployed",
+      "showcase": false,
+      "supply": {
+        "currentRaw": "25000000000000000000000",
+        "initialCapRaw": "25120000000000000000000",
+        "initialCapBasis": "demo_derived_total_plus_burned",
+        "feeBurnedRaw": "120000000000000000000",
+        "wholeUnitCapacity": {
+          "count": "25000",
+          "basis": "floor_current_supply_over_unit"
+        },
+        "activeNftCount": null,
+        "circulatingRaw": "15000000000000000000000",
+        "exclusionBasis": "demo_fixture_declared"
+      },
+      "nft": {
+        "mirrorAddress": "0x00000000000000000000000000000000000007da",
+        "unitRaw": "1000000000000000000",
+        "gallery": []
+      },
+      "priceHistory": {
+        "state": "unavailable",
+        "reason": "demo_no_history"
+      },
+      "rewards": [
+        {
+          "asset": {
+            "chainId": 31337,
+            "address": "0x00000000000000000000000000000000000003f2",
+            "symbol": "LORCH",
+            "decimals": 18,
+            "issuerStatus": "mock"
+          },
+          "paidRaw": null,
+          "accruedRaw": null
+        },
+        {
+          "asset": {
+            "chainId": 31337,
+            "address": "0x0000000000000000000000000000000000002329",
+            "symbol": "AAPLx-DEMO",
+            "decimals": 18,
+            "issuerStatus": "mock",
+            "underlyingAddress": "0x000000000000000000000000000000000000238d",
+            "wrapperVersion": "mock-current-not-deployable"
+          },
+          "paidRaw": null,
+          "accruedRaw": null
+        }
+      ],
+      "activity": [
+        {
+          "kind": "launch",
+          "at": "2026-09-25T11:00:00Z",
+          "block": "39300",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003f2",
+                "symbol": "LORCH",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "25120000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "burn",
+          "at": "2026-09-25T11:30:00Z",
+          "block": "39450",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003f2",
+                "symbol": "LORCH",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "120000000000000000000"
+            }
+          ]
+        }
+      ],
+      "feeTerms": {
+        "policyId": "BURN_NATIVE_T_ROUTE_Q_V1",
+        "status": "draft",
+        "headlineFeeTargetBps": 300,
+        "qProtocolShare": {
+          "num": 1,
+          "den": 3
+        }
+      },
+      "provenance": {
+        "state": "mock",
+        "asOf": "2026-09-25T12:00:00Z",
+        "blockNumber": "39600",
+        "source": "Square Hole mock pair detail: deterministic demo fixture, not chain or market data",
+        "coverage": "demo"
+      }
+    },
+    {
+      "pairId": "31337:0x000000000000000000000000000000000000006f",
+      "description": "Demo token paired with USDC-DEMO. Holder fee share paid in USDC-DEMO.",
+      "artwork": {
+        "state": "ok",
+        "artId": "shape-cube"
+      },
+      "canonicalStatus": "demo_not_deployed",
+      "showcase": false,
+      "supply": {
+        "currentRaw": "110000000000000000000000",
+        "initialCapRaw": "110120000000000000000000",
+        "initialCapBasis": "demo_derived_total_plus_burned",
+        "feeBurnedRaw": "120000000000000000000",
+        "wholeUnitCapacity": null,
+        "activeNftCount": null,
+        "circulatingRaw": "100000000000000000000000",
+        "exclusionBasis": "demo_fixture_declared"
+      },
+      "priceHistory": {
+        "state": "unavailable",
+        "reason": "demo_no_history"
+      },
+      "rewards": [
+        {
+          "asset": {
+            "chainId": 31337,
+            "address": "0x000000000000000000000000000000000000232a",
+            "symbol": "USDC-DEMO",
+            "decimals": 6,
+            "issuerStatus": "mock"
+          },
+          "paidRaw": null,
+          "accruedRaw": null
+        }
+      ],
+      "activity": [
+        {
+          "kind": "launch",
+          "at": "2026-09-25T11:45:00Z",
+          "block": "39525",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003f3",
+                "symbol": "NEW",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "110120000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "burn",
+          "at": "2026-09-25T11:52:00Z",
+          "block": "39560",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003f3",
+                "symbol": "NEW",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "120000000000000000000"
+            }
+          ]
+        }
+      ],
+      "feeTerms": {
+        "policyId": "BURN_NATIVE_T_ROUTE_Q_V1",
+        "status": "draft",
+        "headlineFeeTargetBps": 300,
+        "qProtocolShare": {
+          "num": 1,
+          "den": 3
+        }
+      },
+      "provenance": {
+        "state": "mock",
+        "asOf": "2026-09-25T12:00:00Z",
+        "blockNumber": "39600",
+        "source": "Square Hole mock pair detail: deterministic demo fixture, not chain or market data",
+        "coverage": "demo"
+      }
+    },
+    {
+      "pairId": "31337:0x0000000000000000000000000000000000000070",
+      "description": "Demo token with no price observation yet. Market values are unavailable, not zero.",
+      "artwork": {
+        "state": "unavailable",
+        "reason": "not_uploaded"
+      },
+      "canonicalStatus": "demo_not_deployed",
+      "showcase": false,
+      "supply": {
+        "currentRaw": "110000000000000000000000",
+        "initialCapRaw": "110120000000000000000000",
+        "initialCapBasis": "demo_derived_total_plus_burned",
+        "feeBurnedRaw": "120000000000000000000",
+        "wholeUnitCapacity": null,
+        "activeNftCount": null,
+        "circulatingRaw": "100000000000000000000000",
+        "exclusionBasis": "demo_fixture_declared"
+      },
+      "priceHistory": {
+        "state": "unavailable",
+        "reason": "unpriced"
+      },
+      "rewards": [
+        {
+          "asset": {
+            "chainId": 31337,
+            "address": "0x0000000000000000000000000000000000002329",
+            "symbol": "AAPLx-DEMO",
+            "decimals": 18,
+            "issuerStatus": "mock",
+            "underlyingAddress": "0x000000000000000000000000000000000000238d",
+            "wrapperVersion": "mock-current-not-deployable"
+          },
+          "paidRaw": null,
+          "accruedRaw": null
+        }
+      ],
+      "activity": [
+        {
+          "kind": "launch",
+          "at": "2026-09-25T11:54:00Z",
+          "block": "39570",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003f4",
+                "symbol": "NOP",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "110120000000000000000000"
+            }
+          ]
+        },
+        {
+          "kind": "burn",
+          "at": "2026-09-25T11:57:00Z",
+          "block": "39585",
+          "txHash": null,
+          "amounts": [
+            {
+              "asset": {
+                "chainId": 31337,
+                "address": "0x00000000000000000000000000000000000003f4",
+                "symbol": "NOP",
+                "decimals": 18,
+                "issuerStatus": "mock"
+              },
+              "amountRaw": "120000000000000000000"
+            }
+          ]
+        }
+      ],
+      "feeTerms": {
+        "policyId": "BURN_NATIVE_T_ROUTE_Q_V1",
+        "status": "draft",
+        "headlineFeeTargetBps": 300,
+        "qProtocolShare": {
+          "num": 1,
+          "den": 3
+        }
+      },
+      "provenance": {
+        "state": "mock",
+        "asOf": "2026-09-25T12:00:00Z",
+        "blockNumber": "39600",
+        "source": "Square Hole mock pair detail: deterministic demo fixture, not chain or market data",
+        "coverage": "demo"
+      }
+    }
+  ]
+}

@@ -1,0 +1,363 @@
+/* About & risks (UI-03; SH-V2-FE7 rewrite). Shares the .sh-detail-card styles from features/pair/pair.css and the
+   disclosure of features/fit-pair/fit-head.css (.sh-fit-details). Figures first, one sentence, details on demand. */
+.sh-risks {
+  max-width: 980px;
+  gap: var(--sh-gap-4);
+}
+
+.sh-risks__intro {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--sh-gap-6);
+}
+
+.sh-risks__art {
+  flex: none;
+}
+
+.sh-risks__intro-body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.sh-risks__status {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr));
+  gap: 10px 20px;
+  margin: 6px 0 0;
+}
+
+.sh-risks__status > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* ── Cards ─────────────────────────────────────────────────── */
+.sh-about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  align-items: start;
+  gap: var(--sh-gap-4);
+}
+
+.sh-about-card {
+  gap: var(--sh-gap-4);
+}
+
+.sh-about-card__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sh-about-card__icon {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface-raised);
+  color: var(--sh-accent);
+}
+
+.sh-about-card__lead {
+  color: var(--sh-text);
+  font-size: var(--sh-type-body);
+  line-height: var(--sh-leading);
+}
+
+/* ── Figures: the value large, its label under it ─────────────── */
+.sh-about-figures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 104px), 1fr));
+  gap: var(--sh-gap-3) var(--sh-gap-4);
+  margin: 0;
+}
+
+.sh-about-figure {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: 2px;
+  min-width: 0;
+}
+
+/* A long figure (4.206980085 ETH, 1,000,000,000) takes two columns rather than breaking inside the number. */
+.sh-about-figure[data-wide] {
+  grid-column: span 2;
+}
+
+.sh-about-figure dd {
+  margin: 0;
+  color: var(--sh-text);
+  font-size: 20px;
+  font-weight: 750;
+  line-height: var(--sh-leading-tight);
+  overflow-wrap: break-word;
+}
+
+.sh-about-figure dt {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-label);
+  font-weight: 600;
+}
+
+/* ── Details ───────────────────────────────────────────────── */
+.sh-about-more .sh-facts {
+  margin-top: var(--sh-gap-2);
+  line-height: 1.55;
+}
+
+.sh-about-more__terms {
+  margin-top: var(--sh-gap-2);
+  font-size: var(--sh-type-small);
+}
+
+/* ── The launch-window tax: 32 bars ─────────────────────────── */
+.sh-about-tax {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+}
+
+.sh-about-tax__bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 64px;
+  padding-bottom: 1px;
+  border-bottom: 1px solid var(--sh-border-strong);
+}
+
+.sh-about-tax__bar {
+  flex: 1 1 0;
+  min-width: 0;
+  border-radius: 2px 2px 0 0;
+  background: var(--sh-accent);
+}
+
+.sh-about-tax__axis {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sh-gap-2);
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+}
+
+/* ── Fee splits: fifteenths ──────────────────────────────────── */
+.sh-about-splits {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sh-about-split {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sh-about-split__title {
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-label);
+  font-weight: 650;
+}
+
+.sh-about-split__bar {
+  display: grid;
+  grid-template-columns: repeat(15, minmax(0, 1fr));
+  gap: 2px;
+}
+
+.sh-about-split__part {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  height: 26px;
+  border-radius: 4px;
+  background: var(--sh-text-secondary);
+  color: var(--sh-canvas);
+  font-size: var(--sh-type-caption);
+  font-weight: 750;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.sh-about-split__part[data-part='creator'] {
+  background: var(--sh-accent);
+}
+
+.sh-about-split__part[data-part='fit'] {
+  background: var(--sh-positive);
+}
+
+.sh-about-split__part[data-part='platform'] {
+  background: var(--sh-warning);
+}
+
+/* The Misfits' stream and the box pool share a grey family: stripes tell them apart beyond the words under the bar. */
+.sh-about-split__part[data-part='stream'] {
+  background: repeating-linear-gradient(135deg, var(--sh-text-muted) 0 6px, var(--sh-text-secondary) 6px 9px);
+}
+
+.sh-about-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-label);
+}
+
+.sh-about-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sh-about-legend__swatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+/* ── Failure: the steps ─────────────────────────────────────── */
+.sh-about-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 96px), 1fr));
+  gap: var(--sh-gap-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: sh-step;
+}
+
+.sh-about-steps li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--sh-border);
+  border-top: 3px solid var(--sh-accent);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface-raised);
+  counter-increment: sh-step;
+}
+
+.sh-about-steps__figure {
+  color: var(--sh-text);
+  font-size: var(--sh-type-body-lg);
+  font-weight: 750;
+}
+
+.sh-about-steps__label {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-label);
+  font-weight: 600;
+}
+
+.sh-about-steps__label::before {
+  content: counter(sh-step) '. ';
+}
+
+/* ── Box 0's art ────────────────────────────────────────────── */
+.sh-about-art {
+  width: 112px;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--sh-radius-control);
+}
+
+/* ── More risks: labels, one sentence behind each ─────────────── */
+.sh-about-risks {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 136px), 1fr));
+  gap: 4px var(--sh-gap-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-about-risk p {
+  padding: 0 0 8px 22px;
+  font-size: var(--sh-type-small);
+  line-height: 1.5;
+}
+
+/* ── Terms links ───────────────────────────────────────────── */
+.sh-about-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-weight: 650;
+}
+
+.sh-about-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--sh-touch-target);
+}
+
+/* ── Our boxes (F133): name, box and token, then the address to check ── */
+.sh-about-ours {
+  display: grid;
+  gap: var(--sh-gap-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-about-ours__box {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2px var(--sh-gap-3);
+  padding: var(--sh-gap-3);
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface-raised);
+}
+
+.sh-about-ours__name {
+  color: var(--sh-text);
+  font-weight: 650;
+}
+
+.sh-about-ours__meta {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-label);
+  font-variant-numeric: tabular-nums;
+}
+
+.sh-about-ours__address {
+  display: flex;
+  flex-wrap: wrap;
+  grid-column: 1 / -1;
+  align-items: center;
+  gap: var(--sh-gap-2);
+  min-width: 0;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+  overflow-wrap: anywhere;
+}
+
+.sh-about-ours__address code {
+  min-width: 0;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}

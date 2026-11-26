@@ -1,0 +1,259 @@
+/*
+ * SH-251: the visual Create. The explainer's painted world on the app's navy: a maple box, a glass pool of water, silver
+ * price coins and the cast's own violet figures and tokens; the page's controls keep the app's tokens. Every class is
+ * the picture's own (`sh-pic-`), so no other feature's rule reaches it.
+ */
+.sh-pic-page,
+.sh-pic-sheet,
+.sh-pic-ways {
+  --sh-pic-maple: #dc9f52;
+  --sh-pic-maple-light: #f2c886;
+  --sh-pic-maple-dark: #b0742c;
+  --sh-pic-maple-ink: #241203;
+  --sh-pic-water: #2aaecb;
+  --sh-pic-water-light: #93e2f1;
+  --sh-pic-silver: #d3d9e1;
+  --sh-pic-silver-dark: #8e99a9;
+  --sh-pic-token: #8d78ea;
+  --sh-pic-token-light: #b9abf3;
+  --sh-pic-cast-line: #ece6ff;
+  --sh-pic-glow: #ffe7b0;
+  --sh-pic-mark-face: #1d2b46;
+  --sh-pic-mark-rim: #c4b2ff;
+  --sh-pic-warn: var(--sh-negative, #ff8ca8);
+  --sh-pic-ink: var(--sh-text, #f3f5fb);
+  --sh-pic-ink-2: var(--sh-text-secondary, #b5c0d5);
+  --sh-pic-muted: var(--sh-text-muted, #899ab6);
+  --sh-pic-line: var(--sh-border, #30415d);
+}
+
+.sh-pic-page { display: grid; gap: var(--sh-gap-3, 12px); min-width: 0; }
+.sh-pic-layout { display: grid; gap: var(--sh-gap-4, 16px); grid-template-columns: minmax(0, 1fr); grid-template-areas: "tpl" "main" "side"; }
+.sh-pic-tpl { grid-area: tpl; min-width: 0; }
+.sh-pic-main { grid-area: main; }
+.sh-pic-side { grid-area: side; }
+.sh-pic-main, .sh-pic-side { min-width: 0; display: grid; gap: var(--sh-gap-3, 12px); align-content: start; }
+@media (min-width: 900px) {
+  .sh-pic-layout { grid-template-columns: minmax(0, 1.5fr) minmax(300px, 1fr); grid-template-areas: "main tpl" "main side"; grid-template-rows: auto 1fr; align-items: start; }
+  .sh-pic-main { position: sticky; top: calc(var(--sh-topbar-h, 64px) + var(--sh-gap-4, 16px)); }
+  /* Beside the picture the steps' template row is compact: three to a row, the name under the small box. */
+  .sh-pic-tpl .sh-v2-templates__row { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .sh-pic-tpl .sh-v2-template { padding: var(--sh-gap-2, 8px); }
+  .sh-pic-tpl .sh-v2-template__tag { display: none; }
+  .sh-pic-tpl .sh-v2-template__name { white-space: normal; overflow-wrap: anywhere; font-size: var(--sh-type-label, 13px); line-height: 1.2; }
+}
+
+/* The ways in */
+.sh-pic-ways { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sh-gap-3, 12px); margin-bottom: var(--sh-gap-2, 8px); }
+.sh-pic-ways__switch { display: inline-flex; border: 1px solid var(--sh-border-strong, #63769b); border-radius: var(--sh-radius-pill, 999px); padding: 2px; }
+.sh-pic-ways__option {
+  display: inline-flex; align-items: center; min-height: 36px; padding: 0 14px; border-radius: var(--sh-radius-pill, 999px);
+  color: var(--sh-pic-ink-2); text-decoration: none; font-weight: 700; font-size: var(--sh-type-small, 14px);
+}
+.sh-pic-ways__option[aria-current='true'] { background: var(--sh-selected, #241e4f); color: var(--sh-pic-ink); box-shadow: inset 0 -3px 0 var(--sh-accent, #a78bfa); }
+.sh-pic-ways__option:focus-visible { outline: 3px solid var(--sh-focus-ring, #a78bfa); outline-offset: 2px; }
+
+/* Templates: the steps' own row (TemplateRow, create-v2.css); only the small box in each tile is the picture's. */
+.sh-pic-mini__art { position: relative; width: 48px; height: 35px; display: block; }
+.sh-pic-mini__box { width: 48px; height: 35px; display: block; }
+.sh-pic-mini__icon { position: absolute; left: 16px; top: 0; color: var(--sh-pic-ink, #f3f5fb); display: block; line-height: 0; }
+.sh-pic-mini__top { fill: #f2c886; stroke: #b0742c; stroke-width: 0.8; }
+.sh-pic-mini__front { fill: #dc9f52; stroke: #b0742c; stroke-width: 0.8; }
+.sh-pic-mini__hole { fill: #0a0c12; stroke: #ffe7b0; stroke-width: 1; }
+
+/* The stage and the picture */
+.sh-pic-stage {
+  position: relative; border-radius: 22px; border: 1px solid var(--sh-pic-line);
+  background: radial-gradient(120% 80% at 50% 0%, #18233a, #0c1422 70%);
+}
+.sh-pic { display: block; width: 100%; height: auto; }
+@media (min-width: 900px) { .sh-pic { max-height: max(calc(100vh - 120px), 200px); } }
+/* SH-254: with the walk on, room under the picture for its bar, so both stay in view beside the templates. The floor:
+   the drawing never collapses on a short window (200% zoom of a low screen). */
+@media (min-width: 900px) { .sh-pic-page[data-walk-on] .sh-pic { max-height: max(calc(100vh - 250px), 200px); } }
+.sh-pic text { font-family: var(--sh-font, sans-serif); font-weight: 800; font-variant-numeric: tabular-nums; }
+.sh-pic .sh-pic-small { font-weight: 700; }
+.sh-pic-label { fill: var(--sh-pic-ink-2); }
+.sh-pic-muted { fill: var(--sh-pic-muted); }
+.sh-pic-number { fill: var(--sh-pic-ink); }
+.sh-pic-ticker { fill: var(--sh-pic-ink); }
+.sh-pic-wood-text { fill: var(--sh-pic-maple-ink); }
+.sh-pic-warn-text { fill: var(--sh-pic-warn); }
+.sh-pic-part { cursor: pointer; }
+.sh-pic-part:focus { outline: none; }
+.sh-pic-hit { fill: transparent; }
+/* Focus: a solid ring in the app's focus colour on a dark casing (packages/design base.css); an open sheet's part: a
+   dashed maple ring on the same casing. The two states differ by line and colour, both readable on wood and on navy. */
+.sh-pic-casing, .sh-pic-ring { fill: none; opacity: 0; }
+.sh-pic-casing { stroke: var(--sh-focus-halo, #080d16); stroke-width: 6.5; }
+.sh-pic-ring--focus { stroke: var(--sh-focus-ring, #a78bfa); stroke-width: 3; }
+.sh-pic-ring--open { stroke: var(--sh-pic-maple); stroke-width: 2.5; stroke-dasharray: 5 4; }
+.sh-pic-part:hover .sh-pic-ring--open { opacity: 0.6; }
+.sh-pic-part:focus-visible .sh-pic-casing, .sh-pic-part:focus-visible .sh-pic-ring--focus,
+.sh-pic-part.is-open .sh-pic-casing, .sh-pic-part.is-open .sh-pic-ring--open { opacity: 1; }
+/* With a sheet open only the routes (decoration) dim; the parts and their words keep their contrast. */
+.sh-pic.has-open .sh-pic-routes { opacity: 0.5; transition: opacity 0.2s; }
+.sh-pic-words { pointer-events: none; }
+.sh-pic-warn-badge { fill: var(--sh-pic-warn); stroke: var(--sh-focus-halo, #080d16); stroke-width: 1.5; }
+.sh-pic-warn-badge__text { fill: #10121a; font-weight: 800; }
+.sh-pic-cast__body { fill: var(--sh-pic-token); stroke: var(--sh-pic-cast-line); stroke-linejoin: round; }
+.sh-pic-cast__face { fill: #10121a; }
+.sh-pic-coin__face { fill: var(--sh-pic-silver); stroke: var(--sh-pic-silver-dark); stroke-width: 1.5; }
+.sh-pic-coin__rim { fill: none; stroke: #ffffff; stroke-opacity: 0.7; }
+.sh-pic-coin--token .sh-pic-coin__face { fill: var(--sh-pic-token); stroke: var(--sh-pic-cast-line); stroke-opacity: 0.5; }
+.sh-pic-coin--token .sh-pic-coin__rim { stroke: var(--sh-pic-token-light); stroke-opacity: 1; }
+.sh-pic-glow { fill: var(--sh-pic-glow); opacity: 0.12; }
+.sh-pic-glow--lit { opacity: 0.3; }
+.sh-pic-rise { stroke: var(--sh-pic-ink-2); stroke-width: 2.4; stroke-dasharray: 0.1 5; stroke-linecap: round; }
+.sh-pic-shadow { fill: #000000; opacity: 0.25; }
+.sh-pic-wood-edge { stroke: var(--sh-pic-maple-dark); stroke-width: 1.2; }
+.sh-pic-grain { fill: none; stroke: var(--sh-pic-maple-dark); stroke-opacity: 0.28; stroke-width: 1.3; }
+.sh-pic-hole { fill: #06080d; }
+.sh-pic-hole__glow { fill: none; stroke: var(--sh-pic-glow); stroke-width: 2; }
+.sh-pic-socket { fill: var(--sh-pic-maple-dark); opacity: 0.85; }
+.sh-pic-stop-maple { stop-color: var(--sh-pic-maple); }
+.sh-pic-stop-maple-light { stop-color: var(--sh-pic-maple-light); }
+.sh-pic-stop-maple-dark { stop-color: var(--sh-pic-maple-dark); }
+.sh-pic-stop-water { stop-color: var(--sh-pic-water); }
+.sh-pic-stop-water-light { stop-color: var(--sh-pic-water-light); }
+.sh-pic-tile { fill: #f4f6fa; stroke: #10121a; stroke-opacity: 0.35; }
+.sh-pic-tile__shape { fill: #7a8396; }
+.sh-pic-stall { fill: var(--sh-pic-mark-face); }
+.sh-pic-wood { fill: var(--sh-pic-maple); }
+.sh-pic-wood-light { fill: var(--sh-pic-maple-light); }
+.sh-pic-wood-dark { fill: var(--sh-pic-maple-dark); }
+.sh-pic-awning { fill: #f7efe0; }
+.sh-pic-dome { fill: #dfeefa; fill-opacity: 0.18; stroke: var(--sh-pic-ink-2); stroke-opacity: 0.55; stroke-width: 1.6; }
+.sh-pic-dome__base { fill: var(--sh-pic-ink-2); opacity: 0.7; }
+.sh-pic-lane { fill: none; stroke: var(--sh-pic-ink-2); stroke-width: 3; stroke-linecap: round; opacity: 0.8; }
+.sh-pic-route { fill: none; stroke-linecap: round; }
+.sh-pic-route--pick { stroke: var(--sh-pic-maple); stroke-width: 9; }
+.sh-pic-route--pool { stroke: var(--sh-pic-water); stroke-width: 3; }
+.sh-pic-route--sell { stroke-dasharray: 10 7; }
+.sh-pic-lane.sh-pic-route--sell { stroke-dasharray: 7 6; }
+.sh-pic-route--pool.sh-pic-route--sell { stroke-dasharray: 5 5; }
+.sh-pic-route--warn { stroke: var(--sh-pic-warn); opacity: 0.6; }
+.sh-pic-route--hidden { fill: none; stroke: none; }
+.sh-pic-tray { fill: var(--sh-surface, #111b29); stroke: var(--sh-pic-line); stroke-width: 1.5; }
+.sh-pic-cell--pick { fill: var(--sh-pic-maple); background: var(--sh-pic-maple); }
+.sh-pic-cell--pool { fill: var(--sh-pic-water); background: var(--sh-pic-water); }
+.sh-pic-cell--mark { fill: var(--sh-pic-mark-face); stroke: var(--sh-pic-mark-rim); stroke-width: 1.2; background: var(--sh-pic-mark-face); box-shadow: inset 0 0 0 1px var(--sh-pic-mark-rim); }
+.sh-pic-cell--warn { fill: var(--sh-pic-warn); opacity: 0.55; }
+.sh-pic-door { fill: var(--sh-surface, #111b29); stroke: var(--sh-pic-maple); stroke-width: 3.5; }
+.sh-pic-door--warn { stroke: var(--sh-pic-warn); stroke-dasharray: 5 4; }
+.sh-pic-icon { fill: none; stroke: var(--sh-pic-ink); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.sh-pic-tag { fill: var(--sh-surface-raised, #18253a); stroke: var(--sh-pic-line); stroke-width: 1.2; }
+.sh-pic-tag__text { fill: var(--sh-pic-ink-2); }
+.sh-pic-mark { fill: var(--sh-pic-mark-face); stroke: var(--sh-pic-mark-rim); stroke-opacity: 0.7; stroke-width: 1.2; }
+.sh-pic-mark__hole { fill: #05070c; stroke: #e6dcff; stroke-width: 1.4; }
+.sh-pic-tank { fill: #dfeefa; fill-opacity: 0.12; }
+.sh-pic-water { opacity: 0.9; }
+.sh-pic-tank__edge { fill: none; stroke: var(--sh-pic-ink-2); stroke-opacity: 0.6; stroke-width: 2.2; }
+.sh-pic-flying { fill: var(--sh-pic-silver); stroke: var(--sh-pic-silver-dark); stroke-width: 1.2; }
+.sh-pic-flying--token { fill: var(--sh-pic-token); stroke: var(--sh-pic-cast-line); }
+.sh-pic-hint { display: flex; align-items: center; justify-content: center; gap: 8px; color: var(--sh-pic-ink-2); font-weight: 700; font-size: var(--sh-type-small, 14px); }
+
+/* The sheet: a bottom sheet on a phone, a popover beside the part on a wide screen */
+.sh-pic-sheet {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: var(--sh-z-drawer, 30); overflow-y: auto; overscroll-behavior: contain;
+  /* SH-254: room for its head and one field at the least (a low window at 200% zoom); a field reached by Shift+Tab
+     never sits under the sticky head. */
+  max-height: max(72vh, 168px); scroll-padding-top: 72px; scroll-padding-bottom: 12px;
+  background: var(--sh-surface, #111b29); color: var(--sh-pic-ink); border-radius: 22px 22px 0 0; border: 1px solid var(--sh-pic-line);
+  box-shadow: var(--sh-elevation-3, 0 16px 48px rgba(0, 0, 0, 0.5));
+  padding: 0 max(16px, env(safe-area-inset-right, 0px)) calc(18px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+}
+@media (min-width: 900px) {
+  /* SH-254: never taller than the window below the top bar; it scrolls inside itself (PartSheet keeps it in the window). */
+  .sh-pic-sheet {
+    position: absolute; left: auto; right: auto; bottom: auto; width: 360px; border-radius: 18px; padding: 0 16px 16px;
+    max-height: max(calc(100vh - var(--sh-topbar-h, 64px) - 16px), 168px); max-height: max(calc(100dvh - var(--sh-topbar-h, 64px) - 16px), 168px);
+  }
+  .sh-pic-sheet__grab { display: none; }
+}
+.sh-pic-sheet__grab { width: 40px; height: 4px; border-radius: 4px; background: var(--sh-pic-line); margin: 10px auto 10px; }
+/* The head sticks at the very top of the sheet (the sheet has no top padding), so nothing scrolls past above it. */
+.sh-pic-sheet__head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; position: sticky; top: 0; z-index: 1; background: var(--sh-surface, #111b29); padding-block: 4px; }
+@media (min-width: 900px) { .sh-pic-sheet__head { padding-top: 14px; } }
+.sh-pic-sheet__title:focus { outline: none; }
+.sh-pic-sheet__title:focus-visible { outline: 3px solid var(--sh-focus-ring, #a78bfa); outline-offset: 2px; }
+.sh-pic-sheet__icon { width: 36px; height: 36px; border-radius: 10px; background: rgba(220, 159, 82, 0.16); display: grid; place-items: center; flex: none; }
+.sh-pic-sheet__icon svg { width: 24px; height: 24px; }
+.sh-pic-sheet__title { font-size: 21px; line-height: 1.1; margin: 0; flex: 1; min-width: 0; }
+.sh-pic-sheet__close { width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--sh-surface-raised, #18253a); color: var(--sh-pic-ink); cursor: pointer; font-size: 20px; flex: none; }
+.sh-pic-sheet__close:focus-visible { outline: 3px solid var(--sh-focus-ring, #a78bfa); outline-offset: 2px; }
+.sh-pic-sheet__body, .sh-pic-sheet__form { display: grid; gap: var(--sh-gap-3, 12px); min-width: 0; }
+.sh-pic-split { display: grid; gap: 4px; }
+.sh-pic-split__bar { display: grid; grid-template-columns: 10fr 2fr 3fr; gap: 4px; }
+.sh-pic-split__bar > span { height: 10px; border-radius: 4px; }
+.sh-pic-split__words { display: flex; justify-content: space-between; gap: 8px; margin: 0; font-size: 12px; color: var(--sh-pic-muted); }
+
+/* The side: What happens, Overview */
+.sh-pic-card { background: var(--sh-surface, #111b29); border: 1px solid var(--sh-pic-line); border-radius: var(--sh-radius-card, 16px); padding: 14px; min-width: 0; }
+.sh-pic-card__title { font-size: 20px; line-height: 1.1; margin: 0; }
+.sh-pic-happens__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.sh-pic-muted-text { color: var(--sh-pic-muted); margin: 2px 0 0; }
+.sh-pic-small-text { font-size: var(--sh-type-label, 13px); margin: 10px 0 0; }
+.sh-pic-clear { min-width: 44px; min-height: 44px; }
+.sh-pic-play { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 10px; }
+.sh-pic-play > .sh-button { flex-direction: column; min-height: 52px; line-height: 1.15; white-space: normal; padding: 6px 8px; text-align: center; overflow-wrap: anywhere; min-width: 0; }
+@media (max-width: 359px) { .sh-pic-play { grid-template-columns: minmax(0, 1fr); } }
+.sh-pic-play small { display: block; font-weight: 600; color: var(--sh-pic-muted); font-size: 12px; }
+.sh-pic-ledger { list-style: none; margin: 10px 0 0; padding: 0; display: grid; }
+.sh-pic-ledger > li { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 7px 0; border-top: 1px solid var(--sh-pic-line); }
+.sh-pic-ledger > li:first-child { border-top: 0; }
+.sh-pic-row__icon { width: 26px; height: 26px; display: block; }
+.sh-pic-ledger__label { font-size: var(--sh-type-small, 14px); font-weight: 600; min-width: 0; overflow-wrap: anywhere; }
+.sh-pic-ledger__amount { text-align: right; font-variant-numeric: tabular-nums; }
+.sh-pic-ledger__amount b { display: block; font-size: 17px; }
+.sh-pic-ledger__amount small { color: var(--sh-pic-muted); font-size: 12px; }
+.sh-pic-overview { width: 100%; min-height: 48px; }
+.sh-pic-issues__title { margin: 10px 0 0; font-weight: 700; font-size: var(--sh-type-label, 13px); color: var(--sh-pic-warn); }
+.sh-pic-issues { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 6px; }
+.sh-pic-why { margin-top: 8px; }
+.sh-pic-issues > li { color: var(--sh-pic-warn); font-size: var(--sh-type-label, 13px); font-weight: 600; }
+.sh-pic-issues .sh-newbox-text-button { color: inherit; text-align: left; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sh-pic-ring, .sh-pic.has-open .sh-pic-routes { transition: none; }
+}
+
+/* SH-254: the guided walk, the examples' own player (public/examples/follow.css, the bar): Play in a ring, the row of
+   steps, Next step, and the line of the step it is on. On a phone, while it walks, the bar sits at the window's foot
+   and the sheet stands on it, so Next step stays in reach. */
+.sh-pic-page { --sh-pic-walk-h: 128px; }
+.sh-pic-walk { display: grid; gap: 6px; min-width: 0; }
+.sh-pic-walk__bar { display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; grid-template-areas: "play steps next"; align-items: center; gap: 6px; }
+.sh-pic-walk__play { grid-area: play; }
+.sh-pic-walk__next { grid-area: next; }
+.sh-pic-walk__steps { grid-area: steps; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; margin: 0; padding: 0; list-style: none; min-width: 0; }
+.sh-pic-walk__btn {
+  display: grid; place-items: center; width: 44px; height: 44px; margin: 0; padding: 0; border: 1px solid var(--sh-pic-line);
+  border-radius: 12px; background: var(--sh-surface, #111b29); color: var(--sh-pic-ink); font: inherit; cursor: pointer; touch-action: manipulation;
+}
+.sh-pic-walk__btn:hover { border-color: var(--sh-accent, #a78bfa); }
+.sh-pic-walk__btn:focus-visible { outline: 3px solid var(--sh-focus-ring, #a78bfa); outline-offset: 2px; }
+.sh-pic-walk__btn[aria-disabled='true'] { opacity: 0.5; cursor: default; }
+.sh-pic-walk__play { border: 2px solid var(--sh-accent, #a78bfa); border-radius: 50%; color: #c4b2ff; }
+.sh-pic-walk__icon { width: 24px; height: 24px; }
+.sh-pic-walk__icon--fill { fill: currentColor; }
+.sh-pic-walk__icon--line { fill: none; stroke: currentColor; stroke-width: 2.4px; stroke-linecap: round; stroke-linejoin: round; }
+.sh-pic-walk__step { width: 40px; height: 40px; color: var(--sh-accent, #a78bfa); }
+.sh-pic-walk__step svg { width: 22px; height: 22px; opacity: 0.6; }
+.sh-pic-walk__step.is-done svg { opacity: 0.85; }
+.sh-pic-walk__step[aria-current='step'] { border-color: var(--sh-accent, #a78bfa); background: var(--sh-selected, #241e4f); }
+.sh-pic-walk__step[aria-current='step'] svg { opacity: 1; }
+.sh-pic-walk__end { width: 14px; height: 14px; border-radius: 3px; border: 2px solid currentColor; display: block; }
+.sh-pic-walk__say { margin: 0; min-height: 1.4em; text-align: center; font-size: var(--sh-type-small, 14px); color: var(--sh-pic-ink-2); }
+.sh-pic-walk__n { margin-right: 4px; color: #c4b2ff; font-weight: 800; }
+.sh-pic-overview[data-walk-here] { outline: 3px solid var(--sh-pic-maple); outline-offset: 3px; }
+@media (max-width: 899px) {
+  .sh-pic-page[data-walking] .sh-pic-walk {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: calc(var(--sh-z-drawer, 30) + 1); height: var(--sh-pic-walk-h);
+    align-content: start; background: var(--sh-surface, #111b29); border-top: 1px solid var(--sh-pic-line);
+    padding: 8px max(12px, env(safe-area-inset-right, 0px)) calc(8px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px));
+  }
+  .sh-pic-page[data-walking] .sh-pic-sheet { bottom: var(--sh-pic-walk-h); max-height: calc(72vh - var(--sh-pic-walk-h)); }
+  .sh-pic-page[data-walking] { padding-bottom: var(--sh-pic-walk-h); }
+  .sh-pic-walk__step { width: 36px; height: 36px; }
+}

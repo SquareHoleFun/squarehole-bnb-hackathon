@@ -1,0 +1,1571 @@
+{
+  "name": "box-conformance-coverage",
+  "about": [
+    "Which conformance case the Foundry tests check on today's contracts, and what waits (S2, launch pipeline v1 § 4 row S2, § 5; extended for the core v1 build by SH-core-wave-2 spec change 13 and for F74 in SH-F74-conformance). Declared by hand; `pnpm check:conformance` checks it against the case file and every Solidity file under packages/contracts/test, and renders docs/evidence/SH-S2-conformance-coverage.md.",
+    "`sources` name where case-named checks live (folders or files; a file belongs to the source whose path matches it most closely, so core/ is not the v2 harness's). Every `test_BCnnn_*` and `testFuzz_BCnnn_*` function under packages/contracts/test must sit in one of them and be listed in `cases` under its case and source; a `templateZeroOnly` source maps only cases for T0. `providers` name the test contracts that run a source's instance checks on a box. Since S10a a source may be `kind: typescript` (folders of vitest and Playwright tests outside packages/contracts/test): there every `it(…)` or `test(…)` whose title starts with `BC-nnn` is a check, listed under every case its title names.",
+    "Statuses are judged against the core v1 contracts (src/box/**), the contracts box 0 is built from; the v2 checks (S2's harness on today's Misfits contracts) are listed beside them. A case not listed is pending; the report gives its slice. A partial case that applies to T0 names in `waitsT0` what box 0 itself still waits for (a case whose box-0 part waits for nothing is checked); the report and `pnpm check:conformance` give each case's verdict for T0 and the Misfits gate's count of green G0 cases for T0 (review of the Misfits line, SH-misfits-line § Review)."
+  ],
+  "sources": [
+    {"id": "f126", "paths": ["packages/contracts/test/box/review-2026-10-09", "packages/contracts/test/box/review-2026-10-09-access"], "templateZeroOnly": true, "about": "F126 regression tests from the money and access reviews: fail-safe graduation and lossless stream retries, and refusal of uninitialised observer callbacks."},
+    {
+      "id": "core",
+      "paths": ["packages/contracts/test/box/conformance/core"],
+      "templateZeroOnly": true,
+      "about": "core v1's instance checks (BoxCoreConformance, on S2's BoxConformanceBase, and since S7 BoxCoreFactoryConformance: the registry's record and code fingerprints, box 0 against the reviewed genesis, the factory's fixed addresses, pins and sizes) on box 0 created by factory v1 (BoxFactoryV1.createBox through CoreBox0Kit, which deploys the version with the steps of script/DeployCoreV1.s.sol; it replaced SH-core-wave-2's CoreBox0Builder), with box 0's fixture as it is (since S8 no declared gap: tStream PER_ITEM_STREAM and the per-item stream the factory creates and wires); the S3 × S6 × S9 randomness life on real quicknet rounds (CoreBox0Randomness.t.sol); the gas and size tables (SH-core-wave-2, SH-S7-factory, SH-S8-stream)"
+    },
+    {
+      "id": "s7",
+      "paths": ["packages/contracts/test/box/s7"],
+      "about": "S7's tests of factory v1 (BoxFactoryV1, its planner and registry) on the version deployed by CoreV1Deployment, the steps script/DeployCoreV1.s.sol sends: who may create and what is refused with which reason before anything exists, the addresses fixed at the factory's deployment, the record and its events, the template id, the re-reads after the launch (a test-only subclass exposes them), the constructor's pins, the deploy script's guards, box 0's life through the factory at N 69, 4,269 and 10,000, and the creation and deployment gas under both schedules (SH-S7-factory; box 0 with its per-item stream since the S7 × S8 integration, SH-misfits-line)"
+    },
+    {
+      "id": "s8",
+      "paths": ["packages/contracts/test/box/s8"],
+      "about": "S8's tests of the per-Misfit stream (BoxItemStream): units and a differential fuzz against a naive per-swap allocation on a test world (the pool read replaced by a value the test sets), and box 0's life on the real core v1 contracts and pool (created by factory v1 through CoreBox0Kit since the S7 × S8 integration) against a per-swap allocation read independently with v4's StateLibrary, with the gas of every observer path under both schedules (SH-S8-stream)"
+    },
+    {
+      "id": "s5m4",
+      "paths": ["packages/contracts/test/box/s5m4"],
+      "about": "S5.M4's measurement and review lane: box 0 created by factory v1 (CoreBox0Kit) and, beside it on the same version, Standard boxes built by the S5.M4 kit (S5M4Kit: the kit plays the factory, which creates box 0 only in version 1; every contract real, the sampler and the module clone included). The gas of every keeper and caller path under both schedules with the tips they pay (S5M4Gas), the slots a box's first steps write from zero (S5M4FirstSteps), the sandwich against every protocol swap step type locally and on read-only mainnet and Sepolia forks (S5M4Sandwich*), and the invariant campaign across receiver, module, hook and stream with three scripted lives (S5M4Invariants; SH-misfits-line § S5.M4)"
+    },
+    {
+      "id": "s9-instance",
+      "paths": [
+        "packages/contracts/test/box/randomness/DrandSourceConformance.sol",
+        "packages/contracts/test/box/randomness/DrandSourceConformanceLocal.t.sol",
+        "packages/contracts/test/box/randomness/DrandSourceFork.t.sol"
+      ],
+      "about": "S9's instance checks of a drand source (DrandSourceConformance: BC-053's three), run on S9's local source, on mainnet and Sepolia forks (opt-in) and, inherited by BoxCoreConformance, on the source core v1 box 0's coordinator names (SH-S9-drand-source)"
+    },
+    {
+      "id": "items",
+      "paths": ["packages/contracts/test/box/items"],
+      "about": "S3's instance checks (BoxItemsConformance) on boxes built from BoxSpec vectors through BoxItemsKit with the S3 implementations (token, collection, vault, tickets, royalty router) and stand-ins for the coordinator, receiver and drand source; S3's unit, trace, fuzz and invariant suites (SH-S3-items)"
+    },
+    {
+      "id": "s45",
+      "paths": ["packages/contracts/test/box/s45"],
+      "about": "S4+S5's tests of the hook, launch router, receiver, price sampler and FIT's executor on boxes their own helper builds (BoxS45Base), with mocks for the coordinator and the stream (SH-S4S5-hook-receiver)"
+    },
+    {
+      "id": "s6",
+      "paths": ["packages/contracts/test/box/s6"],
+      "about": "S6's tests of the coordinator (graduation, the D6 reward, hostile pokes) on boxes with stand-ins for the other contracts, and units with a stand-in hook (SH-S6-coordinator)"
+    },
+    {
+      "id": "s9",
+      "paths": ["packages/contracts/test/box/randomness"],
+      "about": "S9's tests of DrandSource, the BLS check, the pins and DrandWords, among them shared randomness across consumers (SH-S9-drand-source)"
+    },
+    {
+      "id": "v2",
+      "paths": ["packages/contracts/test/box/conformance"],
+      "templateZeroOnly": true,
+      "about": "S2's instance checks (BoxConformance, BoxConformanceItems) on today's v2 Misfits contracts (src/v2, the code of the Sepolia rehearsal): the harness folder without core/ (SH-S2-conformance)"
+    },
+    {
+      "id": "indexer",
+      "kind": "typescript",
+      "paths": ["packages/indexer/test/core", "packages/indexer/test/history", "packages/chain/src/core"],
+      "about": "S10a's vitest tests of the core v1 indexer and the chain readers (`pnpm test`): the chain-level pipeline on synthetic multi-box chains (ScriptedCoreChain), and on box 0's whole life recorded on a local twin chain (anvil with Sepolia's chain id, core v1 deployed by script/local/DeployCoreV1Local.s.sol; test/fixtures/core-local-life.json, re-recorded by `record:core-fixture`); the history store on memory and on a throwaway Postgres 17 on a Unix socket (`pnpm test:history`); the hash-checked picture loader against a local stub gateway; the row decoder, the core manifest and the direct reads (packages/chain/src/core)"
+    },
+    {
+      "id": "web",
+      "kind": "typescript",
+      "paths": ["apps/web/src", "packages/links/src"],
+      "about": "S10a's vitest tests of the site (jsdom, `pnpm test`): box records from registry rows, box 0's page in every phase, the feed and wallets from the gateway answers recorded with box 0's local life and from synthetic rows, the source guards and the wording scan over every shipped file (no-trade-source, copy-wording); the link builder and route evidence per template and Q class (packages/links)"
+    },
+    {
+      "id": "web-e2e",
+      "kind": "typescript",
+      "paths": ["apps/web/e2e"],
+      "about": "the hermetic Playwright suite (`pnpm e2e`, desktop 1440 px and phone 390 px): the app built with the local core manifest recorded with box 0's life, its indexer origin answered from the gateway answers recorded at each stage (apps/web/e2e/fixtures/core-local; nothing leaves the machine), and synthetic feed and wallet answers for 2 and 50 boxes, 5 wallet boxes and stale or unverified boxes"
+    },
+    {
+      "id": "core-chain",
+      "kind": "typescript",
+      "paths": ["apps/web/e2e/core-chain"],
+      "about": "the live Playwright suite (`pnpm e2e:core-chain`, local only): anvil on 8559 with core v1 and box 0 (a local twin with Sepolia's chain id), box 0's life run stage by stage, the core service in the test process (gateway, hot state in memory) with its history writer on a throwaway Postgres socket, and the app built against that chain's core manifest; per stage the indexer's phase against phase() at every block and the page in that phase, then history wiped and rebuilt"
+    }
+  ],
+  "providers": [
+    {
+      "id": "built (core v1, template 0)",
+      "runs": ["core", "s9-instance"],
+      "about": "box 0 created by factory v1 (BoxFactoryV1.createBox; CoreBox0Kit deploys the version with the script's steps: chain id 1, the PoolManager compiled from the pin, the pinned DrandSource, WETH), checked as box 0 in six states: upcoming, window, bonding, closed (filled to exactly P1), graduated, and graduated-busy (a stranger's fundDepth() gift and 300 ETH of fees through the ETH intake in epochs 0 and 1)",
+      "contracts": [
+        "CoreBox0Kit",
+        "BoxCoreConformanceTemplate0UpcomingTest",
+        "BoxCoreConformanceTemplate0WindowTest",
+        "BoxCoreConformanceTemplate0BondingTest",
+        "BoxCoreConformanceTemplate0ClosedTest",
+        "BoxCoreConformanceTemplate0GraduatedTest",
+        "BoxCoreConformanceTemplate0GraduatedBusyTest"
+      ]
+    },
+    {
+      "id": "built (S3 items, BoxItemsKit)",
+      "runs": ["items"],
+      "about": "boxes built from BoxSpec vectors through BoxItemsKit: box 0's fixture (T0, N 4,269), the demo boxes with placeholders (T3) and with open art (T1), open art at N 10, 69, 5,000, 5,001 and 10,000; the vault built directly at N 1 and 2 (vault units)",
+      "contracts": [
+        "BoxItemsKit",
+        "BoxItemsConformanceBox0Test",
+        "BoxItemsConformanceDemoPlaceholdersTest",
+        "BoxItemsConformanceDemoOpenArtTest",
+        "BoxItemsConformanceN10Test",
+        "BoxItemsConformanceN69Test",
+        "BoxItemsConformanceN5000Test",
+        "BoxItemsConformanceN5001Test",
+        "BoxItemsConformanceN10000Test",
+        "BoxItemsConformanceVaultUnitTest"
+      ]
+    },
+    {
+      "id": "S9 (local)",
+      "runs": ["s9-instance"],
+      "about": "the pinned DrandSource deployed through the canonical deployer on a local chain (EVM Osaka)",
+      "contracts": ["DrandSourceConformanceLocalTest"]
+    },
+    {
+      "id": "S9 (fork)",
+      "runs": ["s9-instance"],
+      "about": "the pinned DrandSource put in place by the canonical deployer on a mainnet and a Sepolia fork, with a real quicknet round; opt-in (SH_FORK_MAINNET, SH_FORK_SEPOLIA; skips otherwise)",
+      "contracts": ["DrandSourceMainnetForkTest", "DrandSourceSepoliaForkTest"]
+    },
+    {
+      "id": "template-0 (v2, local)",
+      "runs": ["v2"],
+      "about": "today's v2 Misfits contracts built with the existing v2 deploy helpers (GenesisTestBase) on a PoolManager compiled from the pin, checked as box 0 in the phases upcoming, window, bonding, graduating and graduated",
+      "contracts": [
+        "BoxConformanceTemplate0UpcomingTest",
+        "BoxConformanceTemplate0WindowTest",
+        "BoxConformanceTemplate0BondingTest",
+        "BoxConformanceTemplate0GraduatingTest",
+        "BoxConformanceTemplate0GraduatedTest"
+      ]
+    },
+    {
+      "id": "deployed (v2, fork)",
+      "runs": ["v2"],
+      "about": "a deployed v2 box read on a fork (SH_BOX_FORK_URL or forge test --fork-url; SH_BOX_ID); the book holds the Sepolia rehearsal of box 0, sepolia-full-rehearsal (genesis 0x26d6…e108, creation block 11,817,793); every test skips with a hint when no fork is set",
+      "contracts": ["BoxConformanceDeployedTest"]
+    },
+    {
+      "id": "deployed (core v1, fork)",
+      "runs": ["core", "s9-instance"],
+      "about": "box 0 as factory v1 created it on a live chain, found through its registry (SH_CORE_V1_REGISTRY) and read on a fork (SH_CORE_V1_FORK_URL or forge test --fork-url), its spec the one the registry emitted, checked with every core and S9 instance check in whatever phase it is in; the post-deploy verifier of the Sepolia runbook (docs/runbooks/sepolia-core-v1.md), run on a replayed deployment on a local Sepolia fork before the open and after the window (SH-sepolia-prep); the whole suite skips without a registry",
+      "contracts": ["BoxCoreConformanceDeployedTest"]
+    },
+    {
+      "id": "built (S7)",
+      "runs": [],
+      "about": "factory v1 creates box 0 only, and box 0 is the provider above's box (since S7 the factory's); the unrestricted test build for every other template and matrix value comes with factory v2 (S11), and the deployed provider for core v1 boxes (a registry id read on a fork) is the entry above",
+      "contracts": []
+    }
+  ],
+  "cases": {
+    "BC-001": {
+      "status": "done-s1",
+      "where": "test/box/BoxSpecV1Vectors.t.sol and packages/box-spec/src/box-spec.test.ts (248 shared vectors, F74's among them)",
+      "covered": "both implementations give every vector the declared verdict, reason and hash; check:box-spec fails on a stale file. Both template-0 harnesses validate their box's own spec under its version (test_harness_specValidatesUnderItsVersion)"
+    },
+    "BC-002": {
+      "status": "done-s1",
+      "where": "test/box/BoxLayoutV1.t.sol, BoxLayoutV1Differential.t.sol, launch_shape.py --check",
+      "checks": {
+        "core": ["test_BC002_liveCurveIsTheLayoutLibrarys"],
+        "v2": ["test_BC002_liveCurveIsTheLayoutLibrarys"]
+      },
+      "covered": "on a live box 0 (core v1 in six states, v2 in five): the hook's curve range, raise and curve-position liquidity equal BoxLayoutV1 for the spec (core v1: no curve position left after graduation); on v2 also the seeded liquidity, start price and curve T of its PoolLaunched event and the pool share waiting in the coordinator"
+    },
+    "BC-003": {
+      "status": "done-s1",
+      "where": "test/box/BoxLayoutV1.t.sol, BoxLayoutV1Swaps.t.sol, layout-v1.json (28 layouts: box 0's R, which is also version 2's one raise (F74 U5), and the test context's sizes)",
+      "checks": {
+        "core": ["test_BC003_curveOnTheVersionsSpacingAndSpan"],
+        "v2": ["test_BC003_curveOnTheVersionsSpacingAndSpan"]
+      },
+      "covered": "on a live box 0 (core v1 and v2): spacing 60 and the 26,880-tick span in the hook and the pool key; on v2 also the usable range, curve T + pool share = 1e27, Q in and T out by currency order and the price never beyond P0 before graduation"
+    },
+    "BC-004": {
+      "status": "checked",
+      "checks": {
+        "core": ["test_BC004_oneIssuanceOnlyFalls"],
+        "items": ["test_BC004_oneIssuanceOnlyFalls"],
+        "v2": ["test_BC004_oneIssuanceOnlyFalls"],
+        "s7": ["test_BC004_creationMovesTOnlyAmongTheBoxsContracts"]
+      },
+      "covered": "core v1 box 0, every state: 1e27 issued once (one mint, to the coordinator) in the creation transaction, the bootstrap buy's T burned in it, totalSupply + totalBurned = 1e27, no mint selector (static scan); S3 (box 0, the demo boxes, N 10 to 10,000): 18 decimals, one issuance, supply falls only by burns; v2: every creation-block transfer goes to the coordinator, the PoolManager or a burn; S7: in createBox's transaction T is issued once, to the coordinator, and moves only between the coordinator, the PoolManager, the launch router and the zero address (the bootstrap's burn); no outside account holds T after it",
+      "waits": "Q other than native ETH: S12"
+    },
+    "BC-005": {
+      "status": "checked",
+      "checks": {
+        "core": ["test_BC005_supplyNeverBelowTheVaultFloor"],
+        "items": ["test_BC005_burnsRespectTheVaultFloor", "test_BC005_floorAtN1AndN2"],
+        "v2": ["test_BC005_supplyNeverBelowTheVaultFloor"]
+      },
+      "covered": "core v1 box 0, every state: the floor is the vault's escrow plus its items (E + n) and totalSupply never below it; S3: no burn below E + n, a refused burn reverts BurnBelowSupplyFloor and changes nothing (box 0, the demo boxes, N 10 to 10,000; fuzzed in BoxToken.t.sol), and at N 1 and 2 on a vault built directly; v2: the floor in every phase"
+    },
+    "BC-006": {
+      "status": "checked",
+      "checks": {
+        "items": ["test_BC006_quotesFromThePreActionState"],
+        "v2": ["test_BC006_quotesFromThePreActionState"]
+      },
+      "covered": "S3: quotes from the pre-action state with the version's flat fees on box 0, the demo boxes and N 10 to 10,000; BoxVaultTraces.t.sol replays the 47 quote-neutral v2 trace vectors (the other 8 model raw-balance donations, a policy BoxVault does not have, F24 (d); they stay with the TypeScript reference and the Python oracle) and 5 new ones at N 69 and 4,269 against BoxVault; vault invariants (BoxVaultInvariants.t.sol); v2: the same state check on today's vault"
+    },
+    "BC-007": {
+      "status": "checked",
+      "checks": {
+        "items": ["test_BC007_lastItemNeverLeaves", "test_BC007_lastItemAtN1AndN2", "test_BC007_ticketsCannotTakeTheLast"],
+        "v2": ["test_BC007_lastItemNeverLeaves"]
+      },
+      "covered": "S3: n ≥ 1 always and a take of all n reverts LastItem on box 0, the demo boxes and N 10 to 10,000; at N 1 and 2 on a vault built directly; the tickets add-on refuses the last item too; v2: LastMisfit in every phase"
+    },
+    "BC-008": {
+      "status": "checked",
+      "checks": {
+        "core": ["test_BC008_idsAreFirstIdToN"],
+        "items": ["test_BC008_idsAndDepthFollowN"],
+        "v2": ["test_BC008_idsAreFirstIdToN"],
+        "s7": ["test_BC008_createBoxRefusesNBelowTenOrAboveTenThousand"]
+      },
+      "covered": "ids firstId … firstId + N − 1 exist and no other, tree depth ceil(log2 N): core v1 box 0 (collection, vault and tickets; N 4,269), S3 boxes at N 10, 69, 4,269, 5,000, 5,001 and 10,000, v2; validate() refuses N below 10 or above 10,000 (S1 vectors); S7: createBox refuses N 1, 2, 9 and 10,001 (InvalidSpec(OUT_OF_RANGE, n)) with nothing created"
+    },
+    "BC-009": {
+      "status": "checked",
+      "checks": {
+        "core": ["test_BC009_untouchedItemsAreTheVaults"],
+        "items": ["test_BC009_allNAreTheVaults"],
+        "v2": ["test_BC009_untouchedItemsAreTheVaults"]
+      },
+      "covered": "core v1 box 0, every state: the creation transaction announced all N in contiguous ConsecutiveTransfer events of at most 5,000 ids to the vault, and the vault holds its inside items plus those its open tickets wait for; S3 at N 10, 69, 4,269, 5,000 (one event), 5,001 and 10,000 (two): balanceOf(vault) = N and every untouched id the vault's (every id up to 5,001, a sample above); v2: the same on today's collection (a 61-id sample on a fork)"
+    },
+    "BC-010": {
+      "status": "partial",
+      "checks": {
+        "core": ["test_BC010_noAdminFunctionInAnyBoxContract", "test_BC010_factoryPlannerAndRegistryHaveNoAdmin"],
+        "s45": ["test_BC010_hookHasNoRungEntryPoints", "test_BC010_routerNamesNoSafe"],
+        "v2": ["test_BC010_noAdminFunctionInAnyBoxContract"],
+        "s7": ["testFuzz_BC010_strangersChangeNothingOnTheFactoryOrRegistry"]
+      },
+      "covered": "core v1 box 0, every state: no box contract (each clone kind read through its implementation, the hook also through its fixed extension) dispatches any of 30 denied and 4 mint signatures (each scan with a positive control); none is an EIP-1967 proxy or a delegation; none has SELFDESTRUCT or CALLCODE; F77: the hook dispatches no pokeRungs, rungAt, rungCount or lastHarvestTick, the router no platformSafe, and the receiver's payPlatform() is the only push to the Safe (core and S4+S5, the router's 105 argument bytes); v2: the same over today's nine contracts; S7: the factory, its planner and its registry dispatch none of the denied, mint or admin signatures, are no proxy or delegation and hold no SELFDESTRUCT, CALLCODE or DELEGATECALL (core, every state); createBox refuses every caller but the box-0 creator and record every caller but the factory, with nothing created (fuzzed callers)",
+      "waits": "every state-changing function of every implementation fuzzed from random callers (the core harness covers each wiring and lifecycle call, the s7 tests the factory's and registry's; the other entry points are anyone's by design)",
+      "waitsT0": "the all-entry fuzz from random callers over box 0's implementations (a check still to write)"
+    },
+    "BC-011": {
+      "status": "checked",
+      "checks": {
+        "s7": [
+          "test_BC011_invalidCallsLeaveNoContractPoolOrRecord",
+          "test_BC011_aReplayFromAnotherAddressCannotTakeBox0",
+          "test_BC011_dustAtEveryPredictedAddressBlocksNothing"
+        ]
+      },
+      "covered": "factory v1 (box 0): an invalid spec (bad N, an unlisted Q, any refusal of validate() or template 0), a wrong bootstrap value (0, one wei less or more), FIT's executor's code other than the hash fixed at deployment and an unmined hook salt each revert with no contract at any address the factory fixed, no record and no pool; the same calldata replayed first from another address is refused (one creator, fixed at deployment) and the creator's call then succeeds at the same addresses; 1 wei of ETH and of ETH claims at every predicted address and ETH forced into the factory block neither the creation nor the life after it (balances compared with their earlier values; the router's tax and the D6 reserve count no dust)",
+      "waits": "other creators' boxes salted with the creator and spec hash (the replay's hook salt no longer yielding the flags) and Q other than native ETH: S11, S12"
+    },
+    "BC-012": {
+      "checks": {
+        "core": [
+          "test_BC012_registryHoldsBox0sRecord",
+          "test_BC012_everyContractIsTheVersionsCodeWithTheSpecsArguments",
+          "test_BC012_theVersionIsThisBuildsCode"
+        ],
+        "s7": ["test_BC012_oneRecordItsEventsAndOneInitialisationEach"]
+      },
+      "status": "partial",
+      "covered": "factory v1, box 0 (core, every state): one append-only record written only by the factory in the creation block (coordinator, block, template id, spec hash, record hash); the record rebuilt from the chain (every contract with its code hash) hashes to the stored one; each clone is exactly its implementation's fixed proxy plus the arguments derived from the spec (the per-item stream's 182 bytes since S7 × S8; the royalty router the receiving variant), the table 0x00 ‖ the spec's table, T and FIT's executor their reviewed creation code with the derived arguments; every implementation, the planner, the factory and its registry hold exactly the runtime code of the active build profile's build (byte for byte outside their immutables, F78) and the factory's versionCodeHash is the one that code gives; s7: BoxCreated carries the record as recordOf rebuilds it and BoxSpec the whole spec (its hash the spec hash), a stranger or a second record is refused, each clone initialises once and every implementation refuses to be initialised directly",
+      "waits": "several boxes (2 and 50) through one factory and a storage audit of every clone at creation: S11 (factory v1 creates box 0 only)",
+      "waitsT0": "the storage audit of box 0's clones at creation: only creation-dependent values (the deploy block and the open time) and values from the clone's own address in storage, each written by the creation's own steps and never rewritten later (three packed state words, the coordinator's, the hook's and the launch router's, by two steps each; box 0's own review W3-U1-3 holds the slot inventory; a check still to write here)"
+    },
+    "BC-013": {
+      "checks": {
+        "s7": ["test_BC013_templateIdFollowsTheStructureNotTheData"]
+      },
+      "status": "checked",
+      "covered": "factory v1's template id (keccak256 of the version's code hash, box type, layout, graduated layout, launch format, Q class, both stream actions, art mode, the wiring add-ons with the royalty destination, and the module's code hash): unchanged by names, N, texts, art, table, open delay and royalty rate; different for each of box type, layout, graduated layout, Q class, either stream action, art mode, a royalty destination or the add-on's absence, and the module's code hash; the record (BoxCreated) carries it"
+    },
+    "BC-014": {
+      "status": "checked",
+      "checks": {
+        "s7": ["test_BC014_onlyBox0sMenuPairIsAccepted"]
+      },
+      "covered": "factory v1: of all 49 buyers' × sellers' pairs only box 0's (BUYBACK_BURN_T with PER_ITEM_STREAM and its add-on: PER_ITEM_STREAM only in box 0's spec) is accepted; BURN_T is refused beside add-on 2 by validate() and without it (core v1's gap before S8) as not template 0 (S7 × S8); creator kinds and holder values are refused by validate() on version 1, SELL_FOR_Q beside BUYBACK_BURN_T by the menu rule, ALL_TO_FIT and BURN_Q by template 0",
+      "waits": "version 2's menu at each Q (BURN_Q for FIT or a listed box T, the creator kinds and their payee, holders on Sepolia): S11, S12, S14"
+    },
+    "BC-015": {
+      "status": "checked",
+      "checks": {
+        "core": ["test_BC015_box0FeeSplitAndPlatformCap"],
+        "s45": [
+          "test_BC015_standardSplitsTenThreeTwo",
+          "test_BC015_creatorSplitsTenThreeTwo",
+          "test_BC015_box0SplitsElevenTwoTwo",
+          "testFuzz_BC015_splitsAreExactWithCarry",
+          "testFuzz_BC015_box0SplitsAreExactWithCarry",
+          "test_BC015_noUnitOfOneBoxCreditedToAnother"
+        ],
+        "v2": ["test_BC015_box0SplitThirteenToTwoFifteenths"]
+      },
+      "covered": "core v1 box 0, every state: the epoch's kept ≤ 32 ETH and kept + remaining = 32 ETH, at most (epoch + 1) × 32 ETH over its life, (platform + held) × 11 ≤ FIT × 2, 11 + 2 + 2 = 15 and 13 + 2 = 15, and a fresh 0.15 ETH batch through the ETH intake splits exactly 11:4 to the wei (0.11 ETH to FIT); S4+S5: 0.15 ETH → 0.1 / 0.03 / 0.02 ETH with a Q-stream action and with TO_CREATOR, box 0 (F77) 0.11 / 0.02 / 0.02 ETH and a 15-unit T batch 13 burned / 2 to depth, the parts plus the carry equal the inputs to the wei (fuzzed, box 0's buyers' side with the cap's excess too; its sellers' side: BC-139), no unit of one box credited to another; v2: box 0's 13/15 and 2/15 on today's executor, which differs from the version's 11/15 by design",
+      "waits": "Q other than native ETH: S12"
+    },
+    "BC-016": {
+      "status": "checked",
+      "checks": {
+        "s45": [
+          "test_BC016_allToFitReachesTheExecutorThroughFundBudget",
+          "test_BC016_burnTLowersSupplyExactlyOrWaits",
+          "test_BC016_toCreatorCreditsExactlyTheRewardShare"
+        ]
+      },
+      "covered": "ALL_TO_FIT reaches FIT's executor through fundBudget() with no treasury cut; BURN_T lowers T's supply exactly or the share waits below the floor, never counted as burned; TO_CREATOR credits exactly the reward share; box 0's BUYBACK_BURN_T: BC-020, BC-041",
+      "waits": "BUYBACK_BURN_T for boxes other than box 0 (their buy-back module): S11; BURN_Q and ALL_TO_FIT burning FIT (Q other than ETH): S12"
+    },
+    "BC-017": {
+      "status": "checked",
+      "checks": {
+        "s45": ["test_BC017_noSwapMintsOrMovesFees", "test_BC017_belowAtAndAboveTheMinimum", "test_BC017_feesEqualOnePercentOfEveryInput"]
+      },
+      "covered": "no swap mints, moves or notifies fees; collect() below the 0.005 ETH minimum reverts, at and above it pays; the caller's tip is 10% capped at 0.0005 ETH; the closed pool's fees equal 1% of every input; the reserve topped up first before graduation: BC-027",
+      "waits": "the listed equivalents of the minimum and tip for Q other than ETH: S12; the failure's exception: S11"
+    },
+    "BC-018": {
+      "status": "partial",
+      "checks": {
+        "s45": ["test_BC018_extraGasWithinBudget_today", "test_BC018_extraGasWithinBudget_glamsterdam"]
+      },
+      "covered": "the hook's extra gas per ordinary swap after graduation over a hookless pool with the same liquidity: +12,372 today and +13,172 under Foundry's Glamsterdam model, within 14,123; no ordinary swap writes a slot from zero",
+      "waits": "the figures on a fork and, after its Glamsterdam fork, on Sepolia (Foundry's amsterdam is a snapshot of EIPs in review); Q other than ETH: S12",
+      "waitsT0": "the figures on a mainnet fork and, after its Glamsterdam fork, on Sepolia"
+    },
+    "BC-019": {
+      "status": "checked",
+      "checks": {
+        "s45": ["test_BC019_moduleFeesReturnWholeFirst", "test_BC019_executorReportsItsOwnFeeEndToEnd"]
+      },
+      "covered": "REV-16 from fee growth: the module's own fees come back whole to its budget before the split; FIT's executor reports its own fee end to end, within 16 wei of the fee; another address's swap is split as usual",
+      "waits": "the buy-back modules of T1 and T7: S11"
+    },
+    "BC-020": {
+      "status": "checked",
+      "checks": {
+        "core": ["test_BC020_executorBuysNothingBeforeGraduation"],
+        "s45": ["test_BC020_fitShareWaitsForGraduation"],
+        "v2": ["test_BC020_executorBuysNothingBeforeGraduation"]
+      },
+      "covered": "core v1 box 0, every state: FIT's executor reads graduation from the coordinator and has spent nothing before it; S4+S5: box 0's 11/15, its held platform share and its 2/15 depth parts (Q and T) wait in its receiver until graduation, and the executor buys nothing; v2: today's executor",
+      "waits": "a hostile module mock as another box's buy-back module, and the failure (the waiting Q to FIT, the T burned): S11"
+    },
+    "BC-021": {
+      "status": "partial",
+      "checks": {
+        "s45": [
+          "test_BC021_revertingRecipientsBlockOnlyThemselves",
+          "test_BC021_box0PaysOnlyTheFixedSafeAndOnlyItsCappedShare",
+          "test_BC021_aRefusingSafeKeepsItsCredit"
+        ]
+      },
+      "covered": "a reverting creator payee, a refusing tip recipient and a refusing Safe block only their own claims (the payee's claim to another address works); box 0's receiver pays only the fixed Safe, only its capped share, as claims anyone triggers, delivered to a Safe; other boxes' receivers have no platform payee (BC-109); creator claims are pulled by the payee (BC-111)",
+      "waits": "a gas-burning recipient (S5's tests use reverting and refusing ones; a check still to write); Q other than native ETH: S12",
+      "waitsT0": "a gas-burning recipient (a check still to write)"
+    },
+    "BC-022": {
+      "status": "checked",
+      "checks": {
+        "core": ["test_BC022_routerHoldsOnlyUnsweptTax"],
+        "s45": ["test_BC022_box0TaxWaitsThenBecomesDepth", "test_BC022_standardTaxWaitsThenBecomesDepth"],
+        "v2": ["test_BC022_routerHoldsOnlyUnsweptTax"]
+      },
+      "covered": "core v1 box 0, every state: the launch router holds no T and no claims, held plus swept is exactly the tax it took, it names no Safe, nothing is swept before graduation, the Safe's ETH is exactly what payPlatform() paid it, it serves only its own pool; S4+S5 (F77): box 0's and a version-2 box's tax wait in their routers and become their own depth after graduation, never the Safe; the partial closing fill and its refund: BC-096; v2: today's router (the Sepolia rehearsal's code, which still sweeps box 0's tax to its treasury)",
+      "waits": "a version-2 box's tax into the refund range at a failure: S11 (BC-110); Q other than ETH: S12"
+    },
+    "BC-023": {
+      "status": "partial",
+      "checks": {
+        "core": ["test_BC023_windowOpensAtTheSpecsTime", "test_BC023_aMiswiredOpenFailsTheCheck"],
+        "s7": [
+          "test_BC023_openAtTooFarIsRefused",
+          "testFuzz_BC023_openAtRefusalFollowsTheRule",
+          "test_BC023_nowAndATimeReachedOpenInTheNextBlock",
+          "test_BC023_ticketsOpenToTheSecond",
+          "test_BC023_theLaunchRouterMustOpenWithTheHook"
+        ],
+        "s45": [
+          "test_BC023_sniperAtTheOpen_now",
+          "test_BC023_sniperAtTheOpen_in5Minutes",
+          "test_BC023_sniperAtTheOpen_in1Hour",
+          "test_BC023_sniperAtTheOpen_in14Days",
+          "test_BC023_everySecondAroundAndInsideTheWindow",
+          "test_BC023_theEdgesOfTheWindow",
+          "test_BC023_buysAtTheStepEdgesPayTheirStepsTax",
+          "test_BC023_aMissedSlotSkipsItsStepAndNeverStretchesTheWindow",
+          "testFuzz_BC023_theWindowFollowsTheClock"
+        ],
+        "v2": ["test_BC023_windowFromCreationPlusTheSpecsDelay"]
+      },
+      "covered": "F80, openAt a clock time: core v1 box 0, every state (local and deployed providers): the window opens at the spec's openAt to the second, or for Now at the creation block's time + 1 (the deployed provider reads the creation block's time on its fork), in the hook, the launch router and the tickets add-on, lasts 384 s, the phase follows the block's time and the gate holds for the phase; the check fails when the hook's, router's or tickets' open is one second off; s7: the factory refuses a time more than 14 days ahead (OpenAtTooFar, after the spec's own checks) and validate() 1 to MIN_OPEN_AT - 1 (fuzzed over openAt and the block's time), Now, a long-past time and the creation's own second open in the next block and a future time to the second in hook, router, tickets and registry, and take() is refused in the last second before the open and works in its second, and a planner that gives the launch router another open than the hook's is refused (Miswired 8); S4+S5: the sniper at Now, 5 minutes, 1 hour and 14 days on 12-second slots (before the open everything reverts but the bootstrap, at the open a direct buy reverts BuyThroughLaunchRouter and a router buy pays 93.1974%, sells pass, step 31 pays 8.0565%, from the window's end (or the close, BC-096) the 1% alone), every second from 13 s before an off-grid open to 16 s after the window (phase, quote, gate for buys, sells and the router), real buys at the step edges (tax and TaxedBuy step of the second's step), a missed slot (its step uncharged; a missed slot 31 ends the window with 31 blocks, never later), and a fuzz over the creation time, openAt (Now, reached, up to 14 days) and the block's time against the rule; v2: today's contracts by block",
+      "waits": "a Universal Router buy on a fork (the routes here are the PoolManager and the launch router); Q other than ETH: S12",
+      "waitsT0": "a Universal Router buy on a fork"
+    },
+    "BC-024": {
+      "status": "checked",
+      "checks": {
+        "core": ["test_BC024_taxTableIsTheVersions"],
+        "s45": ["test_BC024_oneTaxTableFitsEveryBox"],
+        "v2": ["test_BC024_taxTableIsTheVersionsFromK"]
+      },
+      "covered": "core v1 box 0: the router's 32 entries hash to the version's table, 93.1974% falling to 8.0565%, 0 after; S4+S5: the one table (LAUNCH_TAX_TABLE_HASH) is 1 − k^(-(32 − b)/32) for five raises; v2: each entry recomputed from k with the pinned TickMath",
+      "waits": "Q other than ETH: S12"
+    },
+    "BC-025": {
+      "status": "partial",
+      "checks": {
+        "s45": [
+          "test_BC025_closesExactlyAtP1_fill21",
+          "test_BC025_closesExactlyAtP1_fill70",
+          "test_BC025_closesExactlyAtP1_fill98",
+          "test_BC025_exactInputOvershoot_fill21",
+          "test_BC025_exactInputOvershoot_fill70",
+          "test_BC025_exactInputOvershoot_fill98",
+          "test_BC025_exactOutput_fill21",
+          "test_BC025_exactOutput_fill70",
+          "test_BC025_exactOutput_fill98",
+          "test_BC025_buyToP1AndSellBackInOneUnlockIsImpossible"
+        ]
+      },
+      "covered": "at 21%, 70% and 98% fill: a buy to exactly P1, an exact-input overshoot and an exact output each close the curve in their own afterSwap; every later swap reverts until graduate(), which returns the price to exactly P1; a buy to P1 and a sell back in one unlock is impossible; gas logged; the launch router's close in the window: BC-096",
+      "waits": "the exact-input overshoot through the Universal Router with SWEEP on a fork; Q other than ETH: S12",
+      "waitsT0": "the exact-input overshoot through the Universal Router with SWEEP on a fork"
+    },
+    "BC-026": {
+      "status": "partial",
+      "checks": {
+        "core": ["test_BC026_closeThenGraduationState", "test_BC026_everyPokeSucceededAtGraduation"],
+        "s6": [
+          "test_BC026_inTheClosingBlock_N4269_box0",
+          "test_BC026_inTheClosingBlock_N69_standard",
+          "test_BC026_inTheClosingBlock_N10000_standardWithTickets",
+          "test_BC026_inTheClosingTransaction_exactAndOvershoot",
+          "test_BC026_insideTheLaunchRoutersRefund",
+          "test_BC026_muchLater",
+          "test_BC026_beforeTheCloseAlwaysReverts",
+          "testFuzz_BC026_onceFromTheClose"
+        ],
+        "s7": ["test_BC026_graduationAtN69And10000ThroughTheFactory"]
+      },
+      "covered": "core v1 box 0: closed, every swap waits for graduate(); graduated, the hook migrated in the same call, the vault's gate open, the receiver settled, the tickets' word requested from the pinned source, and every poke (receiver, tickets, FIT's executor) succeeded with the real contracts; S6: in the closing block (N 69, 4,269, 10,000), in the closing transaction (exact and overshoot), inside the launch router's refund, 100,000 blocks later; once; NotLaunched or NotClosed before the close at any fill (fuzzed); S7: box 0 built by the factory at N 69 and 10,000 with the real S3 vault and tickets closes and graduates with every poke succeeding (the receiver settled, the tickets' word requested, the vault's gate open)",
+      "waits": "the Universal Router on a fork; Q other than ETH: S12",
+      "waitsT0": "the Universal Router on a fork"
+    },
+    "BC-027": {
+      "status": "checked",
+      "checks": {
+        "core": ["test_BC027_rewardFromTheCurvesFeesCapped"],
+        "s6": [
+          "test_BC027_collectNever",
+          "test_BC027_collectJustBefore",
+          "test_BC027_manyBatches",
+          "testFuzz_BC027_rewardUnderAnySchedule",
+          "test_BC027_unit_zeroFees",
+          "test_BC027_unit_belowCap",
+          "test_BC027_unit_aboveCapAndTopUpInMigrate",
+          "test_BC027_unit_giftsAreFeesNotReward",
+          "testFuzz_BC027_unit_minReserveCap"
+        ]
+      },
+      "covered": "core v1 box 0: the reward capped at 0.1% of R by hook and coordinator alike, only from the reserve the hook minted, credited once and claimed by the graduator; S6 with the real hook: collect never, just before, in 6 batches and in any schedule (fuzzed): reward = min(fees, cap) = cap, the pool holds exactly R, claimed once; units with a stand-in hook: zero fees, below the cap, above it with a top-up in migrate, gifts are fees not reward",
+      "waits": "Q other than ETH: S12"
+    },
+    "BC-028": {
+      "status": "partial",
+      "checks": {
+        "s6": ["test_BC028_frontRunningChangesOnlyWhoClosesAndWhoIsPaid", "test_BC028_everyClosePathGivesTheSameLayout"]
+      },
+      "covered": "a front-running close (overshoot), a copied graduate() and a buy in one transaction give the same ask, bid, sentinel, supply and reward amount; only the closer and the rewardee differ; the buy starts at exactly P1; exact, overshoot and exact-output closes give one layout (snapshot worlds)",
+      "waits": "a mempool run on a fork; Q other than ETH: S12",
+      "waitsT0": "a mempool run on a fork"
+    },
+    "BC-029": {
+      "status": "checked",
+      "checks": {
+        "s45": ["test_BC029_forcingCost_fill207", "test_BC029_forcingCost_fill701", "test_BC029_forcingCost_fill981"]
+      },
+      "covered": "buy to P1, graduate() and sell back in one transaction cost 0.6702, 0.1220 and 0.00203 ETH at 20.7%, 70.1% and 98.1% fill by ETH (model 0.6704, 0.1219, 0.00202); the pool keeps +0.6365, +0.1093 and +0.0012 ETH more Q than the curve held",
+      "waits": "Q other than ETH (R's equivalent, open): S12"
+    },
+    "BC-030": {
+      "status": "checked",
+      "checks": {
+        "core": ["test_BC030_ownHookAddressAndPositions"],
+        "s45": ["test_BC030_twoBoxes", "test_BC030_fiftyBoxes"],
+        "v2": ["test_BC030_ownHookAddressAndPositions"]
+      },
+      "covered": "core v1 box 0: its own hook clone at an address with flags 0x2AE0 and no 0x91 prefix, named by the pool key, owning every protocol position; S4+S5 with 2 and 50 boxes: distinct clones and positions, one box's graduation moves no other; v2: today's hook",
+      "waits": "many boxes built by one factory with their receivers, routers, royalty routers and depth budgets, only box 0 paying the Safe: S11 (factory v1 creates box 0 only); one box's failure moving no other: S11"
+    },
+    "BC-031": {
+      "status": "checked",
+      "checks": {
+        "core": ["test_BC031_routingClassKept"],
+        "s45": ["test_BC031_routingClassInEveryPhase"],
+        "v2": ["test_BC031_routingClassKept"]
+      },
+      "covered": "static 1% fee without the dynamic flag, spacing 60, flags 0x2AE0 with no return-delta bit, and a foreign initialize with the box's hook reverts: core v1 box 0 in six states, S4+S5 in five phases, v2 in every phase it has",
+      "waits": "the failed phase: S11"
+    },
+    "BC-032": {
+      "status": "checked",
+      "checks": {
+        "core": ["test_BC032_noOutsideLiquidityOrDonation"],
+        "s45": ["test_BC032_closedToOutsideLiquidityInEveryPhase"],
+        "v2": ["test_BC032_noOutsideLiquidityOrDonation"]
+      },
+      "covered": "core v1 box 0 in six states and S4+S5 in five phases: outside adds (1 wei and large), removes and donations revert in every phase, before and after graduation (D3, no open-after state); v2: closed before graduation only (today's hook opens outside liquidity after the migration, F40 L2)",
+      "waits": "the failed phase: S11"
+    },
+    "BC-033": {
+      "status": "checked",
+      "checks": {
+        "core": ["test_BC033_plainEthToCustodyRefused"],
+        "s45": ["test_BC033_dustBlocksNothingAndCountsNothing"],
+        "v2": ["test_BC033_plainEthToCustodyRefused"]
+      },
+      "covered": "core v1 box 0: plain ETH to every custody contract is refused (the royalty router and FIT's executor take ETH by design, BC-114 and BC-108); S4+S5: dust swaps and repeated collect() never pay more than one tip, T dust is no fee, ETH to the hook reverts; v2: today's contracts",
+      "waits": "dust in a Q other than ETH: S12; the failure: S11"
+    },
+    "BC-034": {
+      "checks": {
+        "s7": ["test_BC034_theSameSpecTwiceIsRefused"]
+      },
+      "status": "checked",
+      "covered": "factory v1: the same creator with an identical spec twice is refused (Box0Exists)",
+      "waits": "two creators and two boxes created and traded in one block: S11 (factory v1 creates box 0 only)"
+    },
+    "BC-041": {
+      "status": "checked",
+      "checks": {
+        "core": ["test_BC041_executorRunsTheVersionsBounds"],
+        "s45": ["test_BC041_belowAtAndManyBatches"],
+        "v2": ["test_BC041_executorRunsTheVersionsBounds"]
+      },
+      "covered": "core v1 box 0: FIT's executor runs on box 0's own pool with the version's fixed bounds; S4+S5: nothing below 0.05% of FIT's market cap, a batch at it, at most 49 ticks of impact, one step a block, every bought FIT burned, many batches; v2: today's executor"
+    },
+    "BC-042": {
+      "status": "checked",
+      "checks": {
+        "items": ["test_BC042_directItemSendsRefused"],
+        "v2": ["test_BC042_itemSendsToTheVaultRefused"]
+      },
+      "covered": "S3 on box 0, the demo boxes and N 10 to 10,000: an item outside cannot reach the vault by transferFrom or safeTransferFrom outside a return, nor T; the vault's counts move only through its own pulls; v2: the same after graduation"
+    },
+    "BC-043": {
+      "status": "checked",
+      "checks": {
+        "core": ["test_BC043_tToTheVaultOrToTRefused"],
+        "items": ["test_BC043_tSendsRefusedOrHarmless"],
+        "s6": ["test_BC043_tSentToTheCoordinatorJoinsTheAsk"],
+        "v2": ["test_BC043_tToTheVaultOrToTRefused"]
+      },
+      "covered": "T to the vault (but its own pull) or to T reverts DirectSendRefused (core v1 box 0 in six states, S3 boxes, v2); T sent to the coordinator, the collection, the tickets add-on or the router arrives and changes no quote (S3); T sent to the coordinator joins the ask and never breaks graduation (S6); T dust at the hook and the receiver counts as no fee (BC-033)",
+      "waits": "Q other than ETH: S12"
+    },
+    "BC-044": {
+      "status": "checked",
+      "checks": {
+        "items": ["test_BC044_oneBoxsItemsCannotEnterAnother"]
+      },
+      "covered": "two S3 boxes: A's item cannot enter B's vault, sent or returned; B's counts do not change"
+    },
+    "BC-051": {
+      "status": "checked",
+      "checks": {
+        "items": ["test_BC051_hiddenArtReveals"],
+        "v2": ["test_BC051_hiddenArtCommitmentAndTimers"]
+      },
+      "covered": "S3 on box 0's fixture (N 4,269): only proofs of depth ceil(log2 N) against revealRoot reveal, forged ones do not; slot j maps to firstId + pi_w(j); an unrevealed open works after 30 days (RETURN_GRACE, built, P) and returns 30 days later; terminal mode after 7 silent days; no unlocker; core v1 box 0 end to end on the pinned source: the graduation word, a draw and terminal mode after 7 silent days (test_BC053_graduationWordAndDrawFromThePinnedSource, test_BC053_silentSevenDaysThenTerminal); v2: today's adapter's commitment and timers"
+    },
+    "BC-053": {
+      "status": "checked",
+      "checks": {
+        "core": [
+          "test_BC053_boxReadsOnlyItsBackedSource",
+          "test_BC053_backedSourceFixedAtCreation_noOwnerNoRestart",
+          "test_BC053_backedSourceDrandFirstThenBackupByRule",
+          "test_BC053_backedSourceOneTargetPerRound",
+          "test_BC053_graduationWordAndDrawFromThePinnedSource",
+          "test_BC053_silentSevenDaysThenTerminal"
+        ],
+        "s9-instance": [
+          "test_BC053_drandOnly_noBackupSource",
+          "test_BC053_wordPerConsumerAndKey_fromTheFixedRoundOnly",
+          "test_BC053_waitsThenSilentAfterSevenDays"
+        ],
+        "s9": [
+          "test_BC053_eachConsumerAndKeyGetsItsOwnWord_postedAtOnce",
+          "test_BC053_noBoxCanReadEarlyChangeOrBlockAnothersWord",
+          "test_BC053_postedLateByAnyone_stillCounts",
+          "test_BC053_silentSevenDays_boxEntersTerminalModeAlone",
+          "test_BC053_silentDrawHead_terminalWithItsTicket",
+          "test_BC053_drawPriceCarriesThePostingBounty",
+          "test_BC053_failedPoke_firstDrawSendsTheWord",
+          "test_BC053_graduationPokeRequestsTheWord"
+        ]
+      },
+      "covered": "S9 with two consumer boxes on one source: each consumer and key gets its own word, posted at once or late by anyone, or silent for 7 days (terminal mode for that box alone); no box can read early, change or block another's word; a draw's price carries the posting bounty; a failed poke's word is sent by the first draw. The three instance checks (drand only, no backup source; a word per consumer and key from the fixed round only; waits, then silent after 7 days) run on S9's local source, on mainnet and Sepolia forks (opt-in) and on the DrandSource core v1 box 0's source names; core v1 box 0 (F143): its source is the pinned BoxBackedSource, fixed at creation with no owner, setter or restart (a code scan of its dispatched functions, its constants: 5 days, 256 blocks, EIP-2935's window, the 7 days and MARGIN equal to the DrandSource's; both pinned by address and code hash on chains 1 and 11155111), drand first, the RANDAO backup only by the rule (5 days after an unposted round, anyone, the previous block's header proved), never on a posted round, a late drand post ignored once started, one target per round even after its window; the tickets add-on reads only its coordinator's source with its 7-day silence, the graduation word and a draw end to end on real quicknet rounds, terminal mode after 7 silent days; test/box/backup (not case-named): the backup end to end on box 0 on both EVMs, the guards from the design study's review (no restart, an unprovable header refuses the start), the worst-case timeline inside the 7 days and the wordOf read margin",
+      "waits": "two real boxes' tickets add-ons on one source (S9 used consumer stand-ins; factory v1 creates one box): S11"
+    },
+    "BC-054": {
+      "status": "checked",
+      "checks": {
+        "core": ["test_BC054_contractUriIsTheSpecsPictures"],
+        "items": ["test_BC054_coverCommittedOnChain"],
+        "v2": ["test_BC054_coverMatchesTheSpecsHash"]
+      },
+      "covered": "S3 boxes (box 0, the demo boxes, N 10 to 10,000): the collection's cover is the spec's collectionCoverSha256 (field 28, F74 U3) and contractURI's image is ipfs:// + its raw CID, built from the spec's name, symbol, description and generator hash, plus banner_image and external_link from the collection-page add-on when set (box 0: banner A, F75 U10), with one ContractURIUpdated at creation and no way to change it; core v1 box 0 in six states: contractURI decoded key by key is the spec's (image from field 28, banner_image from add-on 6, external_link and generator_hash only when set), and its image and banner_image are the art lane's CIDs character for character (F75 U11 the Sorter, U10 banner A); validate() refuses a collection with a zero collection cover (S1 vectors 98, 100); v2: today's contractURI image hashes to the logo (FIT's icon inline), a declared 'today' delta against field 28 (the Sorter), and today's contractURI has no banner_image (the collection-page add-on is a declared 'today' delta, S3)",
+      "waits": "other templates with the collection-page add-on: S11 (box 0 is factory-built since S7: the core checks run on it)"
+    },
+    "BC-055": {
+      "status": "checked",
+      "checks": {
+        "core": ["test_BC055_tIsAPlainErc20"],
+        "items": ["test_BC055_tIsAPlainErc20"],
+        "v2": ["test_BC055_tIsAPlainErc20"]
+      },
+      "covered": "core v1 box 0 in six states: 18 decimals, the spec's names, transfers, approve and transferFrom, zero transfers, no fee on transfer; S3: a full contract (no proxy, clone, delegation or DELEGATECALL), no pause, blocklist or fee selector, 1,000 single transfers each delivered in full with one standard event, only the vault and T refuse T; v2: the same plus recorded account accesses (no transfer hook)"
+    },
+    "BC-059": {
+      "status": "partial",
+      "checks": {
+        "core": ["test_BC059_moduleHoldsNoPathIntoCustody"],
+        "s45": ["test_BC059_noApprovalOperatorOrDelegatePath"],
+        "v2": ["test_BC059_moduleHoldsNoPathIntoCustody"]
+      },
+      "covered": "core v1 box 0: FIT's executor holds no T allowance, NFT operator right or PoolManager operator right from any custody contract; DELEGATECALL only in the clone proxies (to their fixed implementations) and the hook (to its fixed extension); S4+S5: no approve, operator right or DELEGATECALL in the executor, receiver and router; v2: today's executor",
+      "waits": "an enumeration showing every custody function a module can reach is one any user can call (the checks scan approvals, operator rights and DELEGATECALL; S7 fuzzes the factory's and registry's callers, BC-010); the modules of other templates: S11",
+      "waitsT0": "the enumeration showing every custody function FIT's executor can reach is one any user can call (a check still to write)"
+    },
+    "BC-060": {
+      "status": "partial",
+      "checks": {
+        "s45": ["test_BC060_aFailingModuleLosesOnlyItsShare"]
+      },
+      "covered": "a refusing FIT executor: only its own payFit waits; swaps, collects and claims keep working",
+      "waits": "gas-burning and re-entering module mocks, and the modules of T1 and T7: S11",
+      "waitsT0": "gas-burning and re-entering module mocks in place of FIT's executor (a check still to write)"
+    },
+    "BC-061": {
+      "status": "checked",
+      "checks": {
+        "s45": ["test_BC061_noCallToModulesOrReceiverInsideASwap_curve", "test_BC061_noCallToModulesOrReceiverInsideASwap_graduated"]
+      },
+      "covered": "traced curve and graduated swaps: no call reaches the executor, the receiver or the coordinator"
+    },
+    "BC-062": {
+      "status": "checked",
+      "checks": {
+        "core": ["test_BC062_artCommitmentIsTheSpecs"],
+        "items": ["test_BC062_artCommitmentCannotChange"],
+        "v2": ["test_BC062_artCommitmentIsTheSpecs"]
+      },
+      "covered": "core v1 box 0: reveal root, metadata table and its hash, generator hash and collection cover are the spec's, in immutable clone arguments and a data contract; S3: no function writes the root, the table or the renderer (none dispatched) and a revealed id's metadata derives only from committed data; v2: today's collection"
+    },
+    "BC-063": {
+      "status": "checked",
+      "checks": {
+        "v2": ["test_BC063_reviewedGenesisChecksWithTheSpecsValues"],
+        "core": ["test_BC063_reviewedGenesisChecksOnTheFactorysBox0"],
+        "s7": [
+          "test_BC063_thePoolIsReReadAfterTheLaunch",
+          "test_BC063_theRereadsPassOnTheBoxAsCreated",
+          "test_BC063_eachRereadRefusesAMiswiredBox",
+          "test_BC063_eachAddedRereadRefusesAMiswiredBox",
+          "test_BC063_theFactoryRefusesACoordinatorOfAnotherImplementation",
+          "test_BC063_theImpostorPlannerWithoutALieCreatesBox0",
+          "test_BC063_theFactoryRefusesAnyCloneOfAnotherImplementation",
+          "test_BC063_theFactoryRefusesAStandardCloneAsTheRoyaltyRouter",
+          "test_BC063_aReceiverWithABackdoorIsRefused",
+          "test_BC063_theFactoryRefusesAnExecutorWiredOtherwise"
+        ]
+      },
+      "covered": "box 0 built through factory v1 (core, every state): every check of MisfitsGenesis's constructor (the exact bootstrap, its T burned; reveal on exit only, no unlocker; the source with code, no EIP-7702 delegation, the pinned address and code hash, named by the factory, the coordinator and the tickets), of _verifyNftSide and of FitPoolGenesis.verify with the spec's values, adapted to D1/D2 (the hook's flags, PoolManager, T, receiver, coordinator, router, curve, fee, spacing, window, open time and pool id; the receiver and router wiring; the router holds no T; T's supply the issue less burns; the hook's one approval, D1), N 4,269, owner() the Safe; no deadline and no fail(); FIT's executor born with box 0 at the factory's fixed address, reading box 0's phase and pool; the router's 105 argument bytes (no Safe); and the whole core v1 suite re-pointed at the factory's box (the core harness); the source pin read by the instance checks (BC-101), not by graduate(). s7: the factory's own re-reads after the launch pass on the box as created and each refuses with its id when a contract answers otherwise, and a planner planning a coordinator of another implementation is refused; since the review of the Misfits line (finding 1) the factory checks every contract's code before its getters (each clone a clone of the version's implementation, the royalty router the receiving variant): a planner planning a clone of other code behind the hook, launch router, receiver (a subclass with a backdoor included), collection, vault, tickets, royalty router or stream, a standard clone as the royalty router, or FIT's executor wired to another phase or receiver or seeded at P0, is refused with the re-read's id and nothing created, and each added re-read (the coordinator's raise and creator, the hook's T, the executor's wiring and first sample at P1, T's name and symbol, the vault's T, collection and fee rates, the collection's reveal rule, royalty router, vault, T and receiver, the tickets' source, open time and wiring, the royalty router's wiring) refuses a contract answering otherwise; v2: the same checks on today's contracts"
+    },
+    "BC-064": {
+      "status": "checked",
+      "checks": {
+        "core": ["test_BC064_box0IsTheFactorysOnlyBoxAtItsFixedAddresses"],
+        "s7": [
+          "test_BC064_box0IsCreatedAtTheAddressesFixedAtTheFactorysDeployment",
+          "test_BC064_addressesAreTheSameForEveryOpenAtRevealRootAndTable",
+          "testFuzz_BC064_noOtherCallerCreates",
+          "test_BC064_box0IsCreatedOnce",
+          "test_BC064_deadlineNoneAndPlaceholdersOnlyInBox0",
+          "test_BC064_nonTemplate0SpecsAreRefusedWithAReason"
+        ]
+      },
+      "covered": "factory v1 creates only box 0: any caller but the creator fixed at its deployment (fuzzed) and any second call are refused with nothing created; box 0's coordinator is the factory's second CREATE and every other contract its coordinator's CREATE by nonce, FIT's executor (nonce 7) and the per-item stream (nonce 9, S7 × S8) included, so every address is fixed when the factory is deployed and none moves for any openAt, revealRoot or metadata table (the hook, mined over its final init code, follows openAt only; P: the template-0 tag is the factory's own CREATE nonce, SH-S7-factory); FIT's executor has no code before box 0 and exists only through it; deadlineDays NONE and the placeholders add-on only in box 0's spec (a version-1 deadline is invalid, a version-2 spec and open art are not template 0, a version-2 spec with box 0's stream not even valid); every other version-1-valid spec is refused with its field (another buyers' action, marketplace owner or royalty destination), and box 0's spec without its per-item stream (BURN_T, core v1's gap before S8) as not template 0; core, every state: the box is at the factory's fixed addresses and a second box 0 is refused"
+    },
+    "BC-065": {
+      "status": "checked",
+      "checks": {
+        "f126": ["test_BC065_M28_failedStreamStartKeepsGraduationAndEarnings", "test_BC065_M28_exhaustedStreamBudgetKeepsGraduationAndEarnings", "test_BC065_M28_failedSettlementKeepsGraduationAndEarnings", "test_BC065_M28_claimBeforeRetryKeepsExactEarnings", "test_BC065_M28_settlementAndClaimBeforeRetryKeepExactEarnings", "test_BC065_M28_firstBatchSettlementFailureKeepsExactEarnings", "test_BC065_M28_firstBatchStreamFailureKeepsExactEarnings"],
+        "core": ["test_BC065_streamOnItsHookPointsAndInStep"],
+        "items": ["test_BC065_observerHookPoints"],
+        "s7": ["test_BC065_box0IsCreatedWithItsStreamOnItsHookPoints"],
+        "s8": [
+          "test_BC065_placeholderShareFromGraduationPassesToItsMisfit",
+          "test_BC065_drawShareFromItsOwnRequestPassesToItsMisfit",
+          "testFuzz_BC065_drawsAgainstAnExactPerRequestModel",
+          "test_BC065_box0DrawsEarnFromTheirOwnRequests_newestFirst",
+          "test_BC065_box0DrawsEarnFromTheirOwnRequests_oldestFirstWithTransfers",
+          "test_BC065_box0CancelsEarnFromTheirOwnRequests",
+          "testFuzz_BC065_checkpointsEqualPerSwapAllocation_N4269",
+          "testFuzz_BC065_checkpointsEqualPerSwapAllocation_N69",
+          "testFuzz_BC065_lifeAgainstPerSwapAllocation",
+          "test_BC065_everyObserverPathUnderItsCap_today",
+          "test_BC065_everyObserverPathUnderItsCap_glamsterdam",
+          "test_BC065_box0StreamCeilingsAreF90s",
+          "test_BC065_delayedStartObserversStayWithinCaps_today", "test_BC065_delayedStartObserversStayWithinCaps_glamsterdam", "test_BC065_everyStreamPathKeepsItsHeadroom_today",
+          "test_BC065_everyStreamPathKeepsItsHeadroom_glamsterdam",
+          "test_BC065_aMisfitTransferNeedsTheWholeCeiling_today",
+          "test_BC065_aMisfitTransferNeedsTheWholeCeiling_glamsterdam",
+          "test_BC065_eachCapReachesTheStreamWholeAtTheLeastGas_today",
+          "test_BC065_eachCapReachesTheStreamWholeAtTheLeastGas_glamsterdam",
+          "test_BC065_aMisbehavingStreamCannotBlockATransfer_today",
+          "test_BC065_aMisbehavingStreamCannotBlockATransfer_glamsterdam",
+          "test_BC065_graduationSettlesAndNotifiesWithinPokeGas_today",
+          "test_BC065_graduationSettlesAndNotifiesWithinPokeGas_glamsterdam"
+        ]
+      },
+      "covered": "S3: without the add-on the collection and the vault have no observer; both caps are 460,000 since F90 R16H (250,000 before F87). S8: box 0 carries the stream and reaches it only through its hook points (core: m = N − n and the open tickets in step with the vault, started at graduation, X ≥ F, on every state); its checkpoint allocation equals a naive per-swap allocation within the stated bound (|Δ| < 1 + 26/N raw units per booked interval), on a test world (1,000 runs each at N 4,269 and 69, every vault action, draws, gifts, claims, burns) and on the real box 0 and pool (placeholders from graduation, a draw from its request, transfers to a contract, a return, batches, two pair-and-lock adds, X continuous across every batch and deepen()); a placeholder's share starts at graduation and passes to its Misfit; R1 (architecture review 2026-10-07, SH-box0-r1): each draw's share starts at its own request (its ticket's J kept by the stream, found by the ticket the tickets add-on names in flight), on a test world (the review's case in both orders, delayed openings, terminal cancels, an exact per-request model fuzz with up to 59 open draws, per draw and in aggregate to the raw unit) and on box 0 (three drawers newest and oldest first, a named recipient, sales between openings, terminal cancels); every observer path's least gas from cold stays under its cap under both schedules (worst 225,168 after Glamsterdam since F126, a draw's cancel with the in-flight view counted from cold; 226,085 before, the tickets' status() read for real; S8 stated 219,800 with it mocked). F87 and F90 R16H (s8, Box0StreamCeiling): the caps are OBSERVER_GAS 460,000 and STREAM_NOTIFY_GAS 200,000 (kept); the worst observer path keeps at least 2x and the notice 1.60x under both schedules (2.0429x since F126, 2.0343x before, and 1.6015x after Glamsterdam); a Misfit transfer's least gas takes the checkpoint, one gas less reverting ObserverGasTooLow naming the floor 477,301; at the least gas for a transfer, a return, a take on the curve and a fee batch the stream receives each whole cap (460,000; 200,000), one gas less refused naming the floor; a stream that reverts, burns all its gas or returns 64 KiB blocks no transfer, return or fee batch and costs a transfer at most its cap; the receiver's settlement with its notice fits POKE_GAS alone and inside the stream's poke, and graduate() runs every real poke. S7 × S8 (s7): factory v1 creates the stream with box 0 at the address fixed at its deployment (the coordinator's nonce 9), a fixed clone of the version's stream with its 182 argument bytes naming box 0's contracts, N and firstId, named by the coordinator, the collection's transfer observer, the vault's observer and the receiver (PER_ITEM_STREAM), initialised once, not started before graduation and in the registry's record with its code hash; the factory's re-reads refuse a box whose stream is not wired (Miswired 11). The receiver side (13/15 after graduation, never the 2/15, a failing notice) is BC-139's (s45 with stand-ins; s8 on the real stream) F126 / M28: graduation succeeds through stream revert, exhausted budget or settlement failure. The baseline is recorded before pokes without calling the stream or receiver. Retry preserves the exact index and pays precisely the on-time control, even after collection, burning and a placeholder hand-back/claim before retry; pre-graduation gifts and curve-depth claims are excluded. A successful receiver notice caches the baseline independently of startup, retaining the measured callback margins during delay. A second start or graduation refuses."
+    },
+    "BC-066": {
+      "status": "checked",
+      "checks": {
+        "s7": ["test_BC066_box0sPlaceholdersAreTakenAndHandedBackDuringTheCurve"]
+      },
+      "covered": "version 1 (box 0): the factory accepts the placeholders add-on only in box 0's spec (open art without it is not template 0; BC-064's check); on the factory's box 0 placeholders are taken against T from the open and one handed back during the curve, the vault counting each, nothing delivered before graduation",
+      "waits": "version 2's rule: S11 (F55 makes the placeholders an add-on any new collection may choose, superseding 'version 2 always refuses it' in part; S1 vectors tagged F55)"
+    },
+    "BC-067": {
+      "status": "checked",
+      "checks": {
+        "core": ["test_BC067_graduatedLayout"],
+        "s45": [
+          "test_BC067_layoutExact_box0_exactClose",
+          "test_BC067_layoutExact_box0_overshoot",
+          "test_BC067_layoutExact_1eth_afterSells",
+          "test_BC067_layoutExact_10eth",
+          "testFuzz_BC067_layoutExact"
+        ],
+        "v2": ["test_BC067_graduatedLayoutHoldsNothingOutside"]
+      },
+      "covered": "core v1 box 0: no L7 position before graduation, after it the three L7 positions (ask, full-range bid, sentinel) at the library's ranges at salt 1 with the hook's liquidity; S4+S5: the three positions equal BoxLayoutV1 for box 0 (exact close and overshoot) and the test context's 1 and 10 ETH layouts, fuzzed; the price exactly P1; the pool's Q plus dust equals R; hook and coordinator hold nothing; v2: today's b' layout",
+      "waits": "Q other than ETH: S12; the pool share burned at a failure: S11"
+    },
+    "BC-068": {
+      "checks": {
+        "s7": ["test_BC068_creationGas_today", "test_BC068_creationGas_glamsterdam", "test_BC068_largestTableThatFitsToday"]
+      },
+      "status": "partial",
+      "covered": "box 0's creation through factory v1 measured under both schedules (today Osaka, Glamsterdam Foundry 1.8.3's amsterdam) with the fixture, the full Misfit trait table, the smallest and the largest box data (24,575-byte table, every text, the hidden SVG and eight add-ons at their limits), state units counted and intrinsic cost added: box 0's three fit EIP-7825 with 1M to spare today and every one's execution gas fits it under Glamsterdam; finding: the largest data does not leave the 1M margin today (inside the cap itself), and with every text at its limit a table of at most about 24,000 bytes does (SH-S7-factory); the version's whole deployment measured step by step under both schedules",
+      "waits": "every other template and Q (S11, S12); figures on Sepolia after its Glamsterdam fork with a Foundry that simulates EIP-8037 (the founder's broadcast)",
+      "waitsT0": "the figures on Sepolia after its Glamsterdam fork (the founder's broadcast)"
+    },
+    "BC-069": {
+      "status": "checked",
+      "checks": {
+        "core": ["test_BC069_contractSizes", "test_BC069_factoryPlannerAndRegistrySizes"],
+        "items": ["test_BC069_contractSizes"],
+        "s45": ["test_BC069_sizes"],
+        "s6": ["test_BC069_coordinatorSize"],
+        "v2": ["test_BC069_contractSizes"]
+      },
+      "covered": "core v1: every implementation within EIP-170, every full contract's creation code within EIP-3860, the tickets add-on with at least 1,000 bytes of margin, every clone its proxy plus its arguments; the hook's two fixed halves (S4+S5), the coordinator and its clone (S6), the S3 implementations and T (S3); v2: today's runtimes; S7: the factory (23,535 bytes with the per-item stream since S7 × S8; 22,027 before), its planner (23,909; 23,356 before) and its registry (5,673) within EIP-170, the factory's creation code within EIP-3860; S8: the stream (14,575 since R1, 14,585 in S8) and its clone (proxy + 182 bytes)"
+    },
+    "BC-072": {
+      "status": "checked",
+      "checks": {
+        "core": ["test_BC072_namesOnChainAreTheSpecs"],
+        "v2": ["test_BC072_namesOnChainAreTheSpecs"],
+        "s7": ["test_BC072_everyBadStringIsRefusedBeforeAnythingIsCreated"]
+      },
+      "covered": "core v1 box 0 and v2: T's, the collection's and the placeholders' names and texts on chain are the spec's; validate() refuses every bad string in both implementations (S1 vectors); S7: createBox refuses, with its field and before anything is created, a non-ASCII byte, a double quote, a backslash, a control character or too many bytes in each of the eleven texts (token and collection names and symbols, description, the five placeholder texts, the link; the hidden SVG's rule admits quotes), and the hidden SVG outside template 0",
+      "waits": "two boxes with the same names: S11 (factory v1 creates box 0 only)"
+    },
+    "BC-073": {
+      "status": "checked",
+      "checks": {
+        "indexer": [
+          "BC-073: refuses every per-box field: boxes come only from the registry",
+          "BC-073 ${mode}: shown boxes, the others with why, the creation block's trades",
+          "BC-073: one getLogs pair per block, and one re-read of the creation block per new box (no traces, no per-box setting)",
+          "BC-073: the manifest names no box: its only per-chain inputs are the registries and the start block",
+          "BC-073: found from the manifest's registry alone, checked at its creation block, its bootstrap trade indexed; the row equals recordOf(0)"
+        ]
+      },
+      "covered": "box 0 on the local twin and synthetic chains: rows come only from the manifest's registry (BoxCreated + BoxSpec, decoded without traces; a look-alike registry's logs ignored); every role's code checked at the creation block by its hash (code hashes and clone targets), a mismatching box refused with why and an unsupported template given a row and no indexing; the creation block re-read, so its bootstrap trade (and a trade in another transaction of that block) is indexed; the same result from a cold start and block by block; one getLogs pair per block; the manifest refuses every per-box field; box 0's row equals recordOf(0)",
+      "waits": "other Q live (S12) and other templates (S11); a Safe or ERC-4337 creator is checked only as the same logs on synthetic chains (no traces needed; a live forwarder creator is not run)"
+    },
+    "BC-077": {
+      "status": "checked",
+      "checks": {
+        "indexer": ["BC-077: a ${depth}-block reorg that removes the newest box's BoxCreated"]
+      },
+      "covered": "synthetic chains of several boxes with trades: reorgs of 1, 64 and 200 blocks that remove the newest box's BoxCreated; the removed box leaves the feed, each box rolls back to the common ancestor within the 128-block window, the 200-block one rebuilds every box from its creation block; totals then equal the chain's (audited) reads",
+      "waits": "a reorg on a live chain (how to replay one on anvil is open); other templates (S11)"
+    },
+    "BC-078": {
+      "status": "checked",
+      "checks": {
+        "indexer": [
+          "BC-078 (1 box, live): history two deep, wiped and rebuilt from the chain, gives identical rows and candles",
+          "BC-078 (50 synthetic boxes): wiped and rebuilt from the chain, identical rows and candles; nothing expires",
+          "BC-078: a write the store refuses (a restart, a reset connection) is kept and retried in order; nothing is lost or applied twice"
+        ],
+        "core-chain": ["BC-078 live: Postgres history written two deep, wiped and rebuilt from the chain, gives identical rows and candles"]
+      },
+      "covered": "history written two blocks deep (writer.ts) to Postgres (numeric(78,0), throwaway Postgres 17 on a socket) and memory through one contract test; box 0's recorded life (1 box) and 50 synthetic boxes, and live on the local twin (Postgres): wiped and rebuilt from the chain in one catch-up, every trade, activity, batch, depth event, transfer, balance, item and candle row identical (the backfill's blocks a subset of the live run's); undo above a block; nothing expires (no TTL, no delete but undo and wipe); a write the store refuses stays first in the writer's queue and is retried with backoff until it succeeds, nothing after it written meanwhile (the dump then equals a clean run), and /healthz reports the writer behind",
+      "waits": "failures (version 2, S11); a second history source and backups (hosting, chain-data-platform § 6.3)"
+    },
+    "BC-080": {
+      "status": "checked",
+      "checks": {
+        "indexer": [
+          "BC-080, BC-094: agreeing reads verify every box; a forced mismatch marks only that box Unverified, repaired alone",
+          "BC-080: every audit the recorded run made agrees with the chain (supply, burned, vault, pool, layout, depth, stream)",
+          "BC-080: the audit compares the fee ledgers with the receiver ledgers and catches a difference"
+        ]
+      },
+      "covered": "native ETH: the audit at one block hash (every 32 blocks, and after each stage) compares T supply and burned, the vault's inside, escrow, hidden, pending tickets and outside, the pool's price and the graduated layout, the hook's paired liquidity, the coordinator's pool share, the receiver's held depth and its fee ledgers (totals(): FIT's part with the REV-16 returns, the platform's kept total, the pool's Q and T parts, T marked to burn with tBurnPending(); platformHeld(), platformOwed(), fitOwed(), platformEpoch()) and the stream's claimed and burned totals and T balance with the indexer's figures: all agree at every audit of box 0's recorded and live life; a forced mismatch marks only that box Unverified and repairs it alone. The hook's depth budget and the stream's index have no exact event source: read and shown with their block, not compared",
+      "waits": "Q other than native ETH: S12"
+    },
+    "BC-081": {
+      "status": "checked",
+      "checks": {
+        "indexer": [
+          "BC-081: the indexer's phase equals the hook's phase() at every block of the life (upcoming, window, bonding, graduating, graduated)",
+          "BC-081: phaseAt is upcoming in the second before openAt, window from openAt to its last second, bonding from windowEndsAt",
+          "BC-081: in phaseAt a close or a migration recorded at or before the block wins at every edge",
+          "BC-081: the derived phase equals the hook rule in the blocks around openAt and windowEndsAt (exactly on them, and one second off)",
+          "BC-081: the audit at a head exactly on openAt and on windowEndsAt agrees with a hook that answers by its own rule"
+        ],
+        "core-chain": ["BC-081 live, ${stage}: the indexer's phase equals phase() at every block; box 0's page shows it (BC-084, BC-086, BC-092)"]
+      },
+      "covered": "box 0 (template 0) in its five states: the indexer's phase equals the hook's phase() at EVERY block from the creation block to the head, replayed from the recorded life and live on the local twin (each block applied as the head, or passed over by a range backfill and read from the indexer's state at that block): upcoming, window, bonding, graduating (the contract's Closed) and graduated; the window's edges to the second (F80: the phase by the block's time): the rule in the second before openAt, at openAt, in the window's last second and at windowEndsAt, and on synthetic chains whose blocks land exactly on openAt and windowEndsAt (and one second after them) the indexed phase and the audit against a hook answering by its own rule",
+      "waits": "other templates and failed (version 2, S11)"
+    },
+    "BC-082": {
+      "status": "partial",
+      "checks": {
+        "indexer": [
+          "BC-082: the raw CIDv1 of a sha256 is the art lane's (box 0's collection cover, the Sorter)",
+          "BC-082: checked pictures are kept for good in SH_CORE_ART_DIR; a later read needs no gateway",
+          "BC-082: bytes that do not hash to the commitment, or that no gateway has, are never served or stored",
+          "BC-082: the service reads pictures only from configured gateways (keyless http(s) origins), and keeps them in SH_CORE_ART_DIR",
+          "BC-082: a box whose pictures no gateway has, or answers with other bytes, is listed at its first sighting; nothing is fetched to decide it",
+          "BC-082: a restarted indexer lists the same boxes with no picture reachable anywhere",
+          "BC-082 upgrade (review R2): item 7, minted to Alice at block 20 and sent to Bob at 30, ends with Bob after an unfixed cold start, the replay and a restart",
+          "BC-082 upgrade: a fungible box is deleted at startup and replayed whole; its balances and candles as a fresh store's, every other box byte-identical",
+          "BC-082 upgrade: an interrupted replay is deleted and replayed again from the start at the next start (item 7 still ends with Bob)",
+          "BC-082 upgrade: a box the pipeline no longer lists is gone after the replay, as in a fresh store, and the replay ends"
+        ],
+        "web": [
+          "BC-082: a box listed with its logo on no gateway shows the plain tile, with no words or badge",
+          "BC-082: a box listed while a gateway answers its logo with other bytes shows the plain tile, never those bytes"
+        ]
+      },
+      "covered": "pictures never decide a listing (founder 2026-10-24, SH-NO-PICTURE-GATE): a box that passes the code checks is listed at its first sighting, and again after a restart, with no picture reachable or with a gateway answering other bytes; nothing is fetched or stored to decide it. A history store an older indexer left with such a box unlisted deletes that box whole at startup and replays it from its creation block, so item owners, balances and candles equal a fresh store's, also after a restart part way; other boxes are untouched (memory and Postgres). Its page shows the plain tile (no words, no badge, never those bytes) until the bytes that hash to the commitment answer. Pictures are asked by their raw CIDv1 (built from the sha256: the art lane's CID for box 0's Sorter matches); only bytes whose sha256 matches are shown or served, and the indexer's item route (box 0) keeps them for good in SH_CORE_ART_DIR (stub gateways)",
+      "waits": "for box 0, each item's committed files (image, avatar, model) are stored on Arweave and served from a real gateway by the time that item is revealed, with fetched bytes matching the committed hashes (F122 R37J; MF22 pins at reveal); hidden art stays private until its item's reveal; open-art reveal lists and per-item metadata with permanent copies and verified leaves (S11); logo and collection cover checks from a real gateway",
+      "waitsT0": "each item's committed files (image, avatar, model) are stored on Arweave and served from a real gateway by the time that item is revealed, with fetched bytes matching the committed hashes (F122 R37J; MF22 pins at reveal), without publishing hidden art before its reveal; logo and collection cover checks from a real gateway"
+    },
+    "BC-083": {
+      "status": "checked",
+      "checks": {
+        "indexer": [
+          "BC-083, BC-086 ${c.q}, T ${c.tIsC0 ? 'currency0' : 'currency1'}",
+          "BC-083 ${c.q}, T ${c.order === 'low' && c.q !== 'NATIVE_ETH' ? 'currency0' : 'currency1'}"
+        ]
+      },
+      "covered": "native ETH live (box 0's recorded and live life); every Q class (native ETH, ERC-20 with 18 and 6 decimals, FIT, a box's T) with T as currency0 and as currency1 on synthetic logs and records: buys are Q in and sells T in for either order, price, volume and FDV in the Q's own decimals, and the row decoder's order and decimals; no figure assumes ETH or 18 decimals",
+      "waits": "other Q live: S12"
+    },
+    "BC-084": {
+      "status": "checked",
+      "checks": {
+        "web": ["BC-084, BC-090, BC-091, BC-095 ${p.stage}: band, phase line (no deadline for box 0), stats and cards from the snapshot"],
+        "web-e2e": [
+          "BC-084: box 0 from its row, ${p.stage}: band, phase line, stats; no deadline (BC-090); safe and short (BC-091); no trading (BC-092)",
+          "BC-084 ${p.stage}: box 0 on the feed and in a wallet, each in its own state; no layout break, no trading, no wallet asked (BC-092)"
+        ],
+        "core-chain": ["BC-081 live, ${stage}: the indexer's phase equals phase() at every block; box 0's page shows it (BC-084, BC-086, BC-092)"]
+      },
+      "covered": "template 0 (box 0) in its five states, from the gateway answers recorded with its life and live on the local twin: the feed card, the box page and the wallet box, desktop and phone (390 px): state chip, band figure, phase line, stats, counters and tabs render, no layout break (no horizontal overflow), no Failed",
+      "waits": "other templates live and Failed (version 2, S11)"
+    },
+    "BC-085": {
+      "status": "checked",
+      "checks": {
+        "indexer": ["BC-085: GET /v1/feed: one answer, one card per shown box with its own phase and figures, asOf on each"],
+        "web": ["BC-085: ${count} boxes from ONE request, each card its own state and figure"],
+        "web-e2e": ["BC-085: ${count} boxes from ONE feed request, each card its own state"],
+        "core-chain": ["BC-085, BC-089 live: the feed and Alice's wallet after the life, from the live service"]
+      },
+      "covered": "feeds of 2 and 50 core boxes in different states: each card its own state and figure from ONE feed request (no per-card box or stream request), in jsdom and in the browser; the gateway answers one card per shown box with its own phase and figures; live: box 0's card after its life"
+    },
+    "BC-086": {
+      "status": "checked",
+      "checks": {
+        "indexer": [
+          "BC-086: decodes one row, with the spec checked against the record (the fixture hash) and the topics as generated",
+          "BC-086: takes every field from the row: Q, decimals, order, curve, window, roles, box 0 by registry and id",
+          "BC-083, BC-086 ${c.q}, T ${c.tIsC0 ? 'currency0' : 'currency1'}",
+          "BC-086: rows from recordOf and the BoxSpec log of the creation block, through the same decoder (no indexer)"
+        ],
+        "web": ["BC-086 ${q}: the pair asset, its decimals and the token order from the row"],
+        "web-e2e": ["BC-086: /misfits opens box 0 by its row"],
+        "core-chain": ["BC-081 live, ${stage}: the indexer's phase equals phase() at every block; box 0's page shows it (BC-084, BC-086, BC-092)"]
+      },
+      "covered": "a box known only from its registry row and spec: Q, its decimals, the token order, curve, window, roles, template id and the deadline come from the row (the decoder refuses a spec hash that is not the record's, an unlisted Q and a missing role); the page needs no build-time record or per-box code: box 0's page from its row, live and recorded, /misfits by its row, every Q class from synthetic rows; the direct read builds the same row from recordOf and the BoxSpec log",
+      "waits": "other Q live: S12"
+    },
+    "BC-089": {
+      "status": "checked",
+      "checks": {
+        "indexer": ["BC-089: GET /v1/wallets: every box the address holds, keyed by box address (two with the same ticker stay apart)"],
+        "web": ["BC-089: 5 boxes, two with the same ticker: one holding per box address, nothing summed"],
+        "web-e2e": ["BC-089: a wallet across 5 boxes, two with the same ticker, one holding per box address, nothing summed"],
+        "core-chain": ["BC-085, BC-089 live: the feed and Alice's wallet after the life, from the live service"]
+      },
+      "covered": "a wallet across 5 boxes, two with the same ticker: one holding per box address, nothing summed across boxes or assets (jsdom, browser, gateway); live: Alice's T, ticket or Misfit and stream share in box 0 after its life"
+    },
+    "BC-090": {
+      "status": "checked",
+      "checks": {
+        "web": [
+          "BC-084, BC-090, BC-091, BC-095 ${p.stage}: band, phase line (no deadline for box 0), stats and cards from the snapshot",
+          "BC-090: a box with a deadline says so; box 0 never does"
+        ],
+        "web-e2e": ["BC-084: box 0 from its row, ${p.stage}: band, phase line, stats; no deadline (BC-090); safe and short (BC-091); no trading (BC-092)"]
+      },
+      "covered": "box 0 shows no deadline in any phase (page, feed and live); a box whose spec has a deadline says when it ends (the phase line) from the first block",
+      "waits": "deadline boxes near and after their deadline, and failure with the refund per T and the NFT return: version 2 (S11)"
+    },
+    "BC-091": {
+      "status": "checked",
+      "checks": {
+        "web": [
+          "BC-091: the scan reads the core v1 surfaces S10a adds (box 0 page cards, links, notices, the indexer), and finds no framing there",
+          "BC-084, BC-090, BC-091, BC-095 ${p.stage}: band, phase line (no deadline for box 0), stats and cards from the snapshot"
+        ],
+        "web-e2e": ["BC-084: box 0 from its row, ${p.stage}: band, phase line, stats; no deadline (BC-090); safe and short (BC-091); no trading (BC-092)"]
+      },
+      "covered": "box 0's surfaces in every phase: no earning, reward, yield, return, APY, growth or gain framing (the rendered copy and every string of the new site, link and indexer files, copy-wording); at most 45 words on the phone's first screen of each phase; numbers first (band figure and stats)",
+      "waits": "other templates' surfaces and Failed (S11)"
+    },
+    "BC-092": {
+      "status": "checked",
+      "checks": {
+        "web": ["BC-092: every core v1 file S10a adds is scanned (site, links, chain readers, indexer) and names no swap, trading or wallet request"],
+        "web-e2e": [
+          "BC-084: box 0 from its row, ${p.stage}: band, phase line, stats; no deadline (BC-090); safe and short (BC-091); no trading (BC-092)",
+          "BC-084 ${p.stage}: box 0 on the feed and in a wallet, each in its own state; no layout break, no trading, no wallet asked (BC-092)"
+        ],
+        "core-chain": ["BC-081 live, ${stage}: the indexer's phase equals phase() at every block; box 0's page shows it (BC-084, BC-086, BC-092)"]
+      },
+      "covered": "the source guards scan every new file (site, links, chain readers, indexer): no swap builder, trading provider or wallet request; on box 0's page, feed and wallet in every phase (recorded and live) no buy, sell or swap control and no amount input, and the untouchable wallet is never touched; links out carry the contract address, which is always shown"
+    },
+    "BC-094": {
+      "status": "checked",
+      "checks": {
+        "indexer": [
+          "BC-080, BC-094: agreeing reads verify every box; a forced mismatch marks only that box Unverified, repaired alone",
+          "BC-094: a box being repaired is Stale on its own card only",
+          "BC-094: every box and card is Stale while the chain is not heard from or the index lags; /healthz says why, and reports a failing history writer"
+        ],
+        "web": ["BC-094: one Stale and one Unverified box next to a healthy one: only those say so, the Unverified one has no FDV"],
+        "web-e2e": ["BC-094: one Stale and one Unverified box next to a healthy one; only those say so, no FDV on the Unverified one"]
+      },
+      "covered": "three boxes, one Stale and one Unverified, next to a healthy one: only those say so and the Unverified one shows no FDV (jsdom and browser); in the indexer a forced audit mismatch marks only that box Unverified and a box being repaired is Stale on its own card only; every box and card is Stale while the gateway does not follow the chain (not heard from for 60 s, or the index over 3 blocks behind the newest head), and the site marks a box Stale on a failed refresh (keeping the last good answer) and, on Sepolia, an answer over 60 s old by the clock, with no countdown from its frozen head"
+    },
+    "BC-095": {
+      "status": "checked",
+      "checks": {
+        "web": [
+          "BC-095: box 0 by registry and id: Genesis, Featured, the F77 setup, the Misfits pack; a look-alike named \"The Misfits\" has none of them",
+          "BC-084, BC-090, BC-091, BC-095 ${p.stage}: band, phase line (no deadline for box 0), stats and cards from the snapshot"
+        ]
+      },
+      "covered": "box 0: the Misfits pack (tagline, teasers, composition) attaches by its row (registry and id, so its collection address), never by the name (a look-alike named The Misfits gets none); its pictures render only through <img> (the spec's SVG never inlined)",
+      "waits": "other boxes live through their metadata table and adapters, teasers labelled Teaser and token-only boxes (S11; the Demo's spec boxes show them today)"
+    },
+    "BC-099": {
+      "status": "partial",
+      "checks": {
+        "web": [
+          "BC-099: Uniswap: input ETH for native Q, output T, from the row; a link with evidence for the template and Q class",
+          "BC-099: a Q other than native ETH goes in by its address",
+          "BC-099: evidence per template and Q class, never per pool: another Q class or template is not checked",
+          "BC-099 ${String(phase)}: Uniswap ${open ? 'may be a link' : 'is shut'}",
+          "BC-099: DEX Screener is unavailable on Sepolia; the explorer is the exact token page",
+          "BC-099: links follow the source: a local twin with Sepolia’s chain id and the Demo build none",
+          "BC-099: a malformed identity builds nothing"
+        ],
+        "web-e2e": [
+          "BC-099, BC-142: the Token tab after graduation: F77 fees with live totals, the pool row read from the chain, the stream, the draws; no link on a local chain"
+        ]
+      },
+      "covered": "links built from the row by source: Uniswap with input Q (ETH for native Q, else the Q's address) and output T, DEX Screener (none on Sepolia) and the exact explorer token page; route evidence accepted per template and Q class, never per pool; the Uniswap link shut in upcoming, window, closed and failed; the contract address always shown; none on a local twin or the Demo",
+      "waits": "a real route evidence record for template 0 and native ETH (BC-070, S0; the Sepolia life run BC-071) before Uniswap is a link; other Q (S12)",
+      "waitsT0": "the route evidence record for template 0 and native ETH (BC-070; the Sepolia life run, BC-071) before box 0's Uniswap link opens"
+    },
+    "BC-096": {
+      "status": "partial",
+      "checks": {
+        "s45": ["test_BC096_closesInTheWindow_offset0", "test_BC096_closesInTheWindow_offset16", "test_BC096_closesInTheWindow_offset31"]
+      },
+      "covered": "a launch-router buy at window offsets 0, 16 and 31 that would overshoot P1 by 0.5 ETH closes the curve: it swaps only to P1, refunds the unspent ETH and the tax on it in the same call and taxes only what entered; the router-only gate ends at the close; any route after graduate()",
+      "waits": "the Universal Router and the V4Quoter in that block and the next, on a fork; Q other than ETH: S12",
+      "waitsT0": "the Universal Router and the V4Quoter in that block and the next, on a fork"
+    },
+    "BC-097": {
+      "status": "partial",
+      "checks": {
+        "items": ["test_BC097_nothingLeavesBeforeGraduation"]
+      },
+      "covered": "S3's open-art boxes (N 10, 69, 5,000, 5,001, 10,000): before graduation every take, draw and pick reverts (the vault's gate closed) and the vault keeps all N",
+      "waits": "the phases from the hook on an assembled version-2 box (factory v2): S11; the failed box: S11"
+    },
+    "BC-098": {
+      "status": "checked",
+      "checks": {
+        "s6": [
+          "test_BC098_receiver_revert",
+          "test_BC098_receiver_burnGas",
+          "test_BC098_receiver_reenter",
+          "test_BC098_receiver_returnBomb",
+          "test_BC098_receiver_revertBomb",
+          "test_BC098_tickets_revert",
+          "test_BC098_tickets_revert_frontRunCollect",
+          "test_BC098_tickets_burnGas",
+          "test_BC098_tickets_burnGas_frontRunCollect",
+          "test_BC098_tickets_reenter",
+          "test_BC098_tickets_revertBomb",
+          "test_BC098_executor_revert",
+          "test_BC098_executor_revert_frontRunCollect",
+          "test_BC098_executor_burnGas",
+          "test_BC098_executor_reenter",
+          "test_BC098_executor_returnBomb",
+          "test_BC098_allThreeBurnGas_andTheGasFloor",
+          "test_BC098_rewardRecipientRefusesQ",
+          "test_BC098_pokesGoOnlyToTheBoxsOwnWiring",
+          "test_BC098_unit_hostileReceiverZeroFees"
+        ],
+        "s8": [
+          "test_BC098_box0PokeGasIsF95s",
+          "test_BC098_eachPokeReceivesExactlyPokeGas_today",
+          "test_BC098_eachPokeReceivesExactlyPokeGas_glamsterdam",
+          "test_BC098_everyGraduationPokeKeepsItsHeadroom_today",
+          "test_BC098_everyGraduationPokeKeepsItsHeadroom_glamsterdam",
+          "test_BC098_graduateLeastGasAndTheTransactionCap_today",
+          "test_BC098_graduateLeastGasAndTheTransactionCap_glamsterdam"
+        ]
+      },
+      "covered": "receiver, tickets and FIT's executor that revert, burn gas, re-enter, return-bomb or revert-bomb, with and without a front-running collect(); all three burning gas at once, with the caller's gas floor; a caller refusing Q; pokes only to the box's own wiring; zero fees (a unit case with a stand-in hook): for these stream-free S6 fixtures every graduation succeeds, PokeFailed exactly for the failing optional pokes, re-entry refused, failed pokes repeatable; core v1 box 0's real pokes all succeed (BC-026). F95 R19M (s8, Box0StreamCeiling, box 0 with its stream, from cold under both schedules): POKE_GAS is 2,600,000 (F90 R16I's 1,600,000 before); every graduation poke alone fits it with at least 2x (the receiver's settlement with its notice and the stream's poke running it, after a fee batch before the close and when the settlement's batch is the box's first, the tickets' word request, FIT's executor's sample, the stream's start); graduate()'s least gas, to the unit, runs every poke and one gas less reverts GasTooLow naming 2,651,269; its execution gas at that least and with every poke exhausting its budget (F126: graduation still succeeds) stays under EIP-7825's 16,777,216, and so does its least successful transaction with all four pokes exhausted (13,031,931 including intrinsic gas after Amsterdam); with every poke's target a gas logger, each of the four pokes receives exactly 2,600,000 at graduate()'s least gas (the CALL's own budget) F126 / M28: all four pokes remain fail-safe. Cold follow-up costs use actual reverting pokes to isolate each retry. Graduation records the stream baseline independently; settlement and startup may be retried without shifting accrual or paying the graduation reward twice.",
+      "waits": "Q other than ETH: S12"
+    },
+    "BC-100": {
+      "status": "checked",
+      "checks": {
+        "f126": ["test_BC100_uninitializedVaultObserverMustRefuseStateChanges", "test_BC100_uninitializedCollectionObserverMustRefuseStateChanges"],
+        "core": [
+          "test_BC100_wiringCallsRefuseStrangers",
+          "test_BC100_strangersClonesOfTheImplementationsAreInert",
+          "test_BC100_onlyTheFactoryMakesBoxesAndRecordsThem"
+        ],
+        "v2": ["test_BC100_wiringCallsRefuseStrangers"],
+        "s7": ["test_BC100_theConstructorRefusesImplementationsOfAnotherVersion"]
+      },
+      "covered": "core v1 box 0: every wiring and lifecycle call refuses strangers; every implementation names the one coordinator implementation, the box's coordinator is its clone, and fresh clones of the six initialisable implementations refuse a stranger's initialize, whether plain or a clone of another implementation; v2: today's one-shot wiring calls; S7: the box's coordinator names the factory, whose registry recorded it; the factory's constructor refuses a set of implementations in which any one (the per-item stream's included, S7 × S8) names another factory, coordinator implementation or PoolManager; a stranger's clone of the coordinator implementation can neither deploy nor launch and is never in the registry F126 / AR-03: both observers reject an uninitialised stream with NotInitialised even from their named caller; the original review assertions are retained with BC-100 test-name prefixes.",
+      "waits": "later versions' factories CREATE2-deployed by the fixed deployer with a known init-code hash: S11 (version 2)"
+    },
+    "BC-101": {
+      "status": "checked",
+      "checks": {
+        "core": ["test_BC101_randomnessSourceIsPinned", "test_BC101_theFactoryPinnedTheSource"],
+        "v2": ["test_BC101_randomnessSourceIsPinned"],
+        "s7": ["test_BC101_theConstructorRefusesEverySourceButThePinnedOne", "test_BC101_theTicketsMustReadThePinnedSource"]
+      },
+      "covered": "core v1 box 0 (F143): the coordinator's and the tickets add-on's source is this chain's pinned BoxBackedSource (BackedSourcePins.isPinned on chain 1: address and code hash), naming this chain's pinned DrandSource (DrandSourcePins.isPinned), not a delegation, answering within the consumers' 50,000-gas read; the backed source's pin refuses the same counterfeits (test/box/backup/BackedSourcePin.t.sol); S9 (DrandSourcePin.t.sol and the fork suites, not case-named): the pin refuses a twin at another address (plain and storage-poisoned), an EIP-7702 delegation, no code and every other chain, and the real deployer puts the source at the pin on both forks; v2: on Sepolia the source is the pinned deployment; S7: the factory's constructor refuses the DrandSource itself as box 0's source, a twin of the backed source at another address, an EIP-7702 delegation at its pinned address, the pinned address without code, a missing or delegated DrandSource behind it, and every chain but 1 and 11155111; the box's coordinator and tickets read the factory's pinned source, and since the review of the Misfits line (finding 1) createBox itself re-reads it at the tickets, which use it: tickets planned on a twin at another address are refused (Miswired 12) with nothing created"
+    },
+    "BC-102": {
+      "status": "partial",
+      "checks": {
+        "s45": ["test_BC102_otherBoxesFitShareWaitsForFit"]
+      },
+      "covered": "the receiver's part: a version-2 box's FIT share waits as a claim until FIT's coordinator reports graduated, then funds FIT's executor",
+      "waits": "the version-2 factory refusing createBox before box 0 exists: S11"
+    },
+    "BC-106": {
+      "status": "checked",
+      "checks": {
+        "s45": ["test_BC106_capPerEpochNoCarryOver"]
+      },
+      "covered": "the case's batches as split (F77), through the ETH intake: FIT 110 / 82.5 / 5.5 / 27.5 / 220 ETH, 2/15 depth 20 / 15 / 1 / 5 / 40 ETH; epochs 0, 1 and 2 keep 32, 5 and 32 ETH, 4.006 and 8 ETH of excess go to box 0's depth as well (40.006 ETH of depth in epoch 0 after the settlement), no carry-over; the held 0.006 ETH platform share counts first in epoch 0 and the held 0.006 ETH depth share moves at the settlement; core v1 box 0's cap in every state (BC-015's check), across two epochs in the graduated-busy state"
+    },
+    "BC-107": {
+      "status": "checked",
+      "checks": {
+        "s45": ["test_BC107_royaltiesGiftsAndForcedEthStayUnderTheCap"]
+      },
+      "covered": "with 31 ETH kept (F77): the royalty flush unwraps 30 WETH and delivers 36 ETH (26.4 to FIT, 4.8 depth, 1 kept, 3.8 excess to depth), the 15 ETH gift 11 to FIT and its 2/15 depth and 2/15 platform share all to depth, the executor's receive() all to its budget, fundDepth() and the forced 1 ETH only to depth, the 75 ETH batch keeps nothing more (its caller's tip off first): the Safe's epoch total is exactly 32 ETH"
+    },
+    "BC-108": {
+      "status": "checked",
+      "checks": {
+        "s45": ["test_BC108_executorPaysNoTreasury"]
+      },
+      "covered": "ETH reaching FIT's executor by receive() or fundBudget() is credited whole to its buy-back budget; it holds no treasury address, treasury share or payTreasury()"
+    },
+    "BC-109": {
+      "status": "partial",
+      "checks": {
+        "s45": ["test_BC109_otherBoxesHaveNoPlatformPayee"]
+      },
+      "covered": "the receiver's part: another box's receiver has no platform payee or address, and its 2/15 is held before graduation, then goes whole to its own depth",
+      "waits": "the whole box (routers, royalty router, hook, coordinator) for every template and Q, and the failure (into the refund range): S11"
+    },
+    "BC-111": {
+      "status": "checked",
+      "checks": {
+        "s45": ["test_BC111_creatorTenFifteenthsHeldThenOwed_eoa", "test_BC111_creatorTenFifteenthsHeldThenOwed_safe"]
+      },
+      "covered": "a TO_CREATOR box with an EOA or a Safe as creatorFeeRecipient: the 10/15 is held before graduation, then owed and pulled; the twin box's FIT and depth parts equal to the wei; a reverting payee blocks only itself (BC-021)",
+      "waits": "the failure (into the refund range): S11; Q other than ETH: S12"
+    },
+    "BC-112": {
+      "status": "checked",
+      "checks": {
+        "core": ["test_BC112_box0Royalties250BpsToItsRouter"],
+        "items": ["test_BC112_box0Royalties250Bps"]
+      },
+      "covered": "S3: royaltyInfo(id, price) = (box 0's royalty router, floor(price × 250 / 10,000)) for ids 1, 2,135 and 4,269 at 1 ETH, 10,000 wei and 39 wei, supportsInterface as listed, no setter, vault actions pay none; core v1 box 0 in six states: 250 bps to its router, whose destination is box 0's fee handling, never the Safe"
+    },
+    "BC-113": {
+      "status": "checked",
+      "checks": {
+        "items": ["test_BC113_presetsAndDestinationsFixedAtCreation"],
+        "s7": ["test_BC113_box0TakesEachRoyaltyPresetToItsFeeHandling"]
+      },
+      "covered": "S3: only 0, 100, 250 and 500 bps and the three destinations validate; version 1 refuses CREATOR; royalties to CREATOR pay the spec's creatorFeeRecipient; a created box's royaltyInfo equals its spec; without the add-on ERC-2981 is unset; both implementations' refusals, the dropped recipient's third word among them: S1 vectors 146-164; S7: createBox builds box 0 with each preset (0, 100, 250, 500 bps) to its fee handling, paid to its router; CREATOR is refused by validate() on version 1, POOL_DEPTH by template 0, an off-preset rate by validate(); without the add-on no router and no rate",
+      "waits": "version 2's destinations at createBox: S11"
+    },
+    "BC-114": {
+      "status": "partial",
+      "checks": {
+        "core": ["test_BC114_royaltyRouterReceivesAndFlushesToItsReceiver"],
+        "items": ["test_BC114_routerNeverRefusesAndFlushesToItsSink"],
+        "s45": [
+          "test_BC114_receiveNeverRefusesAndWritesNothing",
+          "test_BC114_flushToTheReceiversIntakeOnly",
+          "test_BC114_aRevertingSinkLeavesTheEthForTheNextFlush"
+        ]
+      },
+      "covered": "the receiving clone takes 0 wei and the 2,300-gas stipend and writes nothing (core v1 box 0, S3, S4+S5); before graduation flush() moves nothing, after it unwraps WETH and sends all ETH to the receiver's intake only; a reverting intake keeps the ETH for the next flush; another ERC-20 stays",
+      "waits": "a CREATOR or POOL_DEPTH box's router on an assembled box (CREATOR into fundCreator()): S11 (factory v1 builds box 0's fee-handling router only); other ERC-20s reaching the sink (U: Blur Pool balances)",
+      "waitsT0": "other ERC-20s reaching box 0's royalty router (U: Blur Pool balances)"
+    },
+    "BC-116": {
+      "status": "partial",
+      "checks": {
+        "s45": [
+          "test_BC116_creatorBuy_halfEth_delay1",
+          "test_BC116_creatorBuy_raiseMinusOneWei_delay25",
+          "test_BC116_creatorBuy_none",
+          "test_BC116_creatorBuy_theRaiseIsTheSpecsRefusalNotTheRouters",
+          "test_BC116_creatorBuy_thatWouldCloseIsRefused",
+          "test_BC116_noOtherUntaxedOrPreOpenBuy",
+          "test_BC116_box0HasNoCreatorBuy"
+        ],
+        "s7": ["test_BC116_box0HasNoCreatorBuy"]
+      },
+      "covered": "with the one raise R: creator buys of 0, 0.5 ETH and R − 1 wei (delays 1 and 25) run once inside the launch, untaxed, their T to the creator; R itself passes the router and ends below P1 (validate() refuses it, S1 vectors); a buy that would reach P1 reverts CreatorBuyClosesCurve with nothing launched; no other untaxed or pre-open buy exists; box 0 has none; S7: createBox refuses any creator buy for box 0 (validate(): must be zero on version 1) and box 0's coordinator and BoxSpec event publish zero",
+      "waits": "createBox, the BoxSpec event and the registry publishing a creator buy for other boxes: S11; Q other than ETH: S12"
+    },
+    "BC-118": {
+      "status": "partial",
+      "checks": {
+        "s45": [
+          "test_BC118_burnAndRewardTotalsIgnoreTheDepthRule",
+          "test_BC118_box0BurnAndFitTotalsIgnoreTheDepthRule",
+          "test_BC118_box0ConversionResidueIsTheFeeNoteSlack",
+          "test_BC118_repeatedPairAddsShareOnePosition"
+        ]
+      },
+      "covered": "a creator box and box 0 (F77: pair and lock) each run with the depth rule and without it on the same trades: FIT's share, the creator's Q and T and box 0's 13/15 burned equal within the named residue (each depth conversion's 2 x SLACK raw units, BC-133, plus less than 1 wei per position each collect harvests, at most four with the one shared pair, and per fee-bearing pair poke in deepen(); box 0's own review FQ-12, F147; repeated paired adds do not enlarge it, Codex check F1), which measures 0 without a conversion; box 0 with Q fees only converts 3 times and pairs twice: the Q side never below the baseline and 15 wei above it in total, the T side equal; the hook's Q and T claims are exactly its depth budget and it holds nothing else",
+      "waits": "fundDepth() gifts from a stranger and from the Safe",
+      "waitsT0": "fundDepth() gifts from a stranger and from the Safe"
+    },
+    "BC-119": {
+      "status": "checked",
+      "checks": {
+        "s45": [
+          "test_BC119_beforeGraduationSkips",
+          "test_BC119_cooldown299And300",
+          "test_BC119_averageNotReadyOrFailing",
+          "test_BC119_caughtUpAndDeviation_99And100",
+          "test_BC119_budgetBelowMinAdd",
+          "test_BC119_fromAForeignUnlockReverts"
+        ]
+      },
+      "covered": "on box 0's pair (F77): deepen() adds nothing before graduation (a gift waits in the receiver), at 299 blocks, with the average not ready, failing or not caught up, with spot 100 ticks from it or the Q side of the budget below MIN_ADD (box 0 and a version-2 box: test_pairAndLock_qSideBelowMinSkipsTSideBelowMinConverts; since S5.M5 a T side below MIN_ADD converts first instead, BC-137), and adds at 300 blocks and 99 ticks; from inside a foreign unlock it reverts; same-block pushes of 2 to 98 ticks lose the attacker money on both kinds, box 0 on FIT's executor ring too (the sandwich tests)",
+      "waits": "Q other than ETH: S12"
+    },
+    "BC-120": {
+      "status": "checked",
+      "checks": {
+        "s45": [
+          "test_BC120_pairPlaceSizeAndPermanence_atGraduationPrice",
+          "test_BC120_pairPlaceSizeAndPermanence_at100x",
+          "test_BC120_pairPlaceSizeAndPermanence_standard"
+        ]
+      },
+      "covered": "box 0 at the graduation price and at 100x, and a version-2 box: one full-range position at salt 3 owned by the hook, the add sized by the 10% cap with matching T at the price, the caller's tip from the Q budget, exactly the principal and the tip leaving the budget, only salt 3 ever touched (no salt-2 position), its removal refused, its liquidity never decreasing",
+      "waits": "Q as currency1 (the mirror): S12"
+    },
+    "BC-121": {
+      "status": "checked",
+      "checks": {
+        "s45": ["test_BC121_addIntoThePairWithFeesSpendsOnlyPrincipal"]
+      },
+      "covered": "box 0's pair (F77; a version-2 box's: test_pairAndLock_mergeSpendsOnlyPrincipal): deepen() first pokes the pair and mints its fees to the receiver; the add spends exactly the principal on both sides and exactly that Q and T are burned from the hook's claims"
+    },
+    "BC-122": {
+      "status": "checked",
+      "checks": {
+        "s45": ["test_BC122_collectWhileAddsBlocked", "test_BC122_collectTakesTheCoresAndThePairsFeesInOneBatch"]
+      },
+      "covered": "on box 0 with a pair (F77): collect() succeeds under the cooldown, with the average not ready and with spot beyond the deviation; one collect() pokes at most four positions (ask, bid, sentinel, pair) and takes the pair's fees in its batch, none left behind",
+      "waits": "Q other than ETH: S12"
+    },
+    "BC-123": {
+      "status": "checked",
+      "checks": {
+        "s45": ["test_BC123_ruleUnreachableOnAnOpenPoolHook", "test_BC123_addsMoveNoTSupplyOrEscrow"],
+        "s7": ["test_BC123_vaultQuotesUnmovedByADepthAddOnTheFactorysBox0"]
+      },
+      "covered": "today's FitPoolHook (open after migration) has no deepen() and no depth budget; on the closed hook box 0's pair add (F77) moves T from the hook's claims into the pool and no T supply or escrow; S7 (S3's vault beside S4's hook on the factory's box 0): after graduation, with FIT's executor's 1-hour average built from real pokes and depth on both sides, deepen() pairs and locks and moves T only from the hook's claims into the pool: T's supply, the vault's escrow and its withdraw and return quotes are the same before and after the add"
+    },
+    "BC-127": {
+      "status": "done-s1",
+      "where": "test/box/BoxSpecV1Vectors.t.sol (test_f74OneRaiseAndTheCollectionCover) and packages/box-spec/src/box-spec.test.ts (shared vectors 18-24); packages/box-spec catalog.test.ts (F74 U5)",
+      "covered": "both implementations refuse version 2's former 1, 4.2 and 10 ETH presets and R + 1 wei with RAISE_NOT_A_PRESET at raise, and accept box 0's R under version 2; field 11 is chosenBy Version",
+      "waits": "the launch flow showing the raise as a fixed fact (the UI lane); createBox: S11; the ETH-equivalent rule for other Q: S12 (open)"
+    },
+    "BC-128": {
+      "status": "done-s1",
+      "where": "packages/box-spec/src/box-spec.test.ts and check-spec.test.ts ('holder payouts per network (F74 U1)'), conformance.test.ts ('F74 cases follow the generated BoxSpec'), shared vectors 85, 86, 198, 199 and 211 (NOT_OFFERED in both implementations); the generator's offeredOn rules (scripts/lib/model.mjs)",
+      "covered": "Solidity and the TypeScript twin by default and for sepolia and mainnet refuse every holder kind (NOT_OFFERED); demo accepts them with 'pending legal review'; OFFERED_ON.mainnet equals OFFERED, and neither mainnet nor sepolia lists any of the five holder kinds (both fee sides and the cap's excess) while the Demo lists all, each with its pending note, and every fee kind the spec marks HOLDERS is one of the case's; the checker CLI's --network demo passes a holder draft and sepolia or the default refuses it; the generator refuses an offeredOn naming mainnet and a member with offeredOn inside the strictest list",
+      "waits": "the UI lane building the menus from OFFERED_ON[network]; a generator guard for a HOLDERS member put in `offered` without offeredOn (today the vitest checks above catch it; SH-F74-conformance, open question); Sepolia once S14 builds holder payouts and the factory's validate() can tell the chain"
+    },
+    "BC-129": {
+      "status": "checked",
+      "checks": {
+        "s45": [
+          "test_BC129_aBuyBurnStepIsBoundedAndBurnsWhatItBought",
+          "test_BC129_aSellForFitStepIsBoundedAndBooksItsQToFit",
+          "test_BC129_manyStepsNeverLeaveTheBand",
+          "test_BC129_oneStepPerBlockAcrossActions",
+          "test_BC129_aSandwichNeverPaysAndTheBoxsLossIsBounded",
+          "testFuzz_BC129_anyStepSizeIsBounded",
+          "testFuzz_BC129_aSameBlockPushNeverLoosensTheLimit",
+          "test_BC129_constantsAreTheExecutorsReviewedBounds",
+          "test_BC129_theReferenceOnlyTightens",
+          "testFuzz_BC129_theLimitIsTheNearerOfImpactAndBand",
+          "test_BC129_theBandIsClampedToValidPrices",
+          "testFuzz_BC129_minimumOutput",
+          "test_BC129_oneStepPerBlock",
+          "testFuzz_BC129_stepInputIsWhatOneSwapSpendsToItsLimit",
+          "testFuzz_BC129_stepInputCrossesTicksAsV4Does"
+        ],
+        "s5m4": [
+          "test_BC129_everyStepTypeTradesAfterASmallPushAndWaitsPastTheBand",
+          "testFuzz_BC129_sandwichNeverPays_buyBurn",
+          "testFuzz_BC129_sandwichNeverPays_sellForFit",
+          "testFuzz_BC129_sandwichNeverPays_buyForCreator",
+          "testFuzz_BC129_sandwichNeverPays_sellForCreator",
+          "testFuzz_BC129_sandwichNeverPays_standardConversion",
+          "testFuzz_BC129_sandwichNeverPays_box0Conversion",
+          "testFuzz_BC129_sandwichNeverPays_fitExecutor",
+          "test_BC129_forkEveryStepTypeTradesAfterASmallPushAndWaitsPastTheBand",
+          "testFuzz_BC129_forkSandwichNeverPays_buyBurn",
+          "testFuzz_BC129_forkSandwichNeverPays_sellForFit",
+          "testFuzz_BC129_forkSandwichNeverPays_buyForCreator",
+          "testFuzz_BC129_forkSandwichNeverPays_sellForCreator",
+          "testFuzz_BC129_forkSandwichNeverPays_standardConversion",
+          "testFuzz_BC129_forkSandwichNeverPays_box0Conversion",
+          "testFuzz_BC129_forkSandwichNeverPays_fitExecutor",
+          "test_BC129_sepoliaForkEveryStepTypeTradesAfterASmallPushAndWaitsPastTheBand",
+          "testFuzz_BC129_sepoliaForkSandwichNeverPays_buyBurn",
+          "testFuzz_BC129_sepoliaForkSandwichNeverPays_sellForCreator",
+          "testFuzz_BC129_sepoliaForkSandwichNeverPays_box0Conversion"
+        ]
+      },
+      "covered": "S5.M2's module (BoxSwapModule, a real clone) and shared library (BoxSwapBounds) on a graduated Standard box with its price sampler: BuyBurn and SellForFit each move the price at most 49 ticks and never beyond the reference ∓ 99 ticks (buys the cheaper-T of the 1-hour average and the latest sample, sells the dearer-T), checked against TickMath, not the library; the output is at least (input − 1% − slack) at the limit price; one step per block across both actions; 60 blocks of buy-back steps move the price about the band, waiting at it until the average follows; fuzzed budgets from below the minimum to 30 ETH and 100M T (a skip keeps the budget; a step spends at most the budget less the reserved tip, a small budget whole); fuzzed same-block pushes of 1-150 ticks before or after the block's sample never put a buy's reference below the average (a sell's above it), leave it unchanged when the block was sampled first, never let a step past its band, and the attacker's round trip always loses; the sandwich at graduation's depth (pushes of 50 and 98 ticks, against an identical box stepped alone) loses the attacker about 1.5% while its front-run's 1% fee reaches the box's own positions. S5.M3: BuyForCreator and SellForCreator are bounded the same way, recomputed from TickMath in BC-125's checks. S5 review: the room one step can spend before its limit (BoxSwapBounds buyInput and sellInput, which deepen()'s conversion minimum and the point-7 burn read) is what a real exact-input swap to that limit spends, never more and at most 6 raw units short, on the box's pool with spot landed on any tick within 150 of P1 from either side, and on a plain pool whose liquidity starts or ends at seven ticks (positive, negative and zero liquidityNet) with spot anywhere in [-700, 700] (1,000 runs each; four mutations of the crossing and the fee gross-up caught) S5.M4, on box 0 as factory v1 creates it and the S5.M4 kit's Standard boxes on the same version (every contract real): the sandwich against every protocol swap step type of version 1 (the module's BuyBurn, SellForFit, BuyForCreator and SellForCreator; deepen()'s depth conversion on a Standard box and on box 0; FIT's executor's buy-and-burn chunk), a push of 1-150 ticks the step's way in its block after or before the block's sample, the step, the unwind: the attacker never gets back what it paid; a step that trades ends within its own reference ∓ 99 ticks and 49 ticks of where it found the price (recomputed from TickMath); a push past the band makes it wait (AtBand, AtCeiling, a deepen skip), never trade worse; each type trades after a 1-tick push and waits after a 150-tick one. Locally (1,000 runs a type), on a read-only mainnet fork at block 26,055,260 with the canonical PoolManager (128 runs a type) and on a Sepolia fork at 11,780,483 (three types, 64 runs); and the invariant campaign across receiver, module, hook and stream (BC-132's checks, 32,768 random calls a campaign)"
+    },
+    "BC-130": {
+      "status": "partial",
+      "checks": {
+        "s45": [
+          "test_BC130_buyBackQHeldUntilTheSettlementThenHandedLessOneUnit",
+          "test_BC130_sellForQBurnedBeforeGraduationThenWaitsForTheModule",
+          "test_BC130_creatorConversionsHeldThenHandedToTheirOwnLedgers",
+          "testFuzz_BC130_moduleLedgersPlusCarryEqualTheInput",
+          "test_BC130_initializeTakesTheModuleMenuAndChecksTheWiring"
+        ],
+        "s5m4": [
+          "test_BC130_theRealModuleTakesNothingBeforeTheSettlement"
+        ]
+      },
+      "covered": "receiver side against a mock module (S5.M1): BUYBACK_BURN_T's and CREATOR_IN_T's Q held in the module's ledgers until the settlement, SELL_FOR_Q's T burned before graduation and added to fitWaitingT after, CREATOR_IN_Q's T and FIT's T held; pullForModule before the settlement hands nothing and opens no step, the settlement moves nothing to the module, after it each ledger is handed less 1 raw unit by ERC-6909 transfer into its own return slot; every Q and T part plus the carry equals the input (fuzzed); initialize takes the four module actions, requires a module on a Standard box and none on box 0, refuses a module naming another receiver, Q, T or hook, and still refuses holder payouts, BURN_Q and a Standard box's per-item stream S5.M4 on the real module (the kit's Standard box D on the factory's version, still on its curve): the receiver holds its module's ledgers before the settlement, sync hands nothing and a step stops NotGraduated; graduate() settles the receiver and moves nothing to the module; the first pull hands each held ledger less its 1 raw unit, as claims",
+      "waits": "factory v2's module clone (box 0 has none; factory v1 creates box 0 only): S11; the failure routing of held module ledgers: S11"
+    },
+    "BC-131": {
+      "status": "partial",
+      "checks": {
+        "s45": ["test_BC131_w4SellersFitShareReachesFitOnlyAsQFromTheModulesSells", "test_BC131_sellForQRewardIsSoldWithFitsShare"]
+      },
+      "covered": "W4 end to end beside box 0 with its real FIT executor: real round trips on a default Standard box (BUYBACK_BURN_T, BURN_T) give FIT's 3/15 of the sellers' fees in T; the module sells it in bounded steps over many blocks, its Q (less the step tip) booked to fitOwed and nothing else; T sold + T in the module + T still in the receiver == T credited, to the raw unit; payFit() sends fitOwed into fundBudget(), FIT's executor buys and burns FIT, and FIT's pool moves only when the executor runs (the module never trades there); SELL_FOR_Q's 10/15 joins FIT's 3/15 after graduation and is sold on the same ledger to the raw unit",
+      "waits": "factory v2's module clone (box 0 has none; here the S4+S5 helper etches it, as it builds every clone): S11"
+    },
+    "BC-132": {
+      "status": "partial",
+      "checks": {
+        "s45": [
+          "test_BC132_proceedsNeedAPullInTheSameTransaction",
+          "test_BC132_proceedsBookAtMostWhatArrivedSinceThePull",
+          "test_BC132_creatorProceedsReachOnlyThePayeesLedger",
+          "test_BC132_proceedsNeverBookTheNextBatch",
+          "test_BC132_feeNotesClippedToTheAllowanceNeverReverted",
+          "test_BC132_aLyingModuleMovesNoBatchBeyondItsAllowance",
+          "test_BC132_onlyItsModuleTheExecutorOrTheHookMayNote",
+          "test_BC132_aBrokenModuleBlocksNothingElse",
+          "test_BC132_ledgersEqualItsClaimsThroughALife",
+          "test_BC132_noAllowanceOperatorOrDelegatePath",
+          "test_BC132_noCorePathCallsTheModule"
+        ],
+        "s5m4": [
+          "test_BC132_aRealStepBesideAPairsPokeBooksOnlyItsOwnProceeds"
+        ]
+      },
+      "covered": "receiver side against a mock module (S5.M1): moduleProceeds reverts NoStepOpen without a pull in the same transaction (isolated calls) and before the settlement, books at most the claims that arrived since the snapshot and are in no ledger (an arrival booked once, a re-pull's snapshot, fees waiting before the pull, a collect inside the step), only into FIT's Q or the creator's ledger of a creator conversion box; fee notes beyond Σ handed × LP_FEE / 10^6 per side are clipped, never reverted; twin boxes show a lying module moves the next batch's parts by exactly its allowance; only the box's module, its hook (and box 0's executor) may note, pull or book; a reverting or gas-burning module blocks no collect, graduation, claim, payFit or deepen and its budget waits; a module re-entering at initialize only refuses its own box's creation. Module side (S5.M2, the real BoxSwapModule): through 40 blocks of batches, collects and both steps its Q ledgers equal its Q claims, its T ledgers its T claims, the T it holds to burn its T balance, and it holds no ETH; no approve, setApprovalForAll, ERC-6909 setOperator, DELEGATECALL or SELFDESTRUCT in its code and no allowance or operator right to or from it on chain; its callback refuses the PoolManager outside its own step; a stranger's clone naming a real receiver can never be initialised; graduation, collects, deepens, swaps and the ETH intake never call it S5.M4 with the real module beside a converting hook on the factory's version: a deepen() pair's poke mints fees to the receiver and a SellForFit step in the same block books FIT's Q for exactly its sale's output less the tip, the poke's fees staying the next batch's; the invariant campaign (S5M4Invariants, 256 runs of 128 random calls on box 0, a default and a creator Standard box, D graduating inside it) keeps each module's ledgers exactly its claims and its T to burn exactly its T balance, its booked fee notes at most Σ handed × LP_FEE / 10^6 per side with the receiver's allowance exactly that less the notes (from the receiver's own events), every receiver's claims covering its ledgers, every hook's budget exactly its claims, and no step, sync, burnPending, deepen() or execute() reverting",
+      "waits": "a module clone created by a factory: S11 (factory v1 creates box 0 only, which has none)"
+    },
+    "BC-133": {
+      "status": "checked",
+      "checks": {
+        "s45": [
+          "test_BC133_moduleQFeesComeBackToItsLedgerWholeNeverSplit",
+          "test_BC133_moduleTFeesComeBackToItsSellLedger",
+          "test_BC133_hookConversionFeesReturnToDepthNeverSplit",
+          "test_BC133_box0ExecutorAndHookNotesReturnApart",
+          "test_BC133_returnsNeverExceedTheBatch",
+          "test_BC133_aNotePendingAtTheSettlementIsReturnedNotSplit",
+          "test_BC133_theModulesQNoteIsAtMostItsSwapsFeeAndComesBackWhole",
+          "test_BC133_theModulesTNoteIsAtMostItsSwapsFeeAndComesBackWhole",
+          "test_BC133_anotherAddresssIdenticalSwapIsSplitAsUsual",
+          "test_BC133_theHooksConversionNoteIsAtMostItsSwapsFeeAndComesBackWhole",
+          "test_BC133_returnedFeesGoBackToTheCreatorLedgerThatPaidThem",
+          "test_BC133_aStandardBoxsModuleAndHookNotesFromOneBlockReturnApart"
+        ]
+      },
+      "covered": "receiver side (S5.M1): the module's Q and T notes return whole to moduleBackQ and moduleBackT before the tip and the split, handed back by the next pull; the hook's conversion notes (Q only) return to its claims (depth); box 0's executor's notes to fitOwed and its hook's to its claims, each from its own pending ledger; returns never exceed the batch's new claims and the rest waits; a note pending at a late settlement is returned there, not split. The real module (S5.M2): a BuyBurn step's Q note and a SellForFit step's T note are never more than the fees the box's positions earned from that step (measured as the next batch) and within 16 raw units of them, return whole and come back into the ledger that paid them at the next pull; an identical swap by another address notes nothing and its fee is split as usual. The hook's own conversions (S5.M5), on box 0 and a Standard box: the note is never more than the fees the box's positions earned from the conversion (the next batch) and within 16 raw units of them, and returns whole to the hook's claims before the 2/15, never split; on box 0 the executor's and the hook's notes from one block return apart (test_BC137_box0TwoFitBuyersNotesReturnApart). S5.M3 (§ 4.8's attribution): on a box holding both kinds of buy Q (CREATOR_IN_T with add-on 5's BURN excess) and both kinds of sell T (CREATOR_IN_Q beside W4's 3/15), the returned Q goes first to the creator-buy ledger, exactly the fee its step reported, the rest to the burn-buy ledger, and the returned T first to the creator-sell ledger, the rest to the sell-for-FIT ledger. Merged on sh-s5-swap (a Standard box as it ships: the real module beside a hook that converts): the module's BuyBurn and the hook's conversion in one block, in either order, note apart, and the next collect returns the module's note whole to moduleBackQ and the hook's whole to its claims before the tip and the split, the rest splitting 10/15, 3/15, 2/15; the next pull hands the module's back to its burn-buy ledger (BoxSwapIntegration)"
+    },
+    "BC-134": {
+      "status": "checked",
+      "checks": {
+        "s45": [
+          "test_BC134_beforeGraduationNothingConverts",
+          "test_BC134_theAverageNotReadyOrFailing",
+          "test_BC134_atTheBand",
+          "test_BC134_belowTheStepMinimum",
+          "test_BC134_aSecondStepInABlock",
+          "test_BC134_nothingToDo",
+          "test_BC134_noLiquidity",
+          "test_BC134_aRefusedBurnWaits",
+          "test_BC134_creatorActionsSkipNeverRevert"
+        ]
+      },
+      "covered": "every Stop reason of BoxSwapModule.step returns without a revert, keeps the budget and trades nothing: NotGraduated (the receiver holds the module's Q until the settlement), AverageNotReady (the sampler unseeded at graduation, half an hour later, a reverting average, a not-ready one; bounds() agrees), AtBand (a buy 120 ticks below its reference after the block's sample, a sell 120 above; the other direction still runs), BelowStepMin (200,000 T at P1, 0.004 ETH, and exactly 1 raw unit below the minimum; exactly the minimum runs), BlockLimit, NothingToDo (no buy-back ledger, no T share yet, no creator ledger), NoLiquidity (a stand-in pool with no liquidity: after migrate a box's L7 positions span every price); a vault-floor refusal of the burn leaves the bought T waiting, never counted as burned, and anyone's burnPending() burns it once the floor allows. S5.M3: BuyForCreator and SellForCreator skip the same way (NothingToDo without their ledgers, BelowStepMin for 200,000 T of creator T, BlockLimit after another action in the block); only Action.None reverts (ActionNotBuilt)"
+    },
+    "BC-135": {
+      "status": "checked",
+      "checks": {
+        "s45": [
+          "test_BC135_aBuysTipIsFivePercentOfItsInputPaidLast",
+          "test_BC135_aSellsTipComesFromItsOutput",
+          "test_BC135_theTipIsCappedAtTheBatchTipMax",
+          "test_BC135_splittingABudgetNeverEarnsMoreTip",
+          "test_BC135_aRevertingTipRecipientRevertsOnlyItsOwnStep",
+          "test_BC135_tipIsFivePercentCapped"
+        ]
+      },
+      "covered": "the tip is min(5% of the step's Q, 0.0005 ETH): of a buy's input (reserved before sizing it) and of a sell's output (the rest booked to FIT); it is paid last inside the step's unlock (the recipient sees the post-trade price and can neither re-enter the module nor run the receiver's collect); deeper in the pool the cap applies; budgets below 0.005 ETH wait (BC-134); the caller chooses no size, a second step in a block skips and over 30 blocks the tips never exceed 5% of what was converted; tipTo address(0) takes no tip and leaves it in the budget; a reverting tip recipient reverts only its own step"
+    },
+    "BC-136": {
+      "status": "checked",
+      "checks": {
+        "s45": [
+          "test_BC136_creatorInTCountedAtTheQHandedForItsBuy",
+          "test_BC136_creatorInQCountedAtTheQItsSalePaid",
+          "test_BC136_atRoomZeroWithBurnTheCreatorsTIsBurnedNotSold",
+          "test_BC136_atRoomZeroABacklogBurnsOneSaleAStepAndTheRestSellsNextEpoch",
+          "test_BC136_aThirdPartyFillingTheRoomBurnsAtMostOneStep",
+          "test_BC136_tPaidAsTHeldUntilTheSamplerValuesIt",
+          "test_BC136_tPaidAsTBeyondTheRoomGoesToTheExcessInT",
+          "test_BC136_aFailingQuoteLeavesTHeld",
+          "test_BC136_onlyAReadyQuoteIsUsed",
+          "test_BC136_quoteTInQRoundsUpAtTheAverage",
+          "test_BC136_fitAndDepthPartsEqualTheUncappedTwinsToTheWei",
+          "test_BC136_aCapExcessIntoDepthIsConvertedBesideACreatorStep"
+        ]
+      },
+      "covered": "S5.M3 on real module clones, the box's sampler and graduated pools: CREATOR_IN_T counts at the Q handed for its buy at the split (the room to the creator-buy ledger, the rest to BURN's burn-buy ledger, which BuyBurn buys and burns), and its held curve-time Q fills epoch 0's cap first at the settlement (POOL_DEPTH: the rest to the hook); the T the module buys is owed to the payee and counted no more; CREATOR_IN_Q counts at the Q its sale paid (moduleProceeds): the payee gets the room, the rest goes to the burn-buy ledger (BURN) or the hook's claims (POOL_DEPTH); with the room spent and BURN the creator's T is burned instead of sold (§ 13 point 7), at most what one sale would have sold (S5 review: a sale's block limit, average and sell limit apply; within 4 raw units of a real sale's input at the same price, never above it), the rest kept; a 60M-T backlog on the epoch's last day loses one step a block (a second step in the block waits) and sells for the payee once the epoch turns; a stranger who fills the room with a fundFees gift and steps in the same block, with no tip, burns at most one step; a new epoch sells again, POOL_DEPTH still sells; T paid as T (TO_CREATOR on the sellers' side) stays held at the settlement and while the sampler is unseeded or under an hour, with collect, payFit, claimCreator, fundFees, fundDepth, fundCreator and pullForModule all working, and the first collect with a ready average credits it at quoteTInQ (checked against TickMath, rounded up: never below the value, at most 2 raw units above); beyond the room the creator keeps the share its value allows (rounded down) and the rest is burned (BURN) or the hook's T (POOL_DEPTH), the creator's total losing the excess; a reverting, unready or zero quote leaves it held; FIT's Q and T parts, the depth parts and the hook's claims equal an uncapped TO_CREATOR twin's to the wei. With BC-125's checks: the payee's ledger only, pulled by claimCreator, after a payee hand-over too. Merged with S5.M5 on sh-s5-swap: add-on 5's POOL_DEPTH excess in Q is depth money like any other: with the room spent, a BuyForCreator step and deepen()'s conversion of the excess in one block leave the creator's T exactly what its step bought, the room and the creator's Q untouched; the next batch returns both notes apart and its 10/15 past the room goes into depth; the next pull gives the creator-buy ledger its own fee first (BoxSwapIntegration)"
+    },
+    "BC-137": {
+      "status": "checked",
+      "checks": {
+        "s45": [
+          "test_BC137_aConversionAloneKeepsItsTAsClaimsAndStartsTheCooldown",
+          "test_BC137_box0ConvertsLikeEveryBox",
+          "test_BC137_theLimitIsTheNearerOf49TicksAndTheBand",
+          "test_BC137_aPushToTheBandsEdgeSkipsWithNoCooldown",
+          "test_BC137_theBoxsOwnBuyBackBeforeDeepenSkipsWithNoCooldown",
+          "test_BC137_halfTheUnpairedQ_thenThePairAtTheReReadPrice",
+          "test_BC137_aConversionThatPairsHasNoSeparateMinimum",
+          "test_BC137_aConversionAloneNeedsTheMinimum",
+          "test_BC137_theQSideBelowMinAddNeverConverts",
+          "test_BC137_aTSideAtMinAddPairsWithoutAConversion",
+          "testFuzz_BC137_aSameBlockPushNeverLoosensTheConversion",
+          "test_BC137_sandwichSweepNeverPays",
+          "testFuzz_BC137_box0TwoFitBuyersInOneBlockShareOneBand",
+          "test_BC137_box0TwoFitBuyersNotesReturnApart",
+          "test_BC137_graduationDepthRun_standard",
+          "test_BC137_graduationDepthRun_box0",
+          "test_BC137_box0TenEthBacklogPlacedOverTimeNeverBlocksCollectOrGraduate",
+          "testFuzz_BC137_aStandardBoxsModuleAndConversionInOneBlockShareOneBand",
+          "test_BC137_aStandardBoxsModuleAndConversionBothRunWithinOneBand"
+        ]
+      },
+      "covered": "S5.M5 on box 0 and a version-2 box: with the Q side at MIN_ADD and the T side below it, deepen() buys T with at most half the unpaired Q (exactly half when that is inside the room), to the nearer of 49 ticks of impact and t_ref - 99 (the band binding at 29 ticks; at its edge a skip), the minimum output checked on what it spent, all re-computed from TickMath; a conversion alone keeps its T as the hook's claims, needs 0.005 ETH of what it can spend (one raw unit below skips with ConvertBelowMin and keeps everything; since the S5 review the minimum is on the smaller of the ceiling and the room to the limit, so a push 98 ticks down in deepen()'s block, on box 0's and a Standard box's real averages, or two of the box's own BuyBurn steps before it, give a ConvertBelowMin skip with no swap and no cooldown, and a full step follows once the push is unwound or the average follows) and starts the 300-block cooldown; a conversion that brings both sides to MIN_ADD pairs in the same unlock at the re-read price, with no separate minimum (0.003 ETH); the Q side below MIN_ADD never converts, a T side at it pairs with no swap; every hook swap pays Q and receives T (no T sold); its fee note returns to its claims; same-block pushes of 1-150 ticks never loosen the limit and lose the attacker money (at best -0.000078 ETH, pushes of 2-98 ticks both ways; a push the conversion's way that leaves less room than the minimum now gives a skip); on box 0, FIT's executor and the conversion in one block, either order, never pass the shared band and their notes return apart. Graduation-depth run (BC-110's tax, no T, at P1, one call an hour, the real averages): 8 calls, 4 conversions alone and 4 with a pair, every add with both sides at MIN_ADD, ending with less than one more step's minimum left; box 0's 10 ETH backlog: placed in 11 days with 42 collects in between, graduate() never waiting for the tax (SH-S5-swap § M5). Merged with S5.M2 and S5.M3 on sh-s5-swap, the Standard twin of box 0's two FIT buyers: the module's BuyBurn and the hook's conversion, in one block, either order, after same-block pushes of 0-60 ticks (fuzzed), never take the price past the shared t_ref - 99 of the box's one sampler; with no push both run in full, about 2 x 49 ticks (BoxSwapIntegration)",
+      "waits": "Q other than ETH: S12"
+    },
+    "BC-138": {
+      "status": "checked",
+      "checks": {
+        "s45": [
+          "test_BC138_receiverWithinTheM1SizeGate",
+          "test_BC138_moduleWithinEip170",
+          "test_BC138_m3SizesWithinEip170",
+          "test_BC138_depthConversionGas_today",
+          "test_BC138_depthConversionGas_glamsterdam",
+          "test_BC138_hookExtensionWithinEip170AfterM5",
+          "test_BC138_theFirstStepsWriteFromZeroOnlyTheModulesOwnBalancesAndTheFirstNote"
+        ],
+        "s5m4": [
+          "test_BC138_theFirstStepsWriteFromZeroOnlyBalancesAndLedgersThatHoldValue"
+        ]
+      },
+      "covered": "the size gate (S5.M1): BoxReceiver's hot half plus S5.M3's cap ledger is at most 22,500 bytes (estimated at 1,500 bytes in S5.M1; built in S5.M3, the receiver measures 22,275 with it; the split into a hot half and BoxReceiverExtension, swap-module § 7, happened in S5.M1); the receiver clone is the proxy plus 201 argument bytes (184 since S5.M1, the cap and its excess since S5.M3); the receiver's hand-off paths are measured under both schedules with no slot written from zero in steady state (BoxSwapHandOffGas, SH-S5-swap). S5.M2: BoxSwapModule within EIP-170 and § 7's 10-14 KB, its clone 147 bytes; a real step of each action, its first and its steady state, a skip, sync and burnPending measured under both schedules, the steady steps within the measured budget and writing no slot from zero (BoxSwapModuleGas, SH-S5-swap § M2). S5.M3: BoxReceiver, BoxReceiverExtension, BoxSwapModule and BoxPriceSampler within EIP-170; the creator steps (BuyForCreator, SellForCreator with the cap counted, the § 13 point 7 burn), the settlement and collects with add-on 5, first and steady, under both schedules, the steady ones writing no slot from zero (BoxSwapCreatorGas, SH-S5-swap § M3). S5.M5: deepen()'s conversion alone and conversion with a pair, the first and the steady state, on box 0 and a Standard box under both schedules, the steady ones within the measured budget and writing no slot from zero; BoxHookExtension within EIP-170 keeping at least 2 KB, BoxHook unchanged (BoxDepthConvertGas, SH-S5-swap § M5). S5 review: the receiver's initialize seeds the module's fee-note allowances (stored plus 1), so a box's first BuyBurn writes from zero only the module's own two claim balances, its T balance and the receiver's first Q note slot (moduleQPending beside moduleBackQ), and its first SellForFit only the first T note slot and the pool's own state (a first crossing), none of the module's slots and no other receiver slot (BoxSwapModuleGas); the first step's state gas falls by 195,840 under Glamsterdam and createBox pays it instead (§ 6); BoxReceiver 22,340 bytes (160 under the gate), BoxSwapModule 16,570, BoxHookExtension 22,367 (2,209 free) S5.M4 on the factory's version with every contract real (S5M4Gas, S5M4FirstSteps): every keeper and caller path of box 0 and of the kit's Standard boxes under both schedules, the steady steps writing no slot from zero and within the measured budget (340,000 today, 510,000 under Glamsterdam: S5's largest steady step, rounded up); a box's first steps write from zero only the module's own PoolManager claim balances and T balance and receiver ledgers that book real claims (the note slot once per side, a creator box's first owed creator Q and T), slot by slot; a Standard box's module adds its clone's CREATE and its initialize to the creation (measured on the kit; SH-misfits-line § S5.M4)",
+      "waits": "createBox's added cost through a factory's own frame: S11 (factory v1 creates box 0 only; S5.M4 measured the module clone's CREATE and its initialize on the kit's Standard box)"
+    },
+    "BC-139": {
+      "status": "checked",
+      "checks": {
+        "s8": ["test_BC139_theRealStreamGetsExactlyThirteenFifteenthsWhateverItsNotice"],
+        "s45": [
+          "test_BC139_box0SellersFeesThirteenBurnedTwoToItsPool",
+          "test_BC139_aRefusedBurnNeverTouchesTheDepthPart",
+          "test_BC139_streamGetsExactlyThirteenFifteenths",
+          "testFuzz_BC139_box0TPartsPlusCarryEqualTheInput"
+        ]
+      },
+      "covered": "box 0's sellers' fees before graduation (13/15 burned, 2/15 held), at the settlement (moved whole) and after (2/15 to the hook at once), the remainder carried; a vault-floor refusal leaves 13/15 in tBurnPending and the 2/15 reaches the hook; a stand-in stream receives exactly 13/15, also when its notice reverts or burns all its gas (S4+S5); the real per-item stream on the factory's box 0 (S8, N 4,269) receives exactly 13/15 of each batch after graduation and the hook the 2/15 (BatchSplit, T's transfers, the hook's claims), nothing burned by the receiver, also when its notice reverts, the stream's value continuous across both batches and X = F after the next notice; its notice's own gas stays under STREAM_NOTIFY_GAS under both schedules (BC-065, BoxItemStreamGas), so the cap never cuts it (review of the Misfits line, finding 3); the T parts plus the carry equal the T in (fuzzed); the 13 : 2 ratio holds under the S4+S5 invariant campaign (invariant_box0SplitElevenTwoTwoAndThirteenTwo)"
+    },
+    "BC-140": {
+      "status": "checked",
+      "checks": {
+        "s45": ["test_BC140_box0LaunchTaxGoesIntoItsOwnPool", "test_BC140_withNoGraduationTheTaxStaysInTheRouter"]
+      },
+      "covered": "BC-110's window buys leave 0.1737624 ETH in box 0's router; sweep() reverts NotGraduated before graduation (also a year later with no graduation, and when the Safe calls it); graduate() runs with the tax in the router; after it anyone's sweep() raises the hook's Q budget by exactly the tax and the forced ETH; the Safe's ETH and claims never rise; the router has no platformSafe()"
+    },
+    "BC-141": {
+      "status": "checked",
+      "checks": {
+        "s45": ["test_BC141_thePlatformsOnlyIncomeIsBox0sCappedShare"],
+        "s5m4": [
+          "test_BC141_everyBoxsLifeWithModuleStepsAndConversionsOverThreeEpochs"
+        ]
+      },
+      "covered": "box 0 and a version-2 box through creation, taxed window buys, the curve, graduation, sweeps, collects, deepens, royalty flushes (fee handling and pool depth), gifts, forced ETH, FIT's executor's receive() and payFit() over three epochs: the Safe's ETH and claims change only in box 0's payPlatform(), by what it returns, at most 32 ETH an epoch; core v1 box 0, every state: the Safe's ETH equals the receiver's paid platform credits (BC-022's check) S5.M4's life run (the run the case left to it): box 0 as factory v1 creates it, a default and a creator Standard box on the same version, D graduating inside the run, with the module's four steps, deepen()'s conversions and pairs, FIT's executor, 300 ETH of box 0 fees an epoch, every payout, stream claims and Misfit transfers over three 30-day epochs: the Safe's ETH rises only in payPlatform(), by what it paid, at most 32 ETH an epoch, and no other box credits a platform; the invariant campaign checks the same after every random call",
+      "waits": "version-2 boxes built by a factory: S11 (box 0 is factory-built since S7; the S5.M4 run's Standard boxes are the kit's)"
+    },
+    "BC-142": {
+      "status": "checked",
+      "checks": {
+        "s45": ["test_BC142_box0QOnlyDepthIsPlacedInSmallStepsAndItsAmountsCanBeRead"],
+        "web": ["BC-142: the Token tab: F77 fees with live totals, the pool row from the chain, the stream and the draws"],
+        "web-e2e": [
+          "BC-099, BC-142: the Token tab after graduation: F77 fees with live totals, the pool row read from the chain, the stream, the draws; no link on a local chain"
+        ]
+      },
+      "covered": "box 0 with its swept tax and the platform's excess above the cap as Q-only depth: with the T side below MIN_ADD, deepen() converts one capped step (about 0.0101 ETH at graduation's depth, S5.M5) and keeps the rest, the hook's claims equal the budget; once sellers' 2/15 is worth MIN_ADD the pair adds and most of the Q waits for later calls; the amounts are read from pairedLiquidity, depthBudget and the router's balance; S10a: box 0's page reads its pool from the chain (the indexer's figures audited against the hook's depthBudget and pairedLiquidity at one block, or a direct read at one block): before graduation the raise, the pool share waiting, the depth held and the launch tax still in the router; after it what is in the pool at the price, what waits (depthBudget), whether fees have paired and locked (pairedLiquidity), the last add and the conversions (Token tab, recorded life and jsdom)"
+    },
+    "BC-143": {
+      "status": "checked",
+      "checks": {
+        "s45": [
+          "test_BC143_everyBoxHoldsItsDepthPartsUntilTheSettlement",
+          "test_BC143_box0LateSettlementCapsTheHeldShareInEpochZeroAndMovesTheDepth",
+          "test_BC143_box0OnGraduationWithinPokeGas"
+        ]
+      },
+      "covered": "box 0 and a version-2 box hold their Q and T 2/15 and a fundDepth() gift in the receiver before graduation, credited when held, and move them whole at the settlement (every claim booked after); box 0's settlement 31 days late keeps its held platform share in epoch 0, charges nothing to epoch 1 and moves the held depth; box 0's onGraduation with held Q and T depth, held shares and a final two-sided batch stays under POKE_GAS today and under Glamsterdam, every account cold"
+    },
+    "BC-045": { "status": "pending", "why": "deadlineDays' spec-level checks are in S1's vectors" },
+    "BC-052": { "status": "pending", "why": "open art's spec-level rule (a published reveal list) is in S1's vectors" },
+    "BC-056": { "status": "pending", "why": "holder payouts are not built (the core reverts ActionNotBuilt for value 7); validate() refuses every holder kind on every chain and the Demo offers them marked pending legal review (BC-128)" },
+    "BC-070": { "status": "pending", "why": "today's hook routes on the forks of test/v2/fork; the clone hook is S0's spike" },
+    "BC-124": { "status": "pending", "why": "TOKEN_ONLY's spec rules (no collection field, no collection cover, version 2 only) are in S1's vectors; the factory v2 builds it" },
+    "BC-125": {
+      "status": "partial",
+      "checks": {
+        "s45": [
+          "test_BC125_buyForCreatorIsBoundedAndPaysThePayeeInT",
+          "test_BC125_sellForCreatorIsBoundedAndPaysThePayeeInQ",
+          "test_BC125_heldUntilGraduationNeverSwappedOnTheCurve",
+          "test_BC125_fitAndDepthPartsEqualTheToCreatorTwinsToTheWei",
+          "test_BC125_onlyTheCurrentPayeeClaims"
+        ]
+      },
+      "covered": "S5.M3 with native-ETH Q on real module clones: before graduation CREATOR_IN_T's Q and CREATOR_IN_Q's T are held in the module's ledgers (not creator credits), the module skips NotGraduated and the curve's price never moves; after the settlement BuyForCreator and SellForCreator each move the price at most 49 ticks, never beyond the reference ∓ 99, with at least the minimum output (recomputed from TickMath), one step per block; the T bought is owed to the payee (moduleProceeds, CreatorT), nothing burned, the Q a sale paid less the step's tip owed to the payee (CreatorQ), nothing to FIT; claimCreator pays them, and after a payee hand-over only the current payee can; FIT's Q and T parts and the depth parts equal a TO_CREATOR twin's to the wei through trades before and after graduation, and the twin's creator credits equal what the conversion box hands its module",
+      "waits": "the refund range at a failure (S11); other Q (S12); the page's 'sells {T} for {Q}' line (the site lane); validate()'s holder refusals are the TypeScript twin's and the shared vectors' (BC-128)"
+    },
+    "BC-126": {
+      "status": "partial",
+      "checks": {
+        "s45": [
+          "test_BC126_toCreatorQAtFaceEachPresetAndEpoch",
+          "test_BC126_curveTimeFeesCountInEpochZeroEvenWhenSettledLate",
+          "test_BC126_royaltiesCountUnderTheCap",
+          "test_BC126_initializeRefusesACapItCannotKeep",
+          "testFuzz_BC126_neverMoreThanTheCapPerEpoch"
+        ]
+      },
+      "covered": "S5.M3's receiver cap at every preset (1, 4, 8, 16, 32 ETH) and both excess destinations: creator Q at face below, through and above the room, the rest to the module's burn-buy ledger (BURN) or the hook's claims (POOL_DEPTH), FIT's 3/15 and the depth 2/15 untouched; a new epoch starts from zero with no carry-over; curve-time fees held until graduation fill epoch 0's cap even when the settlement runs a month late, and the late batch counts in the epoch then current; creator royalties (fundCreator) count under the same cap (P); fuzzed batches and times over several epochs never give the creator more than the cap in an epoch, and kept + excess equal every reward to the wei; initialize refuses a cap without a creator stream kind (royalties alone included), with HOLDERS, another or no destination, a destination without a cap, or on box 0 (CreatorCapRefused). The sellers' side and both sides are BC-136's checks (T paid as T valued by the sampler, CREATOR_IN_Q at the Q its sale paid). validate()'s refusals (no creator kind, ERC-20 Q, version 1, an amount not a preset, HOLDERS) are the 12 add-on-5 vectors of S1's shared vectors (BoxSpecV1Vectors.t.sol, both implementations)",
+      "waits": "factory v2 encoding the spec's add-on 5 params into the receiver's arguments (version 1 refuses add-on 5; the S4+S5 helper writes them here): S11"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "tool": "packages/chain/scripts/buy-v2.mjs",
+  "protocol": "v2",
+  "box": null,
+  "mode": "launch",
+  "amountIn": "1600000000000000000000",
+  "reason": "Gross ceiling covers even the first 93.1974% launch-tax step and 1% LP fee. Closing fills refund unused input. This is a budget, not the spend quote.",
+  "sequence": [
+    "Read effectiveOpenAt, gateOpen, hook.closed and windowEndsAt; stop buying when closed.",
+    "Use buy-v2 --quote-only with a fresh deadline inside the 384-second window. Execute exact approvals, then re-quote at a NEW block.",
+    "Use returned buy eth_call output with --quote-out, --quote-block and --slippage-bps 100. Review unsigned transaction before signing.",
+    "Clear remaining approval after success or failure. Do not buy again once hook.closed, even while graduation is pending.",
+    "Run keeper processing and hidden-kit drand/reveal prerequisites; acceptance requires coordinator.graduated, not just hook.closed."
+  ],
+  "fixedArgs": [
+    "--chain-id",
+    "11155111",
+    "--mode",
+    "launch"
+  ],
+  "runtimeArgs": [
+    "--box",
+    "--from",
+    "--amount-in",
+    "--deadline",
+    "--rpc",
+    "--key-file"
+  ],
+  "keyFile": "UNUSED-OFFLINE",
+  "note": "buy-v2 requires a printed-only key-file argument. Use UNUSED-OFFLINE for unsigned preparation; it is never read. Do not run its printed send commands in this lane."
+}

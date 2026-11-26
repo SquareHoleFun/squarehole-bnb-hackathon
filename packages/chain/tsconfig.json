@@ -1,0 +1,5 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": { "types": ["node"] },
+  "include": ["src", "test", "vitest.config.ts", "vitest.integration.config.ts", "scripts/reveal-open-v2.ts", "scripts/reveal-open-v2.test.ts", "scripts/reveal-open-v2.vitest.ts"]
+}

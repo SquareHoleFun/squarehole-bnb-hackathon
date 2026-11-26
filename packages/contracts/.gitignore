@@ -1,0 +1,23 @@
+# Foundry build output and caches (includes persisted invariant counterexamples in cache/invariant).
+out/
+cache/
+broadcast/
+# The neutral-name build of the Sepolia rehearsal (FOUNDRY_PROFILE=sepolia-neutral).
+out-neutral/
+cache-neutral/
+# The rehearsal build of core v1 (FOUNDRY_PROFILE=rehearsal, F78).
+out-rehearsal/
+cache-rehearsal/
+# Local secrets never belong here; B1 uses no RPC or keys.
+.env
+# Local, dry-run and pending (pre-broadcast plan) manifests; a public-chain deployments/<chainId>.json is written only
+# by the read-only finalizer (script/WriteManifest.s.sol) after the broadcast and committed at Stage E.
+deployments/31337.json
+deployments/dry-run/
+deployments/pending/
+# Local E2E logs (scripts/local-e2e.sh).
+.e2e/
+# S7 dry runs of script/DeployCoreV1.s.sol (scripts/core-v1-simulate.sh).
+.s7-sim/
+# A fork rehearsal's own Sepolia spec files with an open near the real time (F80; scripts/core-v1-life-run.sh).
+script/config/rehearsal-runs/

@@ -1,0 +1,261 @@
+{
+  "mode": "plain",
+  "port": 8573,
+  "started": "2026-11-25T08:24:34.007Z",
+  "deployer": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576",
+  "params": {
+    "trigger": "0x920B1439BC0BF2f30f9E01B9Bb94d90A9ba35189",
+    "nativeRaise": "1000000000000000",
+    "coinRaises": {
+      "usdc": "1000000",
+      "nvda": "1000000000000000",
+      "gold": "1000000000000000",
+      "pepe": "1000000000000000",
+      "teth": "100000000000000000"
+    },
+    "bnbPerPool": "100000000000000",
+    "nvdaInPair": "10000000000000000000",
+    "routes": 7,
+    "extraArgs": []
+  },
+  "complete": true,
+  "client": "anvil/v1.8.3",
+  "forkBlock": null,
+  "deployerAtStart": {
+    "nonce": "0",
+    "balance": "0"
+  },
+  "codeAt": {
+    "wbnb": false,
+    "v4PoolManager56": false
+  },
+  "plantedWbnb": "LocalWETH9 runtime at the WBNB address",
+  "interrupts": [],
+  "deployerSpent": "13840151300000000",
+  "table": {
+    "rows": [
+      {
+        "step": "dependencies",
+        "transactions": 6,
+        "gasUsed": "10932186",
+        "largestGasUsed": "5243607",
+        "largestGasLimit": "6816689",
+        "overCap": 0,
+        "bnbForGas": "1093218600000000",
+        "bnbSent": "0",
+        "runningGas": "10932186",
+        "runningBnb": "1093218600000000"
+      },
+      {
+        "step": "release",
+        "transactions": 39,
+        "gasUsed": "95338087",
+        "largestGasUsed": "5958354",
+        "largestGasLimit": "7745860",
+        "overCap": 0,
+        "bnbForGas": "9533808700000000",
+        "bnbSent": "0",
+        "runningGas": "106270273",
+        "runningBnb": "10627027300000000"
+      },
+      {
+        "step": "coins",
+        "transactions": 5,
+        "gasUsed": "3869808",
+        "largestGasUsed": "1272168",
+        "largestGasLimit": "1653818",
+        "overCap": 0,
+        "bnbForGas": "386980800000000",
+        "bnbSent": "0",
+        "runningGas": "110140081",
+        "runningBnb": "11014008100000000"
+      },
+      {
+        "step": "routes",
+        "transactions": 6,
+        "gasUsed": "14720293",
+        "largestGasUsed": "3770570",
+        "largestGasLimit": "4901741",
+        "overCap": 0,
+        "bnbForGas": "1472029300000000",
+        "bnbSent": "0",
+        "runningGas": "124860374",
+        "runningBnb": "12486037400000000"
+      },
+      {
+        "step": "listings",
+        "transactions": 11,
+        "gasUsed": "3826075",
+        "largestGasUsed": "678335",
+        "largestGasLimit": "961147",
+        "overCap": 0,
+        "bnbForGas": "382607500000000",
+        "bnbSent": "0",
+        "runningGas": "128686449",
+        "runningBnb": "12868644900000000"
+      },
+      {
+        "step": "helpers",
+        "transactions": 2,
+        "gasUsed": "4569139",
+        "largestGasUsed": "2598817",
+        "largestGasLimit": "3378462",
+        "overCap": 0,
+        "bnbForGas": "456913900000000",
+        "bnbSent": "0",
+        "runningGas": "133255588",
+        "runningBnb": "13325558800000000"
+      },
+      {
+        "step": "pools",
+        "transactions": 31,
+        "gasUsed": "3098921",
+        "largestGasUsed": "331746",
+        "largestGasLimit": "485178",
+        "overCap": 0,
+        "bnbForGas": "309892100000000",
+        "bnbSent": "200000000000000",
+        "runningGas": "136354509",
+        "runningBnb": "13835450900000000"
+      },
+      {
+        "step": "faucet",
+        "transactions": 1,
+        "gasUsed": "47004",
+        "largestGasUsed": "47004",
+        "largestGasLimit": "64923",
+        "overCap": 0,
+        "bnbForGas": "4700400000000",
+        "bnbSent": "0",
+        "runningGas": "136401513",
+        "runningBnb": "13840151300000000"
+      }
+    ],
+    "total": "136401513",
+    "value": "200000000000000",
+    "count": 101,
+    "bnb": "13840151300000000",
+    "withHalf": "20760226950000000"
+  },
+  "check": {
+    "manifestParsed": true,
+    "onChainProblems": [],
+    "createOptions": "parses for this release, off: addon.1",
+    "coinRecord": "parses with its chain id swapped for 31337: this branch's parser does not take 97 yet"
+  },
+  "nativePools": [
+    {
+      "symbol": "tNVDA",
+      "sqrtPriceX96": "158456325028528675187087900672",
+      "statedPrice": "4/1",
+      "priceAsStated": true
+    },
+    {
+      "symbol": "tGOLD",
+      "sqrtPriceX96": "39614081257132168796771975168",
+      "statedPrice": "1/4",
+      "priceAsStated": true
+    }
+  ],
+  "raiseFloor": {
+    "floor": "1000000",
+    "probes": {
+      "999999": false,
+      "1000000": true,
+      "10000000": true,
+      "1000000000000": true,
+      "10000000000000": true,
+      "100000000000000": true,
+      "1000000000000000": true,
+      "10000000000000000": true
+    }
+  },
+  "drand": {
+    "round": 32654015,
+    "expected": "0x8d06c9d8889080e7e3748890a7c0a96a0d24a41976397a36a97bd1996e22a6fc",
+    "ethCall": "0x8d06c9d8889080e7e3748890a7c0a96a0d24a41976397a36a97bd1996e22a6fc",
+    "ok": true,
+    "posted": true
+  },
+  "faucet": {
+    "dripped": "1000000000000000000",
+    "ok": true,
+    "liquidity": {
+      "usdc": "10000000000000000",
+      "nvda": "10000000000000000000054",
+      "gold": "1000000000000000000054",
+      "pepe": "200000000000000000000010"
+    }
+  },
+  "boxes": {
+    "box-bnb": "0xfDCC8e2ee935A4Db4e3070eb7d506EcEdfBF2188",
+    "box-nvda": "0x8316b02A8482F67A2a038875f7A09AAd3C2C5904"
+  },
+  "boxGas": {
+    "rows": [
+      {
+        "step": "box-bnb",
+        "transactions": 1,
+        "gasUsed": "2460627",
+        "largestGasUsed": "2460627",
+        "largestGasLimit": "16502300",
+        "overCap": 0,
+        "bnbForGas": "246062700000000",
+        "bnbSent": "10356550297291",
+        "runningGas": "2460627",
+        "runningBnb": "256419250297291"
+      },
+      {
+        "step": "box-nvda",
+        "transactions": 3,
+        "gasUsed": "2566842",
+        "largestGasUsed": "2494080",
+        "largestGasLimit": "16500000",
+        "overCap": 0,
+        "bnbForGas": "256684200000000",
+        "bnbSent": "0",
+        "runningGas": "5027469",
+        "runningBnb": "513103450297291"
+      },
+      {
+        "step": "trade-bnb",
+        "transactions": 11,
+        "gasUsed": "1992455",
+        "largestGasUsed": "642070",
+        "largestGasLimit": "15002300",
+        "overCap": 0,
+        "bnbForGas": "199245500000000",
+        "bnbSent": "1200000000000000",
+        "runningGas": "7019924",
+        "runningBnb": "1912348950297291"
+      },
+      {
+        "step": "trade-nvda",
+        "transactions": 23,
+        "gasUsed": "2528322",
+        "largestGasUsed": "642070",
+        "largestGasLimit": "15000000",
+        "overCap": 0,
+        "bnbForGas": "252832200000000",
+        "bnbSent": "0",
+        "runningGas": "9548246",
+        "runningBnb": "2165181150297291"
+      }
+    ],
+    "total": "9548246",
+    "value": "1210356550297291",
+    "count": 38,
+    "bnb": "2165181150297291",
+    "withHalf": "3247771725445936"
+  },
+  "boxReads": {
+    "box-bnb": {
+      "graduated": true,
+      "raise": "1000000000000000"
+    },
+    "box-nvda": {
+      "graduated": true,
+      "raise": "1000000000000000"
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "tLINK": {
+    "coin": null,
+    "sqrtPriceX96": "792281625142643375935439503360",
+    "amount0Max": "1000000000000000000",
+    "amount1Max": "100000000000000000000",
+    "tickLower": "-887220",
+    "tickUpper": "887220",
+    "deadline": null,
+    "calls": [
+      "approve(helper,amount1Max)",
+      "seed(parameters)",
+      "approve(helper,0)"
+    ]
+  },
+  "tUSDC": {
+    "coin": null,
+    "sqrtPriceX96": "792281625142643375935439",
+    "amount0Max": "1000000000000000000",
+    "amount1Max": "100000000",
+    "tickLower": "-887220",
+    "tickUpper": "887220",
+    "deadline": null,
+    "calls": [
+      "approve(helper,amount1Max)",
+      "seed(parameters)",
+      "approve(helper,0)"
+    ]
+  },
+  "tNVDA": {
+    "coin": null,
+    "sqrtPriceX96": "792281625142643375935439503360",
+    "amount0Max": "1000000000000000000",
+    "amount1Max": "100000000000000000000",
+    "tickLower": "-887220",
+    "tickUpper": "887220",
+    "deadline": null,
+    "calls": [
+      "approve(helper,amount1Max)",
+      "seed(parameters)",
+      "approve(helper,0)"
+    ]
+  },
+  "tGOLD": {
+    "coin": null,
+    "sqrtPriceX96": "79228162514264337593543950336",
+    "amount0Max": "1000000000000000000",
+    "amount1Max": "1000000000000000000",
+    "tickLower": "-887220",
+    "tickUpper": "887220",
+    "deadline": null,
+    "calls": [
+      "approve(helper,amount1Max)",
+      "seed(parameters)",
+      "approve(helper,0)"
+    ]
+  },
+  "tPEPE": {
+    "coin": null,
+    "sqrtPriceX96": "79228162514264337593543950336000",
+    "amount0Max": "1000000000000000000",
+    "amount1Max": "1000000000000000000000000",
+    "tickLower": "-887220",
+    "tickUpper": "887220",
+    "deadline": null,
+    "calls": [
+      "approve(helper,amount1Max)",
+      "seed(parameters)",
+      "approve(helper,0)"
+    ]
+  },
+  "tFROG": {
+    "coin": null,
+    "sqrtPriceX96": "79228162514264337593543950336000",
+    "amount0Max": "1000000000000000000",
+    "amount1Max": "1000000000000000000000000",
+    "tickLower": "-887220",
+    "tickUpper": "887220",
+    "deadline": null,
+    "calls": [
+      "approve(helper,amount1Max)",
+      "seed(parameters)",
+      "approve(helper,0)"
+    ]
+  }
+}

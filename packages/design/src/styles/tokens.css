@@ -1,0 +1,107 @@
+/*
+ * Square Hole design tokens (SH-003).
+ * Starts from square-hole-handoff/design/tokens.css (values unchanged; tokens.test.ts enforces this) and adds the
+ * scales from 02-DESIGN. Contrast of every text/surface pair is computed in tokens.test.ts, not inferred.
+ *
+ * Usage rules that follow from the measured contrast (see docs/evidence/SH-003.md):
+ *  - --sh-action is a FILL for primary actions with --sh-on-action text. Never use it as a text colour.
+ *  - Muted, secondary and accent text never sit on the action fill.
+ *  - --sh-border is a decorative separator; interactive control boundaries use --sh-border-strong.
+ *  - Positive/negative colours always pair with a sign or arrow, never colour alone.
+ * Breakpoints (CSS variables cannot be used in media queries): compact ≤ 640px, rail ≤ 1024px.
+ */
+:root {
+  color-scheme: dark;
+
+  /* ── Handoff palette (unchanged) ───────────────────────────── */
+  --sh-canvas: #080d16;
+  --sh-surface: #111b29;
+  --sh-surface-raised: #18253a;
+  --sh-border: #30415d;
+  --sh-text: #f3f5fb;
+  --sh-text-secondary: #b5c0d5;
+  --sh-text-muted: #899ab6;
+  --sh-accent: #a78bfa;
+  --sh-action: #6d4ae2;
+  --sh-positive: #62dca3;
+  --sh-negative: #ff8ca8;
+  --sh-warning: #ffd17a;
+  --sh-radius-card: 16px;
+  --sh-radius-control: 10px;
+  --sh-gap-1: 4px; --sh-gap-2: 8px; --sh-gap-3: 12px;
+  --sh-gap-4: 16px; --sh-gap-6: 24px; --sh-gap-8: 32px;
+
+  /* ── Palette extensions (all measured) ─────────────────────── */
+  --sh-border-strong: #63769b;      /* ≥3:1 on every surface: input and control outlines */
+  --sh-panel-top: #142033;          /* top stop of the panel gradient */
+  --sh-selected: #241e4f;           /* selected nav item / active segment */
+  --sh-on-action: #ffffff;          /* 5.63:1 on --sh-action */
+  --sh-action-hover: #5b39d0;
+  --sh-demo-bg: #2b2412;            /* Demo badge fill, warning text 10.7:1 */
+  --sh-focus-ring: #a78bfa;         /* = accent; ≥5.6:1 on every surface */
+  --sh-focus-halo: #080d16;         /* dark halo keeps the ring visible on light artwork */
+  --sh-glow: rgba(167, 139, 250, 0.1);
+
+  /* Panels: a subtle lavender glow in one corner over a vertical gradient. No luminous borders on every row. */
+  --sh-panel-gradient:
+    radial-gradient(120% 140% at 0% 0%, var(--sh-glow) 0%, transparent 55%),
+    linear-gradient(180deg, var(--sh-panel-top) 0%, var(--sh-surface) 100%);
+  --sh-panel-edge: inset 0 1px 0 rgba(243, 245, 251, 0.06);
+
+  /* ── Type ──────────────────────────────────────────────────── */
+  --sh-font-fallback: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --sh-font: 'Plus Jakarta Sans Variable', var(--sh-font-fallback);
+  --sh-type-caption: 12px;          /* timestamps, table meta (min size) */
+  --sh-type-label: 13px;            /* table labels 12–14 */
+  --sh-type-small: 14px;
+  --sh-type-body: 15px;             /* body 15–16 */
+  --sh-type-body-lg: 16px;
+  --sh-type-section: 22px;          /* section headings 20–24 */
+  --sh-type-title: 32px;            /* titles 28–36 */
+  --sh-type-title-compact: 28px;
+  --sh-leading-tight: 1.2;
+  --sh-leading: 1.5;
+  --sh-weight-regular: 400;
+  --sh-weight-medium: 550;
+  --sh-weight-bold: 700;
+
+  /* ── Space, radius, elevation ──────────────────────────────── */
+  --sh-gap-12: 48px;
+  --sh-radius-small: 6px;
+  --sh-radius-pill: 999px;
+  --sh-elevation-1: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --sh-elevation-2: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --sh-elevation-3: 0 16px 48px rgba(0, 0, 0, 0.5);
+
+  /* ── Layers ────────────────────────────────────────────────── */
+  --sh-z-base: 0;
+  --sh-z-sticky: 10;                /* sticky table headers inside their scroll container */
+  --sh-z-header: 20;
+  --sh-z-drawer: 30;
+  --sh-z-popover: 40;
+  --sh-z-toast: 50;
+  --sh-z-skip: 100;
+
+  /* ── Layout budgets (02-DESIGN) ────────────────────────────── */
+  --sh-topbar-h: 64px;              /* desktop 64–72 */
+  --sh-topbar-h-compact: 56px;      /* mobile 56–64 */
+  --sh-sidebar-w: 192px;            /* 176–208 at 1440 */
+  --sh-rail-w: 88px;                /* ≤1024px icon rail */
+  --sh-main-pad: 24px;
+  --sh-main-pad-compact: 16px;
+  --sh-pin-min-h: 160px;            /* compact platform pin 160–190 */
+  --sh-pin-max-h: 190px;
+  --sh-touch-target: 44px;
+
+  /* ── Motion ────────────────────────────────────────────────── */
+  --sh-duration-fast: 120ms;
+  --sh-duration: 200ms;
+  --sh-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --sh-duration-fast: 0ms;
+    --sh-duration: 0ms;
+  }
+}

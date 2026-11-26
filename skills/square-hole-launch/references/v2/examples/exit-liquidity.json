@@ -1,0 +1,63 @@
+{
+  "format": "squarehole.boxspec-draft/2",
+  "network": "demo",
+  "example": 9,
+  "brief": "Worked Exit Liquidity example from the base registry. 404 open signs. Buyers deepen the pool; sellers pay signs in USDC and inside shares buy EXIT and burn it. Use kits/exit-liquidity.md for the app settings file and Sepolia bindings; this draft uses the offline demo menu.",
+  "status": "Demo example",
+  "site": {
+    "links": []
+  },
+  "spec": {
+    "format": 2,
+    "version": 2,
+    "boxType": "NEW_COLLECTION",
+    "tokenName": "Exit Liquidity",
+    "tokenSymbol": "EXIT",
+    "collectionName": "Exit Liquidity",
+    "collectionSymbol": "EXIT",
+    "description": "Demo: 404 open signs. Buyers deepen the pool; sellers pay signs in USDC and inside shares buy EXIT and burn it.",
+    "n": "404",
+    "firstId": "1",
+    "pricing": "USDC",
+    "raise": "LISTING",
+    "layout": "CURVE_V1",
+    "gradLayout": "FULL_RANGE",
+    "launchFormat": "CURVE",
+    "openAt": 0,
+    "deadlineDays": "30",
+    "buyers": {
+      "split": "NoSplit",
+      "a": {
+        "leg": "AsPaid",
+        "dest": "Depth"
+      }
+    },
+    "sellers": {
+      "split": "NoSplit",
+      "a": {
+        "leg": "AsPaid",
+        "dest": "Items",
+        "destParams": {
+          "insidePolicy": "BuyBackBurn"
+        }
+      }
+    },
+    "artMode": "OPEN",
+    "revealRoot": "FROM_LAUNCH_FLOW",
+    "metadataTable": {
+      "formatV1": {
+        "traitTypes": []
+      }
+    },
+    "generatorHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coverSha256": "FROM_LAUNCH_FLOW",
+    "revealListId": "FROM_LAUNCH_FLOW",
+    "marketplaceOwner": "FROM_LAUNCH_FLOW",
+    "creatorFeeRecipient": "0x0000000000000000000000000000000000000000",
+    "creatorBuy": "0",
+    "collectionCoverSha256": "FROM_LAUNCH_FLOW",
+    "addOns": [],
+    "contentsParams": "0x",
+    "pickFeeBps": "100"
+  }
+}

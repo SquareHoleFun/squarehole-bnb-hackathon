@@ -1,0 +1,322 @@
+{
+  "collection.ConsecutiveTransfer": {
+    "test": "CoreEvents.t.sol:test_AR21_E04_E05_E07_E15_E18_E45_creationPoolAndBootstrapEvents",
+    "id": "E45"
+  },
+  "collection.RevealUnlocked": {
+    "unreachable": "src/box/BoxCollection.sol:299 requires the nonzero revealUnlocker; box0 wires zero. AccessSetup.test_AR01_AR14_privilegedCallersAndDormantBox0Roles pins refusal.",
+    "id": "E48"
+  },
+  "collection.Revealed": {
+    "test": "TicketEvents.t.sol:test_AR21_E37_E38_E41_E46_E47_E55_E56_E57_drawSettleOpenReturnAndNamedWithdrawEvents",
+    "id": "E47"
+  },
+  "collection.Transfer": {
+    "test": "TicketEvents.t.sol:test_AR21_E37_E38_E41_E46_E47_E55_E56_E57_drawSettleOpenReturnAndNamedWithdrawEvents",
+    "id": "E46"
+  },
+  "collection.TransferObserverFailed": {
+    "test": "TicketEvents.t.sol:test_AR21_E44_E49_observerFailureFieldsAndSuccessfulDelivery",
+    "id": "E49"
+  },
+  "coordinator.BoxLaunched": {
+    "test": "CoreEvents.t.sol:test_AR21_E04_E05_E07_E15_E18_E45_creationPoolAndBootstrapEvents",
+    "id": "E18"
+  },
+  "coordinator.Graduated": {
+    "test": "CoreEvents.t.sol:test_AR21_E08_E09_E19_E20_E21_E31_closeMigrationGraduationRewardAndPokeFailureEvents",
+    "id": "E19"
+  },
+  "coordinator.PokeFailed": {
+    "test": "CoreEvents.t.sol:test_AR21_E08_E09_E19_E20_E21_E31_closeMigrationGraduationRewardAndPokeFailureEvents",
+    "id": "E21"
+  },
+  "coordinator.RewardClaimed": {
+    "test": "CoreEvents.t.sol:test_AR21_E08_E09_E19_E20_E21_E31_closeMigrationGraduationRewardAndPokeFailureEvents",
+    "id": "E20"
+  },
+  "executor.ChunkBought": {
+    "test": "CoreEvents.t.sol:test_AR21_E69_E70_E71_E72_E77_executorBuyBurnAndFeeReportEvents",
+    "id": "E69"
+  },
+  "executor.Executed": {
+    "test": "CoreEvents.t.sol:test_AR21_E69_E70_E71_E72_E77_executorBuyBurnAndFeeReportEvents",
+    "id": "E71"
+  },
+  "executor.ModuleFeesReported": {
+    "test": "CoreEvents.t.sol:test_AR21_E69_E70_E71_E72_E77_executorBuyBurnAndFeeReportEvents",
+    "id": "E72"
+  },
+  "executor.TokensBurned": {
+    "test": "CoreEvents.t.sol:test_AR21_E69_E70_E71_E72_E77_executorBuyBurnAndFeeReportEvents",
+    "id": "E70"
+  },
+  "hook.CurveClosed": {
+    "test": "CoreEvents.t.sol:test_AR21_E08_E09_E19_E20_E21_E31_closeMigrationGraduationRewardAndPokeFailureEvents",
+    "id": "E08"
+  },
+  "hook.DeepenSkipped": {
+    "test": "DepthEvents.t.sol:test_AR21_E11_E12_E13_depthConversionAndSkipEventFields",
+    "id": "E12"
+  },
+  "hook.Deepened": {
+    "test": "DepthEvents.t.sol:test_AR21_E11_E12_E13_depthConversionAndSkipEventFields",
+    "id": "E11"
+  },
+  "hook.DepthConverted": {
+    "test": "DepthEvents.t.sol:test_AR21_E11_E12_E13_depthConversionAndSkipEventFields",
+    "id": "E13"
+  },
+  "hook.Harvested": {
+    "test": "CoreEvents.t.sol:test_AR21_E10_E22_E32_E33_E35_harvestCollectFeeReturnAndStreamNotificationEvents",
+    "id": "E10"
+  },
+  "hook.Migrated": {
+    "test": "CoreEvents.t.sol:test_AR21_E08_E09_E19_E20_E21_E31_closeMigrationGraduationRewardAndPokeFailureEvents",
+    "id": "E09"
+  },
+  "hook.PoolLaunched": {
+    "test": "CoreEvents.t.sol:test_AR21_E04_E05_E07_E15_E18_E45_creationPoolAndBootstrapEvents",
+    "id": "E07"
+  },
+  "itemStream.BurnRefused": {
+    "test": "StreamEvents.t.sol:test_AR21_E61_E65_E66_E67_streamFundingStartBurnAndRefusalEvents",
+    "id": "E66"
+  },
+  "itemStream.Burned": {
+    "test": "StreamEvents.t.sol:test_AR21_E61_E65_E66_E67_streamFundingStartBurnAndRefusalEvents",
+    "id": "E65"
+  },
+  "itemStream.CheckpointRepaired": {
+    "test": "StreamEvents.t.sol:test_AR21_E62_E64_E68_creditRepairAndClaimEvents",
+    "id": "E68"
+  },
+  "itemStream.Claimed": {
+    "test": "StreamEvents.t.sol:test_AR21_E62_E64_E68_creditRepairAndClaimEvents",
+    "id": "E64"
+  },
+  "itemStream.Credited": {
+    "test": "StreamEvents.t.sol:test_AR21_E62_E64_E68_creditRepairAndClaimEvents",
+    "id": "E62"
+  },
+  "itemStream.Funded": {
+    "test": "StreamEvents.t.sol:test_AR21_E61_E65_E66_E67_streamFundingStartBurnAndRefusalEvents",
+    "id": "E67"
+  },
+  "itemStream.Started": {
+    "test": "StreamEvents.t.sol:test_AR21_E61_E65_E66_E67_streamFundingStartBurnAndRefusalEvents",
+    "id": "E61"
+  },
+  "itemStream.TicketsCredited": {
+    "test": "StreamEvents.t.sol:test_AR21_E63_terminalTicketCreditEvent",
+    "id": "E63"
+  },
+  "launchRouter.Bootstrapped": {
+    "test": "CoreEvents.t.sol:test_AR21_E04_E05_E07_E15_E18_E45_creationPoolAndBootstrapEvents",
+    "id": "E15"
+  },
+  "launchRouter.CreatorBought": {
+    "unreachable": "src/box/BoxLaunchRouter.sol:138 creatorBuy requires Standard kind, even for its coordinator; AccessSetup.test_AR01_AR21_box0CreatorBuyCannotEmit exercises NoCreatorBuy.",
+    "id": "E16"
+  },
+  "launchRouter.Swept": {
+    "test": "CoreEvents.t.sol:test_AR21_E03_E14_E17_taxedBuySwapAndSweepEvents",
+    "id": "E17"
+  },
+  "launchRouter.TaxedBuy": {
+    "test": "CoreEvents.t.sol:test_AR21_E03_E14_E17_taxedBuySwapAndSweepEvents",
+    "id": "E14"
+  },
+  "poolManager.Donate": {
+    "unreachable": "src/box/BoxHook.sol:171 beforeDonate always refuses; AccessSetup.test_AR09_hookCallbackPermissionsAndForeignPools exercises the manager caller.",
+    "id": "E06"
+  },
+  "poolManager.Initialize": {
+    "test": "CoreEvents.t.sol:test_AR21_E04_E05_E07_E15_E18_E45_creationPoolAndBootstrapEvents",
+    "id": "E05"
+  },
+  "poolManager.ModifyLiquidity": {
+    "test": "CoreEvents.t.sol:test_AR21_E04_E05_E07_E15_E18_E45_creationPoolAndBootstrapEvents",
+    "id": "E04"
+  },
+  "poolManager.Swap": {
+    "test": "CoreEvents.t.sol:test_AR21_E03_E14_E17_taxedBuySwapAndSweepEvents",
+    "id": "E03"
+  },
+  "randomness.BountyAdded": {
+    "test": "DeploymentRandomness.t.sol:test_AR21_E73_E74_E75_roundPostingAndBountyEventFields",
+    "id": "E75"
+  },
+  "randomness.Requested": {
+    "test": "DeploymentRandomness.t.sol:test_AR21_E73_E74_E75_roundPostingAndBountyEventFields",
+    "id": "E73"
+  },
+  "randomness.RoundPosted": {
+    "test": "DeploymentRandomness.t.sol:test_AR21_E73_E74_E75_roundPostingAndBountyEventFields",
+    "id": "E74"
+  },
+  "receiver.BatchSplit": {
+    "test": "CoreEvents.t.sol:test_AR21_E23_E24_E25_E26_E27_E28_E29_E30_feeFundingDepthAndPaymentEvents",
+    "id": "E23"
+  },
+  "receiver.Collected": {
+    "test": "CoreEvents.t.sol:test_AR21_E10_E22_E32_E33_E35_harvestCollectFeeReturnAndStreamNotificationEvents",
+    "id": "E22"
+  },
+  "receiver.DepthFunded": {
+    "test": "CoreEvents.t.sol:test_AR21_E23_E24_E25_E26_E27_E28_E29_E30_feeFundingDepthAndPaymentEvents",
+    "id": "E27"
+  },
+  "receiver.DepthGifted": {
+    "test": "CoreEvents.t.sol:test_AR21_E23_E24_E25_E26_E27_E28_E29_E30_feeFundingDepthAndPaymentEvents",
+    "id": "E30"
+  },
+  "receiver.DepthHeld": {
+    "test": "CoreEvents.t.sol:test_AR21_E23_E24_E25_E26_E27_E28_E29_E30_feeFundingDepthAndPaymentEvents",
+    "id": "E28"
+  },
+  "receiver.FeesFunded": {
+    "test": "CoreEvents.t.sol:test_AR21_E23_E24_E25_E26_E27_E28_E29_E30_feeFundingDepthAndPaymentEvents",
+    "id": "E29"
+  },
+  "receiver.FitPaid": {
+    "test": "CoreEvents.t.sol:test_AR21_E23_E24_E25_E26_E27_E28_E29_E30_feeFundingDepthAndPaymentEvents",
+    "id": "E26"
+  },
+  "receiver.GraduationSettled": {
+    "test": "CoreEvents.t.sol:test_AR21_E08_E09_E19_E20_E21_E31_closeMigrationGraduationRewardAndPokeFailureEvents",
+    "id": "E31"
+  },
+  "receiver.ModuleFeesClipped": {
+    "test": "AccessSetup.t.sol:test_AR22_AR21_E34_E36_hookFeeNotesUseSeparateQOnlyLedgerAndClipT",
+    "id": "E36"
+  },
+  "receiver.ModuleFeesNoted": {
+    "test": "AccessSetup.t.sol:test_AR22_AR21_E34_E36_hookFeeNotesUseSeparateQOnlyLedgerAndClipT",
+    "id": "E34"
+  },
+  "receiver.ModuleFeesReturned": {
+    "test": "CoreEvents.t.sol:test_AR21_E10_E22_E32_E33_E35_harvestCollectFeeReturnAndStreamNotificationEvents",
+    "id": "E35"
+  },
+  "receiver.PlatformCredited": {
+    "test": "CoreEvents.t.sol:test_AR21_E23_E24_E25_E26_E27_E28_E29_E30_feeFundingDepthAndPaymentEvents",
+    "id": "E24"
+  },
+  "receiver.PlatformPaid": {
+    "test": "CoreEvents.t.sol:test_AR21_E23_E24_E25_E26_E27_E28_E29_E30_feeFundingDepthAndPaymentEvents",
+    "id": "E25"
+  },
+  "receiver.StreamFunded": {
+    "test": "CoreEvents.t.sol:test_AR21_E10_E22_E32_E33_E35_harvestCollectFeeReturnAndStreamNotificationEvents",
+    "id": "E32"
+  },
+  "receiver.StreamNotifyFailed": {
+    "test": "CoreEvents.t.sol:test_AR21_E10_E22_E32_E33_E35_harvestCollectFeeReturnAndStreamNotificationEvents",
+    "id": "E33"
+  },
+  "registry.BoxCreated": {
+    "test": "AccessSetup.t.sol:test_AR01_AR04_AR09_AR21_E01_E02_noncePlanPoolKeyAndRegistryEvents",
+    "id": "E01"
+  },
+  "registry.BoxSpec": {
+    "test": "AccessSetup.t.sol:test_AR01_AR04_AR09_AR21_E01_E02_noncePlanPoolKeyAndRegistryEvents",
+    "id": "E02"
+  },
+  "royaltyRouter.Flushed": {
+    "test": "TicketEvents.t.sol:test_AR21_E76_royaltyFlushEventsAndPrematureRefusal",
+    "id": "E76"
+  },
+  "tickets.DrawRequested": {
+    "test": "TicketEvents.t.sol:test_AR21_E37_E38_E41_E46_E47_E55_E56_E57_drawSettleOpenReturnAndNamedWithdrawEvents",
+    "id": "E55"
+  },
+  "tickets.DrawSettled": {
+    "test": "TicketEvents.t.sol:test_AR21_E37_E38_E41_E46_E47_E55_E56_E57_drawSettleOpenReturnAndNamedWithdrawEvents",
+    "id": "E56"
+  },
+  "tickets.GraduationWordRequested": {
+    "test": "TicketEvents.t.sol:test_AR21_E39_E40_E42_E50_E51_E52_E53_E54_placeholderTakeHandBackAndWordEvents",
+    "id": "E53"
+  },
+  "tickets.GraduationWordStored": {
+    "test": "TicketEvents.t.sol:test_AR21_E39_E40_E42_E50_E51_E52_E53_E54_placeholderTakeHandBackAndWordEvents",
+    "id": "E54"
+  },
+  "tickets.Opened": {
+    "test": "TicketEvents.t.sol:test_AR21_E37_E38_E41_E46_E47_E55_E56_E57_drawSettleOpenReturnAndNamedWithdrawEvents",
+    "id": "E57"
+  },
+  "tickets.PlaceholdersHandedBack": {
+    "test": "TicketEvents.t.sol:test_AR21_E39_E40_E42_E50_E51_E52_E53_E54_placeholderTakeHandBackAndWordEvents",
+    "id": "E52"
+  },
+  "tickets.PlaceholdersTaken": {
+    "test": "TicketEvents.t.sol:test_AR21_E39_E40_E42_E50_E51_E52_E53_E54_placeholderTakeHandBackAndWordEvents",
+    "id": "E51"
+  },
+  "tickets.TakenByNumber": {
+    "test": "TicketEvents.t.sol:test_AR21_E58_E59_E60_terminalCancellationAndNumberedTakeEvents",
+    "id": "E60"
+  },
+  "tickets.TerminalModeEntered": {
+    "test": "TicketEvents.t.sol:test_AR21_E58_E59_E60_terminalCancellationAndNumberedTakeEvents",
+    "id": "E59"
+  },
+  "tickets.TicketCancelled": {
+    "test": "TicketEvents.t.sol:test_AR21_E58_E59_E60_terminalCancellationAndNumberedTakeEvents",
+    "id": "E58"
+  },
+  "tickets.Transfer": {
+    "test": "TicketEvents.t.sol:test_AR21_E39_E40_E42_E50_E51_E52_E53_E54_placeholderTakeHandBackAndWordEvents",
+    "id": "E50"
+  },
+  "token.Transfer": {
+    "test": "CoreEvents.t.sol:test_AR21_E69_E70_E71_E72_E77_executorBuyBurnAndFeeReportEvents",
+    "id": "E77"
+  },
+  "vault.GateOpened": {
+    "test": "TicketEvents.t.sol:test_AR21_E39_E40_E42_E50_E51_E52_E53_E54_placeholderTakeHandBackAndWordEvents",
+    "id": "E42"
+  },
+  "vault.HandBackFeeWaived": {
+    "unreachable": "src/box/BoxVault.sol:134 coordinator-only; BoxCoordinator has no call to waiveHandBackFee and no general external-call entry point. AccessSetup.test_AR01_AR14_privilegedCallersAndDormantBox0Roles pins outsiders; write-surface.json freezes coordinator writes.",
+    "id": "E43"
+  },
+  "vault.Returned": {
+    "test": "TicketEvents.t.sol:test_AR21_E37_E38_E41_E46_E47_E55_E56_E57_drawSettleOpenReturnAndNamedWithdrawEvents",
+    "id": "E38"
+  },
+  "vault.TicketDelivered": {
+    "test": "TicketEvents.t.sol:test_AR21_E37_E38_E41_E46_E47_E55_E56_E57_drawSettleOpenReturnAndNamedWithdrawEvents",
+    "id": "E41"
+  },
+  "vault.TicketsOpened": {
+    "test": "TicketEvents.t.sol:test_AR21_E39_E40_E42_E50_E51_E52_E53_E54_placeholderTakeHandBackAndWordEvents",
+    "id": "E39"
+  },
+  "vault.TicketsReleased": {
+    "test": "TicketEvents.t.sol:test_AR21_E39_E40_E42_E50_E51_E52_E53_E54_placeholderTakeHandBackAndWordEvents",
+    "id": "E40"
+  },
+  "vault.VaultObserverFailed": {
+    "test": "TicketEvents.t.sol:test_AR21_E44_E49_observerFailureFieldsAndSuccessfulDelivery",
+    "id": "E44"
+  },
+  "vault.Withdrawn": {
+    "test": "TicketEvents.t.sol:test_AR21_E37_E38_E41_E46_E47_E55_E56_E57_drawSettleOpenReturnAndNamedWithdrawEvents",
+    "id": "E37"
+  },
+  "backedSource.Requested": {
+    "id": "E78",
+    "test": "BackedSource.t.sol:test_AR21_E78_E79_E80_F143_backedRequestStartAndFixEvents"
+  },
+  "backedSource.BackupStarted": {
+    "id": "E79",
+    "test": "BackedSource.t.sol:test_AR21_E78_E79_E80_F143_backedRequestStartAndFixEvents"
+  },
+  "backedSource.BackupFixed": {
+    "id": "E80",
+    "test": "BackedSource.t.sol:test_AR21_E78_E79_E80_F143_backedRequestStartAndFixEvents"
+  }
+}

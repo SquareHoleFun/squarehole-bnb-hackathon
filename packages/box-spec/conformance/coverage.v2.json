@@ -1,0 +1,2695 @@
+{
+  "name": "box-conformance-coverage-v2",
+  "about": [
+    "Core v2's conformance cases and the tests that check them (ticket M1-01, core-v2-m1-tickets.md \u00a7 2 and \u00a7 3). Declared by hand; `pnpm check:conformance` checks it against the case file (v2 cases, `core: \"v2\"`, BC-144 to BC-237, the last two added by later decisions through the plan's change queue, and v1 cases restated for v2 in their `v2` object) and the v2 tests, and renders docs/evidence/SH-V2-conformance-coverage.md.",
+    "tickets name implementation owners for M1, M2 and M3. Live M2 rows use the numbered M2 plan; retired prototype parts have no owner or test mapping. spinoffs preserve original source ids; dispositions record later spin-off cases mapped or withdrawn by decision.",
+    "`cases` map each M1 case (and any other) to its test ids: a Foundry test (`test_BCnnn_*`, `testFuzz_BCnnn_*`, `testInvariant_BCnnn_*`; a restated v1 case's as `test_BCnnn_v2_*`) in a .t.sol file under packages/contracts/test/box-v2, or a vitest or Playwright test whose title starts with the case (`BC-nnn \u2026`; a restated v1 case `BC-nnn v2: \u2026`). A test with its own `ticket` is written by that ticket; otherwise by the case's. Names are planned until the ticket writes them: the ticket may rename a test, updating this map in the same commit. Every M1 case maps to at least one test id, or the check fails.",
+    "Gates: G0 blocks the milestone for every box the case applies to; G1 blocks listing third-party tokens or boxes; G2 blocks one menu item; EV is evidence.",
+    "M3-01: BC-253..270 preserve the original plan allocations; BC-258/260/265/269 are withdrawn by F119. Every surviving M3 case requires named implementation tests. Existing non-BC Foundry tests use implementation:true and must exist in the exact named file; other names stay planned until written. Discovery is not execution. BC-239..252 and BC-271 are unallocated proposal references, reconciled by M2-01 under m2.planReferences; no new ids allocated.",
+    "M2-01: live BC-182..203 map to exact existing tests; status covered means the written unit scope, never an execution or release claim. status open carries named ticket/reason gaps even with partial tests. m2.requirements tracks cross-case integration. Historical proposed ids stay unallocated; m2.planReferences reconciles their original meanings without renumbering M3. Local conformance-v2.test.ts enforces this extension pending shared-checker integration."
+  ],
+  "plan": "main:docs/design/core-v2-m1-tickets.md (7bb86619, ADR-0017 accepted), with change queue 1 (sh-v2-cq-1 676e21d7); M3: docs/design/core-v2-m3-tickets.md (F119-F123 rewrite; original ids from 1cfd39bb section 3); M2: docs/design/core-v2-m2-tickets.md and core-v2-m2-seams.md (M2-00 freeze at b2286488; builds at 49aa32cb)",
+  "tickets": {
+    "SH-V21-G1-FIX": {"milestone":"M2","title":"Bound Alchemist clips and preserve wanted shop queues","from":"docs/evidence/SH-V21-G1-FIX.md"},
+    "SH-V21-07-SHOP-FEES": {"milestone":"M2","title":"Sellers fees fill the shop ceiling, then pay original holders in P","from":"docs/design/core-v21-step7-shop-fees.md"},
+    "SH-V21-04-FEE-MODULES": {"milestone":"M3","title":"Fixed shared fee actions and delayed immutable admissions","from":"docs/design/core-v21-fee-modules.md"},
+    "SH-V21-03-PILE-FEES": {"milestone":"M3","title":"Pending same-P pile fees and fixed leave-behind","from":"docs/design/core-v21-step3-pile-fees.md"},
+    "SH-V21-02-PAY-IN-T": {"milestone":"M3","title":"Pay holders and items in T","from":"docs/design/core-v21-step2-pay-in-t.md"},
+    "SH-V21-01-EAT": { "milestone": "M3", "title": "V2.1 eat the price coin" },
+    "M1-00": {
+      "milestone": "M1",
+      "title": "Interface freeze"
+    },
+    "M1-01": {
+      "milestone": "M1",
+      "title": "Conformance cases"
+    },
+    "M1-02": {
+      "milestone": "M1",
+      "title": "v1 guard and freeze tests"
+    },
+    "M1-10": {
+      "milestone": "M1",
+      "title": "BoxSpec v2 twins"
+    },
+    "M1-11": {
+      "milestone": "M1",
+      "title": "Checker, launch skill, examples"
+    },
+    "M1-20": {
+      "milestone": "M1",
+      "title": "Listing registry"
+    },
+    "M1-21": {
+      "milestone": "M1",
+      "title": "Converter"
+    },
+    "M1-23": {
+      "milestone": "M1",
+      "title": "Route simulations, the price guard, the step size and the volatility evaluation"
+    },
+    "M1-30": {
+      "milestone": "M1",
+      "title": "ERC-20 pricing tokens through the core"
+    },
+    "M1-31": {
+      "milestone": "M1",
+      "title": "Deadline, fail() and the closing pool"
+    },
+    "M1-32": {
+      "milestone": "M1",
+      "title": "Factory v2, registry v2, directory, open gate, cheap creation"
+    },
+    "M1-40": {
+      "milestone": "M1",
+      "title": "Recipe engine"
+    },
+    "M1-41": {
+      "milestone": "M1",
+      "title": "Legs"
+    },
+    "M1-42": {
+      "milestone": "M1",
+      "title": "RULE slot"
+    },
+    "M1-43": {
+      "milestone": "M1",
+      "title": "Catalog 1: the halving and prisoners RULEs"
+    },
+    "M1-44": {
+      "milestone": "M1",
+      "title": "Royalties for any pricing token"
+    },
+    "M1-50": {
+      "milestone": "M1",
+      "title": "ETH-in helper"
+    },
+    "M1-51": {
+      "milestone": "M1",
+      "title": "Keeper"
+    },
+    "M1-52": {
+      "milestone": "M1",
+      "title": "Indexer v2"
+    },
+    "M1-53": {
+      "milestone": "M1",
+      "title": "Site v2"
+    },
+    "M1-60": {
+      "milestone": "M1",
+      "title": "Gas budget and cheap creation"
+    },
+    "M1-61": {
+      "milestone": "M1",
+      "title": "Whole-menu property test"
+    },
+    "M1-62": {
+      "milestone": "M1",
+      "title": "Mutation testing"
+    },
+    "M1-63": {
+      "milestone": "M1",
+      "title": "M1 cross-part review"
+    },
+    "M1-64": {
+      "milestone": "M1",
+      "title": "Sepolia M1 run"
+    },
+    "M3-10": {
+      "milestone": "M3",
+      "title": "M3 spec choices"
+    },
+    "M3-20": {
+      "milestone": "M3",
+      "title": "Every-item ledger and exact tickets"
+    },
+    "M3-21": {
+      "milestone": "M3",
+      "title": "Current-owner item claims"
+    },
+    "M3-22": {
+      "milestone": "M3",
+      "title": "Vault item records and bounded notices"
+    },
+    "M3-23": {
+      "milestone": "M3",
+      "title": "Every-item receiver booking"
+    },
+    "M3-30": {
+      "milestone": "M3",
+      "title": "Seeded coin pile"
+    },
+    "M3-32": {
+      "milestone": "M3",
+      "title": "M3 clone and loader wiring"
+    },
+    "M3-40": {
+      "milestone": "M3",
+      "title": "Failure with items and piles"
+    },
+    "M3-60": {
+      "milestone": "M3",
+      "title": "M3 gas and size proof"
+    },
+    "M2-00": {
+      "milestone": "M2",
+      "title": "Frozen M2 design",
+      "from": "docs/design/core-v2-m2-tickets.md; M2-00 freeze"
+    },
+    "M2-01": {
+      "milestone": "M2",
+      "title": "Conformance cases",
+      "from": "docs/design/core-v2-m2-tickets.md; M2-00 freeze"
+    },
+    "M2-03": {
+      "milestone": "M2",
+      "title": "Shared M2 test kit",
+      "from": "docs/design/core-v2-m2-tickets.md; M2-00 freeze"
+    },
+    "M2-10": {
+      "milestone": "M2",
+      "title": "Spec choices",
+      "from": "docs/design/core-v2-m2-tickets.md; M2-00 freeze"
+    },
+    "M2-11": {
+      "milestone": "M2",
+      "title": "Checker and launch drafts",
+      "from": "docs/design/core-v2-m2-tickets.md; M2-00 freeze"
+    },
+    "M2-30": {
+      "milestone": "M2",
+      "title": "Holder ledger and batch funding",
+      "from": "docs/design/core-v2-m2-tickets.md; M2-00 freeze"
+    },
+    "M2-31": {
+      "milestone": "M2",
+      "title": "Ledger token and trade notice",
+      "from": "docs/design/core-v2-m2-tickets.md; M2-00 freeze"
+    },
+    "M2-32": {
+      "milestone": "M2",
+      "title": "Shop and collection list",
+      "from": "docs/design/core-v2-m2-tickets.md; M2-00 freeze"
+    },
+    "M2-33": {
+      "milestone": "M2",
+      "title": "Starter loader",
+      "from": "docs/design/core-v2-m2-tickets.md; M2-00 freeze"
+    },
+    "M2-34": {
+      "milestone": "M2",
+      "title": "M2 creation",
+      "from": "docs/design/core-v2-m2-tickets.md; M2-00 freeze"
+    },
+    "M2-44": {
+      "milestone": "M2",
+      "title": "M2 failure integration",
+      "from": "docs/design/core-v2-m2-tickets.md; M2-00 freeze"
+    },
+    "M2-51": {
+      "milestone": "M2",
+      "title": "Keeper jobs",
+      "from": "docs/design/core-v2-m2-tickets.md; M2-00 freeze"
+    },
+    "M2-52": {
+      "milestone": "M2",
+      "title": "M2 events and indexer",
+      "from": "docs/design/core-v2-m2-tickets.md; M2-00 freeze"
+    },
+    "M2-53": {
+      "milestone": "M2",
+      "title": "M2 creation and claims UI",
+      "from": "docs/design/core-v2-m2-tickets.md; M2-00 freeze"
+    },
+    "M2-60": {
+      "milestone": "M2",
+      "title": "Gas and size",
+      "from": "docs/design/core-v2-m2-tickets.md; M2-00 freeze"
+    },
+    "M2-61": {
+      "milestone": "M2",
+      "title": "Full M2 menu",
+      "from": "docs/design/core-v2-m2-tickets.md; M2-00 freeze"
+    },
+    "M2-62": {
+      "milestone": "M2",
+      "title": "M2 mutations",
+      "from": "docs/design/core-v2-m2-tickets.md; M2-00 freeze"
+    },
+    "M2-63": {
+      "milestone": "M2",
+      "title": "M2 review",
+      "from": "docs/design/core-v2-m2-tickets.md; M2-00 freeze"
+    },
+    "M2-64": {
+      "milestone": "M2",
+      "title": "Sepolia rehearsal",
+      "from": "docs/design/core-v2-m2-tickets.md; M2-00 freeze"
+    }
+  },
+  "spinoffs": {
+    "link-marines": {
+      "repo": "~/SpinOffs/link-marines",
+      "branch": "LM-004-general-core",
+      "commit": "4405b257e227ef3766ef20cd93bf727afa493838",
+      "map": {
+        "ids": [
+          "BC-NEW-1",
+          "BC-NEW-2",
+          "BC-NEW-3",
+          "BC-NEW-4",
+          "BC-NEW-5",
+          "BC-NEW-6",
+          "BC-NEW-7",
+          "BC-NEW-8",
+          "BC-NEW-9",
+          "BC-NEW-10",
+          "BC-NEW-11",
+          "BC-NEW-12",
+          "BC-NEW-13",
+          "BC-NEW-14",
+          "BC-NEW-15",
+          "BC-NEW-16",
+          "BC-NEW-17",
+          "BC-NEW-18",
+          "BC-NEW-19",
+          "BC-NEW-20",
+          "BC-NEW-21",
+          "BC-NEW-22",
+          "BC-NEW-23",
+          "BC-NEW-24",
+          "BC-NEW-25",
+          "BC-NEW-26",
+          "BC-NEW-27",
+          "BC-NEW-28",
+          "BC-NEW-29",
+          "BC-NEW-30",
+          "BC-NEW-31",
+          "BC-NEW-32",
+          "BC-NEW-33",
+          "BC-NEW-34",
+          "BC-NEW-35",
+          "BC-NEW-36",
+          "BC-NEW-37",
+          "BC-NEW-38"
+        ],
+        "first": "BC-144"
+      }
+    },
+    "junkyard": {
+      "repo": "~/SpinOffs/junkyard",
+      "branch": "JY-005-general-core",
+      "commit": "075bf401d66e166b4ce3ae57734c45e9cad16500",
+      "map": {
+        "ids": [
+          "BC-NEW-18",
+          "BC-NEW-21",
+          "BC-NEW-30",
+          "BC-NEW-31",
+          "BC-NEW-32",
+          "BC-NEW-33",
+          "BC-NEW-34",
+          "BC-NEW-35",
+          "BC-NEW-36",
+          "BC-NEW-37",
+          "BC-NEW-38",
+          "BC-NEW-39",
+          "BC-NEW-40",
+          "BC-NEW-41",
+          "BC-NEW-42",
+          "BC-NEW-43",
+          "BC-NEW-44",
+          "BC-NEW-45",
+          "BC-NEW-46",
+          "BC-NEW-47",
+          "BC-NEW-48",
+          "BC-NEW-49",
+          "BC-NEW-50",
+          "BC-NEW-51",
+          "BC-NEW-52"
+        ],
+        "first": "BC-182"
+      },
+      "notMapped": {
+        "ids": [
+          "BC-NEW-1",
+          "BC-NEW-2",
+          "BC-NEW-3",
+          "BC-NEW-4",
+          "BC-NEW-5",
+          "BC-NEW-6",
+          "BC-NEW-7",
+          "BC-NEW-22",
+          "BC-NEW-8",
+          "BC-NEW-9",
+          "BC-NEW-10",
+          "BC-NEW-11",
+          "BC-NEW-11b",
+          "BC-NEW-12",
+          "BC-NEW-13",
+          "BC-NEW-14",
+          "BC-NEW-15",
+          "BC-NEW-16",
+          "BC-NEW-19",
+          "BC-NEW-20",
+          "BC-NEW-17",
+          "BC-NEW-23"
+        ],
+        "why": "Superseded inside the Junkyard before the general core and never in the plan's map (tickets \u00a7 3): ICR-JY-001 to -004 and -006 by JY-002, ICR-JY-007 withdrawn by JY-004 (docs/core-v2-mapping.md:65, :67 on JY-005-general-core)"
+      }
+    }
+  },
+  "dispositions": [
+    {
+      "project": "junkyard",
+      "id": "BC-NEW-53",
+      "withdrawn": "F94 R18D: shop prices stay fixed in TRASH, with no price read and no pause (ICR-JY-012)",
+      "by": "F94 R18D"
+    },
+    {
+      "project": "junkyard",
+      "id": "BC-NEW-54",
+      "withdrawn": "F94 R18D: no price read, so no 1-hour average to wait for (ICR-JY-012)",
+      "by": "F94 R18D"
+    },
+    {
+      "project": "junkyard",
+      "id": "BC-NEW-55",
+      "into": "BC-217",
+      "by": "withdrawn as its own case; restated into N11 (BC-217). F93; F94 R18B: returned ETH re-buys the start token; a re-buy whose own route is dead pays FIT after 30 days (no waiting ETH retried)"
+    },
+    {
+      "project": "link-marines",
+      "id": "LM004-RETURN-1",
+      "into": "BC-217",
+      "by": "F93; F94 R18B"
+    },
+    {
+      "project": "link-marines",
+      "id": "LM004-RETURN-2",
+      "into": "BC-217",
+      "by": "F93; F94 R18B"
+    },
+    {
+      "project": "link-marines",
+      "id": "LM004-REBUY-1",
+      "into": "BC-217",
+      "by": "F94 R18B (M1-22 closes ICR-LM-013)"
+    },
+    {
+      "project": "link-marines",
+      "id": "LM004-SIZE-1",
+      "into": "BC-231",
+      "by": "F91 R17D: box tokens price boxes from graduation with no size floor (the 20R floor is dropped; the box-pool depth floor stays)"
+    },
+    {
+      "project": "link-marines",
+      "id": "LM004-CAP-1",
+      "into": "BC-227",
+      "by": "F91 R17G; F94 R18E: counted in ETH, rounded up, in 30-day windows"
+    },
+    {
+      "project": "link-marines",
+      "id": "LM004-DRIFT-1",
+      "withdrawn": "F91 R17K: the listing stays open whatever the price (no 4x bounds)",
+      "by": "F91 R17K"
+    },
+    {
+      "project": "link-marines",
+      "id": "LM004-REFILL-1",
+      "withdrawn": "F94 R18E: 30-day windows from graduation with no carry-over, so no continuous refill (ADR-0017 \u00a7 5)",
+      "by": "F94 R18E"
+    }
+  ],
+  "cases": {
+    "BC-036": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/listings/ListingRegistry.t.sol",
+          "name": "test_BC036_v2_onlyListedTokensPriceABox"
+        }
+      ]
+    },
+    "BC-040": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/converter/Converter.t.sol",
+          "name": "test_BC040_v2_fitShareInAnotherPricingTokenIsConverted"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eSteps.t.sol",
+          "name": "test_BC040_v2_fitOwedReachesFitAsEthThroughFundBudget"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eSteps.t.sol",
+          "name": "test_BC040_v2_aBrokenRouteLeavesTheClaimWaiting"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21f/ConverterStep.t.sol",
+          "name": "test_BC040_v2_fitShareStepsAlongTheListingRouteIntoFundBudget"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21f/ConverterStep.t.sol",
+          "name": "test_BC040_v2_aThinRouteLeavesFitsShareWaiting"
+        }
+      ]
+    },
+    "BC-045": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/failure/Fail.t.sol",
+          "name": "test_BC045_v2_deadlineChoicesCountedFromTheEffectiveOpen"
+        }
+      ]
+    },
+    "BC-046": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/failure/Fail.t.sol",
+          "name": "test_BC046_v2_failureAtTheDeadlineByTheFailureTable"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40a/M1_40aMoney.t.sol",
+          "name": "test_BC046_v2_redeemHeldTSellsEndToEnd"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40a/M1_40aMoney.t.sol",
+          "name": "test_BC046_v2_redeemHeldTSettlesClaimsExactlyOnce"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40a/M1_40aMoney.t.sol",
+          "name": "test_BC046_v2_redeemHeldTPartialFillKeepsTheRest"
+        }
+      ]
+    },
+    "BC-055": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/token/BoxTokenV2.t.sol",
+          "name": "test_BC055_v2_tIsAPlainErc20InANonUpgradeableClone"
+        }
+      ]
+    },
+    "BC-100": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/factory/FactoryV2.t.sol",
+          "name": "test_BC100_v2_onlyItsOwnFactoryCanWireARelease"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-32b/proof/RegistryProof.t.sol",
+          "name": "testFuzz_BC100_unknownRoleCannotAliasAStoredSlot"
+        }
+      ]
+    },
+    "BC-109": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/failure/Fail.t.sol",
+          "name": "test_BC109_v2_v2BoxesNeverPayThePlatform"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eSteps.t.sol",
+          "name": "test_BC109_v2_platformOwedStepsPayThePlatformCapFund"
+        }
+      ]
+    },
+    "BC-110": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/failure/Fail.t.sol",
+          "name": "test_BC110_v2_v2BoxesLaunchTaxOwnDepthAtGraduation"
+        }
+      ]
+    },
+    "BC-111": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/failure/Fail.t.sol",
+          "name": "test_BC111_v2_asPaidCreatorPaysExactlyTenFifteenths"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/recipes/RecipeEngine.t.sol",
+          "name": "test_BC111_v2_asPaidCreatorPaysExactlyTenFifteenths_booking",
+          "ticket": "M1-40"
+        }
+      ]
+    },
+    "BC-115": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144Receiver.t.sol",
+          "name": "test_BC115_v2_whereV2RoyaltiesGoPerDestinationPricingToken"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/failure/Fail.t.sol",
+          "name": "test_BC115_v2_whereV2RoyaltiesGoPerDestinationPricingToken_atFailure",
+          "ticket": "M1-31"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144Receiver.t.sol",
+          "name": "test_BC115_v2_anEthBoxBooksItsRoyaltyAsAFeeBatchOrAsDepth"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144Receiver.t.sol",
+          "name": "test_BC115_v2_heldRoyaltiesAtAFailureFollowTheRoyaltiesRow"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144Router.t.sol",
+          "name": "test_BC115_v2_theRouterFlushesAtAnyTimeIntoFundRoyaltyOnly"
+        }
+      ]
+    },
+    "BC-125": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-41a/M141aBranches.t.sol",
+          "name": "test_BC125_v2_creatorPayoutsInTheOtherTokenBuyTCreator"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/failure/Fail.t.sol",
+          "name": "test_BC125_v2_creatorPayoutsInTheOtherTokenBuyTCreator_atFailure",
+          "ticket": "M1-31"
+        }
+      ]
+    },
+    "BC-126": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/recipes/Caps.t.sol",
+          "name": "test_BC126_v2_cap30DaysAtMostThePresetPer30Day"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/failure/Fail.t.sol",
+          "name": "test_BC126_v2_cap30DaysAtMostThePresetPer30Day_atFailure",
+          "ticket": "M1-31"
+        }
+      ]
+    },
+    "BC-128": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/spec/BoxSpecV2Vectors.t.sol",
+          "name": "test_BC128_v2_menuItemsAreRefusedOnlyWhereNotBuilt"
+        },
+        {
+          "file": "packages/box-spec/src/box-spec-v2.test.ts",
+          "title": "BC-128 v2: menu items are refused only where not built, on every network"
+        }
+      ]
+    },
+    "BC-129": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-41a/M141aBounds.t.sol",
+          "name": "test_BC129_v2_everyStepBoundedByStepTicksAndTheBand"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41b/M141bConvertBounds.t.sol",
+          "name": "testFuzz_BC129_v2_aConvertSaleStaysWithinStepTicksAndTheBand"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41b/M141bConvertBounds.t.sol",
+          "name": "test_BC129_v2_aConvertSaleSkipsWhenItCannotStepAndKeepsItsBudget"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41b/M141bConvertReference.t.sol",
+          "name": "test_BC129_v2_aSaleTakesTheSampleWhenItIsTheDearerT"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41b/M141bConvertReference.t.sol",
+          "name": "test_BC129_v2_aSaleTakesTheAverageWhenItIsTheDearerT"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41b/M141bConvertReference.t.sol",
+          "name": "test_BC129_v2_aSameBlockPushThePokeRecordsNeverLoosensTheBand"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41a/M141aBounds.t.sol",
+          "name": "test_BC129_v2_aSameBlockPushNeverPaysTheAttacker"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41a/M141aBounds.t.sol",
+          "name": "test_BC129_v2_oneStepPerBoxPerBlockAcrossBranches"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41a/M141aBounds.t.sol",
+          "name": "test_BC129_v2_aStepThatCannotMoveReturnsItsStopAndKeepsTheBudget"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41a/M141aReference.t.sol",
+          "name": "test_BC129_v2_theTighterOfTheAverageAndTheLatestSampleSetsTheBand"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41a/M141aStepRecords.t.sol",
+          "name": "test_BC129_v2_aSameBlockPushAroundAStepThatMovedLoses"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41a/M141aStepRecords.t.sol",
+          "name": "testFuzz_BC129_v2_aPushOfAnySizeLeavesTheStepBounded"
+        }
+      ]
+    },
+    "BC-130": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-41a/M141aBranches.t.sol",
+          "name": "test_BC130_v2_nothingConvertsBeforeGraduationForAnyDestination"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41b/M141bConvertBounds.t.sol",
+          "name": "test_BC130_v2_aSellersConvertSellsNothingBeforeGraduation"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bHandOff.t.sol",
+          "name": "test_BC130_v2_aSellersConvertsPIsDepositedIntoPsConverter"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41a/M141aShell.t.sol",
+          "name": "test_BC130_v2_initializeFromTheReceiverOnlyOnce"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41a/M141aShell.t.sol",
+          "name": "test_BC130_v2_initializeRefusesAHookThatNamesAnotherReceiverPOrT"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41a/M141aShell.t.sol",
+          "name": "test_BC130_v2_wiringAndViewsNameTheBoxParts"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41a/M141aShell.t.sol",
+          "name": "test_BC130_v2_aBranchIsReadFromTheReceiversBranchOf"
+        }
+      ]
+    },
+    "BC-131": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-41a/M141aBranches.t.sol",
+          "name": "test_BC131_v2_fitsSellersShareReachesFitOnlyAsPFromTheModule"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bHandOff.t.sol",
+          "name": "test_BC131_v2_fitsSellersShareReachesFitOnlyAsPFromTheModule_handOff",
+          "ticket": "M1-40"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41b/M141bConvertSale.t.sol",
+          "name": "test_BC131_v2_aConvertSaleLeavesTheFixedShareAndBranchBAlone"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bHandOff.t.sol",
+          "name": "test_BC131_v2_anEthBoxBooksFitOwedAndPlatformOwed"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bHandOff.t.sol",
+          "name": "test_BC131_v2_aFitPricedBoxBurnsFitsPartOnly"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bHandOff.t.sol",
+          "name": "test_BC131_v2_onlyTheModuleTakesTheHandOff"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41a/M141aBranches.t.sol",
+          "name": "test_BC131_v2_fitsSellersShareInASixDecimalBoxIsAFitOwedDeposit"
+        }
+      ]
+    },
+    "BC-133": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-41a/M141aBranches.t.sol",
+          "name": "test_BC133_v2_rev16PerBranch"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41b/M141bConvertSale.t.sol",
+          "name": "test_BC133_v2_twoSellersConvertBranchesEachGetBackTheirOwnFees"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bHandOff.t.sol",
+          "name": "test_BC133_v2_aNoteAboveItsBranchAllowanceIsClippedNeverReverted"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bHandOff.t.sol",
+          "name": "test_BC133_v2_theHooksNoteIsPOnlyWithNoAllowance"
+        }
+      ]
+    },
+    "BC-144": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bEat.t.sol",
+          "name": "test_BC144_eatNeverTargetsZeroOrTheTokenItself"
+        }
+      ]
+    },
+    "BC-145": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bEat.t.sol",
+          "name": "test_BC145_eatRunsNoTokenCodeIntakeUsesOrdinary"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bIntake.t.sol",
+          "name": "test_BC145_aPausedOrBlockingTargetIsStillEatenAtTheIntake"
+        }
+      ]
+    },
+    "BC-146": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bEat.t.sol",
+          "name": "test_BC146_onlyTheEatShareReaches0xDEaD"
+        }
+      ]
+    },
+    "BC-147": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bEat.t.sol",
+          "name": "test_BC147_donationsCannotManufactureEatenAmounts"
+        }
+      ]
+    },
+    "BC-148": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bEat.t.sol",
+          "name": "test_BC148_eatSharesWaitUntilGraduation"
+        }
+      ]
+    },
+    "BC-149": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bEat.t.sol",
+          "name": "test_BC149_fixedWiringNobodyCanRedirectTheEatShare"
+        }
+      ]
+    },
+    "BC-150": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bEat.t.sol",
+          "name": "test_BC150_eatingBoxAShareLeavesBoxBUntouched"
+        }
+      ]
+    },
+    "BC-151": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bEat.t.sol",
+          "name": "test_BC151_aMisbehavingPCannotChangeWhatIsEaten"
+        }
+      ]
+    },
+    "BC-152": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bEat.t.sol",
+          "name": "test_BC152_reEntryCannotSpendTwice"
+        }
+      ]
+    },
+    "BC-153": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bEat.t.sol",
+          "name": "test_BC153_eatenTotalsCountOnlyTheBoxOwnEats"
+        }
+      ]
+    },
+    "BC-154": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/recipes/Eat.t.sol",
+          "name": "test_BC154_conservationOverRawUnitDustAndVariedBatches"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bEat.t.sol",
+          "name": "testFuzz_BC154_conservationOverRawUnitDustAndVariedBatches"
+        },
+        {"file": "packages/contracts/test/box-v2/eat/Eat.t.sol", "name": "testFuzz_EAT07_conservationBothSides", "implementation": true, "ticket": "SH-V21-01-EAT"},
+        {"file": "packages/contracts/test/box-v2/eat/Eat.t.sol", "name": "test_EAT25_pendingAboveInt128DrainsInBoundedParts", "implementation": true, "ticket": "SH-V21-01-EAT"},
+        {"file": "packages/contracts/test/box-v2/eat/Eat.t.sol", "name": "test_EAT26_deficitReconciliationIncludesPendingWithoutInventingClaims", "implementation": true, "ticket": "SH-V21-01-EAT"}
+      ]
+    },
+    "BC-155": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-20c/ListingChecks.t.sol",
+          "name": "test_BC155_admitsExactTokensAt6And8And18Decimals"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-20c/ListingChecks.t.sol",
+          "name": "test_BC155_refusesAFeeOnTransfer"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-20c/ListingChecks.t.sol",
+          "name": "test_BC155_refusesARebasingToken"
+        }
+      ]
+    },
+    "BC-156": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/pricing/Erc20Pricing.t.sol",
+          "name": "test_BC156_oneImmutableRawQRaiseAndCoherentThresholds"
+        }
+      ]
+    },
+    "BC-157": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/pricing/Erc20Pricing.t.sol",
+          "name": "test_BC157_pIsAlwaysCurrency0"
+        }
+      ]
+    },
+    "BC-158": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/pricing/Erc20Pricing.t.sol",
+          "name": "test_BC158_erc20FeeClaimsPreserveTheirAttributedDestinations"
+        }
+      ]
+    },
+    "BC-159": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/pricing/Erc20Pricing.t.sol",
+          "name": "test_BC159_hostileQAndFailedTransfersRemainIsolated"
+        }
+      ]
+    },
+    "BC-160": {
+      "tests": [
+        {
+          "file": "packages/box-spec/src/launch-skill.test.ts",
+          "title": "BC-160 off-chain community presets produce ordinary compatible core settings"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/spec/BoxSpecV2Vectors.t.sol",
+          "name": "test_BC160_offChainCommunityPresetsProduceOrdinaryCompatibleCore_twins",
+          "ticket": "M1-10"
+        }
+      ]
+    },
+    "BC-161": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/pricing/OpenArt.t.sol",
+          "name": "test_BC161_openArtPermitsNamedPicksAndReturnsWithout"
+        }
+      ]
+    },
+    "BC-162": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/cq11-d/Listings.t.sol",
+          "name": "test_BC162_onlyListerCanAddAndUpdate"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/cq11-d/Listings.t.sol",
+          "name": "test_BC162_twoStepAuthorityAndPermanentRenounce"
+        },
+        {
+          "file": "apps/web/src/features/boxes/box-page-v2.test.ts",
+          "title": "BC-162 listing and presentation cannot change money authority",
+          "ticket": "M1-53"
+        }
+      ]
+    },
+    "BC-163": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/failure/Fail.t.sol",
+          "name": "test_BC163_failurePutsAHeldEatShareInTheClaimPot"
+        }
+      ]
+    },
+    "BC-164": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/converter/Converter.t.sol",
+          "name": "test_BC164_onlyReleasedProtocolOrFailedFeeQCan"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eDeposits.t.sol",
+          "name": "test_BC164_aDepositCreditsOnlyItsBoxByAnOwnerTransfer"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eDeposits.t.sol",
+          "name": "test_BC164_aReceiverDepositsOnlyForItsOwnBox"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eDeposits.t.sol",
+          "name": "test_BC164_aContractNamingARealBoxIsRefused"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eDeposits.t.sol",
+          "name": "test_BC164_aSiblingConverterIsAProvedDepositor"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eDeposits.t.sol",
+          "name": "test_BC164_eachPurposeRunsOneWayAndM2PurposesWait"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eDeposits.t.sol",
+          "name": "test_BC164_fitAndPlatformOwedSitInAnyConverter"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eDeposits.t.sol",
+          "name": "test_BC164_convertTargetsAreCheckedByTokenAndPools"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eSteps.t.sol",
+          "name": "test_BC164_aStepSpendsOnlyItsOwnBoxsLedger"
+        }
+      ]
+    },
+    "BC-165": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-21c/HopBoxPoolEdges.t.sol",
+          "name": "test_BC165_depthReadsTheAverageNotSpotOrLatest"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21f/ConverterStep.t.sol",
+          "name": "test_BC165_boxSpotPastTheOldBandStillMoves"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/converter/Converter.t.sol",
+          "name": "test_BC165_normalConversionWaitsForItsOwnPoolPrerequisites"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21f/ConverterStep.t.sol",
+          "name": "test_BC165_averageNotReadyFailsThenAHealthyRetrySpendsOnce"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21f/ConverterStep.t.sol",
+          "name": "test_BC165_spotHeldPastTheBandWaitsUntilTheAverageFollows"
+        }
+      ]
+    },
+    "BC-166": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-21c/HopBoxPoolBand.t.sol",
+          "name": "test_BC166_spotLimitAtAUsdcBoxTokensTick"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21c/HopBoxPoolBand.t.sol",
+          "name": "test_BC166_spotLimitWithTAsCurrency0"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21c/HopBoxPoolBand.t.sol",
+          "name": "test_BC166_spotLimitDoesNotReadTheSampler"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21c/HopBoxPoolBand.t.sol",
+          "name": "test_BC166_swapToPriceWaitsAtAStaleOrSubTickLimit"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21c/HopBoxPoolBand.t.sol",
+          "name": "test_BC166_spotLimitAfterNinePercentPushKeepsSqrtPrecision"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21f/ConverterStep.t.sol",
+          "name": "test_BC166_aPushedBoxSaleUsesRoomFromSpot"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21f/ConverterStep.t.sol",
+          "name": "test_BC166_aPumpedBoxBuyUsesRoomFromSpot"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21f/ConverterStep.t.sol",
+          "name": "test_BC166_boundsFollowBoxSpotAndKeepTheirEthSizeAfterA400xMove"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/converter/Converter.t.sol",
+          "name": "test_BC166_averageFloorAndImpactBoundsResistAdverseExecution"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21f/ConverterStep.t.sol",
+          "name": "test_BC166_aSalePushedInsideTheBandStopsAtTheAveragesBandEnd"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21f/ConverterStep.t.sol",
+          "name": "test_BC166_aBuyPushedByAPumpWaitsAtTheAveragesBand"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21f/ConverterStep.t.sol",
+          "name": "test_BC166_eachStepMovesAtMostStepTicksBothWays"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21f/ConverterStep.t.sol",
+          "name": "test_BC166_boundsFollowTheHourAverageAndKeepTheirEthSizeAfterA400xMove"
+        }
+      ]
+    },
+    "BC-167": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/converter/Converter.t.sol",
+          "name": "test_BC167_successfulStepSizesAndTipsStayBounded"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21f/ConverterStep.t.sol",
+          "name": "test_BC167_aStepTipsProRataToAmountOverMaxIn"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21f/ConverterStep.t.sol",
+          "name": "test_BC167_aFullStepMovesMaxInAndTipsTheCap"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21f/ConverterStep.t.sol",
+          "name": "test_BC167_theStepMinimumMovesAndOneUnitUnderWaits"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21f/ConverterStep.t.sol",
+          "name": "test_BC167_onePoolOperationPerBlockAcrossBoxesAndDirections"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21f/ConverterStep.t.sol",
+          "name": "test_BC167_splitStepsCannotMultiplyTheTip"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21f/ConverterStep.t.sol",
+          "name": "test_BC167_tipToZeroAccruesNone"
+        }
+      ]
+    },
+    "BC-168": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/converter/Converter.t.sol",
+          "name": "test_BC168_callbacksAndExecutorFailureCannotConsumeClaims"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eSteps.t.sol",
+          "name": "test_BC168_aRefusedFitFundingMovesNothingAndOtherBoxesStayUsable"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21f/ConverterShell.t.sol",
+          "name": "test_BC168_callbacksOutsideAStepAreRefused"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21f/ConverterShell.t.sol",
+          "name": "test_BC168_executorFailureRestoresClaimsClockAndSlot"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21f/ConverterShell.t.sol",
+          "name": "test_BC168_ownReceiverFailureMarksOnlyThatLedger"
+        }
+      ]
+    },
+    "BC-169": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/converter/Converter.t.sol",
+          "name": "test_BC169_rejectingKeeperReceivesAPullClaimWithoutBlocking"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21f/ConverterStep.t.sol",
+          "name": "test_BC169_aTipIsAPullClaimPaidOnceAsEthClaims"
+        }
+      ]
+    },
+    "BC-170": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-41a/M141aBranches.t.sol",
+          "name": "test_BC170_bothFeeSidesFollowTheAsPaidEat"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41b/M141bConvertSale.t.sol",
+          "name": "test_BC170_eachConvertSalePaysItsTipWithinTheCap"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41a/M141aBranches.t.sol",
+          "name": "test_BC170_eachStepPaysItsTipWithinTheBoxsCap"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41a/M141aListedPCases.t.sol",
+          "name": "test_BC170_bothFeeSidesFollowTheAsPaidEatInAListedP"
+        }
+      ]
+    },
+    "BC-171": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/failure/Fail.t.sol",
+          "name": "test_BC171_failedHeldTTakesTheOrdinaryClosingPrice"
+        }
+      ]
+    },
+    "BC-172": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-41a/M141aBranches.t.sol",
+          "name": "test_BC172_newSaleDestinationPreservesSameTransactionAttribution"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41b/M141bConvertSale.t.sol",
+          "name": "test_BC172_aSellersConvertSellsItsTAndHandsBackOnlyItsP"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41b/M141bConvertSale.t.sol",
+          "name": "test_BC172_aDonationInsideTheStepIsNeverBookedToTheBranch"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41b/M141bConvertSale.t.sol",
+          "name": "test_BC172_aUsdcBoxsConvertBooksOnlyItsUsdcToTheBranch"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41a/M141aListedPCases.t.sol",
+          "name": "test_BC172_newSaleDestinationPreservesSameTransactionAttributionInAListedP"
+        }
+      ]
+    },
+    "BC-173": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144Receiver.t.sol",
+          "name": "test_BC173_generalRoyaltyRuleBuysQForReward"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144Booking.t.sol",
+          "name": "test_BC173_ethInATokenBoxSellsForPBeforeTheSplit"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144BookingBuild.t.sol",
+          "name": "test_BC173_build_aRoyaltyArrivalSplitsLikeBuyersFees"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144BookingBuild.t.sol",
+          "name": "testFuzz_BC173_build_anArrivalLosesNothing"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144BookingBuild.t.sol",
+          "name": "test_BC173_build_remaindersUnder15AreNeverLost"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144Receiver.t.sol",
+          "name": "test_BC173_linkMarinesRoyaltyLinkIsBookedAsBuyersFees"
+        }
+      ]
+    },
+    "BC-174": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144Receiver.t.sol",
+          "name": "test_BC174_failedEthRoyaltiesAvoidAConversionRoundTrip"
+        }
+      ]
+    },
+    "BC-175": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-21f/ConverterShell.t.sol",
+          "name": "test_BC175_aStarvedConverterStepIsRefusedNotRecorded"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/converter/Converter.t.sol",
+          "name": "test_BC175_perBoxClaimSolvencyAndProgressCannotBe"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eDeposits.t.sol",
+          "name": "test_BC175_exactChangeOrNothing"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eDeposits.t.sol",
+          "name": "test_BC175_snapshotsArePerDepositorAndDirection"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eDeposits.t.sol",
+          "name": "test_BC175_donationsNeverCredit"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eDeposits.t.sol",
+          "name": "test_BC175_ledgersAreKeyedByBoxPurposeAndBranch"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eDeposits.t.sol",
+          "name": "test_BC175_aSecondDepositMovesTheLedgerToItsTarget"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eDeposits.t.sol",
+          "name": "test_BC175_fundingFromEmptySetsFundedAtAndNoClock"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eDeposits.t.sol",
+          "name": "test_BC175_aPausedTokensClaimsStillLand"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eSteps.t.sol",
+          "name": "test_BC175_eachBranchsOutputReachesItsTargetConverter"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eSteps.t.sol",
+          "name": "test_BC175_aReverseConvertReachesTheBeneficiarysReceiver"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eSteps.t.sol",
+          "name": "test_BC175_aFullStepKeepsOneRawUnitAndARefillWritesNoNewSlot"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eSteps.t.sol",
+          "name": "test_BC175_theClockStartsAtAFailureAndOnlyASuccessClearsIt"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eSteps.t.sol",
+          "name": "test_BC175_aFailureInTheFundingSecondCountsForDeadSinceOnly"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eSteps.t.sol",
+          "name": "test_BC175_aFailureBeforeALaterSuccessNoLongerCounts"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eSteps.t.sol",
+          "name": "test_BC175_waitingRecordsNothing"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eSteps.t.sol",
+          "name": "test_BC175_aStarvedStepIsRefusedNotRecorded"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eSteps.t.sol",
+          "name": "test_BC175_aRefusedDeliveryIntoItsOwnReceiverCountsForItsLedgerOnly"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eSteps.t.sol",
+          "name": "test_BC175_depositedEqualsPendingPlusSteppedAndClaimsBackIt"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21f/ConverterShell.t.sol",
+          "name": "test_BC175_noGasAtOrAboveTheFloorTurnsAStepIntoAFailure"
+        }
+      ]
+    },
+    "BC-176": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/listings/RouteChecks.t.sol",
+          "name": "test_BC176_canonicalPerListingRouteAndAuthenticatedOutputCategories"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bIntake.t.sol",
+          "name": "test_BC176_proceedsNeedAnOpenIntakeAndBookAtMostWhatArrived"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bIntake.t.sol",
+          "name": "test_BC176_aSnapshotIsPerTokenAndOnlyItsOpenerBooksOnIt"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bIntake.t.sol",
+          "name": "test_BC176_oneArrivalIsBookedOnceAcrossSnapshots"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bIntake.t.sol",
+          "name": "test_BC176_convertArrivalsAreCreditedToTheirBranchOnly"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bIntake.t.sol",
+          "name": "test_BC176_aConvertFromAnotherConverterOrTokenIsRefused"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bIntake.t.sol",
+          "name": "test_BC176_m2PurposesAreRefusedAndBookNothing"
+        }
+      ]
+    },
+    "BC-177": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144Receiver.t.sol",
+          "name": "test_BC177_reverseRouteRoyaltyFailureIsAtomicAndIsolated"
+        }
+      ]
+    },
+    "BC-206": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/converter/Converter.t.sol",
+          "name": "test_BC206_ethIntoPaxgTheConverterRunInReverse"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eSteps.t.sol",
+          "name": "test_BC206_aReverseStepBooksByTheDepositsPurpose"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21f/ConverterStep.t.sol",
+          "name": "test_BC206_aReverseStepBuysPForTheBoxsReceiver"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21f/ConverterStep.t.sol",
+          "name": "test_BC206_aReverseStepWithoutAReadyAverageKeepsTheEth"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bIntake.t.sol",
+          "name": "test_BC206_royaltyDepthIsBookedAllToDepth"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bIntake.t.sol",
+          "name": "test_BC206_royaltyIsTwoTwelfthsToDepthAndTenByTheBuyersRecipe"
+        }
+      ]
+    },
+    "BC-207": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/recipes/RecipeEngine.t.sol",
+          "name": "test_BC207_tenThreeTwoForEveryRecipe"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bHandOff.t.sol",
+          "name": "test_BC207_fundFeesSplitsAnyonesEthAsAFeeBatch"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bHandOff.t.sol",
+          "name": "test_BC207_fundDepthHoldsUntilGraduationThenDeepens"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bHandOff.t.sol",
+          "name": "test_BC207_ethIntakeOnlyInAnEthPricedBox"
+        }
+      ]
+    },
+    "BC-208": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bEat.t.sol",
+          "name": "test_BC208_eatVersusBurn"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bEat.t.sol",
+          "name": "test_BC208_aBurnThatDoesNotLowerSupplyRevertsTheCollect"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bEat.t.sol",
+          "name": "test_BC208_aStockClassPIsEatenAsClaimsEvenPaused"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bHandOff.t.sol",
+          "name": "test_BC208_aBuyTEatBranchBurnsTheTItIsHandedOrLeavesItPending"
+        },
+        {"file": "packages/contracts/test/box-v2/eat/Eat.t.sol", "name": "test_EAT01_nativeHeldUntilGraduationThenLockedAndCounted", "implementation": true, "ticket": "SH-V21-01-EAT"},
+        {"file": "packages/contracts/test/box-v2/eat/Eat.t.sol", "name": "test_EAT02_checkedBurnUsesExactSupplyAndLeavesNoLiquidP", "implementation": true, "ticket": "SH-V21-01-EAT"},
+        {"file": "packages/contracts/test/box-v2/eat/Eat.t.sol", "name": "test_EAT03_uncheckedTokenLocksWithoutCallingBurn", "implementation": true, "ticket": "SH-V21-01-EAT"},
+        {"file": "packages/contracts/test/box-v2/eat/Eat.t.sol", "name": "test_EAT04_revertingLyingAndExhaustingBurnRestoreExactClaimsForRetry", "implementation": true, "ticket": "SH-V21-01-EAT"},
+        {"file": "packages/contracts/test/box-v2/eat/Eat.t.sol", "name": "test_EAT19_oneGasAdmissionBoundaryRestoresFullCapExhaustion", "implementation": true, "ticket": "SH-V21-01-EAT"},
+        {"file": "packages/contracts/test/box-v2/eat/Gas.t.sol", "name": "test_EAT18_coldFirstEligibleDeadWalletTwiceMargin", "implementation": true, "ticket": "SH-V21-01-EAT"},
+        {"file": "packages/contracts/test/box-v2/eat/Gas.t.sol", "name": "test_EAT18_coldLinkedBurnTwiceMargin", "implementation": true, "ticket": "SH-V21-01-EAT"},
+        {"file": "packages/contracts/test/box-v2/eat/Gas.t.sol", "name": "test_EAT18_coldLongHistoryDeadWalletTwiceMargin", "implementation": true, "ticket": "SH-V21-01-EAT"},
+        {"file": "packages/contracts/test/box-v2/eat/Gas.t.sol", "name": "test_EAT18_coldFirstEligibleBurnTwiceMargin", "implementation": true, "ticket": "SH-V21-01-EAT"},
+        {"file": "packages/contracts/test/box-v2/eat/Args.t.sol", "name": "testFuzz_EAT27_receiverPrefixMatchesReviewedWire", "implementation": true, "ticket": "SH-V21-01-EAT"}
+      ]
+    },
+    "BC-213": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/hostile/RuleSlot.t.sol",
+          "name": "test_BC213_ruleClampDefaultAndGasStarvation"
+        }
+      ]
+    },
+    "BC-214": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/factory/PlugInIdentity.t.sol",
+          "name": "test_BC214_plugInIdentityCodeHashNoEmptyCode"
+        },
+        {
+          "file": "packages/indexer/test/core/discovery-v2.test.ts",
+          "title": "BC-214 plug-in identity: code hash, no empty code, no EIP-7702",
+          "ticket": "M1-52"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-32b/proof/RegistryProof.t.sol",
+          "name": "test_BC214_codeDriftDoesNotRewriteTheCommitment"
+        }
+      ]
+    },
+    "BC-215": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/cq11-d/Listings.t.sol",
+          "name": "test_BC215_nativeRowAndPermanentId"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/cq11-d/Listings.t.sol",
+          "name": "test_BC215_raiseUpdatePreservesIdentityAndOldSnapshot"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/cq11-d/Listings.t.sol",
+          "name": "test_BC215_probeConservesEveryBalanceAndAllowance"
+        },
+        {"file": "packages/contracts/test/box-v2/eat/Listings.t.sol", "name": "test_EAT08_checkedListingRevertsProbeButRecordsCapabilityOnce", "implementation": true, "ticket": "SH-V21-01-EAT"},
+        {"file": "packages/contracts/test/box-v2/eat/Listings.t.sol", "name": "test_EAT09_oldListingsAndNativeRemainUnchecked", "implementation": true, "ticket": "SH-V21-01-EAT"},
+        {"file": "packages/contracts/test/box-v2/eat/Listings.t.sol", "name": "test_EAT10_badBurnCannotBeRecordedAndOnlyListerMayAdmit", "implementation": true, "ticket": "SH-V21-01-EAT"},
+        {"file": "packages/contracts/test/box-v2/eat/Fit.t.sol", "name": "test_EAT20_genesisFitListingAndActualReceiverBurn", "implementation": true, "ticket": "SH-V21-01-EAT"}
+      ]
+    },
+    "BC-216": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/converter/Converter.t.sol",
+          "name": "test_BC216_noDepositAcrossReleases"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-21e/M121eDeposits.t.sol",
+          "name": "test_BC216_noDepositFromAnotherReleaseOrAStranger"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bIntake.t.sol",
+          "name": "test_BC216_openIntakeTakesOnlyThisReleasesCallers"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bIntake.t.sol",
+          "name": "test_BC216_proceedsTakeOnlyAConverterOfThisRelease"
+        }
+      ]
+    },
+    "BC-218": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/periphery/EthInHelper.t.sol",
+          "name": "test_BC218_theEthInHelperHoldsNothing"
+        }
+      ]
+    },
+    "BC-219": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/gas/CreateBoxGas.t.sol",
+          "name": "test_BC219_createBoxFitsItsBudget"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/factory/FactoryV2.t.sol",
+          "name": "test_BC219_createBoxFitsItsBudget_atCreation",
+          "ticket": "M1-32"
+        }
+      ]
+    },
+    "BC-220": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/factory/OpenGate.t.sol",
+          "name": "test_BC220_theOpenGate"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/pricing/Erc20Pricing.t.sol",
+          "name": "test_BC220_theOpenGate_core",
+          "ticket": "M1-30"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-32b/proof/ChunkLoaderProof.t.sol",
+          "name": "testFuzz_BC220_arbitrarySpecAndArrivalOrder"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-32b/proof/ChunkLoaderProof.t.sol",
+          "name": "test_BC220_emptyAndWordBoundaries"
+        }
+      ]
+    },
+    "BC-221": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/factory/FactoryV2.t.sol",
+          "name": "test_BC221_versionsNeverMix"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-32b/proof/RegistryProof.t.sol",
+          "name": "testFuzz_BC221_allDirectoryIndices"
+        }
+      ]
+    },
+    "BC-222": {
+      "tests": [
+        {
+          "file": "packages/box-spec/src/v1-freeze.test.ts",
+          "title": "BC-222 v1's hashes, build profiles and compiler settings pinned"
+        }
+      ]
+    },
+    "BC-223": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-41a/M141aBounds.t.sol",
+          "name": "test_BC223_theBandBoundsEveryStepInAShared"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41b/M141bConvertBounds.t.sol",
+          "name": "test_BC223_oneStepPerBoxPerBlockAndNeverPastTheBand"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/legs/StepBounds.t.sol",
+          "name": "test_BC223_sharedBoxPoolRoomAndFitStack"
+        }
+      ]
+    },
+    "BC-225": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144Router.t.sol",
+          "name": "test_BC225_royaltiesForAnyPricingToken"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144Booking.t.sol",
+          "name": "test_BC225_feeHandlingInAnEthBoxIsOneFeeBatch"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144Booking.t.sol",
+          "name": "test_BC225_feeHandlingPInAnotherBoxBooksAllAtOnce"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144Booking.t.sol",
+          "name": "test_BC225_poolDepthTakesNoProtocolShare"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144Booking.t.sol",
+          "name": "test_BC225_creatorTakesTheWholeRoyaltyInItsToken"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144Booking.t.sol",
+          "name": "testFuzz_BC225_dustUnder15WeiCarriesAndNoWeiIsLost"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144Booking.t.sol",
+          "name": "test_BC225_aCreatorRoyaltyCountsAgainstCap30DaysOnlyWhereAPaysCreator"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144BookingBuild.t.sol",
+          "name": "test_BC225_build_anUnknownDestinationReadsAsFeeHandling"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144BookingBuild.t.sol",
+          "name": "test_BC225_build_anEthBoxRoyaltyIsEthWhateverInEthSays"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144BookingBuild.t.sol",
+          "name": "test_BC225_build_feeHandlingCarriesUnder15PerToken"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144BookingBuild.t.sol",
+          "name": "test_BC225_build_otherBookingsLeaveTheCarryAlone"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144BookingBuild.t.sol",
+          "name": "testFuzz_BC225_build_carriedBookingsLoseNoWei"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144BookingBuild.t.sol",
+          "name": "test_BC225_build_theCarryLivesAtItsNamespacedSlot"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144Receiver.t.sol",
+          "name": "test_BC225_aUsdcBoxPoolDepthRoyaltyBuysUsdcAndDeepens"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144Receiver.t.sol",
+          "name": "test_BC225_aUsdcBoxCreatorRoyaltyIsEthCountedByCap30DaysOnlyWhereAPaysCreator"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144ReceiverSellersCap.t.sol",
+          "name": "test_BC225_aSellersOnlyCap30DaysCountsACreatorRoyaltyWhereItsAPaysCreator"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144Router.t.sol",
+          "name": "test_BC225_theRouterIsAReceivingCloneThatTakesEveryEthPayment"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144Router.t.sol",
+          "name": "testFuzz_BC225_aFlushSendsExactlyWhatTheRouterHeld"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144Router.t.sol",
+          "name": "test_BC225_theRouterSweepsNothingElse"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144Router.t.sol",
+          "name": "test_BC225_aRefusedIntakeLeavesTheMoneyForTheNextFlush"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144Router.t.sol",
+          "name": "test_BC225_nothingToFlush"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144Router.t.sol",
+          "name": "test_BC225_theRouterNamesItsBox"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144RouterBuild.t.sol",
+          "name": "test_BC225_build_theArgsKeepV1sLayoutThenP"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144RouterBuild.t.sol",
+          "name": "test_BC225_build_anUnknownDestinationByteReadsAsFeeHandling"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144RouterBuild.t.sol",
+          "name": "test_BC225_build_theImplementationIsInert"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144RouterBuild.t.sol",
+          "name": "test_BC225_build_aFlushWritesNothingAndCallsOnlyItsReceiver"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144RouterBuild.t.sol",
+          "name": "test_BC225_build_aTokenWithoutReturnValuesIsSwept"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144RouterBuild.t.sol",
+          "name": "test_BC225_build_anApprovalTheTokenKeepsIsCleared"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144RouterBuild.t.sol",
+          "name": "test_BC225_build_aReceiverThatPullsShortIsRefused"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144RouterBuild.t.sol",
+          "name": "test_BC225_build_aRefusedApprovalLeavesThePForTheNextSweep"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144RouterBuild.t.sol",
+          "name": "testFuzz_BC225_build_aPSweepSendsExactlyItsBalance"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144RouterBuild.t.sol",
+          "name": "test_BC225_build_anEmptyPSweepRefusesAsAnEmptyFlush"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144RouterBuild.t.sol",
+          "name": "test_BC225_build_aFlushToAReceiverWithoutCodeIsRefused"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144RouterBuild.t.sol",
+          "name": "test_BC225_build_aWethArgumentWithoutCodeUnwrapsNothing"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144RouterBuild.t.sol",
+          "name": "test_BC225_build_anUnreadablePBalanceIsRefused"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144RouterBuild.t.sol",
+          "name": "test_BC225_build_anUnreadableAllowanceIsCleared"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144RouterBuild.t.sol",
+          "name": "test_BC225_build_aPausedBlockedOrReenteringPStays"
+        }
+      ]
+    },
+    "BC-226": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/failure/Fail.t.sol",
+          "name": "test_BC226_failEveryHeldLedgerByTheFailureTable"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40b/M140bHandOff.t.sol",
+          "name": "test_BC226_moneyArrivingAfterFailureJoinsTheClaimPot"
+        },
+        {"file": "packages/contracts/test/box-v2/eat/Eat.t.sol", "name": "test_EAT05_failureRoutesPendingAndFinalFeesToPotAndLateMoneyToPot", "implementation": true, "ticket": "SH-V21-01-EAT"},
+        {"file": "packages/contracts/test/box-v2/eat/Lifecycle.t.sol", "name": "test_EAT17_realFailureKeepsFixedCountAndPermanentClaims", "implementation": true, "ticket": "SH-V21-01-EAT"}
+      ]
+    },
+    "BC-227": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/recipes/Caps.t.sol",
+          "name": "test_BC227_cap30DaysCountsInEth"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40a/Caps.t.sol",
+          "name": "test_BC227_BC233_v2_spotPushUpDoesNotChangeCapCounts"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40a/Caps.t.sol",
+          "name": "test_BC227_BC233_v2_spotPushDownDoesNotChangeCapCounts"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40a/Caps.t.sol",
+          "name": "test_BC227_v2_syncBeforeCollectHoldsThenValuesCap30Share"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40a/Caps.t.sol",
+          "name": "test_BC227_v2_pushAndCollectLeavesCap30CountUnchanged"
+        }
+      ]
+    },
+    "BC-228": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/factory/FactoryV2.t.sol",
+          "name": "test_BC228_aTokenOnlyBox"
+        }
+      ]
+    },
+    "BC-229": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/pricing/Erc20Pricing.t.sol",
+          "name": "test_BC229_fitPricedAndBoxTokenPricedBoxes"
+        }
+      ]
+    },
+    "BC-230": {
+      "tests": [
+        {"file":"packages/contracts/test/box-v2/fee-modules/Future.t.sol","name":"test_FM07_futureModuleHasFixedSnapshotAndOldBoxSurvivesWithdrawal","implementation":true,"ticket":"SH-V21-04-FEE-MODULES"},
+        {"file":"packages/contracts/test/box-v2/pay-in-t/Lifecycle.t.sol","name":"test_T01_holderBuyersAdmissionAndFailureExit","implementation":true,"ticket":"SH-V21-02-PAY-IN-T"},
+        {"file":"packages/contracts/test/box-v2/pay-in-t/Lifecycle.t.sol","name":"test_T02_holderSellersAdmissionAndFailureExit","implementation":true,"ticket":"SH-V21-02-PAY-IN-T"},
+        {
+          "file": "packages/contracts/test/box-v2/m1-10b/BoxSpecV2Generated.t.sol",
+          "name": "test_BC230_theFormat2TwinsAgree"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-10a/SpecV2Wire.t.sol",
+          "name": "test_BC230_contextIsOneStaticListingAndFrozenIdsRemain"
+        },
+        {
+          "file": "packages/box-spec/src/m1-10b/generators-v2.test.ts",
+          "title": "BC-230 generated files reproduce the frozen specification"
+        },
+        {
+          "file": "packages/box-spec/src/m1-10b/generators-v2.test.ts",
+          "title": "BC-230 independent verdict: ${v.columns.name[i]}"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m2-10/Spec.t.sol",
+          "name": "test_M210_generatedTwinVectors",
+          "implementation": true,
+          "ticket": "M2-10"
+        },
+        {"file": "packages/contracts/test/box-v2/eat/Lifecycle.t.sol", "name": "test_EAT15_factoryNativeBothSidesGraduatesThenEats", "implementation": true, "ticket": "SH-V21-01-EAT"},
+        {"file": "packages/contracts/test/box-v2/eat/Lifecycle.t.sol", "name": "test_EAT16_realLedgerPriceBurnAndSupplyConservation", "implementation": true, "ticket": "SH-V21-01-EAT"}
+      ]
+    },
+    "BC-231": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-20c/BoxTokenProof.t.sol",
+          "name": "test_BC231_graduatedBoxUsesManualRaiseWithoutRouteOrHolding"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-20c/BoxTokenProof.t.sol",
+          "name": "test_BC231_wrongImplementationAndNonceTwoRefused"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-20c/BoxTokenProof.t.sol",
+          "name": "test_BC231_earlierDirectoryStillWorks"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/factory/FactoryV2.t.sol",
+          "name": "test_BC231_boxTokensByRule_atCreation",
+          "ticket": "M1-32"
+        }
+      ]
+    },
+    "BC-232": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/recipes/VaultCount.t.sol",
+          "name": "test_BC232_theTimeAveragedVaultCount"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/pricing/Erc20Pricing.t.sol",
+          "name": "test_BC232_theTimeAveragedVaultCount_core",
+          "ticket": "M1-30"
+        }
+      ]
+    },
+    "BC-233": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m1-40a/Caps.t.sol",
+          "name": "test_BC233_v2_syncBeforeCollectHoldsThenValuesHumbleShare"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40a/Caps.t.sol",
+          "name": "test_BC233_v2_pushAndCollectLeavesHumbleCountUnchanged"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-40a/Caps.t.sol",
+          "name": "test_BC233_v2_chargeHumbleBusyPairPreservesRoom"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/recipes/Caps.t.sol",
+          "name": "test_BC233_theHumbleCreatorCap"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144Receiver.t.sol",
+          "name": "test_BC233_aCreatorRoyaltyMeetsCap30DaysFirstThenTheHumbleCap"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-44/M144Receiver.t.sol",
+          "name": "test_BC233_aCreatorRoyaltyAboveTheHumbleRoomDeepensThePool"
+        }
+      ]
+    },
+    "BC-234": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/fork/Guard.t.sol",
+          "name": "test_BC234_thePriceGuardKeptAsBuilt"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41a/M141aBounds.t.sol",
+          "name": "test_BC234_thePriceGuardKeptAsBuilt_steps",
+          "ticket": "M1-41"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-41b/M141bConvertBounds.t.sol",
+          "name": "test_BC234_aConvertSaleTakesItsLimitFromSpot",
+          "ticket": "M1-41"
+        }
+      ]
+    },
+    "BC-235": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/pricing/Erc20Pricing.t.sol",
+          "name": "test_BC235_thePickFeePreset"
+        }
+      ]
+    },
+    "BC-236": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/failure/Fail.t.sol",
+          "name": "test_BC236_heldCreatorFeesJoinTheClosingPool"
+        }
+      ]
+    },
+    "BC-237": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/failure/Fail.t.sol",
+          "name": "test_BC237_closeBoxTipAtMostTipMaxQFromTheClosingPool"
+        }
+      ]
+    },
+    "BC-238": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/platform/PlatformCap.t.sol",
+          "name": "test_BC238_platformShareUnderTheCapSharedWithBox0"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/platform/PlatformCap.t.sol",
+          "name": "test_BC238_capKeepsFirstThenBox0KeepsItsWholeCap"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/platform/PlatformCap.t.sol",
+          "name": "test_BC238_v2KeepsAtMostTheCeilingPerEpoch"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-32b/proof/PlatformCapProof.t.sol",
+          "name": "testFuzz_BC238_fullUint256Arrival"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-32b/proof/PlatformCapProof.t.sol",
+          "name": "testFuzz_BC238_arrivalPermutations"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-32b/proof/PlatformCapProof.t.sol",
+          "name": "test_BC238_zeroAndMaximumArrivals"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-32b/proof/PlatformCapProof.t.sol",
+          "name": "testFuzz_BC238_partialRoom"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m1-32b/proof/PlatformCapProof.t.sol",
+          "name": "test_BC238_box0FirstLeavesOnlyItsRemainder"
+        }
+      ]
+    },
+    "BC-253": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m3-20/Items.t.sol",
+          "name": "test_BC253_sameSecondRequestsKeepDistinctIndexes",
+          "ticket": "M3-20"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-20/Items.t.sol",
+          "name": "test_BC253_collectBeforePickDoesNotPayThatReceipt",
+          "ticket": "M3-20"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-22/ItemRecords.t.sol",
+          "name": "test_BC253_fiveNoticesKeepExactTicketIdentity",
+          "ticket": "M3-22"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-22/ItemRecords.t.sol",
+          "name": "test_BC253_itemBatchLimitAndNoLedgerRecordCost",
+          "ticket": "M3-22"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-22/ItemRecords.t.sol",
+          "name": "test_BC253_noticeGasPrecheckAndFailSafe",
+          "ticket": "M3-22"
+        }
+      ]
+    },
+    "BC-254": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m3-20/Items.t.sol",
+          "name": "test_BC254_missedNoticesNeverOverpayOrShiftOwnerDebt",
+          "ticket": "M3-20"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-20/Items.t.sol",
+          "name": "test_BC254_reconcileEachTicketAfterMissedDeliveryAndCancel",
+          "ticket": "M3-20"
+        }
+      ]
+    },
+    "BC-255": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m3-20/Items.t.sol",
+          "name": "test_BC255_graduationStashesIncludeDrawnItems",
+          "ticket": "M3-20"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-20/Items.t.sol",
+          "name": "test_BC255_placeholderStartsAtGraduationAndLaterDrawAtRequest",
+          "ticket": "M3-20"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-20/Items.t.sol",
+          "name": "test_BC255_burnFallbackHasNoPreGraduationItemCredit",
+          "ticket": "M3-20"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-23/ItemBooking.t.sol",
+          "name": "test_BC255_graduationFundsNetPExactlyOnce",
+          "ticket": "M3-23"
+        }
+      ]
+    },
+    "BC-256": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m3-21/ItemClaims.t.sol",
+          "name": "test_BC256_stashAndOldCreditFollowTransferAndReturn",
+          "ticket": "M3-21"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-21/ItemClaims.t.sol",
+          "name": "test_BC256_ownVaultCannotClaimOrReceive",
+          "ticket": "M3-21"
+        }
+      ]
+    },
+    "BC-257": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m3-21/ItemClaims.t.sol",
+          "name": "test_BC257_currentOwnerAndRecipientAuthorization",
+          "ticket": "M3-21"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-21/Claims.t.sol",
+          "name": "test_BC257_ownerClaimsWalletsContractsAnd7702",
+          "ticket": "M3-21"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-21/Gas.t.sol",
+          "name": "test_BC257_noMinimumNoTipAndClaimGasBounds",
+          "ticket": "M3-21"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-21/ItemClaims.t.sol",
+          "name": "test_BC257_duplicateIdsAndReentryCannotSpendCredit",
+          "ticket": "M3-21"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-21/ItemClaims.t.sol",
+          "name": "test_BC257_pausedPayoutPreservesCreditForRetry",
+          "ticket": "M3-21"
+        }
+      ]
+    },
+    "BC-259": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m3-23/ItemBooking.t.sol",
+          "name": "test_BC259_netPUsesWholeCollectionCount",
+          "ticket": "M3-23"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-23/ItemBooking.t.sol",
+          "name": "test_BC259_bothSidesKeepSeparateNetFundingAndPolicy",
+          "ticket": "M3-23"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-10/M3Spec.t.sol",
+          "name": "test_BC259_rejectRemovedItemModesAndFilters",
+          "ticket": "M3-10"
+        }
+      ]
+    },
+    "BC-261": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m3-20/Items.t.sol",
+          "name": "test_BC261_cancelOnlyOwnTicketIntoResidue",
+          "ticket": "M3-20"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-20/Items.t.sol",
+          "name": "test_BC261_residueClaimsTransferToDepthWithoutRebooking",
+          "ticket": "M3-20"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-20/Items.t.sol",
+          "name": "test_BC261_residueRetryAndConservation",
+          "ticket": "M3-20"
+        }
+      ]
+    },
+    "BC-262": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m3-20/ItemTiming.t.sol",
+          "name": "test_BC262_namedPickCollectClaimReturnShowsKnownGap",
+          "ticket": "M3-20"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-20/ItemTiming.t.sol",
+          "name": "test_BC262_drawCollectReturnUsesOwnRequestAndMeasuredFees",
+          "ticket": "M3-20"
+        }
+      ]
+    },
+    "BC-263": {
+      "tests": [
+        {"file": "packages/contracts/test/box-v2/pile-fees/Lifecycle.t.sol", "name": "test_PF01_eachSideBooksPendingUntilPermissionlessGraduatedMove", "implementation": true, "ticket": "SH-V21-03-PILE-FEES"},
+        {"file": "packages/contracts/test/box-v2/pile-fees/Redemption.t.sol", "name": "testFuzz_PF06_quotesBurnsAndBalanceConserve", "implementation": true, "ticket": "SH-V21-03-PILE-FEES"},
+        {"file": "packages/contracts/test/box-v2/pile-fees/Redemption.t.sol", "name": "test_PF04_leaveBehindBenefitsNextHolderAndLastEmptiesPile", "implementation": true, "ticket": "SH-V21-03-PILE-FEES"},
+        {"file": "packages/contracts/test/box-v2/pile-fees/Transfer.t.sol", "name": "test_PF12_refusalExhaustionAndReentryRestoreClaimsForRetry", "implementation": true, "ticket": "SH-V21-03-PILE-FEES"},
+        {"file": "packages/contracts/test/box-v2/pile-fees/Transfer.t.sol", "name": "test_PF13_pausedAndShortERC20ReceiptRollBackForRetry", "implementation": true, "ticket": "SH-V21-03-PILE-FEES"},
+        {"file": "packages/contracts/test/box-v2/pile-fees/Transfer.t.sol", "name": "test_PF17_oneGasAdmissionBoundaryRestoresFullCapExhaustion", "implementation": true, "ticket": "SH-V21-03-PILE-FEES"},
+        {"file": "packages/contracts/test/box-v2/pile-fees/Transfer.t.sol", "name": "test_PF18_pendingAboveInt128DrainsInBoundedParts", "implementation": true, "ticket": "SH-V21-03-PILE-FEES"},
+        {"file": "packages/contracts/test/box-v2/pile-fees/Gas.t.sol", "name": "test_PF11_coldFirstLedgerRecipient", "implementation": true, "ticket": "SH-V21-03-PILE-FEES"},
+        {"file": "packages/contracts/test/box-v2/pile-fees/Gas.t.sol", "name": "test_PF11_coldLongLedgerHistory", "implementation": true, "ticket": "SH-V21-03-PILE-FEES"},
+        {"file": "packages/contracts/test/box-v2/pile-fees/Transfer.t.sol", "name": "testFuzz_PF20_conservationBothSides", "implementation": true, "ticket": "SH-V21-03-PILE-FEES"},
+        {"file": "packages/contracts/test/box-v2/pile-fees/Transfer.t.sol", "name": "test_PF19_deficitReconciliationIncludesPendingWithoutInventingClaims", "implementation": true, "ticket": "SH-V21-03-PILE-FEES"},
+        {
+          "file": "packages/contracts/test/box-v2/m3-30/PileVault.t.sol",
+          "name": "test_R10_exactSeedOnceAndImmutableWiring",
+          "ticket": "M3-30",
+          "implementation": true
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-30/PileVault.t.sol",
+          "name": "test_R10_noticeFailureRollsBackSeedAndAllowance",
+          "ticket": "M3-30",
+          "implementation": true
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-30/PileVault.t.sol",
+          "name": "test_R10_phasesAndCallerOnlySpendsOwnT",
+          "ticket": "M3-30",
+          "implementation": true
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-30/PileVault.t.sol",
+          "name": "test_R10_twoHoldersBothOrdersAndLastRedemption",
+          "ticket": "M3-30",
+          "implementation": true
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-30/PileVault.t.sol",
+          "name": "test_R10_splitRoundingAndZeroOutput",
+          "ticket": "M3-30",
+          "implementation": true
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-30/PileVault.t.sol",
+          "name": "test_R10_zeroSeedHasNoLoaderAndNeedsNoLoad",
+          "ticket": "M3-30",
+          "implementation": true
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-30/PileVault.t.sol",
+          "name": "test_R10_minimumRecipientAndPayoutAreAtomic",
+          "ticket": "M3-30",
+          "implementation": true
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-30/PileVault.t.sol",
+          "name": "test_R10_eachDecimalExactnessAndReentryRollback",
+          "ticket": "M3-30",
+          "implementation": true
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-30/PileVault.t.sol",
+          "name": "test_R10_nativeSeedIdentityExactValueAndPayout",
+          "ticket": "M3-30",
+          "implementation": true
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-30/PileVault.t.sol",
+          "name": "test_R10_noFeeIntakeOrBudgetAndLiveBalanceQuote",
+          "ticket": "M3-30",
+          "implementation": true
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-30/PileVault.t.sol",
+          "name": "testFuzz_R10_conservationAndSplitting",
+          "ticket": "M3-30",
+          "implementation": true
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-30/PileVault.t.sol",
+          "name": "test_R10_fullPrecisionProduct",
+          "ticket": "M3-30",
+          "implementation": true
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-30/PileVault.t.sol",
+          "name": "test_R10_realTokenOnlyVaultPullsAndZeroFloorAllowsLastBurn",
+          "ticket": "M3-30",
+          "implementation": true
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-30/PileVault.t.sol",
+          "name": "test_R10_rebaseCannotFakeSeedReceiptOrDebit",
+          "ticket": "M3-30",
+          "implementation": true
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-30/PileVault.t.sol",
+          "name": "test_R10_TFailuresAndCallbacksCannotChangeQuoteSnapshot",
+          "ticket": "M3-30",
+          "implementation": true
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-30/PileVault.t.sol",
+          "name": "test_R10_initializeRejectsWrongWiring",
+          "ticket": "M3-30",
+          "implementation": true
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-30/PileVault.t.sol",
+          "name": "test_R10_pausedSeedLoadingAndWrongNativeValueRollback",
+          "ticket": "M3-30",
+          "implementation": true
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-30/PileVault.t.sol",
+          "name": "test_R10_nativeRecipientRefusalRollsBackBurn",
+          "ticket": "M3-30",
+          "implementation": true
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-30/PileVault.t.sol",
+          "name": "testFuzz_R10_splitCostsAtMostOneRawUnit",
+          "ticket": "M3-30",
+          "implementation": true
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-32/M3Creation.t.sol",
+          "name": "test_BC263_pileAssetMustBeListedAndNeverOwnT",
+          "ticket": "M3-32"
+        }
+      ]
+    },
+    "BC-264": {
+      "tests": [
+        {"file": "packages/contracts/test/box-v2/pile-fees/Lifecycle.t.sol", "name": "test_PF02_failurePendingJoinsPotSeedReturnsSeparately", "implementation": true, "ticket": "SH-V21-03-PILE-FEES"},
+        {"file": "packages/contracts/test/box-v2/pile-fees/Transfer.t.sol", "name": "test_PF15_failureRoutesPendingAndFinalFeesToPotAndLateMoneyToPot", "implementation": true, "ticket": "SH-V21-03-PILE-FEES"},
+        {
+          "file": "packages/contracts/test/box-v2/m3-40/M3Failure.t.sol",
+          "name": "test_BC264_heldItemsAndD6ReachPotOnceWithoutSplittingPrincipal",
+          "ticket": "M3-40"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-40/M3Failure.t.sol",
+          "name": "test_BC264_deadlineUnopenedAndHatchShareRouting",
+          "ticket": "M3-40"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-40/M3Failure.t.sol",
+          "name": "test_BC264_pileTIsExcludedBeforeAndAfterSeedReturn",
+          "ticket": "M3-40"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-40/M3Failure.t.sol",
+          "name": "test_BC264_pausedSeedAndRefusedBurnDoNotBlockHolderClaim",
+          "ticket": "M3-40"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-40/M3Failure.t.sol",
+          "name": "test_BC264_lateReceiverPAndInboxPJoinThePot",
+          "ticket": "M3-40"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-30/PileVault.t.sol",
+          "name": "test_R11_failureNeverCallsSeedAndReturnRetriesWithoutReleasingT",
+          "ticket": "M3-30",
+          "implementation": true
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-30/PileVault.t.sol",
+          "name": "test_R11_unloadedFailureCannotPullSeederMoney",
+          "ticket": "M3-30",
+          "implementation": true
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-30/PileVault.t.sol",
+          "name": "test_R11_nativeFailedReturnRetries",
+          "ticket": "M3-30",
+          "implementation": true
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-30/PileVault.t.sol",
+          "name": "test_R11_seedReadsCannotBlockFailureAndSurplusIsNotSeederMoney",
+          "ticket": "M3-30",
+          "implementation": true
+        }
+      ]
+    },
+    "BC-266": {
+      "tests": [
+        {"file": "packages/contracts/test/box-v2/pile-fees/Redemption.t.sol", "name": "test_PF05_invalidPresetRefused", "implementation": true, "ticket": "SH-V21-03-PILE-FEES"},
+        {"file":"packages/contracts/test/box-v2/pay-in-t/Burn.t.sol","name":"test_T17_refusedInsideBurnKeepsExactClaimsAndStrictStipendHasTwiceMargin","implementation":true,"ticket":"SH-V21-02-PAY-IN-T"},
+        {"file":"packages/contracts/test/box-v2/pay-in-t/Sync.t.sol","name":"test_T16_keeperMixedCurrencyPageFitsWithTwoTimesHeadroom","implementation":true,"ticket":"SH-V21-02-PAY-IN-T"},
+        {"file":"packages/contracts/test/box-v2/pay-in-t/Lifecycle.t.sol","name":"test_T03_itemsBuyersAdmissionAndFailureExit","implementation":true,"ticket":"SH-V21-02-PAY-IN-T"},
+        {"file":"packages/contracts/test/box-v2/pay-in-t/Lifecycle.t.sol","name":"test_T04_itemsSellersAdmissionAndFailureExit","implementation":true,"ticket":"SH-V21-02-PAY-IN-T"},
+        {"file":"packages/contracts/test/box-v2/pay-in-t/Lifecycle.t.sol","name":"test_T06_itemsKeepStashPaysTToCurrentOwnerAndSeparatesP","implementation":true,"ticket":"SH-V21-02-PAY-IN-T"},
+        {"file":"packages/contracts/test/box-v2/pay-in-t/Lifecycle.t.sol","name":"test_T07_itemsInsideBuyBackBurnConsumesTAndLeavesNoInsideCredit","implementation":true,"ticket":"SH-V21-02-PAY-IN-T"},
+        {
+          "file": "packages/contracts/test/box-v2/m3-10/M3Spec.t.sol",
+          "name": "test_BC266_everyItemAndSeededPileTwinBoundaries",
+          "ticket": "M3-10"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-10/M3Spec.t.sol",
+          "name": "test_BC266_removedModesFieldsAndFeeFundingRefused",
+          "ticket": "M3-10"
+        }
+      ]
+    },
+    "BC-267": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m3-32/M3Creation.t.sol",
+          "name": "test_BC267_itemRole16AndReceiverArgumentOnlyWhenSelected",
+          "ticket": "M3-32"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-32/M3Creation.t.sol",
+          "name": "test_BC267_pileRolesAndSeedLoaderNoCollectionOrTickets",
+          "ticket": "M3-32"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-32/M3Creation.t.sol",
+          "name": "test_BC267_deterministicClonesAndInertImplementations",
+          "ticket": "M3-32"
+        }
+      ]
+    },
+    "BC-268": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m3-23/ItemBooking.t.sol",
+          "name": "test_BC268_revertingLedgerCannotBlockCollectOrGraduation",
+          "ticket": "M3-23"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-23/ItemBooking.t.sol",
+          "name": "test_BC268_fundingRecordsMatchTransferredNetP",
+          "ticket": "M3-23"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-22/ItemRecords.t.sol",
+          "name": "test_BC268_fiveNoticesSurviveBrokenLedger",
+          "ticket": "M3-22"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-60/ItemGas.t.sol",
+          "name": "test_BC268_freshSlotBatchHasDoubleStipendHeadroomAmsterdam",
+          "ticket": "M3-60"
+        }
+      ]
+    },
+    "BC-270": {
+      "tests": [
+        {
+          "file": "packages/contracts/test/box-v2/m3-20/ItemReference.t.sol",
+          "name": "test_BC270_sameSecondReverseDeliveryMatchesEachTicket",
+          "ticket": "M3-20"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-20/ItemReference.t.sol",
+          "name": "test_BC270_cancelEitherTicketHasExactResidue",
+          "ticket": "M3-20"
+        },
+        {
+          "file": "packages/contracts/test/box-v2/m3-20/ItemReference.t.sol",
+          "name": "test_BC270_everyStepMatchesPerItemAndTicketReference",
+          "ticket": "M3-20"
+        }
+      ]
+    },
+    "BC-182": {
+      "tests": [
+        {"file": "packages/contracts/test/box-v2/kit/m2/ShopKit.t.sol", "name": "test_seedAndChunksNeverSubstituteForExplicitCompletion", "implementation": true, "ticket": "M2-03"},
+        {"file": "packages/contracts/test/box-v2/kit/m2/ShopKit.t.sol", "name": "test_seedOnlyAndBothGateOrdersAndRetry", "implementation": true, "ticket": "M2-03"},
+        {"file": "packages/contracts/test/box-v2/kit/m2/ShopKit.t.sol", "name": "testFuzz_arbitraryPagesPreserveTheOrderedCommitment", "implementation": true, "ticket": "M2-03"},
+        {"file": "packages/contracts/test/box-v2/kit/m2/ShopEdges.t.sol", "name": "test_validCommitmentStillRejectsDuplicateItemsBeforeAnyPull", "implementation": true, "ticket": "M2-03"}
+      ],
+      "status": "open",
+      "open": [
+        {
+          "ticket": "M2-33",
+          "reason": "Kit/model coverage only for full commitment and combined gate; real loader and 10000-item pages remain due."
+        },
+        {
+          "ticket": "M2-34",
+          "reason": "Real factory must wire loader and preserve no creation-time pull."
+        }
+      ]
+    },
+    "BC-183": {
+      "tests": [
+        {"file": "packages/contracts/test/box-v2/m2-32/Failure.t.sol", "name": "test_failedReturnsIsolateGasSinksAndLargeRevertsAndRemainRetryable", "implementation": true, "ticket": "M2-32"},
+        {"file": "packages/contracts/test/box-v2/m2-32/Failure.t.sol", "name": "test_modelParitySeedPartialLoadClaimsFailureAndRetry", "implementation": true, "ticket": "M2-32"}
+      ],
+      "status": "open",
+      "open": [
+        {
+          "ticket": "M2-44",
+          "reason": "Integrate real loader, coordinator failure and partial starter recovery."
+        }
+      ]
+    },
+    "BC-184": {
+      "tests": [
+        {"file": "packages/contracts/test/box-v2/m2-32/Boundaries.t.sol", "name": "test_allPresetCombinationsAndEveryTierUseIntegerCeiling", "implementation": true, "ticket": "M2-32"},
+        {"file": "packages/contracts/test/box-v2/m2-32/Boundaries.t.sol", "name": "testFuzz_roundTripsConserveTAndRetainSpread", "implementation": true, "ticket": "M2-32"}
+      ],
+      "status": "covered"
+    },
+    "BC-185": {
+      "tests": [
+        {"file": "packages/contracts/test/box-v2/m2-32/Shop.t.sol", "name": "test_seedIsApprovedExactOnceAndNotPulledOnInitialize", "implementation": true, "ticket": "M2-32"},
+        {"file": "packages/contracts/test/box-v2/m2-32/Boundaries.t.sol", "name": "test_noFeeGiftOrUnauthorizedHelperAndImplementationInert", "implementation": true, "ticket": "M2-32"},
+        {"file": "packages/contracts/test/box-v2/m2-32/Failure.t.sol", "name": "test_unfundedFailureExcludesNoCommittedSeed", "implementation": true, "ticket": "M2-32"}
+      ],
+      "status": "open",
+      "open": [
+        {
+          "ticket": "M2-32",
+          "reason": "Add explicit forced liquid balance and unsolicited PM claims proof that live give budget never increases; failure claims custody is covered."
+        }
+      ]
+    },
+    "BC-186": {
+      "tests": [
+        {"file": "packages/contracts/test/box-v2/m2-32/Shop.t.sol", "name": "test_hostileMintingSeizureAndStickyTransfersCannotDoublePay", "implementation": true, "ticket": "M2-32"},
+        {"file": "packages/contracts/test/box-v2/m2-32/Boundaries.t.sol", "name": "testFuzz_roundTripsConserveTAndRetainSpread", "implementation": true, "ticket": "M2-32"}
+      ],
+      "status": "covered"
+    },
+    "BC-187": {
+      "tests": [
+        {"file": "packages/contracts/test/box-v2/m2-32/Shop.t.sol", "name": "test_lastItemAndCallerLimitsAreAtomic", "implementation": true, "ticket": "M2-32"}
+      ],
+      "status": "covered"
+    },
+    "BC-188": {
+      "tests": [
+        {"file": "packages/contracts/test/box-v2/m2-32/Shop.t.sol", "name": "test_noMovesBeforeGraduationOrAfterFailure", "implementation": true, "ticket": "M2-32"},
+        {"file": "packages/contracts/test/box-v2/m2-32/Failure.t.sol", "name": "test_fundedSeedAndUnauthorizedLifecycleLoaderRefused", "implementation": true, "ticket": "M2-32"}
+      ],
+      "status": "open",
+      "open": [
+        {
+          "ticket": "M2-32",
+          "reason": "Missing lifecycle boundary assertions: give and pick after failure; fundSeed and loadStarter after a successful openGate; a second openGate after successful opening."
+        }
+      ]
+    },
+    "BC-189": {
+      "tests": [
+        {"file": "packages/contracts/test/box-v2/m2-32/Shop.t.sol", "name": "test_countIntegralAndUnsolicitedNFTs", "implementation": true, "ticket": "M2-32"}
+      ],
+      "status": "covered"
+    },
+    "BC-190": {
+      "tests": [
+        {"file": "packages/contracts/test/box-v2/m2-32/Shop.t.sol", "name": "test_hostileMintingSeizureAndStickyTransfersCannotDoublePay", "implementation": true, "ticket": "M2-32"},
+        {"file": "packages/contracts/test/box-v2/m2-32/Shop.t.sol", "name": "test_reentryCannotSpendAllowanceOrPickAgain", "implementation": true, "ticket": "M2-32"},
+        {"file": "packages/contracts/test/box-v2/m2-32/Boundaries.t.sol", "name": "test_refusedTokenAndNFTRecipientRollBackThenRetry", "implementation": true, "ticket": "M2-32"}
+      ],
+      "status": "covered"
+    },
+    "BC-191": {
+      "tests": [
+        {"file": "packages/contracts/test/box-v2/m2-32/Boundaries.t.sol", "name": "test_noFeeGiftOrUnauthorizedHelperAndImplementationInert", "implementation": true, "ticket": "M2-32"}
+      ],
+      "status": "open",
+      "open": [
+        {
+          "ticket": "M2-32",
+          "reason": "Explicit absent draw selector check remains due; current test covers ETH/fee refusal."
+        }
+      ]
+    },
+    "BC-192": {
+      "tests": [
+        {"file": "packages/contracts/test/box-v2/shop-fees/ShopFees.t.sol", "name": "test_SF01_factoryPresetCoreChoiceAndJournalWithoutBuyersHolders", "implementation": true, "ticket": "SH-V21-07-SHOP-FEES"},
+        {"file": "packages/contracts/test/box-v2/shop-fees/VaultProperties.t.sol", "name": "testFuzz_SF06_ceilingMultiplySaturates", "implementation": true, "ticket": "SH-V21-07-SHOP-FEES"},
+        {"file": "packages/contracts/test/box-v2/m2-32/Boundaries.t.sol", "name": "test_invalidPresetsAndCollectionsRevertInitializationAtomically", "implementation": true, "ticket": "M2-32"},
+        {"file": "packages/contracts/test/box-v2/m2-32/Shop.t.sol", "name": "test_countIntegralAndUnsolicitedNFTs", "implementation": true, "ticket": "M2-32"},
+        {"file": "packages/contracts/test/box-v2/m2-32/Failure.t.sol", "name": "test_fundedSeedAndUnauthorizedLifecycleLoaderRefused", "implementation": true, "ticket": "M2-32"},
+        {"file": "packages/contracts/test/box-v2/m2-10/Spec.t.sol", "name": "test_M210_shopAndSeedOnlyGate", "implementation": true, "ticket": "M2-10"}
+      ],
+      "status": "open",
+      "open": [
+        {
+          "ticket": "M2-33",
+          "reason": "Loader owns full set commitment; shop tests exercise authenticated individual pulls."
+        },
+        {
+          "ticket": "M2-11",
+          "reason": "M2-10 IR-1: product TS validator does not yet fully validate opaque shop contents; local reference is not product parity."
+        }
+      ]
+    },
+    "BC-193": {
+      "tests": [
+        {"file": "packages/contracts/test/box-v2/m2-32/Shop.t.sol", "name": "test_lastItemAndCallerLimitsAreAtomic", "implementation": true, "ticket": "M2-32"},
+        {"file": "packages/contracts/test/box-v2/m2-32/Boundaries.t.sol", "name": "test_refusedTokenAndNFTRecipientRollBackThenRetry", "implementation": true, "ticket": "M2-32"}
+      ],
+      "status": "open",
+      "open": [
+        {
+          "ticket": "M2-32",
+          "reason": "Pin exact frozen error selectors and all event arguments, including SeedFunded; generic expectRevert is partial coverage."
+        }
+      ]
+    },
+    "BC-194": {
+      "tests": [
+        {"file": "packages/contracts/test/box-v2/m2-32/Boundaries.t.sol", "name": "test_curatorCannotChangePricesAndAddedEntryWaitsFullDelay", "implementation": true, "ticket": "M2-32"},
+        {"file": "packages/contracts/test/box-v2/m2-32/Boundaries.t.sol", "name": "test_invalidPresetsAndCollectionsRevertInitializationAtomically", "implementation": true, "ticket": "M2-32"}
+      ],
+      "status": "covered"
+    },
+    "BC-195": {
+      "tests": [
+        {"file": "packages/contracts/test/box-v2/m2-32/Shop.t.sol", "name": "test_initialDelayAndCuratorCooldownSurviveHandover", "implementation": true, "ticket": "M2-32"},
+        {"file": "packages/contracts/test/box-v2/m2-32/Boundaries.t.sol", "name": "test_curatorCannotChangePricesAndAddedEntryWaitsFullDelay", "implementation": true, "ticket": "M2-32"},
+        {"file": "packages/contracts/test/box-v2/m2-32/Shop.t.sol", "name": "test_weeklyAndConcurrentCollectionLimitsAtBoundary", "implementation": true, "ticket": "M2-32"}
+      ],
+      "status": "open",
+      "open": [
+        {
+          "ticket": "M2-32",
+          "reason": "Explicit failed-first-operation rollback of the weekly snapshot remains due."
+        }
+      ]
+    },
+    "BC-196": {
+      "tests": [
+        {"file": "packages/contracts/test/box-v2/m2-32/Shop.t.sol", "name": "test_initialDelayAndCuratorCooldownSurviveHandover", "implementation": true, "ticket": "M2-32"}
+      ],
+      "status": "open",
+      "open": [
+        {
+          "ticket": "M2-32",
+          "reason": "Pin the one-second-before curator cooldown boundary explicitly; current test proves early same-time refusal and exact seven days."
+        }
+      ]
+    },
+    "BC-197": {
+      "tests": [
+        {"file": "packages/contracts/test/box-v2/m2-32/Shop.t.sol", "name": "test_initialDelayAndCuratorCooldownSurviveHandover", "implementation": true, "ticket": "M2-32"}
+      ],
+      "status": "open",
+      "open": [
+        {
+          "ticket": "M2-32",
+          "reason": "Explicit unauthorized proposal and zero-successor checks remain due."
+        }
+      ]
+    },
+    "BC-198": {
+      "tests": [
+        {"file": "packages/contracts/test/box-v2/shop-fees/ShopFees.t.sol", "name": "test_SF02_liveCeilingExactAllowanceAndHoldersExit", "implementation": true, "ticket": "SH-V21-07-SHOP-FEES"},
+        {"file": "packages/contracts/test/box-v2/shop-fees/ShopFees.t.sol", "name": "test_SF03_intakeOnlyLiveReceiverAndIdleWeeks", "implementation": true, "ticket": "SH-V21-07-SHOP-FEES"},
+        {"file": "packages/contracts/test/box-v2/shop-fees/VaultProperties.t.sol", "name": "test_SF07_idleWeeksAndFirstGiveUseLiveBudget", "implementation": true, "ticket": "SH-V21-07-SHOP-FEES"},
+        {"file": "packages/contracts/test/box-v2/shop-fees/ShopFees.t.sol", "name": "test_SF10_refusedIntakeRollsBackPurchasePendingAndAllowance", "implementation": true, "ticket": "SH-V21-07-SHOP-FEES"},
+        {"file": "packages/contracts/test/box-v2/m2-32/Shop.t.sol", "name": "test_weeklyAndConcurrentCollectionLimitsAtBoundary", "implementation": true, "ticket": "M2-32"},
+        {"file": "packages/contracts/test/box-v2/m2-32/Shop.t.sol", "name": "test_pickReceiptsWaitUntilNextWeekAndLoopsCostSpread", "implementation": true, "ticket": "M2-32"},
+        {"file": "packages/contracts/test/box-v2/m2-32/Boundaries.t.sol", "name": "testFuzz_weeklyAllowanceFloorsAndIndependentCollections", "implementation": true, "ticket": "M2-32"}
+      ],
+      "status": "covered"
+    },
+    "BC-199": {
+      "tests": [
+        {"file": "packages/contracts/test/box-v2/shop-fees/VaultProperties.t.sol", "name": "testFuzz_SF08_partialPurchasesRefundEveryBatchWithoutRoundingLoss", "implementation": true, "ticket": "SH-V21-07-SHOP-FEES"},
+        {"file": "packages/contracts/test/box-v2/shop-fees/ShopFees.t.sol", "name": "test_G1_B1_smallQueueWaitsUntilNextCollectionWhileShopWantsFees", "implementation": true, "ticket": "SH-V21-G1-FIX"},
+        {"file": "packages/contracts/test/box-v2/shop-fees/ShopFees.t.sol", "name": "test_G1_B1_smallQueuePaysHoldersWhenShopStopsWantingFees", "implementation": true, "ticket": "SH-V21-07-SHOP-FEES"},
+        {"file": "packages/contracts/test/box-v2/shop-fees/ShopFees.t.sol", "name": "test_SF11_oneRawTokenRoomResolvesWithoutPriceMovement", "implementation": true, "ticket": "SH-V21-07-SHOP-FEES"},
+        {"file": "packages/contracts/test/box-v2/shop-fees/ShopFees.t.sol", "name": "test_SF12_positiveRoomCappedPurchaseBelowStepMinimumPaysHolders", "implementation": true, "ticket": "SH-V21-07-SHOP-FEES"},
+        {"file": "packages/contracts/test/box-v2/shop-fees/ShopFees.t.sol", "name": "test_SF13_aboveMinimumQueueWithZeroRawOutputWaitsForMoreFees", "implementation": true, "ticket": "SH-V21-07-SHOP-FEES"},
+        {"file":"packages/contracts/test/box-v2/pay-in-t/Gas.t.sol","name":"test_T13_holderCold1024HistoryClaimAndResidueExit","implementation":true,"ticket":"SH-V21-02-PAY-IN-T"},
+        {"file":"packages/contracts/test/box-v2/pay-in-t/Lifecycle.t.sol","name":"test_T05_holderHistoryEarnsBoughtTokenAfterGraduation","implementation":true,"ticket":"SH-V21-02-PAY-IN-T"},
+        {"file": "packages/contracts/test/box-v2/m2-30/HolderLedger.t.sol", "name": "test_historyOutAndBackSkippedNoticesAndProtocolMatchModel", "implementation": true, "ticket": "M2-30"},
+        {"file": "packages/contracts/test/box-v2/m2-30/HolderLedger.t.sol", "name": "test_tradeBeforeReceiptDoesNotCreditBuyerAndLaterHoldersCannotGrief", "implementation": true, "ticket": "M2-30"},
+        {"file": "packages/contracts/test/box-v2/m2-30/HolderLedger.t.sol", "name": "test_historyReadFailureRollsBackPageWithoutCurrentBalanceFallback", "implementation": true, "ticket": "M2-30"},
+        {"file": "packages/contracts/test/box-v2/m2-30/HolderAdversarial.t.sol", "name": "test_eachPageDoesAtMost64PairsAndCannotReleasePartialCredit", "implementation": true, "ticket": "M2-30"},
+        {"file": "packages/contracts/test/box-v2/m2-31/Trade.t.sol", "name": "test_fourKindsSnapshotBeforeSettlementAndWeights", "implementation": true, "ticket": "M2-31"},
+        {"file": "packages/contracts/test/box-v2/m2-31/Trade.t.sol", "name": "test_hostileNoticesKeepDenominatorAndBothSidesClose", "implementation": true, "ticket": "M2-31"},
+        {"file": "packages/contracts/test/box-v2/m2-31/Trade.t.sol", "name": "test_protocolTradesHaveNoHolderNotice", "implementation": true, "ticket": "M2-31"},
+        {"file": "packages/contracts/test/box-v2/m2-31/Trade.t.sol", "name": "test_absentHookLedgerDoesNotRecordOrNotify", "implementation": true, "ticket": "M2-31"},
+        {"file": "packages/contracts/test/box-v2/m2-31/Trade.t.sol", "name": "test_noticeActivationCannotBreakFreshTokenSettlement", "implementation": true, "ticket": "M2-31"},
+        {"file": "packages/contracts/test/box-v2/m2-31/Trade.t.sol", "name": "test_feeCheckpointNoticeStillLeavesWalletHistoryGas", "implementation": true, "ticket": "M2-31"}
+      ],
+      "status": "open",
+      "open": [
+        {
+          "ticket": "M2-61",
+          "reason": "Combine real ledger, token, hook and receiver across the complete menu; local history/notice doubles remain in individual suites."
+        }
+      ]
+    },
+    "BC-200": {
+      "tests": [
+        {"file": "packages/contracts/test/box-v2/m2-31/Token.t.sol", "name": "test_allSystemsExcludedAndCannotRegister", "implementation": true, "ticket": "M2-31"},
+        {"file": "packages/contracts/test/box-v2/m2-31/Token.t.sol", "name": "test_contractRegistrationIsFutureOnlyAndCodeClassificationIsSticky", "implementation": true, "ticket": "M2-31"},
+        {"file": "packages/contracts/test/box-v2/m2-31/Token.t.sol", "name": "test_exact7702DesignationOnlyAndFirstReceiptCannotBeReclassified", "implementation": true, "ticket": "M2-31"},
+        {"file": "packages/contracts/test/box-v2/m2-31/Token.t.sol", "name": "test_hostileCallbacksAndMissedOutAndBackMatchReference", "implementation": true, "ticket": "M2-31"},
+        {"file": "packages/contracts/test/box-v2/m2-31/Token.t.sol", "name": "test_firstReceiptSelfZeroBurnAndAllowance", "implementation": true, "ticket": "M2-31"},
+        {"file": "packages/contracts/test/box-v2/m2-30/HolderLedger.t.sol", "name": "testFuzz_exactParityAtSixEightEighteenDecimals", "implementation": true, "ticket": "M2-30"},
+        {"file": "packages/contracts/test/box-v2/m2-31/Token.t.sol", "name": "test_mintHistoryAndFrozenClone", "implementation": true, "ticket": "M2-31"},
+        {"file": "packages/contracts/test/box-v2/m2-31/Token.t.sol", "name": "test_revertsPreserveHistoryAndImplementationIsInert", "implementation": true, "ticket": "M2-31"},
+        {"file": "packages/contracts/test/box-v2/m2-31/Token.t.sol", "name": "test_absentLedgerDoesNoHistoryOrExternalWork", "implementation": true, "ticket": "M2-31"},
+        {"file": "packages/contracts/test/box-v2/m2-31/Gas.t.sol", "name": "test_transferCallbackActivation", "implementation": true, "ticket": "M2-31"},
+        {"file": "packages/contracts/test/box-v2/m2-31/Gas.t.sol", "name": "test_transferFromCallbackActivation", "implementation": true, "ticket": "M2-31"},
+        {"file": "packages/contracts/test/box-v2/m2-31/Gas.t.sol", "name": "test_burnCallbackActivation", "implementation": true, "ticket": "M2-31"}
+      ],
+      "status": "covered"
+    },
+    "BC-201": {
+      "tests": [
+        {"file":"packages/contracts/test/box-v2/pay-in-t/Scheduling.t.sol","name":"test_T18_burnTailCannotBlockReadyRewardSimulation","implementation":true,"ticket":"SH-V21-02-PAY-IN-T"},
+        {"file":"packages/contracts/test/box-v2/pay-in-t/Lifecycle.t.sol","name":"test_T15_bothTChoicesShareStepBudgetAndConserveClaims","implementation":true,"ticket":"SH-V21-02-PAY-IN-T"},
+        {"file":"packages/contracts/test/box-v2/pay-in-t/Accounting.t.sol","name":"testFuzz_T08_queueConservesEveryBoughtToken","implementation":true,"ticket":"SH-V21-02-PAY-IN-T"},
+        {"file": "packages/contracts/test/box-v2/m2-30/ReceiverFunding.t.sol", "name": "test_collectFundsBothClosedSourcesWithoutCallingLedgerAndMatchesSourceModel", "implementation": true, "ticket": "M2-30"},
+        {"file": "packages/contracts/test/box-v2/m2-30/ReceiverFunding.t.sol", "name": "test_refusedTipStaysInItsSourceAndTerminalCarryCannotSubsidizeNextBatch", "implementation": true, "ticket": "M2-30"},
+        {"file": "packages/contracts/test/box-v2/m2-30/ReceiverFunding.t.sol", "name": "test_oldShortfallCannotConsumeLaterReceiptOrBookedDebtAndNeverRefills", "implementation": true, "ticket": "M2-30"},
+        {"file": "packages/contracts/test/box-v2/m2-30/ReceiverFunding.t.sol", "name": "test_royaltyDonationAndReturnedReserveNeverCreditHolderLedger", "implementation": true, "ticket": "M2-30"},
+        {"file": "packages/contracts/test/box-v2/m2-30/HolderLedger.t.sol", "name": "test_zeroFundingClosedSeparatelyAndCannotUseNextBatch", "implementation": true, "ticket": "M2-30"},
+        {"file": "packages/contracts/test/box-v2/m2-30/ReceiverFunding.t.sol", "name": "test_mixedChoicesUseIndependentSidesAndGraduationClosesBeforeCollect", "implementation": true, "ticket": "M2-30"}
+      ],
+      "status": "covered"
+    },
+    "BC-202": {
+      "tests": [
+        {"file": "packages/contracts/test/box-v2/shop-fees/ShopFees.t.sol", "name": "test_SF04_failureNeverUsesBudgetOrPileRow9", "implementation": true, "ticket": "SH-V21-07-SHOP-FEES"},
+        {"file": "packages/contracts/test/box-v2/shop-fees/ShopFees.t.sol", "name": "test_SF05_finalUncollectedSellersFeesJoinClosingPot", "implementation": true, "ticket": "SH-V21-07-SHOP-FEES"},
+        {"file": "packages/contracts/test/box-v2/m2-30/HolderReceiver.t.sol", "name": "test_failureBeforeCollectKeepsHolderPOutsidePotAndFlushesOnlyResidueToPot", "implementation": true, "ticket": "M2-30"},
+        {"file": "packages/contracts/test/box-v2/m2-30/HolderLedger.t.sol", "name": "test_pausedPFailureAndNoExpiryPreserveCredits", "implementation": true, "ticket": "M2-30"},
+        {"file": "packages/contracts/test/box-v2/m2-32/Failure.t.sol", "name": "test_modelParitySeedPartialLoadClaimsFailureAndRetry", "implementation": true, "ticket": "M2-32"},
+        {"file": "packages/contracts/test/box-v2/m2-32/Failure.t.sol", "name": "test_burnGasSinkLeavesClaimsBackedAndLiquidRetryable", "implementation": true, "ticket": "M2-32"},
+        {"file": "packages/contracts/test/box-v2/m2-31/Failure.t.sol", "name": "test_revertingAndGasBurningLedgerCannotLockFailureClaim", "implementation": true, "ticket": "M2-31"}
+      ],
+      "status": "open",
+      "open": [
+        {
+          "ticket": "M2-44",
+          "reason": "Real shop liquid/PM claims in H exactly once, all three failure entries, no-buyer/late-money preservation and tLeft equality remain integration proofs; F136 retains R40A's fixed count without a sweep, and F138 adds only later inbox P to the no-buyer remainder."
+        }
+      ]
+    },
+    "BC-203": {
+      "tests": [
+        {"file": "packages/contracts/test/box-v2/m2-30/ClaimOnly.t.sol", "name": "test_F127_removedPushCannotSpendOrTip", "implementation": true, "ticket": "M2-30"},
+        {"file": "packages/contracts/test/box-v2/m2-30/HolderLedger.t.sol", "name": "test_selfClaimHasNoMinimumOrTipAndContractRegisters", "implementation": true, "ticket": "M2-30"},
+        {"file": "packages/contracts/test/box-v2/m2-30/HolderAdversarial.t.sol", "name": "test_blockedHolderCannotBlockAnotherOwnersPayout", "implementation": true, "ticket": "M2-30"},
+        {"file": "packages/contracts/test/box-v2/m2-30/HolderAdversarial.t.sol", "name": "test_codeChangesNeverRestrictOwnerClaimsOrRewriteCredits", "implementation": true, "ticket": "M2-30"},
+        {"file": "packages/contracts/test/box-v2/m2-30/HolderAdversarial.t.sol", "name": "test_nativePClaimRefusalPreservesCreditWithoutClaimsFallback", "implementation": true, "ticket": "M2-30"},
+        {"file": "packages/contracts/test/box-v2/m2-30/HolderAdversarial.t.sol", "name": "test_feeOnTransferAndReentryLeaveEveryCreditForRetry", "implementation": true, "ticket": "M2-30"},
+        {"file": "packages/contracts/test/box-v2/m2-30/HolderLedger.t.sol", "name": "test_pausedPFailureAndNoExpiryPreserveCredits", "implementation": true, "ticket": "M2-30"},
+        {"file": "packages/contracts/test/box-v2/m2-31/Failure.t.sol", "name": "test_pausedPPayoutRollsBackTokenHistoryForRetry", "implementation": true, "ticket": "M2-31"},
+        {"file": "packages/contracts/test/box-v2/m2-30/HolderAdversarial.t.sol", "name": "test_fullPrecisionAndPayoutAboveInt128", "implementation": true, "ticket": "M2-30"}
+      ],
+      "status": "covered"
+    }
+  },
+  "m2": {
+    "reference": "49aa32cbeb9836e584d022a7a80b2ae0515d77ce",
+    "freeze": "docs/design/core-v2-m2-seams.md; docs/evidence/SH-V2-M2-00.md",
+    "planReferences": [
+      {"id": "BC-239", "status": "withdrawn", "by": "F119 R34E; F120", "reason": "Returned-P buy-T-back route removed; ordinary own-pool burn choice is a different existing M1 behavior."},
+      {"id": "BC-240", "status": "mapped", "by": "F120; F111", "reason": "Capped hook notice, authoritative units and protocol exclusion restated for P batches.", "into": ["BC-199"]},
+      {"id": "BC-241", "status": "mapped", "by": "F111", "reason": "Mandatory token histories before optional hints; clone shape unchanged.", "into": ["BC-200"]},
+      {"id": "BC-242", "status": "withdrawn", "by": "F119 R35B", "reason": "Creator settleCap removed; do not reuse this id for ordinary holder settlement."},
+      {"id": "BC-243", "status": "mapped", "by": "F111; F127", "reason": "F127 removes the former F109 pushed claim, minimum, tip and code distinction; owner-only P claims preserve all earned credit.", "into": ["BC-203"]},
+      {"id": "BC-244", "status": "withdrawn", "by": "F120; F122 R36L", "reason": "Claim-time other-currency conversion deferred; no royalty-Safe substitute."},
+      {"id": "BC-245", "status": "withdrawn", "by": "F120; F122 R36J", "reason": "Platform fallback sale/cap contract removed; Safe conversion and cap are separate M1 bot policy."},
+      {"id": "BC-246", "status": "mapped", "by": "F119 R35C/R35D; F120", "reason": "M2 four-choice menu and SHOP spec coverage; no Money Printer or fee-funded shop.", "into": ["BC-230", "BC-192", "BC-199"]},
+      {"id": "BC-247", "status": "mapped", "by": "F120; F122 R36L", "reason": "Stock is P; retry actual P payout, never a claims fallback. Issuer disclosures remain M2-53 work.", "into": ["BC-203"]},
+      {"id": "BC-248", "status": "mapped", "by": "F120; F111", "reason": "Holder P survives failure; excluded shop T burns rather than returning seed to creator.", "into": ["BC-202", "BC-183"]},
+      {"id": "BC-249", "status": "mapped", "by": "F111", "reason": "Bounded chained starter loading and seed readiness AND chunks, no NFT creation pull.", "into": ["BC-182", "BC-192"]},
+      {"id": "BC-250", "status": "mapped", "by": "F119 R34A; F111", "reason": "Only roles 3/17/19 and implementation slots 20/21; no LEG clones. Real factory provenance remains M2-34.", "into": ["BC-199", "BC-200", "BC-192"]},
+      {"id": "BC-251", "status": "mapped", "by": "F109 R24E; F120", "reason": "Missed/no-eligible/protocol residue and non-trade source shares go to depth while live, the claim pot after failure (F136).", "into": ["BC-199", "BC-201", "BC-202"]},
+      {"id": "BC-252", "status": "mapped", "by": "F120; F111", "reason": "Optional callbacks are capped/fail-safe; mandatory history and settlement may revert atomically for retry. Do not promise every ledger entry never reverts.", "into": ["BC-199", "BC-200", "BC-203"]},
+      {"id": "BC-271", "status": "withdrawn", "by": "F119 R35B/R35C; F120", "reason": "Money Printer/cap recipe removed, never reused. Its useful missed-weight and mixed-source counterexamples are restated under BC-199/201 in m2 vectors without cap semantics."}
+    ],
+    "requirements": [
+      {"id": "money-1", "cases": ["BC-199", "BC-200"], "ticket": "M2-31", "status": "covered", "reason": "Trade snapshot, mandatory history and authoritative batch weights have individual real-part tests; full integration is menu."},
+      {"id": "money-2", "cases": ["BC-201"], "ticket": "M2-30", "status": "covered", "reason": "Receiver final net funding and claims transfers without ledger calls are exercised."},
+      {"id": "money-3", "cases": ["BC-199", "BC-200", "BC-201"], "ticket": "M2-30", "status": "covered", "reason": "Two floors, U+V, permanent zero/shortfall and no later backing are tested against frozen models."},
+      {"id": "money-4", "cases": ["BC-201", "BC-202"], "ticket": "M2-30", "status": "covered", "reason": "Non-trade, terminal dust, residue and locked flush use separate source/failure destinations."},
+      {"id": "money-5", "cases": ["BC-199", "BC-200", "BC-203"], "ticket": "M2-31", "status": "covered", "reason": "Real token/hook fail-safe callbacks and failure transferFrom survive hostile ledgers; release headroom remains gas."},
+      {"id": "money-6", "cases": ["BC-203"], "ticket": "M2-30", "status": "covered", "reason": "F127 owner-only P claims, no expiry/minimum/tip/code distinction, removed-push refusal, payout rollback and isolated retry covered."},
+      {"id": "money-7", "cases": ["BC-184", "BC-185", "BC-194", "BC-195", "BC-196", "BC-197", "BC-198"], "ticket": "M2-32", "status": "open", "reason": "Shop implementation covered substantially; per-case missing assertion edges remain explicit."},
+      {"id": "money-8", "cases": ["BC-182", "BC-192"], "ticket": "M2-33", "status": "open", "reason": "Kit proves gate/commitment defaults; production loader, combined gate and 10000-item bound remain due."},
+      {"id": "money-9", "cases": ["BC-183", "BC-202"], "ticket": "M2-44", "status": "open", "reason": "Quarantine/partial returns have models and shop tests; real H/tLeft equality remains open, including R40A's fixed count with no sweep under F136."},
+      {"id": "wiring", "cases": ["BC-192", "BC-199", "BC-200"], "ticket": "M2-34", "status": "open", "reason": "Factory role 17 only for holders, role 3 SHOP and role 19 loader, slots 20/21, exact hashes/CREATE order and inert implementations need combined real creation proof."},
+      {"id": "spec", "cases": ["BC-230", "BC-192", "BC-199"], "ticket": "M2-10", "status": "open", "reason": "Merged Spec.t.sol covers four choices, add-ons and listing snapshots. IR-1 needs generated product TypeScript opaque-shop parity; do not count a local double as admission."},
+      {"id": "keeper", "cases": ["BC-182", "BC-202", "BC-203"], "ticket": "M2-51", "status": "open", "reason": "Schedule bounded settlement pages, residue, failure burns/returns, retries/deduplication and fixed daily budgets; F127 removes payout pushes."},
+      {"id": "indexer", "cases": ["BC-182", "BC-192", "BC-201", "BC-203"], "ticket": "M2-52", "status": "open", "reason": "Decode real batch/shop/starter events with provenance, duplicate/reorder/reorg proofs and raw decimal persistence."},
+      {"id": "ui", "cases": ["BC-182", "BC-192", "BC-203"], "ticket": "M2-53", "status": "open", "reason": "Show pending/paused/failed claims, stock issuer powers, prices/list powers and starter progress; wallet actions only on request."},
+      {"id": "gas", "cases": ["BC-182", "BC-199", "BC-200", "BC-203"], "ticket": "M2-60", "status": "open", "reason": "Real part sizes <=22118, M3 reserves, 2x strict-case caps, exact activation boundaries, history/page backlog and 10000-item gas measurements remain release proofs."},
+      {"id": "menu", "cases": ["BC-182", "BC-198", "BC-199", "BC-202"], "ticket": "M2-61", "status": "open", "reason": "All 16 fee pairs, allowed box types, 6/8/18 decimals, sixty idle days and full real-part lifecycle/conservation."},
+      {"id": "mutation", "cases": ["BC-185", "BC-198", "BC-199", "BC-202"], "ticket": "M2-62", "status": "open", "reason": "Kill wrong ids, gross funding, excluded eligibility, unsafe callbacks, wrong limits and H; inherited mutants rerun."},
+      {"id": "review", "cases": ["BC-182", "BC-199", "BC-202"], "ticket": "M2-63", "status": "open", "reason": "Claude fresh cross/security review and high/medium closure; no unit mapping implies G1 approval."},
+      {"id": "sepolia", "cases": ["BC-182", "BC-198", "BC-199", "BC-202"], "ticket": "M2-64", "status": "open", "reason": "Real waits, Safes and holder/shop lifecycle on Sepolia plus 24-hour keeper; no fork or model substitutes."}
+    ]
+  }
+}

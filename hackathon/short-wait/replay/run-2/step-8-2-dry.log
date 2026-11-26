@@ -1,0 +1,25 @@
+buyer: hack-deployer, address 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 (impersonated on the local node)
+waiting for the chain's clock: 374 s
+waiting for the chain's clock: 344 s
+waiting for the chain's clock: 310 s
+waiting for the chain's clock: 279 s
+waiting for the chain's clock: 247 s
+waiting for the chain's clock: 217 s
+waiting for the chain's clock: 185 s
+waiting for the chain's clock: 153 s
+waiting for the chain's clock: 125 s
+waiting for the chain's clock: 90 s
+waiting for the chain's clock: 58 s
+waiting for the chain's clock: 26 s
+sent card-shop:graduate#0 approve: 0x8013286491120ebaebbe0c0bf132831ee9852203c93aab7fc65a00a9e57096df, nonce 402
+sent card-shop:graduate#1 swap: 0x295a6ce22c559597cc35d2d90cc7bcef6f375de5997ccafb99178881b8694daa, nonce 403
+sent card-shop:graduate#2 approve: 0x6fcbb1d5fa9fbbe4f57aeebd362ad008efdcd501d4862dc3fd60f59e0a9e3699, nonce 404
+sent card-shop:graduate#3 graduate: 0xeb44fce9bdbac4faabccb2c8bc7010d3a43d528ea461b490daceccb01eb29c0f, nonce 405
+done card-shop:graduate
+{
+  "command": "graduate",
+  "dry": false,
+  "result": {
+    "box": "0xBfe1e7475ccAcFFbC72bdF4e37404F0e31792D09"
+  }
+}

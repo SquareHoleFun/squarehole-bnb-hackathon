@@ -1,0 +1,75 @@
+fork of chain 97 at block 144938433 (anvil 573083, port 8574); the runner 09250bf9ccd5a3fc; the file's changes for the fork:
+  lines changed: 14
+== step 1: preflight: the five reused addresses, the holding contracts' owners, the balances, the start block and nonce (written once)
+   dry ok: start block 144938433 (kept from the first run of this step if it existed)
+   dry ok: deployer nonce at the start 324
+   dry ok: first release entry e7f1e603b1c72547ab85e9a795fb43ed0ed5d60a1bec88bc883053304800ff4e  -
+   check: 1  (expected: 1)
+   check: same  (expected: same)
+   check: same  (expected: same)
+   check: same  (expected: same)
+   check: same  (expected: same)
+   check: same  (expected: same)
+   check: [0x2EF9A78074bbf674bEA16f21154a30c821A3C576]  (expected: [0x2EF9A78074bbf674bEA16f21154a30c821A3C576])
+   check: same  (expected: same)
+   check: 867469224036064682  (expected: >=16000000000000000)
+   check: 72393999534409326  (expected: >=2000000000000000)
+   check: 0x2EF9A78074bbf674bEA16f21154a30c821A3C576  (expected: 0x2EF9A78074bbf674bEA16f21154a30c821A3C576)
+   check: refuses  (expected: refuses)
+== step 2: the second release (31 transactions; never twice: see RECOVERY), then lane c's release check
+   dry ok: no release sent yet: nonce 324 as at step 1
+   dry ok: Sensitive values saved to: /home/sh/work/c/packages/contracts/cache/DeployCoreV2BnbShortWait.s.sol/97/dry-run/
+   dry ok: second factory 0xc66520D4897412766f8Fb120d351a7E39ca48d7C, from this run's record
+   check: 31  (expected: 31)
+   check: same  (expected: same)
+   check: true 44 44  (expected: true 44 44)
+== step 3: the second release's six listings: the first release's coins, classes and raises (row 0 lowered to 0.001 BNB)
+   dry ok: Sensitive values saved to: /home/sh/work/c/packages/contracts/cache/BnbTestnetSetup.s.sol/97/dry-run/runListin
+   check: 6  (expected: 6)
+   check: rows as the first release: 6 of 6  (expected: rows as the first release: 6 of 6)
+== step 4: the box's sixteen starter cards: ids 9 to 12 of each live collection, minted to the deploy wallet (this replaces lane d's hackathon/quick-deck/commands.txt, which must NOT run)
+   dry ok: Sensitive values saved to: /home/sh/work/c/packages/contracts/cache/ShortWaitCards.s.sol/97/dry-run/run-latest
+   check: starter cards with the deploy wallet: 16 of 16  (expected: starter cards with the deploy wallet: 16 of 16)
+== step 5: the site's files with two releases: staged and checked (the release check, the six rows, the site's parser, SH-258's chain check), then published all or nothing
+   dry ok: {"releases":2,"onChainProblems":[],"createOptions":"parses for the second release, off: addon.1"}
+   dry ok: {"manifest":"/home/sh/work/c/packages/contracts/deployments/core-v1/97.json","extras":"/home/sh/work/c/package
+   check: published as staged: 3 of 3  (expected: published as staged: 3 of 3)
+   check: 2  (expected: 2)
+   check: same  (expected: same)
+   check: same  (expected: same)
+   check: 6  (expected: 6)
+   check: true 2  (expected: true 2)
+== step 6: Quick Deck: lane d's settings (listDelay 600, starters 9 to 12, the second factory), then create (tUSDC approval, createBox)
+   dry ok: factory 0xc66520D4897412766f8Fb120d351a7E39ca48d7C, spec 0xf926486de73c99f14eb896e4b45e1c25d234e4f7cd6734673a9
+   check: same  (expected: same)
+   dry ok: }
+   dry ok: }
+   check: same  (expected: same)
+   check: same  (expected: same)
+   check: "QDECK"  (expected: "QDECK")
+== step 7: load: seed and card approvals, the sixteen starter cards, fundSeed, complete (the gate opens); a give before the ten minutes is refused
+   dry ok: }
+   dry ok: }
+   check: true  (expected: true)
+   check: 16  (expected: 16)
+   check: refused-early: at 1795677855, gives open at 1795678377, InvalidRequest()  (expected: refused-early)
+== step 8: graduate: wait out the launch window (about 384 s after creation), buy the curve full in tUSDC, graduate (picks open)
+   dry ok: }
+   dry ok: }
+   check: true  (expected: true)
+== step 9: pick: hack-alice picks common #9 for exactly its pick price, paid by hack-deployer
+   dry ok: }
+   dry ok: }
+   check: 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F  (expected: 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F)
+== step 10: wait until gives open: the chain's time past the common collection's activeAt (the box's creation + 600 s), at most 15 minutes
+   dry ok: gives open since 1795678377; the chain is at 1795678380
+   check: open  (expected: open)
+== step 11: give: hack-alice hands common #9 back to the shop and is paid exactly the common tier's give price in QDECK
+   dry ok: alice holds 0 QDECK raw before the give
+   sent: 0xae8aaaf5dea3e018423c16e30559f30d89baafbd3a565b28aedacc5a6a88a7a9 block 144939221 gas 48652 status               1 (success)
+   dry ok: 1000000000000000000000000 [1e24]
+   sent: 0xca2af763abc22e34490c1d33eb70fd66464a717e91b35c25197c0433a2a1b719 block 144939222 gas 381408 status               1 (success)
+   check: same  (expected: same)
+   check: paid exactly the give price  (expected: paid exactly the give price)
+== steps 1 to 11 done at 2026-11-26T07:33:02Z
+runner exit 0 after 14 min 30 s

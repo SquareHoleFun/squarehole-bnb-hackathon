@@ -1,0 +1,104 @@
+{
+  "format": "squarehole.boxspec-draft/1",
+  "context": "v2",
+  "example": 6,
+  "brief": "Demo example 6. Square Hole's own joke, a square peg in a round hole: 69 pegs, hidden until drawn, with 3 special Round Pegs. Meant to be priced in FIT so the buyers' side burns FIT. Opens 5 minutes after creation.",
+  "status": "stand-in",
+  "shows": [
+    "burn FIT on the buyers' side",
+    "new collection, hidden art with placeholders",
+    "special series (edition specials)",
+    "collection page: a banner and 2 teasers",
+    "opens 5 min after creation: the launch flow's preset (the draft says Now)"
+  ],
+  "differences": [
+    "Priced in FIT (\"q\": FIT, \"qStream\": \"BURN_Q\") needs FIT on the curated list, once FIT trades (ref. slice S12). Until then it is priced in ETH and the buyers' side uses \"ALL_TO_FIT\" (Burn FIT), which still burns FIT.",
+    "An own hidden picture (a peg) waits for an SVG upload in the launch flow; until then tickets show its neutral picture (\"hiddenSvg\": \"FROM_LAUNCH_FLOW\").",
+    "5 minutes after creation is a launch-flow choice (\"5 min\", turned into a time at Create); a draft holds a UTC time or 0, so it says Now (\"openAt\": 0)."
+  ],
+  "site": {
+    "links": []
+  },
+  "spec": {
+    "version": 2,
+    "boxType": "NEW_COLLECTION",
+    "tokenName": "Square Pegs",
+    "tokenSymbol": "PEG",
+    "collectionName": "Square Pegs",
+    "collectionSymbol": "PEG",
+    "description": "Demo: 69 square pegs that still fit the square hole. A few are round.",
+    "n": 69,
+    "firstId": "1",
+    "q": "ETH",
+    "raise": {
+      "decimal": "4.206980085"
+    },
+    "layout": "CURVE_V1",
+    "gradLayout": "ASK_FULL_BID_SENTINEL",
+    "launchFormat": "CURVE",
+    "openAt": 0,
+    "deadlineDays": 30,
+    "qStream": "ALL_TO_FIT",
+    "tStream": "BURN_T",
+    "artMode": "HIDDEN",
+    "revealRoot": "FROM_LAUNCH_FLOW",
+    "metadataTable": {
+      "formatV1": {
+        "traitTypes": [
+          {
+            "name": "Shape",
+            "values": [
+              "Square",
+              "Round"
+            ]
+          },
+          {
+            "name": "Wood",
+            "values": [
+              "Pine",
+              "Oak",
+              "Walnut"
+            ]
+          }
+        ]
+      }
+    },
+    "generatorHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coverSha256": "FROM_LAUNCH_FLOW",
+    "revealListId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "marketplaceOwner": "FROM_LAUNCH_FLOW",
+    "creatorFeeRecipient": "0x0000000000000000000000000000000000000000",
+    "creatorBuy": "0",
+    "collectionCoverSha256": "FROM_LAUNCH_FLOW",
+    "addOns": [
+      {
+        "addOn": "placeholders",
+        "params": {
+          "placeholderName": "Square Pegs ticket",
+          "placeholderSymbol": "PEG-T",
+          "placeholderDescription": "Opens into one hidden peg once its number is drawn.",
+          "hiddenDescription": "This peg is not revealed yet.",
+          "hiddenSvg": "FROM_LAUNCH_FLOW"
+        }
+      },
+      {
+        "addOn": "edition-specials",
+        "params": {
+          "label": "Round Pegs",
+          "count": 3
+        }
+      },
+      {
+        "addOn": "collection-metadata",
+        "params": {
+          "bannerSha256": "FROM_LAUNCH_FLOW",
+          "teaserSha256s": [
+            "FROM_LAUNCH_FLOW",
+            "FROM_LAUNCH_FLOW"
+          ],
+          "externalLink": ""
+        }
+      }
+    ]
+  }
+}

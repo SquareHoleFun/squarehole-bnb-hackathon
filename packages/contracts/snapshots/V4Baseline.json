@@ -1,0 +1,12 @@
+{
+  "collection_buyExactIn_0.01Q_existingHolder": "277768",
+  "collection_buyExactOut_10Units_newWallet": "334013",
+  "collection_buyExactOut_1Unit_newWallet": "238704",
+  "collection_sellExactIn_1Unit": "179725",
+  "collection_sellExactOut_0.001Q": "179216",
+  "fungible_buyExactIn_0.01Q_existingHolder": "131216",
+  "fungible_buyExactOut_10Units_newWallet": "147626",
+  "fungible_buyExactOut_1Unit_newWallet": "148447",
+  "fungible_sellExactIn_1Unit": "148733",
+  "fungible_sellExactOut_0.001Q": "148224"
+}

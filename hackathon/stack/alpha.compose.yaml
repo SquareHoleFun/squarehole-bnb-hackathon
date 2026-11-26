@@ -1,0 +1,153 @@
+# SH-275: the alpha's sign-in and "Set me up" on the hackathon site, as an addition to compose.yaml. ship.sh passes this
+# file as a second --file only with SH_BNB_ALPHA=1 in stack.env (and starts the profile alpha); without it nothing here
+# exists and the stack is exactly compose.yaml's. Reuses the test site's two services (infra/server/services:
+# alpha-api.mjs and alpha-sender.mjs) in their chain-97 mode: every new sign-up approved at once (no desk), 0.015 tBNB
+# per claim, at most 100 claims a day, no admission step (the test coin's faucet on chain 97 is open).
+#   alpha-folders  one-shot, root, CHOWN, FOWNER and FSETID only, no network: the volumes' owners and the cookie
+#                  key (alpha/folders.sh)
+#   alpha-api      the test site's image and start: reads the root-only cookie key, drops to uid 2101 (+ group 2103)
+#   alpha-sender   the keeper image, as the keeper runs it here: uid 1000 (+ group 2103 to read the queue); its key file
+#                  <SH_BNB_ETC>/alpha-sender/desk.key is installed by sender-key.sh from a Foundry keystore
+# Caddy (web) reaches alpha-api on the internal network alpha; the Caddyfile's alpha routes follow SH_BNB_ALPHA.
+# YAML anchors do not cross files: compose.yaml's logging, repeated.
+x-alpha-logging: &logging
+  driver: local
+  options:
+    max-size: 10m
+    max-file: "5"
+
+services:
+  alpha-folders:
+    profiles: [alpha]
+    image: squarehole-bnb-alpha-api:${SH_RELEASE}
+    pull_policy: never
+    restart: "no"
+    user: "0:0"
+    entrypoint: ["sh", "/stack/folders.sh"]
+    command: []
+    volumes:
+      - ./alpha/folders.sh:/stack/folders.sh:ro
+      - alpha_queue:/v/queue
+      - alpha_receipts:/v/receipts
+      - alpha_state:/v/state
+      - alpha_config:/v/config
+    network_mode: none
+    # The image's own check is alpha-api's; this one-shot has none.
+    healthcheck:
+      disable: true
+    read_only: true
+    cap_drop: [ALL]
+    # FSETID keeps the set-group bit chmod gives the queue and receipts (root is not in group 2103).
+    cap_add: [CHOWN, FOWNER, FSETID]
+    security_opt: ["no-new-privileges:true"]
+    logging: *logging
+
+  alpha-api:
+    profiles: [alpha]
+    image: squarehole-bnb-alpha-api:${SH_RELEASE}
+    pull_policy: never
+    build:
+      context: ../..
+      dockerfile: infra/server/services/alpha/Dockerfile
+    restart: unless-stopped
+    init: true
+    depends_on:
+      alpha-folders:
+        condition: service_completed_successfully
+    env_file:
+      # SH_ALPHA_ENABLED and the Privy app's id and public keys (alpha-api.env.example).
+      - path: ${SH_BNB_ETC}/alpha-api.env
+        required: true
+        format: raw
+    environment:
+      SH_ALPHA_CHAIN_ID: "97"
+      SH_ALPHA_AUTO_APPROVE: "1"
+      SH_ALPHA_ORIGIN: https://${SH_BNB_HOST}
+      SH_ALPHA_COOKIE_KEY_FILE: /run/alpha-config/cookie.key
+    # Startup reads the root-only cookie key, then permanently drops to uid/gid 2101 plus read group 2103.
+    user: "0:0"
+    volumes:
+      - alpha_config:/run/alpha-config:ro
+      - alpha_queue:/srv/squarehole/alpha/queue
+      - alpha_receipts:/srv/squarehole/alpha/receipts:ro
+      - alpha_state:/srv/squarehole/alpha/state
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    cap_drop: [ALL]
+    cap_add: [SETUID, SETGID]
+    security_opt: ["no-new-privileges:true"]
+    cpus: 0.5
+    mem_limit: 256m
+    pids_limit: 64
+    networks: [alpha]
+    stop_grace_period: 10s
+    logging: *logging
+
+  alpha-sender:
+    profiles: [alpha]
+    # The keeper image already holds infra/server/services and its locked viem (as on the test site).
+    image: squarehole-bnb-keeper:${SH_RELEASE}
+    pull_policy: never
+    restart: unless-stopped
+    init: true
+    depends_on:
+      alpha-folders:
+        condition: service_completed_successfully
+    user: "1000:2103"
+    command: ["node", "infra/server/services/alpha-sender.mjs"]
+    healthcheck:
+      test: ["CMD", "node", "infra/server/services/alpha-sender.mjs", "--healthcheck"]
+      interval: 30s
+      timeout: 5s
+      start_period: 60s
+      retries: 3
+    env_file:
+      # Off, dry-run or live; the RPC, the sender's address and the test coin (alpha-sender.env.example).
+      - path: ${SH_BNB_ETC}/alpha-sender.env
+        required: true
+        format: raw
+    environment:
+      SH_ALPHA_CHAIN_ID: "97"
+    volumes:
+      - alpha_queue:/queue:ro
+      - alpha_receipts:/receipts
+      # The image's /state (uid 1000) is copied into the new volume: the journal is the sender's own.
+      - alpha_sender_state:/state
+      - type: bind
+        source: ${SH_BNB_ETC}/alpha-sender
+        target: /run/service-config
+        read_only: true
+        bind:
+          create_host_path: false
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    cpus: 0.5
+    mem_limit: 512m
+    pids_limit: 64
+    networks: [alpha_sender]
+    stop_grace_period: 60s
+    logging: *logging
+
+  web:
+    environment:
+      # The Caddyfile imports its alpha routes and policy by this value (alpha_routes_1, platform_csp_1).
+      SH_BNB_ALPHA: "1"
+    networks: [edge, art, alpha]
+
+networks:
+  # Caddy and alpha-api only; no route out (the Privy check is offline, with the app's public keys).
+  alpha:
+    internal: true
+  # The sender: outbound only (the chain's RPC), no listener.
+  alpha_sender: {}
+
+volumes:
+  alpha_queue: {}
+  alpha_receipts: {}
+  alpha_state: {}
+  alpha_config: {}
+  alpha_sender_state: {}

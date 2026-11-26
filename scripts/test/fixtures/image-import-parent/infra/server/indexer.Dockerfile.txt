@@ -1,0 +1,15 @@
+FROM node:24.22.1-trixie-slim@sha256:43b9ba1142b8dcf33fa8f922ca1be85714adc444e0586c7cf7726daaeabc1bea
+WORKDIR /app
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
+COPY packages/indexer/package.json packages/indexer/
+COPY packages/chain/package.json packages/chain/
+COPY packages/box-spec/package.json packages/box-spec/
+COPY packages/domain/package.json packages/domain/
+RUN pnpm install --frozen-lockfile --prod --filter '@squarehole/indexer...' && pnpm store prune
+COPY packages/domain/src packages/domain/src
+COPY packages/box-spec/src packages/box-spec/src
+COPY packages/chain/src packages/chain/src
+COPY packages/indexer/src packages/indexer/src
+COPY packages/indexer/scripts/register-ts.mjs packages/indexer/scripts/
+WORKDIR /app/packages/indexer
+CMD ["node", "--experimental-transform-types", "--no-warnings=ExperimentalWarning", "--import", "./scripts/register-ts.mjs", "src/core/core-main.ts"]

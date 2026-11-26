@@ -1,0 +1,457 @@
+/*
+ * Pair detail (SH-012, SH-013): page, cards (also used by About & risks), header, copy button, metrics and the
+ * two-column grid. Reference C styling (deep navy cards, lavender accents, toy artwork) with its trade panel replaced
+ * by the external-destinations card. Chart/trade and section styles live next to this file; narrower layouts are in
+ * pair-responsive.css, loaded last.
+ */
+.sh-pair {
+  container-type: inline-size;
+  gap: var(--sh-gap-4);
+  max-width: 1240px;
+}
+
+.sh-muted {
+  color: var(--sh-text-muted);
+}
+
+/* ── Top line: back link + demo snapshot ───────────────────── */
+.sh-pair-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sh-gap-2) var(--sh-gap-4);
+}
+
+.sh-pair-back__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--sh-touch-target);
+  padding: 0 var(--sh-gap-2);
+  margin-left: calc(-1 * var(--sh-gap-2));
+  border-radius: var(--sh-radius-control);
+  color: var(--sh-text-secondary);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.sh-pair-back__link:hover {
+  color: var(--sh-text);
+}
+
+/* ── Cards ─────────────────────────────────────────────────── */
+.sh-detail-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-3);
+  min-width: 0;
+  padding: 20px;
+  background: var(--sh-panel-gradient);
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-card);
+  box-shadow: var(--sh-panel-edge), var(--sh-elevation-1);
+  color: var(--sh-text-secondary);
+}
+
+.sh-detail-card__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 12px;
+}
+
+.sh-detail-card__head > .sh-muted {
+  font-size: var(--sh-type-label);
+}
+
+/* Cards use secondary text; a page heading inside one stays primary. */
+.sh-detail-card .sh-page__title {
+  color: var(--sh-text);
+}
+
+.sh-detail-card__title {
+  color: var(--sh-text);
+  font-size: 20px;
+  font-weight: 750;
+}
+
+.sh-detail-card__title .sh-muted {
+  font-size: var(--sh-type-small);
+  font-weight: 600;
+}
+
+.sh-detail-card__subtitle {
+  color: var(--sh-text);
+  font-size: var(--sh-type-body-lg);
+  font-weight: 700;
+}
+
+.sh-detail-card__lede {
+  font-size: var(--sh-type-small);
+}
+
+/* ── Header ────────────────────────────────────────────────── */
+.sh-pair-head {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--sh-gap-6);
+  padding: 20px 24px;
+  border-color: rgba(167, 139, 250, 0.4);
+  background:
+    radial-gradient(60% 140% at 0% 50%, rgba(98, 220, 163, 0.1) 0%, transparent 60%),
+    radial-gradient(70% 120% at 100% 40%, rgba(109, 74, 226, 0.28) 0%, transparent 62%),
+    linear-gradient(180deg, #16223a 0%, var(--sh-surface) 100%);
+}
+
+.sh-pair-art {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 164px;
+  height: 136px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--sh-surface-raised);
+}
+
+.sh-pair-art > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.sh-pair-art--unavailable {
+  align-content: center;
+  gap: 6px;
+  border: 1px dashed var(--sh-border-strong);
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 650;
+  text-align: center;
+}
+
+.sh-pair-art__glyph {
+  width: 40px;
+  height: 40px;
+}
+
+/* Right-hand scene (decoration, wide screens only; never above the art's native 340 px). */
+.sh-pair-head__scene {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .sh-pair-head__scene {
+    display: flex;
+    flex: 0 1 300px;
+    flex-direction: column;
+    align-items: flex-end;
+    align-self: stretch;
+    justify-content: flex-end;
+    gap: 10px;
+    min-width: 200px;
+  }
+
+  /* The crop has its own background, so it sits in a rounded tile like the pair art on the left. */
+  .sh-pair-head__scene img {
+    display: block;
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    border: 1px solid rgba(167, 139, 250, 0.35);
+    border-radius: 16px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .sh-pair-head__scene-note {
+    margin-right: 12px;
+    color: var(--sh-text-secondary);
+    font-size: var(--sh-type-body-lg);
+    font-style: italic;
+    font-weight: 650;
+    transform: rotate(-4deg);
+  }
+}
+
+.sh-pair-head__main {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.sh-pair-head__chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  min-height: 22px;
+  font-size: var(--sh-type-caption);
+}
+
+.sh-status-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 0 9px;
+  border: 1px solid var(--sh-warning);
+  border-radius: var(--sh-radius-pill);
+  background: var(--sh-demo-bg);
+  color: var(--sh-warning);
+  font-size: var(--sh-type-caption);
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.sh-status-chip--showcase {
+  border-color: var(--sh-border-strong);
+  background: var(--sh-surface-raised);
+  color: var(--sh-text-secondary);
+}
+
+.sh-status-chip--open {
+  border-style: dashed;
+}
+
+.sh-pair-head__nameline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 12px;
+  min-width: 0;
+}
+
+.sh-pair-head__nameline .sh-page__title {
+  font-size: var(--sh-type-title);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+
+.sh-pair-head__ticker {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-body-lg);
+  font-weight: 750;
+  letter-spacing: 0.03em;
+}
+
+.sh-pair-head__ticker[data-unset='true'] {
+  padding: 1px 8px;
+  border: 1px dashed var(--sh-border-strong);
+  border-radius: var(--sh-radius-pill);
+  font-size: var(--sh-type-caption);
+  letter-spacing: 0;
+}
+
+.sh-pair-head__pairing {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 18px;
+}
+
+.sh-pair-head__pairing .sh-reward {
+  font-size: var(--sh-type-small);
+}
+
+/* Facts (network, lifecycle, addresses) */
+.sh-facts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 8px 20px;
+  margin: 2px 0 0;
+}
+
+.sh-fact {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.sh-fact dt,
+.sh-metric dt,
+.sh-about__source dt,
+.sh-risks__status dt {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.sh-fact dd,
+.sh-identity dd,
+.sh-about__source dd,
+.sh-risks__status dd {
+  margin: 0;
+  color: var(--sh-text);
+  font-size: var(--sh-type-small);
+}
+
+.sh-fact--address {
+  grid-column: 1 / -1;
+}
+
+.sh-identity__address {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  min-width: 0;
+}
+
+.sh-identity__address code {
+  min-width: 0;
+  color: var(--sh-text);
+  font-size: var(--sh-type-label);
+  overflow-wrap: anywhere;
+}
+
+/* ── Copy button ───────────────────────────────────────────── */
+.sh-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sh-copy__button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 30px;
+  padding: 0 10px;
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface-raised);
+  color: var(--sh-text);
+  font-size: var(--sh-type-label);
+  font-weight: 650;
+  cursor: pointer;
+}
+
+/* 44px touch target around a compact 30px button. */
+.sh-copy__button::before {
+  content: '';
+  position: absolute;
+  inset: -8px -2px;
+}
+
+.sh-copy__button:hover {
+  border-color: var(--sh-accent);
+}
+
+.sh-copy[data-copy-state='copied'] .sh-copy__button {
+  border-color: var(--sh-positive);
+  color: var(--sh-positive);
+}
+
+.sh-copy__status {
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-caption);
+}
+
+.sh-copy__status:empty {
+  display: none;
+}
+
+.sh-copy[data-copy-state='copied'] .sh-copy__status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ── Metrics strip ─────────────────────────────────────────── */
+.sh-metrics {
+  padding: 16px 20px;
+}
+
+.sh-metrics__grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+
+.sh-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  padding-left: 12px;
+  border-left: 1px solid var(--sh-border);
+}
+
+.sh-metric:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.sh-metric dd {
+  margin: 0;
+}
+
+.sh-metric__value {
+  color: var(--sh-text);
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.sh-metric__value .sh-na {
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+}
+
+.sh-metric__basis {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  line-height: 1.35;
+}
+
+.sh-na {
+  color: var(--sh-text-muted);
+}
+
+/* ── Two-column grid ───────────────────────────────────────── */
+/* The side column spans both rows; `1fr` on the second row absorbs its extra height, so the price and the cards
+   below it stay together however tall the side column gets. */
+.sh-pair-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.75fr) minmax(300px, 1fr);
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    'lead side'
+    'main side';
+  align-items: start;
+  gap: var(--sh-gap-4);
+}
+
+.sh-pair-grid__lead {
+  grid-area: lead;
+}
+
+.sh-pair-grid__side {
+  grid-area: side;
+}
+
+.sh-pair-grid__main {
+  grid-area: main;
+}
+
+.sh-pair-grid__lead,
+.sh-pair-grid__main,
+.sh-pair-grid__side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-4);
+  min-width: 0;
+}

@@ -1,0 +1,15 @@
+[profile.default]
+src = "test/solidity"
+test = "test/solidity"
+out = "../../.cache/cq11-e2/evm-out"
+cache_path = "../../.cache/cq11-e2/evm-cache"
+libs = ["../contracts/lib"]
+remappings = ["forge-std/=../contracts/lib/forge-std/src/"]
+auto_detect_remappings = false
+solc = "0.8.26"
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 1000
+via_ir = true
+fs_permissions = [{ access = "read", path = "./test/fixtures" }]
+ffi = false

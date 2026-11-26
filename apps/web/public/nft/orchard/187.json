@@ -1,0 +1,24 @@
+{
+  "name": "ORCHARD #187",
+  "description": "A summer orchard tree in sunglasses, heavy with red apples. From ORCHARD, the showcase fractionalized NFT collection on Square Hole. Testnet only (Ethereum Sepolia): test assets with no monetary value, not an investment, not audited. Traits are cosmetic and never change fees or reward rights. Identity is the chain id and contract address, never this name or image.",
+  "image": "https://squarehole-7ua.pages.dev/nft/orchard/images/orchard-tree-sunglasses.webp",
+  "external_url": "https://squarehole-7ua.pages.dev/",
+  "attributes": [
+    {
+      "trait_type": "Season",
+      "value": "Summer"
+    },
+    {
+      "trait_type": "Accessory",
+      "value": "Sunglasses"
+    },
+    {
+      "trait_type": "Fruit",
+      "value": "Red Apples"
+    },
+    {
+      "trait_type": "Variant",
+      "value": "Sunglasses"
+    }
+  ]
+}

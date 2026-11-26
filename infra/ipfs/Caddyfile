@@ -1,0 +1,47 @@
+# A local read-only hop for the droplet's existing HTTPS ingress. No API route.
+{
+	admin off
+	auto_https off
+	servers {
+		timeouts {
+			read_header 5s
+			write 3s
+			idle 30s
+		}
+	}
+}
+
+http://127.0.0.1:8090 {
+	bind 127.0.0.1
+	header {
+		-Server
+		X-Content-Type-Options nosniff
+		Referrer-Policy no-referrer
+	}
+	@health {
+		method GET HEAD
+		path /healthz
+	}
+	handle @health {
+		respond "ok" 200
+	}
+	@art {
+		method GET HEAD
+		path_regexp raw ^/ipfs/bafkrei[a-z2-7]{52}$
+		expression `{http.request.uri.query} == ""`
+	}
+	handle @art {
+		reverse_proxy 127.0.0.1:8080 {
+			header_up Host 127.0.0.1:8080
+			header_up -Authorization
+			header_up -Cookie
+			transport http {
+				dial_timeout 1s
+				response_header_timeout 2s
+			}
+		}
+	}
+	handle {
+		respond "not found" 404
+	}
+}

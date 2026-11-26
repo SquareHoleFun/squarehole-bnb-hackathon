@@ -1,0 +1,330 @@
+{
+  "name": "BoxSpecV2",
+  "format": 2,
+  "ruleOrder": "rule-major",
+  "status": "V2.1: nine choices per side and PILE fees on frozen S1 tuples. Both generated twins enforce canonical contents and policies; live creation wiring remains M2-34/M3-32. Nothing here is deployed.",
+  "about": [
+    "One BoxSpec describes a v2 box. Field ids 0-31, the Side and Branch tuples and reason numbers remain stable (F111; Amendment 3 C5.8). Box 0 and format 1 stay unchanged.",
+    "Each side has one choice: keep, burn, grow the pool, to holders in P, eat the price coin, or equally to every own-collection item in P; appended holders-in-T and items-in-T choices buy the box token after graduation. Both sides' fees arrive in the price coin P. There are no creator caps, recipe builder, splits or plug-ins in this release.",
+    "The menu is encoded in the existing Side tuple: keep = AsPaid then Creator; burn = BuyT then Eat, on either side; grow = AsPaid then Depth; eat the price coin = AsPaid then Eat (checked burn or permanent dead-address lock after graduation); holders = AsPaid then Holders with canonical uint8 currency 1 (P); items = AsPaid then Items with canonical uint8 insidePolicy 1 (Keep), 2 (BuyBackBurn) or 3 (Depth: inside shares grow the pool). NoSplit is required, branch b is zero and its params are empty. Every other combination is refused, never mapped to a button. The recipe key below describes wire decoding only; it does not offer arbitrary recipes.",
+    "Fields are checked in id order, then rules in order. Member checks run in slotOrder. A field's zeroWhen runs first. Add-on checks run at field 29. The first failing check returns (reason, field); OK is (0, 0).",
+    "Every enum is a uint8, with 0 not a member. Unused legacy enum ids remain identifiable but are refused. Params use canonical ABI encoding of the listed tuple members: decode, re-encode and compare bytes; refuse different offsets, gaps, dirty padding, out-of-type values and trailing bytes. Empty params are 0x.",
+    "Verdict field ids: core 0-31; Side sub-fields use 1000 times the side field id plus the offset in recipe.subFields; add-ons use 100 times the add-on id, plus the parameter's one-based index.",
+    "The factory builds the context from one permanent pricing listing, using its current raise at creation. ReleaseContext.listing carries that exact raise. A lister's update applies only to new boxes; existing boxes keep their recorded raise. There are no price bands, route checks, conversion targets or automatic box-coin listings.",
+    "Offered choices are controlled by release data, never network gates. The retained m1 context name now offers the six v2.1 choices and add-ons 1, 3, 4, 6, 7, 8. Add-ons 9/10 remain refused. Items need the own NEW_COLLECTION and an explicit inside policy; no missing-byte default. Holder wiring must provide role 17; the receiver refuses a zero ledger.",
+    "RC6 inbox: every box receives income through role 8 and its fee setup. CoW sells whole lots of foreign coins from the creation-time listing version for P, at most 20 lots per coin per hour. Each coin has a 30-day observed-progress in-kind exit; failed, unlisted and box coins exit in kind immediately. No conversion Safe.",
+    "Raw amounts and fee rates in policy data are decimal strings. Integer enum ids, field ids and ABI uint8/uint16 presets keep their wire representation. TABLE_MAX and CHUNK_MAX remain M1-60's measured byte limits; creator financial caps are removed."
+  ],
+  "constants": [
+    {"name": "SPEC_FORMAT_VERSION", "type": "uint16", "value": "2", "status": "P", "source": "box-spec-v2-draft.md § 2, field 0"},
+    {"name": "CORE_VERSION", "type": "uint16", "value": "2", "status": "P", "source": "box-spec-v2-draft.md § 1-2, field 1: core v2 is the box protocol's version 2"},
+    {"name": "MAX_TOKEN_NAME_BYTES", "type": "uint256", "value": "32", "status": "V", "source": "format 1's (plan § 1); V IBoxTokenV2.sol BoxTokenV2Args.MAX_NAME_BYTES (T's clone argument is a bytes32)"},
+    {"name": "MAX_SYMBOL_BYTES", "type": "uint256", "value": "11", "status": "V", "source": "format 1's; V IBoxTokenV2.sol BoxTokenV2Args.MAX_SYMBOL_BYTES (a bytes11)"},
+    {"name": "MAX_TEXT_BYTES", "type": "uint256", "value": "1024", "status": "P", "source": "format 1's (plan § 1); ADR-0017 § 6 caps table: unchanged"},
+    {"name": "MIN_N", "type": "uint32", "value": "10", "status": "P", "source": "format 1's (BC-008)"},
+    {"name": "MAX_N", "type": "uint32", "value": "10000", "status": "P", "source": "format 1's (BC-008)"},
+    {"name": "FIRST_ID", "type": "uint256", "value": "1", "status": "V", "source": "format 1's (V MisfitsGenesis.sol:172); box-spec-v2-draft.md § 2 fields 8, 9: as format 1"},
+    {"name": "MIN_OPEN_AT", "type": "uint32", "value": "1788220800", "status": "P", "source": "format 1's (F80): 2026-09-01 00:00:00 UTC; a non-zero openAt below it is a unit mistake"},
+    {"name": "TABLE_MAX", "type": "uint256", "value": "24575", "status": "P", "setBy": "M1-60", "firstValue": "24575", "source": "ADR-0017 § 6 caps table: 24,575 as v1 (BoxSpecV1.MAX_METADATA_TABLE_BYTES), loaded after creation in chunks against its hash (F96 R20C); M1-60 measures the heaviest spec and sets it"},
+    {"name": "CHUNK_MAX", "type": "uint256", "value": "8192", "status": "P", "setBy": "M1-60", "source": "this file's first value (M1-10-a): no document gives one; each chunk is kept as data code (0x00 + bytes, IBoxCoordinatorV2), so it is at most 24,575; 8,192 loads a TABLE_MAX table in 3 transactions (ADR-0017 § 8 defaults: 'a few transactions'). M1-60 sets it so each loading transaction fits the block budget; the coordinator's CHUNK_MAX() returns it"},
+    {"name": "MAX_TRAIT_TYPES", "type": "uint256", "value": "16", "status": "V", "source": "format 1's (V BoxMetadataTable.sol:22)"},
+    {"name": "MAX_ADD_ONS", "type": "uint256", "value": "8", "status": "P", "source": "format 1's; ADR-0017 § 6 caps table: 8"},
+    {"name": "NATIVE_LISTING_ID", "type": "uint32", "value": "0", "status": "V", "source": "V ReleaseConstantsV2.NATIVE_LISTING_ID: listing 0 is native ETH, token address(0)"},
+    {"name": "PICK_FEE_BPS_DEFAULT", "type": "uint16", "value": "2500", "status": "V", "source": "V BoxSpecV1.PICK_FEE_BPS (F23 C3): field 31's default (ADR-0017 § 5)"}
+  ],
+  "fixedLater": [],
+  "enums": [
+    {"name": "ItemsInsidePolicy", "members": [{"name": "Keep", "value": 1}, {"name": "BuyBackBurn", "value": 2}, {"name": "Depth", "value": 3}]},
+    {
+      "name": "BoxType",
+      "members": [
+        {"name": "NEW_COLLECTION", "value": 1, "note": "a new collection in the supply-share vault; offered in M1"},
+        {"name": "EXISTING", "value": 2, "note": "Existing NFTs wait for a later version (F119); not part of the first M3 release."},
+        {"name": "TOKEN_ONLY", "value": 3, "note": "just the token: every collection field zero (zeroWhen), n, firstId and pickFeeBps 0 included (SpecTypes.sol fields 8, 9, 31); offered in M1"},
+        {"name": "SHOP", "value": 4, "note": "a fixed-price shop vault (M2); its own collection fields are zero"},
+        {"name": "PILE", "value": 5, "note": "a coin pile with an optional same-P fee choice; no collection"}
+      ]
+    },
+    {
+      "name": "Layout",
+      "members": [
+        {"name": "CURVE_V1", "value": 1, "note": "The launch curve (about 80% of supply); CQ11 uses BoxLayoutV2 and its small-raise centre, including 8-decimal coins. Box 0 keeps its own layout."}
+      ]
+    },
+    {
+      "name": "GradLayout",
+      "members": [
+        {"name": "RESERVED_1", "value": 1, "note": "Legacy wire id; NOT_OFFERED in v2."},
+        {"name": "RESERVED_2", "value": 2, "note": "Legacy wire id; NOT_OFFERED in v2."},
+        {"name": "FULL_RANGE", "value": 3, "note": "One full-range position after graduation; the only v2 graduation layout (F119; Amendment 3 C6, C13)."}
+      ]
+    },
+    {"name": "LaunchFormat", "members": [{"name": "CURVE", "value": 1, "note": "auction later (format 1's)"}]},
+    {
+      "name": "ArtMode",
+      "members": [
+        {"name": "OPEN", "value": 1, "note": "the reveal list is published at creation (format 1's)"},
+        {"name": "HIDDEN", "value": 2, "note": "hidden art revealed by draws: needs the placeholders add-on (format 1's)"}
+      ]
+    },
+    {
+      "name": "Leg",
+      "members": [
+        {"name": "AsPaid", "value": 1, "note": "Wire id retained; usable only as part of the menu encoding (Amendment 3 C5.8)."},
+        {"name": "BuyT", "value": 2, "note": "Wire id retained; usable only as part of the menu encoding (Amendment 3 C5.8)."},
+        {"name": "RESERVED_3", "value": 3, "note": "Wire id retained; usable only as part of the menu encoding (Amendment 3 C5.8)."},
+        {"name": "RESERVED_4", "value": 4, "note": "Wire id retained; usable only as part of the menu encoding (Amendment 3 C5.8)."},
+        {"name": "RESERVED_5", "value": 5, "note": "Wire id retained; usable only as part of the menu encoding (Amendment 3 C5.8)."}
+      ]
+    },
+    {
+      "name": "Dest",
+      "members": [
+        {"name": "Eat", "value": 1, "note": "Wire id retained; usable only as part of the menu encoding (Amendment 3 C5.8)."},
+        {"name": "Creator", "value": 2, "note": "Wire id retained; usable only as part of the menu encoding (Amendment 3 C5.8)."},
+        {"name": "RESERVED_3", "value": 3, "note": "Wire id retained; usable only as part of the menu encoding (Amendment 3 C5.8)."},
+        {"name": "Depth", "value": 4, "note": "Wire id retained; usable only as part of the menu encoding (Amendment 3 C5.8)."},
+        {"name": "RESERVED_5", "value": 5, "note": "Wire id retained; usable only as part of the menu encoding (Amendment 3 C5.8)."},
+        {"name": "Holders", "value": 6, "note": "Wire id retained; usable only as part of the menu encoding (Amendment 3 C5.8)."},
+        {"name": "BudgetOrPile", "value": 7, "note": "Wire id retained; usable only as part of the menu encoding (Amendment 3 C5.8)."},
+        {"name": "Items", "value": 8, "note": "Wire id retained; usable only as part of the menu encoding (Amendment 3 C5.8)."},
+        {"name": "Module", "value": 9, "note": "An admitted immutable fee module, selectable after one day."}
+      ]
+    },
+    {
+      "name": "Split",
+      "members": [
+        {"name": "NoSplit", "value": 1, "note": "Wire id retained; usable only as part of the menu encoding (Amendment 3 C5.8)."},
+        {"name": "RESERVED_2", "value": 2, "note": "Wire id retained; usable only as part of the menu encoding (Amendment 3 C5.8)."},
+        {"name": "RESERVED_3", "value": 3, "note": "Wire id retained; usable only as part of the menu encoding (Amendment 3 C5.8)."},
+        {"name": "RESERVED_4", "value": 4, "note": "Wire id retained; usable only as part of the menu encoding (Amendment 3 C5.8)."}
+      ]
+    },
+    {
+      "name": "HoldersCurrency",
+      "members": [
+        {"name": "P", "value": 1, "note": "Price coin."},
+        {"name": "T", "value": 2, "note": "Bought box token."}
+      ]
+    },
+    {
+      "name": "ListingClass",
+      "members": [
+        {"name": "NATIVE", "value": 1, "note": "native ETH (listing 0)"},
+        {"name": "STANDARD", "value": 2, "note": "a standard token"},
+        {"name": "STABLE", "value": 3, "note": "a major stablecoin"},
+        {"name": "STOCK", "value": 4, "note": "A manually listed tokenized stock; disclose issuer pause, blocklist and admin-burn powers."},
+        {"name": "OTHER", "value": 5, "note": "every other token"}
+      ]
+    },
+    {
+      "name": "ListingKind",
+      "members": [
+        {"name": "LISTED", "value": 1, "note": "added by the lister (or listing 0, ETH)"},
+        {"name": "BOX_TOKEN", "value": 2, "note": "A graduated box coin, admitted manually by the lister (F118-F123); no automatic listing."}
+      ]
+    }
+  ],
+  "stringRules": [
+    {"name": "JSON_TEXT", "id": 1, "allowed": [[32, 33], [35, 91], [93, 126]], "description": "Printable ASCII 0x20-0x7E without '\"' (0x22) or '\\' (0x5C): the collection writes these strings into JSON unescaped. Control characters, DEL and every byte >= 0x80 (non-ASCII) are refused.", "source": "format 1's"},
+    {"name": "SVG", "id": 2, "allowed": [[32, 126]], "description": "Printable ASCII 0x20-0x7E. Quotes and backslashes are allowed: the picture is base64-encoded before it enters JSON. Control characters and non-ASCII bytes are refused.", "source": "format 1's"},
+    {"name": "URL", "id": 3, "allowed": [[33, 33], [35, 59], [61, 61], [63, 91], [93, 93], [95, 95], [97, 122], [126, 126]], "prefix": "https://", "description": "A link: the URI characters of RFC 3986, so no space, '\"', '<', '>', '\\', '^', '`', '{', '|' or '}'; a non-empty link must start with https:// (BAD_CHARACTER otherwise).", "source": "format 1's"}
+  ],
+  "reasons": [
+    {"name": "OK", "code": 0, "meaning": "the spec passes every check"},
+    {"name": "UNSUPPORTED_VERSION", "code": 1, "meaning": "format is not 2, or version is not 2"},
+    {"name": "NOT_A_MEMBER", "code": 2, "meaning": "an enum or preset value that is not a member (a params member included, at its params' sub-field)"},
+    {"name": "NOT_OFFERED", "code": 3, "meaning": "a known wire value that this release does not offer"},
+    {"name": "OUT_OF_RANGE", "code": 4, "meaning": "a number outside its range"},
+    {"name": "LENGTH_OUT_OF_RANGE", "code": 5, "meaning": "a string or byte string that is too short or too long (the table at most TABLE_MAX bytes)"},
+    {"name": "BAD_CHARACTER", "code": 6, "meaning": "a byte the field's string rule refuses, or a non-empty link without https://"},
+    {"name": "ZERO_VALUE", "code": 7, "meaning": "a value that must be non-zero is zero"},
+    {"name": "MUST_BE_ZERO", "code": 8, "meaning": "a value that must be zero or empty is not: a token-only box's collection fields (n, firstId and pickFeeBps included), a NoSplit side's b, params of a member that takes none, a params member its `how` does not use, contentsParams outside SHOP or PILE"},
+    {"name": "Q_NOT_LISTED", "code": 9, "meaning": "format 1's; format 2 names the pricing token by listing (LISTING_UNKNOWN)", "notInFormat2": true},
+    {"name": "RAISE_NOT_A_PRESET", "code": 10, "meaning": "raise differs from the pricing listing at creation (Listing.raise is its current raise)"},
+    {"name": "MENU_RULE", "code": 11, "meaning": "the side does not encode one whole menu choice"},
+    {"name": "DEADLINE_RULE", "code": 12, "meaning": "deadlineDays is not 30, 60, 90 or 180 (every v2 box can fail)"},
+    {"name": "TOO_MANY_ADD_ONS", "code": 13, "meaning": "more add-ons than MAX_ADD_ONS"},
+    {"name": "ADD_ON_ORDER", "code": 14, "meaning": "add-on ids not ascending, or a non-repeatable add-on twice"},
+    {"name": "ADD_ON_UNKNOWN", "code": 15, "meaning": "an id format 2's catalog does not list (2 and 5 are format 1's only)"},
+    {"name": "ADD_ON_NOT_AVAILABLE", "code": 16, "meaning": "a deferred add-on (9 or 10), or one the release does not offer"},
+    {"name": "ADD_ON_PARAMS_MALFORMED", "code": 17, "meaning": "add-on params are not the canonical ABI encoding of its parameter tuple"},
+    {"name": "ADD_ON_REQUIRED", "code": 18, "meaning": "a core choice needs an add-on the spec does not carry"},
+    {"name": "ADD_ON_CONFLICT", "code": 19, "meaning": "an add-on whose requirement on the core does not hold (its box types, checked before its params, or its requires)"},
+    {"name": "METADATA_TABLE_MALFORMED", "code": 20, "meaning": "the metadata table is not format v1 (format 1's rules), checked after its length"},
+    {"name": "LISTING_UNKNOWN", "code": 21, "meaning": "the pricing listing id is absent from the release context"},
+    {"name": "LISTING_MISMATCH", "code": 22, "meaning": "the token named beside a listing id is not that listing's token"},
+    {"name": "RECIPE_RULE", "code": 23, "meaning": "retained wire reason for malformed leg or destination params; arbitrary recipes are not offered"},
+    {"name": "SPLIT_RULE", "code": 24, "meaning": "a split other than NoSplit, or malformed split params"},
+    {"name": "PLUG_IN_MALFORMED", "code": 25, "meaning": "retained wire reason for malformed legacy params; plug-ins are not offered"},
+    {"name": "GAS_BUDGET", "code": 26, "meaning": "reserved legacy reason; plug-in gas budgets are not used in this release"}
+  ],
+  "fields": [
+    {"id": 0, "name": "format", "type": "uint16", "chosenBy": "Format", "check": {"kind": "uint", "allowed": [2], "reason": "UNSUPPORTED_VERSION"}, "note": "Format 2. Box 0's specs stay format 1."},
+    {"id": 1, "name": "version", "type": "uint16", "chosenBy": "Factory", "check": {"kind": "uint", "allowed": [2], "reason": "UNSUPPORTED_VERSION"}, "note": "Core v2 (the box protocol's version 2)."},
+    {"id": 2, "name": "boxType", "type": "uint8", "enum": "BoxType", "chosenBy": "Creator", "check": {"kind": "enum", "offered": ["NEW_COLLECTION", "TOKEN_ONLY", "SHOP", "PILE"], "enum": "BoxType"}, "note": "NEW_COLLECTION, TOKEN_ONLY, SHOP and PILE. EXISTING waits for a later version."},
+    {"id": 3, "name": "tokenName", "type": "string", "chosenBy": "Creator", "check": {"kind": "string", "rule": "JSON_TEXT", "minBytes": 1, "maxBytes": {"const": "MAX_TOKEN_NAME_BYTES"}}},
+    {"id": 4, "name": "tokenSymbol", "type": "string", "chosenBy": "Creator", "check": {"kind": "string", "rule": "JSON_TEXT", "minBytes": 1, "maxBytes": {"const": "MAX_SYMBOL_BYTES"}}},
+    {"id": 5, "name": "collectionName", "type": "string", "chosenBy": "Creator", "check": {"kind": "string", "rule": "JSON_TEXT", "minBytes": 1, "maxBytes": {"const": "MAX_TOKEN_NAME_BYTES"}, "zeroWhen": {"field": "boxType", "in": ["TOKEN_ONLY", "SHOP", "PILE"]}}},
+    {"id": 6, "name": "collectionSymbol", "type": "string", "chosenBy": "Creator", "check": {"kind": "string", "rule": "JSON_TEXT", "minBytes": 1, "maxBytes": {"const": "MAX_SYMBOL_BYTES"}, "zeroWhen": {"field": "boxType", "in": ["TOKEN_ONLY", "SHOP", "PILE"]}}},
+    {"id": 7, "name": "description", "type": "string", "chosenBy": "Creator", "check": {"kind": "string", "rule": "JSON_TEXT", "minBytes": 0, "maxBytes": {"const": "MAX_TEXT_BYTES"}}},
+    {"id": 8, "name": "n", "type": "uint32", "chosenBy": "Creator", "check": {"kind": "uint", "min": {"const": "MIN_N"}, "max": {"const": "MAX_N"}, "zeroWhen": {"field": "boxType", "in": ["TOKEN_ONLY", "SHOP", "PILE"]}}},
+    {"id": 9, "name": "firstId", "type": "uint256", "chosenBy": "Format", "check": {"kind": "uint", "min": {"const": "FIRST_ID"}, "max": {"const": "FIRST_ID"}, "zeroWhen": {"field": "boxType", "in": ["TOKEN_ONLY", "SHOP", "PILE"]}}, "note": "SHOP and PILE have no new collection: firstId and n are zero. Starter count is committed only by add-on 8."},
+    {"id": 10, "name": "pricing", "type": "Pricing", "chosenBy": "Creator", "check": {"kind": "listing", "unknown": "LISTING_UNKNOWN", "mismatch": "LISTING_MISMATCH"}, "note": "One permanent listing per coin (F123). Listing 0 is native ETH, token address(0). The token must match its listing; the lister may update its raise, never replace its id or remove it."},
+    {"id": 11, "name": "raise", "type": "uint256", "chosenBy": "Lister", "check": {"kind": "listingRaise", "reason": "RAISE_NOT_A_PRESET"}, "note": "The exact listed raise in raw P units, recorded in the box at creation. The context supplies Listing.raise. A later update affects only new boxes (F123); no price read, band or relisting."},
+    {"id": 12, "name": "layout", "type": "uint8", "enum": "Layout", "chosenBy": "Release", "check": {"kind": "enum", "offered": ["CURVE_V1"], "enum": "Layout"}},
+    {"id": 13, "name": "gradLayout", "type": "uint8", "enum": "GradLayout", "chosenBy": "Release", "check": {"kind": "enum", "offered": ["FULL_RANGE"], "enum": "GradLayout"}},
+    {"id": 14, "name": "launchFormat", "type": "uint8", "enum": "LaunchFormat", "chosenBy": "Release", "check": {"kind": "enum", "offered": ["CURVE"], "enum": "LaunchFormat"}},
+    {"id": 15, "name": "openAt", "type": "uint32", "chosenBy": "Creator", "check": {"kind": "uint", "orZero": true, "min": {"const": "MIN_OPEN_AT"}}, "note": "As format 1; at most 14 days ahead is the factory's check."},
+    {"id": 16, "name": "deadlineDays", "type": "uint16", "chosenBy": "Creator", "check": {"kind": "uint", "allowed": [30, 60, 90, 180], "reason": "DEADLINE_RULE"}, "note": "Required: every v2 box can fail (F84, F93)."},
+    {"id": 17, "name": "buyers", "type": "Side", "chosenBy": "Creator", "check": {"kind": "recipe"}, "note": "One menu choice for the side's 10/15, paid in P. The Side wire tuple is retained, with NoSplit and an empty branch b (Amendment 3 C5.8)."},
+    {"id": 18, "name": "sellers", "type": "Side", "chosenBy": "Creator", "check": {"kind": "recipe"}, "note": "One menu choice for the side's 10/15, paid in P. The Side wire tuple is retained, with NoSplit and an empty branch b (Amendment 3 C5.8)."},
+    {"id": 19, "name": "artMode", "type": "uint8", "enum": "ArtMode", "chosenBy": "Creator", "check": {"kind": "enum", "offered": ["OPEN", "HIDDEN"], "zeroWhen": {"field": "boxType", "in": ["TOKEN_ONLY", "SHOP", "PILE"]}, "enum": "ArtMode"}},
+    {"id": 20, "name": "revealRoot", "type": "bytes32", "chosenBy": "Creator", "check": {"kind": "nonZero", "zeroWhen": {"field": "boxType", "in": ["TOKEN_ONLY", "SHOP", "PILE"]}}},
+    {"id": 21, "name": "metadataTable", "type": "bytes", "chosenBy": "Creator", "check": {"kind": "bytes", "minBytes": 1, "maxBytes": {"const": "TABLE_MAX"}, "format": "METADATA_TABLE_V1", "zeroWhen": {"field": "boxType", "in": ["TOKEN_ONLY", "SHOP", "PILE"]}}, "note": "At most TABLE_MAX bytes; it stays in the spec (calldata), the chain keeps its hash and it loads in chunks of at most CHUNK_MAX bytes after creation (F96 R20C)."},
+    {"id": 22, "name": "generatorHash", "type": "bytes32", "chosenBy": "Creator", "check": {"kind": "any", "zeroWhen": {"field": "boxType", "in": ["TOKEN_ONLY", "SHOP", "PILE"]}}},
+    {"id": 23, "name": "coverSha256", "type": "bytes32", "chosenBy": "Creator", "check": {"kind": "nonZero"}, "note": "The logo (the token's picture)."},
+    {"id": 24, "name": "revealListId", "type": "bytes32", "chosenBy": "Creator", "check": {"kind": "any", "zeroWhen": {"field": "boxType", "in": ["TOKEN_ONLY", "SHOP", "PILE"]}}},
+    {"id": 25, "name": "marketplaceOwner", "type": "address", "chosenBy": "Creator", "check": {"kind": "nonZero", "zeroWhen": {"field": "boxType", "in": ["TOKEN_ONLY", "SHOP", "PILE"]}}},
+    {"id": 26, "name": "creatorFeeRecipient", "type": "address", "chosenBy": "Creator", "check": {"kind": "any"}, "note": "Required exactly when a side keeps or add-on 4 is enabled. Otherwise zero in the spec; the receiver defaults its inbox payee to the creator. No cap add-on can require it."},
+    {"id": 27, "name": "creatorBuy", "type": "uint256", "chosenBy": "Creator", "check": {"kind": "any"}, "note": "Pricing-token raw units, below the raise (rules)."},
+    {"id": 28, "name": "collectionCoverSha256", "type": "bytes32", "chosenBy": "Creator", "check": {"kind": "nonZero", "zeroWhen": {"field": "boxType", "in": ["TOKEN_ONLY", "SHOP", "PILE"]}}},
+    {"id": 29, "name": "addOns", "type": "AddOn[]", "chosenBy": "Creator", "check": {"kind": "addOns", "maxCount": {"const": "MAX_ADD_ONS"}}, "note": "add-ons.v2.json: at most 8 entries, ascending ids; per entry: in the catalog (ADD_ON_UNKNOWN at field 29), not reserved and offered by this release (ADD_ON_NOT_AVAILABLE), its box types (ADD_ON_CONFLICT), its params, its requires."},
+    {"id": 30, "name": "contentsParams", "type": "bytes", "chosenBy": "Creator", "check": {"kind": "byBoxType", "checks": {"SHOP": {"kind": "bytes", "minBytes": 480, "maxBytes": 4576}, "PILE": {"kind": "pile", "presets": [0, 500], "reason": "RECIPE_RULE"}}}, "note": "SHOP: canonical abi.encode(ShopConfigV2), with 1..64 unique nonzero collections and matching tiers. Both generated twins require seed covering two cheapest initially listed gives (F132), and check the full shop tuple and seed gate; initialization verifies ERC-721 usability. PILE: canonical PileParams (64 bytes, zero leave-behind) or PileParamsV21 (96 bytes, appended uint16 leaveBehindBps of 0 or 500). Native and zero seed allowed; pile fee choices require asset == pricing.token. Live admission checks listing and non-T; no contents elsewhere."},
+    {"id": 31, "name": "pickFeeBps", "type": "uint16", "chosenBy": "Creator", "check": {"kind": "uint", "allowed": [100, 500, 2500], "reason": "NOT_A_MEMBER", "zeroWhen": {"field": "boxType", "in": ["TOKEN_ONLY", "SHOP", "PILE"]}}, "note": "Share-vault pick fee only; zero for PILE and SHOP. Shop pick multiplier is in ShopConfigV2."}
+  ],
+  "notInTheSpec": [
+    {"name": "hookSalt", "why": "Passed beside the spec to createBox; mined from the box's predicted addresses."},
+    {"name": "the listing's current data", "why": "Read from the registry at creation; the factory records the exact raise in the box. ReleaseContext contains only Listing; no routes or bands."},
+    {"name": "plug-ins", "why": "No plug-ins are offered in this release; plug-ins.v2.json has empty catalogs (F119)."},
+    {"name": "fee split and protocol steps", "why": "Fixed for the release: 2/15 FIT, 1/15 platform, 2/15 pool, 10/15 the menu choice; buy-back and deepen share one step per pool per block, within 49 ticks. No converter, depth floor or financial cap."},
+    {"name": "Safe addresses and signatures", "why": "The release fixes FIT_SAFE and PLATFORM_SAFE; creator specs cannot change them. No Safe module (F121/F123)."},
+    {"name": "links, rights confirmation and presets", "why": "Site and checker records remain off chain."}
+  ],
+  "rules": [
+    {"name": "shop fees are sellers only on a shop", "scope": "branch", "when": {"all": [{"leg": ["BuyT"]}, {"dest": ["BudgetOrPile"]}]}, "require": {"all": [{"field": "boxType", "eq": "SHOP"}, {"side": "Sellers"}]}, "reason": "NOT_OFFERED", "field": "dest", "source": "SH-V21-07 R48B/R48D: every shop, sellers only."},
+    {"name": "pile fees require a pile", "scope": "branch", "when": {"all": [{"dest": ["BudgetOrPile"]}, {"leg": ["AsPaid"]}]}, "require": {"field": "boxType", "eq": "PILE"}, "reason": "NOT_OFFERED", "field": "dest", "source": "SH-V21-03: same-price-coin pile only."},
+    {"name": "one whole choice per side", "scope": "side", "require": {"split": ["NoSplit"]}, "reason": "SPLIT_RULE", "field": "split", "source": "F119; Amendment 3 C5.8: no splits."},
+    {"name": "only menu combinations", "scope": "branch", "require": {"any": [{"all": [{"leg": ["AsPaid"]}, {"dest": ["Creator", "Depth", "Holders", "Items", "Eat", "BudgetOrPile", "Module"]}]}, {"all": [{"leg": ["BuyT"]}, {"dest": ["Eat", "Holders", "Items", "BudgetOrPile"]}]}]}, "reason": "MENU_RULE", "field": "leg", "source": "F119-F120; Amendment 3 C5.8: the same menu on both sides; M2/M3 choices require their release offers."},
+    {"name": "items require the own new collection", "scope": "branch", "when": {"dest": ["Items"]}, "require": {"field": "boxType", "eq": "NEW_COLLECTION"}, "reason": "NOT_OFFERED", "field": "dest", "source": "M3 S1; F119: every own-collection item only, no lists or outside collections."},
+    {"name": "open art publishes its reveal list", "when": {"field": "artMode", "eq": "OPEN"}, "require": {"field": "revealListId", "nonZero": true}, "reason": "ZERO_VALUE", "field": "revealListId", "source": "format 1's (BC-052)", "scope": "box"},
+    {"name": "hidden art keeps its reveal list private", "when": {"field": "artMode", "eq": "HIDDEN"}, "require": {"field": "revealListId", "zero": true}, "reason": "MUST_BE_ZERO", "field": "revealListId", "source": "format 1's", "scope": "box"},
+    {"name": "hidden art needs the placeholders add-on", "when": {"field": "artMode", "eq": "HIDDEN"}, "require": {"hasAddOn": "placeholders"}, "reason": "ADD_ON_REQUIRED", "field": "artMode", "source": "format 1's (F55)", "scope": "box"},
+    {"name": "a creator payout names its recipient", "when": {"any": [{"field": "buyers.a.dest", "eq": "Dest.Creator"}, {"field": "sellers.a.dest", "eq": "Dest.Creator"}, {"hasAddOn": "royalties"}]}, "require": {"field": "creatorFeeRecipient", "nonZero": true}, "reason": "ZERO_VALUE", "field": "creatorFeeRecipient", "source": "RC5 C: a keep button or any royalties needs a payee for in-kind exits.", "scope": "box"},
+    {"name": "no fee recipient without a creator payout", "when": {"not": {"any": [{"field": "buyers.a.dest", "eq": "Dest.Creator"}, {"field": "sellers.a.dest", "eq": "Dest.Creator"}, {"hasAddOn": "royalties"}]}}, "require": {"field": "creatorFeeRecipient", "zero": true}, "reason": "MUST_BE_ZERO", "field": "creatorFeeRecipient", "source": "format 1's: one spec, one meaning (required exactly when)", "scope": "box"},
+    {"name": "a shop commits its collection list", "when": {"field": "boxType", "eq": "SHOP"}, "require": {"hasAddOn": "collection-list"}, "reason": "ADD_ON_REQUIRED", "field": "addOns", "source": "M2-00 ShopConfigV2: add-on 7 identifies the list, whose sole configuration is contentsParams.", "scope": "box"},
+    {"name": "the creator buy cannot fill the curve", "when": {"field": "creatorBuy", "nonZero": true}, "require": {"field": "creatorBuy", "lt": {"field": "raise"}}, "reason": "OUT_OF_RANGE", "field": "creatorBuy", "source": "format 1's (BoxSpecV1.sol:697-700): in pricing-token raw units, below the raise", "scope": "box"}
+  ],
+  "contexts": [
+    {
+      "name": "m1",
+      "status": "M3: keep, burn, grow, holders and every-item P payouts on both sides; SHOP, PILE and add-ons 7/8 for SHOP. Name retained for generator compatibility. No caps or plug-ins.",
+      "offeredLegs": ["AsPaid", "BuyT"],
+      "offeredDests": ["Eat", "Creator", "Depth", "Holders", "Items", "BudgetOrPile", "Module"],
+      "targetSlotOffered": false,
+      "offeredAddOns": [1, 3, 4, 6, 7, 8],
+      "gradLayouts": ["FULL_RANGE"],
+      "listing": "one pricing listing with its current raise at creation"
+    }
+  ],
+  "recipe": {
+    "about": ["Wire decoding only (Amendment 3 C5.8): the existing Side and Branch structs, enum ids and canonical params are preserved. Only the menu combinations pass; there is no recipe builder.", "Both sides arrive in P. AsPaid keeps P; BuyT buys T for the burn button on either side after graduation. Every other leg is refused, even if a context offers it.", "NoSplit alone; b must be all zero, including empty params. FixedShare, Cap30Days and PlugIn splits are refused. Legacy tuple descriptions remain only to decode and refuse old inputs without reassigning ids.", "Holders use P only (M2). Items use frozen S1: every own NEW_COLLECTION item, no mode field, explicit Keep=1 or BuyBackBurn=2. Keep is the authoring default, never inferred from empty bytes. Id lists, outside collections and holder filters wait for a later version."],
+    "sides": [
+      {"name": "buyers", "field": "buyers", "paidIn": "P"},
+      {"name": "sellers", "field": "sellers", "paidIn": "P"}
+    ],
+    "subFields": {"leg": 1, "dest": 2, "legParams": 3, "destParams": 4, "bOffset": 10, "split": 21, "splitParams": 22},
+    "slotOrder": ["a.leg", "a.dest", "a.legParams", "a.destParams", "split", "splitParams", "b.leg", "b.dest", "b.legParams", "b.destParams"],
+    "paramTuples": {
+      "ShopDestParams": {"malformed": "RECIPE_RULE", "members": [{"name": "ceilingPreset", "type": "uint8"}]},
+      "ModuleDestParams": {"malformed": "RECIPE_RULE", "members": [{"name": "id", "type": "uint32"}]},
+      "ItemsDestParams": {"malformed": "RECIPE_RULE", "members": [{"name": "insidePolicy", "type": "uint8", "enum": "ItemsInsidePolicy"}]},
+      "HoldersDestParams": {"malformed": "RECIPE_RULE", "members": [{"name": "currency", "type": "uint8", "enum": "HoldersCurrency"}]}
+    },
+    "malformed": {
+      "legParams": "MUST_BE_ZERO",
+      "destParams": "MUST_BE_ZERO",
+      "splitParams": "MUST_BE_ZERO",
+      "byStruct": {"ShopDestParams": "RECIPE_RULE", "HoldersDestParams": "RECIPE_RULE", "ItemsDestParams": "RECIPE_RULE"}
+    },
+    "bNotZero": "MUST_BE_ZERO",
+    "legs": {
+      "AsPaid": {"sides": ["buyers", "sellers"], "produces": {"Buyers": "P", "Sellers": "P"}, "checks": []},
+      "BuyT": {"sides": ["buyers", "sellers"], "produces": {"Buyers": "T", "Sellers": "T"}, "checks": []},
+      "RESERVED_3": {"sides": [], "produces": {"Sellers": "P", "Buyers": "P"}, "checks": [{"require": {"never": true}, "reason": "NOT_OFFERED"}]},
+      "RESERVED_4": {"sides": [], "produces": {"Buyers": "P", "Sellers": "P"}, "checks": [{"require": {"never": true}, "reason": "NOT_OFFERED"}]},
+      "RESERVED_5": {"sides": [], "produces": {"Buyers": "T", "Sellers": "P"}, "checks": [{"require": {"never": true}, "reason": "NOT_OFFERED"}]}
+    },
+    "dests": {
+      "Eat": {"takes": ["T"], "neverNativeEth": true},
+      "Creator": {"takes": ["P"], "paysCreator": true},
+      "RESERVED_3": {"takes": [], "checks": [{"require": {"never": true}, "reason": "NOT_OFFERED"}]},
+      "Depth": {"takes": ["P"]},
+      "RESERVED_5": {"takes": [], "checks": [{"require": {"never": true}, "reason": "NOT_OFFERED"}]},
+      "Holders": {"takes": ["P", "T"], "params": "HoldersDestParams", "checks": [{"require": {"any": [{"all": [{"leg": ["AsPaid"]}, {"destParam": "currency", "of": "Holders", "eq": "HoldersCurrency.P"}]}, {"all": [{"leg": ["BuyT"]}, {"destParam": "currency", "of": "Holders", "eq": "HoldersCurrency.T"}]}]}, "reason": "NOT_OFFERED"}]},
+      "BudgetOrPile": {"takes": ["P", "T"], "params": "ShopDestParams", "paramsWhenLeg": "BuyT", "checks": [{"require": {"destParam": "ceilingPreset", "of": "BudgetOrPile", "in": [2, 4, 8]}, "reason": "NOT_OFFERED"}]},
+      "Items": {"takes": ["P", "T"], "params": "ItemsDestParams", "checks": [{"require": {"destParam": "insidePolicy", "of": "Items", "in": ["ItemsInsidePolicy.Keep", "ItemsInsidePolicy.BuyBackBurn", "ItemsInsidePolicy.Depth"]}, "reason": "NOT_OFFERED"}]},
+      "Module": {"takes": ["P"], "params": "ModuleDestParams"}
+    },
+    "splits": {
+      "NoSplit": {"bZero": true},
+      "RESERVED_2": {"checks": [{"require": {"never": true}, "reason": "SPLIT_RULE"}]},
+      "RESERVED_3": {"checks": [{"require": {"never": true}, "reason": "SPLIT_RULE"}]},
+      "RESERVED_4": {"checks": [{"require": {"never": true}, "reason": "SPLIT_RULE"}]}
+    }
+  },
+  "shop": {"encoding": "abi.encode(ShopConfigV2)", "validation": "Full canonical ShopConfigV2 checks in both generated twins; BoxSpecV2Validator delegates", "seed": "raw T, approved pull after creation; nonzero seed requires add-on 8 even with count/hash zero", "givePricesT": "four strictly increasing nonzero raw-T amounts", "pickBps": [12500, 15000, 20000, 30000], "weeklyBps": [500, 1000], "collectionBps": [100, 250, 500], "listDelaySeconds": [604800, 1209600, 2592000], "minimumSeed": "2 * minInitialGiveT", "collections": "1..64 unique nonzero addresses; one tier 0..3 each; list and curator in contentsParams only", "failure": "all shop T remains quarantined for burn retry; starter NFTs return to creator", "funding": ["seed", "pick receipts", "sellers ShopT within ceiling"], "feeChoice": "ShopT", "ceilingPresets": [2, 4, 8], "ceiling": "saturating seedT * preset; fees counted; excess sellers share pays holders in P"},
+  "menu": {
+    "paidIn": "P",
+    "feeBps": "100",
+    "parts": {"denominator": "15", "fit": "2", "platform": "1", "pool": "2", "choice": "10"},
+    "choices": [
+      {"key": "module", "value": 10, "milestone": "V21", "leg": "AsPaid", "dest": "Module", "label": "Fee module"},
+      {"key": "holders-t", "leg": "BuyT", "dest": "Holders", "label": "Pay holders in the box token"},
+      {"key": "items-t", "leg": "BuyT", "dest": "Items", "label": "Pay items in the box token"},
+      {"key": "keep", "value": 1, "milestone": "M1", "leg": "AsPaid", "dest": "Creator"},
+      {"key": "burn", "value": 2, "milestone": "M1", "leg": "BuyT", "dest": "Eat"},
+      {"key": "grow", "value": 3, "milestone": "M1", "leg": "AsPaid", "dest": "Depth"},
+      {"key": "holders", "value": 4, "milestone": "M2", "leg": "AsPaid", "dest": "Holders", "currency": "P"},
+      {"key": "items", "value": 5, "milestone": "M3", "leg": "AsPaid", "dest": "Items", "mode": "every-item"},
+      {"key": "eat", "value": 6, "milestone": "V21", "leg": "AsPaid", "dest": "Eat"},
+      {"key": "pile", "value": 9, "milestone": "V21", "leg": "AsPaid", "dest": "BudgetOrPile", "label": "To the pile"},
+      {"key": "shop", "value": 11, "milestone": "V21", "leg": "BuyT", "dest": "BudgetOrPile", "label": "Into the shop"}
+    ],
+    "split": "NoSplit",
+    "secondBranch": "zero",
+    "caps": false,
+    "plugins": false,
+    "source": "F119-F120; Amendment 3 C5.4, C5.8, C10"
+  },
+  "listings": {
+    "onePerCoin": true,
+    "removable": false,
+    "admission": "manual",
+    "boxCoins": "graduated-only",
+    "decimals": {"min": 6, "max": 18},
+    "raise": {"setBy": "lister", "updates": "future-boxes", "snapshot": "creation", "min": "1000000", "max": "340282366920938463463374607431768211455"},
+    "context": "Frozen Listing wire: raise is the one current raise. An update changes neither the listing id nor the raises already stored by boxes.",
+    "hostileCoin": "hidden by site and tools only",
+    "source": "F118, F122, F123 as supplied in SH-V2-CQ11-0-SPECDATA"
+  },
+  "lifecycle": {
+    "graduation": {"layout": "FULL_RANGE", "positions": 1},
+    "failure": {
+      "claim": "pot * coins / coinsOutstanding, rounded down; the last claim takes the remainder",
+      "graduationReserve": "fees",
+      "heldBurnMoney": "claim",
+      "heldItemsMoney": "claim",
+      "afterLastClaim": "permanently-retained",
+      "filledCurveEscape": {"waitSeconds": "604800", "startsAt": "curve-filled", "onlyIf": "graduation-not-succeeded", "callableBy": "anyone", "transition": "same-as-fail"},
+      "source": "F119, F122 superseding Amendment 3 C6, C11 and C18"
+    }
+  },
+  "operations": {
+    "ethInHelper": false,
+    "safeModule": false,
+    "fitSafe": {"name": "FIT_SAFE", "immutable": true, "threshold": 2, "owners": ["bot", "founder", "backup"], "backup": "hardware wallet kept apart by the founder"},
+    "platformCap": {"location": "off-chain policy", "totalEthPer30Days": "32"},
+    "source": "RC5-C: only FIT and platform Safes; royalty custody belongs to each box"
+  }
+}

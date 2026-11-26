@@ -1,0 +1,653 @@
+/* Layout and components of the launch page, on the platform's tokens. */
+body {
+  /* The variable font's space is narrow at small sizes in some renderers: a touch of word spacing keeps words apart. */
+  word-spacing: 0.06em;
+}
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sh-gap-3);
+  height: var(--sh-topbar-h);
+  padding: 0 var(--sh-main-pad);
+  background: color-mix(in srgb, var(--sh-canvas) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--sh-border);
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sh-gap-2);
+  color: var(--sh-text);
+  font-weight: var(--sh-weight-bold);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.brand-mark {
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  background: var(--sh-action);
+  box-shadow: inset 0 -8px 0 var(--sh-accent);
+}
+.topbar-end {
+  display: flex;
+  align-items: center;
+  gap: var(--sh-gap-2);
+  min-width: 0;
+}
+.walletbar {
+  display: flex;
+  align-items: center;
+  gap: var(--sh-gap-2);
+}
+/* SH-280: the way to a wallet where none can be used here: the join page's link and the browser-wallet line. */
+.nowallet {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sh-gap-2);
+}
+.main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: var(--sh-gap-6) var(--sh-main-pad) var(--sh-gap-12);
+  display: grid;
+  gap: var(--sh-gap-6);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--sh-touch-target);
+  padding: 0 var(--sh-gap-4);
+  border-radius: var(--sh-radius-control);
+  border: 1px solid var(--sh-border-strong);
+  background: var(--sh-surface-raised);
+  color: var(--sh-text);
+  font-weight: var(--sh-weight-medium);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--sh-duration-fast) var(--sh-ease);
+}
+.btn-primary {
+  background: var(--sh-action);
+  border-color: var(--sh-action);
+  color: var(--sh-on-action);
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--sh-action-hover);
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.icon-btn {
+  width: var(--sh-touch-target);
+  height: var(--sh-touch-target);
+  border-radius: var(--sh-radius-pill);
+  border: 1px solid var(--sh-border);
+  background: transparent;
+  cursor: pointer;
+}
+.link-btn {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: var(--sh-accent);
+  font-size: var(--sh-type-caption);
+  cursor: pointer;
+  text-decoration: underline;
+}
+.stale {
+  color: var(--sh-warning);
+  border-color: var(--sh-warning);
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: var(--sh-radius-pill);
+  background: var(--sh-surface-raised);
+  border: 1px solid var(--sh-border);
+  font-size: var(--sh-type-label);
+}
+.mono {
+  font-family: var(--sh-font-mono);
+  font-size: 0.92em;
+}
+.muted {
+  color: var(--sh-text-muted);
+}
+.small {
+  font-size: var(--sh-type-small);
+}
+.pos {
+  color: var(--sh-positive);
+}
+.neg {
+  color: var(--sh-negative);
+}
+.unit {
+  color: var(--sh-text-secondary);
+  font-weight: var(--sh-weight-regular);
+}
+
+/* (?) details, closed by default */
+.help {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--sh-gap-2);
+  flex-wrap: wrap;
+}
+.help-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--sh-radius-pill);
+  border: 1px solid var(--sh-border-strong);
+  background: transparent;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-label);
+  font-weight: var(--sh-weight-bold);
+  cursor: pointer;
+  flex: none;
+}
+.help-body {
+  display: block;
+  flex-basis: 100%;
+  max-width: 560px;
+  padding: var(--sh-gap-3);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface-raised);
+  border: 1px solid var(--sh-border);
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+  overflow-wrap: anywhere;
+}
+
+/* Home */
+.intro h1 {
+  font-size: var(--sh-type-title);
+  max-width: 22ch;
+}
+.intro p {
+  margin-top: var(--sh-gap-2);
+}
+.rails {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--sh-gap-4);
+}
+.rail-card {
+  padding: var(--sh-gap-6);
+  display: grid;
+  gap: var(--sh-gap-3);
+  align-content: start;
+}
+.rail-card h2 {
+  font-size: var(--sh-type-section);
+}
+.rail-card .btn {
+  justify-self: start;
+}
+.empty {
+  color: var(--sh-text-secondary);
+}
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--sh-gap-2);
+}
+.netline {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sh-gap-2);
+  flex-wrap: wrap;
+}
+
+/* Panels */
+.panel {
+  padding: var(--sh-gap-6);
+  display: grid;
+  gap: var(--sh-gap-6);
+  min-width: 0;
+}
+.panel-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sh-gap-3);
+  flex-wrap: wrap;
+}
+.panel-head h2 {
+  font-size: var(--sh-type-section);
+}
+.pile-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  align-items: end;
+  gap: var(--sh-gap-6);
+}
+.pile-big {
+  font-size: 44px;
+  font-weight: var(--sh-weight-bold);
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+.pile-big .unit {
+  font-size: var(--sh-type-section);
+}
+.pile-chart {
+  margin: 0;
+  height: 96px;
+}
+.pile-chart svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.pile-area {
+  fill: var(--sh-glow);
+  fill: color-mix(in srgb, var(--sh-accent) 18%, transparent);
+}
+.pile-line {
+  stroke: var(--sh-accent);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: var(--sh-gap-3);
+}
+.stat {
+  padding: var(--sh-gap-3) var(--sh-gap-4);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface-raised);
+  border: 1px solid var(--sh-border);
+  min-width: 0;
+}
+.stat-label {
+  font-size: var(--sh-type-label);
+  color: var(--sh-text-muted);
+}
+.stat-value {
+  font-size: var(--sh-type-body-lg);
+  font-weight: var(--sh-weight-bold);
+  overflow-wrap: anywhere;
+}
+
+/* Forms */
+.box {
+  display: grid;
+  gap: var(--sh-gap-3);
+  padding: var(--sh-gap-4);
+  border-radius: var(--sh-radius-card);
+  border: 1px solid var(--sh-border);
+}
+.box h3,
+.activity h3 {
+  font-size: var(--sh-type-body-lg);
+}
+.field-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 110px;
+  gap: var(--sh-gap-3);
+}
+.field {
+  display: grid;
+  gap: var(--sh-gap-1);
+  min-width: 0;
+}
+.field-label {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sh-gap-2);
+  flex-wrap: wrap;
+  font-size: var(--sh-type-label);
+  color: var(--sh-text-secondary);
+}
+.field input,
+.field select {
+  min-height: var(--sh-touch-target);
+  padding: 0 var(--sh-gap-3);
+  border-radius: var(--sh-radius-control);
+  border: 1px solid var(--sh-border-strong);
+  background: var(--sh-canvas);
+  font-variant-numeric: tabular-nums;
+  width: 100%;
+  min-width: 0;
+}
+.refusal {
+  color: var(--sh-negative);
+  font-size: var(--sh-type-small);
+}
+.review {
+  font-size: var(--sh-type-small);
+  color: var(--sh-text-secondary);
+}
+.actions {
+  display: flex;
+  gap: var(--sh-gap-2);
+  flex-wrap: wrap;
+}
+.tx {
+  font-size: var(--sh-type-small);
+  padding: var(--sh-gap-2) var(--sh-gap-3);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface-raised);
+  overflow-wrap: anywhere;
+}
+.tx-done {
+  color: var(--sh-positive);
+}
+.tx-failed {
+  color: var(--sh-negative);
+}
+
+.activity ul {
+  list-style: none;
+  margin: var(--sh-gap-2) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--sh-gap-1);
+}
+.activity li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) auto;
+  gap: var(--sh-gap-3);
+  align-items: baseline;
+  padding: var(--sh-gap-1) 0;
+  border-bottom: 1px solid var(--sh-border);
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    height: 56px;
+    padding: 0 var(--sh-main-pad-compact);
+  }
+  .main {
+    padding: var(--sh-gap-4) var(--sh-main-pad-compact) var(--sh-gap-8);
+  }
+  .intro h1 {
+    font-size: var(--sh-type-title-compact);
+  }
+  .panel,
+  .rail-card {
+    padding: var(--sh-gap-4);
+  }
+  .pile-hero {
+    grid-template-columns: 1fr;
+  }
+  .pile-big {
+    font-size: 34px;
+  }
+  .stats {
+    grid-template-columns: 1fr 1fr;
+  }
+  .stats > .stat:first-child {
+    grid-column: 1 / -1;
+  }
+  .activity li {
+    grid-template-columns: 1fr auto;
+  }
+  .activity li > .muted {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}
+
+/* Screens */
+.screen {
+  display: grid;
+  gap: var(--sh-gap-6);
+  min-width: 0;
+}
+.screen-title {
+  font-size: var(--sh-type-title-compact);
+}
+.boxes {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: start;
+}
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: var(--sh-gap-6);
+  align-items: start;
+}
+.side {
+  display: grid;
+  gap: var(--sh-gap-6);
+  min-width: 0;
+}
+.box-panel {
+  gap: var(--sh-gap-3);
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--sh-gap-3);
+}
+/* A field with a line under its input (Flap's minimum, a refusal) makes its row taller: its neighbours keep their label
+   and input at the top instead of spreading the extra height between them, so inputs in a row stay level. */
+.form-grid > .field {
+  align-content: start;
+}
+.field-wide {
+  grid-column: span 2;
+}
+.field input[aria-invalid='true'] {
+  border-color: var(--sh-negative);
+}
+.check {
+  display: flex;
+  align-items: center;
+  gap: var(--sh-gap-2);
+  font-size: var(--sh-type-small);
+  color: var(--sh-text-secondary);
+  min-height: var(--sh-touch-target);
+}
+.check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--sh-action);
+}
+.segmented {
+  display: inline-grid;
+  grid-auto-flow: column;
+  gap: 2px;
+  padding: 2px;
+  border-radius: var(--sh-radius-control);
+  border: 1px solid var(--sh-border);
+  justify-self: start;
+}
+.segmented button {
+  min-height: 36px;
+  padding: 0 var(--sh-gap-4);
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--sh-text-secondary);
+  cursor: pointer;
+}
+.segmented button.on {
+  background: var(--sh-selected);
+  color: var(--sh-text);
+}
+.delta {
+  margin-left: var(--sh-gap-3);
+  font-size: var(--sh-type-body-lg);
+  font-weight: var(--sh-weight-medium);
+}
+.sale-line {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sh-gap-3);
+  padding: var(--sh-gap-2) var(--sh-gap-3);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface-raised);
+  text-decoration: none;
+  color: var(--sh-text);
+}
+.phase-0 {
+  color: var(--sh-accent);
+}
+.phase-1 {
+  color: var(--sh-positive);
+}
+.phase-2 {
+  color: var(--sh-warning);
+}
+.head-end {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--sh-gap-2);
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+/* The curve picture */
+.curve-chart {
+  margin: 0;
+}
+.curve-chart svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.curve-chart .axis {
+  stroke: var(--sh-border-strong);
+  stroke-width: 1;
+}
+.curve-chart .target-line {
+  stroke: var(--sh-warning);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+}
+.curve-chart .curve-line {
+  stroke: var(--sh-accent);
+  stroke-width: 2.5;
+}
+.curve-chart .curve-fill {
+  fill: color-mix(in srgb, var(--sh-accent) 22%, transparent);
+}
+.curve-chart .curve-dot {
+  fill: var(--sh-accent);
+  stroke: var(--sh-canvas);
+  stroke-width: 2;
+}
+.chart-label {
+  fill: var(--sh-text-secondary);
+  font-size: 20px;
+  font-family: var(--sh-font);
+}
+.chart-now {
+  fill: var(--sh-text);
+  font-weight: var(--sh-weight-bold);
+}
+
+@media (max-width: 900px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .screen-title {
+    font-size: var(--sh-type-section);
+  }
+  .field-wide {
+    grid-column: 1 / -1;
+  }
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .chart-label {
+    font-size: 40px;
+  }
+}
+
+.home {
+  display: grid;
+  gap: var(--sh-gap-6);
+}
+
+.progress {
+  width: 100%;
+  height: 14px;
+  display: block;
+}
+.progress-track {
+  fill: var(--sh-surface-raised);
+}
+.progress-fill {
+  fill: var(--sh-accent);
+}
+
+/* A fieldset that only groups (and locks) the form's fields. */
+fieldset.plain {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+fieldset.plain:disabled {
+  opacity: 0.7;
+}
+
+.quote-choice {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sh-gap-2);
+  margin-bottom: var(--sh-gap-3);
+  padding-left: var(--sh-gap-3);
+}
+
+input:disabled,
+.segmented button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.press-dialog {
+  max-width: 460px;
+  width: calc(100% - 32px);
+  background: var(--sh-panel-gradient), var(--sh-canvas);
+  border: 1px solid var(--sh-border);
+  color: var(--sh-text, inherit);
+  padding: 20px;
+}
+.press-dialog::backdrop {
+  background: rgba(5, 8, 16, 0.72);
+}
+.press-steps {
+  margin: 8px 0;
+  padding-left: 0;
+  list-style: none;
+}
+.tx-legs {
+  margin: 0 0 4px;
+}
+
+/* SH-287: the creator's rules, as fields (both rails' create screens) and as a panel (the sale's and token's pages). */
+.rules-fields { display: grid; gap: 12px; margin-top: 8px; }
+.rules-fields > .field-label { margin: 0; }
+.rules-fields .field { display: grid; gap: 4px; }
+.rules-fields .field .field-label { display: flex; justify-content: space-between; }
+.rules-list { list-style: none; margin: 12px 0; padding: 0; display: grid; gap: 10px; }
+.rules-list li { display: grid; gap: 2px; padding: 8px 10px; border-radius: 10px; background: var(--sh-surface-raised); }
+.rules-name { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; }
+.rules-nums { display: flex; flex-wrap: wrap; gap: 4px 14px; color: var(--sh-text-secondary); }
+
+/* SH-290: the holders panel's presses that carry their amount ("Claim 1 BNB"): a gap, as a flex button drops spaces. */
+.holders .btn {
+  gap: 0.35em;
+}

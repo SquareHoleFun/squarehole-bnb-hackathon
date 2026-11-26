@@ -1,0 +1,15 @@
+# History dump and consistent alpha snapshot (squarehole-pg-backup.timer; the script is infra/server/pg-backup.sh).
+[Unit]
+Description=Back up Square Hole history and alpha state (7 days kept)
+Requires=docker.service
+After=docker.service squarehole-stack.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/squarehole-pg-backup
+# A stop or a signal during the alpha backup is deferred by the wrapper until the running docker command ends, then it
+# starts alpha-api and alpha-sender again. A SIGKILL before that would leave both stopped. So the grace period is above
+# the wrapper's `compose stop --timeout 60` plus a generous time for the copy and the restart (15 minutes).
+TimeoutStopSec=900
+Nice=10
+IOSchedulingClass=idle

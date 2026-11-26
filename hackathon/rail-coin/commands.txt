@@ -1,0 +1,45 @@
+# 1 the setter proposes the lister role back to the custody (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x34A364Bd2E4129E92e1102245e582fe22aa266A8 'handBack()' --rpc-url "$RPC"
+cast send 0x34A364Bd2E4129E92e1102245e582fe22aa266A8 'handBack()' --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0xcCf0B8CC9257DB834d77F29EA9eB8e5554ba0170 'pendingLister()(address)' --rpc-url "$RPC" # expect 0x974D108Cf896fb4b0981A13DF759349D44296d27
+
+# 2 the custody accepts the lister role (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x974D108Cf896fb4b0981A13DF759349D44296d27 'execute(address,uint256,bytes)' 0xcCf0B8CC9257DB834d77F29EA9eB8e5554ba0170 0 0xd4c1524e --rpc-url "$RPC"
+cast send 0x974D108Cf896fb4b0981A13DF759349D44296d27 'execute(address,uint256,bytes)' 0xcCf0B8CC9257DB834d77F29EA9eB8e5554ba0170 0 0xd4c1524e --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0xcCf0B8CC9257DB834d77F29EA9eB8e5554ba0170 'lister()(address)' --rpc-url "$RPC" # expect 0x974D108Cf896fb4b0981A13DF759349D44296d27
+
+# 3 the custody gets the probe's 10,000 raw PILE (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x7Eb53F6D508a9c24A3d0594DB3C41f04FcC37777 'transfer(address,uint256)(bool)' 0x974D108Cf896fb4b0981A13DF759349D44296d27 10000 --rpc-url "$RPC"
+cast send 0x7Eb53F6D508a9c24A3d0594DB3C41f04FcC37777 'transfer(address,uint256)(bool)' 0x974D108Cf896fb4b0981A13DF759349D44296d27 10000 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x7Eb53F6D508a9c24A3d0594DB3C41f04FcC37777 'balanceOf(address)(uint256)' 0x974D108Cf896fb4b0981A13DF759349D44296d27 --rpc-url "$RPC" # expect >=10000
+
+# 4 the custody approves the registry for them (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x974D108Cf896fb4b0981A13DF759349D44296d27 'execute(address,uint256,bytes)' 0x7Eb53F6D508a9c24A3d0594DB3C41f04FcC37777 0 0x095ea7b3000000000000000000000000ccf0b8cc9257db834d77f29ea9eb8e5554ba01700000000000000000000000000000000000000000000000000000000000002710 --rpc-url "$RPC"
+cast send 0x974D108Cf896fb4b0981A13DF759349D44296d27 'execute(address,uint256,bytes)' 0x7Eb53F6D508a9c24A3d0594DB3C41f04FcC37777 0 0x095ea7b3000000000000000000000000ccf0b8cc9257db834d77f29ea9eb8e5554ba01700000000000000000000000000000000000000000000000000000000000002710 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x7Eb53F6D508a9c24A3d0594DB3C41f04FcC37777 'allowance(address,address)(uint256)' 0x974D108Cf896fb4b0981A13DF759349D44296d27 0xcCf0B8CC9257DB834d77F29EA9eB8e5554ba0170 --rpc-url "$RPC" # expect 10000
+
+# 5 the custody lists PILE (class OTHER, fixed raise) (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x974D108Cf896fb4b0981A13DF759349D44296d27 'execute(address,uint256,bytes)' 0xcCf0B8CC9257DB834d77F29EA9eB8e5554ba0170 0 0xefa3d5860000000000000000000000007eb53f6d508a9c24a3d0594db3c41f04fcc3777700000000000000000000000000000000000000000000000000000000000000050000000000000000000000000000000000000000000054b40b1f852bda000000 --rpc-url "$RPC"
+cast send 0x974D108Cf896fb4b0981A13DF759349D44296d27 'execute(address,uint256,bytes)' 0xcCf0B8CC9257DB834d77F29EA9eB8e5554ba0170 0 0xefa3d5860000000000000000000000007eb53f6d508a9c24a3d0594db3c41f04fcc3777700000000000000000000000000000000000000000000000000000000000000050000000000000000000000000000000000000000000054b40b1f852bda000000 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0xcCf0B8CC9257DB834d77F29EA9eB8e5554ba0170 'newestListingOf(address)(bool,uint32)' 0x7Eb53F6D508a9c24A3d0594DB3C41f04FcC37777 --rpc-url "$RPC" # expect listed
+
+# 6 the custody proposes the lister role to the setter (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x974D108Cf896fb4b0981A13DF759349D44296d27 'execute(address,uint256,bytes)' 0xcCf0B8CC9257DB834d77F29EA9eB8e5554ba0170 0 0x80721d4700000000000000000000000034a364bd2e4129e92e1102245e582fe22aa266a8 --rpc-url "$RPC"
+cast send 0x974D108Cf896fb4b0981A13DF759349D44296d27 'execute(address,uint256,bytes)' 0xcCf0B8CC9257DB834d77F29EA9eB8e5554ba0170 0 0x80721d4700000000000000000000000034a364bd2e4129e92e1102245e582fe22aa266a8 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0xcCf0B8CC9257DB834d77F29EA9eB8e5554ba0170 'pendingLister()(address)' --rpc-url "$RPC" # expect 0x34A364Bd2E4129E92e1102245e582fe22aa266A8
+
+# 7 the setter accepts the lister role (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x34A364Bd2E4129E92e1102245e582fe22aa266A8 'accept()' --rpc-url "$RPC"
+cast send 0x34A364Bd2E4129E92e1102245e582fe22aa266A8 'accept()' --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0xcCf0B8CC9257DB834d77F29EA9eB8e5554ba0170 'lister()(address)' --rpc-url "$RPC" # expect 0x34A364Bd2E4129E92e1102245e582fe22aa266A8
+
+# 8 Alice gets 2,000,000 PILE for her trades (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x7Eb53F6D508a9c24A3d0594DB3C41f04FcC37777 'transfer(address,uint256)(bool)' 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F 2000000000000000000000000 --rpc-url "$RPC"
+cast send 0x7Eb53F6D508a9c24A3d0594DB3C41f04FcC37777 'transfer(address,uint256)(bool)' 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F 2000000000000000000000000 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x7Eb53F6D508a9c24A3d0594DB3C41f04FcC37777 'balanceOf(address)(uint256)' 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F --rpc-url "$RPC" # expect >=2000000000000000000000000
+
+# 9 Bob gets 1,000,000 PILE for his trades (from hack-deployer)
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x7Eb53F6D508a9c24A3d0594DB3C41f04FcC37777 'transfer(address,uint256)(bool)' 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0 1000000000000000000000000 --rpc-url "$RPC"
+cast send 0x7Eb53F6D508a9c24A3d0594DB3C41f04FcC37777 'transfer(address,uint256)(bool)' 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0 1000000000000000000000000 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x7Eb53F6D508a9c24A3d0594DB3C41f04FcC37777 'balanceOf(address)(uint256)' 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0 --rpc-url "$RPC" # expect >=1000000000000000000000000
+

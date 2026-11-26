@@ -1,0 +1,15 @@
+{
+  "schema": "squarehole.vault-trace.forge-index/v2",
+  "generator": "packages/domain/src/test-support/vault-trace (v2 T06, placeholder tickets stage 1) v2",
+  "canonical": "packages/contracts/test/vectors/box-vault",
+  "format": "packages/domain/src/test-support/vault-trace/forge.ts (Foundry export of in-memory traces; no canonical copy)",
+  "traces": 5,
+  "steps": 280,
+  "files": [
+    "box-qn-ff-069-odd",
+    "box-qn-ff-069-billion",
+    "box-qn-nf-069-wad",
+    "box-qn-ff-4269-billion",
+    "box-qn-ff-4269-max"
+  ]
+}

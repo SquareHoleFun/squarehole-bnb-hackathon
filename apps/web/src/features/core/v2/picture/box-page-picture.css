@@ -1,0 +1,110 @@
+/*
+ * SH-255: the box page's picture, on the Create picture's own world and tokens (create/picture/create-picture.css).
+ * Phone: the name and the life strip, the picture, then the figures, What you can do here and Where the fees go.
+ * Wide: the picture left and sticky, the rest beside it.
+ */
+.sh-bpic { --sh-bpic-wood-empty: #ead9c0; --sh-bpic-fire: #ff8a5c; }
+.sh-bpic-layout { display: grid; gap: var(--sh-gap-4, 16px); grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "main" "side"; }
+.sh-bpic-head { grid-area: head; min-width: 0; display: grid; gap: var(--sh-gap-2, 8px); align-content: start; }
+.sh-bpic-main { grid-area: main; min-width: 0; display: grid; gap: var(--sh-gap-3, 12px); align-content: start; }
+.sh-bpic-side { grid-area: side; min-width: 0; display: grid; gap: var(--sh-gap-3, 12px); align-content: start; }
+/* Shared parts placed here (the tiles, the cover, the strip, the address) carry the old header's named grid areas:
+   in these columns each takes the next row instead. */
+.sh-bpic-head > *, .sh-bpic-main > *, .sh-bpic-side > *, .sh-bpic-name > * { grid-area: auto; }
+/* The five tiles: the price across (its unit is the longest), then two by two; a closed box's three in one row. */
+.sh-bpic .sh-box-stats--five { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.sh-bpic .sh-box-stats--five > :first-child { grid-column: 1 / -1; }
+.sh-bpic .sh-box-stats--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (min-width: 900px) {
+  .sh-bpic-layout { grid-template-columns: minmax(0, 1.4fr) minmax(320px, 1fr); grid-template-areas: "main head" "main side"; grid-template-rows: auto 1fr; align-items: start; column-gap: var(--sh-gap-5, 24px); }
+  .sh-bpic-main { position: sticky; top: calc(var(--sh-topbar-h, 64px) + var(--sh-gap-3, 12px)); }
+  .sh-bpic .sh-pic { max-height: calc(100vh - var(--sh-topbar-h, 64px) - 72px); margin: 0 auto; }
+}
+
+/* The name and its phase */
+.sh-bpic-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0; }
+.sh-bpic-phase {
+  display: inline-flex; align-items: center; gap: 6px; font-weight: 800; font-size: var(--sh-type-label, 13px);
+  padding: 5px 10px; border-radius: var(--sh-radius-pill, 999px); background: var(--sh-surface-raised, #18253a); color: var(--sh-pic-ink-2);
+}
+.sh-bpic-phase::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.sh-bpic-phase[data-stage="graduated"] { background: rgba(95, 208, 143, 0.14); color: var(--sh-positive, #5fd08f); }
+.sh-bpic-phase[data-stage="raising"], .sh-bpic-phase[data-stage="window"], .sh-bpic-phase[data-stage="graduating"] { background: rgba(242, 180, 92, 0.16); color: #f2b45c; }
+.sh-bpic-phase[data-stage="failed"] { background: rgba(255, 140, 168, 0.14); color: var(--sh-pic-warn); }
+.sh-bpic-name { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; min-width: 0; }
+.sh-bpic-cover { width: 48px; height: 48px; flex: none; border-radius: 12px; overflow: hidden; }
+.sh-bpic-title { margin: 0; overflow-wrap: anywhere; min-width: 0; text-wrap: balance; }
+.sh-bpic-ticker { font-weight: 800; font-size: var(--sh-type-label, 13px); letter-spacing: 0.06em; padding: 4px 8px; border-radius: var(--sh-radius-pill, 999px); background: var(--sh-surface-raised, #18253a); color: var(--sh-pic-ink-2); }
+.sh-bpic-line { margin: 0; color: var(--sh-pic-ink-2); max-width: 65ch; overflow-wrap: anywhere; }
+.sh-bpic-head .sh-life { margin-top: var(--sh-gap-2, 8px); }
+
+/* The picture's own layers */
+.sh-bpic-empty { fill: var(--sh-bpic-wood-empty); }
+.sh-bpic-outline { fill: none; }
+/* A raise whose progress is not published: a dashed edge, never drawn as empty or full. */
+.sh-bpic-outline--unknown { stroke-dasharray: 5 4; }
+/* A box total under its card's title in a side's sheet (Buy-back progress, Coin pile, Eaten). */
+.sh-bpic-results h3 { margin: var(--sh-gap-3) 0 var(--sh-gap-1); font-size: 0.95rem; }
+.sh-bpic-glyph { fill: none; stroke: var(--sh-pic-maple-ink); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.sh-bpic-pill { fill: rgba(255, 138, 92, 0.18); }
+.sh-bpic-fire { fill: none; stroke: var(--sh-bpic-fire); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.sh-bpic-badge { fill: var(--sh-pic-ink); }
+.sh-bpic-badge__text { fill: var(--sh-surface, #111b29); font-weight: 800; }
+.sh-bpic-inbox rect { fill: var(--sh-surface, #111b29); stroke: var(--sh-pic-ink-2); stroke-width: 1.5; }
+.sh-bpic-inbox path { fill: none; stroke: var(--sh-pic-ink-2); stroke-width: 1.5; stroke-linejoin: round; }
+.sh-bpic-inbox--empty { opacity: 0.6; }
+/* The shared drawing's classes (create-picture.css owns them), styled for the live box only under its own wrapper. */
+.sh-bpic .sh-pic-tank__edge--closed { stroke-dasharray: 5 4; }
+.sh-bpic .sh-pic-route--idle { opacity: 0.3; }
+.sh-bpic .sh-pic-route--flow.sh-pic-route--pick { stroke-dasharray: 12 6; animation: sh-bpic-flow 1.1s linear infinite; }
+.sh-bpic .sh-pic-route--flow.sh-pic-route--pool { stroke-dasharray: 5 5; animation: sh-bpic-flow 1.1s linear infinite; }
+.sh-bpic .sh-pic-lane.sh-pic-route--idle { opacity: 0.3; }
+@keyframes sh-bpic-flow { to { stroke-dashoffset: -18; } }
+.sh-bpic-level { animation: sh-bpic-rise 1.1s cubic-bezier(0.2, 0.8, 0.3, 1); }
+@keyframes sh-bpic-rise { from { transform: translateY(40px); } }
+@media (prefers-reduced-motion: reduce) {
+  .sh-bpic .sh-pic-route--flow.sh-pic-route--pick, .sh-bpic .sh-pic-route--flow.sh-pic-route--pool, .sh-bpic-level { animation: none; }
+}
+
+/* The sheets' figures */
+.sh-bpic-big { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; margin: 0; }
+.sh-bpic-big strong { font-size: 28px; line-height: 1.05; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.sh-bpic-big span { color: var(--sh-pic-muted); font-weight: 600; }
+.sh-bpic-facts { margin: 0; display: grid; }
+.sh-bpic-facts > div { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 12px; padding: 8px 0; border-top: 1px solid var(--sh-pic-line); min-width: 0; }
+.sh-bpic-facts > div:first-child { border-top: 0; }
+.sh-bpic-facts dt { color: var(--sh-pic-muted); font-weight: 600; flex: none; }
+.sh-bpic-facts dd { margin: 0 0 0 auto; max-width: 100%; text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; min-width: 0; overflow-wrap: anywhere; display: grid; justify-items: end; }
+.sh-bpic-facts dd small { color: var(--sh-pic-muted); font-weight: 600; font-size: 12px; }
+.sh-bpic-note, .sh-bpic-muted { margin: 0; color: var(--sh-pic-muted); font-size: var(--sh-type-small, 14px); }
+.sh-bpic-bar { height: 12px; border-radius: 999px; background: var(--sh-surface-raised, #18253a); overflow: hidden; }
+.sh-bpic-bar > span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--sh-pic-maple-dark), var(--sh-pic-maple)); }
+.sh-bpic-parts { margin-top: 0; }
+.sh-bpic-parts > li { grid-template-columns: minmax(0, 1fr) auto; }
+.sh-bpic-mark-icon rect:first-child { fill: var(--sh-pic-mark-face); }
+.sh-bpic-mark-icon rect:last-child { fill: #05070c; stroke: #e6dcff; stroke-width: 1.6; }
+
+/* What you can do here; Where the fees go */
+.sh-bpic-do { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 8px; }
+.sh-bpic-do__entry {
+  width: 100%; display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 10px; align-items: center; text-align: left; min-height: 52px;
+  padding: 8px 10px; border-radius: 14px; border: 1px solid var(--sh-pic-line); background: var(--sh-surface-raised, #18253a); color: var(--sh-pic-ink); cursor: pointer;
+}
+.sh-bpic-do__entry:hover { border-color: var(--sh-pic-ink-2); }
+.sh-bpic-do__entry:focus-visible { outline: 3px solid var(--sh-focus-ring, #a78bfa); outline-offset: 2px; }
+.sh-bpic-do__icon { width: 36px; height: 36px; border-radius: 10px; background: rgba(220, 159, 82, 0.16); display: grid; place-items: center; }
+.sh-bpic-do__icon svg { width: 22px; height: 22px; }
+.sh-bpic-do__text { display: grid; min-width: 0; }
+.sh-bpic-do__text small { color: var(--sh-pic-muted); font-size: 12.5px; }
+.sh-bpic .sh-pic-ledger > li > span:first-child svg { width: 26px; height: 26px; display: block; }
+.sh-bpic-ledger-note { display: block; color: var(--sh-pic-muted); font-weight: 600; font-size: 12.5px; margin-top: 2px; }
+
+/* SH-255 (review R-19): a long amount in Where the fees go wraps inside its column; it never widens the row. */
+/* The coordinator's look (25 November): a label never breaks inside a word; when the amount does not fit beside it,
+   the amount takes the line below the label, at its right, and only its own digits may break. */
+.sh-bpic .sh-pic-ledger > li { display: flex; flex-wrap: wrap; align-items: center; column-gap: 10px; row-gap: 2px; }
+.sh-bpic .sh-pic-ledger > li > span:first-child:not(.sh-pic-ledger__label) { flex: 0 0 28px; }
+.sh-bpic .sh-pic-ledger__label { flex: 1 1 8rem; min-width: 0; overflow-wrap: break-word; }
+.sh-bpic .sh-pic-ledger__amount { flex: 0 1 auto; margin-left: auto; max-width: 100%; min-width: 0; overflow-wrap: anywhere; }
+/* Round 3 (D16): a side sheet's part rows have two children (label, amount), never the ledger's icon column. */
+/* A side sheet's part rows (label, amount) follow the same rule (no icon column). */

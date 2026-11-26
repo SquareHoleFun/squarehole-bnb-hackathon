@@ -1,0 +1,23 @@
+[profile.default]
+src = "src"
+test = "test"
+out = "out"
+cache_path = "cache"
+libs = ["lib"]
+solc_version = "0.8.24"
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 200
+# Plain `new` in tests (forge 1.8 rewrites it to a deployCode helper, where expectRevert ends a test as a vacuous pass).
+dynamic_test_linking = false
+remappings = ["forge-std/=../flap/lib/flap-pool-launch/lib/forge-std/src/"]
+allow_paths = ["../flap"]
+fs_permissions = [{ access = "read", path = "./out" }, { access = "read-write", path = "./deployments" }]
+
+[invariant]
+runs = 200
+depth = 60
+fail_on_revert = true
+
+[lint]
+lint_on_build = false

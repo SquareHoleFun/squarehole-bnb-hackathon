@@ -1,0 +1,47 @@
+{
+  "chainId": 31337,
+  "network": "anvil (local, chain 31337)",
+  "note": "Local anvil: the PoolManager is deployed from the pinned v4-core source (BUSL-1.1, non-production use) and WETH/USDC are local mocks (zero addresses below). Registry admin and treasury default to the deployer (anvil account 0). Amounts are raw decimal strings. Template economics are testnet placeholders (G05). Mirrors the Sepolia plan (F10): The Misfits (T = FIT, 10,000 NFTs, quote WETH, R = Q), FIT admitted as a quote, then ORCHARD (1,000 NFTs, quote FIT, R = T), always enabled here so the local E2E exercises both reward sides. Metadata manifests: `manifestHash` pins keccak256 of the metadata lane's reviewed manifest files (sh-e-nft-metadata@02043cb); the file at `manifest` must match the pin when it exists, and the pin stands in while it is missing.",
+  "poolManager": "0x0000000000000000000000000000000000000000",
+  "quotes": {
+    "WETH": "0x0000000000000000000000000000000000000000",
+    "USDC": "0x0000000000000000000000000000000000000000"
+  },
+  "deployMockTether": true,
+  "registryAdmin": "0x0000000000000000000000000000000000000000",
+  "treasury": "0x0000000000000000000000000000000000000000",
+  "withConverter": true,
+  "templates": {
+    "WETH": { "startFdvQ": "1000000000000000000", "minStartUnitValueQ": "100000000000000", "tickSpacing": 60, "rangeTicks": 69060 },
+    "USDC": { "startFdvQ": "5000000000", "minStartUnitValueQ": "500000", "tickSpacing": 60, "rangeTicks": 69060 },
+    "USDT": { "startFdvQ": "5000000000", "minStartUnitValueQ": "500000", "tickSpacing": 60, "rangeTicks": 69060 },
+    "FIT": { "startFdvQ": "1000000000000000000000000", "minStartUnitValueQ": "100000000000000000000", "tickSpacing": 60, "rangeTicks": 69060 }
+  },
+  "launches": {
+    "THE_MISFITS": {
+      "kind": "collection",
+      "name": "The Misfits",
+      "symbol": "FIT",
+      "units": "10000",
+      "fractionsPerNft": "100000",
+      "quote": "WETH",
+      "rewardSide": "Q",
+      "baseURI": "https://squarehole-7ua.pages.dev/nft/the-misfits/",
+      "manifest": "../../apps/web/public/nft/the-misfits/manifest.json",
+      "manifestHash": "0x8f4b336693549802635b2c52fb4885b33fd999c1d90a53af1b4c445d99f790e3"
+    },
+    "ORCHARD": {
+      "enabled": true,
+      "kind": "collection",
+      "name": "ORCHARD",
+      "symbol": "ORCH",
+      "units": "1000",
+      "fractionsPerNft": "1000000",
+      "quote": "FIT",
+      "rewardSide": "T",
+      "baseURI": "https://squarehole-7ua.pages.dev/nft/orchard/",
+      "manifest": "../../apps/web/public/nft/orchard/manifest.json",
+      "manifestHash": "0x4263aa5f7469f1c4f1f663417d7002c39a87fdd90e6e3cc65a9fbe178cdddbc0"
+    }
+  }
+}

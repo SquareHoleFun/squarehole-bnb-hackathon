@@ -1,0 +1,584 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "enum": [
+        "./schema.json",
+        "../schema.json"
+      ]
+    },
+    "version": {
+      "type": "number",
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z]+(?:-[a-z0-9]+)*$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "ticker": {
+      "type": "string",
+      "pattern": "^[A-Z0-9]{1,11}$"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ready",
+        "pending"
+      ]
+    },
+    "pendingStep": {
+      "type": "string",
+      "enum": [
+        "V21-01-EAT",
+        "V21-02",
+        "V21-03",
+        "FE12",
+        "EXAMPLE-LIFE",
+        "ALCHEMIST-REGISTRATION"
+      ]
+    },
+    "pendingReason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "template": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": [
+            "liquidity",
+            "burn",
+            "creator",
+            "holders",
+            "collection",
+            "collection-burn",
+            "pile",
+            "shop",
+            "blank"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "priceCoin": {
+      "type": "object",
+      "properties": {
+        "symbol": {
+          "type": "string",
+          "enum": [
+            "ETH",
+            "USDC",
+            "LINK",
+            "NVDAon",
+            "PAXG",
+            "TEST_PEPE",
+            "TEST_GOLD",
+            "TEST_FROG"
+          ]
+        },
+        "decimals": {
+          "type": "string",
+          "enum": [
+            "6",
+            "18"
+          ]
+        }
+      },
+      "required": [
+        "symbol",
+        "decimals"
+      ],
+      "additionalProperties": false
+    },
+    "logo": {
+      "type": "string",
+      "pattern": "^(packages\\/chain\\/scripts\\/local-art\\/[a-zA-Z0-9-]+|examples\\/boxes\\/[a-z]+(?:-[a-z0-9]+)*\\/art\\/[a-z0-9]+(?:-[a-z0-9]+)*)\\.png$"
+    },
+    "contents": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "token",
+            "collection",
+            "pile",
+            "shop"
+          ]
+        },
+        "shop": {
+          "type": "object",
+          "properties": {
+            "seedT": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]*)$"
+            },
+            "givePricesT": {
+              "minItems": 4,
+              "maxItems": 4,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]*)$"
+              }
+            },
+            "pickBps": {
+              "type": "string",
+              "enum": [
+                "12500",
+                "15000",
+                "20000",
+                "30000"
+              ]
+            },
+            "weeklyBps": {
+              "type": "string",
+              "enum": [
+                "500",
+                "1000"
+              ]
+            },
+            "collectionBps": {
+              "type": "string",
+              "enum": [
+                "100",
+                "250",
+                "500"
+              ]
+            },
+            "listDelay": {
+              "type": "string",
+              "enum": [
+                "604800",
+                "1209600",
+                "2592000"
+              ]
+            },
+            "curator": {
+              "type": "string",
+              "enum": [
+                "creator",
+                "none"
+              ]
+            },
+            "allowanceFloor": {
+              "type": "string",
+              "const": "cheapest-active-give"
+            },
+            "collections": {
+              "minItems": 1,
+              "maxItems": 64,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9-]*$"
+                  },
+                  "tier": {
+                    "type": "string",
+                    "enum": [
+                      "0",
+                      "1",
+                      "2",
+                      "3"
+                    ]
+                  },
+                  "starterIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^(0|[1-9][0-9]*)$"
+                    }
+                  }
+                },
+                "required": [
+                  "id",
+                  "tier",
+                  "starterIds"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "seedT",
+            "givePricesT",
+            "pickBps",
+            "weeklyBps",
+            "collectionBps",
+            "listDelay",
+            "curator",
+            "allowanceFloor",
+            "collections"
+          ],
+          "additionalProperties": false
+        },
+        "size": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "art": {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "type": "string",
+              "enum": [
+                "none",
+                "open",
+                "hidden"
+              ]
+            },
+            "source": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^(packages\\/chain\\/scripts\\/local-art\\/[a-zA-Z0-9-]+|examples\\/boxes\\/[a-z]+(?:-[a-z0-9]+)*\\/art\\/[a-z0-9]+(?:-[a-z0-9]+)*)\\.png$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "mode",
+            "source"
+          ],
+          "additionalProperties": false
+        },
+        "leaveBehindBps": {
+          "type": "string",
+          "enum": [
+            "0",
+            "500"
+          ]
+        },
+        "seed": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "symbol": {
+                  "type": "string",
+                  "enum": [
+                    "ETH",
+                    "USDC",
+                    "LINK",
+                    "NVDAon",
+                    "PAXG",
+                    "TEST_PEPE",
+                    "TEST_GOLD",
+                    "TEST_FROG"
+                  ]
+                },
+                "amount": {
+                  "type": "string",
+                  "pattern": "^(0|[1-9][0-9]*)$"
+                }
+              },
+              "required": [
+                "symbol",
+                "amount"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "pickFeeBps": {
+          "type": "string",
+          "enum": [
+            "0",
+            "100",
+            "500",
+            "2500"
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "size",
+        "label",
+        "art",
+        "seed",
+        "pickFeeBps"
+      ],
+      "additionalProperties": false
+    },
+    "creator": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "const": "safe"
+        },
+        "buyEthEquivalent": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$"
+        },
+        "registerHolder": {
+          "type": "boolean",
+          "const": true
+        },
+        "humbleCap": {
+          "type": "object",
+          "properties": {
+            "eth": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]*)$"
+            },
+            "days": {
+              "type": "string",
+              "const": "30"
+            },
+            "enforcement": {
+              "type": "string",
+              "const": "operator-policy"
+            }
+          },
+          "required": [
+            "eth",
+            "days",
+            "enforcement"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "kind",
+        "buyEthEquivalent",
+        "registerHolder"
+      ],
+      "additionalProperties": false
+    },
+    "raise": {
+      "type": "object",
+      "properties": {
+        "policy": {
+          "type": "string",
+          "const": "listing-fixed"
+        },
+        "amount": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]*)$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "policy",
+        "amount"
+      ],
+      "additionalProperties": false
+    },
+    "deadline": {
+      "type": "object",
+      "properties": {
+        "days": {
+          "type": "string",
+          "enum": [
+            "30",
+            "60",
+            "90",
+            "180"
+          ]
+        }
+      },
+      "required": [
+        "days"
+      ],
+      "additionalProperties": false
+    },
+    "royalties": {
+      "type": "object",
+      "properties": {
+        "bps": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$"
+        },
+        "destination": {
+          "type": "string",
+          "enum": [
+            "none",
+            "fees"
+          ]
+        }
+      },
+      "required": [
+        "bps",
+        "destination"
+      ],
+      "additionalProperties": false
+    },
+    "fees": {
+      "type": "object",
+      "properties": {
+        "buyers": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "keep",
+                "burn",
+                "grow",
+                "holders",
+                "items",
+                "pile",
+                "eat",
+                "holders-t",
+                "items-t",
+                "shop",
+                "alchemist"
+              ]
+            },
+            "ceilingPreset": {
+              "type": "string",
+              "enum": [
+                "2",
+                "4",
+                "8"
+              ]
+            },
+            "inside": {
+              "type": "string",
+              "enum": [
+                "keep",
+                "burn",
+                "depth"
+              ]
+            }
+          },
+          "required": [
+            "choice"
+          ],
+          "additionalProperties": false
+        },
+        "sellers": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "keep",
+                "burn",
+                "grow",
+                "holders",
+                "items",
+                "pile",
+                "eat",
+                "holders-t",
+                "items-t",
+                "shop",
+                "alchemist"
+              ]
+            },
+            "ceilingPreset": {
+              "type": "string",
+              "enum": [
+                "2",
+                "4",
+                "8"
+              ]
+            },
+            "inside": {
+              "type": "string",
+              "enum": [
+                "keep",
+                "burn",
+                "depth"
+              ]
+            }
+          },
+          "required": [
+            "choice"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "buyers",
+        "sellers"
+      ],
+      "additionalProperties": false
+    },
+    "life": {
+      "type": "string",
+      "enum": [
+        "graduate",
+        "failure"
+      ]
+    },
+    "properties": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "fee-conservation",
+          "graduation",
+          "page-state",
+          "own-pictures",
+          "creator-claim",
+          "holder-claim",
+          "item-claim",
+          "supply-burn",
+          "pool-growth",
+          "royalty-creator",
+          "pile-pro-rata",
+          "failure-refunds",
+          "price-coin-eaten",
+          "shop-life"
+        ]
+      }
+    }
+  },
+  "required": [
+    "$schema",
+    "version",
+    "id",
+    "name",
+    "ticker",
+    "status",
+    "template",
+    "priceCoin",
+    "logo",
+    "contents",
+    "raise",
+    "deadline",
+    "royalties",
+    "fees",
+    "life",
+    "properties"
+  ],
+  "additionalProperties": false
+}

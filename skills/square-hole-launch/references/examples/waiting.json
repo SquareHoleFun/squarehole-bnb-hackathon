@@ -1,0 +1,25 @@
+{
+  "about": "Example boxes the current spec cannot express yet (F73 example set). Kept as briefs; each becomes a draft once the spec has what it needs.",
+  "waiting": [
+    {
+      "name": "Treasury Turtles",
+      "ticker": "SHELL",
+      "brief": "Demo example 7. Tokenized T-bills, slow and steady: 100 turtles, open art, priced in USDY, holders paid in USDY and SHELL. 90 days.",
+      "needs": [
+        "USDY on the curated list, after a legal review (ref. F61 TB1)",
+        "Holder payouts beyond the Demo: built for testnet, then a legal review for mainnet (ref. slice S14)"
+      ],
+      "nearestToday": "Priced in ETH with burn on both sides; the T-bill story waits for USDY."
+    },
+    {
+      "name": "Nested Nests",
+      "ticker": "NEST",
+      "brief": "Demo example 9. Boxes in boxes: 50 nests, open art, priced in another box's token (e.g. HOOT) so the buyers' side burns HOOT; sellers' fees pay holders in NEST; royalties 2.5% with the fees. 60 days.",
+      "needs": [
+        "Another box's token on the curated list, a graduated box (ref. slice S12)",
+        "Holder payouts beyond the Demo: built for testnet, then a legal review for mainnet (ref. slice S14)"
+      ],
+      "nearestToday": "Priced in ETH with 'Burn FIT' on the buyers' side and royalties with the fees."
+    }
+  ]
+}

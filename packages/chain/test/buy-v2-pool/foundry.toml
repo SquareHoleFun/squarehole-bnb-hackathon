@@ -1,0 +1,17 @@
+[profile.default]
+src = "src"
+test = "."
+out = "../../../../.cache/ta-2a-forge-out"
+cache_path = "../../../../.cache/ta-2a-forge-cache"
+libs = []
+allow_paths = ["../../../contracts/lib"]
+remappings = ["v4-core/=../../../contracts/lib/v4-core/", "forge-std/=../../../contracts/lib/forge-std/src/", "solmate/=../../../contracts/lib/v4-core/lib/solmate/"]
+auto_detect_remappings = false
+solc = "0.8.26"
+auto_detect_solc = false
+offline = true
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 44444444
+via_ir = true
+ffi = false

@@ -1,0 +1,6 @@
+services:
+  indexer:
+    image: squarehole-indexer:parent
+    build:
+      context: ../..
+      dockerfile: infra/server/indexer.Dockerfile

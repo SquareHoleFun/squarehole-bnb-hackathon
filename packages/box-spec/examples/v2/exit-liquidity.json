@@ -1,0 +1,58 @@
+{
+  "$schema": "./schema.json",
+  "version": 1,
+  "id": "exit-liquidity",
+  "name": "Exit Liquidity",
+  "ticker": "EXIT",
+  "status": "ready",
+  "template": {
+    "id": "liquidity",
+    "name": "Liquidity token"
+  },
+  "priceCoin": {
+    "symbol": "USDC",
+    "decimals": "6"
+  },
+  "logo": "examples/boxes/exit-liquidity/art/logo.png",
+  "contents": {
+    "kind": "collection",
+    "size": "404",
+    "label": "404 signs",
+    "art": {
+      "mode": "open",
+      "source": "examples/boxes/exit-liquidity/art/cover.png"
+    },
+    "seed": null,
+    "pickFeeBps": "100"
+  },
+  "raise": {
+    "policy": "listing-fixed",
+    "amount": "8413960170"
+  },
+  "deadline": {
+    "days": "30"
+  },
+  "royalties": {
+    "bps": "0",
+    "destination": "none"
+  },
+  "fees": {
+    "buyers": {
+      "choice": "grow"
+    },
+    "sellers": {
+      "choice": "items",
+      "inside": "burn"
+    }
+  },
+  "life": "graduate",
+  "properties": [
+    "fee-conservation",
+    "page-state",
+    "own-pictures",
+    "graduation",
+    "pool-growth",
+    "item-claim",
+    "supply-burn"
+  ]
+}

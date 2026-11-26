@@ -1,0 +1,66 @@
+[
+  {
+    "module": "apps/web/src/features/core/RowBoxPage.tsx",
+    "sentence": "Unverified · the chain disagrees with the index · price not shown"
+  },
+  {
+    "module": "apps/web/src/features/core/v2/FitBurnLogV2.tsx",
+    "sentence": "FIT burn outside publication"
+  },
+  {
+    "module": "apps/web/src/features/core/v2/FitBurnLogV2.tsx",
+    "sentence": "No FIT executor burns in the latest 100 burn records."
+  },
+  {
+    "module": "apps/web/src/features/core/v2/FitBurnLogV2.tsx",
+    "sentence": "FIT executor history unavailable."
+  },
+  {
+    "module": "apps/web/src/features/core/v2/FitBurnLogV2.tsx",
+    "sentence": "Shared across boxes; these burns are not attributed to this box."
+  },
+  {
+    "module": "apps/web/src/features/core/v2/FitBurnLogV2.tsx",
+    "sentence": "Recorded on chain. Recent blocks can change."
+  },
+  {
+    "module": "apps/web/src/features/core/v2/SafesV2.tsx",
+    "sentence": "Safe addresses unavailable"
+  },
+  {
+    "module": "apps/web/src/features/core/v2/SafesV2.tsx",
+    "sentence": "Reading owners and threshold…"
+  },
+  {
+    "module": "apps/web/src/features/core/v2/SafesV2.tsx",
+    "sentence": "Owners and threshold unavailable"
+  },
+  {
+    "module": "apps/web/src/features/core/v2/SafesV2.tsx",
+    "sentence": "Burns from the FIT Safe need a second owner’s signature."
+  },
+  {
+    "module": "apps/web/src/features/core/v2/SafesV2.tsx",
+    "sentence": "The bot’s sales, funding and Safe burns will appear here once published."
+  },
+  {
+    "module": "apps/web/src/features/core/v2/HiddenDrawsV2.tsx",
+    "sentence": "This box’s items cannot be opened with a reveal file."
+  },
+  {
+    "module": "apps/web/src/features/core/v2/HiddenDrawsV2.tsx",
+    "sentence": "This reveal file could not be read."
+  },
+  {
+    "module": "apps/web/src/features/core/v2/HiddenDrawsV2.tsx",
+    "sentence": "Load another reveal file"
+  },
+  {
+    "module": "apps/web/src/features/core/v2/HiddenDrawsV2.tsx",
+    "sentence": "The item opens with its proof from the creator’s reveal file, posted by the creator or the reveal service. After reveal, its picture can show when verified bytes are available and the picture is not withheld."
+  },
+  {
+    "module": "apps/web/src/features/core/v2/HiddenDrawsV2.tsx",
+    "sentence": "Drawn · waiting for its random number"
+  }
+]

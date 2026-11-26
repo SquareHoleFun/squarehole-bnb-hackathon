@@ -1,0 +1,162 @@
+{
+  "format": "bag-holders-traits-v1",
+  "count": "420",
+  "seed": "Bag Holders / every bag is held / proposal 1 / 2026-10-27",
+  "traits": {
+    "kind": [
+      {
+        "value": "01",
+        "name": "Tote",
+        "count": "35"
+      },
+      {
+        "value": "02",
+        "name": "Paper bag",
+        "count": "35"
+      },
+      {
+        "value": "03",
+        "name": "Tea bag",
+        "count": "35"
+      },
+      {
+        "value": "04",
+        "name": "Sandbag",
+        "count": "35"
+      },
+      {
+        "value": "05",
+        "name": "Bean bag",
+        "count": "35"
+      },
+      {
+        "value": "06",
+        "name": "Punching bag",
+        "count": "35"
+      },
+      {
+        "value": "07",
+        "name": "Sleeping bag",
+        "count": "35"
+      },
+      {
+        "value": "08",
+        "name": "Gift bag",
+        "count": "35"
+      },
+      {
+        "value": "09",
+        "name": "Duffel bag",
+        "count": "35"
+      },
+      {
+        "value": "10",
+        "name": "Backpack",
+        "count": "35"
+      },
+      {
+        "value": "11",
+        "name": "Bag of chips",
+        "count": "35"
+      },
+      {
+        "value": "12",
+        "name": "Bag of lemons",
+        "count": "35"
+      }
+    ],
+    "trim": [
+      {
+        "value": "tomato",
+        "name": "Tomato",
+        "count": "84"
+      },
+      {
+        "value": "aqua",
+        "name": "Aqua",
+        "count": "84"
+      },
+      {
+        "value": "leaf",
+        "name": "Leaf",
+        "count": "84"
+      },
+      {
+        "value": "gold",
+        "name": "Gold",
+        "count": "84"
+      },
+      {
+        "value": "canvas",
+        "name": "Canvas",
+        "count": "84"
+      }
+    ],
+    "repair": [
+      {
+        "value": "square",
+        "name": "Square patch",
+        "count": "60"
+      },
+      {
+        "value": "round",
+        "name": "Round patch",
+        "count": "60"
+      },
+      {
+        "value": "twin",
+        "name": "Twin patches",
+        "count": "60"
+      },
+      {
+        "value": "slash",
+        "name": "Diagonal darn",
+        "count": "60"
+      },
+      {
+        "value": "ladder",
+        "name": "Ladder mend",
+        "count": "60"
+      },
+      {
+        "value": "corners",
+        "name": "Corner patches",
+        "count": "60"
+      },
+      {
+        "value": "pocket",
+        "name": "Patch pocket",
+        "count": "60"
+      }
+    ],
+    "tag": [
+      {
+        "value": "ticket",
+        "name": "Clipped ticket",
+        "count": "140"
+      },
+      {
+        "value": "round",
+        "name": "Round tag",
+        "count": "140"
+      },
+      {
+        "value": "swallowtail",
+        "name": "Swallowtail tag",
+        "count": "140"
+      }
+    ],
+    "stitch": [
+      {
+        "value": "running",
+        "name": "Running stitch",
+        "count": "210"
+      },
+      {
+        "value": "crossed",
+        "name": "Cross stitch",
+        "count": "210"
+      }
+    ]
+  }
+}

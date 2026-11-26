@@ -1,0 +1,292 @@
+/* Pair detail: read-only price chart and the Trade externally card (SH-012, SH-013). Loaded after pair.css. */
+/* ── Price chart ───────────────────────────────────────────── */
+.sh-chart__price {
+  color: var(--sh-text);
+  font-size: var(--sh-type-body-lg);
+  font-weight: 750;
+}
+
+.sh-chart__price .sh-muted {
+  font-size: var(--sh-type-caption);
+  font-weight: 600;
+}
+
+.sh-timeframes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.sh-timeframe {
+  min-width: 56px;
+  min-height: var(--sh-touch-target);
+  padding: 0 14px;
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface);
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-label);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.sh-timeframe[aria-pressed='true'] {
+  border-color: var(--sh-accent);
+  background: var(--sh-selected);
+  color: var(--sh-text);
+  box-shadow: inset 0 -2px 0 var(--sh-accent);
+}
+
+.sh-timeframe[aria-pressed='true']:focus-visible {
+  box-shadow:
+    0 0 0 7px var(--sh-focus-halo),
+    inset 0 -2px 0 var(--sh-accent);
+}
+
+.sh-chart__frame {
+  width: 100%;
+  overflow: hidden;
+}
+
+.sh-chart__svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.sh-chart__grid {
+  stroke: var(--sh-border);
+  stroke-dasharray: 3 4;
+}
+
+.sh-chart__label {
+  fill: var(--sh-text-muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.sh-chart__line {
+  fill: none;
+  stroke: var(--sh-positive);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.sh-chart__dot,
+.sh-chart__last {
+  fill: var(--sh-positive);
+}
+
+.sh-chart__last {
+  stroke: var(--sh-canvas);
+  stroke-width: 2;
+}
+
+.sh-chart__hatch {
+  stroke: rgba(255, 209, 122, 0.35);
+  stroke-width: 2;
+}
+
+.sh-chart__gap-line {
+  stroke: var(--sh-warning);
+  stroke-dasharray: 4 4;
+}
+
+.sh-chart__gap-label {
+  fill: var(--sh-warning);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.sh-chart__note {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+}
+
+.sh-chart__table summary,
+.sh-chart__table summary:focus-visible {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--sh-touch-target);
+  color: var(--sh-accent);
+  font-size: var(--sh-type-label);
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.sh-chart__table table,
+.sh-gates {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--sh-type-label);
+}
+
+.sh-chart__table th,
+.sh-chart__table td,
+.sh-gates th,
+.sh-gates td {
+  padding: 8px 10px 8px 0;
+  border-bottom: 1px solid var(--sh-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.sh-chart__table thead th,
+.sh-gates thead th {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 700;
+}
+
+.sh-chart__table td {
+  color: var(--sh-text);
+}
+
+.sh-chart__empty {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 28px 16px;
+  border: 1px dashed var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  text-align: center;
+}
+
+.sh-chart__empty-title {
+  color: var(--sh-text);
+  font-weight: 700;
+}
+
+/* ── Trade externally ──────────────────────────────────────── */
+.sh-trade {
+  border-color: rgba(167, 139, 250, 0.4);
+}
+
+.sh-destinations {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-destination {
+  display: flex;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px dashed var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  background: rgba(8, 13, 22, 0.35);
+}
+
+.sh-destination[data-route='available'] {
+  border-style: solid;
+}
+
+.sh-destination__icon {
+  flex: none;
+  margin-top: 2px;
+  color: var(--sh-text-muted);
+}
+
+.sh-destination__body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.sh-destination__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 8px;
+}
+
+.sh-destination__provider,
+.sh-destination__link {
+  color: var(--sh-text);
+  font-weight: 700;
+}
+
+.sh-destination__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--sh-touch-target);
+}
+
+.sh-destination__kind,
+.sh-destination__host {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+}
+
+.sh-destination__reason {
+  font-size: var(--sh-type-label);
+  line-height: 1.4;
+}
+
+.sh-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+}
+
+.sh-identity > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Not upper-cased: these labels carry case-sensitive tickers (AAPLx-DEMO). */
+.sh-identity dt {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 700;
+}
+
+.sh-fee-terms {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface-raised);
+  color: var(--sh-text);
+  font-size: var(--sh-type-label);
+  font-weight: 600;
+}
+
+.sh-fee-terms__label {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.sh-notice-card {
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid rgba(255, 209, 122, 0.55);
+  border-radius: var(--sh-radius-control);
+  background: rgba(43, 36, 18, 0.6);
+  font-size: var(--sh-type-label);
+  line-height: 1.45;
+}
+
+.sh-notice-card > .sh-glyph {
+  margin-top: 2px;
+  color: var(--sh-warning);
+}
+
+.sh-notice-card__title {
+  margin-bottom: 4px;
+  color: var(--sh-warning);
+  font-size: var(--sh-type-small);
+  font-weight: 750;
+}

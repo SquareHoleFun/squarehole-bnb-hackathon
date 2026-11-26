@@ -1,0 +1,549 @@
+[
+  {
+    "type": "function",
+    "name": "verify",
+    "inputs": [
+      {
+        "name": "r",
+        "type": "tuple",
+        "internalType": "struct BoxFactoryV2Planner.Release",
+        "components": [
+          {
+            "name": "factory",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "registry",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "listingRegistry",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "poolManager",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "weth",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "randomness",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "versionCodeHash",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "implementations",
+            "type": "address[24]",
+            "internalType": "address[24]"
+          }
+        ]
+      },
+      {
+        "name": "creator",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "s",
+        "type": "tuple",
+        "internalType": "struct BoxSpec",
+        "components": [
+          {
+            "name": "format",
+            "type": "uint16",
+            "internalType": "uint16"
+          },
+          {
+            "name": "version",
+            "type": "uint16",
+            "internalType": "uint16"
+          },
+          {
+            "name": "boxType",
+            "type": "uint8",
+            "internalType": "uint8"
+          },
+          {
+            "name": "tokenName",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "tokenSymbol",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "collectionName",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "collectionSymbol",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "n",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "firstId",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "pricing",
+            "type": "tuple",
+            "internalType": "struct Pricing",
+            "components": [
+              {
+                "name": "listingId",
+                "type": "uint32",
+                "internalType": "uint32"
+              },
+              {
+                "name": "token",
+                "type": "address",
+                "internalType": "address"
+              }
+            ]
+          },
+          {
+            "name": "raise",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "layout",
+            "type": "uint8",
+            "internalType": "uint8"
+          },
+          {
+            "name": "gradLayout",
+            "type": "uint8",
+            "internalType": "uint8"
+          },
+          {
+            "name": "launchFormat",
+            "type": "uint8",
+            "internalType": "uint8"
+          },
+          {
+            "name": "openAt",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "deadlineDays",
+            "type": "uint16",
+            "internalType": "uint16"
+          },
+          {
+            "name": "buyers",
+            "type": "tuple",
+            "internalType": "struct Side",
+            "components": [
+              {
+                "name": "a",
+                "type": "tuple",
+                "internalType": "struct Branch",
+                "components": [
+                  {
+                    "name": "leg",
+                    "type": "uint8",
+                    "internalType": "uint8"
+                  },
+                  {
+                    "name": "dest",
+                    "type": "uint8",
+                    "internalType": "uint8"
+                  },
+                  {
+                    "name": "legParams",
+                    "type": "bytes",
+                    "internalType": "bytes"
+                  },
+                  {
+                    "name": "destParams",
+                    "type": "bytes",
+                    "internalType": "bytes"
+                  }
+                ]
+              },
+              {
+                "name": "b",
+                "type": "tuple",
+                "internalType": "struct Branch",
+                "components": [
+                  {
+                    "name": "leg",
+                    "type": "uint8",
+                    "internalType": "uint8"
+                  },
+                  {
+                    "name": "dest",
+                    "type": "uint8",
+                    "internalType": "uint8"
+                  },
+                  {
+                    "name": "legParams",
+                    "type": "bytes",
+                    "internalType": "bytes"
+                  },
+                  {
+                    "name": "destParams",
+                    "type": "bytes",
+                    "internalType": "bytes"
+                  }
+                ]
+              },
+              {
+                "name": "split",
+                "type": "uint8",
+                "internalType": "uint8"
+              },
+              {
+                "name": "splitParams",
+                "type": "bytes",
+                "internalType": "bytes"
+              }
+            ]
+          },
+          {
+            "name": "sellers",
+            "type": "tuple",
+            "internalType": "struct Side",
+            "components": [
+              {
+                "name": "a",
+                "type": "tuple",
+                "internalType": "struct Branch",
+                "components": [
+                  {
+                    "name": "leg",
+                    "type": "uint8",
+                    "internalType": "uint8"
+                  },
+                  {
+                    "name": "dest",
+                    "type": "uint8",
+                    "internalType": "uint8"
+                  },
+                  {
+                    "name": "legParams",
+                    "type": "bytes",
+                    "internalType": "bytes"
+                  },
+                  {
+                    "name": "destParams",
+                    "type": "bytes",
+                    "internalType": "bytes"
+                  }
+                ]
+              },
+              {
+                "name": "b",
+                "type": "tuple",
+                "internalType": "struct Branch",
+                "components": [
+                  {
+                    "name": "leg",
+                    "type": "uint8",
+                    "internalType": "uint8"
+                  },
+                  {
+                    "name": "dest",
+                    "type": "uint8",
+                    "internalType": "uint8"
+                  },
+                  {
+                    "name": "legParams",
+                    "type": "bytes",
+                    "internalType": "bytes"
+                  },
+                  {
+                    "name": "destParams",
+                    "type": "bytes",
+                    "internalType": "bytes"
+                  }
+                ]
+              },
+              {
+                "name": "split",
+                "type": "uint8",
+                "internalType": "uint8"
+              },
+              {
+                "name": "splitParams",
+                "type": "bytes",
+                "internalType": "bytes"
+              }
+            ]
+          },
+          {
+            "name": "artMode",
+            "type": "uint8",
+            "internalType": "uint8"
+          },
+          {
+            "name": "revealRoot",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "metadataTable",
+            "type": "bytes",
+            "internalType": "bytes"
+          },
+          {
+            "name": "generatorHash",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "coverSha256",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "revealListId",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "marketplaceOwner",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "creatorFeeRecipient",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "creatorBuy",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "collectionCoverSha256",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "addOns",
+            "type": "tuple[]",
+            "internalType": "struct AddOn[]",
+            "components": [
+              {
+                "name": "id",
+                "type": "uint16",
+                "internalType": "uint16"
+              },
+              {
+                "name": "params",
+                "type": "bytes",
+                "internalType": "bytes"
+              }
+            ]
+          },
+          {
+            "name": "contentsParams",
+            "type": "bytes",
+            "internalType": "bytes"
+          },
+          {
+            "name": "pickFeeBps",
+            "type": "uint16",
+            "internalType": "uint16"
+          }
+        ]
+      },
+      {
+        "name": "p",
+        "type": "tuple",
+        "internalType": "struct BoxFactoryV2Planner.Plan",
+        "components": [
+          {
+            "name": "specHash",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "templateId",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "salt",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "coordinatorInit",
+            "type": "bytes",
+            "internalType": "bytes"
+          },
+          {
+            "name": "hookInit",
+            "type": "bytes",
+            "internalType": "bytes"
+          },
+          {
+            "name": "codes",
+            "type": "bytes[]",
+            "internalType": "bytes[]"
+          },
+          {
+            "name": "nonces",
+            "type": "bytes",
+            "internalType": "bytes"
+          },
+          {
+            "name": "roles",
+            "type": "address[24]",
+            "internalType": "address[24]"
+          },
+          {
+            "name": "q",
+            "type": "tuple",
+            "internalType": "struct QParameters",
+            "components": [
+              {
+                "name": "bootstrapQ",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "batchMinQ",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "tipMaxQ",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "swapStepMinQ",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ]
+          },
+          {
+            "name": "payment",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "boxId",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "chunkRoots",
+            "type": "bytes32[2]",
+            "internalType": "bytes32[2]"
+          },
+          {
+            "name": "chunkLengths",
+            "type": "uint256[2]",
+            "internalType": "uint256[2]"
+          }
+        ]
+      },
+      {
+        "name": "boxId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "view"
+  },
+  {
+    "type": "error",
+    "name": "CentreOutOfRange",
+    "inputs": [
+      {
+        "name": "sqrtPriceX96",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "CurveOutOfRange",
+    "inputs": [
+      {
+        "name": "tickLower",
+        "type": "int24",
+        "internalType": "int24"
+      },
+      {
+        "name": "tickUpper",
+        "type": "int24",
+        "internalType": "int24"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "CurveTooLarge",
+    "inputs": [
+      {
+        "name": "curveT",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "Miswired",
+    "inputs": [
+      {
+        "name": "check",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "NoExactLiquidity",
+    "inputs": [
+      {
+        "name": "raise",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "RaiseIsZero",
+    "inputs": []
+  }
+]

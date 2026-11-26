@@ -1,0 +1,32 @@
+/**
+ * Copied unchanged for SH-281 from the platform (apps/web/src/features/box-picture/cast.ts at main b8fbcef9).
+ *
+ * SH-251: the explainer cast's flat figures (the Shape Theatre), as the picture draws them: each figure's body and face
+ * paths, traced from its standing sprite. Copied unchanged from docs/marketing/explainers/cast/icons.json on the landing
+ * branch (origin/backup/2026-11-10/sh-landing-founder, sha256 cf421fd96f4700dda6ed3852a60726866307c2fce0c6c0c725f997d19ba4982a),
+ * where cast/trace.mjs made them. Data only: no words, no colours (the picture's stylesheet colours them).
+ */
+export interface CastFigure {
+  /** The path's own box: width and height in its units. */
+  readonly w: number;
+  readonly h: number;
+  readonly body: string;
+  readonly face: string;
+}
+
+export type CastId = 'creator' | 'visitor' | 'holder' | 'crowd';
+
+export const CAST: Readonly<Record<CastId, CastFigure>> = Object.freeze({
+  creator: { w: 99, h: 96,
+    body: 'M44.2 1.5L50.5 1.1L56.5 6.7L65.5 25.7L88.5 28.1L95.5 33.3L97.8 36.5L98 40.5L95.7 44.5L78 61.5L82.2 84.5L81.6 88.5L78.5 91.8L74.5 92.7L71.5 91.9L50.5 81.9L30.5 93.9L25.5 95.3L20.5 93L17.2 86.5L16.4 81.5L20.5 61.5L4.3 47.5L1.2 41.5L1 35.5L5.5 31.2L30.5 27.2L41.1 4.5Z',
+    face: 'M60.3 49.5L63.5 49.1L66 52.5L65.8 57.5L64.5 59.5L62.5 60.8L59.5 59.7L58.2 57.5L58.2 52.5ZM39.4 50.5L41.5 49.9L43.5 50.4L45.7 54.5L44.7 59.5L43.5 60.9L41.5 61.8L38.5 60.2L37.2 57.5L37.3 53.5ZM45.1 66.5L45.5 66.2L51.5 68.8L54.5 67.8L57.5 65.8L58.8 66.5L56.5 68.9L51.5 70.5L46.5 68.9L45 67.5Z' },
+  visitor: { w: 102, h: 96,
+    body: 'M48.3 0.5L54.5 2L64.9 13.5L99.9 73.5L101.4 79.5L100.8 84.5L95.5 89.9L91.5 91L27.5 94.9L10.5 94.8L6.5 92.7L3.2 88.5L0.5 79.5L1.1 73.5L38.2 7.5L43.5 2Z',
+    face: 'M65.5 55.5L67.5 56.1L68.8 57.5L69.8 59.5L69.9 63.5L68.7 66.5L67.5 67.7L64.5 68.5L62.7 67.5L61 65.5L60.7 61.5L62 57.5L63.5 56ZM42.5 56.5L45.5 57.9L46.7 59.5L47.2 61.5L46.7 66.5L44.5 69L42.5 69.8L39.5 68.2L38.2 66.5L37.8 64.5L38.1 60.5L39.1 58.5L40.5 57.2ZM59.9 74.5L60.5 74L61.5 74.5L60.5 76.6L57.3 78.5L54.5 79.1L49.8 78.5L46.2 75.5L47.5 74.8L50.5 76.7L53.5 77.4L56.5 76.8Z' },
+  holder: { w: 103, h: 96,
+    body: 'M60.5 1.5L73.5 1.1L86.5 7.1L94.9 14.5L99.1 20.5L101.9 27.5L102.6 36.5L99.9 47.5L91.8 59.5L53.5 95.2L19.5 67.7L11.3 59.5L4 47.5L1.1 39.5L0.5 32.5L1.3 26.5L4.3 18.5L10.9 10.5L18.5 5.1L27.5 2.1L36.5 2L43.5 4L49.5 7.6Z',
+    face: 'M64.9 44.5L67.5 43.8L69.4 44.5L70.6 45.5L72 48.5L71.9 53.5L70.9 55.5L68.5 57.9L65.5 58L62.3 54.5L62.1 48.5ZM39.9 45.5L43.5 44.9L45.6 46.5L46.8 48.5L47.3 51.5L46.7 55.5L43.5 58.9L39.8 58.5L38.5 57.4L37.2 54.5L37.2 49.5L38 47.5ZM61.1 64.5L62.5 64.2L62.9 65.5L60.9 67.5L55.5 69.8L53.5 69.8L49.5 68.5L46.7 66.5L46.3 65.5L47.5 64.9L50.5 66.7L54.5 67.8L57.5 66.9Z' },
+  crowd: { w: 96, h: 96,
+    body: 'M38.8 1.5L49.5 0.8L60.5 2.2L75.5 9.3L86.6 20.5L93.8 36.5L94.7 54.5L91.9 65.5L88.8 71.5L82.1 80.5L75.2 86.5L67.5 90.9L59.5 93.7L41.5 94.7L30.5 91.9L22.5 87.7L9.4 75.5L4.3 66.5L2.1 59.5L1.2 40.5L4.2 29.5L9.1 20.5L20.5 9.1L29.5 4.1Z',
+    face: 'M70.5 38.5L72.5 38.8L74.9 40.5L76.8 44.5L77 46.5L76.8 50.5L75.6 53.5L73.5 55.6L71.5 56.2L69.5 56L67.2 54.5L65.5 50.5L65 47.5L66.2 41.5L68.5 39ZM37.5 40.5L40.5 39.6L43.2 40.5L45.7 43.5L46.8 47.5L46.8 50.5L45.5 54.5L43.5 56.8L40.5 57.8L37.5 56.8L36.1 55.5L34.1 50.5L34.3 45.5L36.2 41.5ZM64.9 64.5L65.5 64.2L66.8 65.5L65.3 67.5L60.5 70.6L56.5 71.5L51.5 70.8L46.5 67.7L45.8 66.5L46.5 65.2L47.5 65.1L51.5 67.7L56.5 68.7L60.5 67.5Z' },
+});

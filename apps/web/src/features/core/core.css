@@ -1,0 +1,138 @@
+/* Core v1 box page cards (S10a § 5): label-value rows, numbers first; the activity list; the contracts by role. */
+.sh-core-facts {
+  display: grid;
+  gap: var(--sh-gap-2);
+  margin: 0;
+}
+
+.sh-core-facts__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sh-gap-1) var(--sh-gap-3);
+  min-width: 0;
+}
+
+.sh-core-facts__row dt {
+  color: var(--sh-text-muted);
+  font-size: 0.875rem;
+}
+
+.sh-core-facts__row dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.sh-core-contracts .sh-core-facts__row dd {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sh-gap-2);
+}
+
+.sh-core-contracts__link {
+  display: inline-flex;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+}
+
+.sh-core-activity {
+  display: grid;
+  gap: var(--sh-gap-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-core-activity li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sh-gap-1) var(--sh-gap-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.sh-core-activity__amount {
+  margin-left: auto;
+}
+
+/* Core v2 (M1-53-b): "Close box" under the phase line, its one confirmation, and the token card's clone line. */
+.sh-v2-close {
+  display: grid;
+  gap: var(--sh-gap-2);
+  justify-items: start;
+}
+
+.sh-v2-close__confirm {
+  display: grid;
+  gap: var(--sh-gap-2);
+  max-width: 100%;
+  padding: var(--sh-gap-3);
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-control);
+  color: var(--sh-text);
+  font-size: var(--sh-type-small);
+  overflow-wrap: anywhere;
+}
+
+.sh-v2-close__confirm p {
+  margin: 0;
+}
+
+.sh-v2-close__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sh-gap-2);
+}
+
+.sh-v2-close__error {
+  color: var(--sh-negative);
+  font-weight: 650;
+}
+
+.sh-v2-clone {
+  margin: var(--sh-gap-2) 0 0;
+  font-size: var(--sh-type-small);
+  overflow-wrap: anywhere;
+}
+
+/* Box 0's draw, open and claim panel (SH-BOX0-ACTIONS, box0/Box0Actions.tsx). */
+.sh-box0-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sh-gap-2);
+  align-items: center;
+  min-width: 0;
+  padding: var(--sh-gap-4);
+  margin-block: var(--sh-gap-4);
+}
+.sh-box0-actions p {
+  margin: 0;
+}
+.sh-box0-actions__rows {
+  flex-basis: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sh-box0-actions__rows li,
+.sh-box0-actions__claim {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sh-gap-2);
+  padding-block: var(--sh-gap-1);
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
+}
+.sh-box0-actions__claim {
+  flex-basis: 100%;
+}
+.sh-box0-actions [role='group'],
+.sh-box0-actions [role='status'] {
+  flex-basis: 100%;
+}

@@ -1,0 +1,608 @@
+# The indexer stack on the droplet (docs/runbooks/server.md): Postgres 16 (the history), the core v1 indexer and its
+# read-only gateway (packages/indexer, `start:core`), the card service (packages/cards: the link-preview cards, F81 CF1)
+# and Caddy, the only public listener (80 and 443, IPv4; only Cloudflare's ranges get through: origin-firewall.sh).
+# Docker publishes ports past ufw, so nothing else is published except the gateway and the card service on 127.0.0.1
+# (checks from the server itself); Postgres sits on an internal network with no route out. Run by root through systemd (squarehole-stack.service) from
+# /srv/squarehole/current/infra/server; `.env` there holds SH_RELEASE (the commit, written by install.sh). Secrets come
+# only from root-only files in /etc/squarehole, never from this repository.
+# Keeper (including drand), burn-bot, reveal and the CoW order poster are outbound workers. Missing private env files
+# leave them disabled; enabling defaults to dry-run. Their mounts, journals and network are separate from the public
+# hosting services.
+name: squarehole
+
+x-logging: &logging
+  # Docker rotates each container's log: 5 files of 10 MB.
+  driver: local
+  options:
+    max-size: 10m
+    max-file: "5"
+
+services:
+  postgres:
+    image: postgres:16.15-trixie@sha256:1a6ab3f5345eb6dbe04a1349529caabdb0ab09293a09590fad07b2246bfa4b54
+    restart: unless-stopped
+    env_file:
+      # POSTGRES_PASSWORD, made on the server by install.sh (openssl rand -hex 32); used when the volume is first made.
+      - path: /etc/squarehole/db.env
+        required: true
+    environment:
+      POSTGRES_USER: squarehole
+      POSTGRES_DB: squarehole_history
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks: [backend]
+    shm_size: 256mb
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U squarehole -d squarehole_history"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 30s
+    stop_grace_period: 60s
+    logging: *logging
+
+  indexer:
+    image: squarehole-indexer:${SH_RELEASE:?SH_RELEASE is written to .env by install.sh}
+    pull_policy: never
+    build:
+      context: ../..
+      dockerfile: infra/server/indexer.Dockerfile
+    restart: unless-stopped
+    # Overrides the image's short startup grace: a cold history replay may keep the gateway unavailable.
+    # Docker reports unhealthy but does not restart it; squarehole-indexer-heal.timer handles bounded recovery.
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:5394/healthz', {signal: AbortSignal.timeout(4000)}).then(r => process.exit(r.ok ? 0 : 1), () => process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30m
+    init: true
+    depends_on:
+      postgres:
+        condition: service_healthy
+    env_file:
+      # Later files win: committed keyless defaults, then the database password, then the founder's RPC slot.
+      - path: indexer.env
+        required: true
+      - path: /etc/squarehole/db.env
+        required: true
+      - path: /etc/squarehole/rpc.env
+        required: false
+    environment:
+      SH_CORE_MANIFEST: /manifests/11155111.json
+      SH_CORE_GATEWAY_HOST: 0.0.0.0
+      SH_CORE_GATEWAY_PORT: "5394"
+      SH_HISTORY: postgres
+      SH_HISTORY_PG_HOST: postgres
+      SH_HISTORY_PG_PORT: "5432"
+      SH_HISTORY_PG_DATABASE: squarehole_history
+      SH_HISTORY_PG_USER: squarehole
+      # Streams per visitor; Caddy's X-Forwarded-For names the visitor. Caddy reaches the gateway from a Docker network,
+      # whose subnet comes from Docker's default pools (172.17-31.x, 192.168.x); nothing outside reaches 5394.
+      SH_CORE_MAX_STREAMS_PER_CLIENT: "8"
+      SH_CORE_TRUSTED_PROXIES: 172.16.0.0/12,192.168.0.0/16
+    volumes:
+      # Mount the stable parent: atomic list replacements remain visible across releases.
+      - type: bind
+        source: /srv/squarehole/withheld
+        target: /srv/squarehole/withheld
+        read_only: true
+        bind:
+          create_host_path: false
+      # A folder, not a single file: a replaced manifest (a rename) is seen inside the container.
+      - /srv/squarehole/manifests:/manifests:ro
+    ports:
+      - "127.0.0.1:5394:5394"
+    networks: [backend, edge]
+    stop_grace_period: 30s
+    logging: *logging
+
+  cards:
+    # The link-preview cards: Caddy sends /card/* here. Reads the indexer inside the compose network (else the chain
+    # through the keyless RPCs in cards.env), the manifest the indexer reads, and nothing in /etc/squarehole. Read-only
+    # root file system; only its cache volume and 16 MiB /tmp are writable. WebP conversion uses pipes only.
+    image: squarehole-cards:${SH_RELEASE:?SH_RELEASE is written to .env by install.sh}
+    pull_policy: never
+    build:
+      context: ../..
+      dockerfile: infra/server/cards.Dockerfile
+    restart: unless-stopped
+    init: true
+    env_file:
+      - path: cards.env
+        required: true
+    environment:
+      SH_CARDS_HOST: 0.0.0.0
+      SH_CARDS_PORT: "5395"
+      SH_CARDS_INDEXER_ORIGIN: http://indexer:5394
+      SH_CARDS_MANIFEST: /manifests/11155111.json
+      SH_CARDS_CACHE_DIR: /cache
+    volumes:
+      # Mount the stable parent: atomic list replacements remain visible across releases.
+      - type: bind
+        source: /srv/squarehole/withheld
+        target: /srv/squarehole/withheld
+        read_only: true
+        bind:
+          create_host_path: false
+      - /srv/squarehole/manifests:/manifests:ro
+      - cards_cache:/cache
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    # One card is drawn at a time; the indexer and Postgres keep the other CPU and most of the memory.
+    cpus: 1.0
+    mem_limit: 1024m
+    ports:
+      - "127.0.0.1:5395:5395"
+    networks: [edge]
+    stop_grace_period: 10s
+    logging: *logging
+
+  alpha-api:
+    image: squarehole-alpha-api:${SH_RELEASE:?SH_RELEASE is written to .env by install.sh}
+    pull_policy: never
+    build:
+      context: ../..
+      dockerfile: infra/server/services/alpha/Dockerfile
+    restart: unless-stopped
+    init: true
+    env_file:
+      - path: /etc/squarehole/alpha-api.env
+        required: false
+        format: raw
+    # Startup reads the root-only cookie HMAC, then permanently drops to uid/gid 2101 plus read group 2103.
+    user: "0:0"
+    volumes:
+      - type: bind
+        source: /etc/squarehole/alpha-api
+        target: /run/alpha-config
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: /srv/squarehole/alpha/queue
+        target: /srv/squarehole/alpha/queue
+        read_only: false
+        bind:
+          create_host_path: false
+      - type: bind
+        source: /srv/squarehole/alpha/receipts
+        target: /srv/squarehole/alpha/receipts
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: /srv/squarehole/alpha/state
+        target: /srv/squarehole/alpha/state
+        read_only: false
+        bind:
+          create_host_path: false
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    cap_drop: [ALL]
+    cap_add: [SETUID, SETGID]
+    security_opt: ["no-new-privileges:true"]
+    cpus: 0.5
+    mem_limit: 256m
+    pids_limit: 64
+    networks: [alpha]
+    stop_grace_period: 10s
+    logging: *logging
+
+  keeper:
+    image: squarehole-keeper:${SH_RELEASE:?SH_RELEASE is written to .env by install.sh}
+    pull_policy: never
+    build:
+      context: ../..
+      dockerfile: packages/keeper/Dockerfile
+    restart: unless-stopped
+    init: true
+    # Absent env means disabled. The founder enables dry-run, then explicitly selects live.
+    env_file:
+      - path: /etc/squarehole/keeper.env
+        required: false
+        format: raw
+    volumes:
+      - type: bind
+        source: /etc/squarehole/keeper
+        target: /run/service-config
+        read_only: true
+        bind:
+          create_host_path: false
+      - keeper_state:/state
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    cpus: 0.5
+    mem_limit: 512m
+    pids_limit: 64
+    networks: [workers]
+    stop_grace_period: 60s
+    logging: *logging
+
+  keeper-set:
+    image: squarehole-keeper:${SH_RELEASE:?SH_RELEASE is written to .env by install.sh}
+    pull_policy: never
+    # Reuse the reviewed keeper image and its command/healthcheck; only this instance selects set mode.
+    environment:
+      SH_KEEPER_CORE_MANIFEST: /run/service-config/core.json
+      SH_KEEPER_SET_MANIFEST: /run/service-config/set.json
+    restart: unless-stopped
+    init: true
+    # Absent env means disabled. The founder enables dry-run, then explicitly selects live.
+    env_file:
+      - path: /etc/squarehole/keeper-set.env
+        required: false
+        format: raw
+    volumes:
+      - type: bind
+        source: /etc/squarehole/keeper-set
+        target: /run/service-config
+        read_only: true
+        bind:
+          create_host_path: false
+      - keeper_set_state:/state
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    cpus: 0.5
+    mem_limit: 512m
+    pids_limit: 64
+    networks: [workers]
+    stop_grace_period: 60s
+    logging: *logging
+
+  burn-bot:
+    image: squarehole-burn-bot:${SH_RELEASE:?SH_RELEASE is written to .env by install.sh}
+    pull_policy: never
+    build:
+      context: ../..
+      dockerfile: packages/burn-bot/Dockerfile
+    restart: unless-stopped
+    init: true
+    # Absent env means disabled. The founder enables dry-run, then explicitly selects live.
+    env_file:
+      - path: /etc/squarehole/burn-bot.env
+        required: false
+        format: raw
+    volumes:
+      - type: bind
+        source: /etc/squarehole/burn-bot
+        target: /run/service-config
+        read_only: true
+        bind:
+          create_host_path: false
+      - burn_bot_state:/state
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    cpus: 0.5
+    mem_limit: 512m
+    pids_limit: 64
+    networks: [workers]
+    stop_grace_period: 60s
+    logging: *logging
+
+  reveal:
+    image: squarehole-reveal:${SH_RELEASE:?SH_RELEASE is written to .env by install.sh}
+    pull_policy: never
+    build:
+      context: ../..
+      dockerfile: infra/server/reveal.Dockerfile
+    restart: unless-stopped
+    init: true
+    # Absent env means disabled. The founder enables dry-run, then explicitly selects live.
+    env_file:
+      - path: /etc/squarehole/reveal.env
+        required: false
+        format: raw
+    volumes:
+      - type: bind
+        source: /etc/squarehole/reveal
+        target: /run/service-config
+        read_only: true
+        bind:
+          create_host_path: false
+      # V2 secret paths keep their /etc/squarehole namespace. Same private source; no image/repository files.
+      - type: bind
+        source: /etc/squarehole/reveal
+        target: /etc/squarehole/reveal
+        read_only: true
+        bind:
+          create_host_path: false
+      - reveal_state:/state
+      - type: bind
+        source: /srv/squarehole/reveal-art
+        target: /art
+        read_only: true
+        bind:
+          create_host_path: false
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    cpus: 0.5
+    mem_limit: 512m
+    pids_limit: 64
+    networks: [workers]
+    stop_grace_period: 60s
+    logging: *logging
+
+  cow-poster:
+    # Our CoW order poster (docs/ops/cow-poster.md): reads each release's income inboxes over RPC and posts their
+    # contract-signed standing orders to CoW's order book after a quote, skipping a fee above 5%. It holds no key and
+    # sends no transaction. Absent env means disabled; enabled it is a dry run (quotes, never posts) until live.
+    image: squarehole-cow-poster:${SH_RELEASE:?SH_RELEASE is written to .env by install.sh}
+    pull_policy: never
+    build:
+      context: ../..
+      dockerfile: packages/cow-poster/Dockerfile
+    restart: unless-stopped
+    init: true
+    env_file:
+      # The flags, chain ID and read RPC URL (services/cow-poster.env.example); the URL may carry a credential.
+      - path: /etc/squarehole/cow-poster.env
+        required: false
+        format: raw
+    environment:
+      SH_COW_MANIFEST: /manifests/11155111.json
+      SH_COW_STATE_DIR: /state
+      SH_COW_HEALTH_FILE: /state/health.json
+    volumes:
+      # The indexer's manifest folder, read-only, and the poster's own posted-order reservations (never pruned).
+      - /srv/squarehole/manifests:/manifests:ro
+      - cow_poster_state:/state
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    cpus: 0.5
+    mem_limit: 512m
+    pids_limit: 64
+    networks: [workers]
+    stop_grace_period: 60s
+    logging: *logging
+
+  alpha-sender:
+    # Desk key worker; the keeper image already includes infra/server/services and its locked viem dependency.
+    # Reuses the keeper service's build: a second build of the same tag fails buildx bake ("already exists", ship 12).
+    image: squarehole-keeper:${SH_RELEASE:?SH_RELEASE is written to .env by install.sh}
+    pull_policy: never
+    restart: unless-stopped
+    init: true
+    # Root reads its 0700 key folder without DAC override; group 2103 reads the API queue.
+    user: "0:2103"
+    command: ["node", "infra/server/services/alpha-sender.mjs"]
+    healthcheck:
+      test: ["CMD", "node", "infra/server/services/alpha-sender.mjs", "--healthcheck"]
+      interval: 30s
+      timeout: 5s
+      start_period: 60s
+      retries: 3
+    env_file:
+      - path: /etc/squarehole/alpha-sender.env
+        required: false
+        format: raw
+    environment:
+      SH_ALPHA_CHAIN_ID: "11155111"
+    volumes:
+      - type: bind
+        source: /srv/squarehole/alpha/queue
+        target: /queue
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: /srv/squarehole/alpha/receipts
+        target: /receipts
+        bind:
+          create_host_path: false
+      # Do not inherit the keeper image's node-owned /state directory: this worker drops DAC override.
+      - type: volume
+        source: alpha_sender_state
+        target: /state
+        volume:
+          nocopy: true
+      - type: bind
+        source: /etc/squarehole/alpha-sender
+        target: /run/service-config
+        read_only: true
+        bind:
+          create_host_path: false
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    cpus: 0.5
+    mem_limit: 512m
+    pids_limit: 64
+    networks: [alpha_sender]
+    stop_grace_period: 60s
+    logging: *logging
+
+  agents:
+    image: squarehole-keeper:${SH_RELEASE:?SH_RELEASE is written to .env by install.sh}
+    pull_policy: never
+    restart: unless-stopped
+    init: true
+    # Root can read its 0600 keys, with no Linux capabilities and only its own output mount writable.
+    user: "0:0"
+    command: ["node", "infra/server/services/agents.mjs"]
+    healthcheck:
+      test: ["CMD", "node", "infra/server/services/agents.mjs", "--healthcheck"]
+      interval: 30s
+      timeout: 5s
+      start_period: 60s
+      retries: 3
+    # Missing environment means off. Enabling defaults to dry-run.
+    env_file:
+      - path: /etc/squarehole/agents.env
+        required: false
+        format: raw
+    environment:
+      SH_AGENTS_CHAIN_ID: "11155111"
+      SH_AGENTS_SERVER: "1"
+    volumes:
+      - type: bind
+        source: /etc/squarehole/agents
+        target: /run/service-config
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: /srv/squarehole/agents
+        target: /srv/squarehole/agents
+        bind:
+          create_host_path: false
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    cpus: 0.5
+    mem_limit: 512m
+    pids_limit: 64
+    networks: [agents]
+    stop_grace_period: 60s
+    logging: *logging
+
+  kubo:
+    # Kubo v0.43.1 (2026-09-14), the multi-arch index digest from registry-1.docker.io and the hub tag API (2026-10-23).
+    # Checked locally: infra/server/ipfs/start.sh starts it offline (no swarm, Gateway.NoFetch), a raw block round-trips
+    # byte for byte, an unknown block answers 404 without fetching.
+    image: ipfs/kubo:v0.43.1@sha256:b293923d66e490e70ced64df42ea7a6cf7eac2740e3fb29101df18070fa7be48
+    pull_policy: never
+    restart: unless-stopped
+    user: "1000:1000"
+    entrypoint: ["/bin/sh", "/opt/ipfs/start.sh"]
+    environment:
+      IPFS_PATH: /data/ipfs
+    volumes:
+      - ipfs_data:/data/ipfs
+      - ./ipfs/start.sh:/opt/ipfs/start.sh:ro
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,uid=1000,gid=1000,mode=1777
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    cpus: 0.5
+    mem_limit: 512m
+    pids_limit: 128
+    # No API, gateway or swarm port is published. Caddy is the only other member.
+    networks: [art]
+    healthcheck:
+      test: ["CMD-SHELL", "ipfs --api=/ip4/127.0.0.1/tcp/5001 id >/dev/null"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 60s
+    stop_grace_period: 60s
+    logging: *logging
+
+  ipfs-art:
+    # Caddy cannot sniff or hash response bodies. This dependency-free guard serves only checked raster blocks.
+    image: node:24.22.1-trixie-slim@sha256:43b9ba1142b8dcf33fa8f922ca1be85714adc444e0586c7cf7726daaeabc1bea
+    pull_policy: never
+    restart: unless-stopped
+    init: true
+    user: "1000:1000"
+    command: ["node", "/app/infra/server/ipfs/server.mjs"]
+    depends_on:
+      kubo:
+        condition: service_healthy
+        restart: true
+    # Kubo's API/gateway stay on loopback; only the guard's 8081 is visible to Caddy as kubo:8081.
+    network_mode: service:kubo
+    volumes:
+      # Mount the stable parent: atomic list replacements remain visible across releases.
+      - type: bind
+        source: /srv/squarehole/withheld
+        target: /srv/squarehole/withheld
+        read_only: true
+        bind:
+          create_host_path: false
+      - ./ipfs:/app/infra/server/ipfs:ro
+      - ../../packages/indexer/src/withheld:/app/packages/indexer/src/withheld:ro
+      - ../../scripts/ipfs/pin-raw-lib.mjs:/app/scripts/ipfs/pin-raw-lib.mjs:ro
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    cpus: 0.5
+    mem_limit: 128m
+    pids_limit: 64
+    stop_grace_period: 10s
+    logging: *logging
+
+  caddy:
+    image: squarehole-caddy:2.11.6-ratelimit
+    pull_policy: never
+    build:
+      context: .
+      dockerfile: caddy.Dockerfile
+    restart: unless-stopped
+    ports:
+      # IPv4 only (the droplet has no public IPv6; a [::] listener would be Docker's userland proxy, outside the
+      # DOCKER-USER allowlist).
+      - "0.0.0.0:80:80"
+      - "0.0.0.0:443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      # Stable parent mount: atomic app release switches and retained hashed assets are visible to Caddy.
+      - /srv/squarehole/app:/srv/app:ro
+      # Static landing from this release; no Functions or app runtime.
+      - ../../apps/landing/public:/srv/landing:ro
+      # The preview at alpha.squarehole.fun (SH-LANDING-ALPHA): a folder outside the releases, made by install.sh and
+      # filled by ship-alpha.sh. Mounted as a folder, so its `current` link, switched by a rename, is seen at once.
+      - /srv/squarehole/landing-alpha:/srv/landing-alpha:ro
+      # The generic card, answered for /card/* while the card service is down (the Caddyfile's handle_errors).
+      - ../../apps/web/public/share/square-hole-1200x630.jpg:/srv/card/generic.jpg:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks: [edge, art, alpha]
+    logging: *logging
+
+networks:
+  agents: {}
+  # Caddy and alpha-api only; outbound HTTPS fetches the configured Access team public keys.
+  alpha: {}
+  # Only the desk sender; outbound RPC, no peer services or published port.
+  alpha_sender: {}
+  # Only Caddy and the Kubo/guard namespace; no public-network route or consumer bypass of Caddy.
+  art:
+    internal: true
+  # Postgres and the indexer only; no route out.
+  backend:
+    internal: true
+  # Caddy, the indexer and the card service; the indexer and the card service reach the RPCs through it.
+  edge: {}
+  # Outbound-only workers: no public listener or access to Postgres/Caddy networks.
+  workers: {}
+
+volumes:
+  # Raw, explicitly pinned public artwork. Back up separately from Postgres; never prune on rollout/rollback.
+  ipfs_data: {}
+  pgdata: {}
+  caddy_data: {}
+  caddy_config: {}
+  # Finished cards (at most 4000, the oldest removed first): a restart or a new release draws nothing again.
+  cards_cache: {}
+  keeper_state: {}
+  keeper_set_state: {}
+  burn_bot_state: {}
+  reveal_state: {}
+  # The poster's UID reservations: one file per order it ever tried to post, so no order is posted twice.
+  cow_poster_state: {}
+  alpha_sender_state: {}

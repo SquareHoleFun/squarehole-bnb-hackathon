@@ -1,0 +1,379 @@
+/*
+ * Square Hole landing page. Colours, type and the mark come from the brand kit (dark first: navy canvas, lavender
+ * hole, white text). The page is dark in light and dark system settings alike, like the picture it shows.
+ * No inline styles and no scripts, so the Content-Security-Policy in _headers can stay strict.
+ */
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: fallback;
+  src: url('/fonts/plus-jakarta-sans-latin-wght-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  color-scheme: dark;
+  --canvas: #080d16;
+  --text: #f3f5fb;
+  --text-secondary: #b5c0d5;
+  --text-muted: #899ab6;
+  --accent: #a78bfa;
+  --font: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* The mark's tile; everything in the lockup is sized from it (brand kit, stacked lockup). */
+  --tile: 116px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--canvas);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+.page {
+  display: grid;
+  min-height: 100vh;
+  min-height: 100svh;
+  align-content: center;
+  justify-items: center;
+  padding-block: 32px;
+  overflow-x: clip;
+}
+
+.intro {
+  display: grid;
+  justify-items: center;
+  padding-inline: 16px;
+  text-align: center;
+}
+
+/*
+ * The mark. Its box is the tile plus 48/256 of the tile on every side (the loader's -48 -48 352 352 view), so a shape
+ * can appear above the tile inside the box. Every layer fills the box, so the keyframes' percentages mean the same at
+ * any size. The gap to the name below follows the stacked lockup (0.215 of the tile), minus the box's spare room.
+ */
+.mark {
+  position: relative;
+  width: calc(var(--tile) * 352 / 256);
+  height: calc(var(--tile) * 352 / 256);
+  margin-bottom: calc(var(--tile) * (0.215 - 48 / 256));
+  contain: layout paint;
+  isolation: isolate;
+}
+
+.mark__layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* The moving layers exist only where motion is allowed (below); otherwise the still mark shows. */
+.mark__flash,
+.mark__shape {
+  display: none;
+}
+
+/* The wordmark, outlined in the brand kit: as wide as 2.12 tiles, like the stacked lockup. */
+.name {
+  margin: 0;
+  width: calc(var(--tile) * 2.123);
+}
+
+.name img {
+  width: 100%;
+  height: auto;
+}
+
+.tagline {
+  margin: 20px 0 0;
+  color: var(--text-secondary);
+  font-size: 26px;
+  font-weight: 550;
+  letter-spacing: -0.005em;
+  line-height: 1.25;
+}
+
+/*
+ * The picture: as wide as the screen up to its own 1600 px, its edges faded into the canvas (it is dark at its edges
+ * already; the fade hides the spotlight's top edge and the last few pixels of difference).
+ */
+.stage {
+  display: block;
+  width: 100%;
+  max-width: 1600px;
+  margin-top: 40px;
+}
+
+.stage img {
+  width: 100%;
+  height: auto;
+  -webkit-mask-image:
+    linear-gradient(to bottom, transparent 0, #000 14%, #000 86%, transparent 100%),
+    linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to bottom, transparent 0, #000 14%, #000 86%, transparent 100%),
+    linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+  mask-composite: intersect;
+}
+
+.note {
+  margin: 24px 0 0;
+  padding-inline: 16px;
+  color: var(--text-muted);
+  font-size: 14px;
+  text-align: center;
+}
+
+/*
+ * The one link out: the account on X (DECISION-LOG F81 XK5), as quiet as the line above it. The X glyph is inline
+ * SVG in the text colour, so nothing is fetched. The padding makes a target of about 34 px without moving the text.
+ */
+.elsewhere {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  padding: 6px 10px;
+  color: var(--text-muted);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.elsewhere svg {
+  width: 12px;
+  height: 12px;
+  flex: none;
+}
+
+/* Hover only brightens it: an underline would run into the handle's own underscore. */
+.elsewhere:hover {
+  color: var(--text-secondary);
+}
+
+/* 404 */
+.lost {
+  display: grid;
+  justify-items: center;
+  gap: 20px;
+  padding-inline: 16px;
+  text-align: center;
+}
+
+.lost img {
+  width: 96px;
+  height: 96px;
+}
+
+.lost h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.lost p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+  box-shadow: 0 0 0 6px var(--canvas);
+}
+
+@media (max-width: 640px) {
+  :root {
+    --tile: 96px;
+  }
+
+  .tagline {
+    margin-top: 16px;
+    font-size: 21px;
+  }
+
+  .stage {
+    margin-top: 32px;
+  }
+}
+
+/*
+ * Phones, and any screen taller than it is wide (tablets upright, narrow windows), get the centre of the picture (2:1)
+ * instead of the 4:1 strip, which would shrink the cube to a few dozen pixels there. The centre is lit to its edges,
+ * so a fade would show as a blurred rectangle: it sits as a rounded card inside the page's side margins instead, at
+ * most as wide as its largest file. The same media query picks the picture in index.html.
+ */
+@media (max-width: 640px), (orientation: portrait) {
+  .stage {
+    max-width: 1232px;
+    padding-inline: 16px;
+  }
+
+  .stage img {
+    border-radius: 16px;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
+
+/*
+ * Motion (only when the system allows it): the logo loader of the app. The five shapes drop into the hole
+ * one every 1.6 s, after a 0.6 s beat, and keep looping (founder, 2026-10-04: "loop into the hole infinitely"); the hole
+ * glows as each goes in. Only transform and opacity move; the mark itself never rotates, skews or changes size.
+ *
+ * Rounds: the shapes, the glow and the flash all repeat without end, in step (8 s per round of five shapes).
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .mark__flash,
+  .mark__shape {
+    display: block;
+    opacity: 0;
+  }
+
+  .mark__glow {
+    animation: mark-glow 1.6s 0.6s infinite both;
+  }
+
+  .mark__flash {
+    animation: mark-flash 1.6s 0.6s infinite;
+  }
+
+  .mark__shape {
+    animation: mark-drop 8s 0.6s infinite;
+  }
+
+  .mark__shape--2 {
+    animation-delay: 2.2s;
+  }
+
+  .mark__shape--3 {
+    animation-delay: 3.8s;
+  }
+
+  .mark__shape--4 {
+    animation-delay: 5.4s;
+  }
+
+  .mark__shape--5 {
+    animation-delay: 7s;
+  }
+}
+
+@keyframes mark-glow {
+  0%,
+  50% {
+    opacity: 0.74;
+    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  }
+
+  58% {
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
+  }
+
+  100% {
+    opacity: 0.74;
+  }
+}
+
+@keyframes mark-flash {
+  0%,
+  51% {
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  }
+
+  58% {
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
+  }
+
+  90%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* One drop in the first fifth of 8 s (1.6 s): appear above the tile, settle, fall, squash into the hole, vanish. */
+@keyframes mark-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-36%) scale(0.5) rotate(-18deg);
+    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  }
+
+  2.8% {
+    opacity: 1;
+    transform: translateY(-36%) scale(1.04) rotate(-6deg);
+    animation-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
+  }
+
+  4.8% {
+    opacity: 1;
+    transform: translateY(-34.56%) scale(1.08, 0.86) rotate(-3deg);
+    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  }
+
+  6.2% {
+    opacity: 1;
+    transform: translateY(-37.08%) scale(0.96, 1.06) rotate(0deg);
+    animation-timing-function: cubic-bezier(0.32, 0, 0.67, 0);
+  }
+
+  10.4% {
+    opacity: 1;
+    transform: translateY(0%) scale(0.9, 0.94) rotate(0deg);
+    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  }
+
+  11.6% {
+    opacity: 1;
+    transform: translateY(1%) scale(0.96, 0.8) rotate(0deg);
+    animation-timing-function: cubic-bezier(0.32, 0, 0.67, 0);
+  }
+
+  15.2%,
+  100% {
+    opacity: 0;
+    transform: translateY(1%) scale(0.12) rotate(0deg);
+  }
+}

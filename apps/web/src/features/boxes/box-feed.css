@@ -1,0 +1,436 @@
+/*
+ * The box interface (SH-BOX-UI-launch; docs/design/box-concept/BOX-INTERFACE-v0.2.md): the feed of boxes (search, state chips, sort, cards, the List view).
+ * Every class is prefixed `sh-box-` (css-scope.test.ts); the shared tokens and parts are in box-base.css.
+ */
+
+/* ── Feed ──────────────────────────────────────────────────── */
+.sh-box-feed {
+  gap: var(--sh-gap-4);
+  max-width: 1240px;
+}
+
+.sh-box-feed__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+}
+
+.sh-box-feed__count {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+}
+
+/* "Launch a box" (F69 C1): the creation page, at the end of the feed's head line. */
+.sh-box-feed__create {
+  margin-left: auto;
+  align-self: center;
+}
+
+.sh-box-controls {
+  display: grid;
+  gap: var(--sh-gap-3);
+  min-width: 0;
+}
+
+.sh-box-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: var(--sh-touch-target);
+  padding: 0 12px;
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface);
+  color: var(--sh-text-muted);
+}
+
+.sh-box-search input {
+  flex: 1;
+  min-width: 0;
+  min-height: 40px;
+  border: 0;
+  background: transparent;
+  color: var(--sh-text);
+  font: inherit;
+}
+
+.sh-box-search input:focus {
+  outline: none;
+}
+
+.sh-box-search:focus-within {
+  border-color: var(--sh-focus-ring);
+  box-shadow: 0 0 0 2px var(--sh-focus-ring);
+}
+
+.sh-box-chips {
+  display: flex;
+  gap: 8px;
+  min-width: 0;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  scrollbar-width: thin;
+}
+
+.sh-box-chip {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-pill);
+  background: var(--sh-surface);
+  color: var(--sh-text-secondary);
+  font: inherit;
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.sh-box-chip[aria-pressed='true'] {
+  border-color: var(--sh-accent);
+  background: var(--sh-selected);
+  color: var(--sh-text);
+}
+
+.sh-box-chip__n {
+  color: var(--sh-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.sh-box-chip[data-state='window'] .sh-box-glyph {
+  color: var(--sh-box-window);
+}
+
+.sh-box-chip[data-state='upcoming'] .sh-box-glyph {
+  color: var(--sh-box-upcoming);
+}
+
+.sh-box-chip[data-state='bonding'] .sh-box-glyph {
+  color: var(--sh-box-bonding);
+}
+
+.sh-box-chip[data-state='graduating'] .sh-box-glyph {
+  color: var(--sh-box-graduating);
+}
+
+.sh-box-chip[data-state='graduated'] .sh-box-glyph {
+  color: var(--sh-box-graduated);
+}
+
+.sh-box-chip[data-state='failed'] .sh-box-glyph {
+  color: var(--sh-box-failed);
+}
+
+.sh-box-chips[hidden] {
+  display: none;
+}
+
+.sh-box-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sh-box-sort select {
+  width: auto;
+  max-width: 100%;
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface);
+  color: var(--sh-text);
+  font: inherit;
+  font-size: var(--sh-type-small);
+}
+
+.sh-box-seg {
+  display: inline-flex;
+  overflow: hidden;
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+}
+
+.sh-box-seg button {
+  min-height: 38px;
+  padding: 0 14px;
+  border: 0;
+  background: var(--sh-surface);
+  color: var(--sh-text-secondary);
+  font: inherit;
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.sh-box-seg button[aria-pressed='true'] {
+  background: var(--sh-selected);
+  color: var(--sh-text);
+}
+
+.sh-box-note {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-small);
+}
+
+.sh-box-note > p {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sh-box-empty {
+  display: grid;
+  gap: var(--sh-gap-2);
+  justify-items: start;
+  padding: 20px;
+}
+
+.sh-box-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: var(--sh-gap-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-box-card {
+  min-width: 0;
+}
+
+.sh-box-card__link {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-card);
+  background: var(--sh-panel-gradient);
+  box-shadow: var(--sh-panel-edge), var(--sh-elevation-1);
+  color: var(--sh-text-secondary);
+  text-decoration: none;
+  transition: border-color var(--sh-duration-fast) var(--sh-ease);
+}
+
+.sh-box-card__link:hover {
+  border-color: var(--sh-border-strong);
+}
+
+.sh-box-card__cover {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.sh-box-card__state {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+
+.sh-box-card__chain {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--sh-box-chip-bg);
+  color: var(--sh-box-eth);
+}
+
+.sh-box-featured {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 0 8px;
+  border: 1px solid var(--sh-accent);
+  border-radius: var(--sh-radius-pill);
+  background: var(--sh-selected);
+  color: var(--sh-text);
+  font-size: var(--sh-type-caption);
+  font-weight: 750;
+}
+
+.sh-box-card__body {
+  display: grid;
+  gap: 4px;
+  padding: 10px 12px 12px;
+  min-width: 0;
+}
+
+.sh-box-card__name {
+  overflow: hidden;
+  color: var(--sh-text);
+  font-size: var(--sh-type-body);
+  font-weight: 750;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sh-box-card__ticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+}
+
+.sh-box-card__pair,
+.sh-box-card__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+}
+
+.sh-box-card__figure {
+  color: var(--sh-text);
+  font-size: var(--sh-type-small);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.sh-box-card__rehearsal {
+  color: var(--sh-warning);
+}
+
+.sh-box-card__avatars {
+  --sh-box-avatar-size: 36px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.sh-box-card__notice {
+  width: fit-content;
+  padding: 0 7px;
+  border: 1px dashed var(--sh-warning);
+  border-radius: var(--sh-radius-pill);
+  color: var(--sh-warning);
+  font-size: var(--sh-type-caption);
+  font-weight: 700;
+}
+
+.sh-box-table .sh-box-card__notice {
+  display: block;
+  margin-top: 4px;
+}
+
+.sh-box-card--featured {
+  grid-column: 1 / -1;
+}
+
+.sh-box-card--featured .sh-box-card__link {
+  display: grid;
+  grid-template-columns: minmax(160px, 260px) minmax(0, 1fr);
+  align-items: center;
+}
+
+.sh-box-card--featured .sh-box-card__body {
+  gap: 6px;
+  padding: 16px 20px;
+}
+
+.sh-box-card--featured .sh-box-card__name {
+  font-size: var(--sh-type-section);
+}
+
+.sh-box-card--featured .sh-box-card__figure {
+  font-size: var(--sh-type-body-lg);
+}
+
+.sh-box-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-card);
+}
+
+.sh-box-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--sh-type-small);
+}
+
+.sh-box-table th,
+.sh-box-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--sh-border);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.sh-box-table thead th {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.sh-box-table__box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--sh-text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.sh-box-table__box small {
+  display: block;
+  color: var(--sh-text-muted);
+  font-weight: 600;
+}
+
+.sh-box-table__thumb {
+  width: 40px;
+  border-radius: 8px;
+}
+
+@media (max-width: 640px) {
+  .sh-box-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .sh-box-card--featured .sh-box-card__link {
+    grid-template-columns: 112px minmax(0, 1fr);
+  }
+
+  .sh-box-card--featured .sh-box-card__body {
+    padding: 10px 12px;
+  }
+
+  .sh-box-card--featured .sh-box-card__name {
+    font-size: var(--sh-type-body-lg);
+  }
+
+  .sh-box-card__body {
+    padding: 8px 10px 10px;
+  }
+
+  .sh-box-card__state {
+    top: 6px;
+    left: 6px;
+    font-size: 11px;
+  }
+
+  .sh-box-card__avatars {
+    --sh-box-avatar-size: 32px;
+    gap: 4px;
+  }
+}

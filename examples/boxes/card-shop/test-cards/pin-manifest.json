@@ -1,0 +1,88 @@
+{
+  "encoding": {
+    "imageSize": 700,
+    "imageFormat": "png"
+  },
+  "files": [
+    {
+      "path": "art/common-cards/1.png",
+      "role": "file",
+      "sha256": "0x2642d7cae96fa300cd7291fdab620441be1b176f8ecd215ad35b7b97bf9d24c8"
+    },
+    {
+      "path": "art/common-cards/2.png",
+      "role": "file",
+      "sha256": "0x7c8ee2ae02c1e4caadc7c9eff0df42a764fcfdf3fd078f81fa08fcc315bc533e"
+    },
+    {
+      "path": "art/common-cards/3.png",
+      "role": "file",
+      "sha256": "0xf6cb1add18af9bcc0bf32e2f1c593b755f7021aef62bb4c50ea3bacdf3ec7edc"
+    },
+    {
+      "path": "art/common-cards/4.png",
+      "role": "file",
+      "sha256": "0xcc49fee07ae72c5c31210d14a8137cb33d578dec9253568855f10e46318c74cc"
+    },
+    {
+      "path": "art/uncommon-cards/1.png",
+      "role": "file",
+      "sha256": "0x832c6270cb92a814d5f0460f4c01998ea4599e2409a5dc1aa3a4ba8512ca73c4"
+    },
+    {
+      "path": "art/uncommon-cards/2.png",
+      "role": "file",
+      "sha256": "0xd8c3136380ee99cc8c9cc5bebad7713a1024e108b79db6985fd676ef7d73285b"
+    },
+    {
+      "path": "art/uncommon-cards/3.png",
+      "role": "file",
+      "sha256": "0xe251c378e0ac33252d5a67d4a41697b8a917d455e3015b24727ad89b5f358cf4"
+    },
+    {
+      "path": "art/uncommon-cards/4.png",
+      "role": "file",
+      "sha256": "0x999435c237b8f2085f7b95e651d8680bbcc6da91e4782c1e613ef8ce81065ad7"
+    },
+    {
+      "path": "art/rare-cards/1.png",
+      "role": "file",
+      "sha256": "0xda4853e74522df95e2afc085a0b700e2d7c59ee1210a4235173431593e5c5473"
+    },
+    {
+      "path": "art/rare-cards/2.png",
+      "role": "file",
+      "sha256": "0xf3eeaabfc13aa9001c4650cd9b4ebc15a8a6e71cc0e3b643e871a64edca3a233"
+    },
+    {
+      "path": "art/rare-cards/3.png",
+      "role": "file",
+      "sha256": "0x07e13037e63b86981ae1a4ed37dd8f8f20f5c50a6f7e5b8072be9f5d3d8859c3"
+    },
+    {
+      "path": "art/rare-cards/4.png",
+      "role": "file",
+      "sha256": "0x1edbf31f89175358fa05940608bac416c3b115df86861465f2259ba536b4556f"
+    },
+    {
+      "path": "art/legendary-cards/1.png",
+      "role": "file",
+      "sha256": "0x9530ab80f8f03508f6614a1775050a0c02e18ee8092a751a5565db656e8c77f8"
+    },
+    {
+      "path": "art/legendary-cards/2.png",
+      "role": "file",
+      "sha256": "0x102b1683470453ba52f0a0a2fc311bf845c985363c1f54ae4c42362a36efdbe6"
+    },
+    {
+      "path": "art/legendary-cards/3.png",
+      "role": "file",
+      "sha256": "0x84a8b2549ee8b11d64e165d11ee7206c818b61f1b1386a15b7c72ad88ab3eb7f"
+    },
+    {
+      "path": "art/legendary-cards/4.png",
+      "role": "file",
+      "sha256": "0x8c738551c91e2703b0481923f38bca6322c1179dbc79675a19ea2a782387f86f"
+    }
+  ]
+}

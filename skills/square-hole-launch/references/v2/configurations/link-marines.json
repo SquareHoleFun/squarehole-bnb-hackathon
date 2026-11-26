@@ -1,0 +1,74 @@
+{
+  "format": "squarehole.boxspec-draft/2",
+  "network": "demo",
+  "configuration": "Link Marines",
+  "brief": "Worked Link Marines version 2 example. 420 open marines share the box’s 10 of 15 fee parts as LINK rations on both sides; owners claim outside shares and inside shares deepen the box’s own pool. Its registry row is ready: the local contract and browser lives pass; that is not a Sepolia deployment. Use kits/link-marines-v2.md for app settings and Sepolia bindings; this draft uses the offline demo menu.",
+  "status": "Demo example",
+  "site": {
+    "links": []
+  },
+  "spec": {
+    "format": 2,
+    "version": 2,
+    "boxType": "NEW_COLLECTION",
+    "tokenName": "Link Marines",
+    "tokenSymbol": "MARINE",
+    "collectionName": "Link Marines",
+    "collectionSymbol": "MARINE",
+    "description": "Demo: 420 open marines. Both fee sides pay LINK rations to outside owners; inside shares deepen the box pool. Rank changes no ration.",
+    "n": "420",
+    "firstId": "1",
+    "pricing": "LINK",
+    "raise": "LISTING",
+    "layout": "CURVE_V1",
+    "gradLayout": "FULL_RANGE",
+    "launchFormat": "CURVE",
+    "openAt": 0,
+    "deadlineDays": "90",
+    "buyers": {
+      "split": "NoSplit",
+      "a": {
+        "leg": "AsPaid",
+        "dest": "Items",
+        "destParams": {
+          "insidePolicy": "Depth"
+        }
+      }
+    },
+    "sellers": {
+      "split": "NoSplit",
+      "a": {
+        "leg": "AsPaid",
+        "dest": "Items",
+        "destParams": {
+          "insidePolicy": "Depth"
+        }
+      }
+    },
+    "artMode": "OPEN",
+    "revealRoot": "FROM_LAUNCH_FLOW",
+    "metadataTable": {
+      "formatV1": {
+        "traitTypes": []
+      }
+    },
+    "generatorHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coverSha256": "FROM_LAUNCH_FLOW",
+    "revealListId": "FROM_LAUNCH_FLOW",
+    "marketplaceOwner": "FROM_LAUNCH_FLOW",
+    "creatorFeeRecipient": "FROM_LAUNCH_FLOW",
+    "creatorBuy": "0",
+    "collectionCoverSha256": "FROM_LAUNCH_FLOW",
+    "addOns": [
+      {
+        "addOn": "royalties",
+        "params": {
+          "bps": 250,
+          "destination": "FEE_HANDLING"
+        }
+      }
+    ],
+    "contentsParams": "0x",
+    "pickFeeBps": "100"
+  }
+}

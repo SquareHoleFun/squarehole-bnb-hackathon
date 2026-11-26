@@ -1,0 +1,36 @@
+{
+  "id": "bag-holders",
+  "status": "inputs-required",
+  "protocol": "v2",
+  "chainId": "11155111",
+  "settingsFile": null,
+  "source": "examples/boxes/bag-holders/build/",
+  "settingsOwner": "L1 final settings, fully bound; existing templates are not final launch inputs",
+  "listing": {
+    "id": null,
+    "symbol": "tLINK",
+    "token": null,
+    "decimals": "18",
+    "class": "5",
+    "kind": "1",
+    "raise": "100000000000000000000"
+  },
+  "nativeRaise": "100000000000000000",
+  "bootstrapQ": null,
+  "evidenceBlock": null,
+  "cs": null,
+  "hs": null,
+  "inputs": {
+    "creator": null,
+    "factory": "0xFAe1E6CFF43CAdcBE01885BdD0AA6218263de393",
+    "listingId": null,
+    "assets": {},
+    "collections": {}
+  },
+  "roles": {
+    "coordinator": null,
+    "token": null
+  },
+  "pileSeed": null,
+  "hidden": false
+}

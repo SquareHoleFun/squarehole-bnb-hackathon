@@ -1,0 +1,421 @@
+/*
+ * The platform's top bar, copied from apps/web/src/shell/shell.css, shell-responsive.css and
+ * features/wallet/wallet.css (8da85a73): the same classes and values, so the bar looks the same on both pages.
+ * SH-280 STEP 3: the platform's frame: the side bar (.sh-nav) at wide widths, the icon rail from 641 to 1024 px, and
+ * at phone widths the menu button with the navigation under the bar (.sh-nav), as shell.css and shell-responsive.css.
+ */
+.sh-topbar, .sh-nav, .sh-footer {
+  word-spacing: normal;
+}
+.sh-footer {
+  grid-area: foot;
+  padding: var(--sh-gap-4) var(--sh-main-pad) var(--sh-gap-6);
+  border-top: 1px solid var(--sh-border);
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-label);
+}
+.sh-topbar {
+  position: sticky;
+  top: 0;
+  z-index: var(--sh-z-header);
+  display: flex;
+  align-items: center;
+  gap: var(--sh-gap-4);
+  height: var(--sh-topbar-h);
+  padding: 0 var(--sh-main-pad) 0 var(--sh-gap-4);
+  background: var(--sh-canvas);
+  border-bottom: 1px solid var(--sh-border);
+}
+.sh-icon-button {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: var(--sh-touch-target);
+  height: var(--sh-touch-target);
+  padding: 0;
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface);
+  color: var(--sh-text);
+  cursor: pointer;
+}
+.sh-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: none;
+  min-width: calc(var(--sh-sidebar-w) - var(--sh-gap-4));
+  border-radius: var(--sh-radius-control);
+  color: var(--sh-text);
+  text-decoration: none;
+}
+.sh-brand__logo {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+.sh-brand__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+.sh-brand__name {
+  font-size: 18px;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.sh-brand__tagline {
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-caption);
+  white-space: nowrap;
+}
+.sh-topbar__end {
+  display: flex;
+  align-items: center;
+  gap: var(--sh-gap-3);
+  flex: none;
+  margin-left: auto;
+}
+.sh-source-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  margin: 0;
+  padding: 0 var(--sh-gap-3);
+  border: 1px solid var(--sh-warning);
+  border-radius: var(--sh-radius-pill);
+  background: var(--sh-demo-bg);
+  color: var(--sh-warning);
+  font-size: var(--sh-type-label);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.sh-source-badge strong {
+  font-weight: 800;
+}
+.sh-source-badge__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sh-warning);
+}
+.sh-source-badge__short {
+  display: none;
+}
+.sh-icon {
+  flex: none;
+}
+.sh-wallet-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sh-gap-2);
+  flex: none;
+  min-width: var(--sh-touch-target);
+  min-height: var(--sh-touch-target);
+  padding: 0 var(--sh-gap-3);
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface);
+  color: var(--sh-text);
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color var(--sh-duration-fast) var(--sh-ease), background-color var(--sh-duration-fast) var(--sh-ease);
+}
+.sh-topbar__join {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--sh-touch-target);
+  padding: 0 0.875rem;
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-pill);
+  background: var(--sh-surface);
+  color: var(--sh-text);
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.sh-topbar__join-icon { display: none; }
+.sh-topbar__join:hover { background: var(--sh-surface-raised); }
+.sh-wallet-button:hover {
+  border-color: var(--sh-accent);
+  background: var(--sh-surface-raised);
+}
+.sh-wallet-button[data-wrong-network] {
+  border-color: var(--sh-warning);
+}
+.sh-wallet-button__name {
+  padding: 1px 6px;
+  border: 1px solid var(--sh-warning);
+  border-radius: var(--sh-radius-pill);
+  background: var(--sh-demo-bg);
+  color: var(--sh-warning);
+  font-size: var(--sh-type-caption);
+  font-weight: 800;
+  line-height: 1.3;
+}
+.sh-wallet-button__account {
+  font-variant-numeric: tabular-nums;
+}
+.sh-wallet-button__warning {
+  color: var(--sh-warning);
+  font-size: var(--sh-type-caption);
+  font-weight: 700;
+}
+.sh-wallet-button__compact {
+  position: relative;
+  display: none;
+  place-items: center;
+}
+.sh-wallet-button__dot {
+  position: absolute;
+  top: -4px;
+  right: -5px;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--sh-surface);
+  border-radius: 50%;
+  background: var(--sh-positive);
+}
+.sh-wallet-button[data-wrong-network] .sh-wallet-button__dot {
+  border-radius: 2px;
+  background: var(--sh-warning);
+}
+
+.sh-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sh-nav__link {
+  display: flex;
+  align-items: center;
+  gap: var(--sh-gap-3);
+  min-height: var(--sh-touch-target);
+  padding: 0 var(--sh-gap-3);
+  border-radius: var(--sh-radius-control);
+  color: var(--sh-text-secondary);
+  font-weight: var(--sh-weight-medium);
+  text-decoration: none;
+  transition: background-color var(--sh-duration-fast) var(--sh-ease);
+}
+.sh-nav__link:hover {
+  background: var(--sh-surface);
+  color: var(--sh-text);
+}
+
+@media (max-width: 1024px) {
+  .sh-brand {
+    min-width: 0;
+  }
+  .sh-brand__tagline {
+    display: none;
+  }
+  .sh-source-badge__long {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .sh-source-badge__short {
+    display: inline;
+  }
+  .sh-wallet-button {
+    justify-content: center;
+    width: var(--sh-touch-target);
+    padding: 0;
+  }
+  .sh-wallet-button__compact {
+    display: inline-grid;
+  }
+  .sh-wallet-button__text,
+  .sh-wallet-button__name,
+  .sh-wallet-button__account,
+  .sh-wallet-button__warning {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+@media (max-width: 640px) {
+  .sh-topbar {
+    position: static;
+    gap: var(--sh-gap-2);
+    height: var(--sh-topbar-h-compact);
+    padding: 0 var(--sh-main-pad-compact);
+  }
+  .sh-brand {
+    flex: 0 1 auto;
+    min-width: 0;
+    gap: var(--sh-gap-2);
+  }
+  .sh-topbar__join {
+    width: var(--sh-touch-target);
+    padding: 0;
+    border-radius: var(--sh-radius-control);
+  }
+  .sh-topbar__join-icon { display: inline-grid; }
+  .sh-topbar__join-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .sh-topbar:has(.sh-topbar__join) .sh-brand__text { display: none; }
+  .sh-brand__logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
+  .sh-brand__name {
+    font-size: var(--sh-type-body-lg);
+  }
+  .sh-topbar__end {
+    gap: var(--sh-gap-2);
+  }
+  .sh-source-badge {
+    padding: 0 10px;
+  }
+}
+@media (max-width: 480px) {
+  .sh-source-badge__short {
+    display: none;
+  }
+}
+@media (max-width: 400px) {
+  .sh-topbar,
+  .sh-topbar__end {
+    gap: var(--sh-gap-1);
+  }
+  .sh-brand__name {
+    white-space: normal;
+    line-height: 1.05;
+  }
+}
+@media (max-width: 359px) {
+  .sh-brand__text {
+    display: none;
+  }
+}
+
+/* SH-280 STEP 3: the page in the platform's grid: the bar across, the side bar, the page (apps/web/src/shell/shell.css). */
+#root {
+  display: grid;
+  grid-template-columns: var(--sh-sidebar-w) minmax(0, 1fr);
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: 'top top' 'nav main' 'nav foot';
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+#root > .sh-topbar {
+  grid-area: top;
+}
+#root > .sh-nav {
+  grid-area: nav;
+}
+#root > .main {
+  grid-area: main;
+  width: 100%;
+  min-width: 0;
+  /* The page's own rows keep their height; the grid's spare height stays below them. */
+  align-content: start;
+}
+.sh-topbar__menu {
+  display: none;
+}
+.sh-nav {
+  position: sticky;
+  top: var(--sh-topbar-h);
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-4);
+  height: calc(100vh - var(--sh-topbar-h));
+  height: calc(100dvh - var(--sh-topbar-h));
+  padding: var(--sh-gap-4) var(--sh-gap-3);
+  overflow-y: auto;
+  border-right: 1px solid var(--sh-border);
+}
+.sh-nav__link[aria-current='page'] {
+  background: var(--sh-selected);
+  color: var(--sh-text);
+  font-weight: var(--sh-weight-bold);
+  box-shadow: inset 3px 0 0 var(--sh-accent);
+}
+.sh-nav__link[aria-current='page'] .sh-icon {
+  color: var(--sh-accent);
+}
+@media (max-width: 1024px) {
+  #root {
+    grid-template-columns: var(--sh-rail-w, 88px) minmax(0, 1fr);
+  }
+  .sh-nav {
+    padding: var(--sh-gap-3) var(--sh-gap-2);
+  }
+  .sh-nav__link {
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--sh-gap-1);
+    min-height: 56px;
+    padding: var(--sh-gap-2) var(--sh-gap-1);
+    font-size: var(--sh-type-caption);
+    line-height: var(--sh-leading-tight);
+    text-align: center;
+  }
+}
+@media (max-width: 640px) {
+  #root {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas: 'top' 'nav' 'main' 'foot';
+  }
+  .sh-nav {
+    position: static;
+    display: none;
+    height: auto;
+    padding: var(--sh-gap-2) var(--sh-main-pad-compact) var(--sh-gap-4);
+    overflow: visible;
+    border-right: 0;
+    border-bottom: 1px solid var(--sh-border);
+  }
+  .sh-nav[data-open='true'] {
+    display: flex;
+  }
+  .sh-nav__link {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: var(--sh-gap-3);
+    min-height: 48px;
+    padding: 0 var(--sh-gap-3);
+    font-size: var(--sh-type-body);
+    text-align: left;
+  }
+  .sh-footer {
+    padding-inline: var(--sh-main-pad-compact);
+  }
+  .sh-topbar__menu {
+    display: inline-grid;
+  }
+  /* The read's age under the bar's end on a phone: the bar has room for the menu, the mark, the badge and the wallet only. */
+  .sh-topbar .stale {
+    position: absolute;
+    top: calc(var(--sh-topbar-h-compact) + var(--sh-gap-2));
+    right: var(--sh-main-pad-compact);
+  }
+}

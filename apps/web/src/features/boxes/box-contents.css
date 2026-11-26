@@ -1,0 +1,312 @@
+/*
+ * The box interface (SH-BOX-UI-launch; docs/design/box-concept/BOX-INTERFACE-v0.2.md): What's in the box? (the example tiles, the sheet, the composition, the sealed count). Every class is
+ * prefixed `sh-box-` (css-scope.test.ts); the shared tokens and parts are in box-base.css.
+ */
+
+/* Sneak peek and example tiles */
+.sh-box-peek {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-box-peek__tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  border: 1px solid var(--sh-border);
+  border-radius: 12px;
+  background: #111b2b;
+  color: var(--sh-text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+span.sh-box-peek__tile {
+  cursor: default;
+}
+
+.sh-box-peek__tile--empty {
+  aspect-ratio: 1;
+  border-style: dashed;
+  border-color: var(--sh-border-strong);
+  background: transparent;
+}
+
+.sh-box-peek__tile img,
+.sh-box-peek__tile .sh-box-toy {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+}
+
+.sh-box-peek__name {
+  padding: 6px 8px;
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+}
+
+/* The sheet (an example, the phone's counters): a panel on wide screens, a bottom sheet on phones */
+.sh-box-sheet__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--sh-z-drawer);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(4, 7, 12, 0.72);
+}
+
+.sh-box-sheet {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: min(440px, 100%);
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  padding: 16px;
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-card);
+  background: var(--sh-surface);
+  color: var(--sh-text-secondary);
+  box-shadow: var(--sh-elevation-3);
+}
+
+.sh-box-sheet__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sh-box-sheet__head h2 {
+  color: var(--sh-text);
+  font-size: 20px;
+  font-weight: 750;
+}
+
+.sh-box-sheet__art {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  background: #111b2b;
+}
+
+.sh-box-sheet__traits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sh-box-trait {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 6px 10px;
+  border: 1px solid var(--sh-border);
+  border-radius: 10px;
+  color: var(--sh-text);
+  font-weight: 700;
+}
+
+.sh-box-trait small {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 650;
+}
+
+/* Composition: the bar, and a key before every legend entry (the rare rows are one hatched part, at least 6 px) */
+.sh-box-comp__bar {
+  display: flex;
+  gap: 2px;
+  overflow: hidden;
+  height: 14px;
+  border-radius: var(--sh-radius-pill);
+  background: var(--sh-surface-raised);
+}
+
+.sh-box-comp__bar > span {
+  min-width: 3px;
+}
+
+.sh-box-comp__key {
+  display: inline-block;
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+.sh-box-comp__bar > span[data-key='1'],
+.sh-box-comp__key[data-key='1'] {
+  background: var(--sh-box-key-1);
+}
+
+.sh-box-comp__bar > span[data-key='2'],
+.sh-box-comp__key[data-key='2'] {
+  background: var(--sh-box-key-2);
+}
+
+.sh-box-comp__bar > span[data-key='3'],
+.sh-box-comp__key[data-key='3'] {
+  background: var(--sh-box-key-3);
+}
+
+.sh-box-comp__bar > span[data-key='4'],
+.sh-box-comp__key[data-key='4'] {
+  background: var(--sh-box-key-4);
+}
+
+.sh-box-comp__bar > span[data-key='5'],
+.sh-box-comp__key[data-key='5'] {
+  background: var(--sh-box-key-5);
+}
+
+.sh-box-comp__bar > span[data-key='6'],
+.sh-box-comp__key[data-key='6'] {
+  background: var(--sh-box-key-6);
+}
+
+.sh-box-comp__bar > span[data-key='rare'],
+.sh-box-comp__key[data-key='rare'] {
+  min-width: 6px;
+  background: var(--sh-box-key-rare);
+}
+
+.sh-box-comp__legend,
+.sh-box-comp__finishes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+}
+
+.sh-box-comp__legend li,
+.sh-box-comp__finishes li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sh-box-comp__legend strong,
+.sh-box-comp__finishes strong {
+  color: var(--sh-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.sh-box-comp__legend li[data-sealed] {
+  color: var(--sh-text-muted);
+}
+
+.sh-box-swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--sh-border-strong);
+  border-radius: 4px;
+}
+
+li[data-finish='Diamond'] .sh-box-swatch {
+  background: linear-gradient(135deg, #f1f9ff, #9fd8ff 45%, #c9b8ff);
+}
+
+li[data-finish='Glass'] .sh-box-swatch {
+  background: linear-gradient(135deg, rgba(159, 230, 224, 0.9), rgba(159, 230, 224, 0.22));
+}
+
+li[data-finish='Gold'] .sh-box-swatch {
+  background: linear-gradient(135deg, #ffe49a, #e0ad3e 55%, #a8741c);
+}
+
+.sh-box-facts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+}
+
+.sh-box-facts .sh-info-panel {
+  flex-basis: 100%;
+  font-weight: 400;
+}
+
+/* Sealed counts */
+.sh-box-sealed {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.sh-box-sealed img {
+  width: 72px;
+  height: 72px;
+  border-radius: 12px;
+}
+
+.sh-box-sealed dl {
+  display: flex;
+  gap: 24px;
+  margin: 0;
+}
+
+.sh-box-sealed dt {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.sh-box-sealed dd {
+  margin: 0;
+  color: var(--sh-text);
+  font-size: 24px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 640px) {
+  .sh-box-peek {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .sh-box-peek__name {
+    padding: 4px 6px;
+    font-size: 11px;
+  }
+
+  .sh-box-sheet__backdrop {
+    place-items: end stretch;
+    padding: 0;
+  }
+
+  .sh-box-sheet {
+    width: 100%;
+    border-radius: var(--sh-radius-card) var(--sh-radius-card) 0 0;
+  }
+}
+
+
+.sh-box-item-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 1rem; padding: 0; list-style: none; }
+.sh-box-item > img { display: block; width: 100%; height: auto; border-radius: 12px; }
+.sh-box-item > .sh-box-item__avatar { width: 64px; height: 64px; margin-block: 0.5rem; }
+.sh-box-item dl { font-size: 0.875rem; }
+.sh-box-item dl > div { display: flex; justify-content: space-between; gap: 1rem; }
+.sh-box-item dd { margin: 0; }
+.sh-box-item__model { width: 100%; aspect-ratio: 1; }
+.sh-box-item__model canvas { display: block; width: 100%; height: 100%; }

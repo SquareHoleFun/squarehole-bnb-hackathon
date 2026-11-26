@@ -1,0 +1,17 @@
+{
+  "name": "@squarehole/cow-poster",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Keyless CoW standing-order poster for core v2 income inboxes.",
+  "engines": { "node": "^24.22.1" },
+  "scripts": {
+    "start": "node --experimental-transform-types --no-warnings=ExperimentalWarning --import ../chain/scripts/register-ts.mjs src/main.ts",
+    "typecheck": "tsc --noEmit -p .",
+    "test": "vitest run --maxWorkers 4"
+  },
+  "dependencies": {
+    "@squarehole/chain": "workspace:*",
+    "viem": "2.56.8"
+  }
+}

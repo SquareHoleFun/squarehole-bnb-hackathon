@@ -1,0 +1,47 @@
+// Data source choice (SH-C): demo fixtures, the local anvil chain, or Sepolia once the build carries a deployment there. See data-source.ts.
+export {
+  DATA_LABELS,
+  SAMPLE_CHAIN_LABEL,
+  DATA_SOURCE_BADGES,
+  DATA_SOURCE_IDS,
+  DATA_SOURCE_KEY,
+  DEFAULT_DATA_SOURCE,
+  LOCAL_NOT_CONFIGURED,
+  SEPOLIA_HINT,
+  SEPOLIA_MARKET_ONLY_HINT,
+  SEPOLIA_NOT_DEPLOYED,
+  clearDataSource,
+  dataSourceOptions,
+  deploymentSummary,
+  effectiveDataSource,
+  isDataSourceId,
+  parseStoredDataSource,
+  readLastDataSourceChange,
+  readStoredDataSource,
+  resetDataSourceForTests,
+  saveDataSource,
+  subscribeDataSource,
+  useLastDataSourceChange,
+  useStoredDataSource,
+  type DataSourceBadge,
+  type DataSourceBuild,
+  type DataSourceChange,
+  type DataSourceId,
+  type DataSourceOption,
+  type DataSourceSaveResult,
+  type DeploymentSummary,
+} from './data-source';
+export {
+  BUILD_DEPLOYMENTS,
+  DataSourceProvider,
+  dataSourceValue,
+  useChainRuntime,
+  useChainRuntimeState,
+  useChainWriteTarget,
+  useDataSource,
+  type DataSourceProviderProps,
+  type DataSourceValue,
+} from './data-source-context';
+export { createChainSession, loadChainRuntime, type ChainRuntimeState, type ChainSession, type RuntimeLoader } from './chain-session';
+export type { ChainRuntime, ChainRuntimeInput } from './chain-runtime';
+export { SourceChip } from './SourceChip';

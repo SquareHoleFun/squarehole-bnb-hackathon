@@ -1,0 +1,31 @@
+{
+  "name": "@squarehole/cards",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "description": "The 1200 x 630 link-preview card of a box (F81 CF1): what a card says, the box read behind it (indexer gateway, then the registry row through a keyless RPC), the drawing (satori + resvg) and the small card service the droplet runs behind Caddy at api.squarehole.fun/card/... Read-only: no key, no wallet, no transaction.",
+  "exports": {
+    ".": "./src/index.ts",
+    "./render": "./src/render.ts",
+    "./engine": "./src/engine.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p .",
+    "start": "node --experimental-transform-types --no-warnings=ExperimentalWarning --import ./scripts/register-ts.mjs src/service/main.ts",
+    "fixture-gateway": "node --experimental-transform-types --no-warnings=ExperimentalWarning --import ./scripts/register-ts.mjs scripts/fixture-gateway.ts"
+  },
+  "dependencies": {
+    "@resvg/resvg-js": "2.6.2",
+    "@resvg/resvg-wasm": "2.6.2",
+    "@squarehole/artwork": "workspace:*",
+    "@squarehole/chain": "workspace:*",
+    "@squarehole/indexer": "workspace:*",
+    "satori": "0.28.2",
+    "sharp": "0.35.5",
+    "viem": "2.56.8"
+  },
+  "devDependencies": {
+    "@squarehole/box-spec": "workspace:*"
+  }
+}

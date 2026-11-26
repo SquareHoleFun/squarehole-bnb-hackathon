@@ -1,0 +1,54 @@
+{
+  "format": "rent-free/unique-traits/v1",
+  "count": "500",
+  "seed": "Rent Free / 500 little houses / no spare keys / proposal 1",
+  "traits": {
+    "house": [
+      { "value": "01", "label": "Cottage", "count": "42" },
+      { "value": "02", "label": "Townhouse", "count": "42" },
+      { "value": "03", "label": "Bungalow", "count": "42" },
+      { "value": "04", "label": "A-frame", "count": "42" },
+      { "value": "05", "label": "Awning", "count": "42" },
+      { "value": "06", "label": "Arch roof", "count": "42" },
+      { "value": "07", "label": "Clay roof", "count": "42" },
+      { "value": "08", "label": "Step gable", "count": "42" },
+      { "value": "09", "label": "Lean-to", "count": "41" },
+      { "value": "10", "label": "Clay dome", "count": "41" },
+      { "value": "11", "label": "Dormer", "count": "41" },
+      { "value": "12", "label": "Roof garden", "count": "41" }
+    ],
+    "door": [
+      { "value": "Plain panel", "count": "100" },
+      { "value": "Twin panels", "count": "100" },
+      { "value": "Stable panel", "count": "100" },
+      { "value": "Diamond pane", "count": "100" },
+      { "value": "Round pane", "count": "100" }
+    ],
+    "window": [
+      { "value": "Bare frame", "count": "125" },
+      { "value": "Clay sill", "count": "125" },
+      { "value": "Side shutters", "count": "125" },
+      { "value": "Rain hood", "count": "125" }
+    ],
+    "post": [
+      { "value": "Quiet post", "count": "100" },
+      { "value": "Pillar post", "count": "100" },
+      { "value": "Round post", "count": "100" },
+      { "value": "Wall post", "count": "100" },
+      { "value": "Parcel post", "count": "100" }
+    ],
+    "plant": [
+      { "value": "Two leaves", "count": "100" },
+      { "value": "Fan leaves", "count": "100" },
+      { "value": "Clover pot", "count": "100" },
+      { "value": "Tall sprig", "count": "100" },
+      { "value": "Twin pots", "count": "100" }
+    ],
+    "step": [
+      { "value": "Clay step", "count": "125" },
+      { "value": "Butter step", "count": "125" },
+      { "value": "Twin step", "count": "125" },
+      { "value": "Round step", "count": "125" }
+    ]
+  }
+}

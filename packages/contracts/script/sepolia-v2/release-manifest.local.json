@@ -1,0 +1,112 @@
+{
+  "box0": {
+    "coordinator": "0x3D7Ebc40AF7092E3F1C81F2e996cbA5Cae2090d7",
+    "executor": "0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9",
+    "fit": "0xF62849F9A0B5Bf2913b396098F7c7019b51A820a",
+    "registry": "0x3D7Ebc40AF7092E3F1C81F2e996cbA5Cae2090d7"
+  },
+  "chainId": "11155111",
+  "checks": "0x20e44E4633c2788059C601615e3A3F0F26E4c26c",
+  "factory": "0x7733D11E4D491339237701B62f936139D1cf2230",
+  "format": "squarehole.core-v2-release/1",
+  "implementationCodeHashes": [
+    "0x437337429d838c9f6014506bc174434f429428064366159e08ba6bf59f81b07a",
+    "0x342454ed30020fd5dd89050e751e37c5be0a94952420ee1e1135616d9dfe9dc5",
+    "0xeb00e02da3aebe3bf27306a92c6fd5afcb9e9c3f9c92b09292d1e3fb438bfcb5",
+    "0xc29f8ce01b1b739bcf8941bf543616fdfbb0c363c2ef1dd1a75f94d933b09ce1",
+    "0x6a5dd28d57bc2ba0f57680477a90c457980fd183187a86f78ab4e91731216ec7",
+    "0x58c73f542a0fd9228cf75abeb7dbc4b023c3b6517ab6ad66b4d31d7cd17fe6c9",
+    "0x39181b126b549ec15d57b4438506fe27ccb14767dae594ac1d40a49ddffe946b",
+    "0x923c5c4f197c998e979f20589822994418d54cb50c3d67f9ffb46043b34f9d48",
+    "0xf21e577b004b7c0312ff5dde6912977f07517ab1ee2719929b6043f5d536d608"
+  ],
+  "implementations": [
+    "0xbe43E36a0129D6EfdF9439cf1aF640ebCE19DCc4",
+    "0x532303ccDaebeF81c5D9854397AB91c1CA908f58",
+    "0xDA1E4510DE3f69028458c09fb2cE8130BA9FD077",
+    "0xb203eFED44B19c7816666B4e6ae11b4e1A45Cc3e",
+    "0x4ee8676F1927196970Ea1548153E031eC1A4a252",
+    "0x8B49C604a6759d2C2a544C2f745fe99F7e22DB81",
+    "0x00da3C4FE2adA9848c0d71E5F2e5F40242d0513B",
+    "0x4800d8252E0CFc7da151AE00FFa50d1476C5917A",
+    "0xBd94213184B16678d1894Fd7f7D2C00785D5AF7f"
+  ],
+  "listingRegistry": "0x67043a9eBFB047c1d8b8E532Df1323f37729d053",
+  "listings": {
+    "0": {
+      "bootstrapQ": "1500000000000000",
+      "decimals": "18",
+      "id": "0",
+      "lister": "0xa0Cb889707d426A7A386870A03bc70d1b0697598",
+      "raise": "4206980085000000000",
+      "token": "0x0000000000000000000000000000000000000000"
+    }
+  },
+  "observedBlock": "1",
+  "planner": "0x0571b3878ab76D0F4a63614f04D8b0e182aE7BB1",
+  "poolManager": "0x2e234DAe75C793f67A35089C9d99245E1C58470b",
+  "publicReleaseReady": false,
+  "randomness": "0xbeEcE13fBdd67D0A696cB7cfD28103Ed37ba79A6",
+  "registry": "0x833dA1148AA1A26ba8e3d438E695Fe3937657177",
+  "remainingProofs": "each Safe control transfer; payFit; payPlatform; conversion forward and co-signed return; deployment receipts; live seven-day hatch",
+  "safes": {
+    "fit": {
+      "address": "0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9",
+      "codeHash": "0x50dccdc1b3c78cef0f2e5873a2d3ac38ae147bb1d31869c89e8c1495e225fe01",
+      "controlTransferProof": "pending",
+      "guard": "0x0000000000000000000000000000000000000000",
+      "guardCodeHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "handler": "0x0000000000000000000000000000000000000000",
+      "handlerCodeHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "modulesEnabled": false,
+      "owners": [
+        "0x0000000000000000000000000000000000000b07",
+        "0x0000000000000000000000000000000000000F00",
+        "0x0000000000000000000000000000000000000bAc"
+      ],
+      "singleton": "0xA4AD4f68d0b91CFD19687c881e50f3A00242828c",
+      "singletonCodeHash": "0x08da107b84ceb194a76ba54629ca03e70c3583efa5b15c5b7a6bc044bd506323",
+      "threshold": "2",
+      "version": "1.4.1"
+    },
+    "conversion": {
+      "address": "0xc7183455a4C133Ae270771860664b6B7ec320bB1",
+      "codeHash": "0x50dccdc1b3c78cef0f2e5873a2d3ac38ae147bb1d31869c89e8c1495e225fe01",
+      "controlTransferProof": "pending",
+      "guard": "0x0000000000000000000000000000000000000000",
+      "guardCodeHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "handler": "0x0000000000000000000000000000000000000000",
+      "handlerCodeHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "modulesEnabled": false,
+      "owners": [
+        "0x0000000000000000000000000000000000000b07",
+        "0x0000000000000000000000000000000000000F00",
+        "0x0000000000000000000000000000000000000bAc"
+      ],
+      "singleton": "0xA4AD4f68d0b91CFD19687c881e50f3A00242828c",
+      "singletonCodeHash": "0x08da107b84ceb194a76ba54629ca03e70c3583efa5b15c5b7a6bc044bd506323",
+      "threshold": "2",
+      "version": "1.4.1"
+    },
+    "platform": {
+      "address": "0xa0Cb889707d426A7A386870A03bc70d1b0697598",
+      "codeHash": "0x50dccdc1b3c78cef0f2e5873a2d3ac38ae147bb1d31869c89e8c1495e225fe01",
+      "controlTransferProof": "pending",
+      "guard": "0x0000000000000000000000000000000000000000",
+      "guardCodeHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "handler": "0x15cF58144EF33af1e14b5208015d11F9143E27b9",
+      "handlerCodeHash": "0x3122d98f68ff0a8db5f446b2457a31449cd357b46931470a3909477ccddb24ef",
+      "modulesEnabled": false,
+      "owners": [
+        "0x0000000000000000000000000000000000000F00"
+      ],
+      "singleton": "0x15cF58144EF33af1e14b5208015d11F9143E27b9",
+      "singletonCodeHash": "0x3122d98f68ff0a8db5f446b2457a31449cd357b46931470a3909477ccddb24ef",
+      "threshold": "1",
+      "version": "1.5.0"
+    }
+  },
+  "status": "local-simulation",
+  "versionCodeHash": "0xf6db3ae2828a51c00e7b35dd70f0cf28a233bb21c35d2959be4eb1e61153cc4f",
+  "weth": "0xF62849F9A0B5Bf2913b396098F7c7019b51A820a"
+}

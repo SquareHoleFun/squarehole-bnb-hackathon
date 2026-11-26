@@ -1,0 +1,446 @@
+/*
+ * Rewards page (SH-014, SH-015): tester controls, the per-asset summary (counts, never sums) and claim cards. The
+ * claimable figure leads, as in the approved "Your Rewards" card, without its APY or USD claims (REFERENCE_OVERRIDES).
+ */
+.sh-rewards-page__list,
+.sh-portfolio__list {
+  display: grid;
+  gap: var(--sh-gap-4);
+  min-width: 0;
+}
+
+.sh-demo-controls {
+  display: grid;
+  gap: var(--sh-gap-3);
+  padding: var(--sh-gap-4);
+  border: 1px dashed var(--sh-warning);
+  border-radius: var(--sh-radius-card);
+  background: var(--sh-canvas);
+}
+
+.sh-demo-controls__title {
+  margin: 0;
+  font-size: var(--sh-type-body-lg);
+}
+
+.sh-demo-controls__for {
+  color: var(--sh-warning);
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+}
+
+.sh-demo-controls__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: var(--sh-gap-4);
+}
+
+.sh-demo-controls .sh-demo-controls__field {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.sh-claims-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sh-gap-2) var(--sh-gap-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+}
+
+.sh-claims-summary strong {
+  color: var(--sh-text);
+  font-size: var(--sh-type-body-lg);
+}
+
+.sh-claims-summary__note {
+  flex-basis: 100%;
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+}
+
+.sh-claims,
+.sh-positions {
+  display: grid;
+  gap: var(--sh-gap-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-claim {
+  display: grid;
+  gap: var(--sh-gap-4);
+  min-width: 0;
+  padding: var(--sh-gap-6);
+  scroll-margin-top: calc(var(--sh-topbar-h) + var(--sh-gap-4));
+}
+
+.sh-claim[data-selected] {
+  border-color: var(--sh-accent);
+  box-shadow: var(--sh-panel-edge), 0 0 0 1px var(--sh-accent), var(--sh-elevation-2);
+}
+
+.sh-claim--missing {
+  margin: 0;
+  color: var(--sh-text-secondary);
+}
+
+.sh-claim__header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--sh-gap-4);
+}
+
+.sh-claim__identity {
+  display: grid;
+  gap: var(--sh-gap-1);
+  min-width: 0;
+}
+
+.sh-claim__title {
+  margin: 0;
+  font-size: var(--sh-type-section);
+  line-height: var(--sh-leading-tight);
+  overflow-wrap: anywhere;
+}
+
+.sh-claim__symbol {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-small);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.sh-claim__rule {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sh-gap-2);
+  margin: 0;
+}
+
+.sh-claim__reward {
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-label);
+}
+
+.sh-claim__detail-link,
+.sh-position__actions .sh-view-link {
+  min-height: var(--sh-touch-target);
+}
+
+.sh-claim__holding {
+  margin: 0;
+  color: var(--sh-text-secondary);
+}
+
+.sh-claim__figures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr));
+  gap: var(--sh-gap-3);
+  margin: 0;
+}
+
+/* Phones: two figures per row instead of four tall boxes. */
+@media (max-width: 640px) {
+  .sh-claim__figures {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sh-gap-2);
+  }
+}
+
+.sh-claim__figure {
+  display: grid;
+  align-content: start;
+  gap: var(--sh-gap-1);
+  min-width: 0;
+  padding: var(--sh-gap-3);
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface);
+}
+
+.sh-claim__figure dt {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-label);
+  font-weight: 650;
+}
+
+.sh-claim__figure dd {
+  margin: 0;
+  color: var(--sh-text);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.sh-claim__figure--primary {
+  border-color: var(--sh-accent);
+  background: var(--sh-selected);
+}
+
+.sh-claim__figure--primary dd {
+  font-size: var(--sh-type-body-lg);
+}
+
+.sh-claim__qualifier {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 0 6px;
+  border: 1px solid var(--sh-warning);
+  border-radius: var(--sh-radius-pill);
+  color: var(--sh-warning);
+  font-size: var(--sh-type-caption);
+  font-weight: 700;
+}
+
+.sh-claim__estimate,
+.sh-claim__fallback {
+  display: grid;
+  gap: var(--sh-gap-3);
+  padding: var(--sh-gap-4);
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface);
+}
+
+.sh-claim__fallback {
+  border-color: var(--sh-warning);
+  background: var(--sh-demo-bg);
+  color: var(--sh-text-secondary);
+}
+
+.sh-claim__fallback p,
+.sh-claim__estimate p {
+  margin: 0;
+}
+
+.sh-claim__subhead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sh-gap-2);
+  color: var(--sh-text);
+  font-weight: 750;
+}
+
+.sh-claim__terms {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: var(--sh-gap-3) var(--sh-gap-4);
+  margin: 0;
+}
+
+.sh-claim__terms > div {
+  display: grid;
+  align-content: start;
+  gap: 2px;
+  min-width: 0;
+}
+
+.sh-claim__terms dt {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-label);
+  font-weight: 650;
+}
+
+.sh-claim__terms dd {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  color: var(--sh-text);
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.sh-claim__note {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 500;
+}
+
+.sh-claim__fineprint {
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+}
+
+.sh-claim__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sh-gap-2) var(--sh-gap-4);
+}
+
+.sh-claim__button {
+  cursor: pointer;
+  background: linear-gradient(90deg, var(--sh-action) 0%, #7f58f0 100%);
+}
+
+/* aria-disabled: kept focusable while it has focus (a request is open or nothing can start), so it looks the same. */
+.sh-claim__button:disabled,
+.sh-claim__button[aria-disabled='true'] {
+  border-color: var(--sh-border-strong);
+  background: var(--sh-surface-raised);
+  box-shadow: none;
+  color: var(--sh-text-secondary);
+  cursor: not-allowed;
+}
+
+/* A focused aria-disabled button keeps the base focus halo (the rule above removes the primary shadow). */
+.sh-claim__button[aria-disabled='true']:focus-visible {
+  box-shadow: 0 0 0 7px var(--sh-focus-halo);
+}
+
+.sh-claim__hint {
+  flex: 1 1 260px;
+  margin: 0;
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-small);
+}
+
+.sh-claim__history,
+.sh-claim__exact {
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+}
+
+.sh-claim__history > summary,
+.sh-claim__exact > summary {
+  display: flex;
+  align-items: center;
+  gap: var(--sh-gap-1);
+  width: fit-content;
+  min-height: var(--sh-touch-target);
+  color: var(--sh-text);
+  font-weight: 650;
+  cursor: pointer;
+  border-radius: var(--sh-radius-small);
+}
+
+.sh-claim__history-list {
+  display: grid;
+  gap: var(--sh-gap-2);
+  margin: 0;
+  padding-left: 20px;
+}
+
+.sh-claim__history-list li {
+  display: grid;
+  gap: 2px;
+}
+
+.sh-claim__history-list li[data-outcome='reverted'] {
+  color: var(--sh-text-muted);
+}
+
+.sh-claim__history-when {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+}
+
+.sh-claim__exact-list {
+  display: grid;
+  gap: var(--sh-gap-1);
+  margin: 0;
+}
+
+.sh-claim__exact-list > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--sh-gap-2);
+}
+
+.sh-claim__exact-list dt {
+  color: var(--sh-text-muted);
+}
+
+.sh-claim__exact-list dd {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 640px) {
+  .sh-claim {
+    padding: var(--sh-gap-4);
+  }
+
+  .sh-claim__header {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .sh-claim__detail-link {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  .sh-claim__button {
+    width: 100%;
+  }
+}
+
+/*
+ * Pair detail reward card (integration of SH-012 with SH-014/015): the same claim, embedded in the narrow side column.
+ * It sits inside a detail card, so it drops the panel frame and uses tighter spacing; figures go two per row.
+ */
+.sh-pair-claim {
+  display: grid;
+  gap: var(--sh-gap-3);
+  min-width: 0;
+  padding-top: var(--sh-gap-3);
+  border-top: 1px solid var(--sh-border);
+}
+
+.sh-pair-claim > p {
+  margin: 0;
+}
+
+.sh-pair-claim__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sh-gap-2);
+}
+
+.sh-pair-claim .sh-detail-card__subtitle {
+  margin: 0;
+  border-radius: var(--sh-radius-small);
+}
+
+.sh-claim--embedded {
+  gap: var(--sh-gap-3);
+  padding: 0;
+}
+
+.sh-claim--embedded .sh-claim__figures {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sh-gap-2);
+}
+
+.sh-claim--embedded .sh-claim__hint {
+  flex-basis: 100%;
+}
+
+/* Signed claims of an account that is not the connected one (or while the list cannot be read), still tracked. */
+.sh-tracked-claims__lede {
+  margin: 0;
+  color: var(--sh-text-secondary);
+}
+
+.sh-tracked-claims__account {
+  display: grid;
+  gap: var(--sh-gap-3);
+  min-width: 0;
+}
+
+.sh-tracked-claims__hide {
+  margin: var(--sh-gap-2) 0 0;
+}
+
+.sh-claim--status-only {
+  display: grid;
+  gap: var(--sh-gap-3);
+}

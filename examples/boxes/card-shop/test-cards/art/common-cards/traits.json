@@ -1,0 +1,70 @@
+[
+  {
+    "id": "1",
+    "attributes": [
+      {
+        "trait_type": "Rarity",
+        "value": "Common"
+      },
+      {
+        "trait_type": "Card",
+        "value": "Pebble"
+      },
+      {
+        "trait_type": "Number",
+        "value": "01/16"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "attributes": [
+      {
+        "trait_type": "Rarity",
+        "value": "Common"
+      },
+      {
+        "trait_type": "Card",
+        "value": "Acorn"
+      },
+      {
+        "trait_type": "Number",
+        "value": "02/16"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "attributes": [
+      {
+        "trait_type": "Rarity",
+        "value": "Common"
+      },
+      {
+        "trait_type": "Card",
+        "value": "Teacup"
+      },
+      {
+        "trait_type": "Number",
+        "value": "03/16"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "attributes": [
+      {
+        "trait_type": "Rarity",
+        "value": "Common"
+      },
+      {
+        "trait_type": "Card",
+        "value": "Paper Boat"
+      },
+      {
+        "trait_type": "Number",
+        "value": "04/16"
+      }
+    ]
+  }
+]

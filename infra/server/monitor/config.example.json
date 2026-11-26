@@ -1,0 +1,22 @@
+{
+  "channels": "mailer",
+  "keeperAddress": "0x0000000000000000000000000000000000000001",
+  "keeperIdentity": "11155111:0x0000000000000000000000000000000000000001::",
+  "keeperFile": "/var/lib/docker/volumes/squarehole_keeper_state/_data/keeper.json",
+  "keeperViewFile": "/var/lib/docker/volumes/squarehole_keeper_state/_data/monitor.json",
+  "alphaApiEnabled": false,
+  "alphaApiUrl": "https://test-app.squarehole.fun/alpha/health",
+  "alphaApiFile": "/srv/squarehole/alpha/state/monitor.json",
+  "alphaQueueAgeSeconds": "1800",
+  "alphaFailureCount": "3",
+  "alphaSenderEnabled": false,
+  "alphaSenderFile": "/var/lib/docker/volumes/squarehole_alpha_sender_state/_data/monitor.json",
+  "journalFile": "/var/lib/squarehole/burn-bot/journal.sqlite",
+  "backupDir": "/var/backups/squarehole",
+  "diskPath": "/var/lib/docker",
+  "stateDir": "/var/lib/squarehole-monitor",
+  "drandBackedSource": "0x4FE27aE2810DAdA5F2f0f425F6623FdbE6A321fb",
+  "drandBackupStartLadder": "43200,21600,7200",
+  "drandBackupFixGraceBlocks": "300",
+  "drandBackupFixClosingBlocks": "8000"
+}

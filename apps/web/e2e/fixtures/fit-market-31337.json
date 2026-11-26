@@ -1,0 +1,20 @@
+{
+  "schema": "squarehole.fit-market/v1",
+  "chainId": 31337,
+  "label": "Local chain fixture for the browser tests (nothing is deployed; the live service and the RPC are answered by the test)",
+  "contracts": {
+    "token": "0x000000000000000000000000000000000000f171",
+    "poolManager": "0x0000000000000000000000000000000000004441",
+    "hook": "0x0000000000000000000000000000000000012ae0",
+    "launchRouter": "0x00000000000000000000000000000000000017a0",
+    "vault": "0x0000000000000000000000000000000000001b0c",
+    "placeholders": "0x0000000000000000000000000000000000001b0d",
+    "collection": "0x0000000000000000000000000000000000011068"
+  },
+  "poolId": "0x0a02e843e1313262072be08e32d11b457c80e4ce3421e352d7eea03809bf73dd",
+  "deployBlock": "1000",
+  "openBlock": "1300",
+  "collectionSize": "4200",
+  "curve": "misfits",
+  "indexer": { "origin": "http://127.0.0.1:8598" }
+}

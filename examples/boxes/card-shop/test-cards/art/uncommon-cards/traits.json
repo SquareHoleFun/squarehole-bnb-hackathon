@@ -1,0 +1,70 @@
+[
+  {
+    "id": "1",
+    "attributes": [
+      {
+        "trait_type": "Rarity",
+        "value": "Uncommon"
+      },
+      {
+        "trait_type": "Card",
+        "value": "Lantern"
+      },
+      {
+        "trait_type": "Number",
+        "value": "05/16"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "attributes": [
+      {
+        "trait_type": "Rarity",
+        "value": "Uncommon"
+      },
+      {
+        "trait_type": "Card",
+        "value": "Compass"
+      },
+      {
+        "trait_type": "Number",
+        "value": "06/16"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "attributes": [
+      {
+        "trait_type": "Rarity",
+        "value": "Uncommon"
+      },
+      {
+        "trait_type": "Card",
+        "value": "Kite"
+      },
+      {
+        "trait_type": "Number",
+        "value": "07/16"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "attributes": [
+      {
+        "trait_type": "Rarity",
+        "value": "Uncommon"
+      },
+      {
+        "trait_type": "Card",
+        "value": "Hourglass"
+      },
+      {
+        "trait_type": "Number",
+        "value": "08/16"
+      }
+    ]
+  }
+]

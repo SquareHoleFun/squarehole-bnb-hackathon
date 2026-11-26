@@ -1,0 +1,13 @@
+{
+  "schema": "squarehole.metadata-manifest/v0-placeholder",
+  "status": "TEST FIXTURE ONLY (SH-E review): no deployment reads this file and no config pins its hash. The configs pin keccak256 of the metadata lane's real apps/web/public/nft/the-misfits/manifest.json; test/script/Deploy.t.sol uses this file for the file-present path of script/Deploy.s.sol.",
+  "collection": "The Misfits",
+  "token": { "name": "The Misfits", "symbol": "FIT", "decimals": 18 },
+  "role": "Square Hole root NFT collection; FIT is its fractional token (DECISION-LOG F09, F10)",
+  "cast": ["The Sorter", "The Coin", "The Collector", "The Stonk"],
+  "castSource": "DECISION-LOG F03, ADR-0004 (approved reference artwork, storytelling roles only)",
+  "supply": { "nfts": "10000", "tokensPerNft": "100000", "totalTokens": "1000000000", "nftUnitRaw": "100000000000000000000000" },
+  "tokenURI": "https://squarehole-7ua.pages.dev/nft/the-misfits/{id}.json for ids 1..10000 (immutable baseURI)",
+  "authority": "Names and images are never authority; the chain id and token address are (AGENTS.md).",
+  "disclosure": "Testnet only. Not audited. No real value."
+}

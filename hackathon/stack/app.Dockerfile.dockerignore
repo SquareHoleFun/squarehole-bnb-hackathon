@@ -1,0 +1,15 @@
+# The web build's context (app.Dockerfile): the release's sources only, never installed packages, build output,
+# caches, local settings or the contract libraries.
+**/node_modules
+**/.cache
+.git
+**/.env
+**/.env.*
+!.env.example
+packages/contracts/out
+packages/contracts/cache
+packages/contracts/broadcast
+packages/contracts/lib
+**/test-results
+**/playwright-report
+**/dist

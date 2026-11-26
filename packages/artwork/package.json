@@ -1,0 +1,16 @@
+{
+  "name": "@squarehole/artwork",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "exports": { ".": "./src/index.ts", "./box-picture": "./src/box-picture.ts", "./picture-choice": "./src/picture-choice.ts" },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "dependencies": {
+    "@noble/hashes": "2.4.0",
+    "@squarehole/domain": "workspace:*",
+    "shamir-secret-sharing": "0.0.4"
+  }
+}

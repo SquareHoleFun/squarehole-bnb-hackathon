@@ -1,0 +1,84 @@
+{
+  "chainId": "11155111",
+  "safe": "0x9432380a67745b453886698F9539aC035DF80B34",
+  "first": {
+    "to": "0x84Dc1E9Cd7da248f85133E5e03EF3A303a51072D",
+    "value": "0",
+    "data": "0x85981ac90000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016345785d8a0000",
+    "contractMethod": {
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint32"
+        },
+        {
+          "name": "raise",
+          "type": "uint256"
+        }
+      ],
+      "name": "updateRaise",
+      "payable": false
+    },
+    "contractInputsValues": {
+      "id": "0",
+      "raise": "100000000000000000"
+    }
+  },
+  "listings": [
+    {
+      "symbol": "tLINK",
+      "action": "add",
+      "class": "OTHER",
+      "raise": "100000000000000000000",
+      "token": null,
+      "approval": "10000",
+      "finalApproval": "0"
+    },
+    {
+      "symbol": "tUSDC",
+      "action": "add",
+      "class": "STABLE",
+      "raise": "100000000",
+      "token": null,
+      "approval": "10000",
+      "finalApproval": "0"
+    },
+    {
+      "symbol": "tNVDA",
+      "action": "add",
+      "class": "STOCK",
+      "raise": "100000000000000000000",
+      "token": null,
+      "approval": "10000",
+      "finalApproval": "0"
+    },
+    {
+      "symbol": "tGOLD",
+      "action": "add",
+      "class": "OTHER",
+      "raise": "1000000000000000000",
+      "token": null,
+      "approval": "10000",
+      "finalApproval": "0"
+    },
+    {
+      "symbol": "tPEPE",
+      "action": "add",
+      "class": "OTHER",
+      "raise": "100000000000000000000000",
+      "token": null,
+      "approval": "10000",
+      "finalApproval": "0"
+    },
+    {
+      "symbol": "tFROG",
+      "action": "addWithBurn",
+      "class": "OTHER",
+      "raise": "100000000000000000000000",
+      "token": null,
+      "approval": "10000",
+      "finalApproval": "0",
+      "selector": "0x42966c68"
+    }
+  ]
+}

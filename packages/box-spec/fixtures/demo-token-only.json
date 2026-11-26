@@ -1,0 +1,41 @@
+{
+  "name": "demo-token-only",
+  "title": "Demo: a token-only box (version 2, F70 'Nothing')",
+  "about": [
+    "DEMO data, not a real token. F70 step 2 'Nothing': a plain token launch with no NFTs and no vault (boxType TOKEN_ONLY, P). Every collection field is zero or empty, the collection cover included (F74 U3); coverSha256 is the token's logo.",
+    "Fees per side (F70): buyers' fees (ETH) go to the creator in ETH (TO_CREATOR), sellers' fees (in the token) are burned (BURN_T); the creator-fee cap add-on limits the creator to 1 ETH per 30 days, the rest burned (F74 U2: a fixed amount). The creator puts 0.05 ETH in at the start (F61 O2)."
+  ],
+  "spec": {
+    "version": 2,
+    "boxType": "TOKEN_ONLY",
+    "tokenName": "Demo Plain Token",
+    "tokenSymbol": "DEMOT",
+    "collectionName": "",
+    "collectionSymbol": "",
+    "description": "Demo only, not a real token: a plain token launch with no NFTs and no vault.",
+    "n": 0,
+    "firstId": "1",
+    "q": "0x0000000000000000000000000000000000000000",
+    "raise": "4206980085000000000",
+    "layout": "CURVE_V1",
+    "gradLayout": "ASK_FULL_BID_SENTINEL",
+    "launchFormat": "CURVE",
+    "openAt": 0,
+    "deadlineDays": 60,
+    "qStream": "TO_CREATOR",
+    "tStream": "BURN_T",
+    "artMode": 0,
+    "revealRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "metadataTable": "0x",
+    "generatorHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coverSha256": { "sha256OfText": "DEMO token-only box logo" },
+    "revealListId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "marketplaceOwner": "0x0000000000000000000000000000000000000000",
+    "creatorFeeRecipient": { "addressOfText": "DEMO creator of the token-only box" },
+    "creatorBuy": "50000000000000000",
+    "collectionCoverSha256": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "addOns": [
+      { "addOn": "creator-fee-cap", "params": { "capPerEpoch": "1000000000000000000", "excess": "BURN" } }
+    ]
+  }
+}

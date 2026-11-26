@@ -1,0 +1,74 @@
+{
+  "name": "box-0-misfits",
+  "title": "Box 0: The Misfits (template 0)",
+  "about": [
+    "F53: the Misfits are box 0 of the general factory (template 0). F49 E8: N = 4,269. F55: placeholders, the per-item stream and edition specials are add-ons.",
+    "Texts are today's launch public names, read byte for byte from packages/contracts/src/v2/names/launch/PublicNames.sol by the generator; the collection description says 4,269 instead of 4,200 (F49 E8; the contracts still say 4,200 until S3).",
+    "FIXTURE values (replaced before creation, none of them moves box 0's addresses, BC-064): revealRoot, metadataTable and generatorHash come from the sealed pipeline (K4); openAt is set on launch day (0 = Now). metadataTable (R F75 W1): box 0's genesis loads every Misfit trait, the full table of the commit-ready art (16 types, Character and Finish included; 3,341 bytes at round 7, packages/contracts/test/vectors/box/misfits-trait-table-r7.json), built by scripts/box/misfits-trait-table.mjs; the one-type table here is a stand-in.",
+    "gradLayout ASK_FULL_BID_SENTINEL: L7 answered (F61); today's deployed code still seeds layout b' (S4 builds the L7 layout).",
+    "Fees (F62, F64, F65): no creator option and no creator buy (version 2 only); royalties 250 bps into box 0's own fee handling (its capped receiver, S5).",
+    "Pictures (F74 U3, F75 U10, U11): coverSha256 is the logo (FIT's icon, box 0's token is FIT); collectionCoverSha256 is the collection picture, the Sorter (U11: contractURI image); add-on 6 (collection page, F74 U4) carries banner A (U10: contractURI banner_image), no teasers and no link. Both pictures are the art lane's commit-ready PNGs (branch art-misfits-banner 796eb2f4, docs/design/misfits-v2/banner/final/), committed here by sha256 only: the files stay on the art branch, each pinned to IPFS as one raw block whose CIDv1 is its sha256 (sources)."
+  ],
+  "spec": {
+    "version": 1,
+    "boxType": "NEW_COLLECTION",
+    "tokenName": { "publicName": "FIT_NAME" },
+    "tokenSymbol": { "publicName": "FIT_SYMBOL" },
+    "collectionName": { "publicName": "COLLECTION_NAME" },
+    "collectionSymbol": { "publicName": "COLLECTION_SYMBOL" },
+    "description": { "publicName": "COLLECTION_DESCRIPTION", "replace": ["4,200 Misfits", "4,269 Misfits"] },
+    "n": 4269,
+    "firstId": "1",
+    "q": "0x0000000000000000000000000000000000000000",
+    "raise": "4206980085000000000",
+    "layout": "CURVE_V1",
+    "gradLayout": "ASK_FULL_BID_SENTINEL",
+    "launchFormat": "CURVE",
+    "openAt": 0,
+    "deadlineDays": 0,
+    "qStream": "BUYBACK_BURN_T",
+    "tStream": "PER_ITEM_STREAM",
+    "artMode": "HIDDEN",
+    "revealRoot": { "keccakOfText": "FIXTURE box 0 revealRoot: the sealed pipeline's root replaces it (K4)" },
+    "metadataTable": {
+      "formatV1": {
+        "description": "Fixture only (not launch copy): the sealed pipeline's table replaces it (K4).",
+        "traitTypes": [{ "name": "Family", "values": ["Sorter", "Coin", "Stonk", "Frame", "RWA"] }]
+      }
+    },
+    "generatorHash": "0xe95521689a770d6d7b423c18b6d84d6556192211000000000000000000000000",
+    "coverSha256": { "sha256OfFile": "packages/design/art/fit/fit-icon.svg" },
+    "revealListId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "marketplaceOwner": { "const": "PLATFORM_SAFE_MAINNET" },
+    "creatorFeeRecipient": "0x0000000000000000000000000000000000000000",
+    "creatorBuy": "0",
+    "collectionCoverSha256": "0x41cf86fd8bf4bf185534477e35ca01b8183316adc947a92f9c3d8933a90f11fb",
+    "addOns": [
+      {
+        "addOn": "placeholders",
+        "params": {
+          "placeholderName": { "publicName": "PLACEHOLDER_NAME" },
+          "placeholderSymbol": { "publicName": "PLACEHOLDER_SYMBOL" },
+          "placeholderDescription": { "publicName": "PLACEHOLDER_DESCRIPTION" },
+          "hiddenDescription": { "publicName": "COLLECTION_HIDDEN_DESCRIPTION" },
+          "hiddenSvg": { "publicName": "COLLECTION_HIDDEN_IMAGE_SVG" }
+        }
+      },
+      { "addOn": "per-item-stream", "params": {} },
+      { "addOn": "edition-specials", "params": { "label": "One-of-ones", "count": 12 } },
+      { "addOn": "edition-specials", "params": { "label": "Icons", "count": 69 } },
+      { "addOn": "edition-specials", "params": { "label": "Diamonds", "count": 26 } },
+      { "addOn": "royalties", "params": { "bps": 250, "destination": "FEE_HANDLING" } },
+      { "addOn": "collection-metadata", "params": { "bannerSha256": "0xa8202b6917194146c6d2c9ddb53529dd9f064089d9019d9989dfb722dd921afe", "teaserSha256s": [], "externalLink": "" } }
+    ]
+  },
+  "sources": {
+    "coverSha256": "the logo: the FIT icon master (V MisfitsCollection.sol:115-116 names sha256 2aa8e531...da69c93)",
+    "collectionCoverSha256": "R F75 U11: the collection picture (contractURI image), the Sorter: misfits-collection-sorter-1024.png (1024 x 1024, 394,231 B) on branch art-misfits-banner 796eb2f4 (docs/design/misfits-v2/banner/final/); raw CIDv1 bafkreicbz6dp3c7ux4mfknchpy24uanydazrnloji6us7hb5rez2sdyr7m (contractURI image ipfs://<CID>). Not copied into main; pin these exact bytes as one raw block (no re-encode) before S7 creates box 0",
+    "generatorHash": "FIXTURE: packages/artwork FIXTURE_GENERATOR_TREE (a prototype tree id, left-aligned)",
+    "marketplaceOwner": "F44: the platform Safe",
+    "edition-specials": "F44 E2 (12 one-of-ones), E4 (26 Diamonds), F49 E8 (69 Icons); the final metadata table is authoritative",
+    "royalties": "F65: 2.5% into box 0's fee handling (unenforced ERC-2981)",
+    "collection-metadata": "R F75 U10 (F74 U4): banner A, misfits-banner-a-1600x400.png (1600 x 400, 287,791 B) on branch art-misfits-banner 796eb2f4 (docs/design/misfits-v2/banner/final/); raw CIDv1 bafkreifieavwsfyzifdmnuwj3w2tkko5t4debcozagoztco7w4rn3eq27y (contractURI banner_image ipfs://<CID>). Not copied into main; pinned like the collection picture. No teasers and no link: none is chosen for box 0 (an empty link leaves external_link out of contractURI)"
+  }
+}

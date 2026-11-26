@@ -1,0 +1,37 @@
+[Unit]
+Description=Square Hole independent drand rescue poster
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=squarehole-rescue
+Group=squarehole-rescue
+WorkingDirectory=/opt/squarehole-rescue/current
+EnvironmentFile=/etc/squarehole-rescue/rescue.env
+ExecStart=/opt/squarehole-rescue/node/bin/node /opt/squarehole-rescue/current/infra/rescue-host/run.mjs
+TimeoutStartSec=10min
+Restart=no
+UMask=0077
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+RestrictRealtime=true
+LockPersonality=true
+ProtectKernelLogs=true
+ProtectClock=true
+ProtectHostname=true
+RestrictNamespaces=true
+SystemCallArchitectures=native
+ProtectProc=invisible
+CapabilityBoundingSet=
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+ReadOnlyPaths=/opt/squarehole-rescue
+StandardOutput=journal
+StandardError=journal

@@ -1,0 +1,452 @@
+# api.squarehole.fun: the indexer's gateway behind Cloudflare's proxy (docs/runbooks/server.md).
+#
+# - Plain HTTP on :80 is served, not redirected, and HTTPS on :443 has Caddy's automatic certificate (Let's Encrypt,
+#   HTTP-01 through the proxy), so Cloudflare's Flexible, Full and Full (strict) modes all work.
+# - GET/HEAD/OPTIONS everywhere, plus POST /v2/boxes/<chain>/<token>/links and /v2/pictures/hint.
+#   /card/... reaches the card service (the
+#   link-preview cards, F81 CF1: it sets their cache headers itself, 30 days for a card's current-version URL, so
+#   Cloudflare keeps them); everything else is answered here. While the card service is down, /card/... gets the
+#   generic card (not stored) instead of a 502.
+# - CORS is narrowed to the site (https://squarehole.fun) and local development (http://127.0.0.1 on any port); the
+#   gateway's own `*` is dropped.
+# - Rate limit per client: Cloudflare's CF-Connecting-IP, trusted only from Cloudflare's published ranges
+#   (https://www.cloudflare.com/ips-v4 and /ips-v6, copied 2026-10-04); a direct hit is keyed by its own address.
+#   600 requests a minute per address (an IPv6 /64 counts as one): the site polls about one request a second per tab.
+#   Opening an SSE stream (it stays open) also counts in its own zone: 20 a minute per address. The gateway caps the
+#   streams one address holds open (SH_CORE_MAX_STREAMS_PER_CLIENT, keyed on the X-Forwarded-For set below). Cards
+#   also count in their own zone, 120 a minute per address (a card not yet drawn costs CPU here; Cloudflare's cache
+#   answers the rest).
+#   Creator-signed links and picture hints each have a POST zone: 10 a minute per address.
+#   The indexer also caps picture hints globally at 60 starts/minute and four active requests.
+# - The `trusted_proxies static` line is also the origin's allowlist: origin-firewall.sh reads its IPv4 ranges and
+#   drops every other source on 80 and 443 (DOCKER-USER), so only Cloudflare reaches this server. Keep it on one line.
+{
+	auto_https disable_redirects
+	servers {
+		trusted_proxies static 173.245.48.0/20 103.21.244.0/22 103.22.200.0/22 103.31.4.0/22 141.101.64.0/18 108.162.192.0/18 190.93.240.0/20 188.114.96.0/20 197.234.240.0/22 198.41.128.0/17 162.158.0.0/15 104.16.0.0/13 104.24.0.0/14 172.64.0.0/13 131.0.72.0/22 2400:cb00::/32 2606:4700::/32 2803:f800::/32 2405:b500::/32 2405:8100::/32 2a06:98c0::/29 2c0f:f248::/32
+		client_ip_headers CF-Connecting-IP
+		protocols h1 h2
+	}
+}
+
+(gateway) {
+	# Optional until the first checked Sepolia app release is activated.
+	import /srv/app/current/*.cors.caddy
+	header {
+		-Server
+		X-Content-Type-Options nosniff
+		Referrer-Policy no-referrer
+		+Vary Origin
+	}
+
+	@site_origin header_regexp Origin ^(https://squarehole\.fun|http://127\.0\.0\.1(:[0-9]{1,5})?)$
+	header @site_origin {
+		Access-Control-Allow-Origin {http.request.header.Origin}
+		Access-Control-Allow-Headers If-None-Match
+		Access-Control-Max-Age 600
+	}
+
+	@links_post {
+		method POST
+		path_regexp ^/v2/boxes/[0-9]{1,10}/0x[0-9a-fA-F]{40}/links$
+	}
+	@picture_hint_post {
+		method POST
+		path /v2/pictures/hint
+		expression `{http.request.orig_uri} == '/v2/pictures/hint'`
+	}
+	@picture_hint_preflight {
+		method OPTIONS
+		path /v2/pictures/hint
+		expression `{http.request.orig_uri} == '/v2/pictures/hint'`
+	}
+	# Deferred matching covers the static and imported app CORS allowlists, including on preflight.
+	header @picture_hint_preflight {
+		Access-Control-Allow-Headers Content-Type
+		Access-Control-Allow-Methods "POST, OPTIONS"
+		match {
+			header Access-Control-Allow-Origin *
+		}
+	}
+	header @picture_hint_post {
+		Access-Control-Expose-Headers Retry-After
+		match {
+			header Access-Control-Allow-Origin *
+		}
+	}
+	# Deferred response matching covers both @site_origin and the imported active app origin.
+	# Install before rate limiting so local 429/413 and proxied 503 responses share the policy.
+	header @links_post {
+		Access-Control-Expose-Headers Retry-After
+		match {
+			header Access-Control-Allow-Origin *
+		}
+	}
+
+	rate_limit {
+		zone per_client {
+			key {client_ip}
+			events 600
+			window 1m
+			ipv6_prefix 64
+		}
+		zone streams {
+			match {
+				path_regexp ^/v[12]/boxes/[^/]+/[^/]+/stream/?$
+			}
+			key {client_ip}
+			events 20
+			window 1m
+			ipv6_prefix 64
+		}
+		zone links {
+			match {
+				method POST
+				path_regexp ^/v2/boxes/[^/]+/[^/]+/links/?$
+			}
+			key {client_ip}
+			events 10
+			window 1m
+			ipv6_prefix 64
+		}
+		zone picture_hints {
+			match {
+				method POST
+				path /v2/pictures/hint
+			}
+			key {client_ip}
+			events 10
+			window 1m
+			ipv6_prefix 64
+		}
+		zone cards {
+			match {
+				path /card/*
+			}
+			key {client_ip}
+			events 120
+			window 1m
+			ipv6_prefix 64
+		}
+		jitter 0.2
+	}
+
+	handle @links_post {
+		request_body {
+			max_size 4KiB
+		}
+		reverse_proxy indexer:5394 {
+			header_up X-Forwarded-For {client_ip}
+			header_down -Access-Control-Allow-Origin
+			header_down -Access-Control-Allow-Headers
+			header_down -Access-Control-Expose-Headers
+		}
+	}
+
+	handle @picture_hint_post {
+		request_body {
+			max_size 1KiB
+		}
+		reverse_proxy indexer:5394 {
+			header_up X-Forwarded-For {client_ip}
+			header_down -Access-Control-Allow-Origin
+			header_down -Access-Control-Allow-Headers
+			header_down -Access-Control-Allow-Methods
+			header_down -Access-Control-Expose-Headers
+		}
+	}
+
+	@write not method GET HEAD OPTIONS
+	handle @write {
+		respond "read-only" 405
+	}
+
+	# Canonical CIDv1/raw/sha2-256 only. Original URI check rejects query strings, percent encodings and aliases.
+	# The guard requests local-only raw blocks from Kubo, checks their digest and identifies PNG/JPEG/WebP by bytes.
+	@ipfs_art {
+		method GET HEAD
+		path_regexp ipfs_raw ^/ipfs/bafkrei[a-h][a-z2-7]{50}[aeimquy4]$
+		expression `{http.request.orig_uri}.matches('^/ipfs/bafkrei[a-h][a-z2-7]{50}[aeimquy4]$')`
+	}
+	handle @ipfs_art {
+		reverse_proxy kubo:8081 {
+			header_up -Authorization
+			header_up -Cookie
+			transport http {
+				dial_timeout 1s
+				response_header_timeout 4s
+			}
+		}
+	}
+	# Keep malformed requests here even if path cleaning would otherwise select an API route.
+	@ipfs_other expression `path('/ipfs', '/ipfs/*') || {http.request.orig_uri}.startsWith('/ipfs/')`
+	handle @ipfs_other {
+		header Cache-Control no-store
+		respond "not found" 404
+	}
+
+	@api path /healthz /v1 /v1/* /v2 /v2/*
+	handle @api {
+		reverse_proxy indexer:5394 {
+			# Flush streaming responses immediately; never buffer SSE behind the proxy.
+			flush_interval -1
+			# The visitor's address as Caddy sees it (CF-Connecting-IP from Cloudflare only), replacing any list a client
+			# sent: the gateway counts streams per client by it (SH_CORE_TRUSTED_PROXIES in compose.yaml).
+			header_up X-Forwarded-For {client_ip}
+			header_down -Access-Control-Allow-Origin
+			header_down -Access-Control-Allow-Headers
+		}
+	}
+
+	@card path /card/*
+	handle @card {
+		reverse_proxy cards:5395
+	}
+
+	# The card service not answering (restarting, stopped): the generic card for /card/..., status 200 and not stored,
+	# so a link preview shows the landing card rather than nothing. Every other error keeps its own status.
+	handle_errors {
+		# Errors unwind the normal response wrappers, so apply links exposure again here (including 429/413).
+		header @links_post {
+			Access-Control-Expose-Headers Retry-After
+			match {
+				header Access-Control-Allow-Origin *
+			}
+		}
+		header @picture_hint_post {
+			Access-Control-Expose-Headers Retry-After
+			match {
+				header Access-Control-Allow-Origin *
+			}
+		}
+		@card_down {
+			path /card/*
+			expression `{err.status_code} in [502, 503, 504]`
+		}
+		handle @card_down {
+			root * /srv/card
+			rewrite * /generic.jpg
+			header Cache-Control no-store
+			header X-Sh-Card "generic; down"
+			file_server {
+				status 200
+			}
+		}
+		handle {
+			respond "" {err.status_code}
+		}
+	}
+
+	handle {
+		respond "not found" 404
+	}
+}
+
+http://api.squarehole.fun, https://api.squarehole.fun {
+	# JSON only: text/event-stream must never acquire an encoder's buffering.
+	encode zstd gzip {
+		match {
+			header Content-Type application/json*
+		}
+	}
+	import gateway
+}
+
+# Imported ONLY by an app artifact with SH_APP_ALPHA_ACCESS=1, inside its ordered route.
+# With the switch off this snippet is unused: today's whole-host Cloudflare Access policy stays in place.
+(alpha_access) {
+	@alpha_api path /alpha /alpha/*
+	handle @alpha_api {
+		route {
+			header Cache-Control no-store
+			rate_limit {
+				zone alpha_api {
+					key {client_ip}
+					events 60
+					window 1m
+					ipv6_prefix 64
+				}
+			}
+			request_body {
+				max_size 16KiB
+			}
+			# The upstream accepts POST only on session, signout and claim; other methods return 405.
+			reverse_proxy alpha-api:5396
+		}
+	}
+	@alpha_desk_api path /desk/api/*
+	handle @alpha_desk_api {
+		route {
+			header Cache-Control no-store
+			rate_limit {
+				zone alpha_desk {
+					key {client_ip}
+					events 60
+					window 1m
+					ipv6_prefix 64
+				}
+			}
+			request_body {
+				max_size 16KiB
+			}
+			# Every endpoint verifies the Access JWT against the configured team's cached public keys.
+			reverse_proxy alpha-api:5396
+		}
+	}
+	@alpha_desk path /desk /desk/*
+	handle @alpha_desk {
+		route {
+			header Cache-Control no-store
+			forward_auth alpha-api:5396 {
+				uri /desk/api/check
+			}
+			@desk_write not method GET HEAD
+			respond @desk_write "read-only" 405
+			try_files {path} /desk/index.html
+			file_server
+		}
+	}
+	@alpha_join {
+		path /join /join/ /join/index.html /join/assets/*
+		# Only canonical public files: percent-encoded/dot-segment aliases must pass the private page gate.
+		expression `{http.request.orig_uri}.matches('^/join(/?|/index[.]html|/assets/[A-Za-z0-9_-]+([.][A-Za-z0-9_-]+)*)([?].*)?$')`
+	}
+	handle @alpha_join {
+		route {
+			header Cache-Control no-store
+			@join_write not method GET HEAD
+			respond @join_write "read-only" 405
+			@join_entry path /join /join/
+			rewrite @join_entry /join/index.html
+			# No SPA fallback, directory browsing, shared /assets exemption, or authenticated app here.
+			file_server
+		}
+	}
+	forward_auth alpha-api:5396 {
+		uri /alpha/check
+		@alpha_denied status 401
+		handle_response @alpha_denied {
+			header Cache-Control no-store
+			redir * /join 303
+		}
+	}
+}
+
+# Static landing (SH-LANDING-SERVER). Same HTTP/HTTPS origin model as the API; Cloudflare upgrades visitors to HTTPS.
+# Keep this policy equal to apps/landing/public/_headers (apps/landing/test/server.test.js checks it).
+(landing_headers) {
+	header {
+		Content-Security-Policy "default-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
+		Strict-Transport-Security "max-age=86400"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "no-referrer"
+		Permissions-Policy "accelerometer=(), browsing-topics=(), camera=(), display-capture=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+		Cross-Origin-Opener-Policy "same-origin"
+	}
+}
+
+http://squarehole.fun, https://squarehole.fun {
+	root * /srv/landing
+	import landing_headers
+
+	# Old test metadata is never looked up on disk or sent to an upstream. Aliases still redirect to this host first.
+	@nft path /nft /nft/*
+	handle @nft {
+		header Cache-Control "public, max-age=86400"
+		respond "" 404
+	}
+	# These files configure Pages; they are not public content on this server.
+	@unpublished path /_headers /_routes.json
+	handle @unpublished {
+		error 404
+	}
+	@assets path /art/* /fonts/* /brand/*
+	handle @assets {
+		header Cache-Control "public, max-age=604800"
+		file_server
+	}
+	handle {
+		header Cache-Control "no-cache"
+		file_server
+	}
+	handle_errors 404 {
+		import landing_headers
+		header Cache-Control "no-cache"
+		rewrite * /404.html
+		file_server {
+			status 404
+		}
+	}
+}
+
+(landing_redirect) {
+	header Cache-Control "public, max-age=86400"
+	redir https://squarehole.fun{uri} 301
+}
+
+http://www.squarehole.fun, https://www.squarehole.fun, http://squarehole.xyz, https://squarehole.xyz, http://www.squarehole.xyz, https://www.squarehole.xyz, http://squarehole.fit, https://squarehole.fit, http://www.squarehole.fit, https://www.squarehole.fit {
+	import landing_redirect
+}
+
+# Checked app releases add their configured test host and a mainnet refusal (G08).
+import /srv/app/current/*.site.caddy
+
+# The preview of the next landing at alpha.squarehole.fun (SH-LANDING-ALPHA), to share for feedback: one commit's
+# apps/landing/public, put in place by ship-alpha.sh without shipping or restarting anything else. Caddy reads it from
+# the folder /srv/squarehole/landing-alpha, mounted read-only (compose.yaml); its `current` link names the preview and
+# is switched by one rename, which the running container sees. The landing's security headers with the preview's own
+# scripts allowed (script-src 'self', its pager.js; infra/server/test/alpha.test.mjs holds the rest equal to
+# landing_headers), X-Robots-Tag on every answer and a robots.txt that disallows all, so search engines leave it out.
+# No redirect at all (none to squarehole.fun); every file revalidates, so a new preview shows at once without a purge.
+(alpha_headers) {
+	header {
+		Content-Security-Policy "default-src 'none'; script-src 'self'; img-src 'self'; style-src 'self'; font-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
+		Strict-Transport-Security "max-age=86400"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "no-referrer"
+		Permissions-Policy "accelerometer=(), browsing-topics=(), camera=(), display-capture=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+		Cross-Origin-Opener-Policy "same-origin"
+		X-Robots-Tag "noindex, nofollow"
+	}
+}
+
+http://alpha.squarehole.fun, https://alpha.squarehole.fun {
+	root * /srv/landing-alpha/current
+	import alpha_headers
+	header Cache-Control "no-cache"
+	# The preview's text files go out compressed, as its own branch's site counts its weight.
+	encode zstd gzip
+
+	# Answered here, whatever the preview's own robots.txt says (the landing's allows robots).
+	@robots path /robots.txt
+	handle @robots {
+		respond <<ROBOTS
+			User-agent: *
+			Disallow: /
+
+			ROBOTS 200
+	}
+	# These files configure Pages; they are not public content on this server.
+	@unpublished path /_headers /_routes.json
+	handle @unpublished {
+		error 404
+	}
+	handle {
+		file_server
+	}
+	handle_errors 404 {
+		import alpha_headers
+		header Cache-Control "no-cache"
+		rewrite * /404.html
+		file_server {
+			status 404
+		}
+	}
+}
+
+# Any other host on :80 (the bare address, scanners): nothing here.
+http:// {
+	respond 404
+}

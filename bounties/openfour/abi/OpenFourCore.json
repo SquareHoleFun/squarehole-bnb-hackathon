@@ -1,0 +1,313 @@
+[
+  {
+    "type": "function",
+    "name": "signer",
+    "constant": true,
+    "stateMutability": "view",
+    "payable": false,
+    "inputs": [],
+    "outputs": [
+      {
+        "type": "address",
+        "name": ""
+      }
+    ]
+  },
+  {
+    "type": "function",
+    "name": "createToken",
+    "constant": false,
+    "stateMutability": "payable",
+    "payable": true,
+    "inputs": [
+      {
+        "type": "bytes",
+        "name": "createArgs"
+      },
+      {
+        "type": "bytes",
+        "name": "signature"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "address",
+        "name": ""
+      }
+    ]
+  },
+  {
+    "type": "function",
+    "name": "buy",
+    "constant": false,
+    "stateMutability": "payable",
+    "payable": true,
+    "inputs": [
+      {
+        "type": "address",
+        "name": "token"
+      },
+      {
+        "type": "uint256",
+        "name": "amount"
+      },
+      {
+        "type": "uint256",
+        "name": "maxQuotePayAmount"
+      },
+      {
+        "type": "uint256",
+        "name": "options"
+      },
+      {
+        "type": "bytes",
+        "name": "proof"
+      }
+    ],
+    "outputs": []
+  },
+  {
+    "type": "function",
+    "name": "buyByBudget",
+    "constant": false,
+    "stateMutability": "payable",
+    "payable": true,
+    "inputs": [
+      {
+        "type": "address",
+        "name": "token"
+      },
+      {
+        "type": "uint256",
+        "name": "maxPayAmount"
+      },
+      {
+        "type": "uint256",
+        "name": "minAmountOut"
+      },
+      {
+        "type": "uint256",
+        "name": "options"
+      },
+      {
+        "type": "bytes",
+        "name": "proof"
+      }
+    ],
+    "outputs": []
+  },
+  {
+    "type": "function",
+    "name": "sell",
+    "constant": false,
+    "payable": false,
+    "inputs": [
+      {
+        "type": "address",
+        "name": "token"
+      },
+      {
+        "type": "uint256",
+        "name": "amount"
+      },
+      {
+        "type": "uint256",
+        "name": "minQuoteRecvAmount"
+      },
+      {
+        "type": "uint256",
+        "name": "options"
+      },
+      {
+        "type": "bytes",
+        "name": "proof"
+      }
+    ],
+    "outputs": []
+  },
+  {
+    "type": "function",
+    "name": "tokens",
+    "constant": true,
+    "stateMutability": "view",
+    "payable": false,
+    "inputs": [
+      {
+        "type": "address",
+        "name": ""
+      }
+    ],
+    "outputs": [
+      {
+        "type": "uint32",
+        "name": "version"
+      },
+      {
+        "type": "address",
+        "name": "creator"
+      },
+      {
+        "type": "uint256",
+        "name": "presetId"
+      },
+      {
+        "type": "address",
+        "name": "token"
+      },
+      {
+        "type": "string",
+        "name": "name"
+      },
+      {
+        "type": "string",
+        "name": "symbol"
+      },
+      {
+        "type": "uint256",
+        "name": "maxSupply"
+      },
+      {
+        "type": "uint256",
+        "name": "saleAmount"
+      },
+      {
+        "type": "uint256",
+        "name": "raiseAmount"
+      },
+      {
+        "type": "address",
+        "name": "quoteAsset"
+      },
+      {
+        "type": "address",
+        "name": "vault"
+      },
+      {
+        "type": "address",
+        "name": "curveModule"
+      },
+      {
+        "type": "address",
+        "name": "tradeModule"
+      },
+      {
+        "type": "address",
+        "name": "migrateModule"
+      },
+      {
+        "type": "address",
+        "name": "tokenModule"
+      },
+      {
+        "type": "address",
+        "name": "customData"
+      },
+      {
+        "type": "uint256",
+        "name": "createBlock"
+      },
+      {
+        "type": "bool",
+        "name": "exists"
+      },
+      {
+        "type": "bool",
+        "name": "paused"
+      },
+      {
+        "type": "bool",
+        "name": "antiSniperEnabled"
+      }
+    ]
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "name": "TokenCreated",
+    "inputs": [
+      {
+        "type": "uint256",
+        "name": "requestId"
+      },
+      {
+        "type": "uint256",
+        "name": "presetId",
+        "indexed": true
+      },
+      {
+        "type": "address",
+        "name": "creator",
+        "indexed": true
+      },
+      {
+        "type": "address",
+        "name": "token",
+        "indexed": true
+      },
+      {
+        "type": "string",
+        "name": "name"
+      },
+      {
+        "type": "string",
+        "name": "symbol"
+      },
+      {
+        "type": "uint256",
+        "name": "maxSupply"
+      },
+      {
+        "type": "uint256",
+        "name": "saleAmount"
+      },
+      {
+        "type": "uint256",
+        "name": "raiseAmount"
+      },
+      {
+        "type": "uint256",
+        "name": "initialPrice"
+      },
+      {
+        "type": "address",
+        "name": "quoteAsset"
+      },
+      {
+        "type": "address",
+        "name": "vault"
+      },
+      {
+        "type": "address",
+        "name": "curveModule"
+      },
+      {
+        "type": "address",
+        "name": "tradeModule"
+      },
+      {
+        "type": "address",
+        "name": "migrateModule"
+      },
+      {
+        "type": "address",
+        "name": "customData"
+      },
+      {
+        "type": "address",
+        "name": "tokenModule"
+      },
+      {
+        "type": "string",
+        "name": "tokenMetaUri"
+      },
+      {
+        "type": "uint256",
+        "name": "flags"
+      },
+      {
+        "type": "bytes",
+        "name": "encodedTags"
+      }
+    ]
+  }
+]

@@ -1,0 +1,115 @@
+/* F161 (4), SH-ALPHA-SITE: the founder's desk, on the join page's canvas (join/join.css). Numbers first, one row per X account. */
+.sh-desk .sh-join__card {
+  width: min(100%, 960px);
+}
+
+.sh-desk__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sh-gap-3);
+}
+
+.sh-desk__counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sh-gap-3);
+  margin: 0;
+}
+
+.sh-desk__counts div {
+  min-width: 96px;
+  padding: var(--sh-gap-3);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-canvas);
+}
+
+.sh-desk__counts dt {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-label);
+}
+
+.sh-desk__counts dd {
+  margin: var(--sh-gap-1) 0 0;
+  font-size: var(--sh-type-section);
+  font-weight: var(--sh-weight-bold);
+  font-variant-numeric: tabular-nums;
+}
+
+.sh-desk__list {
+  display: grid;
+  gap: var(--sh-gap-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-desk__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--sh-gap-2) var(--sh-gap-3);
+  align-items: center;
+  padding: var(--sh-gap-3);
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-canvas);
+}
+
+.sh-desk__who {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.sh-desk__handle {
+  color: var(--sh-accent);
+  font-weight: var(--sh-weight-bold);
+  overflow-wrap: anywhere;
+}
+
+.sh-desk__name {
+  overflow-wrap: anywhere;
+}
+
+.sh-desk__meta {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  overflow-wrap: anywhere;
+}
+
+.sh-desk__status {
+  justify-self: end;
+  padding: 2px var(--sh-gap-2);
+  border-radius: var(--sh-radius-pill);
+  background: var(--sh-surface-raised);
+  font-size: var(--sh-type-label);
+  font-weight: var(--sh-weight-bold);
+}
+
+.sh-desk__status[data-status='approved'] {
+  color: var(--sh-positive);
+}
+
+.sh-desk__status[data-status='removed'] {
+  color: var(--sh-negative);
+}
+
+.sh-desk__actions {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sh-gap-2);
+}
+
+.sh-desk__question {
+  font-weight: var(--sh-weight-bold);
+}
+
+@media (max-width: 640px) {
+  .sh-desk__actions .sh-button {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}

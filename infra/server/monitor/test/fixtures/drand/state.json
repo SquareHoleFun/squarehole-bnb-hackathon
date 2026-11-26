@@ -1,0 +1,25 @@
+{
+  "rpc": {"chainId":"11155111","block":"1950","latestBlock":"2014","timestamp":"1792598400","balanceWei":"1000000000000000000"},
+  "coordinator":"0x0000000000000000000000000000000000000010",
+  "registry":"0x0000000000000000000000000000000000000020",
+  "roles":["0x0000000000000000000000000000000000000021","0x0000000000000000000000000000000000000000"],
+  "consumers":[
+    {
+      "name":"box 0","address":"0x0000000000000000000000000000000000000011","version":1,
+      "source":"0x4FE27aE2810DAdA5F2f0f425F6623FdbE6A321fb", "vault":"0x0000000000000000000000000000000000000012",
+      "drand":"0xbeEcE13fBdd67D0A696cB7cfD28103Ed37ba79A6",
+      "backups":{"33257816":{"startedAt":"0","targetBlock":"0","fixedAt":"0","mix":"0"}},
+      "status":{"minted":"10","slots":"0","wordRequestedAt":"0","wordAcceptedAt":"0","terminalAt":"0","drawsRequested":"3","drawsSettled":"2"},
+      "gateOpenedAt":"1792573200","failureWindowEnds":"0",
+      "keys":[{"key":"3","requestedAt":"1792576800","round":"33257816","word":"0","readyAt":"0","latestWord":"0","latestReadyAt":"0"}],"skipped":"0"
+    },
+    {
+      "name":"registry box 0","address":"0x0000000000000000000000000000000000000021","version":2,
+      "source":"0xbeEcE13fBdd67D0A696cB7cfD28103Ed37ba79A6", "vault":"0x0000000000000000000000000000000000000022",
+      "status":{"minted":"10","slots":"1","wordRequestedAt":"1792576800","wordAcceptedAt":"0","terminalAt":"0","drawsRequested":"0","drawsSettled":"0"},
+      "gateOpenedAt":"1792573200","failureWindowEnds":"0",
+      "keys":[{"key":"0","requestedAt":"1792576800","round":"33257816","word":"0","readyAt":"0","latestWord":"0","latestReadyAt":"0"}],"skipped":"0"
+    }
+  ],
+  "code":"0x", "estimates":{"baseline":"21800","osaka":"32280","amsterdam":"32680","below":"46799","threshold":"46800"}
+}

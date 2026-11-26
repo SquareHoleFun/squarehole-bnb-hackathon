@@ -1,0 +1,29 @@
+{
+  "schema": "squarehole.fit-market/v1",
+  "chainId": 11155111,
+  "label": "Full v2 deployment on Sepolia of 2026-09-30, neutral names, checked on chain",
+  "names": {
+    "token": { "name": "Rehearsal Token 2", "symbol": "RHT2" },
+    "collection": { "name": "Rehearsal Collection", "symbol": "RHC" },
+    "placeholder": { "name": "Rehearsal placeholder", "symbol": "RHC-P" }
+  },
+  "contracts": {
+    "token": "0x07cB5710D589c9763192E76694FCd3E8F5a0B353",
+    "poolManager": "0xE03A1074c86CFeDd5C142C4F04F1a1536e203543",
+    "hook": "0x4769303f055c44F82975b77096EC6F07C30E6Ae0",
+    "launchRouter": "0x2bB3Af7197a9308d3F0ED32ff7945d47661B30eB",
+    "vault": "0x2453B9a2073C62c5fd64CB0C811843a087256b29",
+    "placeholders": "0xc79B538010200a8aABA5E2fA4B0A991A36351073",
+    "collection": "0x9CdEfAeAb0ebcaA72e6CC41dF15200327935Bf92",
+    "genesis": "0x26d6e5De7f5F8803EB40d3b9c4CCaF565279e108",
+    "collector": "0xc80043F3e50836A8274f876ECFBb8E165a0eA354",
+    "executor": "0xfe0D753C01d5330e4D17775643D83FF3280a8aa6",
+    "randomnessSource": "0x617f7E7349393992b0cf5F4D42F1c090A171d432"
+  },
+  "poolId": "0x0d801f3742d418d5edb138064daac2d6a37cdf94ab5c8b75346f8d2241b6dda3",
+  "deployBlock": "11817793",
+  "openBlock": "11818093",
+  "collectionSize": "4200",
+  "curve": "misfits",
+  "indexer": null
+}

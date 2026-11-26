@@ -1,0 +1,40 @@
+{
+  "id": "dragons-hoard",
+  "status": "inputs-required",
+  "protocol": "v2",
+  "chainId": "11155111",
+  "settingsFile": null,
+  "source": "examples/boxes/dragons-hoard/settings/",
+  "settingsOwner": "L1 final settings, fully bound; existing templates are not final launch inputs",
+  "listing": {
+    "id": "0",
+    "symbol": "ETH",
+    "token": "0x0000000000000000000000000000000000000000",
+    "decimals": "18",
+    "class": "1",
+    "kind": "1",
+    "raise": "100000000000000000"
+  },
+  "nativeRaise": "100000000000000000",
+  "bootstrapQ": null,
+  "evidenceBlock": null,
+  "cs": null,
+  "hs": null,
+  "inputs": {
+    "creator": null,
+    "factory": "0xFAe1E6CFF43CAdcBE01885BdD0AA6218263de393",
+    "listingId": "0",
+    "assets": {},
+    "collections": {}
+  },
+  "roles": {
+    "coordinator": null,
+    "token": null,
+    "vault": null
+  },
+  "pileSeed": {
+    "symbol": "ETH",
+    "amount": "1000000000000000000"
+  },
+  "hidden": false
+}

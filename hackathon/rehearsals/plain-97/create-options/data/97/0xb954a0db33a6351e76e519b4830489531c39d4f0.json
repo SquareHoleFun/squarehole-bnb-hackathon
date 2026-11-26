@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "chainId": 97,
+  "factory": "0xb954a0db33a6351e76e519b4830489531c39d4f0",
+  "registry": "0xf77ef448bbc61d559ee8f657ce3a0b59f1af0daf",
+  "versionCodeHash": "0x19ffae989f53e1e7817c5dd840ef9b708087d0d0e1f5879cc79ee5e8109be8b4",
+  "revision": 1,
+  "off": [
+    {
+      "key": "addon.1"
+    }
+  ]
+}

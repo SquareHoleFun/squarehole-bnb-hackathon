@@ -1,0 +1,82 @@
+// Run only with API and sender stopped. SQLite's online backup folds committed WAL pages into one restore file.
+import { DatabaseSync, backup } from 'node:sqlite';
+import { constants, closeSync, copyFileSync, chmodSync, chownSync, existsSync, fsyncSync, lstatSync, mkdirSync, openSync, readdirSync, realpathSync, renameSync, writeFileSync } from 'node:fs';
+import { join, resolve } from 'node:path';
+import { pathToFileURL } from 'node:url';
+import { createHash } from 'node:crypto';
+import { readFileSync } from 'node:fs';
+
+const sync = path => { const fd = openSync(path, 'r'); try { fsyncSync(fd); } finally { closeSync(fd); } };
+const regular = path => { const s = lstatSync(path); if (!s.isFile() || s.isSymbolicLink()) throw new Error('regular file required'); return s; };
+
+export async function snapshot({ alpha, sender, withheld, output, stopped = false, now = Date.now() }) {
+  if (!stopped || existsSync(output) || existsSync(`${output}.partial`)) throw new Error('stopped services and new output required');
+  for (const dir of [alpha, join(alpha, 'state'), sender, withheld]) {
+    const s = lstatSync(dir); if (!s.isDirectory() || s.isSymbolicLink()) throw new Error('directory required');
+  }
+  const stage = `${output}.partial`, inventory = [];
+  mkdirSync(stage, { mode: 0o700 });
+  const record = path => { regular(path); chmodSync(path, 0o600); sync(path);
+    inventory.push({ path: path.slice(stage.length + 1), sha256: createHash('sha256').update(readFileSync(path)).digest('hex') }); };
+  const tree = (source, target, omit = []) => {
+    const directory = lstatSync(source);
+    if (!directory.isDirectory() || directory.isSymbolicLink()) throw new Error('directory required');
+    mkdirSync(target, { mode: 0o700 });
+    for (const name of readdirSync(source).sort()) {
+      if (omit.includes(name)) continue;
+      const from = join(source, name), to = join(target, name);
+      regular(from); copyFileSync(from, to, constants.COPYFILE_EXCL); record(to);
+    }
+    sync(target);
+  };
+  // The same exclusive lock used by the withholding commands. Never back up a half-completed operator edit.
+  const lock = join(withheld, 'pictures.json.lock');
+  const fd = openSync(lock, 'wx', 0o600);
+  try {
+    writeFileSync(fd, 'alpha backup\n'); fsyncSync(fd);
+    tree(join(alpha, 'queue'), join(stage, 'queue'));
+    tree(join(alpha, 'receipts'), join(stage, 'receipts'));
+    tree(sender, join(stage, 'sender'));
+    tree(withheld, join(stage, 'withheld'), ['pictures.json.lock']);
+    mkdirSync(join(stage, 'state'), { mode: 0o700 });
+    const source = join(alpha, 'state/alpha.sqlite');
+    if (existsSync(source)) {
+      const owner = regular(source);
+      for (const suffix of ['-wal', '-shm']) if (existsSync(source + suffix)) regular(source + suffix);
+      const db = new DatabaseSync(source, { readOnly: true });
+      try { db.exec('PRAGMA busy_timeout=5000;'); await backup(db, join(stage, 'state/alpha.sqlite')); }
+      finally {
+        db.close();
+        // A read of a checkpointed WAL database can create sidecars. Preserve the API's ability to reopen them.
+        for (const suffix of ['-wal', '-shm']) if (existsSync(source + suffix)) {
+          const sidecar = regular(source + suffix);
+          if ((sidecar.mode & 0o777) !== (owner.mode & 0o777)) chmodSync(source + suffix, owner.mode & 0o777);
+          if (process.getuid() === 0 && (sidecar.uid !== owner.uid || sidecar.gid !== owner.gid)) chownSync(source + suffix, owner.uid, owner.gid);
+        }
+      }
+      const check = new DatabaseSync(join(stage, 'state/alpha.sqlite'));
+      try {
+        if (check.prepare('PRAGMA integrity_check').get().integrity_check !== 'ok') throw new Error('SQLite check failed');
+        check.exec('PRAGMA journal_mode=DELETE;');
+      } finally { check.close(); }
+      record(join(stage, 'state/alpha.sqlite'));
+    } else if (readdirSync(join(alpha, 'state')).some(n => n.startsWith('alpha.sqlite'))) throw new Error('orphan SQLite sidecar');
+    sync(join(stage, 'state'));
+    writeFileSync(join(stage, 'manifest.json'), JSON.stringify({ v: 1, at: new Date(now).toISOString(),
+      sqlite: existsSync(source), files: inventory }, null, 2) + '\n', { mode: 0o600, flag: 'wx' });
+    sync(join(stage, 'manifest.json')); sync(stage); renameSync(stage, output); sync(resolve(output, '..'));
+  } finally { closeSync(fd); renameSync(lock, join(withheld, 'pictures.json.backup-lock')); }
+  return inventory;
+}
+
+// The real path of the started file: through a linked path (a release folder behind a `current` link) a plain
+// resolve() never equals import.meta.url, and the backup would silently do nothing (scripts/test/entry-points.test.mjs).
+const started = () => { try { return Boolean(process.argv[1]) && import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } };
+if (started()) {
+  try {
+    const [flag, output, ...extra] = process.argv.slice(2);
+    if (flag !== '--services-stopped' || !output || extra.length) throw new Error('arguments');
+    await snapshot({ alpha: '/alpha', sender: '/sender', withheld: '/withheld', output, stopped: true });
+    process.stdout.write('alpha backup complete; SQLite checked\n');
+  } catch { process.stderr.write('alpha backup refused; partial copy retained, inspect paths and stopped services\n'); process.exitCode = 1; }
+}

@@ -1,0 +1,573 @@
+{
+ "ticks": [
+  {
+   "block": "100",
+   "sent": [
+    {
+     "job": "receiverPayFit",
+     "key": "receiverPayFit:2:0x0000000000000000000000000000000000000002",
+     "asOurs": true,
+     "gas": "250000"
+    },
+    {
+     "job": "receiverPayPlatform",
+     "key": "receiverPayPlatform:2:0x0000000000000000000000000000000000000002",
+     "asOurs": true,
+     "gas": "250000"
+    },
+    {
+     "job": "collect",
+     "key": "collect:2:0x0000000000000000000000000000000000000002",
+     "asOurs": true,
+     "gas": "5000000"
+    }
+   ],
+   "skipped": [
+    {
+     "job": "routerSweep",
+     "why": "nothing to do"
+    },
+    {
+     "job": "sellFees",
+     "why": "nothing to do"
+    }
+   ],
+   "raws": [
+    {
+     "nonce": 7,
+     "raw": "0x02f87283aa36a7078402faf0808402faf0828303d09094000000000000000000000000000000000000000380848669ae4ac080a0518a48156f09cc68656e198e615c8afaf55f91af69f33ad751dca75c53e90710a01bca27bf1525137b42c2170a33e2efabfdb525911f7a1915a010dd2f68893534"
+    },
+    {
+     "nonce": 8,
+     "raw": "0x02f87283aa36a7088402faf0808402faf0828303d0909400000000000000000000000000000000000000038084ee4fb373c080a068cd294d1e346ab53983de3c343c33d5097d2154acbeb268c85092deeb0ec82ea00ae24890fec2b3c661750656274e364d7c1934617ea2af520a0742cc8200fceb"
+    },
+    {
+     "nonce": 9,
+     "raw": "0x02f89283aa36a7098402faf0808402faf082834c4b4094000000000000000000000000000000000000000380a406ec16f80000000000000000000000001a642f0e3c3af545e7acbd38b07251b3990914f1c080a005629deda34e2efce2c4053806a2b48c149e83b14078d33b5a5e6f2b829ab574a05bd23792aeaacf0627e3563450330672e4d80d761e8a01f6d368bece18f935f4"
+    }
+   ],
+   "budget": {
+    "day": "20732",
+    "oursWei": "275000011000000",
+    "pokesWei": "0",
+    "totalWei": "275000011000000",
+    "drandRescueWei": "0",
+    "block": "100",
+    "txInBlock": 3,
+    "pending": [
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0x5d1719edf2b0c5fe7e3417cd9b234cf5224c920d3f245dee8dc9361a2da78c28"
+     },
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0xd2f0295edc3cc21b78056335ed39eaae2ca7069955a00f4a54bb817a23364885"
+     },
+     {
+      "costWei": "250000010000000",
+      "ours": "ours",
+      "hash": "0x735f1c504ea5e162e229cfeea4bc237f56f003d2a0a800b5c1c0c25b3f7eb07b"
+     }
+    ]
+   },
+   "incomeSpend": [
+    {
+     "box": "0x0000000000000000000000000000000000000003",
+     "at": "1791302400",
+     "costWei": "250000010000000",
+     "hash": "0x735f1c504ea5e162e229cfeea4bc237f56f003d2a0a800b5c1c0c25b3f7eb07b"
+    }
+   ],
+   "drandBounties": {}
+  },
+  {
+   "block": "103",
+   "sent": [
+    {
+     "job": "receiverPayFit",
+     "key": "receiverPayFit:2:0x0000000000000000000000000000000000000002",
+     "asOurs": true,
+     "gas": "250000"
+    },
+    {
+     "job": "receiverPayPlatform",
+     "key": "receiverPayPlatform:2:0x0000000000000000000000000000000000000002",
+     "asOurs": true,
+     "gas": "250000"
+    },
+    {
+     "job": "collect",
+     "key": "collect:2:0x0000000000000000000000000000000000000002",
+     "asOurs": true,
+     "gas": "5000000"
+    }
+   ],
+   "skipped": [
+    {
+     "job": "routerSweep",
+     "why": "nothing to do"
+    }
+   ],
+   "raws": [
+    {
+     "nonce": 10,
+     "raw": "0x02f87283aa36a70a8402faf0808402faf0828303d09094000000000000000000000000000000000000000380848669ae4ac001a02257b256cee56771f1eeb850ef5d362bbd774267bf80fd4d5041e2fbe8c75968a07034004799b27464ae0b683a0e252a44efaad60d1717b3e0a8fac3b7120b25ad"
+    },
+    {
+     "nonce": 11,
+     "raw": "0x02f87283aa36a70b8402faf0808402faf0828303d0909400000000000000000000000000000000000000038084ee4fb373c001a02a07e9f694c7e267d1f0e36eac147cb332baddcee96b13a671b7f2ff9caf8eb8a026ab6faa983675541997c1fefcad0e9cb3979b1fb173c6ce9bc215880d13cc6c"
+    },
+    {
+     "nonce": 12,
+     "raw": "0x02f89283aa36a70c8402faf0808402faf082834c4b4094000000000000000000000000000000000000000380a406ec16f80000000000000000000000001a642f0e3c3af545e7acbd38b07251b3990914f1c080a03766a6b36ecb98064425810018a54fa59a6644de31097a07e867a74faacf94a7a023d7ba84d694bb10ed9e456ba4b34089710a21f1799ce4a886f9bf3763743658"
+    }
+   ],
+   "budget": {
+    "day": "20732",
+    "oursWei": "550000022000000",
+    "pokesWei": "0",
+    "totalWei": "550000022000000",
+    "drandRescueWei": "0",
+    "block": "103",
+    "txInBlock": 3,
+    "pending": [
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0x5d1719edf2b0c5fe7e3417cd9b234cf5224c920d3f245dee8dc9361a2da78c28"
+     },
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0xd2f0295edc3cc21b78056335ed39eaae2ca7069955a00f4a54bb817a23364885"
+     },
+     {
+      "costWei": "250000010000000",
+      "ours": "ours",
+      "hash": "0x735f1c504ea5e162e229cfeea4bc237f56f003d2a0a800b5c1c0c25b3f7eb07b"
+     },
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0x475a82d057a0e8699d4bfca9c29cc6eca4153684df89c599f4bcd6f48afbe1e3"
+     },
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0xde441b99b9261ef400d54de57ec00aa9ab2a5b55697ddea5da50e11ee28b32e5"
+     },
+     {
+      "costWei": "250000010000000",
+      "ours": "ours",
+      "hash": "0xcfba5ea1663a8d7a871dc75384f3616d6d33742ae71dfe64928ce711574406c4"
+     }
+    ]
+   },
+   "incomeSpend": [
+    {
+     "box": "0x0000000000000000000000000000000000000003",
+     "at": "1791302400",
+     "costWei": "250000010000000",
+     "hash": "0x735f1c504ea5e162e229cfeea4bc237f56f003d2a0a800b5c1c0c25b3f7eb07b"
+    },
+    {
+     "box": "0x0000000000000000000000000000000000000003",
+     "at": "1791302436",
+     "costWei": "250000010000000",
+     "hash": "0xcfba5ea1663a8d7a871dc75384f3616d6d33742ae71dfe64928ce711574406c4"
+    }
+   ],
+   "drandBounties": {}
+  },
+  {
+   "block": "106",
+   "sent": [
+    {
+     "job": "receiverPayFit",
+     "key": "receiverPayFit:2:0x0000000000000000000000000000000000000002",
+     "asOurs": true,
+     "gas": "250000"
+    },
+    {
+     "job": "receiverPayPlatform",
+     "key": "receiverPayPlatform:2:0x0000000000000000000000000000000000000002",
+     "asOurs": true,
+     "gas": "250000"
+    },
+    {
+     "job": "collect",
+     "key": "collect:2:0x0000000000000000000000000000000000000002",
+     "asOurs": true,
+     "gas": "5000000"
+    }
+   ],
+   "skipped": [
+    {
+     "job": "routerSweep",
+     "why": "nothing to do"
+    }
+   ],
+   "raws": [
+    {
+     "nonce": 13,
+     "raw": "0x02f87283aa36a70d8402faf0808402faf0828303d09094000000000000000000000000000000000000000380848669ae4ac080a0847bc896a534c6ffe1588ef33880a679140c4a2189fc1095f7e2d7dd4efe3460a01ec60c08ef17aeb858c2971024ae7aeb0ebf654bce7d959d9140d504dd0c367f"
+    },
+    {
+     "nonce": 14,
+     "raw": "0x02f87283aa36a70e8402faf0808402faf0828303d0909400000000000000000000000000000000000000038084ee4fb373c080a0ea9e75bc5b8f187e6f0ed68048d57d899802b01a78c7365f3ae35ba09b5d8841a033a4557e453e9c0f92b749eb7e317bbbe3ce86c719959991280d71698fe1143a"
+    },
+    {
+     "nonce": 15,
+     "raw": "0x02f89283aa36a70f8402faf0808402faf082834c4b4094000000000000000000000000000000000000000380a406ec16f80000000000000000000000001a642f0e3c3af545e7acbd38b07251b3990914f1c001a03fbbd3cfe1c3dca68c45f9f20de25fee4f0d5419e7880d4bfb622613fc2e94ffa069b00c7e23b238532453f38b064026bdfec07c935e19886854c028483df8bc21"
+    }
+   ],
+   "budget": {
+    "day": "20732",
+    "oursWei": "825000033000000",
+    "pokesWei": "0",
+    "totalWei": "825000033000000",
+    "drandRescueWei": "0",
+    "block": "106",
+    "txInBlock": 3,
+    "pending": [
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0x5d1719edf2b0c5fe7e3417cd9b234cf5224c920d3f245dee8dc9361a2da78c28"
+     },
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0xd2f0295edc3cc21b78056335ed39eaae2ca7069955a00f4a54bb817a23364885"
+     },
+     {
+      "costWei": "250000010000000",
+      "ours": "ours",
+      "hash": "0x735f1c504ea5e162e229cfeea4bc237f56f003d2a0a800b5c1c0c25b3f7eb07b"
+     },
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0x475a82d057a0e8699d4bfca9c29cc6eca4153684df89c599f4bcd6f48afbe1e3"
+     },
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0xde441b99b9261ef400d54de57ec00aa9ab2a5b55697ddea5da50e11ee28b32e5"
+     },
+     {
+      "costWei": "250000010000000",
+      "ours": "ours",
+      "hash": "0xcfba5ea1663a8d7a871dc75384f3616d6d33742ae71dfe64928ce711574406c4"
+     },
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0xa28541660563fc08e4d42b4a10e99cf74834a7f6a3a579ef7246efa9de02f69d"
+     },
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0x4f08accf27d352be757adaf4479b5f7aacf0b96c8a3e24ac22db3982a73b5f46"
+     },
+     {
+      "costWei": "250000010000000",
+      "ours": "ours",
+      "hash": "0xf0dd4b2c490cfdf4dca3b1743566913975af167260a1c36284138e14b8564f34"
+     }
+    ]
+   },
+   "incomeSpend": [
+    {
+     "box": "0x0000000000000000000000000000000000000003",
+     "at": "1791302400",
+     "costWei": "250000010000000",
+     "hash": "0x735f1c504ea5e162e229cfeea4bc237f56f003d2a0a800b5c1c0c25b3f7eb07b"
+    },
+    {
+     "box": "0x0000000000000000000000000000000000000003",
+     "at": "1791302436",
+     "costWei": "250000010000000",
+     "hash": "0xcfba5ea1663a8d7a871dc75384f3616d6d33742ae71dfe64928ce711574406c4"
+    },
+    {
+     "box": "0x0000000000000000000000000000000000000003",
+     "at": "1791302472",
+     "costWei": "250000010000000",
+     "start": {
+      "job": "collect"
+     },
+     "hash": "0xf0dd4b2c490cfdf4dca3b1743566913975af167260a1c36284138e14b8564f34"
+    }
+   ],
+   "drandBounties": {}
+  },
+  {
+   "block": "109",
+   "sent": [
+    {
+     "job": "receiverPayFit",
+     "key": "receiverPayFit:2:0x0000000000000000000000000000000000000002",
+     "asOurs": true,
+     "gas": "250000"
+    },
+    {
+     "job": "receiverPayPlatform",
+     "key": "receiverPayPlatform:2:0x0000000000000000000000000000000000000002",
+     "asOurs": true,
+     "gas": "250000"
+    }
+   ],
+   "skipped": [
+    {
+     "job": "collect",
+     "why": "start unpaid"
+    },
+    {
+     "job": "routerSweep",
+     "why": "nothing to do"
+    }
+   ],
+   "raws": [
+    {
+     "nonce": 16,
+     "raw": "0x02f87283aa36a7108402faf0808402faf0828303d09094000000000000000000000000000000000000000380848669ae4ac001a0d57212596228f7dfacd1de3a23bab860c79414f5277d5f7eab56e435e8b6e9c5a0573cdf418aa1d791ffff155d7e017730b54d8f18afd430d0f4ca05a2d1c00c73"
+    },
+    {
+     "nonce": 17,
+     "raw": "0x02f87283aa36a7118402faf0808402faf0828303d0909400000000000000000000000000000000000000038084ee4fb373c080a09d13e29ae5130a69265c95eb3d7013d7e5ac814b188ef405b481b8b65819a83ba017d9ff5cf4f8d27fe9254957b57477c88b3face1aa29ae24d7037b554d02c9a3"
+    }
+   ],
+   "budget": {
+    "day": "20732",
+    "oursWei": "850000034000000",
+    "pokesWei": "0",
+    "totalWei": "850000034000000",
+    "drandRescueWei": "0",
+    "block": "109",
+    "txInBlock": 2,
+    "pending": [
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0x5d1719edf2b0c5fe7e3417cd9b234cf5224c920d3f245dee8dc9361a2da78c28"
+     },
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0xd2f0295edc3cc21b78056335ed39eaae2ca7069955a00f4a54bb817a23364885"
+     },
+     {
+      "costWei": "250000010000000",
+      "ours": "ours",
+      "hash": "0x735f1c504ea5e162e229cfeea4bc237f56f003d2a0a800b5c1c0c25b3f7eb07b"
+     },
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0x475a82d057a0e8699d4bfca9c29cc6eca4153684df89c599f4bcd6f48afbe1e3"
+     },
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0xde441b99b9261ef400d54de57ec00aa9ab2a5b55697ddea5da50e11ee28b32e5"
+     },
+     {
+      "costWei": "250000010000000",
+      "ours": "ours",
+      "hash": "0xcfba5ea1663a8d7a871dc75384f3616d6d33742ae71dfe64928ce711574406c4"
+     },
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0xa28541660563fc08e4d42b4a10e99cf74834a7f6a3a579ef7246efa9de02f69d"
+     },
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0x4f08accf27d352be757adaf4479b5f7aacf0b96c8a3e24ac22db3982a73b5f46"
+     },
+     {
+      "costWei": "250000010000000",
+      "ours": "ours",
+      "hash": "0xf0dd4b2c490cfdf4dca3b1743566913975af167260a1c36284138e14b8564f34"
+     },
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0x04e760f4fcc14eee46cf885cbbd03c871da3672e89e393ddbccaa17e6a15938b"
+     },
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0xd2b4c42feb83809398f0d8e7025da0e30085b93ee5364d0ac8f01266ecadd93b"
+     }
+    ]
+   },
+   "incomeSpend": [
+    {
+     "box": "0x0000000000000000000000000000000000000003",
+     "at": "1791302400",
+     "costWei": "250000010000000",
+     "hash": "0x735f1c504ea5e162e229cfeea4bc237f56f003d2a0a800b5c1c0c25b3f7eb07b"
+    },
+    {
+     "box": "0x0000000000000000000000000000000000000003",
+     "at": "1791302436",
+     "costWei": "250000010000000",
+     "hash": "0xcfba5ea1663a8d7a871dc75384f3616d6d33742ae71dfe64928ce711574406c4"
+    },
+    {
+     "box": "0x0000000000000000000000000000000000000003",
+     "at": "1791302472",
+     "costWei": "250000010000000",
+     "start": {
+      "job": "collect"
+     },
+     "hash": "0xf0dd4b2c490cfdf4dca3b1743566913975af167260a1c36284138e14b8564f34"
+    }
+   ],
+   "drandBounties": {}
+  },
+  {
+   "block": "112",
+   "sent": [
+    {
+     "job": "receiverPayFit",
+     "key": "receiverPayFit:2:0x0000000000000000000000000000000000000002",
+     "asOurs": true,
+     "gas": "250000"
+    },
+    {
+     "job": "receiverPayPlatform",
+     "key": "receiverPayPlatform:2:0x0000000000000000000000000000000000000002",
+     "asOurs": true,
+     "gas": "250000"
+    }
+   ],
+   "skipped": [
+    {
+     "job": "collect",
+     "why": "start unpaid"
+    },
+    {
+     "job": "routerSweep",
+     "why": "nothing to do"
+    }
+   ],
+   "raws": [
+    {
+     "nonce": 18,
+     "raw": "0x02f87283aa36a7128402faf0808402faf0828303d09094000000000000000000000000000000000000000380848669ae4ac080a0699272fd17cafba6c944bfae7d47943c838df3cb95bd32bb5fb753aeab499421a04b1101de748ca6d3a3524ea90a4b3de469c8c94c5a6f83c950d62e8c31848bea"
+    },
+    {
+     "nonce": 19,
+     "raw": "0x02f87283aa36a7138402faf0808402faf0828303d0909400000000000000000000000000000000000000038084ee4fb373c001a071c1a3b00a1aec17f157164e47ffefa6c8ebc135296a8ffeb995cad5ac7bc496a06f552bc1b860e3ec012fe73ca1c71ad868a4702b80075b983ba03419f38631bf"
+    }
+   ],
+   "budget": {
+    "day": "20732",
+    "oursWei": "875000035000000",
+    "pokesWei": "0",
+    "totalWei": "875000035000000",
+    "drandRescueWei": "0",
+    "block": "112",
+    "txInBlock": 2,
+    "pending": [
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0x5d1719edf2b0c5fe7e3417cd9b234cf5224c920d3f245dee8dc9361a2da78c28"
+     },
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0xd2f0295edc3cc21b78056335ed39eaae2ca7069955a00f4a54bb817a23364885"
+     },
+     {
+      "costWei": "250000010000000",
+      "ours": "ours",
+      "hash": "0x735f1c504ea5e162e229cfeea4bc237f56f003d2a0a800b5c1c0c25b3f7eb07b"
+     },
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0x475a82d057a0e8699d4bfca9c29cc6eca4153684df89c599f4bcd6f48afbe1e3"
+     },
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0xde441b99b9261ef400d54de57ec00aa9ab2a5b55697ddea5da50e11ee28b32e5"
+     },
+     {
+      "costWei": "250000010000000",
+      "ours": "ours",
+      "hash": "0xcfba5ea1663a8d7a871dc75384f3616d6d33742ae71dfe64928ce711574406c4"
+     },
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0xa28541660563fc08e4d42b4a10e99cf74834a7f6a3a579ef7246efa9de02f69d"
+     },
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0x4f08accf27d352be757adaf4479b5f7aacf0b96c8a3e24ac22db3982a73b5f46"
+     },
+     {
+      "costWei": "250000010000000",
+      "ours": "ours",
+      "hash": "0xf0dd4b2c490cfdf4dca3b1743566913975af167260a1c36284138e14b8564f34"
+     },
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0x04e760f4fcc14eee46cf885cbbd03c871da3672e89e393ddbccaa17e6a15938b"
+     },
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0xd2b4c42feb83809398f0d8e7025da0e30085b93ee5364d0ac8f01266ecadd93b"
+     },
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0x0cd297e87b3a900c3d8cfd0bb4a50f81b1352278c566077f4565977892fab738"
+     },
+     {
+      "costWei": "12500000500000",
+      "ours": "ours",
+      "hash": "0x93b296a74d5d0379f47f8d8fc77a5c071fa36abb5471026c4b222031f8c5e5e5"
+     }
+    ]
+   },
+   "incomeSpend": [
+    {
+     "box": "0x0000000000000000000000000000000000000003",
+     "at": "1791302400",
+     "costWei": "250000010000000",
+     "hash": "0x735f1c504ea5e162e229cfeea4bc237f56f003d2a0a800b5c1c0c25b3f7eb07b"
+    },
+    {
+     "box": "0x0000000000000000000000000000000000000003",
+     "at": "1791302436",
+     "costWei": "250000010000000",
+     "hash": "0xcfba5ea1663a8d7a871dc75384f3616d6d33742ae71dfe64928ce711574406c4"
+    },
+    {
+     "box": "0x0000000000000000000000000000000000000003",
+     "at": "1791302472",
+     "costWei": "250000010000000",
+     "start": {
+      "job": "collect"
+     },
+     "hash": "0xf0dd4b2c490cfdf4dca3b1743566913975af167260a1c36284138e14b8564f34"
+    }
+   ],
+   "drandBounties": {}
+  }
+ ],
+ "sentTotal": 13
+}

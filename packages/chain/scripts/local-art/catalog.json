@@ -1,0 +1,167 @@
+{
+  "schema": "sh.local-art.v1",
+  "boxes": {
+    "misfits": {
+      "logo": {
+        "file": "misfits-logo.png",
+        "sha256": "0xab4b06835172a01b1c7214f00af8bb10a52cd55fb0abc714b7d18e4108cacd16",
+        "source": "packages/design/art/fit/fit-icon-512.png"
+      },
+      "cover": {
+        "file": "misfits-cover.png",
+        "sha256": "0x41cf86fd8bf4bf185534477e35ca01b8183316adc947a92f9c3d8933a90f11fb",
+        "source": "docs/design/misfits-v2/banner/final/misfits-collection-sorter-1024.png"
+      },
+      "banner": {
+        "file": "misfits-banner.png",
+        "sha256": "0xa8202b6917194146c6d2c9ddb53529dd9f064089d9019d9989dfb722dd921afe",
+        "source": "docs/design/misfits-v2/banner/final/misfits-banner-a-1600x400.png"
+      },
+      "spec": {
+        "coverSha256": "0xab4b06835172a01b1c7214f00af8bb10a52cd55fb0abc714b7d18e4108cacd16",
+        "collectionCoverSha256": "0x41cf86fd8bf4bf185534477e35ca01b8183316adc947a92f9c3d8933a90f11fb",
+        "addOns": [
+          {
+            "id": 6,
+            "params": "0xa8202b6917194146c6d2c9ddb53529dd9f064089d9019d9989dfb722dd921afe0000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ]
+      }
+    },
+    "plain": {
+      "mode": 0,
+      "logo": {
+        "file": "plain-logo.png",
+        "sha256": "0x96445c00b4e0be180f662a2222e88e84bd57b7aaf3f75633e2fc54473ad707c7"
+      },
+      "cover": {
+        "file": "plain-cover.png",
+        "sha256": "0xddf84789e47c321b917117753d2bd08964847a1395a9efc37a0622fb8d6ebd03"
+      },
+      "spec": {
+        "coverSha256": "0x96445c00b4e0be180f662a2222e88e84bd57b7aaf3f75633e2fc54473ad707c7",
+        "collectionCoverSha256": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    "holders": {
+      "mode": 1,
+      "logo": {
+        "file": "holders-logo.png",
+        "sha256": "0x244332ad0f68eaf636d940f5fb67a3458821c92bf959fa96217f39ecd1888ece"
+      },
+      "cover": {
+        "file": "holders-cover.png",
+        "sha256": "0x7be2e69ec098b264a0fbd591d5b8c7bfbf931e968583f91d547325e26e066964"
+      },
+      "spec": {
+        "coverSha256": "0x244332ad0f68eaf636d940f5fb67a3458821c92bf959fa96217f39ecd1888ece",
+        "collectionCoverSha256": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    "shop": {
+      "mode": 2,
+      "logo": {
+        "file": "shop-logo.png",
+        "sha256": "0x745d06e9e5b431536cfee705c0cc0e0daa5f8dc1cccdd5456f763c2e6b0d0e59"
+      },
+      "cover": {
+        "file": "shop-cover.png",
+        "sha256": "0x98f79b9a5fd38d3a46415974baccbe902b99ab325fd202ce98879de4353a207e"
+      },
+      "spec": {
+        "coverSha256": "0x745d06e9e5b431536cfee705c0cc0e0daa5f8dc1cccdd5456f763c2e6b0d0e59",
+        "collectionCoverSha256": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    "failure": {
+      "mode": 3,
+      "logo": {
+        "file": "failure-logo.png",
+        "sha256": "0x1f0c7d7c74cdea2568187c92121b21293c9dd85cc96007f607459c1c821e8fc2"
+      },
+      "cover": {
+        "file": "failure-cover.png",
+        "sha256": "0xc7663a2f83867d85e9f09247927ab0e05e3574f135ebb7dc35e8e602f17ec2a0"
+      },
+      "spec": {
+        "coverSha256": "0x1f0c7d7c74cdea2568187c92121b21293c9dd85cc96007f607459c1c821e8fc2",
+        "collectionCoverSha256": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    "everyItem": {
+      "mode": 4,
+      "logo": {
+        "file": "everyItem-logo.png",
+        "sha256": "0x8f6b4fc004f868574b87d42d7c9819ea4dd6bfbad4607e2d7922c08c7b41b5b6"
+      },
+      "cover": {
+        "file": "everyItem-cover.png",
+        "sha256": "0x9b79785212b1273f6ecf7b0300962903469afb48647adfdce4903d44ed9e83f3"
+      },
+      "spec": {
+        "coverSha256": "0x8f6b4fc004f868574b87d42d7c9819ea4dd6bfbad4607e2d7922c08c7b41b5b6",
+        "collectionCoverSha256": "0x9b79785212b1273f6ecf7b0300962903469afb48647adfdce4903d44ed9e83f3"
+      }
+    },
+    "coinPile": {
+      "mode": 5,
+      "logo": {
+        "file": "coinPile-logo.png",
+        "sha256": "0x935f9c4de2962b6528951a121c5c7648e43de1d65f4356a93e0477d319539369"
+      },
+      "cover": {
+        "file": "coinPile-cover.png",
+        "sha256": "0x420724898edd0d3f20c475ba48b4fc4e00fb2a0d6e36f6bd02a0a73bd111553e"
+      },
+      "spec": {
+        "coverSha256": "0x935f9c4de2962b6528951a121c5c7648e43de1d65f4356a93e0477d319539369",
+        "collectionCoverSha256": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    "usdc": {
+      "mode": 6,
+      "logo": {
+        "file": "usdc-logo.png",
+        "sha256": "0x06aace16f3f8d4377171e514d9fc2faecd755d43dac906754c73d2fd743ddd8a"
+      },
+      "cover": {
+        "file": "usdc-cover.png",
+        "sha256": "0xd457ee7ba5e8442203fa31e87fff54c1d330488888c6433019a0e5c738ee4ca7"
+      },
+      "spec": {
+        "coverSha256": "0x06aace16f3f8d4377171e514d9fc2faecd755d43dac906754c73d2fd743ddd8a",
+        "collectionCoverSha256": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    "stock": {
+      "mode": 7,
+      "logo": {
+        "file": "stock-logo.png",
+        "sha256": "0xc3d99a9b2b51b07c390fe0c0bff5a6b1086513be38855059c17beb883462a151"
+      },
+      "cover": {
+        "file": "stock-cover.png",
+        "sha256": "0x69b7c919224f418db3a4a6f11d32b6bad3c8186863dbd278d6a37802d2205c05"
+      },
+      "spec": {
+        "coverSha256": "0xc3d99a9b2b51b07c390fe0c0bff5a6b1086513be38855059c17beb883462a151",
+        "collectionCoverSha256": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    "gold": {
+      "mode": 8,
+      "logo": {
+        "file": "gold-logo.png",
+        "sha256": "0xa831ca4cc0f39f521f4b20eb7c5af673ed6d1af598c31a2e0d913febcd7ef466"
+      },
+      "cover": {
+        "file": "gold-cover.png",
+        "sha256": "0xfd9f9b66279cede2713b836a26ac2c577b1b59e3826eda2c970e0cc1b2a04e69"
+      },
+      "spec": {
+        "coverSha256": "0xa831ca4cc0f39f521f4b20eb7c5af673ed6d1af598c31a2e0d913febcd7ef466",
+        "collectionCoverSha256": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  }
+}

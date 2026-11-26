@@ -1,0 +1,12 @@
+{
+  "chainId": 97,
+  "deployBlock": 144931970,
+  "launcherFactory": "0xD09d3D40EB9FC16B347D2778df918F33523A4C78",
+  "pileDeployer": "0xc6CD26717665E4f5e132C674000E3dE551f0E343",
+  "portal": "0x000042108465206185A077Edc3F3fd2b49060000",
+  "quote": "0x190C989D5665a0e404B444b53CAE9AbCfb600157",
+  "router": "0xc9D63ddCB9549578057EAB6A83a543DdFEE2b8c3",
+  "rulesVaultDeployer": "0x5eC71a513Cf8c7AD0DFB9FAaf3651839781d4FdA",
+  "rulesVaultFactory": "0x0dbcdB88eF74bF55037e50Fa156fFDFfc3dAEd60",
+  "variant": "usdt"
+}

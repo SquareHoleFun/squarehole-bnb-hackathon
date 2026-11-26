@@ -1,0 +1,415 @@
+# The public copy's folder scan (hackathon/public/export.mjs runs `gitleaks dir`; its fingerprints are
+# <file>:<rule>:<line>): public values in files of the first commit that a history scan never reported, each read in
+# context on 25 November: contract addresses of Sepolia, chain 31337 and mainnet listings, two creation code hashes,
+# and a test fixture that proves error messages never echo a secret.
+apps/web/fit-markets/fit-market-11155111.json:generic-api-key:11
+apps/web/src/features/boxes/box-model.test.ts:generic-api-key:43
+apps/web/src/features/fit-pair/fit-target.test.ts:generic-api-key:162
+apps/web/src/pages/FitPairPage.test.tsx:generic-api-key:484
+packages/cards/src/service/config.test.ts:generic-api-key:11
+packages/chain/src/reads/fit-market.test.ts:generic-api-key:26
+packages/chain/src/test-support/manifest-31337.json:generic-api-key:6
+packages/chain/src/test-support/manifest-31337.json:generic-api-key:7
+packages/indexer/src/config.ts:generic-api-key:50
+packages/indexer/src/config.ts:generic-api-key:76
+packages/indexer/test/core/listings-v2.test.ts:generic-api-key:42
+scripts/nft/test/curation-guards.test.mjs:generic-api-key:129
+
+# curation-guards.test.mjs:128: the fixture string "abcdef0123456789" proves error messages never echo a secret (2026-10-08)
+df0eddbaacffe5420b42fb0c65b63dce935b2d14:scripts/nft/test/curation-guards.test.mjs:generic-api-key:128
+
+# rc7 (2026-10-20, open item 44 of docs/evidence/SH-V21-RC7-INT.md): the indexer lane's rc6-inbox serialization
+# fixtures from commit 11c6698a2; every value read in context: 20 public contract addresses, 2 runtime code hashes.
+# Exact fingerprints only (commit:file:rule:line), no path or regex allowlist.
+# packages/indexer/test/core/rc6-inbox/cq11-e-baseline.json:59: safePayments[].token: the Ethereum mainnet LINK token contract address (0x5149...86CA), public (kind fit)
+11c6698a26f419a3e7454354b2cb20728a6bedcd:packages/indexer/test/core/rc6-inbox/cq11-e-baseline.json:generic-api-key:59
+# packages/indexer/test/core/rc6-inbox/cq11-e-baseline.json:72: safePayments[].token: the Ethereum mainnet LINK token contract address (0x5149...86CA), public (kind platform)
+11c6698a26f419a3e7454354b2cb20728a6bedcd:packages/indexer/test/core/rc6-inbox/cq11-e-baseline.json:generic-api-key:72
+# packages/indexer/test/core/rc6-inbox/service-baseline.json:6: view.token: the box token's contract address on the scripted local chain 31337 (0xb535...8f1)
+11c6698a26f419a3e7454354b2cb20728a6bedcd:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:6
+# packages/indexer/test/core/rc6-inbox/service-baseline.json:22: view.row.contracts.token: the box token's contract address on the scripted local chain 31337 (0xb535...8f1)
+11c6698a26f419a3e7454354b2cb20728a6bedcd:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:22
+# packages/indexer/test/core/rc6-inbox/service-baseline.json:48: view.row.codeHashes.token: the token contract's runtime code hash, beside the coordinator, hook and vault hashes
+11c6698a26f419a3e7454354b2cb20728a6bedcd:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:48
+# packages/indexer/test/core/rc6-inbox/service-baseline.json:154: pricing.token: the box's Q token contract address on chain 31337 (0x80ca...669a, the same as row.q)
+11c6698a26f419a3e7454354b2cb20728a6bedcd:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:154
+# packages/indexer/test/core/rc6-inbox/service-baseline.json:356: sales[].buyToken of a recorded CoW Trade: a chain 31337 contract address (0x2e23...470b)
+11c6698a26f419a3e7454354b2cb20728a6bedcd:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:356
+# packages/indexer/test/core/rc6-inbox/service-baseline.json:567: lastSale.buyToken of a recorded CoW Trade: a chain 31337 contract address (0x2e23...470b)
+11c6698a26f419a3e7454354b2cb20728a6bedcd:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:567
+# packages/indexer/test/core/rc6-inbox/service-baseline.json:670: sellToken of a recorded CoW Trade: a chain 31337 contract address (0x15cf...27b9)
+11c6698a26f419a3e7454354b2cb20728a6bedcd:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:670
+# packages/indexer/test/core/rc6-inbox/service-baseline.json:671: buyToken of a recorded CoW Trade: a chain 31337 contract address (0x2e23...470b)
+11c6698a26f419a3e7454354b2cb20728a6bedcd:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:671
+# packages/indexer/test/core/rc6-inbox/service-baseline.json:921: boxes[].token: the box token's contract address on the scripted local chain 31337 (0xb535...8f1)
+11c6698a26f419a3e7454354b2cb20728a6bedcd:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:921
+# packages/indexer/test/core/rc6-inbox/service-baseline.json:975: boxes[].token: the box token's contract address on the scripted local chain 31337 (0xb535...8f1)
+11c6698a26f419a3e7454354b2cb20728a6bedcd:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:975
+# packages/indexer/test/core/rc6-inbox/service-baseline.json:993: sellToken of a recorded CoW Trade: a chain 31337 contract address (0x15cf...27b9)
+11c6698a26f419a3e7454354b2cb20728a6bedcd:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:993
+# packages/indexer/test/core/rc6-inbox/service-baseline.json:994: buyToken of a recorded CoW Trade: a chain 31337 contract address (0x2e23...470b)
+11c6698a26f419a3e7454354b2cb20728a6bedcd:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:994
+# packages/indexer/test/core/rc6-inbox/service-baseline.json:1092: after view.token: the box token's contract address on the scripted local chain 31337 (0xb535...8f1)
+11c6698a26f419a3e7454354b2cb20728a6bedcd:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:1092
+# packages/indexer/test/core/rc6-inbox/service-baseline.json:1108: after view.row.contracts.token: the box token's contract address on the scripted local chain 31337 (0xb535...8f1)
+11c6698a26f419a3e7454354b2cb20728a6bedcd:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:1108
+# packages/indexer/test/core/rc6-inbox/service-baseline.json:1134: after view.row.codeHashes.token: the token contract's runtime code hash, beside the other roles' hashes
+11c6698a26f419a3e7454354b2cb20728a6bedcd:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:1134
+# packages/indexer/test/core/rc6-inbox/service-baseline.json:1240: after pricing.token: the box's Q token contract address on chain 31337 (0x80ca...669a)
+11c6698a26f419a3e7454354b2cb20728a6bedcd:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:1240
+# packages/indexer/test/core/rc6-inbox/service-baseline.json:1956: after boxes[].token: the box token's contract address on the scripted local chain 31337 (0xb535...8f1)
+11c6698a26f419a3e7454354b2cb20728a6bedcd:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:1956
+# packages/indexer/test/core/rc6-inbox/service-baseline.json:2010: after boxes[].token: the box token's contract address on the scripted local chain 31337 (0xb535...8f1)
+11c6698a26f419a3e7454354b2cb20728a6bedcd:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:2010
+# packages/indexer/test/core/rc6-inbox/service-baseline.json:2028: after sellToken of a recorded CoW Trade: a chain 31337 contract address (0x15cf...27b9)
+11c6698a26f419a3e7454354b2cb20728a6bedcd:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:2028
+# packages/indexer/test/core/rc6-inbox/service-baseline.json:2029: after buyToken of a recorded CoW Trade: a chain 31337 contract address (0x2e23...470b)
+11c6698a26f419a3e7454354b2cb20728a6bedcd:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:2029
+
+# rc7 part 4 (2026-10-20, SH-V21-RC7-INT part 4): the same 22 fixture lines as reported again by `gitleaks git
+# --log-opts="-m 2d04e4a7d..HEAD"`, which diffs each merge against its first parent too. Each of the 88 entries below
+# is one of the 22 lines above, unchanged (its secret is the text of that line at 11c6698a2), carried into sh-v21-int by
+# one of four merge commits. Exact fingerprints only (commit:file:rule:line), no path or regex allowlist.
+# merge 666ee2609 (merge: codex/sh-codex-4/sh-rc7-indexer into sh-v21-int (rc7 part 1: CoW Trade logs by inbo): the 22 lines of 11c6698a2 above, again
+666ee2609350370b4a9b4c73b0f84ed38c73286c:packages/indexer/test/core/rc6-inbox/cq11-e-baseline.json:generic-api-key:59
+666ee2609350370b4a9b4c73b0f84ed38c73286c:packages/indexer/test/core/rc6-inbox/cq11-e-baseline.json:generic-api-key:72
+666ee2609350370b4a9b4c73b0f84ed38c73286c:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:6
+666ee2609350370b4a9b4c73b0f84ed38c73286c:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:22
+666ee2609350370b4a9b4c73b0f84ed38c73286c:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:48
+666ee2609350370b4a9b4c73b0f84ed38c73286c:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:154
+666ee2609350370b4a9b4c73b0f84ed38c73286c:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:356
+666ee2609350370b4a9b4c73b0f84ed38c73286c:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:567
+666ee2609350370b4a9b4c73b0f84ed38c73286c:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:670
+666ee2609350370b4a9b4c73b0f84ed38c73286c:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:671
+666ee2609350370b4a9b4c73b0f84ed38c73286c:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:921
+666ee2609350370b4a9b4c73b0f84ed38c73286c:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:975
+666ee2609350370b4a9b4c73b0f84ed38c73286c:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:993
+666ee2609350370b4a9b4c73b0f84ed38c73286c:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:994
+666ee2609350370b4a9b4c73b0f84ed38c73286c:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:1092
+666ee2609350370b4a9b4c73b0f84ed38c73286c:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:1108
+666ee2609350370b4a9b4c73b0f84ed38c73286c:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:1134
+666ee2609350370b4a9b4c73b0f84ed38c73286c:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:1240
+666ee2609350370b4a9b4c73b0f84ed38c73286c:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:1956
+666ee2609350370b4a9b4c73b0f84ed38c73286c:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:2010
+666ee2609350370b4a9b4c73b0f84ed38c73286c:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:2028
+666ee2609350370b4a9b4c73b0f84ed38c73286c:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:2029
+# merge a2c028e68 (merge: codex/sh-codex-2/sh-rc7-inbox-payload into sh-v21-int (rc7 part 2: the inbox accept): the 22 lines of 11c6698a2 above, again
+a2c028e68e4efb7497fe12d3ff6b22d43fb8b03e:packages/indexer/test/core/rc6-inbox/cq11-e-baseline.json:generic-api-key:59
+a2c028e68e4efb7497fe12d3ff6b22d43fb8b03e:packages/indexer/test/core/rc6-inbox/cq11-e-baseline.json:generic-api-key:72
+a2c028e68e4efb7497fe12d3ff6b22d43fb8b03e:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:6
+a2c028e68e4efb7497fe12d3ff6b22d43fb8b03e:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:22
+a2c028e68e4efb7497fe12d3ff6b22d43fb8b03e:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:48
+a2c028e68e4efb7497fe12d3ff6b22d43fb8b03e:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:154
+a2c028e68e4efb7497fe12d3ff6b22d43fb8b03e:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:356
+a2c028e68e4efb7497fe12d3ff6b22d43fb8b03e:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:567
+a2c028e68e4efb7497fe12d3ff6b22d43fb8b03e:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:670
+a2c028e68e4efb7497fe12d3ff6b22d43fb8b03e:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:671
+a2c028e68e4efb7497fe12d3ff6b22d43fb8b03e:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:921
+a2c028e68e4efb7497fe12d3ff6b22d43fb8b03e:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:975
+a2c028e68e4efb7497fe12d3ff6b22d43fb8b03e:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:993
+a2c028e68e4efb7497fe12d3ff6b22d43fb8b03e:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:994
+a2c028e68e4efb7497fe12d3ff6b22d43fb8b03e:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:1092
+a2c028e68e4efb7497fe12d3ff6b22d43fb8b03e:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:1108
+a2c028e68e4efb7497fe12d3ff6b22d43fb8b03e:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:1134
+a2c028e68e4efb7497fe12d3ff6b22d43fb8b03e:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:1240
+a2c028e68e4efb7497fe12d3ff6b22d43fb8b03e:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:1956
+a2c028e68e4efb7497fe12d3ff6b22d43fb8b03e:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:2010
+a2c028e68e4efb7497fe12d3ff6b22d43fb8b03e:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:2028
+a2c028e68e4efb7497fe12d3ff6b22d43fb8b03e:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:2029
+# merge b6aaab184 (merge: codex/sh-codex-3/sh-rc7-claim-reserve into sh-v21-int (rc7 part 2: a claim or failu): the 22 lines of 11c6698a2 above, again
+b6aaab1840b8cf6a442cdc9c48e846a99ac2e2fc:packages/indexer/test/core/rc6-inbox/cq11-e-baseline.json:generic-api-key:59
+b6aaab1840b8cf6a442cdc9c48e846a99ac2e2fc:packages/indexer/test/core/rc6-inbox/cq11-e-baseline.json:generic-api-key:72
+b6aaab1840b8cf6a442cdc9c48e846a99ac2e2fc:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:6
+b6aaab1840b8cf6a442cdc9c48e846a99ac2e2fc:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:22
+b6aaab1840b8cf6a442cdc9c48e846a99ac2e2fc:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:48
+b6aaab1840b8cf6a442cdc9c48e846a99ac2e2fc:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:154
+b6aaab1840b8cf6a442cdc9c48e846a99ac2e2fc:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:356
+b6aaab1840b8cf6a442cdc9c48e846a99ac2e2fc:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:567
+b6aaab1840b8cf6a442cdc9c48e846a99ac2e2fc:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:670
+b6aaab1840b8cf6a442cdc9c48e846a99ac2e2fc:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:671
+b6aaab1840b8cf6a442cdc9c48e846a99ac2e2fc:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:921
+b6aaab1840b8cf6a442cdc9c48e846a99ac2e2fc:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:975
+b6aaab1840b8cf6a442cdc9c48e846a99ac2e2fc:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:993
+b6aaab1840b8cf6a442cdc9c48e846a99ac2e2fc:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:994
+b6aaab1840b8cf6a442cdc9c48e846a99ac2e2fc:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:1092
+b6aaab1840b8cf6a442cdc9c48e846a99ac2e2fc:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:1108
+b6aaab1840b8cf6a442cdc9c48e846a99ac2e2fc:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:1134
+b6aaab1840b8cf6a442cdc9c48e846a99ac2e2fc:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:1240
+b6aaab1840b8cf6a442cdc9c48e846a99ac2e2fc:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:1956
+b6aaab1840b8cf6a442cdc9c48e846a99ac2e2fc:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:2010
+b6aaab1840b8cf6a442cdc9c48e846a99ac2e2fc:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:2028
+b6aaab1840b8cf6a442cdc9c48e846a99ac2e2fc:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:2029
+# merge 2de76077c (merge: sh-rc7-receiver-quota-af2 into sh-v21-int (rc7 part 3: bounded sub-unit allocation,): the 22 lines of 11c6698a2 above, again
+2de76077c05c9fbb3b586f2fad1c5c283366a618:packages/indexer/test/core/rc6-inbox/cq11-e-baseline.json:generic-api-key:59
+2de76077c05c9fbb3b586f2fad1c5c283366a618:packages/indexer/test/core/rc6-inbox/cq11-e-baseline.json:generic-api-key:72
+2de76077c05c9fbb3b586f2fad1c5c283366a618:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:6
+2de76077c05c9fbb3b586f2fad1c5c283366a618:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:22
+2de76077c05c9fbb3b586f2fad1c5c283366a618:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:48
+2de76077c05c9fbb3b586f2fad1c5c283366a618:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:154
+2de76077c05c9fbb3b586f2fad1c5c283366a618:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:356
+2de76077c05c9fbb3b586f2fad1c5c283366a618:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:567
+2de76077c05c9fbb3b586f2fad1c5c283366a618:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:670
+2de76077c05c9fbb3b586f2fad1c5c283366a618:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:671
+2de76077c05c9fbb3b586f2fad1c5c283366a618:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:921
+2de76077c05c9fbb3b586f2fad1c5c283366a618:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:975
+2de76077c05c9fbb3b586f2fad1c5c283366a618:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:993
+2de76077c05c9fbb3b586f2fad1c5c283366a618:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:994
+2de76077c05c9fbb3b586f2fad1c5c283366a618:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:1092
+2de76077c05c9fbb3b586f2fad1c5c283366a618:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:1108
+2de76077c05c9fbb3b586f2fad1c5c283366a618:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:1134
+2de76077c05c9fbb3b586f2fad1c5c283366a618:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:1240
+2de76077c05c9fbb3b586f2fad1c5c283366a618:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:1956
+2de76077c05c9fbb3b586f2fad1c5c283366a618:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:2010
+2de76077c05c9fbb3b586f2fad1c5c283366a618:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:2028
+2de76077c05c9fbb3b586f2fad1c5c283366a618:packages/indexer/test/core/rc6-inbox/service-baseline.json:generic-api-key:2029
+# rc8.1 (2026-10-21, SH-V21-RC8-INT "rc8.1 (off-chain follow-ups)"): infra/rescue-host/setup.sh writes an empty
+# env template; generic-api-key reads the empty DRAND_RESCUE_MAILER_TOKEN= line with the next line's text,
+# DRAND_RESCUE_HEARTBEAT_HOUR=0, as its value (checked: the matched text is exactly that line). No secret.
+# Exact fingerprints only: the lane commit 58deb8f7c (line 60) and the merge 9af4152f3 (line 66).
+58deb8f7c7cce0bed132041b2872542efec6e489:infra/rescue-host/setup.sh:generic-api-key:60
+9af4152f3799a0f5785b489d7ac7c333e3cce9d6:infra/rescue-host/setup.sh:generic-api-key:66
+# SH-SEPOLIA-CORE-V2-INPUTS (2026-10-22): chain-reads.log line 4 is a public Sepolia block header; generic-api-key reads its
+# blockAccessListHash field as a key. No secret. The path form and the commit fingerprint of 522ef872e.
+docs/evidence/SH-SEPOLIA-CORE-V2-INPUTS/chain-reads.log:generic-api-key:4
+522ef872e89c98e1d7039b2746fdd88554d8d187:docs/evidence/SH-SEPOLIA-CORE-V2-INPUTS/chain-reads.log:generic-api-key:4
+9515b83c8fe74c521c2043e9a7b1e76126a1c1c9:docs/evidence/SH-SEPOLIA-CORE-V2-INPUTS/chain-reads.log:generic-api-key:4
+# The same empty DRAND_RESCUE_MAILER_TOKEN= template line (line 67 after the Node 24.22.1 bump), as the -m scan sees it
+# in the merge 9515b83c8. No secret.
+9515b83c8fe74c521c2043e9a7b1e76126a1c1c9:infra/rescue-host/setup.sh:generic-api-key:67
+# TA-20 (2026-10-23): packages/chain/scripts/sepolia-listing-batch.test.mjs line 93 assigns a lowercase test coin ADDRESS to a
+# variable named token; generic-api-key reads it as a key. Public test address, no secret. Path form, the lane commit and the merge.
+packages/chain/scripts/sepolia-listing-batch.test.mjs:generic-api-key:93
+be6402d333d3d500caea9127c5fce282c98fd3c2:packages/chain/scripts/sepolia-listing-batch.test.mjs:generic-api-key:93
+831ace3c7a857f9cc637bb3e6a06ce515a3bbef6:packages/chain/scripts/sepolia-listing-batch.test.mjs:generic-api-key:93
+# SH-ALPHA-SITE tests: ClaimCard.test.tsx:17 held Anvil's well-known default account #1 private key (public test key, signs a
+# test EIP-191 message); privy-standin.ts:22-23 were browser-storage item names (SESSION_KEY, WALLET_KEY). No secret.
+# The commits that wrote them; the lines themselves no longer match (F166 af1: the key inline in privateKeyToAccount,
+# the names SESSION_ITEM and WALLET_ITEM), so no path form is needed.
+e0e9dd4e195d536b9f874cefe97fd03d2c14037e:apps/web/src/features/trade-sepolia/ClaimCard.test.tsx:generic-api-key:17
+0e321196b24ddaba2d7ebd380f440ecaf06cb733:apps/web/src/features/trade-sepolia/test-support/privy-standin.ts:generic-api-key:22
+0e321196b24ddaba2d7ebd380f440ecaf06cb733:apps/web/src/features/trade-sepolia/test-support/privy-standin.ts:generic-api-key:23
+# SH-KEEPER-TOKEN-INCOME (F164 D3): income-parity-manifest.ts holds tETH's public Sepolia contract address in a field named
+# token; generic-api-key reads it as a key. Public address, no secret. Path form and the two commits that wrote the line.
+packages/keeper/src/income-parity-manifest.ts:generic-api-key:32
+1ec6c896c1278a4c7bb0e4eca0311a1f722f1ceb:packages/keeper/src/income-parity-manifest.ts:generic-api-key:32
+d1423ad904f9a18ee7575300c4b486dd30c6a315:packages/keeper/src/income-parity-manifest.ts:generic-api-key:26
+# SH-ALPHA-ONBOARDING tests (F166): setup-run.test.ts:22 held Anvil's well-known default account #1 private key, the same
+# public test key as above (it signs a test EIP-191 claim message). No secret. The commit that wrote it; the line no
+# longer matches (af1), so no path form.
+0c30d2665ea334de0c583887deb796e6eec5ec32:apps/web/src/features/trade-sepolia/setup-run.test.ts:generic-api-key:22
+# SH-236 part A: income-parity-manifest.ts lines 36 to 60 hold the PUBLIC addresses of the seven Sepolia test coins
+# (`token: '0x...'`), which the generic key rule reads as a token. No secret: each is a deployed contract's address,
+# checked against the chain on 17 November 2026 (symbol, decimals, runtime code hash).
+dbcf30573258bf7f088443b703b721930ce14a65:packages/keeper/src/income-parity-manifest.ts:generic-api-key:36
+dbcf30573258bf7f088443b703b721930ce14a65:packages/keeper/src/income-parity-manifest.ts:generic-api-key:40
+dbcf30573258bf7f088443b703b721930ce14a65:packages/keeper/src/income-parity-manifest.ts:generic-api-key:44
+dbcf30573258bf7f088443b703b721930ce14a65:packages/keeper/src/income-parity-manifest.ts:generic-api-key:48
+dbcf30573258bf7f088443b703b721930ce14a65:packages/keeper/src/income-parity-manifest.ts:generic-api-key:52
+dbcf30573258bf7f088443b703b721930ce14a65:packages/keeper/src/income-parity-manifest.ts:generic-api-key:56
+dbcf30573258bf7f088443b703b721930ce14a65:packages/keeper/src/income-parity-manifest.ts:generic-api-key:60
+895adc9166904456d08de661c8f9495d7d2fa085:packages/contracts/test/box-v2/starts/StartsFactoryExternalPins.t.sol:generic-api-key:57
+
+# The Flap entry's real deployment files on chain 97 (25 November 2026), commit 39053a9c: two PUBLIC contract
+# addresses under keys named "token" and "tokenImpl" (the launched token and the sponsor's token implementation),
+# each read in context. Exact fingerprints only.
+39053a9c5a4905d36b4845b6f1a2f168fc023b03:bounties/flap/deployments/97-sale.json:generic-api-key:5
+39053a9c5a4905d36b4845b6f1a2f168fc023b03:bounties/flap/deployments/97.json:generic-api-key:8
+
+# The BNB Chain testnet deployment's extras file (25 November 2026), commit 7fbdd3a3: every value read in context:
+# four PUBLIC contract addresses of test coins under the key "token" in the listings (tUSDC, tNVDA, tPEPE, tETH on
+# chain 97). Exact fingerprints only (commit:file:rule:line), no path or regex allowlist.
+7fbdd3a334435ebf09a4031245c8a2939a3b1602:packages/contracts/deployments/bnb-testnet/97-extras.json:generic-api-key:146
+7fbdd3a334435ebf09a4031245c8a2939a3b1602:packages/contracts/deployments/bnb-testnet/97-extras.json:generic-api-key:158
+7fbdd3a334435ebf09a4031245c8a2939a3b1602:packages/contracts/deployments/bnb-testnet/97-extras.json:generic-api-key:182
+7fbdd3a334435ebf09a4031245c8a2939a3b1602:packages/contracts/deployments/bnb-testnet/97-extras.json:generic-api-key:194
+
+# Lane branches of the BNB Chain build (25 November 2026): 25 lines, every one read in context at its commit:
+# PUBLIC contract addresses only: the sponsor's token implementation as a constant named TOKEN_IMPL in
+# bounties/flap, and the test coins' addresses on chain 97 under a key or field named "token" (rehearsal
+# listings, a kit's settings, the price feed table, the keeper's pinned coins). Exact fingerprints only
+# (commit:file:rule:line), no path or regex allowlist.
+c55067868a3189451ac9ed3d00017a806945f9fc:bounties/flap/script/CreateSale.s.sol:generic-api-key:19
+e8dd873c3583338b7287fe5fdd3c0d4cc16b4dc0:bounties/flap/script/Deploy.s.sol:generic-api-key:14
+ee143d6b02328906b578838a7bea7e185edc8bcd:bounties/flap/test/PileForkBase.sol:generic-api-key:55
+e8dd873c3583338b7287fe5fdd3c0d4cc16b4dc0:bounties/flap/test/RaisePile.fork.t.sol:generic-api-key:59
+f1281a0d6668b565835617254ef97bdc57cd1c1f:examples/boxes/gpu-poor/settings/bnb/gpu-poor-boxspec-v2.json:generic-api-key:18
+9f5056a8c5c6fbe20475d14a8f6303e72cb7ca22:hackathon/rehearsals/fork-97/bnb-testnet/97-extras.json:generic-api-key:102
+9f5056a8c5c6fbe20475d14a8f6303e72cb7ca22:hackathon/rehearsals/fork-97/bnb-testnet/97-extras.json:generic-api-key:126
+9f5056a8c5c6fbe20475d14a8f6303e72cb7ca22:hackathon/rehearsals/fork-97/bnb-testnet/97-extras.json:generic-api-key:138
+9f5056a8c5c6fbe20475d14a8f6303e72cb7ca22:hackathon/rehearsals/fork-97/bnb-testnet/97-extras.json:generic-api-key:90
+34eed2f15eda5f2e447ee3cdd48b49fdbb0a2d94:hackathon/rehearsals/fork-real-97/bnb-testnet/97-extras.json:generic-api-key:146
+34eed2f15eda5f2e447ee3cdd48b49fdbb0a2d94:hackathon/rehearsals/fork-real-97/bnb-testnet/97-extras.json:generic-api-key:158
+34eed2f15eda5f2e447ee3cdd48b49fdbb0a2d94:hackathon/rehearsals/fork-real-97/bnb-testnet/97-extras.json:generic-api-key:182
+34eed2f15eda5f2e447ee3cdd48b49fdbb0a2d94:hackathon/rehearsals/fork-real-97/bnb-testnet/97-extras.json:generic-api-key:194
+26d0daebb47292af379b0f5ee19db32f3d2666d2:hackathon/rehearsals/plain-97/bnb-testnet/97-extras.json:generic-api-key:102
+26d0daebb47292af379b0f5ee19db32f3d2666d2:hackathon/rehearsals/plain-97/bnb-testnet/97-extras.json:generic-api-key:126
+26d0daebb47292af379b0f5ee19db32f3d2666d2:hackathon/rehearsals/plain-97/bnb-testnet/97-extras.json:generic-api-key:138
+26d0daebb47292af379b0f5ee19db32f3d2666d2:hackathon/rehearsals/plain-97/bnb-testnet/97-extras.json:generic-api-key:90
+aa1075e9591875c7949fd3e0bfd1c12c9c57aaec:packages/chain/src/atlas/atlas-feeds.ts:generic-api-key:43
+aa1075e9591875c7949fd3e0bfd1c12c9c57aaec:packages/chain/src/atlas/atlas-feeds.ts:generic-api-key:44
+aa1075e9591875c7949fd3e0bfd1c12c9c57aaec:packages/chain/src/atlas/atlas-feeds.ts:generic-api-key:45
+528399752461db168eba74a9de6c86502f337601:packages/keeper/src/income-parity-manifest.ts:generic-api-key:68
+528399752461db168eba74a9de6c86502f337601:packages/keeper/src/income-parity-manifest.ts:generic-api-key:72
+528399752461db168eba74a9de6c86502f337601:packages/keeper/src/income-parity-manifest.ts:generic-api-key:76
+528399752461db168eba74a9de6c86502f337601:packages/keeper/src/income-parity-manifest.ts:generic-api-key:80
+528399752461db168eba74a9de6c86502f337601:packages/keeper/src/income-parity-manifest.ts:generic-api-key:84
+
+# The card shop's real box on chain 97 (25 November 2026), commit 54d76816: the box token's PUBLIC contract address
+# under a key named "boxToken", read in context. Exact fingerprint only.
+54d7681679ae4cd913adf942c6c8c15619b5be94:packages/contracts/deployments/bnb-testnet/97-cards.json:generic-api-key:16
+# The Flap entry's real deployment files on chain 97 (25 November 2026), commit 39053a9c: two PUBLIC contract
+# addresses under keys named "token" and "tokenImpl" (the launched token and the sponsor's token implementation),
+# each read in context. Exact fingerprints only.
+39053a9c5a4905d36b4845b6f1a2f168fc023b03:bounties/flap/deployments/97-sale.json:generic-api-key:5
+39053a9c5a4905d36b4845b6f1a2f168fc023b03:bounties/flap/deployments/97.json:generic-api-key:8
+
+# The demo boxes' real records on chain 97 (the merge of sh-261-bnb-demo-boxes, 25 November 2026): PUBLIC contract
+# addresses under keys named "token" (the two box tokens in the Examples page's list and in the real-run record, and
+# the tUSDC price coin in the converter box's settings), each read in context. Exact fingerprints only.
+ca8647ad9bd878f9ecff4afcde7cd0438819d44f:apps/web/src/features/examples/demo-boxes-97.json:generic-api-key:11
+ca8647ad9bd878f9ecff4afcde7cd0438819d44f:apps/web/src/features/examples/demo-boxes-97.json:generic-api-key:21
+c84412dfc68df7de9b7dd5779afdc54396be6f95:hackathon/real-97-demo-boxes.json:generic-api-key:8
+c84412dfc68df7de9b7dd5779afdc54396be6f95:hackathon/real-97-demo-boxes.json:generic-api-key:296
+10666cc1e1aa1239def2dbcaf02b63df02e35e4d:hackathon/real-97-demo-boxes.json:generic-api-key:638
+10666cc1e1aa1239def2dbcaf02b63df02e35e4d:hackathon/real-97-demo-boxes.json:generic-api-key:1098
+10666cc1e1aa1239def2dbcaf02b63df02e35e4d:hackathon/real-97-demo-boxes.json:generic-api-key:1486
+dd8103663a38c10e0665d7ad6a25ea657e39bc66:hackathon/real-97-flap-rules.json:generic-api-key:10
+dd8103663a38c10e0665d7ad6a25ea657e39bc66:hackathon/real-97-flap-rules.json:generic-api-key:99
+dd8103663a38c10e0665d7ad6a25ea657e39bc66:hackathon/real-97-flap-rules.json:generic-api-key:229
+cd0d9e169b3f0e1fec33e6fa2dcfd87d9992ca4e:examples/boxes/the-alchemist/settings/bnb/the-alchemist-boxspec-v2.json:generic-api-key:18
+
+# The OpenFour entry (the merge of sh-264-bounty-openfour, 25 November 2026), each read in context: a marker string
+# of a test that proves refusal texts echo nothing of a request (not a credential), and the two launched tokens'
+# PUBLIC contract addresses under keys named "token" in the real run's deployment file. Exact fingerprints only.
+a519b879c71ccaf1e4a542aaaea95bd45c3f18c6:bounties/openfour/sign/test/sign.test.js:generic-api-key:97
+8803baa768f04173a0b5aa8fccd3bef86df77731:bounties/openfour/deployments/97.json:generic-api-key:25
+8803baa768f04173a0b5aa8fccd3bef86df77731:bounties/openfour/deployments/97.json:generic-api-key:34
+
+# The card shop (the merge of sh-262-bnb-card-shop, 25 November 2026): the tUSDC price coin's PUBLIC contract address
+# under a key named "token" in a test's expected value, read in context. Exact fingerprint only.
+f6518ff467c8b85819e595b412e7a81dc1e56859:packages/contracts/script/bnb/card-shop.test.mjs:generic-api-key:27
+# The Flap entry's token-quote deployment on chain 97 (25 November 2026), commit 1d4433df: four PUBLIC contract
+# addresses under keys whose names contain "token" (the launched token, the two factories, the sponsor's token
+# implementation), each read in context. Exact fingerprints only.
+1d4433df05643c51f101717546480b7a477540c4:bounties/flap/deployments/97-usdt-sale.json:generic-api-key:6
+1d4433df05643c51f101717546480b7a477540c4:bounties/flap/deployments/97-usdt.json:generic-api-key:6
+1d4433df05643c51f101717546480b7a477540c4:bounties/flap/deployments/97-usdt.json:generic-api-key:8
+1d4433df05643c51f101717546480b7a477540c4:bounties/flap/deployments/97-usdt.json:generic-api-key:9
+
+# The Flap entry's token-quote scripts (the merge of sh-271-flap-usdt-real, 25 November 2026): the sponsor's token
+# implementation, a PUBLIC contract address in a constant named TOKEN_IMPL, read in context. Exact fingerprints only.
+0cea08e8005bfe605d88d14cb8693eece7561f24:bounties/flap/script/CreateTokenSale.s.sol:generic-api-key:21
+0cea08e8005bfe605d88d14cb8693eece7561f24:bounties/flap/script/DeployToken.s.sol:generic-api-key:17
+
+# The launch page (the merge of sh-265-bounty-launch-page, 25 November 2026): PUBLIC contract addresses under keys
+# whose names contain "token" in the page's addresses file (the three launched tokens, the first sale's token, the
+# sponsor's token implementation) and the same implementation address as a test constant; each read in context.
+# Exact fingerprints only.
+6e5a77cd3df0fd50ad25b4d8e6432ba66f1d6a52:bounties/app/public/addresses.json:generic-api-key:29
+6e5a77cd3df0fd50ad25b4d8e6432ba66f1d6a52:bounties/app/public/addresses.json:generic-api-key:47
+6e5a77cd3df0fd50ad25b4d8e6432ba66f1d6a52:bounties/app/public/addresses.json:generic-api-key:52
+288a506d10607b3803aa5c832346aa9ab189fb2f:bounties/app/public/addresses.json:generic-api-key:12
+288a506d10607b3803aa5c832346aa9ab189fb2f:bounties/app/public/addresses.json:generic-api-key:18
+f2ed05d2401e8c9b9a72a6b81dbe30f90cd1f9f3:bounties/app/test/flap.test.ts:generic-api-key:17
+
+# The judge's walk (the merge of sh-274-judge-walk, 26 November 2026): the three demo boxes' PUBLIC token addresses
+# under a key named "token" in hackathon/scripts/judge-walk.mjs; each read in context. Exact fingerprints only.
+ad30250c08ba9f1e94a0abb6fbbbde921b1e537f:hackathon/scripts/judge-walk.mjs:generic-api-key:39
+ad30250c08ba9f1e94a0abb6fbbbde921b1e537f:hackathon/scripts/judge-walk.mjs:generic-api-key:40
+ad30250c08ba9f1e94a0abb6fbbbde921b1e537f:hackathon/scripts/judge-walk.mjs:generic-api-key:41
+# SH-287 (the merge of sh-287-rules-flap, 26 November 2026): Flap's PUBLIC token implementation address under a
+# constant named TOKEN_IMPL in two forge scripts (the same constant the older launch scripts carry); each line read.
+# Exact fingerprints only.
+141bfee9eab563fd9d76125882d5577c81797916:bounties/flap/script/DeployRules.s.sol:generic-api-key:17
+141bfee9eab563fd9d76125882d5577c81797916:bounties/flap/script/CreateRulesSale.s.sol:generic-api-key:27
+# The same public address (Flap's token implementation on chain 97) as the constant TOKEN_IMPL in the Flap helper's
+# fork script, lines 31 and 46 (the second builds the clone's code hash from it); both lines read. Exact fingerprints only.
+b7d6a24b0f8d1a1c74430c56a1e72c5ba9c9c5ee:packages/chain/scripts/bnb-boxes/flap-helper-fork.mjs:generic-api-key:31
+b7d6a24b0f8d1a1c74430c56a1e72c5ba9c9c5ee:packages/chain/scripts/bnb-boxes/flap-helper-fork.mjs:generic-api-key:46
+# Public contract addresses on chain 97, each line read: Flap's token implementation as TOKEN_IMPL in the shop launch
+# script; two launched tokens named in the rail probe script; the PILE token as the price coin in two box sheets.
+# Exact fingerprints only.
+17640213f08094635db213f99ddbb7280e725732:bounties/flap/script/CreateShopRulesSale.s.sol:generic-api-key:33
+8d9a5f54e911da77577014d65e1de45417da1cfa:packages/chain/scripts/bnb-boxes/rail-probe.mjs:generic-api-key:22
+8d9a5f54e911da77577014d65e1de45417da1cfa:packages/chain/scripts/bnb-boxes/rail-probe.mjs:generic-api-key:23
+03a10f954906509ae6b32586df32bba2fc8d5caa:hackathon/rail-coin/pile-furnace-boxspec-v2.json:generic-api-key:18
+03a10f954906509ae6b32586df32bba2fc8d5caa:hackathon/rail-coin/pile-party-boxspec-v2.json:generic-api-key:18
+1797c17f7f30fc6a6ee400d56ceaaab98c95f88e:hackathon/rail-shop/rehearsal-fork-97.log:generic-api-key:70
+9a2c98fd449bca5f8af0c688eb97e7e0a7e0b864:bounties/flap/deployments/97-shop-rules-usdt-sale.json:generic-api-key:7
+9a2c98fd449bca5f8af0c688eb97e7e0a7e0b864:bounties/app/public/addresses.json:generic-api-key:69
+9a2c98fd449bca5f8af0c688eb97e7e0a7e0b864:bounties/flap/deployments/97-rules-native-sale.json:generic-api-key:6
+9a2c98fd449bca5f8af0c688eb97e7e0a7e0b864:bounties/flap/deployments/97-rules-usdt-sale.json:generic-api-key:8
+9a2c98fd449bca5f8af0c688eb97e7e0a7e0b864:bounties/openfour/deployments/97.json:generic-api-key:45
+55b6045fcd227221c326f4a12c61d5b10b54f198:bounties/flap/deployments/97-v2-pile-sale.json:generic-api-key:5
+55b6045fcd227221c326f4a12c61d5b10b54f198:bounties/flap/deployments/97-v2-rules-native-sale.json:generic-api-key:6
+55b6045fcd227221c326f4a12c61d5b10b54f198:bounties/flap/deployments/97-v2-usdt-sale.json:generic-api-key:6
+55b6045fcd227221c326f4a12c61d5b10b54f198:bounties/flap/deployments/97-v2-rules-usdt-sale.json:generic-api-key:6
+69d6c2eb64c245442485e94620191764a6ff424a:bounties/app/test/four-rules-token.test.ts:generic-api-key:17
+# 26 November 2026: eight "token" lines of the rehearsal's fork copy of 97-extras.json (public token addresses on the fork, 0x + 40 hex each; looked at line by line, no secret)
+0f153bb8dd1b77d2fb9a5fb977972a368d5d33b3:hackathon/rehearsals/short-wait-fork/bnb-testnet/97-extras.json:generic-api-key:146
+0f153bb8dd1b77d2fb9a5fb977972a368d5d33b3:hackathon/rehearsals/short-wait-fork/bnb-testnet/97-extras.json:generic-api-key:158
+0f153bb8dd1b77d2fb9a5fb977972a368d5d33b3:hackathon/rehearsals/short-wait-fork/bnb-testnet/97-extras.json:generic-api-key:182
+0f153bb8dd1b77d2fb9a5fb977972a368d5d33b3:hackathon/rehearsals/short-wait-fork/bnb-testnet/97-extras.json:generic-api-key:194
+0f153bb8dd1b77d2fb9a5fb977972a368d5d33b3:hackathon/rehearsals/short-wait-fork/bnb-testnet/97-extras.json:generic-api-key:352
+0f153bb8dd1b77d2fb9a5fb977972a368d5d33b3:hackathon/rehearsals/short-wait-fork/bnb-testnet/97-extras.json:generic-api-key:364
+0f153bb8dd1b77d2fb9a5fb977972a368d5d33b3:hackathon/rehearsals/short-wait-fork/bnb-testnet/97-extras.json:generic-api-key:388
+0f153bb8dd1b77d2fb9a5fb977972a368d5d33b3:hackathon/rehearsals/short-wait-fork/bnb-testnet/97-extras.json:generic-api-key:400
+# 26 November 2026: Flap's public tax-token implementation address as a constant in the two template pages (an address, the same as tokenImpl in bounties/flap/deployments/97.json; no secret)
+ef483b796dc5780ae5817cd0c0027dfcead9a4c4:bounties/flap/ui/rules-usdt/Component.tsx:generic-api-key:78
+ef483b796dc5780ae5817cd0c0027dfcead9a4c4:bounties/flap/ui/rules-bnb/Component.tsx:generic-api-key:78
+# 26 November 2026: the tNVDA line of the Atlas feed settings again (its words changed; the flagged value is the public test coin's address, 0x + 40 hex; no secret)
+fac4bc794a9e5a388ae18fc7cf9f55d1f81aff23:packages/chain/src/atlas/atlas-feeds.ts:generic-api-key:60
+14306432f14a074812f64c51ec0c8384de9cbdf1:packages/contracts/deployments/bnb-testnet/97-extras.json:generic-api-key:353
+14306432f14a074812f64c51ec0c8384de9cbdf1:packages/contracts/deployments/bnb-testnet/97-extras.json:generic-api-key:365
+14306432f14a074812f64c51ec0c8384de9cbdf1:packages/contracts/deployments/bnb-testnet/97-extras.json:generic-api-key:389
+14306432f14a074812f64c51ec0c8384de9cbdf1:packages/contracts/deployments/bnb-testnet/97-extras.json:generic-api-key:401
+a69e55f1912cd366f08cbf242047f32b92f3253f:apps/web/src/features/core/v2/test-support/fork3-feed-three.json:generic-api-key:1307
+a69e55f1912cd366f08cbf242047f32b92f3253f:apps/web/src/features/core/v2/test-support/fork3-feed-three.json:generic-api-key:1323
+a69e55f1912cd366f08cbf242047f32b92f3253f:apps/web/src/features/core/v2/test-support/fork3-feed-three.json:generic-api-key:1349
+a69e55f1912cd366f08cbf242047f32b92f3253f:apps/web/src/features/core/v2/test-support/fork3-feed-three.json:generic-api-key:14
+a69e55f1912cd366f08cbf242047f32b92f3253f:apps/web/src/features/core/v2/test-support/fork3-feed-three.json:generic-api-key:1455
+a69e55f1912cd366f08cbf242047f32b92f3253f:apps/web/src/features/core/v2/test-support/fork3-feed-three.json:generic-api-key:162
+a69e55f1912cd366f08cbf242047f32b92f3253f:apps/web/src/features/core/v2/test-support/fork3-feed-three.json:generic-api-key:2283
+a69e55f1912cd366f08cbf242047f32b92f3253f:apps/web/src/features/core/v2/test-support/fork3-feed-three.json:generic-api-key:2296
+a69e55f1912cd366f08cbf242047f32b92f3253f:apps/web/src/features/core/v2/test-support/fork3-feed-three.json:generic-api-key:30
+a69e55f1912cd366f08cbf242047f32b92f3253f:apps/web/src/features/core/v2/test-support/fork3-feed-three.json:generic-api-key:56
+a69e55f1912cd366f08cbf242047f32b92f3253f:apps/web/src/features/core/v2/test-support/fork3-feed-three.json:generic-api-key:586
+a69e55f1912cd366f08cbf242047f32b92f3253f:apps/web/src/features/core/v2/test-support/fork3-feed-three.json:generic-api-key:599
+a69e55f1912cd366f08cbf242047f32b92f3253f:apps/web/src/features/core/v2/test-support/fork3-feed-three.json:generic-api-key:694
+a69e55f1912cd366f08cbf242047f32b92f3253f:apps/web/src/features/core/v2/test-support/fork3-feed-three.json:generic-api-key:710
+a69e55f1912cd366f08cbf242047f32b92f3253f:apps/web/src/features/core/v2/test-support/fork3-feed-three.json:generic-api-key:736
+a69e55f1912cd366f08cbf242047f32b92f3253f:apps/web/src/features/core/v2/test-support/fork3-feed-three.json:generic-api-key:842
+55b6045fcd227221c326f4a12c61d5b10b54f198:bounties/flap/deployments/97-v2.json:generic-api-key:8
+55b6045fcd227221c326f4a12c61d5b10b54f198:bounties/flap/deployments/97-v2-usdt.json:generic-api-key:6
+55b6045fcd227221c326f4a12c61d5b10b54f198:bounties/flap/deployments/97-v2-usdt.json:generic-api-key:8
+55b6045fcd227221c326f4a12c61d5b10b54f198:bounties/flap/deployments/97-v2-usdt.json:generic-api-key:9
+df8ad44710e69a63bcc1f2c7fadb8a1b6ceb63da:hackathon/flap-corrected/bounties/flap/script/CreateRulesSale.s.sol:generic-api-key:31
+df8ad44710e69a63bcc1f2c7fadb8a1b6ceb63da:hackathon/flap-corrected/bounties/flap/script/CreateSale.s.sol:generic-api-key:19
+df8ad44710e69a63bcc1f2c7fadb8a1b6ceb63da:hackathon/flap-corrected/bounties/flap/script/CreateShopRulesSale.s.sol:generic-api-key:39
+df8ad44710e69a63bcc1f2c7fadb8a1b6ceb63da:hackathon/flap-corrected/bounties/flap/script/CreateTokenSale.s.sol:generic-api-key:21
+df8ad44710e69a63bcc1f2c7fadb8a1b6ceb63da:hackathon/flap-corrected/bounties/flap/script/DeployRules.s.sol:generic-api-key:18
+df8ad44710e69a63bcc1f2c7fadb8a1b6ceb63da:hackathon/flap-corrected/bounties/flap/script/Deploy.s.sol:generic-api-key:19
+df8ad44710e69a63bcc1f2c7fadb8a1b6ceb63da:hackathon/flap-corrected/bounties/flap/script/DeployToken.s.sol:generic-api-key:16
+df8ad44710e69a63bcc1f2c7fadb8a1b6ceb63da:hackathon/flap-corrected/bounties/flap/test/MainnetForkBase.sol:generic-api-key:74
+df8ad44710e69a63bcc1f2c7fadb8a1b6ceb63da:hackathon/flap-corrected/bounties/flap/test/PileForkBase.sol:generic-api-key:55
+df8ad44710e69a63bcc1f2c7fadb8a1b6ceb63da:hackathon/flap-corrected/deployments/97-v2.json:generic-api-key:8
+df8ad44710e69a63bcc1f2c7fadb8a1b6ceb63da:hackathon/flap-corrected/deployments/97-v2-pile-sale.json:generic-api-key:5
+df8ad44710e69a63bcc1f2c7fadb8a1b6ceb63da:hackathon/flap-corrected/deployments/97-v2-rules-native-sale.json:generic-api-key:6
+df8ad44710e69a63bcc1f2c7fadb8a1b6ceb63da:hackathon/flap-corrected/deployments/97-v2-rules-usdt-sale.json:generic-api-key:6
+df8ad44710e69a63bcc1f2c7fadb8a1b6ceb63da:hackathon/flap-corrected/deployments/97-v2-usdt.json:generic-api-key:6
+df8ad44710e69a63bcc1f2c7fadb8a1b6ceb63da:hackathon/flap-corrected/deployments/97-v2-usdt.json:generic-api-key:8
+df8ad44710e69a63bcc1f2c7fadb8a1b6ceb63da:hackathon/flap-corrected/deployments/97-v2-usdt.json:generic-api-key:9
+df8ad44710e69a63bcc1f2c7fadb8a1b6ceb63da:hackathon/flap-corrected/deployments/97-v2-usdt-sale.json:generic-api-key:6
+1ca33c924656fdae626e0252e2d9379ddf4a6ac7:bounties/flap/deployments/97-v2-pile-sale.json:generic-api-key:5
+1ca33c924656fdae626e0252e2d9379ddf4a6ac7:bounties/flap/deployments/97-v2-rules-usdt-sale.json:generic-api-key:6
+1ca33c924656fdae626e0252e2d9379ddf4a6ac7:bounties/flap/deployments/97-v2-usdt-sale.json:generic-api-key:6
+f5e9ca9032bd4890a9a16258720fffc152735710:bounties/flap/deployments/97-v2.json:generic-api-key:8
+f5e9ca9032bd4890a9a16258720fffc152735710:bounties/flap/deployments/97-v2-rules-native-sale.json:generic-api-key:6
+f5e9ca9032bd4890a9a16258720fffc152735710:bounties/flap/deployments/97-v2-usdt.json:generic-api-key:6
+f5e9ca9032bd4890a9a16258720fffc152735710:bounties/flap/deployments/97-v2-usdt.json:generic-api-key:8
+f5e9ca9032bd4890a9a16258720fffc152735710:bounties/flap/deployments/97-v2-usdt.json:generic-api-key:9
+# SH-315 (27 November 2026): the token contract addresses of the three launches the addresses file names now (public,
+# from the recorded sale files beside it); read by the coordinator.
+e42172beb92e27da5f757eb29d624d5df68c35f9:bounties/app/public/addresses.json:generic-api-key:40
+e42172beb92e27da5f757eb29d624d5df68c35f9:bounties/app/public/addresses.json:generic-api-key:50
+e42172beb92e27da5f757eb29d624d5df68c35f9:bounties/app/public/addresses.json:generic-api-key:54

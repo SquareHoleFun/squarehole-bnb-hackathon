@@ -1,0 +1,93 @@
+/* Art components: pair avatars, cast characters, neutral quote monograms. */
+.sh-avatar {
+  --sh-avatar-size: 40px;
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: var(--sh-avatar-size);
+  height: var(--sh-avatar-size);
+  overflow: hidden;
+  border-radius: calc(var(--sh-avatar-size) * 0.26);
+  background: var(--sh-surface-raised);
+}
+
+.sh-avatar__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sh-avatar--unavailable {
+  color: var(--sh-text-muted);
+  border: 1px dashed var(--sh-border-strong);
+}
+
+.sh-avatar__glyph {
+  width: 60%;
+  height: 60%;
+}
+
+.sh-cast {
+  --sh-cast-width: 96px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sh-gap-2);
+  margin: 0;
+  width: max-content;
+  max-width: 100%;
+}
+
+.sh-cast__img {
+  display: block;
+  width: var(--sh-cast-width);
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--sh-radius-control);
+}
+
+.sh-cast__pending {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: var(--sh-gap-1);
+  width: var(--sh-cast-width);
+  max-width: 100%;
+  aspect-ratio: 1;
+  padding: var(--sh-gap-2);
+  border: 1px dashed var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  color: var(--sh-text-muted);
+  text-align: center;
+  font-size: var(--sh-type-caption);
+  line-height: var(--sh-leading-tight);
+}
+
+.sh-cast__glyph {
+  width: 40%;
+  height: auto;
+}
+
+.sh-cast__name {
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-label);
+  font-weight: var(--sh-weight-medium);
+}
+
+.sh-monogram {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  min-width: 28px;
+  height: 28px;
+  padding: 0 var(--sh-gap-1);
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-pill);
+  background: var(--sh-surface-raised);
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-caption);
+  font-weight: var(--sh-weight-bold);
+  letter-spacing: 0.02em;
+  line-height: 1;
+}

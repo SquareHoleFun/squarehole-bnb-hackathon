@@ -1,0 +1,389 @@
+{
+  "name": "Square Hole add-on catalog, format 2",
+  "catalogVersion": 2,
+  "decision": "F55 carried to format 2; CQ11 applies F119-F123 and ADR-0017 Amendment 3. Format 1 and box 0 stay unchanged.",
+  "encoding": [
+    "A BoxSpec carries `addOns` as (uint16 id, bytes params), as format 1's. params must be exactly abi.encode(<the add-on's parameter tuple>) in the order listed: canonical offsets, zero padding, no trailing bytes, each value inside its type. Canonical means re-encode and compare bytes, as box-spec.v2.json's wire format: a blob that does not decode, or decodes and re-encodes to other bytes, is ADD_ON_PARAMS_MALFORMED. An add-on without parameters carries empty params (0x).",
+    "Ids ascend in the list; an add-on marked repeatable may appear more than once in a row, others at most once. At most MAX_ADD_ONS entries (TOO_MANY_ADD_ONS).",
+    "Field ids in a verdict: 100 x add-on id for the add-on itself, 100 x id + i + 1 for its i-th parameter.",
+    "Parameter checks as format 1's: strings by their rule and length; uint `min`/`max` (OUT_OF_RANGE), where `max` may name a core field ({ \"field\": \"n\" }); `allowed`, a preset list (NOT_A_MEMBER); `enum`, a member of an enum below (NOT_A_MEMBER); a `bytes32[]` holds at most `maxItems` items (LENGTH_OUT_OF_RANGE), each non-zero with `nonZeroItems` (ZERO_VALUE).",
+    "Order of an entry's checks: listed here (ADD_ON_UNKNOWN at field 29; ids 2 and 5 are format 1's only, `notInFormat2`), not `reserved` and offered by the fixed release menu (ADD_ON_NOT_AVAILABLE at 100 x id), its `boxTypes` (ADD_ON_CONFLICT), its params (decoding: ADD_ON_PARAMS_MALFORMED; then each parameter), its `requires`.",
+    "`contract` means the add-on needs a contract at creation: tickets (1), the core income inbox (4), starter loader (8). Every box has the income inbox even without add-on 4. There are no plug-in clones or recipe gas budgets in this release."
+  ],
+  "paramTypes": [
+    "uint8",
+    "uint16",
+    "uint32",
+    "uint64",
+    "uint128",
+    "uint256",
+    "bool",
+    "address",
+    "bytes32",
+    "string",
+    "bytes32[]"
+  ],
+  "enums": [
+    {
+      "name": "RoyaltyDestination",
+      "members": [
+        {
+          "name": "FEE_HANDLING",
+          "value": 1,
+          "note": "Royalties in P are held until graduation, then split as buyers' fees: 2/15 FIT, 1/15 platform, 2/15 pool, 10/15 by the buyers' choice. A holders choice sends unearned money to the pool (F109). An Items choice follows the buyers inside policy and equal own-item weights (S1). The inbox offers listed coins for P on CoW; one that does not sell for thirty days, and other non-P coins, are claimed in kind."
+        },
+        {
+          "name": "CREATOR",
+          "value": 2,
+          "note": "Reserved wire value, refused for new RC6 boxes. The inbox offers listed coins for P on CoW; one that does not sell for thirty days, and other non-P coins, are claimed in kind."
+        },
+        {
+          "name": "POOL_DEPTH",
+          "value": 3,
+          "note": "Reserved wire value, refused for new RC6 boxes. The inbox offers listed coins for P on CoW; one that does not sell for thirty days, and other non-P coins, are claimed in kind."
+        }
+      ]
+    }
+  ],
+  "addOns": [
+    {
+      "id": 1,
+      "key": "placeholders",
+      "title": "Placeholders: tickets during the curve, hidden art revealed by draws",
+      "status": "Offered in M1 (box-spec-v2-draft.md \u00a7 6): unchanged from format 1 (BoxSpecV1.sol:538-562). Its tickets are a contract at creation.",
+      "boxTypes": [
+        "NEW_COLLECTION"
+      ],
+      "repeatable": false,
+      "contract": true,
+      "params": [
+        {
+          "name": "placeholderName",
+          "type": "string",
+          "rule": "JSON_TEXT",
+          "minBytes": 1,
+          "maxBytes": 32,
+          "what": "The ticket token's ERC-721 name"
+        },
+        {
+          "name": "placeholderSymbol",
+          "type": "string",
+          "rule": "JSON_TEXT",
+          "minBytes": 1,
+          "maxBytes": 11,
+          "what": "The ticket token's symbol"
+        },
+        {
+          "name": "placeholderDescription",
+          "type": "string",
+          "rule": "JSON_TEXT",
+          "minBytes": 0,
+          "maxBytes": 1024,
+          "what": "The ticket's description"
+        },
+        {
+          "name": "hiddenDescription",
+          "type": "string",
+          "rule": "JSON_TEXT",
+          "minBytes": 0,
+          "maxBytes": 1024,
+          "what": "A hidden item's description in tokenURI"
+        },
+        {
+          "name": "hiddenSvg",
+          "type": "string",
+          "rule": "SVG",
+          "minBytes": 1,
+          "maxBytes": 4096,
+          "what": "A hidden item's (and the ticket's) picture, inline SVG; loaded with the table after creation (ADR-0017 \u00a7 6)"
+        }
+      ],
+      "requires": [
+        {
+          "predicate": {
+            "field": "artMode",
+            "eq": "HIDDEN"
+          },
+          "reason": "ADD_ON_CONFLICT",
+          "why": "Placeholders open into hidden items; an open-art box has nothing hidden to draw."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "key": "edition-specials",
+      "title": "Edition specials: named series of special items, shown as counts",
+      "status": "Offered in M1: unchanged from format 1 (BoxSpecV1.sol:574-587). Data, not code.",
+      "boxTypes": [
+        "NEW_COLLECTION"
+      ],
+      "repeatable": true,
+      "contract": false,
+      "params": [
+        {
+          "name": "label",
+          "type": "string",
+          "rule": "JSON_TEXT",
+          "minBytes": 1,
+          "maxBytes": 32,
+          "what": "The series' name, as the site shows it"
+        },
+        {
+          "name": "count",
+          "type": "uint32",
+          "min": 1,
+          "max": {
+            "field": "n"
+          },
+          "what": "How many items belong to the series (at most n)"
+        }
+      ],
+      "requires": []
+    },
+    {
+      "id": 4,
+      "key": "royalties",
+      "title": "Royalties: voluntary ERC-2981 income for the box",
+      "status": "RC6: royalties use the box fee setup through its core income inbox. CoW sells eligible listed foreign coins for P; every royalty box explicitly names its in-kind payee.",
+      "boxTypes": [
+        "NEW_COLLECTION"
+      ],
+      "repeatable": false,
+      "contract": true,
+      "params": [
+        {
+          "name": "bps",
+          "type": "uint16",
+          "allowed": [
+            0,
+            100,
+            250,
+            500
+          ],
+          "what": "The ERC-2981 rate in basis points: 0, 1, 2.5 or 5% (unchanged, BoxSpecV1.sol:598)"
+        },
+        {
+          "name": "destination",
+          "type": "uint8",
+          "enum": "RoyaltyDestination",
+          "allowed": [1],
+          "what": "The box fee setup (1); former creator-only and pool-only destinations are not admitted."
+        }
+      ],
+      "requires": [],
+      "routing": {
+        "priceCoin": {
+          "beforeGraduation": "held",
+          "afterGraduation": "buyers-fee-setup",
+          "onFailure": "claim",
+          "afterLastClaim": "locked"
+        },
+        "otherCoin": {
+          "custody": "box-royalty-router",
+          "claimant": "current-creator-payee",
+          "phases": "all",
+          "delaySeconds": "0",
+          "nativeFlush": "permissionless-wrap-for-cow",
+          "wethWaitSeconds": "2592000"
+        },
+        "source": "RC6 Option 1, F137, F138 and R53 G-J. P uses the box fee setup; the inbox offers listed coins for P on CoW, and one that does not sell waits thirty days for in-kind exit. Failed-box foreign coins exit in kind."
+      }
+    },
+    {
+      "id": 6,
+      "key": "collection-metadata",
+      "title": "Collection page: banner, teasers and link (contractURI, ERC-7572)",
+      "status": "Offered in M1: unchanged from format 1 (BoxSpecV1.sol:622-637).",
+      "boxTypes": [
+        "NEW_COLLECTION"
+      ],
+      "repeatable": false,
+      "contract": false,
+      "params": [
+        {
+          "name": "bannerSha256",
+          "type": "bytes32",
+          "what": "sha256 of the banner (zero = none)"
+        },
+        {
+          "name": "teaserSha256s",
+          "type": "bytes32[]",
+          "maxItems": 4,
+          "nonZeroItems": true,
+          "what": "Up to 4 teaser pictures by sha256, shown by the site only"
+        },
+        {
+          "name": "externalLink",
+          "type": "string",
+          "rule": "URL",
+          "minBytes": 0,
+          "maxBytes": 128,
+          "what": "contractURI's external_link (empty = none): https:// only"
+        }
+      ],
+      "requires": []
+    },
+    {
+      "id": 7,
+      "key": "collection-list",
+      "title": "Collection list: fixed tiers and an optional add-only curator",
+      "status": "M2: SHOP only. Empty params; the sole list, tiers, curator and presets are in canonical ShopConfigV2 contentsParams (M2-00). No second configuration.",
+      "boxTypes": [
+        "SHOP"
+      ],
+      "repeatable": false,
+      "contract": false,
+      "params": [],
+      "requires": []
+    },
+    {
+      "id": 8,
+      "key": "starter-set",
+      "title": "Starter set: committed NFTs and seed readiness before opening",
+      "status": "M2: role 19 gates opening on exact set and seed readiness. Count zero requires hash zero; nonempty sets contain 10..10000 items. No NFT pull at creation. SHOP only: a PILE seed uses its contentsParams and the pile itself as role 19, without this add-on.",
+      "boxTypes": [
+        "SHOP"
+      ],
+      "repeatable": false,
+      "contract": true,
+      "params": [
+        {
+          "name": "setHash",
+          "type": "bytes32",
+          "what": "Ordered collection/id/tier chain root; zero exactly when count is zero."
+        },
+        {
+          "name": "count",
+          "type": "uint32",
+          "min": 0,
+          "max": 10000,
+          "what": "Zero for a seed-only gate, otherwise 10..10000 committed items."
+        }
+      ],
+      "requires": [
+        {
+          "predicate": {
+            "any": [
+              {
+                "all": [
+                  {
+                    "param": "count",
+                    "eq": 0
+                  },
+                  {
+                    "param": "setHash",
+                    "eq": 0
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "param": "setHash",
+                    "ne": 0
+                  },
+                  {
+                    "param": "count",
+                    "ne": 0
+                  },
+                  {
+                    "param": "count",
+                    "ne": 1
+                  },
+                  {
+                    "param": "count",
+                    "ne": 2
+                  },
+                  {
+                    "param": "count",
+                    "ne": 3
+                  },
+                  {
+                    "param": "count",
+                    "ne": 4
+                  },
+                  {
+                    "param": "count",
+                    "ne": 5
+                  },
+                  {
+                    "param": "count",
+                    "ne": 6
+                  },
+                  {
+                    "param": "count",
+                    "ne": 7
+                  },
+                  {
+                    "param": "count",
+                    "ne": 8
+                  },
+                  {
+                    "param": "count",
+                    "ne": 9
+                  }
+                ]
+              }
+            ]
+          },
+          "reason": "ADD_ON_CONFLICT",
+          "why": "Only an empty zero-hash commitment or a nonempty 10..10000 item chain can be completed."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "key": "held-item-earnings",
+      "title": "Earnings of held items: price-coin earnings feed this box",
+      "status": "Reserved for M2; earned coins in another coin wait for a later version (F122 R36L). The royalty conversion Safe does not enable earned-coin conversions.",
+      "boxTypes": [
+        "NEW_COLLECTION"
+      ],
+      "repeatable": false,
+      "contract": false,
+      "reserved": true,
+      "params": [],
+      "requires": []
+    },
+    {
+      "id": 10,
+      "key": "humble-creator",
+      "title": "Humble creator: a cap on everything the creator takes, per 30 days",
+      "status": "Refused in this release, even if a context offers it: ADD_ON_NOT_AVAILABLE at field 1000 (F119 R35B). Creator caps wait for a later version; the id and old parameter encoding are retained only to refuse old specs.",
+      "boxTypes": [
+        "NEW_COLLECTION",
+        "TOKEN_ONLY"
+      ],
+      "repeatable": false,
+      "contract": false,
+      "params": [
+        {
+          "name": "preset",
+          "type": "uint8",
+          "allowed": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "what": "Legacy preset id; add-on 10 is refused before its params are read."
+        }
+      ],
+      "requires": [],
+      "reserved": true
+    }
+  ],
+  "notInFormat2": [
+    {
+      "id": 2,
+      "key": "per-item-stream",
+      "why": "Box 0 only (format 1, version 1); item payouts are M3's Items destination (box-spec-v2-draft.md \u00a7 1, \u00a7 6). ADD_ON_UNKNOWN in format 2."
+    },
+    {
+      "id": 5,
+      "key": "creator-fee-cap",
+      "why": "Format 1 only. No creator cap is offered in this v2 release (F119); ADD_ON_UNKNOWN. Add-on 10 remains known but unavailable."
+    }
+  ]
+}

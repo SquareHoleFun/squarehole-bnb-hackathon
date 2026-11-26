@@ -1,0 +1,11 @@
+{
+  "name": "@squarehole/burn-bot",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "description": "CQ11 daily Safe proposals, attributed royalty returns and published cap accounting",
+  "exports": { ".": "./src/index.ts" },
+  "scripts": { "typecheck": "tsc --noEmit -p ." },
+  "dependencies": { "viem": "2.56.8", "zod": "4.6.5" }
+}

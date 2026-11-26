@@ -1,0 +1,5 @@
+{
+  "draw":"box 0 tickets 0x0000000000000000000000000000000000000011 key 3 round 33257816 (round time 2026-10-21T10:00:12Z), requested 2026-10-21T10:00:00Z, not posted at the finalized block; 6 d 17 h 59 min left (deadline 2026-10-28T10:00:00Z)",
+  "graduation":"registry box 0 tickets 0x0000000000000000000000000000000000000021 key 0 round 33257816 (round time 2026-10-21T10:00:12Z), requested 2026-10-21T10:00:00Z, not posted at the finalized block; 6 d 17 h 59 min left (deadline 2026-10-28T10:00:00Z)",
+  "unrequested":"registry box 0 tickets 0x0000000000000000000000000000000000000021 key 0 round not requested (round time not requested), requested not requested, graduation clock 2026-10-21T10:00:00Z; 29 d 23 h 0 min left (deadline 2026-11-20T10:00:00Z)"
+}

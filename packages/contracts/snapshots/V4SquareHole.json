@@ -1,0 +1,20 @@
+{
+  "claimQ_repeatAccount": "96387",
+  "collection_buyExactIn_0.01Q_existingHolder": "444565",
+  "collection_buyExactOut_10Units_newWallet": "515140",
+  "collection_buyExactOut_1Unit_newWallet": "419831",
+  "collection_sellExactIn_1Unit": "354520",
+  "collection_sellExactOut_0.001Q": "354011",
+  "converter_claimAsQWhenSoldOut": "159129",
+  "converter_claimAsT": "434524",
+  "converter_claimAsT_byPairId": "377326",
+  "createLaunch_collection": "7240123",
+  "createLaunch_fungible": "4846000",
+  "fungible_buyExactIn_0.01Q_existingHolder": "297498",
+  "fungible_buyExactOut_10Units_newWallet": "328238",
+  "fungible_buyExactOut_1Unit_newWallet": "329059",
+  "fungible_sellExactIn_1Unit": "323044",
+  "fungible_sellExactOut_0.001Q": "322535",
+  "processFees_burnT_payQ": "171975",
+  "sell_forProcessFees": "365007"
+}

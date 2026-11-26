@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 2,
+  "kind": "launcher-ui",
+  "artifactId": "square-hole-rules-sale-bnb",
+  "name": "Rules Sale (BNB)",
+  "chainId": 97,
+  "factoryAddress": "0xa0c6d7be020ed3699508745a4dbac1a8a1b415c2",
+  "configContract": "launcher-config-preview/v1",
+  "surfaces": [
+    "launcher-config",
+    "launcher-ui"
+  ],
+  "entry": "Component.tsx",
+  "reads": {
+    "raised": { "functionName": "curveBalance", "returns": "uint256" },
+    "target": { "functionName": "raiseTarget", "returns": "uint256" },
+    "deadline": { "functionName": "deadline", "returns": "uint256" },
+    "launched": { "functionName": "launched", "returns": "bool" },
+    "token": { "functionName": "token", "returns": "address" },
+    "predictedToken": { "functionName": "predictedToken", "returns": "address" },
+    "costToComplete": { "functionName": "costToComplete", "returns": "uint256" },
+    "holderCount": { "functionName": "holderCount", "returns": "uint256" },
+    "creator": { "functionName": "creator", "returns": "address" },
+    "pileVault": { "functionName": "pileVault", "returns": "address" },
+    "bought": { "functionName": "tokensOf", "returns": "uint256", "account": true },
+    "claimable": { "functionName": "claimable", "returns": "uint256", "account": true },
+    "owed": { "functionName": "owed", "returns": "uint256", "account": true }
+  },
+  "transactions": {
+    "create": true,
+    "actions": {
+      "complete": "payable",
+      "claim": "nonpayable",
+      "unwind": "nonpayable"
+    }
+  }
+}

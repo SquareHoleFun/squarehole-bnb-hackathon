@@ -1,0 +1,5 @@
+/* Entry stylesheet for @squarehole/design: packaged font (no CDN), tokens, base elements, art components. */
+@import '@fontsource-variable/plus-jakarta-sans/wght.css';
+@import './tokens.css';
+@import './base.css';
+@import '../art/art.css';

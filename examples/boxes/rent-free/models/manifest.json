@@ -1,0 +1,98 @@
+[
+  {
+    "variant": 1,
+    "name": "Cottage",
+    "file": "variant-01.glb",
+    "bytes": 52716,
+    "triangles": 1044,
+    "sha256": "2be65fa1a080370d4c0933d0c687711ab8491bef0d177159807b37fef0563683"
+  },
+  {
+    "variant": 2,
+    "name": "Townhouse",
+    "file": "variant-02.glb",
+    "bytes": 52168,
+    "triangles": 1056,
+    "sha256": "6d7826c519bf1d465c8dfb40a5f88911489c04268a19ec7a5490e94738d10c9a"
+  },
+  {
+    "variant": 3,
+    "name": "Bungalow",
+    "file": "variant-03.glb",
+    "bytes": 58964,
+    "triangles": 1180,
+    "sha256": "a3d20954b9a24d1081fdfb803c0f72e7e39df9c30b4d0c47089c791f35fb21ee"
+  },
+  {
+    "variant": 4,
+    "name": "A-frame",
+    "file": "variant-04.glb",
+    "bytes": 46048,
+    "triangles": 928,
+    "sha256": "fcf86c4c50272c998179d90e61439a2be2cb8b091b305dec218b621be620576a"
+  },
+  {
+    "variant": 5,
+    "name": "Awning",
+    "file": "variant-05.glb",
+    "bytes": 73384,
+    "triangles": 1492,
+    "sha256": "cf34184563178eeb325591dc29ea139be4a673cc5f9d76e743a91e8312dfbdd4"
+  },
+  {
+    "variant": 6,
+    "name": "Arch roof",
+    "file": "variant-06.glb",
+    "bytes": 72140,
+    "triangles": 1484,
+    "sha256": "fa6af10baf739687236f2b08333bfd09d8bb6f842dfbca0d73f6b0e4300d784a"
+  },
+  {
+    "variant": 7,
+    "name": "Clay roof",
+    "file": "variant-07.glb",
+    "bytes": 52500,
+    "triangles": 1064,
+    "sha256": "c55138022b1d6c4611d201ba6af49e74afc04b924fb155faf5aa2259671bab7c"
+  },
+  {
+    "variant": 8,
+    "name": "Step gable",
+    "file": "variant-08.glb",
+    "bytes": 86940,
+    "triangles": 1756,
+    "sha256": "94499c5fe614a6b2ad3f4a129c93330ca24560c65b92b3b4e0fb7632a6904340"
+  },
+  {
+    "variant": 9,
+    "name": "Lean-to",
+    "file": "variant-09.glb",
+    "bytes": 56492,
+    "triangles": 1152,
+    "sha256": "b1d020d6d87a5f7c25d87dba517b7c4f336abf58c6a159dc79ab64dbed96a92e"
+  },
+  {
+    "variant": 10,
+    "name": "Clay dome",
+    "file": "variant-10.glb",
+    "bytes": 104620,
+    "triangles": 1848,
+    "sha256": "b7a82762ae97327099007ab03c27bed3dd1271cf8357b265328adc48ef2e607a"
+  },
+  {
+    "variant": 11,
+    "name": "Dormer",
+    "file": "variant-11.glb",
+    "bytes": 60104,
+    "triangles": 1236,
+    "sha256": "2cc6d3df4a35b477e0232faeeabb89b64da1303fe5e1452ad51c3bba1932c7e7"
+  },
+  {
+    "variant": 12,
+    "name": "Roof garden",
+    "file": "variant-12.glb",
+    "bytes": 79280,
+    "triangles": 1536,
+    "sha256": "0cd1378397130b17b8dbf8c135c23f10b8bd5a3e831943fc4b3b5512d9205ec7"
+  }
+]

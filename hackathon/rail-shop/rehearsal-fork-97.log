@@ -1,0 +1,71 @@
+# hackathon/rail-shop/rehearse.sh on a fork of chain 97 at block 144929812 (anvil port 8599, on the machine), 26 Nov 2026; names Round Deck/RDECK in this run (the name moves the salt and the addresses, nothing else)
+anvil 199314 up at block 144929812
+hack-bob 0xc979F6Cb8902f56f76b926358dC451cBF8f310F0: 0.049140322268836009 tBNB
+hack-deployer 0x2EF9A78074bbf674bEA16f21154a30c821A3C576: 1.270209208100812079 tBNB
+hack-alice 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F: 0.037636802234409326 tBNB
+0 lane f's test dollar rules pair (before the file): gas 13840738
+STEP 1 gas 3302710, check true: the card shop factory: Flap's DEX router, PancakeSwap's router, our four test card collections; writes bounties/core/deployments/97-rail-shop.json (from hack-deployer)
+STEP 2 gas 69615, check 0x2EF9A78074bbf674bEA16f21154a30c821A3C576: a starter card for the shop: Common #13 (picture 1) to the creator (from hack-deployer)
+STEP 3 gas 52515, check 0x2EF9A78074bbf674bEA16f21154a30c821A3C576: a starter card for the shop: Common #14 (picture 2) to the creator (from hack-deployer)
+STEP 4 gas 52515, check 0x2EF9A78074bbf674bEA16f21154a30c821A3C576: a starter card for the shop: Common #15 (picture 3) to the creator (from hack-deployer)
+STEP 5 gas 52515, check 0x2EF9A78074bbf674bEA16f21154a30c821A3C576: a starter card for the shop: Common #16 (picture 4) to the creator (from hack-deployer)
+STEP 6 gas 69615, check 0x2EF9A78074bbf674bEA16f21154a30c821A3C576: a starter card for the shop: Uncommon #13 (picture 1) to the creator (from hack-deployer)
+STEP 7 gas 52515, check 0x2EF9A78074bbf674bEA16f21154a30c821A3C576: a starter card for the shop: Uncommon #14 (picture 2) to the creator (from hack-deployer)
+STEP 8 gas 52515, check 0x2EF9A78074bbf674bEA16f21154a30c821A3C576: a starter card for the shop: Uncommon #15 (picture 3) to the creator (from hack-deployer)
+STEP 9 gas 52515, check 0x2EF9A78074bbf674bEA16f21154a30c821A3C576: a starter card for the shop: Uncommon #16 (picture 4) to the creator (from hack-deployer)
+STEP 10 gas 69615, check 0x2EF9A78074bbf674bEA16f21154a30c821A3C576: a starter card for the shop: Rare #13 (picture 1) to the creator (from hack-deployer)
+STEP 11 gas 52515, check 0x2EF9A78074bbf674bEA16f21154a30c821A3C576: a starter card for the shop: Rare #14 (picture 2) to the creator (from hack-deployer)
+STEP 12 gas 52515, check 0x2EF9A78074bbf674bEA16f21154a30c821A3C576: a starter card for the shop: Rare #15 (picture 3) to the creator (from hack-deployer)
+STEP 13 gas 52515, check 0x2EF9A78074bbf674bEA16f21154a30c821A3C576: a starter card for the shop: Rare #16 (picture 4) to the creator (from hack-deployer)
+STEP 14 gas 69615, check 0x2EF9A78074bbf674bEA16f21154a30c821A3C576: a starter card for the shop: Legendary #13 (picture 1) to the creator (from hack-deployer)
+STEP 15 gas 52515, check 0x2EF9A78074bbf674bEA16f21154a30c821A3C576: a starter card for the shop: Legendary #14 (picture 2) to the creator (from hack-deployer)
+STEP 16 gas 52515, check 0x2EF9A78074bbf674bEA16f21154a30c821A3C576: a starter card for the shop: Legendary #15 (picture 3) to the creator (from hack-deployer)
+STEP 17 gas 52515, check 0x2EF9A78074bbf674bEA16f21154a30c821A3C576: a starter card for the shop: Legendary #16 (picture 4) to the creator (from hack-deployer)
+STEP 18 gas 34114, check 8276432831845871778680: 5,000 test dollars for the creator (the test dollar mints openly) (from hack-deployer)
+STEP 19 gas 34102, check 1898828813221368356709: 1,000 test dollars for alice (the test dollar mints openly) (from hack-deployer)
+STEP 20 gas 51202, check 1000000000000000000000: 1,000 test dollars for bob (the test dollar mints openly) (from hack-deployer)
+STEP 21 gas 3458105, check true: the launch with a shop in its rules: the shop, setRules (creator 10, pile 30, shop 40, buy and burn 20 last), the sale; writes bounties/flap/deployments/97-shop-rules-usdt-sale.json (from hack-deployer)
+STEP 22 gas 289759, check 0: the creator buys on the curve for at most 300 test dollars (from hack-deployer)
+STEP 23 gas 8963937, check 1: the creator completes the sale: buys the rest and launches (from hack-deployer)
+STEP 24 gas 183198, check 600000000000000000000000000: the creator claims its tokens (from hack-deployer)
+STEP 25 gas 305371, check 28120586513792398983789334: pool round 1: alice buys for 100 test dollars (from hack-alice)
+STEP 26 gas 254071, check 25164498117306458005182304: pool round 1: bob buys for 100 test dollars (from hack-bob)
+STEP 27 gas 287223, check 1836489113555870716247: pool round 1: alice sells 10,000,000 tokens (from hack-alice)
+STEP 28 gas 446005, check 935935055893219195420: pool round 1: bob sells 10,000,000 tokens (from hack-bob)
+STEP 29 gas 222057, check 42765056035241373383378750: pool round 2: alice buys for 100 test dollars (from hack-alice)
+STEP 30 gas 222057, check 37371819828115446186842375: pool round 2: bob buys for 100 test dollars (from hack-bob)
+STEP 31 gas 377450, check 1778672634796919725292: pool round 2: alice sells 10,000,000 tokens (from hack-alice)
+STEP 32 gas 250966, check 876383973063539917229: pool round 2: bob sells 10,000,000 tokens (from hack-bob)
+STEP 33 gas 222057, check 54750637259846049179801583: pool round 3: alice buys for 100 test dollars (from hack-alice)
+STEP 34 gas 222057, check 47295688901228557828725460: pool round 3: bob buys for 100 test dollars (from hack-bob)
+STEP 35 gas 377605, check 1725431539337266814601: pool round 3: alice sells 10,000,000 tokens (from hack-alice)
+STEP 36 gas 250966, check 21884192216694493221: pool round 3: bob sells 10,000,000 tokens (from hack-bob)
+STEP 37 gas 129619, check 38884192216694493222: dispatch: the tax processor's waiting share to the rules vault (from hack-deployer)
+STEP 38 gas 403998, check 15553676886677797288: the share-out: creator 10%, pile 30%, the shop 40%, buy and burn 20% (from hack-deployer)
+STEP 39 gas 46217, check true: the creator lets the shop take its Common cards (from hack-deployer)
+STEP 40 gas 46217, check true: the creator lets the shop take its Uncommon cards (from hack-deployer)
+STEP 41 gas 46217, check true: the creator lets the shop take its Rare cards (from hack-deployer)
+STEP 42 gas 46217, check true: the creator lets the shop take its Legendary cards (from hack-deployer)
+STEP 43 gas 417331, check 4: stock the four Common cards #13 to #16 (from hack-deployer)
+STEP 44 gas 400231, check 8: stock the four Uncommon cards #13 to #16 (from hack-deployer)
+STEP 45 gas 400231, check 12: stock the four Rare cards #13 to #16 (from hack-deployer)
+STEP 46 gas 400231, check 16: stock the four Legendary cards #13 to #16 (from hack-deployer)
+STEP 47 gas 234980, check 0: refill: everything waiting (the shop's 40%, in test dollars) buys the token into the shop (from hack-deployer)
+STEP 48 gas 48807, check 2000000000000000000000: alice approves the shop for exactly a Common's pick price (2,000 tokens) (from hack-alice)
+STEP 49 gas 248729, check 101000000000000000000000: alice picks Common #13 for exactly 2,000 tokens; the week's room grows by the card's give price (from hack-alice)
+STEP 50 gas 48652, check same: bob lets the shop take his Common #8 (he holds Common, Uncommon, Rare and Legendary #5 to #8) (from hack-bob)
+STEP 51 gas 239693, check 100000000000000000000000: bob gives Common #8 and is paid exactly 1,000 tokens from the budget; the week's room falls by 1,000 (from hack-bob)
+THE READS A PAGE SHOWS
+  3206735427738049470815735 <-  --rpc-url "$RPC"   # expect >=1
+  0 <-  --rpc-url "$RPC"   # expect 0
+  100000000000000000000000 <-  --rpc-url "$RPC"   # expect 100000000000000000000000
+  16 <-  --rpc-url "$RPC"   # expect 16
+  [0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143, 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174, 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174, 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174, 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577, 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577, 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577, 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577, 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC, 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC, 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC, 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC, 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143, 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143, 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143, 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174] [16, 14, 15, 16, 13, 14, 15, 16, 13, 14, 15, 16, 13, 14, 15, 8]  <- the sixteen cards (Common #13 out, Common #8 in)
+  1796278507 [1.796e9]  <- the week's end, seven days after the shop's creation
+  0x91F8B74e7B8c0F10FE6F4510ab2a8F03459b15F6  <- the shop, as the launch page finds it
+TOTAL gas of the file: 23821022
+hack-bob spent 0.000193446700000000 tBNB
+hack-deployer spent 0.008363799400000000 tBNB
+hack-alice spent 0.000208929900000000 tBNB
+ADDRESSES: factory 0xc6CD26717665E4f5e132C674000E3dE551f0E343; {"launcher":"0xC175c005B46fBc903E4f6b8F8014758abAd71285","quote":"0x190C989D5665a0e404B444b53CAE9AbCfb600157","railShopFactory":"0xc6CD26717665E4f5e132C674000E3dE551f0E343","salt":"0x997b65fb7965121b7251296e059a0c307153eb1beb0d20e9ebe215fa9a016d2c","shop":"0x91F8B74e7B8c0F10FE6F4510ab2a8F03459b15F6","token":"0x1B41FD0bAf9Ded9cEF0372062CfDa5871e577777"}
+rules vault 0x75b9aAe8cB824DaBF90634B5E6425bDDAC6F959D; pile 0x47b63563a39d4F0297E94ee5Da08d338Ba421538; pool 0x05201E13930CBbdEBa6e5F3Ad36c0570247EdDd1; token supply 1123308270676691729323576752 [1.123e27]

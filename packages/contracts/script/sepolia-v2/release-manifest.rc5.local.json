@@ -1,0 +1,41 @@
+{
+  "status": "RC5 SCHEMA TEST FIXTURE ONLY: addresses and hashes are historical; not a deployment receipt",
+  "safes": {
+    "fit": {
+      "address": "0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9",
+      "codeHash": "0x50dccdc1b3c78cef0f2e5873a2d3ac38ae147bb1d31869c89e8c1495e225fe01",
+      "controlTransferProof": "pending",
+      "guard": "0x0000000000000000000000000000000000000000",
+      "guardCodeHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "handler": "0x0000000000000000000000000000000000000000",
+      "handlerCodeHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "modulesEnabled": false,
+      "owners": [
+        "0x0000000000000000000000000000000000000b07",
+        "0x0000000000000000000000000000000000000F00",
+        "0x0000000000000000000000000000000000000bAc"
+      ],
+      "singleton": "0xA4AD4f68d0b91CFD19687c881e50f3A00242828c",
+      "singletonCodeHash": "0x08da107b84ceb194a76ba54629ca03e70c3583efa5b15c5b7a6bc044bd506323",
+      "threshold": "2",
+      "version": "1.4.1"
+    },
+    "platform": {
+      "address": "0xa0Cb889707d426A7A386870A03bc70d1b0697598",
+      "codeHash": "0x50dccdc1b3c78cef0f2e5873a2d3ac38ae147bb1d31869c89e8c1495e225fe01",
+      "controlTransferProof": "pending",
+      "guard": "0x0000000000000000000000000000000000000000",
+      "guardCodeHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "handler": "0x15cF58144EF33af1e14b5208015d11F9143E27b9",
+      "handlerCodeHash": "0x3122d98f68ff0a8db5f446b2457a31449cd357b46931470a3909477ccddb24ef",
+      "modulesEnabled": false,
+      "owners": [
+        "0x0000000000000000000000000000000000000F00"
+      ],
+      "singleton": "0x15cF58144EF33af1e14b5208015d11F9143E27b9",
+      "singletonCodeHash": "0x3122d98f68ff0a8db5f446b2457a31449cd357b46931470a3909477ccddb24ef",
+      "threshold": "1",
+      "version": "1.5.0"
+    }
+  }
+}

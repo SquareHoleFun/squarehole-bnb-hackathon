@@ -1,0 +1,105 @@
+{
+  "format": "squarehole.bent-cans-mint/1",
+  "collection": "bent-cans",
+  "chainId": "11155111",
+  "items": [
+    {
+      "id": "1",
+      "picture": "1",
+      "cid": "bafkreib7jmc63qhwl4nfoi4vc3aw6gpbljdvtytpppjklhk6q2k6emgktu",
+      "recipient": "creator-safe",
+      "use": "junkyard"
+    },
+    {
+      "id": "2",
+      "picture": "2",
+      "cid": "bafkreibecmifhom6tctpkkjxywcpxajt6dawjhwfz65cix4i6tpuqls5yi",
+      "recipient": "creator-safe",
+      "use": "junkyard"
+    },
+    {
+      "id": "3",
+      "picture": "1",
+      "cid": "bafkreib7jmc63qhwl4nfoi4vc3aw6gpbljdvtytpppjklhk6q2k6emgktu",
+      "recipient": "creator-safe",
+      "use": "one-collection-shop"
+    },
+    {
+      "id": "4",
+      "picture": "2",
+      "cid": "bafkreibecmifhom6tctpkkjxywcpxajt6dawjhwfz65cix4i6tpuqls5yi",
+      "recipient": "creator-safe",
+      "use": "one-collection-shop"
+    },
+    {
+      "id": "5",
+      "picture": "1",
+      "cid": "bafkreib7jmc63qhwl4nfoi4vc3aw6gpbljdvtytpppjklhk6q2k6emgktu",
+      "recipient": "creator-safe",
+      "use": "one-collection-shop"
+    },
+    {
+      "id": "6",
+      "picture": "2",
+      "cid": "bafkreibecmifhom6tctpkkjxywcpxajt6dawjhwfz65cix4i6tpuqls5yi",
+      "recipient": "creator-safe",
+      "use": "one-collection-shop"
+    },
+    {
+      "id": "7",
+      "picture": "1",
+      "cid": "bafkreib7jmc63qhwl4nfoi4vc3aw6gpbljdvtytpppjklhk6q2k6emgktu",
+      "recipient": "creator-safe",
+      "use": "one-collection-shop"
+    },
+    {
+      "id": "8",
+      "picture": "2",
+      "cid": "bafkreibecmifhom6tctpkkjxywcpxajt6dawjhwfz65cix4i6tpuqls5yi",
+      "recipient": "creator-safe",
+      "use": "one-collection-shop"
+    },
+    {
+      "id": "9",
+      "picture": "1",
+      "cid": "bafkreib7jmc63qhwl4nfoi4vc3aw6gpbljdvtytpppjklhk6q2k6emgktu",
+      "recipient": "creator-safe",
+      "use": "one-collection-shop"
+    },
+    {
+      "id": "10",
+      "picture": "2",
+      "cid": "bafkreibecmifhom6tctpkkjxywcpxajt6dawjhwfz65cix4i6tpuqls5yi",
+      "recipient": "creator-safe",
+      "use": "one-collection-shop"
+    },
+    {
+      "id": "11",
+      "picture": "1",
+      "cid": "bafkreib7jmc63qhwl4nfoi4vc3aw6gpbljdvtytpppjklhk6q2k6emgktu",
+      "recipient": "creator-safe",
+      "use": "one-collection-shop"
+    },
+    {
+      "id": "12",
+      "picture": "2",
+      "cid": "bafkreibecmifhom6tctpkkjxywcpxajt6dawjhwfz65cix4i6tpuqls5yi",
+      "recipient": "creator-safe",
+      "use": "one-collection-shop"
+    },
+    {
+      "id": "13",
+      "picture": "1",
+      "cid": "bafkreib7jmc63qhwl4nfoi4vc3aw6gpbljdvtytpppjklhk6q2k6emgktu",
+      "recipient": "tester",
+      "use": "sell-back-test"
+    },
+    {
+      "id": "14",
+      "picture": "2",
+      "cid": "bafkreibecmifhom6tctpkkjxywcpxajt6dawjhwfz65cix4i6tpuqls5yi",
+      "recipient": "tester",
+      "use": "sell-back-test"
+    }
+  ]
+}

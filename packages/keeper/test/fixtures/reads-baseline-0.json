@@ -1,0 +1,506 @@
+[
+  {
+    "decisions": {
+      "report": {
+        "block": "12005000",
+        "sent": [],
+        "skipped": [
+          {
+            "job": "deepen",
+            "key": "deepen:1:0",
+            "why": "nothing to do"
+          },
+          {
+            "job": "executorTopUp",
+            "key": "executorTopUp:1:0",
+            "why": "nothing to do"
+          }
+        ]
+      },
+      "state": {
+        "drandBounties": {},
+        "drandLog": {},
+        "mem": {
+          "cadence": {
+            "0x0000000000000000000000000000000000000002": {
+              "deepenSentSlot": null,
+              "deepenTriedSlot": "497584",
+              "deepenTriedBlock": "12005000",
+              "collectedAt": null,
+              "collectSlot": null
+            }
+          },
+          "pokes": {},
+          "attempts": {},
+          "steps": {},
+          "buyBackSince": {}
+        },
+        "budget": {
+          "day": "20732",
+          "oursWei": "0",
+          "pokesWei": "0",
+          "totalWei": "0",
+          "drandRescueWei": "0",
+          "block": "12005000",
+          "txInBlock": 0
+        },
+        "skipLog": {
+          "deepen|nothing to do": {
+            "at": "1791302400",
+            "repeats": 0
+          },
+          "executorTopUp|nothing to do": {
+            "at": "1791302400",
+            "repeats": 0
+          }
+        },
+        "m2Scan": {},
+        "incomeSpend": []
+      },
+      "income": {
+        "at": "1791302400",
+        "platformWei": "0",
+        "boxes": {},
+        "mined": {}
+      },
+      "simulations": [
+        {
+          "job": "deepen",
+          "key": "deepen:1:0",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "executorTopUp",
+          "key": "executorTopUp:1:0",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        }
+      ],
+      "snapshots": [
+        {
+          "block": {
+            "number": "12005000",
+            "timestamp": "1791302400",
+            "baseFeePerGas": "1"
+          },
+          "fitGraduated": true,
+          "boxes": [
+            {
+              "id": "0",
+              "version": 1,
+              "coordinator": "0x0000000000000000000000000000000000000001",
+              "hook": "0x0000000000000000000000000000000000000002",
+              "receiver": "0x0000000000000000000000000000000000000003",
+              "priceSource": "0x0000000000000000000000000000000000000005",
+              "graduated": true,
+              "failed": false,
+              "curveClosed": true,
+              "gateOpen": true,
+              "openAt": "0",
+              "deadline": "0",
+              "spotTick": 0,
+              "sampleTick": 0,
+              "checkpointTime": "1791298800",
+              "fitOwed": "0",
+              "platformOwed": "0",
+              "qPerEthX18": "1000000000000000000",
+              "executor": {
+                "budget": "0",
+                "batchThreshold": "100",
+                "twapReady": true
+              }
+            }
+          ],
+          "drand": [],
+          "m2Scan": {}
+        }
+      ]
+    },
+    "count": 52
+  },
+  {
+    "decisions": {
+      "report": {
+        "block": "12005002",
+        "sent": [],
+        "skipped": [
+          {
+            "job": "deepen",
+            "key": "deepen:1:0",
+            "why": "nothing to do"
+          },
+          {
+            "job": "executorTopUp",
+            "key": "executorTopUp:1:0",
+            "why": "nothing to do"
+          }
+        ]
+      },
+      "state": {
+        "drandBounties": {},
+        "drandLog": {},
+        "mem": {
+          "cadence": {
+            "0x0000000000000000000000000000000000000002": {
+              "deepenSentSlot": null,
+              "deepenTriedSlot": "497584",
+              "deepenTriedBlock": "12005002",
+              "collectedAt": null,
+              "collectSlot": null
+            }
+          },
+          "pokes": {},
+          "attempts": {},
+          "steps": {},
+          "buyBackSince": {}
+        },
+        "budget": {
+          "day": "20732",
+          "oursWei": "0",
+          "pokesWei": "0",
+          "totalWei": "0",
+          "drandRescueWei": "0",
+          "block": "12005002",
+          "txInBlock": 0
+        },
+        "skipLog": {
+          "deepen|nothing to do": {
+            "at": "1791302424",
+            "repeats": 0
+          },
+          "executorTopUp|nothing to do": {
+            "at": "1791302424",
+            "repeats": 0
+          }
+        },
+        "m2Scan": {},
+        "incomeSpend": []
+      },
+      "income": {
+        "at": "1791302424",
+        "platformWei": "0",
+        "boxes": {},
+        "mined": {}
+      },
+      "simulations": [
+        {
+          "job": "deepen",
+          "key": "deepen:1:0",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "executorTopUp",
+          "key": "executorTopUp:1:0",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        }
+      ],
+      "snapshots": [
+        {
+          "block": {
+            "number": "12005002",
+            "timestamp": "1791302424",
+            "baseFeePerGas": "1"
+          },
+          "fitGraduated": true,
+          "boxes": [
+            {
+              "id": "0",
+              "version": 1,
+              "coordinator": "0x0000000000000000000000000000000000000001",
+              "hook": "0x0000000000000000000000000000000000000002",
+              "receiver": "0x0000000000000000000000000000000000000003",
+              "priceSource": "0x0000000000000000000000000000000000000005",
+              "graduated": true,
+              "failed": false,
+              "curveClosed": true,
+              "gateOpen": true,
+              "openAt": "0",
+              "deadline": "0",
+              "spotTick": 0,
+              "sampleTick": 0,
+              "checkpointTime": "1791298800",
+              "fitOwed": "0",
+              "platformOwed": "0",
+              "qPerEthX18": "1000000000000000000",
+              "executor": {
+                "budget": "0",
+                "batchThreshold": "100",
+                "twapReady": true
+              }
+            }
+          ],
+          "drand": [],
+          "m2Scan": {}
+        }
+      ]
+    },
+    "count": 50
+  },
+  {
+    "decisions": {
+      "report": {
+        "block": "12005004",
+        "sent": [],
+        "skipped": [
+          {
+            "job": "deepen",
+            "key": "deepen:1:0",
+            "why": "nothing to do"
+          },
+          {
+            "job": "executorTopUp",
+            "key": "executorTopUp:1:0",
+            "why": "nothing to do"
+          }
+        ]
+      },
+      "state": {
+        "drandBounties": {},
+        "drandLog": {},
+        "mem": {
+          "cadence": {
+            "0x0000000000000000000000000000000000000002": {
+              "deepenSentSlot": null,
+              "deepenTriedSlot": "497584",
+              "deepenTriedBlock": "12005004",
+              "collectedAt": null,
+              "collectSlot": null
+            }
+          },
+          "pokes": {},
+          "attempts": {},
+          "steps": {},
+          "buyBackSince": {}
+        },
+        "budget": {
+          "day": "20732",
+          "oursWei": "0",
+          "pokesWei": "0",
+          "totalWei": "0",
+          "drandRescueWei": "0",
+          "block": "12005004",
+          "txInBlock": 0
+        },
+        "skipLog": {
+          "deepen|nothing to do": {
+            "at": "1791302448",
+            "repeats": 0
+          },
+          "executorTopUp|nothing to do": {
+            "at": "1791302448",
+            "repeats": 0
+          }
+        },
+        "m2Scan": {},
+        "incomeSpend": []
+      },
+      "income": {
+        "at": "1791302448",
+        "platformWei": "0",
+        "boxes": {},
+        "mined": {}
+      },
+      "simulations": [
+        {
+          "job": "deepen",
+          "key": "deepen:1:0",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "executorTopUp",
+          "key": "executorTopUp:1:0",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        }
+      ],
+      "snapshots": [
+        {
+          "block": {
+            "number": "12005004",
+            "timestamp": "1791302448",
+            "baseFeePerGas": "1"
+          },
+          "fitGraduated": true,
+          "boxes": [
+            {
+              "id": "0",
+              "version": 1,
+              "coordinator": "0x0000000000000000000000000000000000000001",
+              "hook": "0x0000000000000000000000000000000000000002",
+              "receiver": "0x0000000000000000000000000000000000000003",
+              "priceSource": "0x0000000000000000000000000000000000000005",
+              "graduated": true,
+              "failed": false,
+              "curveClosed": true,
+              "gateOpen": true,
+              "openAt": "0",
+              "deadline": "0",
+              "spotTick": 0,
+              "sampleTick": 0,
+              "checkpointTime": "1791298800",
+              "fitOwed": "0",
+              "platformOwed": "0",
+              "qPerEthX18": "1000000000000000000",
+              "executor": {
+                "budget": "0",
+                "batchThreshold": "100",
+                "twapReady": true
+              }
+            }
+          ],
+          "drand": [],
+          "m2Scan": {}
+        }
+      ]
+    },
+    "count": 49
+  },
+  {
+    "decisions": {
+      "report": {
+        "block": "12005006",
+        "sent": [],
+        "skipped": [
+          {
+            "job": "deepen",
+            "key": "deepen:1:0",
+            "why": "nothing to do"
+          },
+          {
+            "job": "executorTopUp",
+            "key": "executorTopUp:1:0",
+            "why": "nothing to do"
+          }
+        ]
+      },
+      "state": {
+        "drandBounties": {},
+        "drandLog": {},
+        "mem": {
+          "cadence": {
+            "0x0000000000000000000000000000000000000002": {
+              "deepenSentSlot": null,
+              "deepenTriedSlot": "497584",
+              "deepenTriedBlock": "12005006",
+              "collectedAt": null,
+              "collectSlot": null
+            }
+          },
+          "pokes": {},
+          "attempts": {},
+          "steps": {},
+          "buyBackSince": {}
+        },
+        "budget": {
+          "day": "20732",
+          "oursWei": "0",
+          "pokesWei": "0",
+          "totalWei": "0",
+          "drandRescueWei": "0",
+          "block": "12005006",
+          "txInBlock": 0
+        },
+        "skipLog": {
+          "deepen|nothing to do": {
+            "at": "1791302472",
+            "repeats": 0
+          },
+          "executorTopUp|nothing to do": {
+            "at": "1791302472",
+            "repeats": 0
+          }
+        },
+        "m2Scan": {},
+        "incomeSpend": []
+      },
+      "income": {
+        "at": "1791302472",
+        "platformWei": "0",
+        "boxes": {},
+        "mined": {}
+      },
+      "simulations": [
+        {
+          "job": "deepen",
+          "key": "deepen:1:0",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "executorTopUp",
+          "key": "executorTopUp:1:0",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        }
+      ],
+      "snapshots": [
+        {
+          "block": {
+            "number": "12005006",
+            "timestamp": "1791302472",
+            "baseFeePerGas": "1"
+          },
+          "fitGraduated": true,
+          "boxes": [
+            {
+              "id": "0",
+              "version": 1,
+              "coordinator": "0x0000000000000000000000000000000000000001",
+              "hook": "0x0000000000000000000000000000000000000002",
+              "receiver": "0x0000000000000000000000000000000000000003",
+              "priceSource": "0x0000000000000000000000000000000000000005",
+              "graduated": true,
+              "failed": false,
+              "curveClosed": true,
+              "gateOpen": true,
+              "openAt": "0",
+              "deadline": "0",
+              "spotTick": 0,
+              "sampleTick": 0,
+              "checkpointTime": "1791298800",
+              "fitOwed": "0",
+              "platformOwed": "0",
+              "qPerEthX18": "1000000000000000000",
+              "executor": {
+                "budget": "0",
+                "batchThreshold": "100",
+                "twapReady": true
+              }
+            }
+          ],
+          "drand": [],
+          "m2Scan": {}
+        }
+      ]
+    },
+    "count": 43
+  }
+]

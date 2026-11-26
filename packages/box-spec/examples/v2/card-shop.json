@@ -1,0 +1,121 @@
+{
+  "$schema": "./schema.json",
+  "version": 1,
+  "id": "card-shop",
+  "name": "Card Shop",
+  "ticker": "CARD",
+  "status": "pending",
+  "pendingStep": "EXAMPLE-LIFE",
+  "pendingReason": "SH-262: the BNB Chain test network card shop; its life runs by script on a local chain with id 97, the site's browser life is not written",
+  "template": {
+    "id": "shop",
+    "name": "Shop"
+  },
+  "priceCoin": {
+    "symbol": "USDC",
+    "decimals": "6"
+  },
+  "logo": "examples/boxes/card-shop/art/logo.png",
+  "contents": {
+    "kind": "shop",
+    "size": "0",
+    "label": "Trading cards in four rarity tiers",
+    "art": {
+      "mode": "none",
+      "source": null
+    },
+    "seed": null,
+    "pickFeeBps": "0",
+    "shop": {
+      "seedT": "180000000000000000000000000",
+      "givePricesT": [
+        "1000000000000000000000000",
+        "2000000000000000000000000",
+        "4000000000000000000000000",
+        "8000000000000000000000000"
+      ],
+      "pickBps": "20000",
+      "weeklyBps": "1000",
+      "collectionBps": "500",
+      "listDelay": "604800",
+      "curator": "none",
+      "allowanceFloor": "cheapest-active-give",
+      "collections": [
+        {
+          "id": "common-cards",
+          "tier": "0",
+          "starterIds": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
+        },
+        {
+          "id": "uncommon-cards",
+          "tier": "1",
+          "starterIds": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
+        },
+        {
+          "id": "rare-cards",
+          "tier": "2",
+          "starterIds": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
+        },
+        {
+          "id": "legendary-cards",
+          "tier": "3",
+          "starterIds": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
+        }
+      ]
+    }
+  },
+  "creator": {
+    "kind": "safe",
+    "buyEthEquivalent": "100000000000000",
+    "registerHolder": true
+  },
+  "raise": {
+    "policy": "listing-fixed",
+    "amount": "1000000"
+  },
+  "deadline": {
+    "days": "30"
+  },
+  "royalties": {
+    "bps": "0",
+    "destination": "none"
+  },
+  "fees": {
+    "buyers": {
+      "choice": "holders"
+    },
+    "sellers": {
+      "choice": "shop",
+      "ceilingPreset": "2"
+    }
+  },
+  "life": "graduate",
+  "properties": [
+    "fee-conservation",
+    "page-state",
+    "own-pictures",
+    "graduation",
+    "holder-claim",
+    "shop-life"
+  ]
+}

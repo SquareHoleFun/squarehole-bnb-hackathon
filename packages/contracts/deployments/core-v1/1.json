@@ -1,0 +1,7 @@
+{
+  "schema": "squarehole.core-deployment/v1",
+  "status": "awaiting-broadcast",
+  "chainId": 1,
+  "network": "mainnet",
+  "note": "Core v1 is not on Ethereum mainnet yet: every address is unknown until the founder's broadcast."
+}

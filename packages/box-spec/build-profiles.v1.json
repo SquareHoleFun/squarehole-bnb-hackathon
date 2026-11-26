@@ -1,0 +1,67 @@
+{
+  "name": "BoxBuildV1",
+  "status": "F78 (DECISION-LOG, 2026-10-04): the build profiles of core v1. `mainnet` is the reviewed build and the default; `rehearsal` is a testnet build whose raise and fixed ETH amounts are 1/10, so a curve fills with about 0.43 SepETH instead of 4.25.",
+  "about": [
+    "One switch builds the rehearsal: FOUNDRY_PROFILE=rehearsal (packages/contracts/foundry.toml points `sh-box-build/` at src/box/build/rehearsal/ instead of src/box/build/mainnet/).",
+    "packages/box-spec/scripts/generate.mjs writes both BoxBuildV1.sol files, the BoxSpecV1 constants that read them and the TypeScript twin from this file; every scaled value must be its mainnet value times the profile's scale, exactly (no rounding).",
+    "The mainnet profile's values are the box-spec.v1.json constants and the version contexts' native-ETH raise preset; the generated BoxSpecV1.sol names them through BoxBuildV1, and the default build's bytecode is the same as before the profiles existed (docs/evidence/SH-rehearsal-build.md).",
+    "Scaled too: the creator-fee cap's five presets (add-ons.v1.json creator-fee-cap.capPerEpoch: 1, 4, 8, 16, 32 ETH per 30 days), fixed ETH amounts inside validate(). Only version 2 offers that add-on, which factory v1 cannot create, so in core v1 they change no reachable path; they keep a later version-2 rehearsal at the same 1/10.",
+    "A profile with `refusesChainIds` builds a constructor guard (BoxBuildGuard) into the factory, the planner and every implementation, so that build cannot be deployed on those chains; the deploy script refuses it there too."
+  ],
+  "scaled": [
+    {
+      "name": "RAISE",
+      "from": "contexts.v1/v2 qList native ETH raisePresets[0]",
+      "why": "R: the curve holds exactly R, its ticks, liquidity and pool share are BoxLayoutV1.curve(R); the graduation reward (0.1% of R) and MIN_ADD (0.5% of R) follow it."
+    },
+    { "name": "BOOTSTRAP_ETH", "from": "constants.BOOTSTRAP_ETH", "why": "the burned bootstrap buy createBox sends (msg.value)" },
+    { "name": "FEE_BATCH_MIN_ETH", "from": "constants.FEE_BATCH_MIN_ETH", "why": "collect() refuses smaller batches (D2)" },
+    { "name": "FEE_BATCH_TIP_MAX_ETH", "from": "constants.FEE_BATCH_TIP_MAX_ETH", "why": "the tip cap of collect(), deepen() and the swap module's steps" },
+    { "name": "SWAP_STEP_MIN_Q", "from": "constants.SWAP_STEP_MIN_Q", "why": "a swap-module step below it waits (BoxSwapModule; Standard boxes)" },
+    { "name": "DEPTH_CONVERT_MIN_Q", "from": "constants.DEPTH_CONVERT_MIN_Q", "why": "a depth conversion alone waits below it (deepen's swap)" },
+    { "name": "PLATFORM_CAP_WEI", "from": "constants.PLATFORM_CAP_WEI", "why": "box 0's platform share is capped at it per 30-day epoch" },
+    { "name": "CREATOR_FEE_CAP_PRESET_0", "addOnParam": { "addOn": "creator-fee-cap", "param": "capPerEpoch", "index": 0 }, "why": "the creator-fee cap's first preset per 30 days (F75 U9; version 2 only: factory v1 cannot create it)" },
+    { "name": "CREATOR_FEE_CAP_PRESET_1", "addOnParam": { "addOn": "creator-fee-cap", "param": "capPerEpoch", "index": 1 }, "why": "the creator-fee cap's second preset (version 2 only)" },
+    { "name": "CREATOR_FEE_CAP_PRESET_2", "addOnParam": { "addOn": "creator-fee-cap", "param": "capPerEpoch", "index": 2 }, "why": "the creator-fee cap's third preset (version 2 only)" },
+    { "name": "CREATOR_FEE_CAP_PRESET_3", "addOnParam": { "addOn": "creator-fee-cap", "param": "capPerEpoch", "index": 3 }, "why": "the creator-fee cap's fourth preset (version 2 only)" },
+    { "name": "CREATOR_FEE_CAP_PRESET_4", "addOnParam": { "addOn": "creator-fee-cap", "param": "capPerEpoch", "index": 4 }, "why": "the creator-fee cap's fifth preset (version 2 only)" }
+  ],
+  "notScaled": [
+    "Shares of R or of a batch scale with them by themselves: GRADUATION_REWARD_CAP_BPS (0.1% of R), DEPTH_MIN_ADD_BPS_OF_RAISE (0.5% of R), FEE_BATCH_TIP_BPS, SWAP_STEP_TIP_BPS, DEPTH_CONVERT_SHARE_BPS, the fee shares and the vault's fees.",
+    "FIT_BURN_BATCH_MCAP_BPS is 0.05% of FIT's market cap at its 1-hour average, which a curve ten times thinner makes ten times smaller.",
+    "T amounts (ISSUANCE, CURVE_SHARE_TARGET), ticks, blocks, seconds and gas are not ETH amounts: the curve keeps its 26,880-tick span and its 80% share of T, centred where 80% of T buys R.",
+    "The drand posting bounty is DRAND_BOUNTY_GAS times the base fee (gas, not ETH)."
+  ],
+  "profiles": [
+    {
+      "name": "mainnet",
+      "default": true,
+      "foundryProfile": "default",
+      "scale": { "numerator": "1", "denominator": "1" },
+      "refusesChainIds": [],
+      "about": "The reviewed build: mainnet's box 0 and the full-size Sepolia rehearsal (the profile may still be deployed on Sepolia)."
+    },
+    {
+      "name": "rehearsal",
+      "default": false,
+      "foundryProfile": "rehearsal",
+      "scale": { "numerator": "1", "denominator": "10" },
+      "refusesChainIds": [1],
+      "about": "F78: testnets only. The raise and the six fixed ETH amounts at 1/10 (and the creator-fee cap's presets, version 2 only); every other value as mainnet's. Its factory, planner and implementations refuse chain id 1 in their constructors (RehearsalBuildRefusesChain), and script/DeployCoreV1.s.sol refuses it on mainnet.",
+      "values": {
+        "RAISE": "420698008500000000",
+        "BOOTSTRAP_ETH": "150000000000000",
+        "FEE_BATCH_MIN_ETH": "500000000000000",
+        "FEE_BATCH_TIP_MAX_ETH": "50000000000000",
+        "SWAP_STEP_MIN_Q": "500000000000000",
+        "DEPTH_CONVERT_MIN_Q": "500000000000000",
+        "PLATFORM_CAP_WEI": "3200000000000000000",
+        "CREATOR_FEE_CAP_PRESET_0": "100000000000000000",
+        "CREATOR_FEE_CAP_PRESET_1": "400000000000000000",
+        "CREATOR_FEE_CAP_PRESET_2": "800000000000000000",
+        "CREATOR_FEE_CAP_PRESET_3": "1600000000000000000",
+        "CREATOR_FEE_CAP_PRESET_4": "3200000000000000000"
+      }
+    }
+  ]
+}

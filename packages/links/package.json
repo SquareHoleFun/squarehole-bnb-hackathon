@@ -1,0 +1,11 @@
+{
+  "name": "@squarehole/links",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "exports": { ".": "./src/index.ts" },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "dependencies": { "@squarehole/domain": "workspace:*", "zod": "4.6.5" }
+}

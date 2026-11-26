@@ -1,0 +1,30 @@
+{
+  "name": "openfour-pile-preset",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A launch preset for OpenFour whose trading fee fills a pile that every holder can redeem, by rules fixed at creation. Hardhat + solc 0.8.24, the OpenFour starter's toolchain.",
+  "scripts": {
+    "postinstall": "node scripts/fetch-kit.js",
+    "kit": "node scripts/fetch-kit.js",
+    "compile": "hardhat compile",
+    "test": "scripts/test-local.sh",
+    "test:signer": "node --test test-node/signer.test.js",
+    "real-run": "scripts/real-run.sh",
+    "test:sign": "node --test sign/test/sign.test.js",
+    "fork": "node -r ./scripts/signer-preload.js scripts/kit.js fork",
+    "fork:dry": "DRY_RUN=1 node node_modules/openfour-kit/developer/fork-deploy/fork-from-chain.js",
+    "create-test-preset": "node -r ./scripts/signer-preload.js scripts/kit.js create-test-preset"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.0",
+    "solc": "0.8.24"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "4.9.6",
+    "@openzeppelin/contracts-upgradeable": "4.9.6",
+    "dotenv": "^17.4.1",
+    "fee-rules-core": "file:../core",
+    "ethers": "^6.15.0"
+  }
+}

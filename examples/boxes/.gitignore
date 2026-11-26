@@ -1,0 +1,16 @@
+# Public bundles and collection settings are rebuilt, never committed as large generated payloads.
+/*/build/
+/*/settings/*-boxspec-v2.json
+# Versioned: the six reveal-free downloads (under 1 MiB) and the two hidden kits' public templates (larger; no item
+# art, no salts). Open collections' downloads, which carry their reveal lists, are written to build/ (scripts/kits
+# settingsPath), never to settings/.
+!/dragons-hoard/settings/dragons-hoard-boxspec-v2.json
+!/one-dollar/settings/one-dollar-boxspec-v2.json
+!/gpu-poor/settings/gpu-poor-boxspec-v2.json
+!/junkyard/settings/junkyard-boxspec-v2.json
+!/the-alchemist/settings/the-alchemist-boxspec-v2.json
+!/one-collection-shop/settings/one-collection-shop-boxspec-v2.json
+!/frog-kiln/settings/frog-kiln-boxspec-v2.json
+!/paper-certificates/settings/paper-certificates-boxspec-v2.json
+!/lake-house/settings/lake-house-boxspec-v2.json
+!/card-shop/settings/card-shop-boxspec-v2.json

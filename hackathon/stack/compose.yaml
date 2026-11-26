@@ -1,0 +1,314 @@
+# The BNB Chain testnet (chain id 97) build on one machine (SH-259 Part 4; runbook hackathon/runbooks/machine.md).
+# Reuses the test site's images and parts (infra/server: the indexer image, Postgres, the keeper image and its service
+# wrapper, Kubo and the picture guard) and adds only the web app's image (app.Dockerfile: the BNB build behind Caddy).
+# Not here: the alpha gate and its services, the monitor and heal, the card service, the campaign, the burn bot, reveal,
+# the CoW poster.
+#
+# Plain settings, all from the stack's settings file (stack.env.example) and the services' env files in SH_BNB_ETC:
+# the host name, the folders, the listen address and ports; the RPC endpoints are SH_CORE_HTTP_URLS / SH_CORE_WS_URLS
+# (indexer.env) and SH_KEEPER_RPC_URL / SH_KEEPER_RPC_FALLBACK_URL (keeper.env): a restart takes a new endpoint, no
+# rebuild. Docker publishes ports past the firewall, so only Caddy's two ports are published to the outside (and only
+# where SH_BNB_LISTEN says); the gateway's check port is on 127.0.0.1. Postgres and Kubo have no route out.
+name: squarehole-bnb
+
+x-logging: &logging
+  driver: local
+  options:
+    max-size: 10m
+    max-file: "5"
+
+services:
+  postgres:
+    image: postgres:16.15-trixie@sha256:1a6ab3f5345eb6dbe04a1349529caabdb0ab09293a09590fad07b2246bfa4b54
+    restart: unless-stopped
+    env_file:
+      # POSTGRES_PASSWORD and PGPASSWORD, made on the machine by bootstrap.sh (openssl rand -hex 32).
+      - path: ${SH_BNB_ETC:?SH_BNB_ETC is set in the stack settings}/db.env
+        required: true
+    environment:
+      POSTGRES_USER: squarehole
+      POSTGRES_DB: squarehole_history
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks: [backend]
+    shm_size: 256mb
+    # Memory caps for a shared machine (measured: hackathon/evidence/SH-259.md, Part 4).
+    mem_limit: 1g
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U squarehole -d squarehole_history"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 30s
+    stop_grace_period: 60s
+    logging: *logging
+
+  indexer:
+    image: squarehole-bnb-indexer:${SH_RELEASE:?SH_RELEASE is the release commit, set by ship.sh}
+    pull_policy: never
+    build:
+      context: ../..
+      dockerfile: infra/server/indexer.Dockerfile
+    restart: unless-stopped
+    init: true
+    depends_on:
+      postgres:
+        condition: service_healthy
+    env_file:
+      # The chain-97 settings (indexer.env.example), then the database password.
+      - path: ${SH_BNB_ETC}/indexer.env
+        required: true
+      - path: ${SH_BNB_ETC}/db.env
+        required: true
+    environment:
+      SH_TESTNET: bnb
+      SH_CORE_MANIFEST: /manifests/97.json
+      # SH-266's prices for the box view: 1 once the settings folder approves a 97-atlas.json (ship.sh), else 0.
+      SH_CORE_ATLAS: ${SH_BNB_CORE_ATLAS:?ship.sh derives the Atlas switch}
+      SH_CORE_GATEWAY_HOST: 0.0.0.0
+      SH_CORE_GATEWAY_PORT: "5394"
+      SH_HISTORY: postgres
+      SH_HISTORY_PG_HOST: postgres
+      SH_HISTORY_PG_PORT: "5432"
+      SH_HISTORY_PG_DATABASE: squarehole_history
+      SH_HISTORY_PG_USER: squarehole
+      SH_CORE_MAX_STREAMS_PER_CLIENT: "8"
+      # Caddy reaches the gateway from a Docker network (Docker's default pools); nothing outside reaches it.
+      SH_CORE_TRUSTED_PROXIES: 172.16.0.0/12,192.168.0.0/16
+    volumes:
+      # The release's manifest of chain 97 (written by SH-260's deploy), read-only.
+      - ../../packages/contracts/deployments/core-v1:/manifests:ro
+      # Withheld pictures (an empty list `[]` from bootstrap.sh); a folder, so a replaced list is seen.
+      - ${SH_BNB_SRV:?SH_BNB_SRV is set in the stack settings}/withheld:/srv/squarehole/withheld:ro
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:5394/healthz', {signal: AbortSignal.timeout(4000)}).then(r => process.exit(r.ok ? 0 : 1), () => process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10m
+    ports:
+      - "127.0.0.1:${SH_BNB_GATEWAY_PORT:-5494}:5394"
+    mem_limit: 1536m
+    networks: [backend, edge]
+    stop_grace_period: 30s
+    logging: *logging
+
+  keeper:
+    image: squarehole-bnb-keeper:${SH_RELEASE}
+    pull_policy: never
+    build:
+      context: ../..
+      dockerfile: packages/keeper/Dockerfile
+    restart: unless-stopped
+    init: true
+    # The test site's service wrapper (infra/server/services/keeper.mjs): SH_SERVICE_ENABLED=0 is off, dry-run sends
+    # nothing, live reads the key file /run/service-config/gas.key (runbook step 6).
+    env_file:
+      # A ship starts the keeper from its own snapshot of keeper.env (SH_BNB_KEEPER_ENV); by hand, keeper.env itself.
+      - path: ${SH_BNB_KEEPER_ENV:-${SH_BNB_ETC}/keeper.env}
+        required: true
+        format: raw
+    environment:
+      SH_TESTNET: bnb
+      # Derived by ship.sh from the approved manifest (the release's .derived.env); over keeper.env, and required.
+      SH_KEEPER_CHAIN_ID: ${SH_BNB_KEEPER_CHAIN_ID:?ship.sh derives the keeper chain from the approved manifest}
+      SH_KEEPER_BOX_REGISTRY: ${SH_BNB_KEEPER_REGISTRY:?ship.sh derives the keeper registry from the approved manifest}
+      SH_KEEPER_FROM_BLOCK: ${SH_BNB_KEEPER_FROM_BLOCK:?ship.sh derives the keeper start block from the approved manifest}
+      # The fee floor and ceiling, derived by ship.sh from the approved hackathon/stack/keeper-fees-97.json (never the
+      # package's defaults); the keeper signs at each tick's eth_gasPrice plus a quarter between them.
+      SH_KEEPER_PRIORITY_FEE_WEI: ${SH_BNB_KEEPER_PRIORITY_FEE_WEI:?ship.sh derives the fee floor from the approved fee file}
+      SH_KEEPER_MAX_FEE_WEI: ${SH_BNB_KEEPER_MAX_FEE_WEI:?ship.sh derives the fee ceiling from the approved fee file}
+      # SH-266's price reading: 1 once the settings folder approves a 97-atlas.json (ship.sh), else 0.
+      SH_KEEPER_ATLAS: ${SH_BNB_KEEPER_ATLAS:?ship.sh derives the Atlas switch}
+    # SH-259 rule E: every start runs keeper-start/start.mjs first; it compares the chain, registry, start block and fee
+    # policy above with the manifest whose digest <etc>/approved-97.sha256 approves, and refuses (exit 78) on a difference.
+    command: ["node", "--experimental-transform-types", "--no-warnings=ExperimentalWarning", "--import", "/check/bin/start.mjs",
+      "--import", "./packages/keeper/scripts/register-ts.mjs", "infra/server/services/run.mjs", "keeper"]
+    volumes:
+      - type: bind
+        source: ${SH_BNB_ETC}/keeper
+        target: /run/service-config
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ./keeper-start
+        target: /check/bin
+        read_only: true
+      - type: bind
+        source: ../../packages/contracts/deployments/core-v1/97.json
+        target: /check/97.json
+        read_only: true
+      - type: bind
+        source: ${SH_BNB_ETC}/approved-97.sha256
+        target: /check/approved-97.sha256
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ../../packages/contracts/deployments/bnb-testnet/97-atlas.json
+        target: /check/97-atlas.json
+        read_only: true
+      - type: bind
+        source: ./keeper-fees-97.json
+        target: /check/keeper-fees-97.json
+        read_only: true
+      - type: bind
+        source: ${SH_BNB_ETC}/approved-atlas.sha256
+        target: /check/approved-atlas.sha256
+        read_only: true
+        bind:
+          create_host_path: false
+      - keeper_state:/state
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    cpus: 0.5
+    mem_limit: 512m
+    pids_limit: 64
+    networks: [workers]
+    stop_grace_period: 60s
+    logging: *logging
+
+  # The Four.meme rail's creation signer (SH-259; lane g's function): only with SH_BNB_SIGN=1 in stack.env (the ship
+  # then adds the profile). Its own key (keystore and password file) and the real run's records from <etc>/sign; no
+  # coins, no transaction; off (503) until the records are placed and Core's signer is its key.
+  sign:
+    profiles: [sign]
+    image: squarehole-bnb-sign:${SH_RELEASE}
+    pull_policy: never
+    build:
+      context: ../..
+      dockerfile: hackathon/stack/sign.Dockerfile
+    restart: unless-stopped
+    init: true
+    environment:
+      SIGN_ORIGIN: https://${SH_BNB_HOST}
+      SIGN_RPC: https://bsc-testnet-rpc.publicnode.com
+      # WBNB and tETH (lane g's README); the raise bounds of its call.
+      SIGN_QUOTES: 0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd,0x860822580d4eb2529de0c74c3e2b1d6d7c183302
+      SIGN_RAISE_MIN: "0.1"
+      SIGN_RAISE_MAX: "2"
+      # SH-287: the kind tax-rules (lane g's taxRules), 1 only once scripts/rules-run.sh is complete and its three records
+      # are in <etc>/sign/out (bounties/openfour/sign/README.md); unset or 0, today's service.
+      SIGN_TAX_RULES: ${SH_BNB_SIGN_TAX_RULES:-0}
+      # SH-307: the limits (signatures per address an hour, per creator an hour, a day); unset: the service's defaults
+      # (600, 5, 20000; hackathon/stack/sign/server.js LIMITS).
+      SIGN_LIMIT_PER_CLIENT_HOUR: ${SH_BNB_SIGN_PER_CLIENT_HOUR:-}
+      SIGN_LIMIT_PER_CREATOR_HOUR: ${SH_BNB_SIGN_PER_CREATOR_HOUR:-}
+      SIGN_LIMIT_PER_DAY: ${SH_BNB_SIGN_PER_DAY:-}
+    volumes:
+      - type: bind
+        source: ${SH_BNB_ETC}/sign
+        target: /run/sign
+        read_only: true
+        bind:
+          create_host_path: false
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    cpus: 0.25
+    mem_limit: 192m
+    pids_limit: 32
+    networks: [edge]
+    logging: *logging
+
+  kubo:
+    # The test site's offline Kubo (infra/server/ipfs/start.sh): no swarm, no fetching, only imported blocks.
+    image: ipfs/kubo:v0.43.1@sha256:b293923d66e490e70ced64df42ea7a6cf7eac2740e3fb29101df18070fa7be48
+    restart: unless-stopped
+    user: "1000:1000"
+    entrypoint: ["/bin/sh", "/opt/ipfs/start.sh"]
+    environment:
+      IPFS_PATH: /data/ipfs
+    volumes:
+      - ipfs_data:/data/ipfs
+      - ../../infra/server/ipfs/start.sh:/opt/ipfs/start.sh:ro
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,uid=1000,gid=1000,mode=1777
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    cpus: 0.5
+    mem_limit: 512m
+    pids_limit: 128
+    networks: [art]
+    healthcheck:
+      test: ["CMD-SHELL", "ipfs --api=/ip4/127.0.0.1/tcp/5001 id >/dev/null"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 60s
+    stop_grace_period: 60s
+    logging: *logging
+
+  ipfs-art:
+    # The test site's guard: serves only checked raw blocks whose bytes are a picture or a GLB model.
+    image: node:24.22.1-trixie-slim@sha256:43b9ba1142b8dcf33fa8f922ca1be85714adc444e0586c7cf7726daaeabc1bea
+    restart: unless-stopped
+    init: true
+    user: "1000:1000"
+    command: ["node", "/app/infra/server/ipfs/server.mjs"]
+    depends_on:
+      kubo:
+        condition: service_healthy
+        restart: true
+    network_mode: service:kubo
+    volumes:
+      - ${SH_BNB_SRV}/withheld:/srv/squarehole/withheld:ro
+      - ../../infra/server/ipfs:/app/infra/server/ipfs:ro
+      - ../../packages/indexer/src/withheld:/app/packages/indexer/src/withheld:ro
+      - ../../scripts/ipfs/pin-raw-lib.mjs:/app/scripts/ipfs/pin-raw-lib.mjs:ro
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    cpus: 0.5
+    mem_limit: 128m
+    pids_limit: 64
+    stop_grace_period: 10s
+    logging: *logging
+
+  web:
+    # The web app's BNB build (SH_TESTNET=bnb) inside Caddy, which also takes the TLS certificate for SH_BNB_HOST by
+    # itself (an sslip.io name needs no DNS step) and routes /v1, /v2, /healthz to the indexer and /ipfs to the guard.
+    image: squarehole-bnb-web:${SH_RELEASE}
+    pull_policy: never
+    build:
+      context: ../..
+      dockerfile: hackathon/stack/app.Dockerfile
+      args:
+        SH_BNB_ORIGIN: https://${SH_BNB_HOST:?SH_BNB_HOST is set in the stack settings}
+    restart: unless-stopped
+    environment:
+      SH_BNB_HOST: ${SH_BNB_HOST}
+      SH_BNB_CADDY_TRIAL: ${SH_BNB_CADDY_TRIAL:-}
+    ports:
+      - "${SH_BNB_LISTEN:-0.0.0.0}:${SH_BNB_HTTP_PORT:-80}:80"
+      - "${SH_BNB_LISTEN:-0.0.0.0}:${SH_BNB_HTTPS_PORT:-443}:443"
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+    mem_limit: 256m
+    networks: [edge, art]
+    logging: *logging
+
+networks:
+  # Postgres and the indexer only; no route out.
+  backend:
+    internal: true
+  # Caddy and the indexer; the indexer reaches the RPCs through it.
+  edge: {}
+  # Only Caddy and the Kubo/guard namespace; no route out.
+  art:
+    internal: true
+  # The keeper: outbound only, no listener.
+  workers: {}
+
+volumes:
+  pgdata: {}
+  ipfs_data: {}
+  caddy_data: {}
+  caddy_config: {}
+  keeper_state: {}

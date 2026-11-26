@@ -1,0 +1,243 @@
+/*
+ * Shared personal-page parts (SH-014): title row with the Demo chip, section titles, the disconnected prompt, the
+ * account bar, notices, loading/unavailable/empty states and explainers. Status is always carried by text and a mark,
+ * never by colour alone. Every control is a 44px-class target.
+ */
+.sh-page__title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sh-gap-3);
+}
+
+.sh-section-title {
+  margin: 0;
+  color: var(--sh-text);
+  font-size: var(--sh-type-section);
+  font-weight: 750;
+  line-height: var(--sh-leading-tight);
+  border-radius: var(--sh-radius-small);
+}
+
+.sh-connect-prompt {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sh-gap-6);
+  padding: var(--sh-gap-6);
+}
+
+.sh-connect-prompt__cast {
+  flex: none;
+}
+
+.sh-connect-prompt__body {
+  display: grid;
+  gap: var(--sh-gap-3);
+  min-width: 0;
+  max-width: 64ch;
+  color: var(--sh-text-secondary);
+}
+
+.sh-connect-prompt__body p {
+  margin: 0;
+}
+
+.sh-connect-prompt__note {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-small);
+}
+
+.sh-account-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sh-gap-2) var(--sh-gap-4);
+  margin: 0;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+}
+
+.sh-account-bar__who strong {
+  color: var(--sh-text);
+}
+
+.sh-account-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sh-gap-3);
+  margin: 0;
+  padding: var(--sh-gap-3) var(--sh-gap-4);
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface);
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+}
+
+.sh-account-notice[data-tone='warning'] {
+  border-color: var(--sh-warning);
+  background: var(--sh-demo-bg);
+}
+
+.sh-account-notice strong {
+  color: var(--sh-text);
+}
+
+.sh-account-notice__mark {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  margin-top: 5px;
+  border-radius: 2px;
+  background: var(--sh-warning);
+}
+
+.sh-account-notice__body {
+  display: grid;
+  gap: var(--sh-gap-2);
+  min-width: 0;
+}
+
+.sh-account-notice__body p {
+  margin: 0;
+}
+
+.sh-account-loading {
+  padding: var(--sh-gap-6);
+}
+
+.sh-account-unavailable {
+  display: grid;
+  gap: var(--sh-gap-3);
+  padding: var(--sh-gap-6);
+  border-color: var(--sh-negative);
+  color: var(--sh-text-secondary);
+}
+
+.sh-account-unavailable p {
+  margin: 0;
+}
+
+.sh-account-unavailable__title {
+  color: var(--sh-text);
+  font-size: var(--sh-type-section);
+  font-weight: 750;
+}
+
+.sh-empty-state {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sh-gap-6);
+  padding: var(--sh-gap-6);
+  color: var(--sh-text-secondary);
+}
+
+.sh-empty-state > div {
+  display: grid;
+  gap: var(--sh-gap-2);
+  min-width: 0;
+}
+
+.sh-empty-state p {
+  margin: 0;
+}
+
+.sh-empty-state__title {
+  color: var(--sh-text);
+  font-size: var(--sh-type-section);
+  font-weight: 750;
+}
+
+.sh-explainer {
+  padding: var(--sh-gap-4) var(--sh-gap-6);
+  color: var(--sh-text-secondary);
+}
+
+.sh-explainer > summary {
+  display: flex;
+  align-items: center;
+  min-height: var(--sh-touch-target);
+  color: var(--sh-text);
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: var(--sh-radius-small);
+}
+
+/* Disclosure summaries are flex rows (44px targets), which drops the native marker: draw one that turns when open. */
+.sh-explainer > summary::before,
+.sh-claim__history > summary::before,
+.sh-claim__exact > summary::before {
+  content: '';
+  flex: none;
+  width: 7px;
+  height: 7px;
+  margin: 0 8px 0 2px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform var(--sh-duration-fast) var(--sh-ease);
+}
+
+.sh-explainer[open] > summary::before,
+.sh-claim__history[open] > summary::before,
+.sh-claim__exact[open] > summary::before {
+  transform: rotate(45deg);
+}
+
+.sh-explainer > summary::-webkit-details-marker,
+.sh-claim__history > summary::-webkit-details-marker,
+.sh-claim__exact > summary::-webkit-details-marker {
+  display: none;
+}
+
+.sh-explainer__body {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sh-gap-6);
+  padding-top: var(--sh-gap-3);
+}
+
+.sh-explainer--open .sh-explainer__body {
+  padding-top: var(--sh-gap-2);
+}
+
+.sh-explainer__cast {
+  flex: none;
+}
+
+.sh-explainer__text {
+  display: grid;
+  gap: var(--sh-gap-3);
+  min-width: 0;
+  max-width: 72ch;
+}
+
+.sh-explainer__text p {
+  margin: 0;
+}
+
+.sh-explainer__subtitle {
+  margin: var(--sh-gap-2) 0 0;
+  color: var(--sh-text);
+  font-size: var(--sh-type-body-lg);
+}
+
+@media (max-width: 640px) {
+  .sh-connect-prompt,
+  .sh-empty-state,
+  .sh-explainer__body {
+    flex-direction: column;
+    gap: var(--sh-gap-4);
+  }
+
+  .sh-connect-prompt,
+  .sh-empty-state,
+  .sh-account-loading,
+  .sh-account-unavailable {
+    padding: var(--sh-gap-4);
+  }
+
+  .sh-explainer {
+    padding: var(--sh-gap-2) var(--sh-gap-4) var(--sh-gap-4);
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "format": "exit-liquidity/unique-traits/v1",
+  "count": "404",
+  "seed": "exit-liquidity/404-signs/no-way-out/v1",
+  "layers": [
+    { "key": "sign", "name": "Original sign", "values": [
+      { "value": "01", "name": "Exit?", "count": "34" },
+      { "value": "02", "name": "Not found", "count": "34" },
+      { "value": "03", "name": "No exit", "count": "34" },
+      { "value": "04", "name": "Both ways", "count": "34" },
+      { "value": "05", "name": "Burnt out", "count": "34" },
+      { "value": "06", "name": "Backwards", "count": "34" },
+      { "value": "07", "name": "Down", "count": "34" },
+      { "value": "08", "name": "404", "count": "34" },
+      { "value": "09", "name": "Up", "count": "33" },
+      { "value": "10", "name": "Loop", "count": "33" },
+      { "value": "11", "name": "Error", "count": "33" },
+      { "value": "12", "name": "Try again", "count": "33" }
+    ]},
+    { "key": "housing", "name": "Housing", "values": [
+      { "value": "plain", "name": "Plain rim", "count": "101" },
+      { "value": "visor", "name": "Rain visor indoors", "count": "101" },
+      { "value": "guards", "name": "Corner guards", "count": "101" },
+      { "value": "fins", "name": "Cooling fins", "count": "101" }
+    ]},
+    { "key": "route", "name": "Route plate", "placement": "Small separate wall plate below the signs; never on a sign face", "values": [
+      { "value": "dogleg", "name": "One more corner", "count": "101" },
+      { "value": "switchback", "name": "Long way round", "count": "101" },
+      { "value": "fork", "name": "Two wrong turns", "count": "101" },
+      { "value": "coil", "name": "Back to the start", "count": "101" }
+    ]},
+    { "key": "repair", "name": "Repair", "values": [
+      { "value": "clean", "name": "Still under inspection", "count": "101" },
+      { "value": "patch", "name": "Spare plate", "count": "101" },
+      { "value": "staples", "name": "Held together", "count": "101" },
+      { "value": "tape", "name": "Temporary forever", "count": "101" }
+    ]},
+    { "key": "equipment", "name": "Hallway equipment", "values": [
+      { "value": "reel", "name": "Cable to nowhere", "count": "101" },
+      { "value": "case", "name": "Locked spare exit", "count": "101" },
+      { "value": "lamp", "name": "Backup light", "count": "101" },
+      { "value": "tray", "name": "Empty claim tray", "count": "101" }
+    ]},
+    { "key": "conduit", "name": "Power feed", "values": [
+      { "value": "left", "name": "Left elbow", "count": "101" },
+      { "value": "right", "name": "Right elbow", "count": "101" },
+      { "value": "twin", "name": "Double feed", "count": "101" },
+      { "value": "loop", "name": "Service loop", "count": "101" }
+    ]}
+  ]
+}

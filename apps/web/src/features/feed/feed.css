@@ -1,0 +1,313 @@
+/*
+ * Feed page, results table/cards and states (SH-005, SH-007). Reference A styling: deep navy rows, crisp white
+ * figures, restrained lavender accents, tabular numbers. Budgets (02-DESIGN): pin + six organic rows at 1440×900.
+ */
+.sh-feed {
+  --sh-row-border: rgba(48, 65, 93, 0.6);
+  --sh-row-bg: var(--sh-surface);
+  --sh-row-hover: #16233a;
+  --sh-head-bg: #0b111c;
+  gap: 14px;
+  max-width: 1320px;
+}
+
+/* ── Compact page heading ──────────────────────────────────── */
+.sh-feed__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 14px;
+}
+
+.sh-feed .sh-page__title {
+  font-size: var(--sh-type-title-compact);
+}
+
+.sh-feed__lede {
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+}
+
+.sh-feed__asof {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  margin-left: auto;
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+}
+
+/* Neutral chips: the top bar's Demo badge is the one warning-yellow label. */
+.sh-feed__demo,
+.sh-feed__scenario {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 0 8px;
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-pill);
+  color: var(--sh-text-secondary);
+  font-weight: 700;
+}
+
+/* ── Glyphs ────────────────────────────────────────────────── */
+.sh-glyph {
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+
+.sh-glyph--flip {
+  transform: rotate(180deg);
+}
+
+/* ── Notices (stale, partial) ──────────────────────────────── */
+.sh-notices {
+  display: grid;
+  gap: 8px;
+}
+
+/* One slim strip per notice (about 34px), so it costs the feed as little height as possible. */
+.sh-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 7px 12px;
+  border: 1px solid rgba(255, 209, 122, 0.45);
+  border-radius: 12px;
+  background: rgba(255, 209, 122, 0.07);
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-label);
+  line-height: 1.45;
+}
+
+.sh-notice strong {
+  color: var(--sh-warning);
+}
+
+.sh-notice > .sh-glyph {
+  margin-top: 2px;
+  color: var(--sh-warning);
+}
+
+/* ── Results bar ───────────────────────────────────────────── */
+/* The results column is the size container for the table/cards choice and the table's column set (rows.css). */
+.sh-results {
+  container: results / inline-size;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.sh-results-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  min-height: 26px;
+}
+
+.sh-results-bar__count {
+  font-size: var(--sh-type-small);
+  font-weight: 750;
+}
+
+.sh-results-bar__sort {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-label);
+}
+
+.sh-results-bar__match {
+  flex-basis: 100%;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-label);
+  font-weight: 600;
+}
+
+.sh-update {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-left: auto;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-label);
+}
+
+.sh-button--accent {
+  min-height: 36px;
+  border-color: rgba(167, 139, 250, 0.65);
+  background: rgba(109, 74, 226, 0.22);
+  font-size: var(--sh-type-label);
+}
+
+.sh-button--accent:hover {
+  background: rgba(109, 74, 226, 0.36);
+}
+
+.sh-button:disabled {
+  cursor: progress;
+  opacity: 0.7;
+}
+
+/* ── Empty, no launches, unavailable ───────────────────────── */
+.sh-empty,
+.sh-alert {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px;
+}
+
+.sh-empty__art {
+  flex: none;
+}
+
+.sh-empty__body,
+.sh-alert__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  color: var(--sh-text-secondary);
+}
+
+.sh-empty__title,
+.sh-alert__title {
+  color: var(--sh-text);
+  font-size: var(--sh-type-section);
+}
+
+.sh-empty__query {
+  color: var(--sh-text);
+  overflow-wrap: anywhere;
+}
+
+.sh-empty__joke {
+  color: var(--sh-accent);
+  font-weight: 700;
+}
+
+.sh-empty__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.sh-alert {
+  align-items: flex-start;
+  border-color: rgba(255, 140, 168, 0.55);
+}
+
+.sh-alert > .sh-glyph {
+  width: 22px;
+  height: 22px;
+  margin-top: 4px;
+  color: var(--sh-negative);
+}
+
+.sh-load-more {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--sh-text-secondary);
+}
+
+/* ── Skeletons ─────────────────────────────────────────────── */
+.sh-skeleton {
+  display: inline-block;
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #152136 0%, #1d2b45 50%, #152136 100%);
+  background-size: 200% 100%;
+  animation: sh-shimmer 1.4s linear infinite;
+}
+
+.sh-skeleton--avatar {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+}
+
+.sh-skeleton--text {
+  width: 60%;
+  max-width: 180px;
+}
+
+.sh-skeleton--num {
+  width: 56px;
+}
+
+.sh-skeleton--wide {
+  width: 100%;
+}
+
+.sh-skeleton--line {
+  display: block;
+  width: 80%;
+  max-width: 190px;
+  margin-top: 8px;
+}
+
+/* Same footprint as the View link and route status, so nothing moves when rows arrive. */
+.sh-skeleton--button {
+  width: 79px;
+  height: 28px;
+  border-radius: var(--sh-radius-control);
+}
+
+.sh-skeleton--route {
+  width: 108px;
+  height: 10px;
+  margin-top: 5px;
+}
+
+.sh-row--skeleton td {
+  height: 60px;
+}
+
+@keyframes sh-shimmer {
+  from {
+    background-position: 200% 0;
+  }
+
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .sh-feed {
+    gap: 12px;
+  }
+
+  .sh-feed__asof {
+    margin-left: 0;
+  }
+
+  .sh-results-bar__nulls {
+    display: none;
+  }
+
+  .sh-empty,
+  .sh-alert {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px;
+  }
+
+  /* The heading and its actions come first on a phone; the Sorter follows the text. */
+  .sh-empty__art {
+    order: 1;
+  }
+
+  .sh-update {
+    margin-left: 0;
+  }
+}

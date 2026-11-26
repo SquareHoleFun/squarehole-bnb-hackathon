@@ -1,0 +1,57 @@
+/*
+ * SH-WITHHELD-SITE (F157 (3)): the neutral "Picture withheld" tile (WithheldTile.tsx). The slot's own class gives its
+ * size and corners; these rules (one attribute more specific than any slot's single class) give the quiet surface and
+ * centre the words. The words show where they fit (two short lines from 64 px); a smaller tile keeps the surface alone
+ * and says the words in its accessible name and title.
+ */
+.sh-withheld[data-withheld] {
+  container-type: inline-size;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: var(--sh-surface-raised);
+  color: var(--sh-text-muted);
+  text-align: center;
+}
+
+.sh-withheld__words {
+  padding: 4px;
+  font-size: var(--sh-type-caption);
+  font-weight: var(--sh-weight-medium);
+  line-height: var(--sh-leading-tight);
+}
+
+@container (max-width: 63px) {
+  .sh-withheld__words {
+    display: none;
+  }
+}
+
+/* Fills the slot it is put in (a box cover, an item's frame). */
+.sh-withheld--fill[data-withheld] {
+  width: 100%;
+  height: 100%;
+}
+
+/* A token's small round mark, beside text. */
+.sh-withheld--mark[data-withheld] {
+  display: inline-grid;
+  flex: none;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+/* The contents' sealed counts: the box's sealed picture (SealedPicture.tsx), as its 72 px picture is drawn there. */
+.sh-withheld--sealed[data-withheld] {
+  width: 72px;
+  height: 72px;
+  border-radius: 12px;
+}
+
+/* A square frame of its own (an item's picture or avatar in a list). */
+.sh-withheld--square[data-withheld] {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 12px;
+}

@@ -1,0 +1,121 @@
+/*
+ * Narrow results (SH-005): full-width cards whenever the results column is narrower than the table needs
+ * (`TABLE_MIN_WIDTH`), never a sideways-scrolling table (02-DESIGN). Two columns once the column has room.
+ */
+/* ── Cards ─────────────────────────────────────────────────── */
+.sh-cards {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-cards:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+@container results (min-width: 600px) {
+  .sh-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.sh-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--sh-row-border);
+  border-radius: var(--sh-radius-card);
+  background: var(--sh-row-bg);
+}
+
+.sh-card__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.sh-card__title {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+/* Stretched link: the whole card opens the detail page. */
+.sh-card__link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--sh-radius-card);
+}
+
+.sh-card__link:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.sh-card:has(.sh-card__link:focus-visible) {
+  outline: 3px solid var(--sh-focus-ring);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 7px var(--sh-focus-halo);
+}
+
+.sh-card:hover {
+  background: var(--sh-row-hover);
+}
+
+/* Pairing over "Fee share in …": always two plain lines, so every card has the same rhythm. */
+.sh-card__badges {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  min-width: 0;
+}
+
+.sh-card__badges > .sh-reward {
+  padding-left: 3px;
+  line-height: 1.35;
+}
+
+/* "NFT collection · AMM", with the same separator the table uses. */
+.sh-card .sh-project__lifecycle::before {
+  content: '·';
+  margin-right: 8px;
+}
+
+.sh-card__metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+
+.sh-card__metrics dt,
+.sh-pin__metrics dt {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 600;
+}
+
+.sh-card__metrics dd {
+  margin: 0;
+  font-size: var(--sh-type-body-lg);
+  font-weight: 750;
+}
+
+.sh-card__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+  font-size: var(--sh-type-caption);
+}

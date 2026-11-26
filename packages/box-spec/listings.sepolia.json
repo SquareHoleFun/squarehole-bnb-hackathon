@@ -1,0 +1,40 @@
+{
+  "format": "squarehole.listings/1",
+  "network": "sepolia",
+  "about": [
+    "The checker's offline copy of Sepolia's format 2 listings (box-spec-v2-draft.md § 4). The source is the indexer (M1-52), which reads every listing from the listing registry's events; the platform's Safe adds listings at any time and each counts at once (F90 R16A), so a newer listing than this copy is still offered when the indexer answers (`--listings`, `--indexer`).",
+    "Not deployed yet: core v2 M1 reaches Sepolia in M1-64 (rehearsal build, F78). Until then only listing 0 exists by construction (native ETH, ReleaseConstantsV2.NATIVE_LISTING_ID), at the rehearsal raise. M1-64 lists the test tokens (tickets § 5), then this copy is written again from the indexer.",
+    "Fields per listing: the registry's ListingRecord (IListingRegistry.sol) that validate() and the page need (id, address: its `token`, decimals, class, kind, burnable, used, pools, earlierListing, listedAt, raise, converter), plus what the indexer adds from the token and the listing review (symbol, label, powers); a box token adds its box and the raise band of its lowest reading (raiseBand: min and max in its units, F95 R19H), which the factory reads again at creation. `byRule`: graduated boxes whose token anyone may list by rule (addBoxToken) before a box is priced in it."
+  ],
+  "writtenAt": "2026-10-07T00:00:00Z",
+  "release": {
+    "name": "core-v2-m1",
+    "buildProfile": "rehearsal",
+    "registry": null,
+    "offered": {
+      "legs": [
+        "AsPaid",
+        "BuyT"
+      ],
+      "dests": [
+        "Eat",
+        "Creator",
+        "Depth"
+      ],
+      "targetSlot": false,
+      "addOns": [
+        1,
+        3,
+        4,
+        6
+      ],
+      "gradLayouts": [
+        3
+      ]
+    }
+  },
+  "listings": [
+    {"id": 0, "symbol": "ETH", "label": "native ETH", "address": "0x0000000000000000000000000000000000000000", "decimals": 18, "class": "NATIVE", "kind": "LISTED", "listedAt": 0, "raise": "420698008500000000", "powers": []}
+  ],
+  "byRule": []
+}

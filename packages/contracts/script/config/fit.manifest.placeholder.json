@@ -1,0 +1,7 @@
+{
+  "schema": "squarehole.metadata-manifest/v0-placeholder",
+  "status": "SUPERSEDED (DECISION-LOG F10, SH-E): FIT is no longer a separate fungible launch; it is the fractional token of The Misfits (script/config/the-misfits.manifest.placeholder.json). No deployment reads this file; it is kept only until someone approves its deletion.",
+  "token": "FIT",
+  "authority": "Names and images are never authority; the chain id and token address are (AGENTS.md).",
+  "disclosure": "Testnet only. Not audited. No real value."
+}

@@ -1,0 +1,41 @@
+{
+  "tool": "packages/chain/scripts/reveal-open-v2.ts",
+  "protocol": "v2",
+  "status": "after-creation-required",
+  "kit": "link-marines-v2",
+  "box": null,
+  "source": "created-box-download",
+  "art": {
+    "kind": "one-of-a-kind",
+    "itemCount": "420",
+    "imageHashes": "distinct",
+    "modelHashes": "zero",
+    "modelFormat": null,
+    "animationUrl": "absent"
+  },
+  "revealSends": "420",
+  "modelUploadTransactions": "0",
+  "prepareArgs": [
+    "--kit",
+    "link-marines-v2"
+  ],
+  "senderSheet": null,
+  "gas": {
+    "status": "fresh-simulation-required",
+    "totalGas": null,
+    "maxFeePerGasWei": null,
+    "fundingWei": null
+  },
+  "sequence": [
+    "Require T01/T02 acceptance of the FINAL created-box format-2 download and its complete public list. Load settings deals fresh salts; a portable kit template is not the final download.",
+    "After creation, verify the receipt, chain, coordinator, collection, specHash, revealRoot and revealListId against finalized registry and collection reads. Never substitute another box’s download or rebuild its salts.",
+    "Prepare unsigned calls with reveal-open-v2.ts and prepareArgs from this FINAL download. Inspect all six leaf fields (id, traits, image, avatar, model, salt) and each rebuilt proof.",
+    "Publish/pin the emitted canonical reveal-list.json bytes without a trailing newline; check SHA-256 against revealListId bound by the finalized registry specHash. The template CAR list is not automatically this box’s list.",
+    "Require T04 checks that the exact list, pictures and every nonzero model are reachable and hash-correct. Model assets are off-chain GLBs, with no extra model-upload transactions.",
+    "Require the actual step 7 W sender sheet path and inspect its behavior before any signing; senderSheet remains null until supplied and reviewed.",
+    "Simulate each remaining individual reveal from the actual sender before founder signing. Re-estimate gas and funding for nonzero model storage; calculate gas limits times fee caps and balances with bigint, serialize raw values as decimal strings.",
+    "Retain receipts; verify every id’s revealed state, traits, image and model hashes, and tokenJSON image/animation_url against the final list (animation_url absent for zero models).",
+    "Resume by rerunning preparation at a fresh finalized block, never from a local cursor. Already revealed ids are skipped; the full canonical list is still emitted."
+  ],
+  "note": "Preparation plan only. Across four kits: 1744 individual reveals, 920 with models and 824 without. Final lists, hashes, calldata and gas/funding values are pending creation and simulation. The helper never signs, sends or pins."
+}

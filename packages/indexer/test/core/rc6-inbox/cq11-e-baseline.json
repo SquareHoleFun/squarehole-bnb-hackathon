@@ -1,0 +1,124 @@
+{
+  "inbox": {
+    "refreshes": {},
+    "sales": {},
+    "flushed": "0",
+    "unwrapped": "0"
+  },
+  "boxId": "4",
+  "gate": {
+    "open": false,
+    "effectiveOpenAt": null,
+    "deadline": null,
+    "chunks": {
+      "Table": {
+        "loaded": 0,
+        "done": false
+      },
+      "Texts": {
+        "loaded": 0,
+        "done": false
+      }
+    }
+  },
+  "failed": {
+    "cause": "GraduationTimedOut",
+    "caller": "0xc4EA7E0000000000000000000000000000000001",
+    "at": "2000000000"
+  },
+  "graduated": true,
+  "closedAt": "0",
+  "choices": {
+    "buyers": "burn",
+    "sellers": "grow"
+  },
+  "position": {
+    "kind": "full_range",
+    "tickLower": -887220,
+    "tickUpper": 887220,
+    "liquidity": "412",
+    "salt": "3"
+  },
+  "fees": {
+    "buyersP": "150",
+    "sellersP": "300",
+    "qToReserve": "7",
+    "tipsP": "2"
+  },
+  "safePaid": {
+    "fit": {
+      "0x514910771af9ca656af840dff83e8264ecf986ca": "60"
+    },
+    "platform": {
+      "0x514910771af9ca656af840dff83e8264ecf986ca": "30"
+    }
+  },
+  "safePayments": [
+    {
+      "kind": "fit",
+      "token": "0x514910771AF9Ca656af840dff83E8264EcF986CA",
+      "safe": "0x9639Bd7264df48135F30820f186D99FF77fF64CA",
+      "amount": "60",
+      "ref": {
+        "blockNumber": "200",
+        "blockHash": "0x8b73219eaab4833eb74d922f09161346d037946654ef1129e7854e8edb1df9a3",
+        "txHash": "0x6463b0fdb42e29da50c807ffae9f927cb71dd4aa8a5cb50995cc943f24ab9dcd",
+        "txIndex": 0,
+        "logIndex": 17
+      }
+    },
+    {
+      "kind": "platform",
+      "token": "0x514910771AF9Ca656af840dff83E8264EcF986CA",
+      "safe": "0x1D42dC3CA9e5e8155d88be7C5FAcf1393621C538",
+      "amount": "30",
+      "ref": {
+        "blockNumber": "200",
+        "blockHash": "0x8b73219eaab4833eb74d922f09161346d037946654ef1129e7854e8edb1df9a3",
+        "txHash": "0x6463b0fdb42e29da50c807ffae9f927cb71dd4aa8a5cb50995cc943f24ab9dcd",
+        "txIndex": 0,
+        "logIndex": 18
+      }
+    }
+  ],
+  "royaltyInKind": {
+    "0x80caa8f6b81bb983a06e6a7da383727ab241669a": "50"
+  },
+  "royaltyFunded": {
+    "0x80caa8f6b81bb983a06e6a7da383727ab241669a": "80"
+  },
+  "buyBack": {
+    "pSpent": "100",
+    "tBought": "70",
+    "tBurned": "70",
+    "tipsP": "5"
+  },
+  "eatenP": "0",
+  "pileMovedP": "0",
+  "claim": {
+    "initialPot": "1000000000000000000000000000007",
+    "initialT": "3000000000000000000",
+    "pot": "666666666666666666666666666672",
+    "tLeft": "2000000000000000000",
+    "tip": "5",
+    "closer": "0xc4EA7E0000000000000000000000000000000001",
+    "claimedP": "333333333333333333333333333335",
+    "claimedT": "1000000000000000000",
+    "creatorClaimed": false
+  },
+  "creatorAddresses": [
+    {
+      "address": "0xc4EA7E0000000000000000000000000000000001",
+      "namedBy": "creator",
+      "ref": null
+    },
+    {
+      "address": "0x80caA8F6b81BB983A06E6A7Da383727ab241669a",
+      "namedBy": "creatorFeeRecipient",
+      "ref": null
+    }
+  ],
+  "creatorTOut": [],
+  "creatorClaims": [],
+  "releasedToCreator": []
+}

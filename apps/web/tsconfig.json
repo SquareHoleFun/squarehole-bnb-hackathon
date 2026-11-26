@@ -1,0 +1,5 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": { "types": ["vite/client", "node"] },
+  "include": ["src", "functions", "e2e", "vite.config.ts", "deployments-plugin.ts", "production-check.ts", "placeholder-guard.ts", "build-target.ts", "dev-server-watch.ts", "playwright.config.ts", "playwright-workers.ts", "playwright.chain.config.ts", "playwright.core-chain.config.ts", "playwright.production.config.ts"]
+}

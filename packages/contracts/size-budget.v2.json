@@ -1,0 +1,245 @@
+{
+  "$comment": "Measured M1/M2/M3 runtimes, including the item ledger and every deployed fixed helper. Each runtime must fit 22,118 bytes with a separate 2,458-byte reserve. No exemptions.",
+  "format": "squarehole.size-budget/2",
+  "ticket": "SH-V2-M3-60",
+  "decision": "ADR-0017 Amendment 3; core-v2-cq11-plan phase 2",
+  "limitBytes": 24576,
+  "minReserveBytes": 2458,
+  "profile": {
+    "solc": "0.8.26",
+    "evmVersion": "cancun",
+    "optimizerRuns": 1000,
+    "viaIr": false,
+    "bytecodeHash": "none"
+  },
+  "gates": {
+    "BoxCollectionV2": {
+      "source": "src/box-v2/BoxCollectionV2.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "BoxCoordinatorV2": {
+      "source": "src/box-v2/BoxCoordinatorV2.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "BoxFactoryV2": {
+      "source": "src/box-v2/BoxFactoryV2.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "BoxFactoryV2Checks": {
+      "source": "src/box-v2/libraries/BoxFactoryV2Checks.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "BoxFactoryV2Parts": {
+      "source": "src/box-v2/BoxFactoryV2Parts.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "BoxFactoryV2Planner": {
+      "source": "src/box-v2/BoxFactoryV2Planner.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "BoxHookV2": {
+      "source": "src/box-v2/BoxHookV2.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "BoxHookV2Extension": {
+      "source": "src/box-v2/BoxHookV2Extension.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "BoxLaunchRouterV2": {
+      "source": "src/box-v2/BoxLaunchRouterV2.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "BoxReceiverV2": {
+      "source": "src/box-v2/BoxReceiverV2.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118,
+      "roomGateBytes": 18500
+    },
+    "BoxReceiverV2Extension": {
+      "source": "src/box-v2/BoxReceiverV2Extension.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "BoxRegistryV2": {
+      "source": "src/box-v2/BoxRegistryV2.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "BoxRoyaltyRouterV2": {
+      "source": "src/box-v2/BoxRoyaltyRouterV2.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "BoxSpecV2Validator": {
+      "source": "src/box-v2/BoxSpecV2Validator.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "BoxTicketsV2": {
+      "source": "src/box-v2/BoxTicketsV2.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "BoxTicketsV2Views": {
+      "source": "src/box-v2/BoxTicketsV2Views.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "BoxTokenV2": {
+      "source": "src/box-v2/BoxTokenV2.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "BoxTokenV2Ledger": {
+      "source": "src/box-v2/BoxTokenV2Ledger.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "BoxVaultV2": {
+      "source": "src/box-v2/BoxVaultV2.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "CoordinatorViews": {
+      "source": "src/box-v2/libraries/CoordinatorViews.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "FactoryChecksCurve": {
+      "source": "src/box-v2/libraries/FactoryChecksCurve.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "HolderLedgerV2": {
+      "source": "src/box-v2/HolderLedgerV2.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "ItemLedgerV2": {
+      "source": "src/box-v2/ItemLedgerV2.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "ListingRegistry": {
+      "source": "src/box-v2/ListingRegistry.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "PileVaultV2": {
+      "source": "src/box-v2/PileVaultV2.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "ReceiverViews": {
+      "source": "src/box-v2/libraries/ReceiverViews.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "ShopTBurnerV2": {
+      "source": "src/box-v2/ShopVaultV2.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "ShopVaultV2": {
+      "source": "src/box-v2/ShopVaultV2.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "StarterSetLoaderV2": {
+      "source": "src/box-v2/StarterSetLoaderV2.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "VaultViews": {
+      "source": "src/box-v2/libraries/VaultViews.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "FeeModuleDirectoryV21": {
+      "source": "src/box-v2/FeeModuleDirectoryV21.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "EatPriceCoinFeeModuleV21": {
+      "source": "src/box-v2/modules/EatPriceCoinFeeModuleV21.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "HoldersTFeeModuleV21": {
+      "source": "src/box-v2/modules/HoldersTFeeModuleV21.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "ItemsTFeeModuleV21": {
+      "source": "src/box-v2/modules/ItemsTFeeModuleV21.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "PileFeeModuleV21": {
+      "source": "src/box-v2/modules/PileFeeModuleV21.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "ReceiverBooksV21": {
+      "source": "src/box-v2/libraries/ReceiverBooksV21.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "ReceiverPendingV21": {
+      "source": "src/box-v2/libraries/ReceiverPendingV21.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "ReceiverRewardsV21": {
+      "source": "src/box-v2/libraries/ReceiverRewardsV21.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "RewardAccountingV21": {
+      "source": "src/box-v2/libraries/RewardAccountingV21.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "FeeModuleProofV21": {
+      "source": "src/box-v2/libraries/FeeModuleProofV21.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "ReceiverModuleCallV21": {
+      "source": "src/box-v2/libraries/ReceiverModuleCallV21.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "ReceiverShopV21": {
+      "source": "src/box-v2/libraries/ReceiverShopV21.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "AlchemistFeeModuleV21": {
+      "source": "src/box-v2/modules/AlchemistFeeModuleV21.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "AlchemistRouteV21": {
+      "source": "src/box-v2/modules/AlchemistRouteV21.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    },
+    "RoyaltyCowHandler": {
+      "source": "src/box-v2/RoyaltyCowHandler.sol",
+      "reserveBytes": 2458,
+      "m1GateBytes": 22118
+    }
+  },
+  "m2PlannedGates": {},
+  "m2GatePolicy": "SH-V2-M3-60: all M2 gates preserved; ItemLedgerV2 and linked FactoryChecksCurve measured. Every ceiling remains 22118 bytes and every reserve 2458 bytes. Final release must remeasure exact production artifacts after source handoffs."
+}

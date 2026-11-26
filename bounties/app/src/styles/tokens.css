@@ -1,0 +1,82 @@
+/*
+ * Colour, type and spacing tokens, copied unchanged from the platform's design tokens
+ * (packages/design/src/styles/tokens.css). Dark only, as the platform.
+ * Rules carried over: the action colour is a FILL (with --sh-on-action text), never a text colour; positive and
+ * negative colours always come with a sign, never colour alone.
+ */
+:root {
+  color-scheme: dark;
+
+  --sh-canvas: #080d16;
+  --sh-surface: #111b29;
+  --sh-surface-raised: #18253a;
+  --sh-border: #30415d;
+  --sh-text: #f3f5fb;
+  --sh-text-secondary: #b5c0d5;
+  --sh-text-muted: #899ab6;
+  --sh-accent: #a78bfa;
+  --sh-action: #6d4ae2;
+  --sh-positive: #62dca3;
+  --sh-negative: #ff8ca8;
+  --sh-warning: #ffd17a;
+  --sh-radius-card: 16px;
+  --sh-radius-control: 10px;
+  --sh-gap-1: 4px; --sh-gap-2: 8px; --sh-gap-3: 12px;
+  --sh-gap-4: 16px; --sh-gap-6: 24px; --sh-gap-8: 32px;
+  --sh-gap-12: 48px;
+
+  --sh-border-strong: #63769b;
+  --sh-panel-top: #142033;
+  --sh-selected: #241e4f;
+  --sh-on-action: #ffffff;
+  --sh-demo-bg: #2b2412;
+  --sh-action-hover: #5b39d0;
+  --sh-focus-ring: #a78bfa;
+  --sh-focus-halo: #080d16;
+  --sh-glow: rgba(167, 139, 250, 0.1);
+  --sh-panel-gradient:
+    radial-gradient(120% 140% at 0% 0%, var(--sh-glow) 0%, transparent 55%),
+    linear-gradient(180deg, var(--sh-panel-top) 0%, var(--sh-surface) 100%);
+  --sh-panel-edge: inset 0 1px 0 rgba(243, 245, 251, 0.06);
+
+  --sh-font-fallback: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --sh-font: 'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', var(--sh-font-fallback);
+  --sh-font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --sh-type-caption: 12px;
+  --sh-type-label: 13px;
+  --sh-type-small: 14px;
+  --sh-type-body: 15px;
+  --sh-type-body-lg: 16px;
+  --sh-type-section: 22px;
+  --sh-type-title: 32px;
+  --sh-type-title-compact: 28px;
+  --sh-leading-tight: 1.2;
+  --sh-leading: 1.5;
+  --sh-weight-regular: 400;
+  --sh-weight-medium: 550;
+  --sh-weight-bold: 700;
+
+  --sh-radius-small: 6px;
+  --sh-radius-pill: 999px;
+  --sh-elevation-1: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --sh-elevation-2: 0 8px 24px rgba(0, 0, 0, 0.35);
+
+  --sh-topbar-h: 64px;
+  --sh-topbar-h-compact: 56px;
+  --sh-sidebar-w: 192px;
+  --sh-z-header: 20;
+  --sh-main-pad: 24px;
+  --sh-main-pad-compact: 16px;
+  --sh-touch-target: 44px;
+
+  --sh-duration-fast: 120ms;
+  --sh-duration: 200ms;
+  --sh-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --sh-duration-fast: 0ms;
+    --sh-duration: 0ms;
+  }
+}

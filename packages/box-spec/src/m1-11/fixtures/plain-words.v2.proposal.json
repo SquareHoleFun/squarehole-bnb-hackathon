@@ -1,0 +1,327 @@
+{
+  "about": [
+    "M1-11's proposal for M1-10-a's plain-words.v2.json (box-spec-v2-draft.md § 9 item 3), used as a test fixture in wave 1. The checker reads these keys from the real file once it exists: enums.Leg, enums.Dest, enums.Split (label), recipe (sides, branches, parts), fields (label; fix or tell where a reason has no fix), reasons (sentence and fix; format 1's plain strings are read too) and notes. Fills in braces: {where} (the side, and the part of it where the check stopped, such as Buyers' fees, first part), {part}, {token}, {network}, {listing}, {P} (the pricing token's symbol), {T} (the box's token symbol), {cap}, {days}, {raise}, {powers}, {to}.",
+    "Wording (F99, F100, the founder's words in § 9 item 3): numbers first, one short sentence; never \"Q\" or \"T\" as words; a failed box pays the closing price, never a refund.",
+    "launchFlowCanEnter.zeroFields and addOns.placeholders.launchFlow are format 1's, unchanged: the launch flow fills the same values in format 2.",
+    "Review round 1: reasons 0-20 (format 1's, which keep their numbers, box-spec-v2-draft.md § 7) and a label for each of the 32 fields, so a refusal at an ordinary field reads as a sentence (\"Token name is too short or too long.\"), never as a field or reason name."
+  ],
+  "enums": {
+    "Leg": {
+      "AsPaid": {
+        "label": "as paid"
+      },
+      "BuyT": {
+        "label": "buy our token"
+      },
+      "SellHeldT": {
+        "label": "sell our token"
+      },
+      "Convert": {
+        "label": "convert to {to}"
+      },
+      "PlugIn": {
+        "label": "a plug-in trades"
+      }
+    },
+    "Dest": {
+      "Eat": {
+        "label": "eat"
+      },
+      "Creator": {
+        "label": "to you"
+      },
+      "Fit": {
+        "label": "to FIT"
+      },
+      "Depth": {
+        "label": "into the pool"
+      },
+      "Box": {
+        "label": "to another box"
+      },
+      "Holders": {
+        "label": "to holders"
+      },
+      "BudgetOrPile": {
+        "label": "to the box's budget"
+      },
+      "Items": {
+        "label": "to items"
+      }
+    },
+    "Split": {
+      "NoSplit": {
+        "label": "all of it"
+      },
+      "FixedShare": {
+        "label": "a fixed share"
+      },
+      "Cap30Days": {
+        "label": "at most {cap} every 30 days, the rest"
+      },
+      "PlugIn": {
+        "label": "a rule sets the share"
+      }
+    }
+  },
+  "recipe": {
+    "sides": {
+      "buyers": "Buyers' fees",
+      "sellers": "Sellers' fees"
+    },
+    "branches": {
+      "a": "first part",
+      "b": "second part"
+    },
+    "parts": {
+      "leg": "what the fees turn into",
+      "dest": "where they go",
+      "legParams": "what they convert to",
+      "destParams": "the destination's setting",
+      "split": "the split",
+      "splitParams": "the split's setting"
+    }
+  },
+  "fields": {
+    "format": {
+      "label": "Format"
+    },
+    "version": {
+      "label": "Version"
+    },
+    "boxType": {
+      "label": "Contents"
+    },
+    "tokenName": {
+      "label": "Token name"
+    },
+    "tokenSymbol": {
+      "label": "Ticker"
+    },
+    "collectionName": {
+      "label": "Collection name"
+    },
+    "collectionSymbol": {
+      "label": "Collection symbol"
+    },
+    "description": {
+      "label": "About"
+    },
+    "n": {
+      "label": "Items"
+    },
+    "firstId": {
+      "label": "First item number"
+    },
+    "pricing": {
+      "label": "Paired with"
+    },
+    "raise": {
+      "label": "Raise"
+    },
+    "layout": {
+      "label": "Curve"
+    },
+    "gradLayout": {
+      "label": "Pool after graduation"
+    },
+    "launchFormat": {
+      "label": "Launch format"
+    },
+    "openAt": {
+      "label": "Opening time"
+    },
+    "deadlineDays": {
+      "label": "Deadline"
+    },
+    "buyers": {
+      "label": "Buyers' fees"
+    },
+    "sellers": {
+      "label": "Sellers' fees"
+    },
+    "artMode": {
+      "label": "Art shown"
+    },
+    "revealRoot": {
+      "label": "Art commitment"
+    },
+    "metadataTable": {
+      "label": "Trait table"
+    },
+    "generatorHash": {
+      "label": "Generator hash"
+    },
+    "coverSha256": {
+      "label": "Logo"
+    },
+    "revealListId": {
+      "label": "Reveal list"
+    },
+    "marketplaceOwner": {
+      "label": "Collection owner"
+    },
+    "creatorFeeRecipient": {
+      "label": "Fee payout address"
+    },
+    "creatorBuy": {
+      "label": "Creator buy"
+    },
+    "collectionCoverSha256": {
+      "label": "Collection cover"
+    },
+    "addOns": {
+      "label": "Add-ons"
+    },
+    "contentsParams": {
+      "label": "Contents settings"
+    },
+    "pickFeeBps": {
+      "label": "Named-pick fee"
+    }
+  },
+  "reasons": {
+    "OK": {
+      "sentence": "The spec passes every check.",
+      "fix": "Nothing to fix."
+    },
+    "UNSUPPORTED_VERSION": {
+      "sentence": "{where}: this version does not exist; every new box is version 2.",
+      "fix": "Write \"version\": 2."
+    },
+    "NOT_A_MEMBER": {
+      "sentence": "{where}: the value is not one of its choices.",
+      "fix": "Pick one of the choices in references/v2/fields.md, or one --menu offers."
+    },
+    "NOT_OFFERED": {
+      "sentence": "{where}: {part} is not built in this release yet.",
+      "fix": "Pick one the menu offers (--menu); the rest comes with M2 and M3."
+    },
+    "OUT_OF_RANGE": {
+      "sentence": "{where}: the number is outside its range.",
+      "fix": "Use a value within the range references/v2/fields.md gives."
+    },
+    "LENGTH_OUT_OF_RANGE": {
+      "sentence": "{where} is too short or too long.",
+      "fix": "Check the text on its own with --field, which says how long it may be."
+    },
+    "BAD_CHARACTER": {
+      "sentence": "{where} has a character that is not allowed.",
+      "fix": "Use plain ASCII: no emoji, accents, curly quotes or long dashes; --field shows which character."
+    },
+    "ZERO_VALUE": {
+      "sentence": "{where} must be set.",
+      "fix": "Fill it in, or write \"FROM_LAUNCH_FLOW\" where the launch flow enters it."
+    },
+    "MUST_BE_ZERO": {
+      "sentence": "{where} must be empty for this kind of box.",
+      "fix": "Write 0, \"0x\" or the zero address, as references/v2/fields.md says."
+    },
+    "Q_NOT_LISTED": {
+      "sentence": "{where}: the pricing token is not a listing of this release.",
+      "fix": "Name the token by its symbol from --menu."
+    },
+    "RAISE_NOT_A_PRESET": {
+      "sentence": "{where}: the raise is not the one its listing sets.",
+      "fix": "Write \"raise\": \"LISTING\" and let the checker fill it in."
+    },
+    "MENU_RULE": {
+      "sentence": "{where}: these choices do not go together.",
+      "fix": "Start again from the closest worked example or configuration."
+    },
+    "DEADLINE_RULE": {
+      "sentence": "{where}: the deadline does not fit.",
+      "fix": "Pick 30, 60, 90 or 180 days."
+    },
+    "TOO_MANY_ADD_ONS": {
+      "sentence": "{where}: too many add-ons for one box.",
+      "fix": "Drop an add-on."
+    },
+    "ADD_ON_ORDER": {
+      "sentence": "{where}: the add-ons are out of order or repeated.",
+      "fix": "List each add-on once, in the order --menu lists them."
+    },
+    "ADD_ON_UNKNOWN": {
+      "sentence": "{where}: an add-on the catalog does not list.",
+      "fix": "Write add-ons by key, as --menu lists them."
+    },
+    "ADD_ON_NOT_AVAILABLE": {
+      "sentence": "{where}: this add-on is not offered in this release.",
+      "fix": "Remove it; --menu lists the add-ons offered."
+    },
+    "ADD_ON_PARAMS_MALFORMED": {
+      "sentence": "{where}: the add-on's settings are not encoded as the catalog expects.",
+      "fix": "Write it by key with its settings and let the checker encode them."
+    },
+    "ADD_ON_REQUIRED": {
+      "sentence": "{where}: this choice needs an add-on that is missing.",
+      "fix": "Add the add-on it needs, or change the choice."
+    },
+    "ADD_ON_CONFLICT": {
+      "sentence": "{where}: an add-on does not fit the rest of the box.",
+      "fix": "Change the box, or remove the add-on."
+    },
+    "METADATA_TABLE_MALFORMED": {
+      "sentence": "{where}: the trait table is not in the stored format.",
+      "fix": "Write \"FROM_LAUNCH_FLOW\" and let the launch flow write the table."
+    },
+    "LISTING_UNKNOWN": {
+      "sentence": "Listing {listing} is not a listing of this release on {network}.",
+      "fix": "Name the token by its symbol from --menu; one listed after the offline copy shows with --listings or --indexer."
+    },
+    "LISTING_MISMATCH": {
+      "sentence": "Listing {listing} is not {token}.",
+      "fix": "Name the token by its symbol and let the checker fill in its newest listing."
+    },
+    "RECIPE_RULE": {
+      "sentence": "{where}: {part} does not fit this recipe.",
+      "fix": "Pick another pair from --menu for this side."
+    },
+    "SPLIT_RULE": {
+      "sentence": "{where}: {part} does not fit. Two caps in one box name the same amount and the same first part.",
+      "fix": "Use the same cap and the same first part on both sides, or one cap."
+    },
+    "PLUG_IN_MALFORMED": {
+      "sentence": "{where}: {part} is not a plug-in the checker can read.",
+      "fix": "Name a reviewed plug-in by its id from --menu."
+    },
+    "GAS_BUDGET": {
+      "sentence": "{where}: more plug-ins or plug-in settings than one box carries.",
+      "fix": "Drop a plug-in or shorten its settings: at most 4 plug-ins and add-ons with contracts per box."
+    }
+  },
+  "notes": {
+    "notLive": "Not live yet: a format 2 box runs on the release the network names.",
+    "tableLoads": "The table loads in a few transactions after Create; the box opens once they are all in.",
+    "raiseChecked": "Raise {raise} {P}: the lowest reading of {P} now. The factory reads it again at Create.",
+    "nonEthOpen": "Buyers pay in {P}: in the first 6.4 minutes they need {P} and one approval, or the ETH-in helper.",
+    "closing": "Not reached in {days} days: the box closes and every holder can sell back at the closing price, in {P}.",
+    "powers": "{P}: {powers}",
+    "humble": "You take at most {cap} every 30 days; the rest goes into your pool. Your own token waits there until it can be paired. A public promise, not a lock.",
+    "notChecked": "Read and encoded, not accepted yet: format 2's check (M1-10's twin) is not in this checkout."
+  },
+  "launchFlowCanEnter": {
+    "zeroFields": [
+      "generatorHash"
+    ]
+  },
+  "addOns": {
+    "placeholders": {
+      "launchFlow": {
+        "nameFrom": "collectionName",
+        "nameMax": 25,
+        "nameSuffix": " ticket",
+        "symbolFrom": "collectionSymbol",
+        "symbolMax": 9,
+        "symbolSuffix": "-T",
+        "placeholderDescription": "Opens into one item once its number is drawn.",
+        "hiddenDescription": "This item is not revealed yet.",
+        "hiddenSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\"><rect width=\"64\" height=\"64\" fill=\"#111b29\"/><path d=\"M14 26 32 18l18 8-18 8z\" fill=\"#30415d\"/><path d=\"M14 26v14l18 8 18-8V26M32 34v14\" fill=\"none\" stroke=\"#a78bfa\" stroke-width=\"2\" stroke-linejoin=\"round\"/></svg>",
+        "editable": [
+          "placeholderDescription",
+          "hiddenDescription"
+        ]
+      }
+    }
+  }
+}

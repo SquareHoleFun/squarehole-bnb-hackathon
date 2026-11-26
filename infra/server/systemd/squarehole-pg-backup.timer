@@ -1,0 +1,11 @@
+# Nightly, 03:30 UTC plus up to 15 minutes; a night missed while the server was off runs at the next boot.
+[Unit]
+Description=Nightly dump of the Square Hole history database
+
+[Timer]
+OnCalendar=*-*-* 03:30:00 UTC
+RandomizedDelaySec=15m
+Persistent=true
+
+[Install]
+WantedBy=timers.target

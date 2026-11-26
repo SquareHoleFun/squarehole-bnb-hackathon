@@ -1,0 +1,11 @@
+{
+  "schema": "squarehole.metadata-manifest/v0-placeholder",
+  "status": "TEST FIXTURE ONLY (SH-E review): no deployment reads this file and no config pins its hash. The configs pin keccak256 of the metadata lane's real apps/web/public/nft/orchard/manifest.json; test/script/Deploy.t.sol and Finalize.t.sol use this file for the file-present path of script/Deploy.s.sol.",
+  "collection": "ORCHARD",
+  "token": { "name": "ORCHARD", "symbol": "ORCH", "decimals": 18 },
+  "role": "Second example collection, quoted in FIT (The Misfits' token); holders earn ORCH (R = T)",
+  "supply": { "nfts": "1000", "tokensPerNft": "1000000", "totalTokens": "1000000000", "nftUnitRaw": "1000000000000000000000000" },
+  "tokenURI": "https://squarehole-7ua.pages.dev/nft/orchard/{id}.json for ids 1..1000 (immutable baseURI)",
+  "authority": "Names and images are never authority; the chain id and token address are (AGENTS.md).",
+  "disclosure": "Testnet only. Not audited. No real value."
+}

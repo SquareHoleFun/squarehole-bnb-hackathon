@@ -1,0 +1,20 @@
+{
+  "symbol": "tGOLD",
+  "raise": "1000000000000000000",
+  "bootstrap": "356550297290034",
+  "creatorBuy": "71278844301225191",
+  "factoryPayment": "71635394598515225",
+  "outputPolicy": "minimum-for-measured-preset",
+  "targetTokens": "180195814884384477544867602",
+  "estimatedTokensOut": "180195814884384478029602580",
+  "minimumTokensOut": "180195814884384475344482735",
+  "targetShortfallBound": "2200384867",
+  "estimateShortfallBound": "2685119845",
+  "seedTokens": "180000000000000000000000000",
+  "minimumHolderRemainder": "195814884384475344482735",
+  "assumptions": [
+    "Saved raise/bootstrap/creatorBuy only; Q currency0, initial curve endpoints, bootstrap then creator swap.",
+    "10000-pip LP fee and zero protocol fee; bound reproduced by the af1 local EVM and independent PoolManager step vector."
+  ],
+  "note": "Historical target and analytical estimate are not guaranteed outputs. Minimum applies only to this measured preset. Obtain a fresh actual-chain quote and simulation before binding final settings or signing."
+}

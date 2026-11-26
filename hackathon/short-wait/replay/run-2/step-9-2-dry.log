@@ -1,0 +1,20 @@
+picker: hack-alice, address 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F (impersonated on the local node)
+payer: hack-deployer, address 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 (impersonated on the local node)
+sent card-shop:pick:1:0x13d7f4f2454ee9f84cbba9befaaf4dc96a0932b0d1231b24d3b7d2c5dc10ba43#0 transfer: 0xe55e3e529fdac280f252e7d6910c2e1c54ce52351a24c3c21fbc0a562821c3dc, nonce 406
+sent card-shop:pick:1:0x13d7f4f2454ee9f84cbba9befaaf4dc96a0932b0d1231b24d3b7d2c5dc10ba43#1 approve: 0x6a0eca0fcb6d8c864526aa39f2b677d14fd378c574dab491d080933c242de214, nonce 111
+sent card-shop:pick:1:0x13d7f4f2454ee9f84cbba9befaaf4dc96a0932b0d1231b24d3b7d2c5dc10ba43#2 pick: 0xe0b63153cc74f39d99452d5fa484595a4c51691cf6fd3b8fea37995baf487983, nonce 112
+done card-shop:pick:1:0x13d7f4f2454ee9f84cbba9befaaf4dc96a0932b0d1231b24d3b7d2c5dc10ba43
+{
+  "command": "pick",
+  "dry": false,
+  "result": {
+    "box": "0xBfe1e7475ccAcFFbC72bdF4e37404F0e31792D09",
+    "card": "common-cards",
+    "id": "9",
+    "picker": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F",
+    "to": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F",
+    "payer": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576",
+    "pickT": "2000000000000000000000000",
+    "operation": "1"
+  }
+}

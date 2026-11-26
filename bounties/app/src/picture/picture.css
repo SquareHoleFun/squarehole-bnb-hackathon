@@ -1,0 +1,217 @@
+/*
+ * SH-281: the launch picture's stylesheet. Copied from the platform's Visual way
+ * (apps/web/src/features/create/picture/create-picture.css at main b8fbcef9): its colours, the ways-in row, the stage,
+ * the picture's art and focus rings, and the part sheet; the platform's template row, walk and "What happens" are not
+ * used here and were left out. Below the copy: the launch picture's own few rules (marked).
+ */
+.sh-lp-page,
+.sh-pic-sheet,
+.sh-pic-ways {
+  --sh-pic-maple: #dc9f52;
+  --sh-pic-maple-light: #f2c886;
+  --sh-pic-maple-dark: #b0742c;
+  --sh-pic-maple-ink: #241203;
+  --sh-pic-water: #2aaecb;
+  --sh-pic-water-light: #93e2f1;
+  --sh-pic-silver: #d3d9e1;
+  --sh-pic-silver-dark: #8e99a9;
+  --sh-pic-token: #8d78ea;
+  --sh-pic-token-light: #b9abf3;
+  --sh-pic-cast-line: #ece6ff;
+  --sh-pic-glow: #ffe7b0;
+  --sh-pic-mark-face: #1d2b46;
+  --sh-pic-mark-rim: #c4b2ff;
+  --sh-pic-warn: var(--sh-negative, #ff8ca8);
+  --sh-pic-ink: var(--sh-text, #f3f5fb);
+  --sh-pic-ink-2: var(--sh-text-secondary, #b5c0d5);
+  --sh-pic-muted: var(--sh-text-muted, #899ab6);
+  --sh-pic-line: var(--sh-border, #30415d);
+}
+
+/* The ways in */
+.sh-pic-ways { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sh-gap-3, 12px); margin-bottom: var(--sh-gap-2, 8px); }
+.sh-pic-ways__switch { display: inline-flex; border: 1px solid var(--sh-border-strong, #63769b); border-radius: var(--sh-radius-pill, 999px); padding: 2px; }
+.sh-pic-ways__option {
+  display: inline-flex; align-items: center; min-height: 36px; padding: 0 14px; border-radius: var(--sh-radius-pill, 999px);
+  color: var(--sh-pic-ink-2); text-decoration: none; font-weight: 700; font-size: var(--sh-type-small, 14px);
+}
+.sh-pic-ways__option[aria-current='true'] { background: var(--sh-selected, #241e4f); color: var(--sh-pic-ink); box-shadow: inset 0 -3px 0 var(--sh-accent, #a78bfa); }
+.sh-pic-ways__option:focus-visible { outline: 3px solid var(--sh-focus-ring, #a78bfa); outline-offset: 2px; }
+
+/* The stage and the picture */
+.sh-pic-stage {
+  position: relative; border-radius: 22px; border: 1px solid var(--sh-pic-line);
+  background: radial-gradient(120% 80% at 50% 0%, #18233a, #0c1422 70%);
+}
+.sh-pic { display: block; width: 100%; height: auto; }
+@media (min-width: 900px) { .sh-pic { max-height: max(calc(100vh - 120px), 200px); } }
+.sh-pic text { font-family: var(--sh-font, sans-serif); font-weight: 800; font-variant-numeric: tabular-nums; }
+.sh-pic .sh-pic-small { font-weight: 700; }
+.sh-pic-label { fill: var(--sh-pic-ink-2); }
+.sh-pic-muted { fill: var(--sh-pic-muted); }
+.sh-pic-number { fill: var(--sh-pic-ink); }
+.sh-pic-ticker { fill: var(--sh-pic-ink); }
+.sh-pic-wood-text { fill: var(--sh-pic-maple-ink); }
+.sh-pic-warn-text { fill: var(--sh-pic-warn); }
+.sh-pic-part { cursor: pointer; }
+.sh-pic-part:focus { outline: none; }
+.sh-pic-hit { fill: transparent; }
+/* Focus: a solid ring in the app's focus colour on a dark casing (packages/design base.css); an open sheet's part: a
+   dashed maple ring on the same casing. The two states differ by line and colour, both readable on wood and on navy. */
+.sh-pic-casing, .sh-pic-ring { fill: none; opacity: 0; }
+.sh-pic-casing { stroke: var(--sh-focus-halo, #080d16); stroke-width: 6.5; }
+.sh-pic-ring--focus { stroke: var(--sh-focus-ring, #a78bfa); stroke-width: 3; }
+.sh-pic-ring--open { stroke: var(--sh-pic-maple); stroke-width: 2.5; stroke-dasharray: 5 4; }
+.sh-pic-part:hover .sh-pic-ring--open { opacity: 0.6; }
+.sh-pic-part:focus-visible .sh-pic-casing, .sh-pic-part:focus-visible .sh-pic-ring--focus,
+.sh-pic-part.is-open .sh-pic-casing, .sh-pic-part.is-open .sh-pic-ring--open { opacity: 1; }
+/* With a sheet open only the routes (decoration) dim; the parts and their words keep their contrast. */
+.sh-pic.has-open .sh-pic-routes { opacity: 0.5; transition: opacity 0.2s; }
+.sh-pic-words { pointer-events: none; }
+.sh-pic-warn-badge { fill: var(--sh-pic-warn); stroke: var(--sh-focus-halo, #080d16); stroke-width: 1.5; }
+.sh-pic-warn-badge__text { fill: #10121a; font-weight: 800; }
+.sh-pic-cast__body { fill: var(--sh-pic-token); stroke: var(--sh-pic-cast-line); stroke-linejoin: round; }
+.sh-pic-cast__face { fill: #10121a; }
+.sh-pic-coin__face { fill: var(--sh-pic-silver); stroke: var(--sh-pic-silver-dark); stroke-width: 1.5; }
+.sh-pic-coin__rim { fill: none; stroke: #ffffff; stroke-opacity: 0.7; }
+.sh-pic-coin--token .sh-pic-coin__face { fill: var(--sh-pic-token); stroke: var(--sh-pic-cast-line); stroke-opacity: 0.5; }
+.sh-pic-coin--token .sh-pic-coin__rim { stroke: var(--sh-pic-token-light); stroke-opacity: 1; }
+.sh-pic-glow { fill: var(--sh-pic-glow); opacity: 0.12; }
+.sh-pic-glow--lit { opacity: 0.3; }
+.sh-pic-rise { stroke: var(--sh-pic-ink-2); stroke-width: 2.4; stroke-dasharray: 0.1 5; stroke-linecap: round; }
+.sh-pic-shadow { fill: #000000; opacity: 0.25; }
+.sh-pic-wood-edge { stroke: var(--sh-pic-maple-dark); stroke-width: 1.2; }
+.sh-pic-grain { fill: none; stroke: var(--sh-pic-maple-dark); stroke-opacity: 0.28; stroke-width: 1.3; }
+.sh-pic-hole { fill: #06080d; }
+.sh-pic-hole__glow { fill: none; stroke: var(--sh-pic-glow); stroke-width: 2; }
+.sh-pic-socket { fill: var(--sh-pic-maple-dark); opacity: 0.85; }
+.sh-pic-stop-maple { stop-color: var(--sh-pic-maple); }
+.sh-pic-stop-maple-light { stop-color: var(--sh-pic-maple-light); }
+.sh-pic-stop-maple-dark { stop-color: var(--sh-pic-maple-dark); }
+.sh-pic-stop-water { stop-color: var(--sh-pic-water); }
+.sh-pic-stop-water-light { stop-color: var(--sh-pic-water-light); }
+.sh-pic-tile { fill: #f4f6fa; stroke: #10121a; stroke-opacity: 0.35; }
+.sh-pic-tile__shape { fill: #7a8396; }
+.sh-pic-stall { fill: var(--sh-pic-mark-face); }
+.sh-pic-wood { fill: var(--sh-pic-maple); }
+.sh-pic-wood-light { fill: var(--sh-pic-maple-light); }
+.sh-pic-wood-dark { fill: var(--sh-pic-maple-dark); }
+.sh-pic-awning { fill: #f7efe0; }
+.sh-pic-dome { fill: #dfeefa; fill-opacity: 0.18; stroke: var(--sh-pic-ink-2); stroke-opacity: 0.55; stroke-width: 1.6; }
+.sh-pic-dome__base { fill: var(--sh-pic-ink-2); opacity: 0.7; }
+.sh-pic-lane { fill: none; stroke: var(--sh-pic-ink-2); stroke-width: 3; stroke-linecap: round; opacity: 0.8; }
+.sh-pic-route { fill: none; stroke-linecap: round; }
+.sh-pic-route--pick { stroke: var(--sh-pic-maple); stroke-width: 9; }
+.sh-pic-route--pool { stroke: var(--sh-pic-water); stroke-width: 3; }
+.sh-pic-route--sell { stroke-dasharray: 10 7; }
+.sh-pic-lane.sh-pic-route--sell { stroke-dasharray: 7 6; }
+.sh-pic-route--pool.sh-pic-route--sell { stroke-dasharray: 5 5; }
+.sh-pic-route--warn { stroke: var(--sh-pic-warn); opacity: 0.6; }
+.sh-pic-route--hidden { fill: none; stroke: none; }
+.sh-pic-tray { fill: var(--sh-surface, #111b29); stroke: var(--sh-pic-line); stroke-width: 1.5; }
+.sh-pic-cell--pick { fill: var(--sh-pic-maple); background: var(--sh-pic-maple); }
+.sh-pic-cell--pool { fill: var(--sh-pic-water); background: var(--sh-pic-water); }
+.sh-pic-cell--mark { fill: var(--sh-pic-mark-face); stroke: var(--sh-pic-mark-rim); stroke-width: 1.2; background: var(--sh-pic-mark-face); box-shadow: inset 0 0 0 1px var(--sh-pic-mark-rim); }
+.sh-pic-cell--warn { fill: var(--sh-pic-warn); opacity: 0.55; }
+.sh-pic-door { fill: var(--sh-surface, #111b29); stroke: var(--sh-pic-maple); stroke-width: 3.5; }
+.sh-pic-door--warn { stroke: var(--sh-pic-warn); stroke-dasharray: 5 4; }
+.sh-pic-icon { fill: none; stroke: var(--sh-pic-ink); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.sh-pic-tag { fill: var(--sh-surface-raised, #18253a); stroke: var(--sh-pic-line); stroke-width: 1.2; }
+.sh-pic-tag__text { fill: var(--sh-pic-ink-2); }
+.sh-pic-mark { fill: var(--sh-pic-mark-face); stroke: var(--sh-pic-mark-rim); stroke-opacity: 0.7; stroke-width: 1.2; }
+.sh-pic-mark__hole { fill: #05070c; stroke: #e6dcff; stroke-width: 1.4; }
+.sh-pic-tank { fill: #dfeefa; fill-opacity: 0.12; }
+.sh-pic-water { opacity: 0.9; }
+.sh-pic-tank__edge { fill: none; stroke: var(--sh-pic-ink-2); stroke-opacity: 0.6; stroke-width: 2.2; }
+.sh-pic-flying { fill: var(--sh-pic-silver); stroke: var(--sh-pic-silver-dark); stroke-width: 1.2; }
+.sh-pic-flying--token { fill: var(--sh-pic-token); stroke: var(--sh-pic-cast-line); }
+.sh-pic-hint { display: flex; align-items: center; justify-content: center; gap: 8px; color: var(--sh-pic-ink-2); font-weight: 700; font-size: var(--sh-type-small, 14px); }
+
+/* The sheet: a bottom sheet on a phone, a popover beside the part on a wide screen */
+.sh-pic-sheet {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: var(--sh-z-drawer, 30); overflow-y: auto; overscroll-behavior: contain;
+  /* SH-254: room for its head and one field at the least (a low window at 200% zoom); a field reached by Shift+Tab
+     never sits under the sticky head. */
+  max-height: max(72vh, 168px); scroll-padding-top: 72px; scroll-padding-bottom: 12px;
+  background: var(--sh-surface, #111b29); color: var(--sh-pic-ink); border-radius: 22px 22px 0 0; border: 1px solid var(--sh-pic-line);
+  box-shadow: var(--sh-elevation-3, 0 16px 48px rgba(0, 0, 0, 0.5));
+  padding: 0 max(16px, env(safe-area-inset-right, 0px)) calc(18px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+}
+@media (min-width: 900px) {
+  /* SH-254: never taller than the window below the top bar; it scrolls inside itself (PartSheet keeps it in the window). */
+  .sh-pic-sheet {
+    position: absolute; left: auto; right: auto; bottom: auto; width: 360px; border-radius: 18px; padding: 0 16px 16px;
+    max-height: max(calc(100vh - var(--sh-topbar-h, 64px) - 16px), 168px); max-height: max(calc(100dvh - var(--sh-topbar-h, 64px) - 16px), 168px);
+  }
+  .sh-pic-sheet__grab { display: none; }
+}
+.sh-pic-sheet__grab { width: 40px; height: 4px; border-radius: 4px; background: var(--sh-pic-line); margin: 10px auto 10px; }
+/* The head sticks at the very top of the sheet (the sheet has no top padding), so nothing scrolls past above it. */
+.sh-pic-sheet__head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; position: sticky; top: 0; z-index: 1; background: var(--sh-surface, #111b29); padding-block: 4px; }
+@media (min-width: 900px) { .sh-pic-sheet__head { padding-top: 14px; } }
+.sh-pic-sheet__title:focus { outline: none; }
+.sh-pic-sheet__title:focus-visible { outline: 3px solid var(--sh-focus-ring, #a78bfa); outline-offset: 2px; }
+.sh-pic-sheet__icon { width: 36px; height: 36px; border-radius: 10px; background: rgba(220, 159, 82, 0.16); display: grid; place-items: center; flex: none; }
+.sh-pic-sheet__icon svg { width: 24px; height: 24px; }
+.sh-pic-sheet__title { font-size: 21px; line-height: 1.1; margin: 0; flex: 1; min-width: 0; }
+.sh-pic-sheet__close { width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--sh-surface-raised, #18253a); color: var(--sh-pic-ink); cursor: pointer; font-size: 20px; flex: none; }
+.sh-pic-sheet__close:focus-visible { outline: 3px solid var(--sh-focus-ring, #a78bfa); outline-offset: 2px; }
+.sh-pic-sheet__body, .sh-pic-sheet__form { display: grid; gap: var(--sh-gap-3, 12px); min-width: 0; }
+.sh-pic-split { display: grid; gap: 4px; }
+.sh-pic-split__bar { display: grid; grid-template-columns: 10fr 2fr 3fr; gap: 4px; }
+.sh-pic-split__bar > span { height: 10px; border-radius: 4px; }
+.sh-pic-split__words { display: flex; justify-content: space-between; gap: 8px; margin: 0; font-size: 12px; color: var(--sh-pic-muted); }
+
+
+/* ── The launch picture's own rules (SH-281) ───────────────────────────────────────────────────────────────────── */
+.sh-lp-page { display: grid; gap: var(--sh-gap-3, 12px); min-width: 0; }
+.sh-lp-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; }
+.sh-lp-layout { display: grid; gap: var(--sh-gap-4, 16px); grid-template-columns: minmax(0, 1fr); }
+.sh-lp-main, .sh-lp-side { min-width: 0; display: grid; gap: var(--sh-gap-3, 12px); align-content: start; }
+@media (min-width: 900px) {
+  .sh-lp-layout { grid-template-columns: minmax(0, 1.5fr) minmax(300px, 1fr); align-items: start; }
+}
+/* What is burned: a flame's orange, distinct from the maple of what goes to the pile. */
+.sh-pic-cell--burn { fill: #ff9a5a; background: #ff9a5a; }
+.sh-pic-route--burn { stroke: #ff9a5a; stroke-width: 6; opacity: 0.85; }
+/* A value with a problem on the wooden front: dark red, readable on maple. */
+.sh-pic-warn-wood { fill: #8a1230; }
+.sh-lp-split { display: grid; gap: 4px; }
+.sh-lp-split__bar { display: flex; gap: 4px; }
+.sh-lp-split__bar > span { height: 10px; border-radius: 4px; }
+.sh-lp-split__words { display: flex; justify-content: space-between; gap: 8px; margin: 0; font-size: 12px; color: var(--sh-pic-muted); }
+.sh-lp-says { margin: 0; color: var(--sh-pic-ink-2); font-size: var(--sh-type-small, 14px); }
+.sh-lp-issues { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 6px; }
+.sh-lp-issues > li > button { min-height: 44px; text-align: left; color: var(--sh-pic-warn); background: none; border: 0; padding: 0; font: inherit; font-weight: 600; cursor: pointer; text-decoration: underline; }
+.sh-lp-issues > li > button:focus-visible { outline: 3px solid var(--sh-focus-ring, #a78bfa); outline-offset: 2px; }
+.sh-lp-create { width: 100%; min-height: 48px; }
+.sh-pic-sheet .field input { min-height: 44px; }
+.sh-pic-sheet .check { min-height: 44px; align-items: center; }
+/* The Visual / Steps pair are buttons here (links on the platform): no button face, so they look exactly like the
+   platform's pair; the chosen one keeps the row's selected look. */
+.sh-lp-way { border: 0; cursor: pointer; }
+.sh-lp-way:not([aria-current='true']) { background: transparent; box-shadow: none; }
+/* SH-287: the creator's rules in the trays: the creator's part in the cast's violet, the buy back and burn in a deeper
+   flame than what is burned at once. */
+.sh-pic-cell--creator { fill: #8d78ea; background: #8d78ea; }
+.sh-pic-cell--buyburn { fill: #e2602f; background: #e2602f; }
+.sh-pic-tag--creator { fill: #241e4f; stroke: #8d78ea; }
+
+/* ── SH-318: What happens beside the launch picture ─────────────────────────────────────────────────────────────── */
+.sh-wh { display: grid; gap: 8px; min-width: 0; }
+.sh-wh-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+/* The (?) stays by the title; its text opens on a row of its own under them. */
+.sh-wh-head .help { display: contents; }
+.sh-wh-title { margin: 0; font-size: 18px; line-height: 1.2; }
+.sh-wh-sub { margin: 6px 0 0; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--sh-pic-muted); }
+.sh-wh-line { margin: 0; color: var(--sh-pic-ink-2); font-size: var(--sh-type-small, 14px); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.sh-wh-bar { display: flex; gap: 3px; height: 12px; border-radius: 6px; overflow: hidden; transform-origin: left center; animation: sh-wh-fill 0.6s ease-out; }
+.sh-wh-bar > span { min-width: 4px; flex-basis: 0; border-radius: 3px; }
+.sh-wh-rest { background: var(--sh-pic-line); }
+.sh-wh-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.sh-wh-rows > li { display: flex; align-items: center; gap: 8px; min-width: 0; font-size: var(--sh-type-small, 14px); }
+.sh-wh-dot { width: 10px; height: 10px; border-radius: 3px; flex: none; }
+.sh-wh-label { flex: 1; min-width: 0; color: var(--sh-pic-ink-2); }
+.sh-wh-value { font-weight: 700; font-variant-numeric: tabular-nums; text-align: right; }
+@keyframes sh-wh-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) { .sh-wh-bar { animation: none; } }

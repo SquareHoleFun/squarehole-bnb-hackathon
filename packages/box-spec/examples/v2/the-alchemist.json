@@ -1,0 +1,28 @@
+{
+  "$schema": "./schema.json",
+  "version": 1,
+  "id": "the-alchemist",
+  "name": "The Alchemist",
+  "ticker": "LEAD",
+  "status": "pending",
+  "pendingStep": "ALCHEMIST-REGISTRATION",
+  "pendingReason": "TA-30 Test PEPE and Test Gold stand-ins need verified listings and route pools; deploy and register a compatible Alchemist directory row, wait for its readyAt, then add the example contract and browser lives before making this recipe ready.",
+  "template": { "id": "pile", "name": "Coin pile" },
+  "priceCoin": { "symbol": "TEST_PEPE", "decimals": "18" },
+  "logo": "examples/boxes/the-alchemist/art/logo.png",
+  "contents": {
+    "kind": "pile",
+    "size": "0",
+    "label": "Test Gold pile (Sepolia test stand-in)",
+    "art": { "mode": "none", "source": null },
+    "seed": { "symbol": "TEST_GOLD", "amount": "0" },
+    "pickFeeBps": "0",
+    "leaveBehindBps": "500"
+  },
+  "raise": { "policy": "listing-fixed", "amount": null },
+  "deadline": { "days": "30" },
+  "royalties": { "bps": "0", "destination": "none" },
+  "fees": { "buyers": { "choice": "alchemist" }, "sellers": { "choice": "burn" } },
+  "life": "graduate",
+  "properties": ["fee-conservation", "page-state", "own-pictures", "graduation", "supply-burn", "pile-pro-rata"]
+}

@@ -1,0 +1,433 @@
+/*
+ * The box interface (SH-BOX-UI-launch; docs/design/box-concept/BOX-INTERFACE-v0.2.md), shared parts: the tokens, the
+ * state chip and the state band, the chain chip, the Demo tape, the bar, the covers, the family avatars and the wallet's
+ * box shell. Each area has its own file: box-feed, box-head (header, counters, phone bar), box-contents (examples,
+ * sheet, composition, counts), box-panels (sections, price, owning, about), box-wallet. Every class is prefixed
+ * `sh-box-` (css-scope.test.ts). Colours come from the design tokens; the state colours, the composition keys and the
+ * toy palette are the box mock-up's, and every state is also said in words.
+ */
+
+/*
+ * The box tokens are the page's, not one container's (SH-BOX-LIFE-VIEW § 4): a box part drawn outside the feed and the
+ * v1 box page (the v2 box page, `.sh-page.sh-v2-page`) had none of them, so the raise bar's fill had no colour there and
+ * looked empty at 100%.
+ */
+:root {
+  --sh-box-upcoming: #9fb3d6;
+  --sh-box-window: #ff9f5a;
+  --sh-box-bonding: #a78bfa;
+  --sh-box-graduating: #67e8f9;
+  --sh-box-graduated: #62dca3;
+  --sh-box-failed: #ff8ca8;
+  --sh-box-chip-bg: rgba(8, 13, 22, 0.86);
+  --sh-box-eth: #c9d3e6;
+  --sh-box-toy-red: #ef5d5d;
+  --sh-box-toy-blue: #4f8cf0;
+  --sh-box-toy-yellow: #f6c945;
+  --sh-box-toy-green: #4cc38a;
+  --sh-box-toy-orange: #f59a4a;
+  --sh-box-toy-teal: #3ec5c8;
+  --sh-box-toy-shade: rgba(0, 0, 0, 0.24);
+  --sh-box-toy-light: rgba(255, 255, 255, 0.3);
+  --sh-box-toy-bg-1: #22324f;
+  --sh-box-toy-bg-2: #111b2b;
+  --sh-box-key-1: #3987e5;
+  --sh-box-key-2: #d95926;
+  --sh-box-key-3: #199e70;
+  --sh-box-key-4: #c98500;
+  --sh-box-key-5: #d55181;
+  --sh-box-key-6: #9085e9;
+  --sh-box-key-rare: repeating-linear-gradient(135deg, #63769b 0 3px, #26324b 3px 6px);
+}
+
+.sh-box-feed,
+.sh-box-page {
+  min-width: 0;
+}
+
+.sh-box-glyph {
+  flex: none;
+}
+
+/* ── State chip, Demo tape, bar, cover ─────────────────────── */
+.sh-box-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 22px;
+  padding: 0 8px;
+  border: 1px solid currentColor;
+  border-radius: var(--sh-radius-pill);
+  background: var(--sh-box-chip-bg);
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-caption);
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.sh-box-state[data-state='upcoming'] {
+  color: var(--sh-box-upcoming);
+}
+
+.sh-box-state[data-state='window'] {
+  color: var(--sh-box-window);
+}
+
+.sh-box-state[data-state='bonding'] {
+  color: var(--sh-box-bonding);
+}
+
+.sh-box-state[data-state='graduating'] {
+  color: var(--sh-box-graduating);
+}
+
+.sh-box-state[data-state='graduated'] {
+  color: var(--sh-box-graduated);
+}
+
+.sh-box-state[data-state='failed'] {
+  color: var(--sh-box-failed);
+}
+
+.sh-box-tape {
+  position: absolute;
+  right: -30px;
+  bottom: 14px;
+  width: 120px;
+  padding: 2px 0;
+  transform: rotate(-35deg);
+  background: repeating-linear-gradient(135deg, var(--sh-demo-bg) 0 10px, #3a3016 10px 20px);
+  color: var(--sh-warning);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.sh-box-bar {
+  display: block;
+  overflow: hidden;
+  height: 6px;
+  border-radius: var(--sh-radius-pill);
+  background: rgba(201, 211, 230, 0.16);
+}
+
+.sh-box-bar > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--sh-box-eth);
+}
+
+.sh-box-bar[data-full='true'] > span {
+  background: var(--sh-box-graduating);
+}
+
+.sh-box-cover {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 1;
+  background: radial-gradient(circle at 50% 40%, #22324f 0%, #111b2b 70%);
+  color: var(--sh-text-muted);
+}
+
+.sh-box-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*
+ * SH-BOX-PICTURE-FIT: a box's own picture is drawn whole in every slot (a 1200 x 630 cover keeps its words), on a
+ * blurred, enlarged copy of itself, so the bands beside a wide picture carry its own colours. A square picture covers
+ * the copy completely. The slot keeps its square, so every card in a row is the same height.
+ */
+.sh-box-cover[data-fit='contain'] {
+  position: relative;
+  isolation: isolate;
+}
+
+.sh-box-cover[data-fit='contain']::before {
+  position: absolute;
+  inset: -16px;
+  z-index: -1;
+  background: var(--sh-box-cover-ground, none) center / cover no-repeat;
+  filter: blur(28px);
+  content: '';
+}
+
+/*
+ * Fix round af2 (review M2): the picture's own box is the frame, whatever its shape. With only `height: 100%` a tall
+ * picture's box took its own height (the percentage of a grid cell sized by aspect-ratio does not resolve), so a
+ * 400 x 1200 logo was cut to its middle third in every square slot; a wide one happened to fit.
+ */
+.sh-box-cover[data-fit='contain'] img {
+  position: absolute;
+  inset: 0;
+  object-fit: contain;
+}
+
+.sh-box-cover[data-art='plain'] .sh-box-glyph {
+  width: 40%;
+  height: 40%;
+}
+
+.sh-box-coin {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  border-radius: 50%;
+  background: #7aa2f7;
+  color: #0b111c;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.sh-box-coin::before {
+  content: attr(data-letter);
+}
+
+/* A box built from a BoxSpec: the creator's logo (field 23) as the token's mark. */
+.sh-box-coin--logo {
+  display: inline-block;
+  object-fit: cover;
+  background: var(--sh-surface-raised);
+}
+
+/* SH-BOX-PICTURE-FIT: no logo to show, so the cover stands in, whole, in a rounded square (a circle would cut its ends). */
+.sh-box-coin--cover {
+  border-radius: 22%;
+  object-fit: contain;
+}
+
+/* The coin filling a wallet tile or a peek thumbnail keeps the stand-in cover whole there too. */
+.sh-box-wtile__art img.sh-box-coin--cover,
+.sh-box-peekstrip__thumb img.sh-box-coin--cover {
+  object-fit: contain;
+}
+
+/*
+ * Fix round af6: the coin filling a wallet tile or a peek thumbnail is square by its own ratio. With `height: 100%` (a
+ * grid cell's percentage that does not resolve) a 400 x 1200 logo's box took its own height: an oval three tiles tall
+ * in My Box, the logo's top third in the header peek. A wide one happened to fit.
+ */
+.sh-box-wtile__art img.sh-box-coin,
+.sh-box-peekstrip__thumb img.sh-box-coin {
+  height: auto;
+  aspect-ratio: 1;
+}
+
+.sh-box-coin--logo::before {
+  content: none;
+}
+
+.sh-box-coin[data-ticker='POTS'] {
+  background: #dfa86d;
+}
+
+.sh-box-coin[data-ticker='CHOO'] {
+  background: #62dca3;
+}
+
+.sh-box-coin[data-ticker='TINS'] {
+  background: #ff8ca8;
+}
+
+.sh-box-coin[data-ticker='STMP'] {
+  background: #ffd17a;
+}
+
+.sh-box-mark {
+  flex: none;
+}
+
+.sh-box-example {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 20px;
+  padding: 0 7px;
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-pill);
+  background: var(--sh-box-chip-bg);
+  color: var(--sh-text-secondary);
+  font-size: 11px;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+/* State band: the state's colour along the cover's bottom edge, its name and its one figure */
+.sh-box-band {
+  --sh-box-band: var(--sh-text-muted);
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 8px;
+  min-height: 32px;
+  margin: 0;
+  padding: 6px 10px 8px;
+  overflow: hidden;
+  border-top: 2px solid var(--sh-box-band);
+  background: #121a2a;
+  background: color-mix(in srgb, var(--sh-box-band) 16%, #0b111c);
+  color: var(--sh-box-band);
+  font-size: var(--sh-type-caption);
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.3;
+}
+
+.sh-box-band[data-state='upcoming'] {
+  --sh-box-band: var(--sh-box-upcoming);
+}
+
+.sh-box-band[data-state='window'] {
+  --sh-box-band: var(--sh-box-window);
+}
+
+.sh-box-band[data-state='bonding'] {
+  --sh-box-band: var(--sh-box-bonding);
+}
+
+.sh-box-band[data-state='graduating'] {
+  --sh-box-band: var(--sh-box-graduating);
+}
+
+.sh-box-band[data-state='graduated'] {
+  --sh-box-band: var(--sh-box-graduated);
+}
+
+.sh-box-band[data-state='failed'] {
+  --sh-box-band: var(--sh-box-failed);
+}
+
+.sh-box-band__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--sh-type-small);
+  font-weight: 800;
+}
+
+.sh-box-band__figure {
+  color: var(--sh-text);
+}
+
+.sh-box-band .sh-box-bar {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  border-radius: 0;
+  background: rgba(201, 211, 230, 0.1);
+}
+
+.sh-box-band .sh-box-bar > span {
+  border-radius: 0;
+  background: var(--sh-box-band);
+}
+
+/* Chain chip: the glyph and a short name (the full name is heard, and in the title) */
+.sh-box-chain {
+  color: var(--sh-text-secondary);
+}
+
+/* A family's avatar: the scene render cropped to the character */
+.sh-box-avatar {
+  position: relative;
+  display: inline-block;
+  width: var(--sh-box-avatar-size, 28px);
+  height: var(--sh-box-avatar-size, 28px);
+  flex: none;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #111b2b;
+  box-shadow: 0 0 0 1px var(--sh-border);
+}
+
+.sh-box-avatar img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(2);
+  transform-origin: 50% 44%;
+}
+
+/* A wallet as a box: the Midnight shell with the companion's lid slot */
+.sh-box-shell {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1;
+  padding: 14%;
+  background:
+    radial-gradient(120% 80% at 25% 0%, rgba(103, 132, 196, 0.45), transparent 60%),
+    linear-gradient(180deg, #1d2a45, #0d1526);
+}
+
+.sh-box-shell__slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  border: 2px dashed rgba(201, 211, 230, 0.45);
+  border-radius: 12px;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.sh-box-shell__slot .sh-box-glyph {
+  width: 30%;
+  height: auto;
+}
+
+.sh-box-shell[data-size='small'] .sh-box-shell__slot {
+  border-width: 1.5px;
+}
+
+@media (max-width: 640px) {
+  .sh-box-chain__short {
+    display: none;
+  }
+
+  /* A 96 px shell has room for the slot, not its words (the Companion tab says them). */
+  .sh-box-head__cover .sh-box-shell {
+    padding: 12%;
+  }
+
+  .sh-box-head__cover .sh-box-shell__text {
+    display: none;
+  }
+}
+
+/* "Box created · Demo" after the creation page's Create (F69 C1). */
+.sh-box-toast {
+  min-height: 1px;
+  margin: 0 0 var(--sh-gap-3);
+}
+
+.sh-box-toast:not(:empty) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sh-gap-2);
+  padding: var(--sh-gap-3) var(--sh-gap-4);
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-selected);
+}

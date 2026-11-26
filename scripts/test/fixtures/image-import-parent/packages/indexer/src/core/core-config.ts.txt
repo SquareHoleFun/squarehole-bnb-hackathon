@@ -1,0 +1,29 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { parseCoreManifest, SEPOLIA_PUBLIC_RPC_URLS, type DeployedCoreManifest } from '@squarehole/chain';
+
+
+import { parseCoreManifestV2, type DeployedCoreManifestV2 } from './v2/chain-v2';

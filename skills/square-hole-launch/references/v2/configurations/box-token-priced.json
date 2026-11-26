@@ -1,0 +1,69 @@
+{
+  "format": "squarehole.boxspec-draft/2",
+  "network": "demo",
+  "configuration": "Box-token-priced (the BF-child shape)",
+  "brief": "Buyers: burn. Sellers: burn. Both fee sides use the pricing coin. Each box fixes the listing raise when it is created.",
+  "site": {
+    "links": []
+  },
+  "spec": {
+    "format": 2,
+    "version": 2,
+    "boxType": "NEW_COLLECTION",
+    "tokenName": "Nested Nests",
+    "tokenSymbol": "NEST",
+    "collectionName": "Nested Nests",
+    "collectionSymbol": "NEST",
+    "description": "Demo: 50 nests priced in another box token. Every buyer fee burns MUG.",
+    "n": 50,
+    "firstId": "1",
+    "pricing": {
+      "boxToken": "MUG"
+    },
+    "raise": "LISTING",
+    "layout": "CURVE_V1",
+    "gradLayout": "FULL_RANGE",
+    "launchFormat": "CURVE",
+    "openAt": 0,
+    "deadlineDays": 60,
+    "buyers": {
+      "split": "NoSplit",
+      "a": {
+        "leg": "BuyT",
+        "dest": "Eat"
+      }
+    },
+    "sellers": {
+      "split": "NoSplit",
+      "a": {
+        "leg": "BuyT",
+        "dest": "Eat"
+      }
+    },
+    "artMode": "OPEN",
+    "revealRoot": "FROM_LAUNCH_FLOW",
+    "metadataTable": {
+      "formatV1": {
+        "traitTypes": [
+          {
+            "name": "Twig",
+            "values": [
+              "Oak",
+              "Birch"
+            ]
+          }
+        ]
+      }
+    },
+    "generatorHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coverSha256": "FROM_LAUNCH_FLOW",
+    "revealListId": "FROM_LAUNCH_FLOW",
+    "marketplaceOwner": "FROM_LAUNCH_FLOW",
+    "creatorFeeRecipient": "0x0000000000000000000000000000000000000000",
+    "creatorBuy": "0",
+    "collectionCoverSha256": "FROM_LAUNCH_FLOW",
+    "addOns": [],
+    "contentsParams": "0x",
+    "pickFeeBps": 2500
+  }
+}

@@ -1,0 +1,34 @@
+[Unit]
+Description=Restart a hung Square Hole indexer within a bounded budget
+Wants=network-online.target
+Requisite=squarehole-stack.service
+After=docker.service network-online.target squarehole-stack.service
+ConditionPathExists=/var/run/docker.sock
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+WorkingDirectory=/srv/squarehole/current/infra/server
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+ExecStart=/bin/bash /srv/squarehole/current/infra/server/heal/check.sh
+TimeoutStartSec=120
+StateDirectory=squarehole-indexer-heal
+StateDirectoryMode=0700
+UMask=0077
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/squarehole-indexer-heal
+ReadOnlyPaths=/tmp /var/tmp
+# A read-only /run still permits connecting to the Docker Unix socket. The daemon performs the container write.
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+RestrictRealtime=true
+LockPersonality=true
+CapabilityBoundingSet=
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6

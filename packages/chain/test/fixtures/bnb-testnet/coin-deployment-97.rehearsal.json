@@ -1,0 +1,57 @@
+{
+  "chainId": 97,
+  "status": "deployed",
+  "teth": {
+    "address": "0x860822580d4eb2529de0c74c3e2b1d6d7c183302",
+    "codeHash": "0xd505c35f935774b06c15d563b72fc31ddab453a4c83c3e4297e2e1ba76a3ee6c"
+  },
+  "pairHelper": {
+    "address": "0xfda3cdcef22ca647a4d77c4a5f150600bffcb06c",
+    "codeHash": "0x8804d6d1bb56aa1c0815125cb80a7d94b5842bed50bd3523dc0d42f446f38c4d"
+  },
+  "poolManager": "0xb0fd2d66040d310ed6bffbf8dba9ffcef39f52a4",
+  "poolSwapTest": "0x95c8aa9ad318a897259e1910a9f1ad31bec40c35",
+  "poolSwapTestCodeHash": "0x8e062c4d9381d36ce7b1e4ac94d810f01ef2b72db6d549757b4286be8605b58f",
+  "pairs": [
+    {
+      "coin": "0x25c5789b269d8f76309ce961759d643dce291347",
+      "symbol": "tUSDC",
+      "decimals": 6,
+      "fee": "3000",
+      "tickSpacing": 60,
+      "hooks": "0x0000000000000000000000000000000000000000",
+      "tickLower": -887220,
+      "tickUpper": 887220
+    },
+    {
+      "coin": "0x2f8029a6447663e0881b0e21f5e4ad0f1717627e",
+      "symbol": "tNVDA",
+      "decimals": 18,
+      "fee": "3000",
+      "tickSpacing": 60,
+      "hooks": "0x0000000000000000000000000000000000000000",
+      "tickLower": -887220,
+      "tickUpper": 887220
+    },
+    {
+      "coin": "0x4ba04db6044a6f442bdb29b032cb019f663ab164",
+      "symbol": "tGOLD",
+      "decimals": 18,
+      "fee": "3000",
+      "tickSpacing": 60,
+      "hooks": "0x0000000000000000000000000000000000000000",
+      "tickLower": -887220,
+      "tickUpper": 887220
+    },
+    {
+      "coin": "0xf4f59ecf2221c9c07ca8fcf47a2652008fea2ed8",
+      "symbol": "tPEPE",
+      "decimals": 18,
+      "fee": "3000",
+      "tickSpacing": 60,
+      "hooks": "0x0000000000000000000000000000000000000000",
+      "tickLower": -887220,
+      "tickUpper": 887220
+    }
+  ]
+}

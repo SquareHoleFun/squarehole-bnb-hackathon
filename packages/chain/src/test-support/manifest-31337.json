@@ -1,0 +1,304 @@
+{
+  "broadcastCommit": "097710f",
+  "build": {
+    "FeeCollector.creationCodeHash": "0x299369b0cda55bf0b895a17576b75e88e53200ad6ed347cb9c2d7fc1f41bc895",
+    "RewardLedger.creationCodeHash": "0x3b93733a4ffc5af8dc7cc920fdf81b206e3f530bd842ecca2c15720edbd204d7",
+    "SquareHoleFungibleToken.creationCodeHash": "0x94adaf1fc4d059260790892c79618ad79625493ed2883c86e1148f96e0737a67",
+    "SquareHoleToken.creationCodeHash": "0xf4ac015c47e65145c646975893a9059ab70b346463d56c4cd290d8cd046ce4a0",
+    "bytecodeHash": "none",
+    "dn404": "3397cb11558ac853912ee87871422b6a29c9d346",
+    "evmVersion": "cancun",
+    "forge-std": "bf647bd6046f2f7da30d0c2bf435e5c76a780c1b",
+    "optimizerRuns": 1000,
+    "solc": "0.8.26",
+    "v4-core": "46c6834698c48bc4a463a86d8420f4eb1d7f3b75",
+    "v4-periphery": "9969eec44cfdf07e24b41de47f40276a58401976",
+    "viaIR": false
+  },
+  "chainId": 31337,
+  "contracts": {
+    "USDC": {
+      "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+      "codehash": "0x77aeef6833b5539037627da231f262aed32cae9707312a1c27dc1231100d9f63",
+      "constructorArgs": "0x",
+      "contract": "LocalUSDC (LOCAL mock)",
+      "deployedAtBlock": 3,
+      "deploymentTx": "0x6bf65f115e5adecd8f74f77fbfa0e7ffec257298d52b65a64af2d769e734f518"
+    },
+    "USDT": {
+      "address": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+      "codehash": "0xd4a92255864817c3c68a4dfbe8d06f462d91f3fdfe1d13b6123b4410a4300aff",
+      "constructorArgs": "0x000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb92266",
+      "contract": "MockTetherUSD (USDT-TEST; testnet mock)",
+      "deployedAtBlock": 4,
+      "deploymentTx": "0xc84cc3a5db50d6c04c8ef44f94e2e0ce6a8164cba0a21fbdf024a9254ec9772d"
+    },
+    "WETH": {
+      "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      "codehash": "0x16f8a9b868d74cc22a8e703069a702430c39e8f30b1b21143cec10fbee0744f7",
+      "constructorArgs": "0x",
+      "contract": "LocalWETH9 (LOCAL mock)",
+      "deployedAtBlock": 2,
+      "deploymentTx": "0xad7ec7712cff3f573d40a66ef0bd0853b532dcbe85f37b7e4ca88703b29cf778"
+    },
+    "claimConverter": {
+      "address": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+      "codehash": "0xb5a52894adfec591e0d80904834d75df9fb57eb7209a2d50e0b39ca167e0864f",
+      "constructorArgs": "0x0000000000000000000000005fbdb2315678afecb367f032d93f642f64180aa3000000000000000000000000dc64a140aa3e981100a9beca4e685f962f0cf6c9",
+      "contract": "SquareHoleClaimConverter",
+      "deployedAtBlock": 6,
+      "deploymentTx": "0xba2573b5280cfdc69146972569ce6dd2f8789b8f42eb4764df3edeb6cf69486b"
+    },
+    "collectionTokenDeployer": {
+      "address": "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6",
+      "codehash": "0x13fe9c3d8113259d8815b8c5083167ba28f73eaa24cbd84e401e48e4610e981b",
+      "constructorArgs": "0x000000000000000000000000610178da211fef7d417bc0e6fed39f05609ad788",
+      "contract": "CollectionTokenDeployer",
+      "deployedAtBlock": 9,
+      "deploymentTx": "0x0c4fb628bdda14042a919d316f4e77244af3aa3b65114acdaf186a274156a3a4"
+    },
+    "coreDeployer": {
+      "address": "0xa513E6E4b8f2a923D98304ec87F64353C4D5C853",
+      "codehash": "0xa667a34d11c18c4f8059fae50ea2a896f1412ae91ea277af68a3ee50539d284f",
+      "constructorArgs": "0x000000000000000000000000610178da211fef7d417bc0e6fed39f05609ad788",
+      "contract": "CoreDeployer",
+      "deployedAtBlock": 8,
+      "deploymentTx": "0x5f4fb29a17471c72917fe282a0becda82b76e4aeb8c21799d95145607609929f"
+    },
+    "fungibleTokenDeployer": {
+      "address": "0x8A791620dd6260079BF849Dc5567aDC3F2FdC318",
+      "codehash": "0x2b7a8901f5e25505e99cdd986323007fdaf07632ae2d02938225e06b35a2362b",
+      "constructorArgs": "0x000000000000000000000000610178da211fef7d417bc0e6fed39f05609ad788",
+      "contract": "FungibleTokenDeployer",
+      "deployedAtBlock": 10,
+      "deploymentTx": "0x0a8cd848f709771826148e364aec03a06ecbfe081d0a8236cda6f0a99e72d46e"
+    },
+    "hook": {
+      "address": "0x6e1ad3e73370C4de12e4E4DFd2466822cFafEA60",
+      "adopted": false,
+      "codehash": "0xf35ab9b79179a8f1af531079d3bc19f4d995837b44c3a0427e409cac26fe01de",
+      "constructorArgs": "0x0000000000000000000000005fbdb2315678afecb367f032d93f642f64180aa3000000000000000000000000610178da211fef7d417bc0e6fed39f05609ad788",
+      "contract": "SquareHoleHook",
+      "create2Deployer": "0x4e59b44847b379578588920cA78FbF26c0B4956C",
+      "deployedAtBlock": 7,
+      "deploymentTx": "0x2e5f87359a65bde181e9eed3e0750a2888e5f21ba93589620d47f0341d5aac1c",
+      "miningIterations": 2485,
+      "permissionFlags": "0x2a60",
+      "salt": "0x00000000000000000000000000000000000000000000000000000000000009b4"
+    },
+    "launcher": {
+      "address": "0x610178dA211FEF7D417bC0e6FeD39F05609AD788",
+      "codehash": "0x2a7e7379f82b85a39bfd562816b339114408fdc46bfda9e0ab9a5826e389426d",
+      "constructorArgs": "0x0000000000000000000000005fbdb2315678afecb367f032d93f642f64180aa30000000000000000000000006e1ad3e73370c4de12e4e4dfd2466822cfafea60000000000000000000000000dc64a140aa3e981100a9beca4e685f962f0cf6c9000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000005fc8d32690cc91d4c39d9d3abcbd16989f875707000000000000000000000000a513e6e4b8f2a923d98304ec87f64353c4d5c8530000000000000000000000002279b7a0a67db372996a5fab50d91eaa73d2ebe60000000000000000000000008a791620dd6260079bf849dc5567adc3f2fdc318",
+      "contract": "SquareHoleLauncher",
+      "deployedAtBlock": 11,
+      "deploymentTx": "0x5deebc6efb99504bf7cff006ca5aa34ac76e1d346dd273462b35b840ba93e5bd"
+    },
+    "poolManager": {
+      "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      "codehash": "0xbd7d990776bf043a95b548f2194ddf32326e63ebda6a961581ba60a62b2e5f77",
+      "constructorArgs": "0x000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb92266",
+      "contract": "PoolManager (Uniswap v4-core @ pin; LOCAL, BUSL-1.1 non-production)",
+      "deployedAtBlock": 1,
+      "deploymentTx": "0x4c8a64b98ec78e272a1e08aa1e1cbb34ac07f025eaf39779d971c3bcfedbb0ff"
+    },
+    "registry": {
+      "address": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+      "codehash": "0xda03405531c9f3afa681ebf8624f0f97a7c46fdd1ed83e550fbc21d15af060d4",
+      "constructorArgs": "0x000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb92266000000000000000000000000610178da211fef7d417bc0e6fed39f05609ad788",
+      "contract": "SquareHoleRegistry",
+      "deployedAtBlock": 5,
+      "deploymentTx": "0x1a7f8cd08cdcc89cdb4a920f7da8bafacbe634bff1958df554e4498cbe92f42f"
+    }
+  },
+  "deployer": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+  "dryRun": false,
+  "endBlock": 17,
+  "finalizedAtBlock": 17,
+  "gitCommit": "097710ffe2e37e01bc88133f723041f165ea25a9",
+  "gitDirty": true,
+  "launches": {
+    "FIT": {
+      "appPairId": "31337:0x8acd85898458400f7db866d53fcff6f0d49741ff",
+      "baseURI": "",
+      "contracts": {
+        "feeCollector": {
+          "address": "0x440C0fCDC317D69606eabc35C0F676D1a8251Ee1",
+          "codehash": "0x6a9e8d34646b16a9f40606567a8bcf0e4a5a17b9ee7c6f854c41da90b6cd4fe6",
+          "constructorArgs": "0x0000000000000000000000008acd85898458400f7db866d53fcff6f0d49741ff000000000000000000000000e7f1725e7734ce288f8367e1bb143e90bb3f05120000000000000000000000009bd03768a7dcc129555de410ff8e85528a4f88b5000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000006e1ad3e73370c4de12e4e4dfd2466822cfafea600000000000000000000000005fbdb2315678afecb367f032d93f642f64180aa3",
+          "contract": "FeeCollector",
+          "deployedAtBlock": 15,
+          "deploymentTx": "0xf9a9b33b933032a352e7be81437a12b53b482d5b3113c9d1a7265b5374f02900"
+        },
+        "mirror": {
+          "address": "0x0000000000000000000000000000000000000000",
+          "codehash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "constructorArgs": "0x",
+          "contract": "none"
+        },
+        "rewardLedger": {
+          "address": "0x9bd03768a7DCc129555dE410FF8E85528A4F88b5",
+          "codehash": "0x6230e54ef6896449896a8e95827ef459bc8c4b7f6faaed340e91b83a45d11aa8",
+          "constructorArgs": "0x0000000000000000000000008acd85898458400f7db866d53fcff6f0d49741ff000000000000000000000000e7f1725e7734ce288f8367e1bb143e90bb3f0512000000000000000000000000440c0fcdc317d69606eabc35c0f676d1a8251ee1000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb9226600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000610178da211fef7d417bc0e6fed39f05609ad7880000000000000000000000005fbdb2315678afecb367f032d93f642f64180aa30000000000000000000000006e1ad3e73370c4de12e4e4dfd2466822cfafea600000000000000000000000000000000000000000000000000000000000000000",
+          "contract": "RewardLedger",
+          "deployedAtBlock": 15,
+          "deploymentTx": "0xf9a9b33b933032a352e7be81437a12b53b482d5b3113c9d1a7265b5374f02900"
+        },
+        "token": {
+          "address": "0x8aCd85898458400f7Db866d53FCFF6f0D49741FF",
+          "codehash": "0xdc291a087ecf11126e86b4d4084d7efe80310c25983a96042ef7d231bfce6b8e",
+          "constructorArgs": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000e00000000000000000000000000000000000000000000000000000000000000120000000000000000000000000000000000000000000000000000000003b9aca000000000000000000000000006e1ad3e73370c4de12e4e4dfd2466822cfafea60000000000000000000000000440c0fcdc317d69606eabc35c0f676d1a8251ee10000000000000000000000009bd03768a7dcc129555de410ff8e85528a4f88b566ec1a14b92fe29ac6aa8f9ae9afcbf81cec04d5894d8feea6e3596c7242d2bb000000000000000000000000000000000000000000000000000000000000001c53717561726520486f6c652046495420286c6f63616c2074657374290000000000000000000000000000000000000000000000000000000000000000000000034649540000000000000000000000000000000000000000000000000000000000",
+          "contract": "SquareHoleFungibleToken",
+          "deployedAtBlock": 15,
+          "deploymentTx": "0xf9a9b33b933032a352e7be81437a12b53b482d5b3113c9d1a7265b5374f02900"
+        }
+      },
+      "converter": "0x0000000000000000000000000000000000000000",
+      "createdAtBlock": 15,
+      "creator": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      "decimals": 18,
+      "fractionsPerNft": "1",
+      "initialSupply": "1000000000000000000000000000",
+      "kind": "token",
+      "liquidity": "32563650903267286301196",
+      "lpFeePips": 30000,
+      "metadataManifestHash": "0x66ec1a14b92fe29ac6aa8f9ae9afcbf81cec04d5894d8feea6e3596c7242d2bb",
+      "metadataManifestPath": "script/config/fit.manifest.placeholder.json",
+      "minStartUnitValueQ": "100000000000000",
+      "name": "Square Hole FIT (local test)",
+      "pairId": "0xbcdc1ac5cd1ca7f90a35fc55b631fa746c9f65fa1e26ef1210dce25e9aae9bc2",
+      "poolId": "0x3601210b0935a26a3b6c2bb2aa3d14fb16ccc90068ed4c4a20c3fd938ac7e9ae",
+      "quote": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      "rewardSide": "Q",
+      "sqrtPriceX96": "2498287050797415220819352",
+      "startFdvQ": "1000000000000000000",
+      "symbol": "FIT",
+      "templateVersion": 1,
+      "tickLower": -207300,
+      "tickSpacing": 60,
+      "tickUpper": -138240,
+      "units": "1000000000"
+    },
+    "THE_MISFITS": {
+      "appPairId": "31337:0x94099942864ea81ccf197e9d71ac53310b1468d8",
+      "baseURI": "",
+      "contracts": {
+        "feeCollector": {
+          "address": "0x0433d874a28147DB0b330C000fcC50C0f0BaF425",
+          "codehash": "0x06d65f28b76e7e74c312b06f8eac9834ff3cf77f1625cf6cd0be3677141af83a",
+          "constructorArgs": "0x00000000000000000000000094099942864ea81ccf197e9d71ac53310b1468d8000000000000000000000000e7f1725e7734ce288f8367e1bb143e90bb3f051200000000000000000000000080e2e2367c5e9d070ae2d6d50bf0cdf6360a7151000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000006e1ad3e73370c4de12e4e4dfd2466822cfafea600000000000000000000000005fbdb2315678afecb367f032d93f642f64180aa3",
+          "contract": "FeeCollector",
+          "deployedAtBlock": 17,
+          "deploymentTx": "0x62812faea926949d88d5e7b92d1b27c540cd38f632dfd94af6b3353b61ed1dfd"
+        },
+        "mirror": {
+          "address": "0x7Aedc1399D8D0C8C51Eb08E6A6EeC52a9256d9f0",
+          "codehash": "0xd7d2f529cf15222b81cc5f5e7c4bf7a45961cc59c603bc3134ac854159cc3f04",
+          "constructorArgs": "0x0000000000000000000000002279b7a0a67db372996a5fab50d91eaa73d2ebe6",
+          "contract": "DN404Mirror (dn404 @ pin)",
+          "deployedAtBlock": 17,
+          "deploymentTx": "0x62812faea926949d88d5e7b92d1b27c540cd38f632dfd94af6b3353b61ed1dfd"
+        },
+        "rewardLedger": {
+          "address": "0x80E2E2367C5E9D070Ae2d6d50bF0cdF6360a7151",
+          "codehash": "0x51b8c029411ed81694b53c4968e1a0813d7d0c70d988379ac0d8031eae67f86f",
+          "constructorArgs": "0x00000000000000000000000094099942864ea81ccf197e9d71ac53310b1468d8000000000000000000000000e7f1725e7734ce288f8367e1bb143e90bb3f05120000000000000000000000000433d874a28147db0b330c000fcc50c0f0baf425000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb9226600000000000000000000000000000000000000000000000000000000000000010000000000000000000000005fc8d32690cc91d4c39d9d3abcbd16989f875707000000000000000000000000610178da211fef7d417bc0e6fed39f05609ad7880000000000000000000000005fbdb2315678afecb367f032d93f642f64180aa30000000000000000000000006e1ad3e73370c4de12e4e4dfd2466822cfafea600000000000000000000000000000000000000000000000000000000000000001",
+          "contract": "RewardLedger",
+          "deployedAtBlock": 17,
+          "deploymentTx": "0x62812faea926949d88d5e7b92d1b27c540cd38f632dfd94af6b3353b61ed1dfd"
+        },
+        "token": {
+          "address": "0x94099942864EA81cCF197E9D71ac53310b1468D8",
+          "codehash": "0x1ba13baf5802bd53f00f03a56f0eb161d7c9a2ee95659e60ecf024587fe38483",
+          "constructorArgs": "0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000120000000000000000000000000000000000000000000000000000000000000016000000000000000000000000000000000000000000000000000000000000f424000000000000000000000000000000000000000000000000000000000000003e80000000000000000000000006e1ad3e73370c4de12e4e4dfd2466822cfafea600000000000000000000000000433d874a28147db0b330c000fcc50c0f0baf42500000000000000000000000080e2e2367c5e9d070ae2d6d50bf0cdf6360a715100000000000000000000000000000000000000000000000000000000000001a0646c70c7fd7053a3139dd9cda7a30c3c29e287e887e5bf7f4150b5b00e2d0eb4000000000000000000000000000000000000000000000000000000000000000b546865204d69736669747300000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000074d495346495453000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "contract": "SquareHoleToken",
+          "deployedAtBlock": 17,
+          "deploymentTx": "0x62812faea926949d88d5e7b92d1b27c540cd38f632dfd94af6b3353b61ed1dfd"
+        }
+      },
+      "converter": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+      "createdAtBlock": 17,
+      "creator": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      "decimals": 18,
+      "fractionsPerNft": "1000000",
+      "initialSupply": "1000000000000000000000000000",
+      "kind": "collection",
+      "liquidity": "32563650903267286301196",
+      "lpFeePips": 30000,
+      "metadataManifestHash": "0x646c70c7fd7053a3139dd9cda7a30c3c29e287e887e5bf7f4150b5b00e2d0eb4",
+      "metadataManifestPath": "script/config/the-misfits.manifest.placeholder.json",
+      "minStartUnitValueQ": "100000000000000",
+      "name": "The Misfits",
+      "pairId": "0xcc78f47a7548730472871a15525aece07abdf3b2a92a4859cf102eec94c80836",
+      "poolId": "0x55295150e6fc6167c76d3fdb42b0f10c16fd8cceeb6625fc4a168089582b0c3c",
+      "quote": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      "rewardSide": "T",
+      "sqrtPriceX96": "2498287050797415220819352",
+      "startFdvQ": "1000000000000000000",
+      "symbol": "MISFITS",
+      "templateVersion": 1,
+      "tickLower": -207300,
+      "tickSpacing": 60,
+      "tickUpper": -138240,
+      "units": "1000"
+    }
+  },
+  "network": "anvil (local, chain 31337)",
+  "registryAdmin": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+  "schema": "squarehole.deployment/v1",
+  "startBlock": 1,
+  "startTimestamp": 1790376418,
+  "status": "deployed",
+  "templates": {
+    "FIT": {
+      "active": true,
+      "addedAtBlock": 16,
+      "maxCollectionUnits": "10000",
+      "minStartUnitValueQ": "100000000000000000000",
+      "quote": "0x8aCd85898458400f7Db866d53FCFF6f0D49741FF",
+      "rangeTicks": 69060,
+      "shape": 1,
+      "startFdvQ": "1000000000000000000000000",
+      "tickSpacing": 60,
+      "version": 4
+    },
+    "USDC": {
+      "active": true,
+      "addedAtBlock": 13,
+      "maxCollectionUnits": "10000",
+      "minStartUnitValueQ": "500000",
+      "quote": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+      "rangeTicks": 69060,
+      "shape": 1,
+      "startFdvQ": "5000000000",
+      "tickSpacing": 60,
+      "version": 2
+    },
+    "USDT": {
+      "active": true,
+      "addedAtBlock": 14,
+      "maxCollectionUnits": "10000",
+      "minStartUnitValueQ": "500000",
+      "quote": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+      "rangeTicks": 69060,
+      "shape": 1,
+      "startFdvQ": "5000000000",
+      "tickSpacing": 60,
+      "version": 3
+    },
+    "WETH": {
+      "active": true,
+      "addedAtBlock": 12,
+      "maxCollectionUnits": "10000",
+      "minStartUnitValueQ": "100000000000000",
+      "quote": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      "rangeTicks": 69060,
+      "shape": 1,
+      "startFdvQ": "1000000000000000000",
+      "tickSpacing": 60,
+      "version": 1
+    }
+  },
+  "transactions": 17,
+  "treasury": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
+}

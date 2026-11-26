@@ -1,0 +1,509 @@
+{
+  "schemaVersion": "1.0",
+  "snapshotId": "demo-20260925T120000Z",
+  "mode": "demo",
+  "chainId": 31337,
+  "asOf": "2026-09-25T12:00:00Z",
+  "items": [
+    {
+      "pairId": "31337:0x0000000000000000000000000000000000000065",
+      "chainId": 31337,
+      "slug": "square-hole-demo",
+      "name": "Square Hole",
+      "symbol": "UNSET-DEMO",
+      "type": "token",
+      "isPlatform": true,
+      "launchedAt": "2026-09-21T12:00:00Z",
+      "lifecycle": "amm",
+      "token": {
+        "chainId": 31337,
+        "address": "0x00000000000000000000000000000000000003e9",
+        "symbol": "UNSET-DEMO",
+        "decimals": 18,
+        "issuerStatus": "mock"
+      },
+      "quote": {
+        "chainId": 31337,
+        "address": "0x000000000000000000000000000000000000232a",
+        "symbol": "USDC-DEMO",
+        "decimals": 6,
+        "issuerStatus": "mock"
+      },
+      "rewardSide": "Q",
+      "totalSupplyRaw": "110000000000000000000000",
+      "circulatingSupplyRaw": "100000000000000000000000",
+      "burnedRaw": "120000000000000000000",
+      "priceUsd": "0.50",
+      "marketCapUsd": "50000.00",
+      "turnover24hUsd": "4200",
+      "holders": 74,
+      "routeState": "unverified",
+      "provenance": {
+        "state": "mock",
+        "asOf": "2026-09-25T12:00:00Z",
+        "source": "Square Hole deterministic fixtures; not market data",
+        "coverage": "demo"
+      }
+    },
+    {
+      "pairId": "31337:0x0000000000000000000000000000000000000066",
+      "chainId": 31337,
+      "slug": "orchard",
+      "name": "ORCHARD",
+      "symbol": "ORCH",
+      "type": "nft_collection",
+      "isPlatform": false,
+      "launchedAt": "2026-09-22T12:00:00Z",
+      "lifecycle": "amm",
+      "token": {
+        "chainId": 31337,
+        "address": "0x00000000000000000000000000000000000003ea",
+        "symbol": "ORCH",
+        "decimals": 18,
+        "issuerStatus": "mock"
+      },
+      "quote": {
+        "chainId": 31337,
+        "address": "0x0000000000000000000000000000000000002329",
+        "symbol": "AAPLx-DEMO",
+        "decimals": 18,
+        "issuerStatus": "mock",
+        "underlyingAddress": "0x000000000000000000000000000000000000238d",
+        "wrapperVersion": "mock-current-not-deployable"
+      },
+      "rewardSide": "Q",
+      "totalSupplyRaw": "260000000000000000000000",
+      "circulatingSupplyRaw": "250000000000000000000000",
+      "burnedRaw": "120000000000000000000",
+      "priceUsd": "2.40",
+      "marketCapUsd": "600000.00",
+      "turnover24hUsd": "84200",
+      "holders": 105,
+      "routeState": "unverified",
+      "provenance": {
+        "state": "mock",
+        "asOf": "2026-09-25T12:00:00Z",
+        "source": "Square Hole deterministic fixtures; not market data",
+        "coverage": "demo"
+      },
+      "mirrorAddress": "0x00000000000000000000000000000000000007d2",
+      "nftUnitRaw": "1000000000000000000"
+    },
+    {
+      "pairId": "31337:0x0000000000000000000000000000000000000067",
+      "chainId": 31337,
+      "slug": "round-trip",
+      "name": "ROUND TRIP",
+      "symbol": "ROUND",
+      "type": "token",
+      "isPlatform": false,
+      "launchedAt": "2026-09-23T12:00:00Z",
+      "lifecycle": "amm",
+      "token": {
+        "chainId": 31337,
+        "address": "0x00000000000000000000000000000000000003eb",
+        "symbol": "ROUND",
+        "decimals": 18,
+        "issuerStatus": "mock"
+      },
+      "quote": {
+        "chainId": 31337,
+        "address": "0x000000000000000000000000000000000000232b",
+        "symbol": "WETH-DEMO",
+        "decimals": 18,
+        "issuerStatus": "mock"
+      },
+      "rewardSide": "T",
+      "totalSupplyRaw": "510000000000000000000000",
+      "circulatingSupplyRaw": "500000000000000000000000",
+      "burnedRaw": "120000000000000000000",
+      "priceUsd": "0.80",
+      "marketCapUsd": "400000.00",
+      "turnover24hUsd": "101000",
+      "holders": 136,
+      "routeState": "unverified",
+      "provenance": {
+        "state": "mock",
+        "asOf": "2026-09-25T12:00:00Z",
+        "source": "Square Hole deterministic fixtures; not market data",
+        "coverage": "demo"
+      }
+    },
+    {
+      "pairId": "31337:0x0000000000000000000000000000000000000068",
+      "chainId": 31337,
+      "slug": "misfit-studio",
+      "name": "MISFIT STUDIO",
+      "symbol": "MISFIT",
+      "type": "nft_collection",
+      "isPlatform": false,
+      "launchedAt": "2026-09-24T06:00:00Z",
+      "lifecycle": "amm",
+      "token": {
+        "chainId": 31337,
+        "address": "0x00000000000000000000000000000000000003ec",
+        "symbol": "MISFIT",
+        "decimals": 18,
+        "issuerStatus": "mock"
+      },
+      "quote": {
+        "chainId": 31337,
+        "address": "0x000000000000000000000000000000000000232a",
+        "symbol": "USDC-DEMO",
+        "decimals": 6,
+        "issuerStatus": "mock"
+      },
+      "rewardSide": "Q",
+      "totalSupplyRaw": "70000000000000000000000",
+      "circulatingSupplyRaw": "60000000000000000000000",
+      "burnedRaw": "120000000000000000000",
+      "priceUsd": "4.00",
+      "marketCapUsd": "240000.00",
+      "turnover24hUsd": "31200",
+      "holders": 167,
+      "routeState": "unverified",
+      "provenance": {
+        "state": "mock",
+        "asOf": "2026-09-25T12:00:00Z",
+        "source": "Square Hole deterministic fixtures; not market data",
+        "coverage": "demo"
+      },
+      "mirrorAddress": "0x00000000000000000000000000000000000007d4",
+      "nftUnitRaw": "1000000000000000000"
+    },
+    {
+      "pairId": "31337:0x0000000000000000000000000000000000000069",
+      "chainId": 31337,
+      "slug": "applehole",
+      "name": "APPLEHOLE",
+      "symbol": "APPLH",
+      "type": "token",
+      "isPlatform": false,
+      "launchedAt": "2026-09-24T18:00:00Z",
+      "lifecycle": "amm",
+      "token": {
+        "chainId": 31337,
+        "address": "0x00000000000000000000000000000000000003ed",
+        "symbol": "APPLH",
+        "decimals": 18,
+        "issuerStatus": "mock"
+      },
+      "quote": {
+        "chainId": 31337,
+        "address": "0x0000000000000000000000000000000000002329",
+        "symbol": "AAPLx-DEMO",
+        "decimals": 18,
+        "issuerStatus": "mock",
+        "underlyingAddress": "0x000000000000000000000000000000000000238d",
+        "wrapperVersion": "mock-current-not-deployable"
+      },
+      "rewardSide": "Q",
+      "totalSupplyRaw": "610000000000000000000000",
+      "circulatingSupplyRaw": "600000000000000000000000",
+      "burnedRaw": "120000000000000000000",
+      "priceUsd": "0.30",
+      "marketCapUsd": "180000.00",
+      "turnover24hUsd": "28900",
+      "holders": 198,
+      "routeState": "unverified",
+      "provenance": {
+        "state": "mock",
+        "asOf": "2026-09-25T12:00:00Z",
+        "source": "Square Hole deterministic fixtures; not market data",
+        "coverage": "demo"
+      }
+    },
+    {
+      "pairId": "31337:0x000000000000000000000000000000000000006a",
+      "chainId": 31337,
+      "slug": "tiny-frames",
+      "name": "TINY FRAMES",
+      "symbol": "FRAME",
+      "type": "nft_collection",
+      "isPlatform": false,
+      "launchedAt": "2026-09-25T00:00:00Z",
+      "lifecycle": "amm",
+      "token": {
+        "chainId": 31337,
+        "address": "0x00000000000000000000000000000000000003ee",
+        "symbol": "FRAME",
+        "decimals": 18,
+        "issuerStatus": "mock"
+      },
+      "quote": {
+        "chainId": 31337,
+        "address": "0x000000000000000000000000000000000000232b",
+        "symbol": "WETH-DEMO",
+        "decimals": 18,
+        "issuerStatus": "mock"
+      },
+      "rewardSide": "T",
+      "totalSupplyRaw": "110000000000000000000000",
+      "circulatingSupplyRaw": "100000000000000000000000",
+      "burnedRaw": "120000000000000000000",
+      "priceUsd": "1.20",
+      "marketCapUsd": "120000.00",
+      "turnover24hUsd": "80500",
+      "holders": 229,
+      "routeState": "unverified",
+      "provenance": {
+        "state": "mock",
+        "asOf": "2026-09-25T12:00:00Z",
+        "source": "Square Hole deterministic fixtures; not market data",
+        "coverage": "demo"
+      },
+      "mirrorAddress": "0x00000000000000000000000000000000000007d6",
+      "nftUnitRaw": "1000000000000000000"
+    },
+    {
+      "pairId": "31337:0x000000000000000000000000000000000000006b",
+      "chainId": 31337,
+      "slug": "soft-corners",
+      "name": "SOFT CORNERS",
+      "symbol": "SOFT",
+      "type": "token",
+      "isPlatform": false,
+      "launchedAt": "2026-09-25T07:00:00Z",
+      "lifecycle": "curve",
+      "token": {
+        "chainId": 31337,
+        "address": "0x00000000000000000000000000000000000003ef",
+        "symbol": "SOFT",
+        "decimals": 18,
+        "issuerStatus": "mock"
+      },
+      "quote": {
+        "chainId": 31337,
+        "address": "0x000000000000000000000000000000000000232a",
+        "symbol": "USDC-DEMO",
+        "decimals": 6,
+        "issuerStatus": "mock"
+      },
+      "rewardSide": "Q",
+      "totalSupplyRaw": "610000000000000000000000",
+      "circulatingSupplyRaw": "600000000000000000000000",
+      "burnedRaw": "120000000000000000000",
+      "priceUsd": "0.12",
+      "marketCapUsd": "72000.00",
+      "turnover24hUsd": "9900",
+      "holders": 260,
+      "routeState": "unverified",
+      "provenance": {
+        "state": "mock",
+        "asOf": "2026-09-25T12:00:00Z",
+        "source": "Square Hole deterministic fixtures; not market data",
+        "coverage": "demo"
+      }
+    },
+    {
+      "pairId": "31337:0x000000000000000000000000000000000000006c",
+      "chainId": 31337,
+      "slug": "wrong-angle",
+      "name": "WRONG ANGLE",
+      "symbol": "ANGLE",
+      "type": "nft_collection",
+      "isPlatform": false,
+      "launchedAt": "2026-09-25T07:00:00Z",
+      "lifecycle": "curve",
+      "token": {
+        "chainId": 31337,
+        "address": "0x00000000000000000000000000000000000003f0",
+        "symbol": "ANGLE",
+        "decimals": 18,
+        "issuerStatus": "mock"
+      },
+      "quote": {
+        "chainId": 31337,
+        "address": "0x0000000000000000000000000000000000002329",
+        "symbol": "AAPLx-DEMO",
+        "decimals": 18,
+        "issuerStatus": "mock",
+        "underlyingAddress": "0x000000000000000000000000000000000000238d",
+        "wrapperVersion": "mock-current-not-deployable"
+      },
+      "rewardSide": "Q",
+      "totalSupplyRaw": "310000000000000000000000",
+      "circulatingSupplyRaw": "300000000000000000000000",
+      "burnedRaw": "120000000000000000000",
+      "priceUsd": "0.24",
+      "marketCapUsd": "72000.00",
+      "turnover24hUsd": "9900",
+      "holders": 291,
+      "routeState": "unverified",
+      "provenance": {
+        "state": "mock",
+        "asOf": "2026-09-25T12:00:00Z",
+        "source": "Square Hole deterministic fixtures; not market data",
+        "coverage": "demo"
+      },
+      "mirrorAddress": "0x00000000000000000000000000000000000007d8",
+      "nftUnitRaw": "1000000000000000000"
+    },
+    {
+      "pairId": "31337:0x000000000000000000000000000000000000006d",
+      "chainId": 31337,
+      "slug": "coin-confetti",
+      "name": "COIN CONFETTI",
+      "symbol": "CONF",
+      "type": "token",
+      "isPlatform": false,
+      "launchedAt": "2026-09-25T10:00:00Z",
+      "lifecycle": "curve",
+      "token": {
+        "chainId": 31337,
+        "address": "0x00000000000000000000000000000000000003f1",
+        "symbol": "CONF",
+        "decimals": 18,
+        "issuerStatus": "mock"
+      },
+      "quote": {
+        "chainId": 31337,
+        "address": "0x000000000000000000000000000000000000232b",
+        "symbol": "WETH-DEMO",
+        "decimals": 18,
+        "issuerStatus": "mock"
+      },
+      "rewardSide": "T",
+      "totalSupplyRaw": "510000000000000000000000",
+      "circulatingSupplyRaw": "500000000000000000000000",
+      "burnedRaw": "120000000000000000000",
+      "priceUsd": "0.06",
+      "marketCapUsd": "30000.00",
+      "turnover24hUsd": "6400",
+      "holders": 322,
+      "routeState": "unverified",
+      "provenance": {
+        "state": "mock",
+        "asOf": "2026-09-25T12:00:00Z",
+        "source": "Square Hole deterministic fixtures; not market data",
+        "coverage": "demo"
+      }
+    },
+    {
+      "pairId": "31337:0x000000000000000000000000000000000000006e",
+      "chainId": 31337,
+      "slug": "little-orchard",
+      "name": "LITTLE ORCHARD",
+      "symbol": "LORCH",
+      "type": "nft_collection",
+      "isPlatform": false,
+      "launchedAt": "2026-09-25T11:00:00Z",
+      "lifecycle": "curve",
+      "token": {
+        "chainId": 31337,
+        "address": "0x00000000000000000000000000000000000003f2",
+        "symbol": "LORCH",
+        "decimals": 18,
+        "issuerStatus": "mock"
+      },
+      "quote": {
+        "chainId": 31337,
+        "address": "0x0000000000000000000000000000000000002329",
+        "symbol": "AAPLx-DEMO",
+        "decimals": 18,
+        "issuerStatus": "mock",
+        "underlyingAddress": "0x000000000000000000000000000000000000238d",
+        "wrapperVersion": "mock-current-not-deployable"
+      },
+      "rewardSide": "T",
+      "totalSupplyRaw": "25000000000000000000000",
+      "circulatingSupplyRaw": "15000000000000000000000",
+      "burnedRaw": "120000000000000000000",
+      "priceUsd": "1.00",
+      "marketCapUsd": "15000.00",
+      "turnover24hUsd": "7300",
+      "holders": 353,
+      "routeState": "unverified",
+      "provenance": {
+        "state": "mock",
+        "asOf": "2026-09-25T12:00:00Z",
+        "source": "Square Hole deterministic fixtures; not market data",
+        "coverage": "demo"
+      },
+      "mirrorAddress": "0x00000000000000000000000000000000000007da",
+      "nftUnitRaw": "1000000000000000000"
+    },
+    {
+      "pairId": "31337:0x000000000000000000000000000000000000006f",
+      "chainId": 31337,
+      "slug": "new-shape",
+      "name": "NEW SHAPE",
+      "symbol": "NEW",
+      "type": "token",
+      "isPlatform": false,
+      "launchedAt": "2026-09-25T11:45:00Z",
+      "lifecycle": "curve",
+      "token": {
+        "chainId": 31337,
+        "address": "0x00000000000000000000000000000000000003f3",
+        "symbol": "NEW",
+        "decimals": 18,
+        "issuerStatus": "mock"
+      },
+      "quote": {
+        "chainId": 31337,
+        "address": "0x000000000000000000000000000000000000232a",
+        "symbol": "USDC-DEMO",
+        "decimals": 6,
+        "issuerStatus": "mock"
+      },
+      "rewardSide": "Q",
+      "totalSupplyRaw": "110000000000000000000000",
+      "circulatingSupplyRaw": "100000000000000000000000",
+      "burnedRaw": "120000000000000000000",
+      "priceUsd": "0.01",
+      "marketCapUsd": "1000.00",
+      "turnover24hUsd": "850",
+      "holders": 384,
+      "routeState": "unverified",
+      "provenance": {
+        "state": "mock",
+        "asOf": "2026-09-25T12:00:00Z",
+        "source": "Square Hole deterministic fixtures; not market data",
+        "coverage": "demo"
+      }
+    },
+    {
+      "pairId": "31337:0x0000000000000000000000000000000000000070",
+      "chainId": 31337,
+      "slug": "unpriced-example",
+      "name": "NO PRICE YET",
+      "symbol": "NOP",
+      "type": "token",
+      "isPlatform": false,
+      "launchedAt": "2026-09-25T11:54:00Z",
+      "lifecycle": "curve",
+      "token": {
+        "chainId": 31337,
+        "address": "0x00000000000000000000000000000000000003f4",
+        "symbol": "NOP",
+        "decimals": 18,
+        "issuerStatus": "mock"
+      },
+      "quote": {
+        "chainId": 31337,
+        "address": "0x0000000000000000000000000000000000002329",
+        "symbol": "AAPLx-DEMO",
+        "decimals": 18,
+        "issuerStatus": "mock",
+        "underlyingAddress": "0x000000000000000000000000000000000000238d",
+        "wrapperVersion": "mock-current-not-deployable"
+      },
+      "rewardSide": "Q",
+      "totalSupplyRaw": "110000000000000000000000",
+      "circulatingSupplyRaw": "100000000000000000000000",
+      "burnedRaw": "120000000000000000000",
+      "priceUsd": null,
+      "marketCapUsd": null,
+      "turnover24hUsd": null,
+      "holders": 415,
+      "routeState": "unverified",
+      "provenance": {
+        "state": "mock",
+        "asOf": "2026-09-25T12:00:00Z",
+        "source": "Square Hole deterministic fixtures; not market data",
+        "coverage": "demo"
+      }
+    }
+  ]
+}

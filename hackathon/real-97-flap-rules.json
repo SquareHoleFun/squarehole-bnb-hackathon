@@ -1,0 +1,433 @@
+{
+  "schema": "squarehole.flap-rules-real-runs/1",
+  "chainId": 97,
+  "source": "the real runs of 26 November 2026, read only: forge's broadcast files and the step runner's logs (each receipt's status read again on chain 97)",
+  "launches": {
+    "sweetJar": {
+      "name": "Sweet Jar",
+      "symbol": "SWEET",
+      "quote": "BNB",
+      "token": "0xd739bF40DDD9870b8097171bf79Fb5c36fCa7777",
+      "launcher": "0x04Ed9202ffb8eb40971D6e07ca3F94F2db659A62",
+      "rulesContract": "0x23c40c21b93a1fd36414566c9b8afbf6ed5314b5",
+      "pile": "0x7D0b8C5a71c29Fb7956Ba5883C9794D2bdc7666f",
+      "shareOut": {
+        "tx": "0x12dd100730fbb81165ccb821de0e1c01a5197237f8ed8a33ddf4fd9367f183ec",
+        "incomeRaw": "1118839352526053",
+        "parts": [
+          {
+            "rule": "creator",
+            "bps": 1000,
+            "deliveredRaw": "111883935252605"
+          },
+          {
+            "rule": "pile",
+            "bps": 6000,
+            "deliveredRaw": "671303611515631"
+          },
+          {
+            "rule": "buy and burn",
+            "bps": 3000,
+            "deliveredRaw": "335651805757817",
+            "burnedRawTokens": "1598109707361075495688377"
+          }
+        ]
+      },
+      "launchTx": "0xbb1cb2ca1261c1294a5d1591cb6493d248be289bb6232355ed0e41c3eae68726",
+      "transactions": [
+        {
+          "what": "the rules set for the launcher to come",
+          "block": 144932362,
+          "tx": "0xee08ae1e3eb92130e3bc29d5e18a1a98c9e575ecd74f2eaa995f18787cf25e68"
+        },
+        {
+          "what": "the sale created through the Portal (newLauncher)",
+          "block": 144932367,
+          "tx": "0x578f60fad06f0009a9be95ec26e2ccdc8bdc11f580317f44261ce5d20ce6609d"
+        },
+        {
+          "what": "a buy on the curve",
+          "block": 144932478,
+          "tx": "0xdd1e074091280ce9f82c8ec459594aef1cc67a6e63329bb5ec25b2b5608bfa0c"
+        },
+        {
+          "what": "a buy on the curve",
+          "block": 144932528,
+          "tx": "0x79c318aa8396415ed90885ba9dbc053e20c2305d545b4587c0abf8e14b922027"
+        },
+        {
+          "what": "the completing buy: the launch into the pool",
+          "block": 144932700,
+          "tx": "0xbb1cb2ca1261c1294a5d1591cb6493d248be289bb6232355ed0e41c3eae68726"
+        },
+        {
+          "what": "a claim of bought tokens",
+          "block": 144932787,
+          "tx": "0xb906dd59ad1db4557d251b7ce42d6369061e0bd3aa691f99f6c012e747b09b4d"
+        },
+        {
+          "what": "a claim of bought tokens",
+          "block": 144932965,
+          "tx": "0xdce751eae8ec12e0203b71981f8eca62502285c102d615a9127a62784b8ba73c"
+        },
+        {
+          "what": "a claim of bought tokens",
+          "block": 144933069,
+          "tx": "0x8904ec50adb453e18245101049510fdbb0e4e4cf4c747028860f295cda960804"
+        },
+        {
+          "what": "pool buy",
+          "block": 144933206,
+          "tx": "0x0a76b1dd2a4f813aface7c78f85da5a963b2f63b335112dd4a8714bcc9cfec71"
+        },
+        {
+          "what": "pool sell",
+          "block": 144933348,
+          "tx": "0x0fd0f1237bb487d251ade9b61fcc28b355db25d1bb68b278a9766a5c809ee1ee"
+        },
+        {
+          "what": "the share-out among the rules",
+          "block": 144933492,
+          "tx": "0x12dd100730fbb81165ccb821de0e1c01a5197237f8ed8a33ddf4fd9367f183ec"
+        }
+      ]
+    },
+    "payPacket": {
+      "name": "Pay Packet",
+      "symbol": "PACKET",
+      "quote": "Flap's test USDT",
+      "token": "0xF5082302Eb06c59d01a8c083a77a08dEAc027777",
+      "launcher": "0x7592b6a20254C0f6EB4919b02dA18f47C3E16689",
+      "rulesContract": "0x29d4d8a77e75215b3abf68b8537e800a8094b5d8",
+      "pile": "0x3C581087DF5a16476d2faCa4AF4A2e02e765F886",
+      "stake": "0x8d8050617BC6cBb1E0E38D4bcc01026B81A53585",
+      "shareOut": {
+        "tx": "0xe299179fa23bdacfdebd056912523096e276c669806285bbd47954f9de030517",
+        "incomeRaw": "17000000000000000002",
+        "parts": [
+          {
+            "rule": "creator",
+            "bps": 1000,
+            "deliveredRaw": "1700000000000000000"
+          },
+          {
+            "rule": "pile",
+            "bps": 3000,
+            "deliveredRaw": "5100000000000000000"
+          },
+          {
+            "rule": "holders' stake",
+            "bps": 4000,
+            "deliveredRaw": "6800000000000000000"
+          },
+          {
+            "rule": "buy and burn",
+            "bps": 2000,
+            "deliveredRaw": "3400000000000000002",
+            "burnedRawTokens": "936174709534592237665219"
+          }
+        ]
+      },
+      "stakeClaim": {
+        "tx": "0x56be5cf11a12d441292413e873f5aca447d691de295aafe937a6261f0fea6daa",
+        "claimedRaw": "217588217712259",
+        "stakedRawTokens": "145317265451679138233043996"
+      },
+      "launchTx": "0xbf73cd17cf67e7c493a1b0ce59583c6a26f78321a5b841975f87d797bd55852f",
+      "transactions": [
+        {
+          "what": "the holders' stake created for the token to come",
+          "block": 144933875,
+          "tx": "0x2b7ce72797d9a04a0e9bd3795fc66bf27f2535a8e2bf274ca8009f8b8106c75b"
+        },
+        {
+          "what": "the rules set for the launcher to come",
+          "block": 144933880,
+          "tx": "0xfda84cf764f1ce5c5906a72b5a278aa8b7244d7ae2b6f60b110cc721e3f4bf7f"
+        },
+        {
+          "what": "the sale created through the Portal (newLauncher)",
+          "block": 144933885,
+          "tx": "0x64838bd3a51a91ce52adbb03d14a1be1315e784aa0a784a5557620ae9311ad74"
+        },
+        {
+          "what": "a buy on the curve",
+          "block": 144934036,
+          "tx": "0xde666f9a13d24ecb53eb3cd12648c6261dad500bdf47120cfe37d443a8e1cc98"
+        },
+        {
+          "what": "a buy on the curve",
+          "block": 144934127,
+          "tx": "0x9423007596c27197352f3e0f9be1e24d43b0b0d706316124ff3ff5b71d634397"
+        },
+        {
+          "what": "the completing buy: the launch into the pool",
+          "block": 144934290,
+          "tx": "0xbf73cd17cf67e7c493a1b0ce59583c6a26f78321a5b841975f87d797bd55852f"
+        },
+        {
+          "what": "a claim of bought tokens",
+          "block": 144934422,
+          "tx": "0x839a63f1b59e9ffcca9c5dd2bddcc3b4e4da4d24254c71d794f235531cb8e2ca"
+        },
+        {
+          "what": "a claim of bought tokens",
+          "block": 144934511,
+          "tx": "0x275ca10751cde28fff56f232eff02b4a10d8cf8cf6b94252db73775e216eb85f"
+        },
+        {
+          "what": "a claim of bought tokens",
+          "block": 144934661,
+          "tx": "0x638837b69191053626724a343005e39709275b5fd1a579971627a349876f829a"
+        },
+        {
+          "what": "pool trade",
+          "block": 144934754,
+          "tx": "0x11d9b0dd59f8f56deb62c0b5c1e79fb49f0f70a0bb15ce7c43e18dc99c686577"
+        },
+        {
+          "what": "pool trade",
+          "block": 144934856,
+          "tx": "0x0943308bb39f41ec7727e6a316cb667857b183c2a7808a087c2d725166e934a3"
+        },
+        {
+          "what": "a holder stakes",
+          "block": 144934955,
+          "tx": "0xa33bf7da0f4310ae8b6cbd279b7c191c8a8c812571a1715863f60793b9dc6e0f"
+        },
+        {
+          "what": "a second holder stakes",
+          "block": 144935038,
+          "tx": "0x04ef53f81ef2fcf92a1dea1e10f43034b9e3bf3deeda2933cc0801f0a931bd19"
+        },
+        {
+          "what": "the share-out among the rules",
+          "block": 144935375,
+          "tx": "0xe299179fa23bdacfdebd056912523096e276c669806285bbd47954f9de030517"
+        },
+        {
+          "what": "the stake counts the holders' part and streams it over a day",
+          "block": 144935440,
+          "tx": "0x1f84ab47a0a38fa1f9e60b1152c7753cea82660e478e9c526d5b94bcbbae5427"
+        },
+        {
+          "what": "the first claim from the stake",
+          "block": 144935448,
+          "tx": "0x56be5cf11a12d441292413e873f5aca447d691de295aafe937a6261f0fea6daa"
+        },
+        {
+          "what": "the second holder unstakes everything",
+          "block": 144935521,
+          "tx": "0xf62e66bc857287b1434431947cff74a8206155d4c32cc0f9df92036ac66b0c36"
+        }
+      ]
+    },
+    "swapDeck": {
+      "name": "Swap Deck",
+      "symbol": "SDECK",
+      "quote": "Flap's test USDT",
+      "token": "0xCcBD31047F8CC637fA029deCF3E9da9080557777",
+      "launcher": "0x915A7aC8180B80153070eCD589d9020af05C1f82",
+      "rulesContract": "0x4a190d10E6A593b0E742F0032a346e63a1E5CcF2",
+      "shop": "0x3Fdf028DDE2597B706fBf4F01B6C0E96aEB92857",
+      "shareOut": {
+        "tx": "0xfd6f2e0a201e8a87638ff946cfeb42d1929895ff92068096f6ca5a81c264ca7f",
+        "incomeRaw": "38884192216694493222",
+        "parts": [
+          {
+            "rule": "creator",
+            "bps": 1000,
+            "deliveredRaw": "3888419221669449322"
+          },
+          {
+            "rule": "pile",
+            "bps": 3000,
+            "deliveredRaw": "11665257665008347966"
+          },
+          {
+            "rule": "card shop",
+            "bps": 4000,
+            "deliveredRaw": "15553676886677797288"
+          },
+          {
+            "rule": "buy and burn",
+            "bps": 2000,
+            "deliveredRaw": "7776838443338898646",
+            "burnedRawTokens": "1621261917122446066457443"
+          }
+        ]
+      },
+      "refillTx": "0x319300339aa2a8f5839c5f74f61afbab717ccef9d15ae807694ccf7f34296a22",
+      "pickTx": "0x2033e54bf171b150c6a5a1c2f156e548182f71edab47c0f5efb64f8d0df21fef",
+      "giveTx": "0x3db592f39ea7965f2ae2c1e8468a01609553d0cc0c3900af000f8e6568018ab1",
+      "launchTx": "0xa0b01026f9584b02f02189ec768bea28a799f1797a0691a9ce0c22c182ff78d2",
+      "transactions": [
+        {
+          "what": "the card shop factory deployed",
+          "block": 144935869,
+          "tx": "0x33e404d6c6a7f1fd849447885dc533b5a0c0b31b1d874b5b646df0a4b8616435"
+        },
+        {
+          "what": "the shop created for the token to come",
+          "block": 144936150,
+          "tx": "0xa36e47358e061f42c9f94922b1854b9c72d34afd707776449f63e9b42af4f090"
+        },
+        {
+          "what": "the rules set for the launcher to come",
+          "block": 144936155,
+          "tx": "0x9fb3b19a089c3312be3177da1ec97d590e5201cceaba8e8c0c3bcad505d82211"
+        },
+        {
+          "what": "the sale created through the Portal (newLauncher)",
+          "block": 144936160,
+          "tx": "0x66a06805e5aef4fd9f5a01bfa77ebcd133531ed0c16e62607ad2d94447f1b846"
+        },
+        {
+          "what": "a buy on the curve",
+          "block": 144936237,
+          "tx": "0xafd794e2b51a5c7308868270ad19493ca5dbe428cb2bd5173960b30aa70245cc"
+        },
+        {
+          "what": "the completing buy: the launch into the pool",
+          "block": 144936502,
+          "tx": "0xa0b01026f9584b02f02189ec768bea28a799f1797a0691a9ce0c22c182ff78d2"
+        },
+        {
+          "what": "the claim of bought tokens",
+          "block": 144936581,
+          "tx": "0xced1b83991cf9f6b17b7a40504dc3d463978ff54cec63829ec6f1b025343b0b8"
+        },
+        {
+          "what": "pool trade",
+          "block": 144938123,
+          "tx": "0x2c7ddb83c32bad151f6c77eafba88f32734d38e9e13c496ef56811dd571dee95"
+        },
+        {
+          "what": "pool trade",
+          "block": 144938214,
+          "tx": "0x8e812b0b15fe802a3c2204ad6ca1a9591eb626ea1d0fe8c3000d96d2c9d76fac"
+        },
+        {
+          "what": "pool trade",
+          "block": 144938309,
+          "tx": "0xd2ebe69e846168fb411493f2890c7f3bf81d8065406fceb79fbbd859f1da704c"
+        },
+        {
+          "what": "pool trade",
+          "block": 144938391,
+          "tx": "0x90bb43cfa7419f0270f58c938be77157867e277d4f67f09c0c2925f7bd4e790b"
+        },
+        {
+          "what": "pool trade",
+          "block": 144938483,
+          "tx": "0x72baf35f8378c70dbc75f7b7fc83c0c824294f14f3a07783587c0a3da66881da"
+        },
+        {
+          "what": "pool trade",
+          "block": 144938562,
+          "tx": "0x8252094086df58968a43a03d793e5de12e17a7014bc2f86d448fa7bf3fa0486b"
+        },
+        {
+          "what": "pool trade",
+          "block": 144938708,
+          "tx": "0x03f68c54863c920a3e25c4f97aec8ed80948a6b16a98d89c06ef3c39284fe594"
+        },
+        {
+          "what": "pool trade",
+          "block": 144938802,
+          "tx": "0xb591f4684d38900de1e5d02abd3d27c4104868f82433cc84f87af6666275a644"
+        },
+        {
+          "what": "pool trade",
+          "block": 144938888,
+          "tx": "0xbf422dbb1b589914c8d33cebe04f8ede4b8757fac8e8e00217a26566d853848c"
+        },
+        {
+          "what": "pool trade",
+          "block": 144938987,
+          "tx": "0xd8bc1c2a84891535fba5849607145ea7cc62bf0fbbe33256a7cf2ea74ea4726f"
+        },
+        {
+          "what": "pool trade",
+          "block": 144939138,
+          "tx": "0x0d63e38cb8ef512620b31dae8ee306ca6df79aed65b121e5ead0aa093e51da82"
+        },
+        {
+          "what": "pool trade",
+          "block": 144939284,
+          "tx": "0xea77ed18da870bfc475b4d9d89a58494dc8a215d42522f3517842f261608be52"
+        },
+        {
+          "what": "the share-out among the rules",
+          "block": 144939611,
+          "tx": "0xfd6f2e0a201e8a87638ff946cfeb42d1929895ff92068096f6ca5a81c264ca7f"
+        },
+        {
+          "what": "the shop may take the Common cards",
+          "block": 144939620,
+          "tx": "0x61dddc948810708bd93ae074be6191e6bec84a830cbffe377f684b1528342e4c"
+        },
+        {
+          "what": "the shop may take the Uncommon cards",
+          "block": 144939625,
+          "tx": "0x0dad5b28e5db2c31991b8432fdfed519dbd65356a1c897c1e021e5f3782d2bf0"
+        },
+        {
+          "what": "the shop may take the Rare cards",
+          "block": 144939631,
+          "tx": "0x0979779e8b2f14ea705ab34b8474c157644809a8ebb3bfb632a36510f58a7a01"
+        },
+        {
+          "what": "the shop may take the Legendary cards",
+          "block": 144939638,
+          "tx": "0x138e5f94e6fbfdaab65cf79bde6d1066de294decc257bc423ecc17141c1e0491"
+        },
+        {
+          "what": "four Common cards stocked",
+          "block": 144939643,
+          "tx": "0x89a80628ce4e8f5a4b8cb61516b0e6726accaee264a79223581dad5936b9ed47"
+        },
+        {
+          "what": "four Uncommon cards stocked",
+          "block": 144939650,
+          "tx": "0x1a428f1ed28a1dfded1ae5a844404a07585ba444c6ab91c411c69d8614459827"
+        },
+        {
+          "what": "four Rare cards stocked",
+          "block": 144939665,
+          "tx": "0xf3c2c12eed1b015ebe60b89a910c6a16d134c4333a28a7dfaf21c3910d06f385"
+        },
+        {
+          "what": "four Legendary cards stocked",
+          "block": 144939671,
+          "tx": "0x96461a23b035d8b0db783794ae36ab6a8299ac05934e6911b94736186f2ba5d8"
+        },
+        {
+          "what": "the refill: the shop's part bought SDECK for its budget",
+          "block": 144939679,
+          "tx": "0x319300339aa2a8f5839c5f74f61afbab717ccef9d15ae807694ccf7f34296a22"
+        },
+        {
+          "what": "a wallet approves exactly a Common's pick price",
+          "block": 144939684,
+          "tx": "0x4dc1f3c60c3d377dca9facac644c03c367ab0ae18eb8a46460921d41d282f06c"
+        },
+        {
+          "what": "the pick: a Common card for exactly 2,000 SDECK",
+          "block": 144939689,
+          "tx": "0x2033e54bf171b150c6a5a1c2f156e548182f71edab47c0f5efb64f8d0df21fef"
+        },
+        {
+          "what": "a wallet lets the shop take one Common card",
+          "block": 144939704,
+          "tx": "0x5a2df39dc65cec1f7fa38ac22a87ebacac4f3059afa7dda6bf6efaa12145712e"
+        },
+        {
+          "what": "the give: a Common card paid exactly 1,000 SDECK",
+          "block": 144939718,
+          "tx": "0x3db592f39ea7965f2ae2c1e8468a01609553d0cc0c3900af000f8e6568018ab1"
+        }
+      ]
+    }
+  }
+}

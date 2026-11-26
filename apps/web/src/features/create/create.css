@@ -1,0 +1,1384 @@
+/*
+ * Launch a box (F69 C1; docs/design/box-create-flow.md § 7). Every class is prefixed `sh-newbox` (css-scope.test.ts;
+ * `sh-create*` belonged to the first launch wizard, deleted in F74 U6). Tokens only: no new colours, sizes or spacings.
+ * Mobile first: one column with a sticky action bar; from 1025 px the form (≤ 560 px) and a sticky preview (≤ 320 px)
+ * side by side, the page no wider than the two, so the stepper ends where the card does.
+ */
+
+.sh-newbox {
+  gap: var(--sh-gap-4);
+  max-width: calc(560px + var(--sh-gap-6) + 320px);
+}
+
+/*
+ * Phone: the sticky action bar covers the bottom of the screen. Keep anything focused or scrolled into view above it
+ * (WCAG 2.2 SC 2.4.11 Focus Not Obscured); focusControl also centres a control before focusing it.
+ */
+html:has(.sh-newbox) {
+  scroll-padding-bottom: calc(var(--sh-touch-target) * 3 + var(--sh-gap-2));
+}
+
+/* ── Title, source chip, stepper ───────────────────────────── */
+.sh-newbox__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sh-gap-2) var(--sh-gap-3);
+}
+
+.sh-newbox__title {
+  margin: 0;
+  font-size: var(--sh-type-section);
+  font-weight: 750;
+  border-radius: var(--sh-radius-small);
+}
+
+.sh-newbox-steps {
+  display: flex;
+  align-items: center;
+  gap: var(--sh-gap-2);
+  margin-left: auto;
+}
+
+.sh-newbox-steps__count {
+  margin: 0;
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-small);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.sh-newbox-steps ol {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-newbox-steps__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: var(--sh-touch-target);
+  min-height: var(--sh-touch-target);
+  border-radius: var(--sh-radius-control);
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.sh-newbox-steps__link[aria-disabled='true'] {
+  color: var(--sh-text-muted);
+}
+
+a.sh-newbox-steps__link:hover {
+  color: var(--sh-text);
+}
+
+.sh-newbox-steps__dot {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--sh-border-strong);
+  border-radius: 50%;
+}
+
+.sh-newbox-steps li[data-state='done'] .sh-newbox-steps__dot {
+  border-color: var(--sh-accent);
+  background: var(--sh-accent);
+}
+
+.sh-newbox-steps li[aria-current='step'] .sh-newbox-steps__dot {
+  width: 14px;
+  height: 14px;
+  border-color: var(--sh-accent);
+  background: var(--sh-selected);
+}
+
+/* A step to fix: a "!" in its dot, never colour alone (WCAG 1.4.1); the count says how many on a phone. */
+.sh-newbox-steps li[data-fix] .sh-newbox-steps__dot {
+  display: inline-grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  border-color: var(--sh-negative);
+  background: var(--sh-canvas);
+  color: var(--sh-negative);
+}
+
+.sh-newbox-steps li[data-fix] .sh-newbox-steps__dot::before {
+  content: '!';
+  content: '!' / '';
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.sh-newbox-steps li[aria-current='step'] .sh-newbox-steps__label {
+  color: var(--sh-text);
+}
+
+.sh-newbox-steps__fix {
+  color: var(--sh-negative);
+}
+
+/* Phone: dots only; the names stay for screen readers (clipped, not removed). */
+.sh-newbox-steps__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.sh-newbox-banner {
+  margin: 0;
+  padding: var(--sh-gap-2) var(--sh-gap-3);
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface);
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+}
+
+.sh-newbox-text-button {
+  min-height: var(--sh-touch-target);
+  padding: 0 var(--sh-gap-1);
+  border: 0;
+  background: none;
+  color: var(--sh-accent);
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ── Layout ────────────────────────────────────────────────── */
+.sh-newbox__layout {
+  display: grid;
+  gap: var(--sh-gap-6);
+  min-width: 0;
+}
+
+.sh-newbox__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-6);
+  min-width: 0;
+}
+
+.sh-newbox__preview {
+  display: none;
+}
+
+/* The action bar: Back (icon) and the one primary button; sticky at the bottom of a phone screen. */
+.sh-newbox__bar {
+  position: sticky;
+  bottom: 0;
+  z-index: var(--sh-z-sticky);
+  display: flex;
+  flex-wrap: wrap;
+  /* Top: Back lines up with the buttons, not with the middle of the buttons plus their reason line. */
+  align-items: flex-start;
+  gap: var(--sh-gap-2) var(--sh-gap-3);
+  margin: 0 calc(-1 * var(--sh-main-pad-compact));
+  padding: var(--sh-gap-3) var(--sh-main-pad-compact);
+  border-top: 1px solid var(--sh-border);
+  background: var(--sh-canvas);
+}
+
+/*
+ * The Overview's bar sits in the flow after every group (F70: the parameters, then Create). Back, the cost and the
+ * buttons share one 44 px row (the cost is as tall as a button), the reason line wraps below the buttons.
+ */
+.sh-newbox__bar[data-place='inline'] {
+  position: static;
+}
+
+.sh-newbox__bar[data-place='inline'] .sh-newbox-cost {
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  min-height: var(--sh-touch-target);
+}
+
+.sh-newbox__back {
+  width: var(--sh-touch-target);
+  padding: 0;
+}
+
+.sh-newbox__next,
+.sh-newbox-action > .sh-button--primary {
+  flex: 1 1 auto;
+  min-width: 140px;
+}
+
+/* Shares Back's row (its reason line wraps below the buttons, not the whole group below Back). */
+.sh-newbox-action {
+  display: flex;
+  flex: 1 1 0;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sh-gap-2) var(--sh-gap-3);
+  min-width: 0;
+}
+
+/* Chain sources: Create (off) and Download BoxSpec side by side, even on a phone. */
+.sh-newbox-action[data-source='chain'] > .sh-button--primary {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.sh-newbox-action > .sh-button--primary[aria-disabled='true'] {
+  border-color: var(--sh-border-strong);
+  background: var(--sh-surface-raised);
+  box-shadow: none;
+  color: var(--sh-text-muted);
+  cursor: not-allowed;
+}
+
+.sh-newbox-note {
+  flex-basis: 100%;
+  margin: 0;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+}
+
+.sh-newbox-note__hash {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  white-space: nowrap;
+}
+
+.sh-newbox__demo-line {
+  flex-basis: 100%;
+  margin: 0;
+  color: var(--sh-warning);
+  font-size: var(--sh-type-caption);
+}
+
+/* ── Fields ────────────────────────────────────────────────── */
+.sh-newbox-label {
+  padding: 0;
+  color: var(--sh-text);
+  font-size: var(--sh-type-small);
+  font-weight: 700;
+}
+
+.sh-newbox-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-2);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.sh-newbox-field__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sh-gap-2);
+}
+
+/* A label with its (i) right after it. */
+.sh-newbox-field__top--start {
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--sh-gap-1);
+}
+
+.sh-newbox-count {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-variant-numeric: tabular-nums;
+}
+
+.sh-newbox-count[data-over] {
+  color: var(--sh-negative);
+}
+
+.sh-newbox-input {
+  width: 100%;
+  min-height: var(--sh-touch-target);
+  padding: var(--sh-gap-2) var(--sh-gap-3);
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface);
+  color: var(--sh-text);
+  font: inherit;
+  font-size: var(--sh-type-body-lg);
+}
+
+textarea.sh-newbox-input {
+  resize: vertical;
+}
+
+.sh-newbox-input[aria-invalid='true'] {
+  border-color: var(--sh-negative);
+}
+
+.sh-newbox-hint {
+  margin: 0;
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+}
+
+/* A number a field comes to ("≈ 3.4% of MOON"): read before the hint under it. */
+.sh-newbox-share {
+  display: block;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+}
+
+.sh-newbox-error {
+  display: flex;
+  gap: var(--sh-gap-1);
+  margin: 0;
+  color: var(--sh-negative);
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+}
+
+.sh-newbox-error > span[aria-hidden] {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  font-size: var(--sh-type-caption);
+}
+
+.sh-newbox-pair {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: var(--sh-gap-3);
+}
+
+.sh-newbox-fact {
+  margin: 0;
+  color: var(--sh-text-secondary);
+  font-weight: 650;
+}
+
+/* ── Chips: native radios ──────────────────────────────────── */
+.sh-newbox-chips {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-2);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.sh-newbox-chips__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sh-gap-2);
+}
+
+.sh-newbox-chips[data-wide] .sh-newbox-chip {
+  flex: 1 1 140px;
+}
+
+/* Phone: one chip per line, so three options never wrap two plus one with the last one the widest. */
+.sh-newbox-chips[data-stack] .sh-newbox-chip {
+  flex: 1 1 100%;
+}
+
+.sh-newbox-chips > legend:has(.sh-info-button) {
+  display: flex;
+  align-items: center;
+  gap: var(--sh-gap-1);
+}
+
+.sh-newbox-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--sh-touch-target);
+  padding: 0 var(--sh-gap-4);
+  /* A control's outline (tokens.css): --sh-border-strong, ≥ 3:1 on every surface. */
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface);
+  color: var(--sh-text-secondary);
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.sh-newbox-chip input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.sh-newbox-chip[data-checked] {
+  border-color: var(--sh-accent);
+  background: var(--sh-selected);
+  color: var(--sh-text);
+}
+
+.sh-newbox-chip[data-disabled] {
+  border-style: dashed;
+  color: var(--sh-text-muted);
+  cursor: not-allowed;
+}
+
+.sh-newbox-chip[data-disabled] input {
+  cursor: not-allowed;
+}
+
+.sh-newbox-chip:has(input:focus-visible) {
+  outline: 3px solid var(--sh-focus-ring);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 7px var(--sh-focus-halo);
+}
+
+.sh-newbox-chip__text {
+  display: flex;
+  flex-direction: column;
+  padding: 6px 0;
+  line-height: var(--sh-leading-tight);
+}
+
+.sh-newbox-chip__text small {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 600;
+}
+
+/* Tiles (Contents): tall, an icon and a second line, so the first real choice never looks like an empty field. */
+.sh-newbox-chips[data-tiles] .sh-newbox-chip {
+  min-height: 72px;
+  padding: var(--sh-gap-3) var(--sh-gap-4);
+}
+
+.sh-newbox-chips[data-tiles] .sh-newbox-chip__text {
+  gap: 2px;
+  color: var(--sh-text);
+  font-size: var(--sh-type-body-lg);
+}
+
+/* Phone: a tile's icon sits above its words and the check mark in its corner, so "Just the token" and "New
+   collection" each keep one line at 375 px (SH-V2-FE3). */
+@media (max-width: 30rem) {
+  .sh-newbox-chips[data-tiles] .sh-newbox-chip {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 4px;
+    padding: var(--sh-gap-3);
+  }
+
+  .sh-newbox-chips[data-tiles] .sh-newbox-check {
+    position: absolute;
+    top: var(--sh-gap-2);
+    right: var(--sh-gap-2);
+  }
+}
+
+.sh-newbox-chip__icon {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  color: var(--sh-accent);
+}
+
+.sh-newbox-check {
+  flex: none;
+  color: var(--sh-accent);
+}
+
+/* ── File pickers: the native input covers its button ──────── */
+.sh-newbox-pick {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sh-gap-2);
+}
+
+.sh-newbox-pick__button {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.sh-newbox-pick__button[data-busy] {
+  color: var(--sh-text-muted);
+}
+
+.sh-newbox-file {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.sh-newbox-pick__button:has(.sh-newbox-file:focus-visible) {
+  outline: 3px solid var(--sh-focus-ring);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 7px var(--sh-focus-halo);
+}
+
+.sh-newbox-thumb {
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-small);
+  background: var(--sh-surface-raised);
+  /* SH-BOX-PICTURE-FIT: the picked picture whole, a wide cover too. */
+  object-fit: contain;
+}
+
+/* SH-BOX-PICTURE-FIT: where the pictures show, drawn as the site draws them: the icon (a square) and the feed card. */
+.sh-newbox-slots {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--sh-gap-4);
+  margin-top: var(--sh-gap-2);
+}
+
+.sh-newbox-slot {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  margin: 0;
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+}
+
+.sh-newbox-slot .sh-newbox-slot__frame {
+  width: 72px;
+  border: 1px solid var(--sh-border);
+  border-radius: 12px;
+}
+
+/* Fix round af2 (review M2): the icon's square frame and the token's round mark side by side, the same upload. */
+.sh-newbox-slot__pair {
+  display: flex;
+  align-items: center;
+  gap: var(--sh-gap-2);
+}
+
+.sh-newbox-slot[data-slot='card'] .sh-newbox-slot__frame {
+  width: 168px;
+  border-radius: var(--sh-radius-card);
+}
+
+.sh-newbox-status {
+  margin: 0;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Empty: out of sight but still in the page, so the live region announces what it says next. */
+.sh-newbox-status:empty {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.sh-newbox-problems {
+  display: grid;
+  gap: var(--sh-gap-1);
+  margin: 0;
+  padding: var(--sh-gap-3) var(--sh-gap-3) var(--sh-gap-3) var(--sh-gap-6);
+  border: 1px solid var(--sh-negative);
+  border-radius: var(--sh-radius-control);
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+  overflow-wrap: anywhere;
+}
+
+.sh-newbox-thumbs {
+  display: flex;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-newbox-thumbs img {
+  display: block;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--sh-radius-small);
+  object-fit: cover;
+}
+
+/* ── More (details) ────────────────────────────────────────── */
+.sh-newbox-more {
+  border-top: 1px solid var(--sh-border);
+}
+
+.sh-newbox-more > summary {
+  display: flex;
+  align-items: center;
+  min-height: var(--sh-touch-target);
+  color: var(--sh-text-secondary);
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: var(--sh-radius-small);
+}
+
+/* A flex summary drops the native marker: draw the app's chevron (accounts.css), turned when open. */
+.sh-newbox-more > summary::before {
+  content: '';
+  flex: none;
+  width: 7px;
+  height: 7px;
+  margin: 0 8px 0 2px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform var(--sh-duration-fast) var(--sh-ease);
+}
+
+.sh-newbox-more[open] > summary::before {
+  transform: rotate(45deg);
+}
+
+.sh-newbox-more > summary::-webkit-details-marker {
+  display: none;
+}
+
+.sh-newbox-more[open] > summary {
+  margin-bottom: var(--sh-gap-4);
+}
+
+.sh-newbox-more[open] > :not(summary) + :not(summary) {
+  margin-top: var(--sh-gap-4);
+}
+
+.sh-newbox-toggle {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sh-gap-2) var(--sh-gap-3);
+  min-height: var(--sh-touch-target);
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.sh-newbox-toggle input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--sh-action);
+}
+
+.sh-newbox-toggle small {
+  flex-basis: 100%;
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 600;
+}
+
+.sh-newbox-toggle[data-disabled] {
+  color: var(--sh-text-muted);
+  cursor: not-allowed;
+}
+
+.sh-newbox-specials {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-3);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.sh-newbox-specials__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 88px var(--sh-touch-target);
+  align-items: end;
+  gap: var(--sh-gap-2);
+}
+
+.sh-newbox-mini {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-1);
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+}
+
+.sh-newbox-remove {
+  width: var(--sh-touch-target);
+  padding: 0;
+}
+
+.sh-newbox-specials > .sh-button {
+  align-self: flex-start;
+}
+
+/* ── Lines with an (i) ─────────────────────────────────────── */
+.sh-newbox-line > p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sh-gap-1);
+  margin: 0;
+  color: var(--sh-text-secondary);
+  font-weight: 650;
+}
+
+.sh-newbox-line--tax > p {
+  color: var(--sh-warning);
+}
+
+/* ── Error summary ─────────────────────────────────────────── */
+.sh-newbox-summary {
+  padding: var(--sh-gap-3) var(--sh-gap-4);
+  border: 2px solid var(--sh-negative);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface);
+}
+
+.sh-newbox-summary__title {
+  margin: 0 0 var(--sh-gap-2);
+  font-weight: 750;
+}
+
+.sh-newbox-summary ul {
+  display: grid;
+  gap: var(--sh-gap-1);
+  margin: 0;
+  padding-left: var(--sh-gap-6);
+}
+
+.sh-newbox-summary a {
+  color: var(--sh-negative);
+  font-weight: 650;
+}
+
+.sh-newbox-summary__detail code {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+}
+
+/* ── Review ────────────────────────────────────────────────── */
+.sh-newbox-card {
+  grid-template-columns: minmax(0, 240px);
+}
+
+.sh-newbox-rows {
+  display: grid;
+  margin: 0;
+  border-top: 1px solid var(--sh-border);
+}
+
+.sh-newbox-row {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr) var(--sh-touch-target);
+  align-items: center;
+  min-height: var(--sh-touch-target);
+  border-bottom: 1px solid var(--sh-border);
+}
+
+.sh-newbox-row dt {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+}
+
+.sh-newbox-row dd {
+  margin: 0;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.sh-newbox-row > dd:only-of-type {
+  grid-column: 2 / 4;
+}
+
+.sh-newbox-row__change {
+  justify-self: end;
+}
+
+.sh-newbox-icon-link {
+  display: inline-grid;
+  place-items: center;
+  width: var(--sh-touch-target);
+  height: var(--sh-touch-target);
+  border-radius: var(--sh-radius-control);
+  color: var(--sh-accent);
+}
+
+.sh-newbox-icon-link:hover {
+  background: var(--sh-surface-raised);
+}
+
+.sh-newbox-reveal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sh-gap-2);
+}
+
+.sh-newbox-duplicate {
+  margin: 0;
+  padding: var(--sh-gap-2) var(--sh-gap-3);
+  border: 1px solid var(--sh-warning);
+  border-radius: var(--sh-radius-control);
+  color: var(--sh-text);
+  font-weight: 650;
+}
+
+.sh-newbox-hash {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sh-gap-2);
+  margin: 0;
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-small);
+}
+
+.sh-newbox-hash code {
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-caption);
+  overflow-wrap: anywhere;
+}
+
+.sh-newbox-spec > .sh-button {
+  align-self: flex-start;
+}
+
+/* ── v2: Basics, Contents, Box kind, Opening, Overview ─────── */
+.sh-newbox-more__note {
+  margin-left: var(--sh-gap-2);
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 600;
+}
+
+/* The banner as it will show: full width at 4:1, so its crop can be judged before Create. */
+.sh-newbox-wide-preview {
+  display: block;
+  width: 100%;
+  max-height: 120px;
+  aspect-ratio: 4;
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-small);
+  object-fit: cover;
+}
+
+.sh-newbox-thumb--banner {
+  width: 64px;
+  height: 16px;
+}
+
+.sh-newbox-thumb--small {
+  width: 32px;
+  height: 32px;
+}
+
+.sh-newbox-fact-row {
+  display: flex;
+  align-items: center;
+  gap: var(--sh-gap-2);
+}
+
+/* The target (F74 U5): one raise for every box, a fact with every digit, never a choice. */
+.sh-newbox-target {
+  flex-wrap: wrap;
+}
+
+.sh-newbox-target__value {
+  color: var(--sh-text);
+  font-size: var(--sh-type-body-lg);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* A value with its note beside it (the Overview's holder payout): wraps under it on a phone. */
+.sh-newbox-value-note {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: var(--sh-gap-2);
+}
+
+/* "Pending legal review" beside a holder payout offered early (F74 U1): words, never colour alone. */
+.sh-newbox-pending {
+  margin: 0;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-caption);
+  font-weight: 650;
+}
+
+/* Teasers chosen: each labelled "Teaser", each removable. */
+.sh-newbox-teasers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sh-gap-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-newbox-teasers li {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+}
+
+.sh-newbox-teasers img {
+  display: block;
+  width: 64px;
+  height: 64px;
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-small);
+  object-fit: cover;
+}
+
+.sh-newbox-teasers__label {
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-caption);
+  font-weight: 700;
+}
+
+/* Coming later: cards, not controls. */
+.sh-newbox-later {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-2);
+}
+
+.sh-newbox-later h2 {
+  margin: 0;
+}
+
+.sh-newbox-later ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--sh-gap-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-newbox-later__card {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--sh-gap-2) var(--sh-gap-3);
+  border: 1px dashed var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  color: var(--sh-text-secondary);
+}
+
+.sh-newbox-later__title,
+.sh-newbox-later__line,
+.sh-newbox-later__badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sh-gap-1);
+  margin: 0;
+}
+
+.sh-newbox-later__title strong {
+  color: var(--sh-text);
+}
+
+.sh-newbox-later__line {
+  font-size: var(--sh-type-small);
+}
+
+/* Static labels (an icon and words, no pill), so they never read as toggles in a card that is not a control. */
+.sh-newbox-later__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 700;
+}
+
+.sh-newbox-later__badge[data-verified] {
+  color: var(--sh-text-secondary);
+}
+
+/* Box kind: one fieldset per fee side. */
+.sh-newbox-side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-3);
+  min-width: 0;
+  margin: 0;
+  padding: var(--sh-gap-3) 0 0;
+  border: 0;
+  border-top: 1px solid var(--sh-border);
+}
+
+.sh-newbox-side__legend {
+  display: flex;
+  align-items: center;
+  gap: var(--sh-gap-1);
+  padding: 0;
+  color: var(--sh-text);
+  font-weight: 750;
+}
+
+/* The sell flag's live region: always in the page, out of sight while empty (no gap in the side's column). */
+.sh-newbox-side__live:empty {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+/* A sell (F70): one plain line, an icon and words, never colour alone. */
+.sh-newbox-flag,
+.sh-newbox-warnings li {
+  display: flex;
+  align-items: center;
+  gap: var(--sh-gap-2);
+  margin: 0;
+  color: var(--sh-warning);
+  font-size: var(--sh-type-small);
+  font-weight: 700;
+}
+
+.sh-newbox-flag::before,
+.sh-newbox-warnings li::before {
+  /* The icon is decoration: the words carry the meaning (an empty alternative keeps "!" out of the accessible text). */
+  content: '!';
+  content: '!' / '';
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  font-size: var(--sh-type-caption);
+}
+
+.sh-newbox-warnings {
+  display: grid;
+  gap: var(--sh-gap-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-newbox-rights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-1);
+}
+
+.sh-newbox-rights__row {
+  display: flex;
+  align-items: center;
+  gap: var(--sh-gap-1);
+}
+
+/* Overview: one group per step, its Edit link on the right. */
+.sh-newbox-group__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sh-gap-2);
+}
+
+.sh-newbox-group h2 {
+  margin: 0;
+  color: var(--sh-text);
+  font-size: var(--sh-type-body);
+  font-weight: 750;
+}
+
+.sh-newbox-group__fix {
+  color: var(--sh-negative);
+}
+
+.sh-newbox-edit {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sh-gap-1);
+  min-height: var(--sh-touch-target);
+  padding: 0 var(--sh-gap-2);
+  border-radius: var(--sh-radius-control);
+  color: var(--sh-accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.sh-newbox-edit:hover {
+  background: var(--sh-surface-raised);
+}
+
+/* Overview rows: a 112 px label column, so "Your address" and "Sellers’ fees" stay on one line; a gap after it, so
+   a label as wide as the column ("Your BNB at start") does not run into its value. */
+.sh-newbox-group .sh-newbox-row,
+.sh-newbox-overview-owner .sh-newbox-row {
+  grid-template-columns: 112px minmax(0, 1fr);
+  column-gap: var(--sh-gap-2);
+}
+
+/* About as the spec holds it: two lines, "More" for the rest. */
+.sh-newbox-about {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--sh-gap-1) 0;
+}
+
+.sh-newbox-clamp {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.sh-newbox-clamp[data-open] {
+  display: block;
+  -webkit-line-clamp: unset;
+  line-clamp: none;
+}
+
+.sh-newbox-about .sh-newbox-text-button {
+  min-height: 32px;
+  padding: 0;
+}
+
+/* The collection page row: the banner and each teaser as a thumbnail, each teaser tagged, then the link. */
+.sh-newbox-page-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sh-gap-2);
+  padding: var(--sh-gap-1) 0;
+}
+
+.sh-newbox-page-row__teaser {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.sh-newbox-page-row__teaser small {
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-caption);
+  font-weight: 700;
+}
+
+.sh-newbox-page-row__link {
+  flex-basis: 100%;
+}
+
+.sh-newbox-value-info {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sh-gap-1);
+}
+
+.sh-newbox-cost p {
+  display: flex;
+  align-items: center;
+  gap: var(--sh-gap-1);
+  margin: 0;
+  color: var(--sh-text);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.sh-newbox-cost {
+  flex-basis: 100%;
+}
+
+.sh-newbox-fixed {
+  display: grid;
+  gap: var(--sh-gap-2);
+  margin: 0;
+}
+
+.sh-newbox-fixed > div {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: var(--sh-gap-2);
+}
+
+.sh-newbox-fixed dt {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+}
+
+.sh-newbox-fixed dd {
+  margin: 0;
+  font-size: var(--sh-type-small);
+}
+
+.sh-newbox-uri pre {
+  margin: 0;
+  padding: var(--sh-gap-3);
+  overflow-x: auto;
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface);
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-caption);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* ── Wide screens: the form and a sticky preview ───────────── */
+@media (min-width: 641px) {
+  .sh-newbox-steps__label {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+  }
+
+  .sh-newbox-steps__link {
+    padding: 0 var(--sh-gap-2);
+  }
+
+  .sh-newbox-steps__count {
+    display: none;
+  }
+
+  .sh-newbox__bar {
+    position: static;
+    margin: 0;
+    padding: var(--sh-gap-4) 0 0;
+    background: none;
+  }
+
+  .sh-newbox__next,
+  .sh-newbox-action > .sh-button--primary {
+    flex: 0 0 auto;
+    min-width: 160px;
+  }
+
+  .sh-newbox-chips[data-stack] .sh-newbox-chip {
+    flex: 1 1 140px;
+  }
+
+  .sh-newbox-cost {
+    flex-basis: auto;
+    align-self: center;
+  }
+
+  /* The bar is not sticky here. */
+  html:has(.sh-newbox) {
+    scroll-padding-bottom: 0;
+  }
+}
+
+@media (min-width: 1025px) {
+  .sh-newbox__layout {
+    grid-template-columns: minmax(0, 560px) minmax(280px, 320px);
+    align-items: start;
+  }
+
+  .sh-newbox__preview {
+    position: sticky;
+    top: calc(var(--sh-topbar-h) + var(--sh-gap-4));
+    display: block;
+    min-width: 0;
+  }
+
+  .sh-newbox__preview .sh-newbox-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Review: the card moves to the sticky side; the box page preview opens full width under the form. */
+  .sh-newbox__form .sh-newbox-card {
+    display: none;
+  }
+}
+
+.sh-newbox-page-preview > summary {
+  font-size: var(--sh-type-body-lg);
+}
+
+/* Beside the card: the box page's stats, two by two (the side is narrower than the page). */
+.sh-newbox-stats-preview {
+  margin-top: var(--sh-gap-3);
+}
+
+.sh-newbox-stats-preview .sh-box-stats {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.sh-newbox-stats-preview .sh-box-stats--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* SH-AI-PLAN: the plan guide (/create/plan): an example plan and the prompt, wrapped so the page never scrolls sideways. */
+.sh-plan-guide {
+  max-width: 760px;
+}
+
+.sh-plan-guide__part {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-3);
+  padding: var(--sh-gap-4);
+}
+
+.sh-plan-guide__part .sh-copy {
+  align-self: flex-start;
+}
+
+.sh-plan-guide__title {
+  margin: 0;
+  font-size: var(--sh-type-body-lg);
+  font-weight: 700;
+}
+
+.sh-plan-guide__code {
+  margin: 0;
+  padding: var(--sh-gap-3);
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface-raised);
+  color: var(--sh-text);
+  font-size: var(--sh-type-small);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.sh-plan-guide__rules {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-1);
+  margin: 0;
+  padding-inline-start: 1.2em;
+}
+
+.sh-plan-guide__line {
+  margin: 0;
+  color: var(--sh-text-secondary);
+}

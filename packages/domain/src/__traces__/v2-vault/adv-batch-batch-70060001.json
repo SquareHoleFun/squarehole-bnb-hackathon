@@ -1,0 +1,21 @@
+{
+  "schema": "squarehole.vault-trace/v2",
+  "id": "adv-batch-batch-70060001",
+  "family": "adversarial",
+  "name": "batch-vs-single/batch",
+  "purpose": "The same 5 tickets taken and handed back as one batch each way (compare with the single trace of the same seed).",
+  "acceptance": ["VLT-07","VLT-06"],
+  "seed": "0x70060001",
+  "generator": "packages/domain/src/test-support/vault-trace (v2 T06, placeholder tickets stage 1) v2",
+  "policy": {"lastMisfit":"block-last","unsolicitedFit":"quote-neutral","unsolicitedMisfit":"refuse","conversionFees":"none","selection":"tickets"},
+  "collectionSize": 27,
+  "initialSupply": "270000267402",
+  "accounts": ["alice","bob","carol","fees"],
+  "checkpoints": {},
+  "initial": {"supply":"270000267402","escrow":"0","unsolicited":"0","vaultFit":"0","active":"270000267402","inside":27,"outside":0,"hidden":27,"tickets":0,"gateOpen":false,"revealed":0,"burned":"0","claimsReserve":"0","balances":{"alice":"270000000021","bob":"215889","carol":"353","fees":"51139"},"claimable":{"alice":"0","bob":"0","carol":"0","fees":"0"},"nftCounts":{"alice":0,"bob":0,"carol":0,"fees":0},"ticketCounts":{"alice":0,"bob":0,"carol":0,"fees":0},"custodyChanges":{},"quoteWithdraw1":{"ok":"10000009904"},"quoteReturn1":{"error":"invalid_quantity"},"quoteTake1":{"ok":"10000009904"},"rate":{"num":"90000089134","den":"9"},"obligation":{"num":"0","den":"1"},"surplus":{"num":"0","den":"1"},"envelope":{"num":"270000267402","den":"1"},"identities":{"En":"0","mA":"0","Kn":"0","Sn":"7290007219854","NA":"7290007219854","held":"270000267402","issued":"270000267402","vaultFitN":"0"}},
+  "steps": [
+    {"op":{"op":"take","owner":"alice","count":5},"outcome":{"ok":{"principal":"50000049519","fee":"0","ids":[0,1,2,3,4]}},"state":{"supply":"270000267402","escrow":"50000049519","unsolicited":"0","vaultFit":"50000049519","active":"220000217883","inside":22,"outside":5,"hidden":22,"tickets":5,"gateOpen":false,"revealed":0,"burned":"0","claimsReserve":"0","balances":{"alice":"219999950502","bob":"215889","carol":"353","fees":"51139"},"claimable":{"alice":"0","bob":"0","carol":"0","fees":"0"},"nftCounts":{"alice":0,"bob":0,"carol":0,"fees":0},"ticketCounts":{"alice":5,"bob":0,"carol":0,"fees":0},"custodyChanges":{"ticket:alice":[0,1,2,3,4]},"quoteWithdraw1":{"ok":"10000009904"},"quoteReturn1":{"ok":"10000009903"},"quoteTake1":{"ok":"10000009904"},"rate":{"num":"220000217883","den":"22"},"obligation":{"num":"1100001089415","den":"22"},"surplus":{"num":"3","den":"22"},"envelope":{"num":"5940005882841","den":"22"},"identities":{"En":"1100001089418","mA":"1100001089415","Kn":"3","Sn":"5940005882844","NA":"5940005882841","held":"270000267402","issued":"270000267402","vaultFitN":"1100001089418"}}},
+    {"op":{"op":"release","owner":"alice","ids":[0,1,2,3,4]},"outcome":{"ok":{"principal":"50000049518","fee":"0"}},"state":{"supply":"270000267402","escrow":"1","unsolicited":"0","vaultFit":"1","active":"270000267401","inside":27,"outside":0,"hidden":27,"tickets":0,"gateOpen":false,"revealed":0,"burned":"0","claimsReserve":"0","balances":{"alice":"270000000020","bob":"215889","carol":"353","fees":"51139"},"claimable":{"alice":"0","bob":"0","carol":"0","fees":"0"},"nftCounts":{"alice":0,"bob":0,"carol":0,"fees":0},"ticketCounts":{"alice":0,"bob":0,"carol":0,"fees":0},"custodyChanges":{"vault":[0,1,2,3,4]},"quoteWithdraw1":{"ok":"10000009904"},"quoteReturn1":{"error":"invalid_quantity"},"quoteTake1":{"ok":"10000009904"},"rate":{"num":"270000267401","den":"27"},"obligation":{"num":"0","den":"1"},"surplus":{"num":"1","den":"1"},"envelope":{"num":"270000267401","den":"1"},"identities":{"En":"27","mA":"0","Kn":"27","Sn":"7290007219854","NA":"7290007219827","held":"270000267402","issued":"270000267402","vaultFitN":"27"}}}
+  ],
+  "final": {"outside":{},"tickets":{}}
+}

@@ -1,0 +1,7 @@
+{
+  "launcher": "0xe1c1312A4e27722EA8ecab1a8C858Ff634DbeaD5",
+  "raiseWei": 50000000000000000,
+  "salt": "0x4d99c7415cb9fae06a1b0876b9cf5f42d34afb29c5c2572b782578e72d339d30",
+  "token": "0xd70b90722e39a073C6DFC927bDaa8BC7b1967777",
+  "viaPortal": true
+}

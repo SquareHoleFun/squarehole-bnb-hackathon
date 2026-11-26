@@ -1,0 +1,27 @@
+node_modules/
+dist/
+coverage/
+.vite/
+*.tsbuildinfo
+.DS_Store
+playwright-report/
+test-results/
+apps/web/e2e/.artifacts/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+.claude/worktrees/
+# Local chain runs (pnpm dev:local, chain E2E): manifests and chain descriptions of throwaway anvil chains.
+.local/
+apps/web/e2e/.chain/
+apps/web/e2e/.artifacts-chain/
+apps/web/dist-chain/
+apps/web/e2e/.core-chain/
+apps/web/e2e/.artifacts-core-chain/
+apps/web/dist-core-chain/
+# Local wrangler state (pages dev, functions build)
+.wrangler/
+# Local scratch: test workspaces moved to .cache/trash (box 0 exporter tests hold test keys and key shares).
+.cache/

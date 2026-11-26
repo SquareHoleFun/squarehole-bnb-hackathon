@@ -1,0 +1,3 @@
+# check.mjs compares these byte for byte with a fresh build, so git must never convert their line endings.
+art/** -text
+settings/** -text

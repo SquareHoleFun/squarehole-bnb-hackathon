@@ -1,0 +1,402 @@
+/*
+ * App frame (SH-003). Breakpoints: ≥1025px sidebar · 641–1024px icon rail · ≤640px compact disclosure menu.
+ * Budgets from 02-DESIGN: top bar 64px (desktop) / 56px row (mobile), sidebar 192px, main padding 24px / 16px.
+ */
+.sh-app {
+  display: grid;
+  grid-template-columns: var(--sh-sidebar-w) minmax(0, 1fr);
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    'top top'
+    'nav main'
+    'nav foot';
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* ── Skip link ─────────────────────────────────────────────── */
+.sh-skip-link {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  z-index: var(--sh-z-skip);
+  padding: 12px 16px;
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface-raised);
+  color: var(--sh-text);
+  font-weight: var(--sh-weight-bold);
+  transform: translateY(-200%);
+}
+
+.sh-skip-link:focus {
+  transform: none;
+}
+
+/* ── Top bar ───────────────────────────────────────────────── */
+.sh-topbar {
+  grid-area: top;
+  position: sticky;
+  top: 0;
+  z-index: var(--sh-z-header);
+  display: flex;
+  align-items: center;
+  gap: var(--sh-gap-4);
+  height: var(--sh-topbar-h);
+  padding: 0 var(--sh-main-pad) 0 var(--sh-gap-4);
+  background: var(--sh-canvas);
+  border-bottom: 1px solid var(--sh-border);
+}
+
+.sh-icon-button {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: var(--sh-touch-target);
+  height: var(--sh-touch-target);
+  padding: 0;
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface);
+  color: var(--sh-text);
+  cursor: pointer;
+}
+
+.sh-topbar__menu {
+  display: none;
+}
+
+.sh-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: none;
+  min-width: calc(var(--sh-sidebar-w) - var(--sh-gap-4));
+  border-radius: var(--sh-radius-control);
+  color: var(--sh-text);
+  text-decoration: none;
+}
+
+.sh-brand__logo {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.sh-brand__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.sh-brand__name {
+  font-size: 18px;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.sh-brand__tagline {
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-caption);
+  white-space: nowrap;
+}
+
+/*
+ * Header trigger for the one discovery search; the field itself lives in the feed controls (SH-006). Styled as a
+ * compact pill button (icon, "Search", "/" hint), never as a second text field.
+ */
+.sh-search-trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  height: 40px;
+  margin-left: auto;
+  padding: 0 8px 0 12px;
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-pill);
+  background: transparent;
+  color: var(--sh-text);
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+  cursor: pointer;
+  transition: border-color var(--sh-duration-fast) var(--sh-ease), background-color var(--sh-duration-fast) var(--sh-ease);
+}
+
+/* 44px-class hit area. */
+.sh-search-trigger::before {
+  content: '';
+  position: absolute;
+  inset: -3px; /* from the padding box: 40px + 2 × (3 − 1px border) = 44px */
+}
+
+.sh-search-trigger:hover {
+  border-color: var(--sh-accent);
+  background: var(--sh-surface);
+}
+
+.sh-search-trigger[data-on-feed='true'] .sh-search-trigger__text {
+  display: none;
+}
+
+.sh-search-trigger__text {
+  white-space: nowrap;
+}
+
+.sh-search-trigger__key {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  min-width: 24px;
+  height: 24px;
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-small);
+  background: var(--sh-surface-raised);
+  color: var(--sh-text-secondary);
+  font: 700 13px/1 var(--sh-font);
+}
+
+.sh-topbar__end {
+  display: flex;
+  align-items: center;
+  gap: var(--sh-gap-3);
+  flex: none;
+}
+
+/* Before the Terms are accepted the search trigger (which pushes the end group right) is left out (F19). */
+.sh-topbar[data-restricted='true'] .sh-topbar__end {
+  margin-left: auto;
+}
+
+/* F166 af2: the Sepolia alpha's setup chip's place; empty (and no gap) until the chip shows. */
+.sh-topbar__setup:empty {
+  display: none;
+}
+
+/* SH-275: the open site's way to the join page, in the same place, drawn as the setup chip's button. */
+.sh-topbar__join {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--sh-touch-target);
+  padding: 0 0.875rem;
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-pill);
+  background: var(--sh-surface);
+  color: var(--sh-text);
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.sh-topbar__join:hover {
+  background: var(--sh-surface-raised);
+}
+
+/* SH-277: the icon shows only on a phone (shell-responsive.css); elsewhere the words. */
+.sh-topbar__join-icon {
+  display: none;
+}
+
+/* Conspicuous Demo badge (D07, UI-04). */
+.sh-source-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 0 var(--sh-gap-3);
+  border: 1px solid var(--sh-warning);
+  border-radius: var(--sh-radius-pill);
+  background: var(--sh-demo-bg);
+  color: var(--sh-warning);
+  font-size: var(--sh-type-label);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.sh-source-badge strong {
+  font-weight: 800;
+}
+
+.sh-source-badge__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sh-warning);
+}
+
+.sh-source-badge__short {
+  display: none;
+}
+
+/* The Demo badge reads "Demo" at every width; " · mock data" stays for screen readers (text diet, 2026-10-01). */
+.sh-source-badge[data-source='demo'] .sh-source-badge__long {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.sh-source-badge[data-source='demo'] .sh-source-badge__short {
+  display: none;
+}
+
+.sh-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sh-gap-2);
+  min-height: var(--sh-touch-target);
+  padding: 0 var(--sh-gap-4);
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface-raised);
+  color: var(--sh-text);
+  font-weight: 650;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color var(--sh-duration-fast) var(--sh-ease);
+}
+
+.sh-button--primary {
+  border-color: transparent;
+  background: var(--sh-action);
+  color: var(--sh-on-action);
+  box-shadow: 0 6px 20px rgba(109, 74, 226, 0.35);
+}
+
+.sh-button--primary:hover {
+  background: var(--sh-action-hover);
+}
+
+/* Keep the base.css dark focus halo: this element's own shadow would otherwise replace it. */
+.sh-button--primary:focus-visible {
+  box-shadow:
+    0 0 0 7px var(--sh-focus-halo),
+    0 6px 20px rgba(109, 74, 226, 0.35);
+}
+
+/* ── Primary navigation ────────────────────────────────────── */
+.sh-nav {
+  grid-area: nav;
+  position: sticky;
+  top: var(--sh-topbar-h);
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-4);
+  height: calc(100vh - var(--sh-topbar-h));
+  height: calc(100dvh - var(--sh-topbar-h));
+  padding: var(--sh-gap-4) var(--sh-gap-3);
+  overflow-y: auto;
+  border-right: 1px solid var(--sh-border);
+}
+
+.sh-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-nav__link {
+  display: flex;
+  align-items: center;
+  gap: var(--sh-gap-3);
+  min-height: var(--sh-touch-target);
+  padding: 0 var(--sh-gap-3);
+  border-radius: var(--sh-radius-control);
+  color: var(--sh-text-secondary);
+  font-weight: var(--sh-weight-medium);
+  text-decoration: none;
+  transition: background-color var(--sh-duration-fast) var(--sh-ease);
+}
+
+.sh-nav__link:hover {
+  background: var(--sh-surface);
+  color: var(--sh-text);
+}
+
+/* Current page: fill, weight and an indicator bar, not colour alone. */
+.sh-nav__link[aria-current='page'] {
+  background: var(--sh-selected);
+  color: var(--sh-text);
+  font-weight: var(--sh-weight-bold);
+  box-shadow: inset 3px 0 0 var(--sh-accent);
+}
+
+.sh-nav__link[aria-current='page']:focus-visible {
+  box-shadow:
+    0 0 0 7px var(--sh-focus-halo),
+    inset 3px 0 0 var(--sh-accent);
+}
+
+.sh-nav__link[aria-current='page'] .sh-icon {
+  color: var(--sh-accent);
+}
+
+.sh-icon {
+  flex: none;
+}
+
+/* The mascot at the foot of the sidebar, without a blurb. */
+.sh-nav__card {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  padding: var(--sh-gap-3);
+}
+
+@media (max-height: 700px) {
+  .sh-nav__card {
+    display: none;
+  }
+}
+
+/* ── Main + footer ─────────────────────────────────────────── */
+.sh-main {
+  grid-area: main;
+  min-width: 0;
+  padding: var(--sh-main-pad);
+}
+
+/* Programmatic focus target for the skip link; the whole region needs no ring. */
+.sh-main:focus,
+.sh-main:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.sh-footer {
+  grid-area: foot;
+  padding: var(--sh-gap-4) var(--sh-main-pad) var(--sh-gap-6);
+  border-top: 1px solid var(--sh-border);
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-label);
+}
+
+/* SH-246: a part of a page that did not load (shell/PartFailed.tsx): its one line and Reload, where the part would be. */
+.sh-part-failed {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sh-gap-2) var(--sh-gap-3);
+  padding: var(--sh-gap-3) var(--sh-gap-4);
+}
+
+.sh-part-failed > p {
+  margin: 0;
+}
+
+/* Above a page (the setup step's place): the page's own header keeps its distance. */
+.sh-main > .sh-part-failed {
+  margin-bottom: var(--sh-gap-4);
+}

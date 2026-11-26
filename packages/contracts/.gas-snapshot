@@ -1,0 +1,8 @@
+GasTest:test_gas_baselinePlainDN404() (gas: 994867)
+GasTest:test_gas_feePathAndClaim() (gas: 2271209)
+GasTest:test_gas_firstAccrual() (gas: 1968868)
+GasTest:test_gas_repeatAccrual() (gas: 2223749)
+GasTest:test_gas_steady() (gas: 1110724)
+V4GasTest:test_gasV4_collection() (gas: 18664332)
+V4GasTest:test_gasV4_fungible() (gas: 12707561)
+V4GasTest:test_gasV4_lifecycle() (gas: 39349188)

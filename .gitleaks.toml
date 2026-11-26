@@ -1,0 +1,116 @@
+# Secret scanning: the default rules, plus one narrow allowlist for public, generated BoxSpec values.
+# Spec hashes and addresses (0x-prefixed hex) in the generated spec outputs trip generic-api-key when a
+# constant's name contains TOKEN (e.g. DEMO_TOKEN_ONLY_SPEC_HASH). The allowlist needs all of: rule
+# generic-api-key, a generated BoxSpec output path, and a value that is exactly 0x + 40 or 64 hex digits.
+# Tested 2026-10-03: the spec hash is skipped; planted non-hex keys in the same file are still reported.
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Public BoxSpec hashes and addresses in generated spec outputs"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = [
+  '''packages/box-spec/src/generated/''',
+  '''packages/contracts/test/vectors/box-spec/''',
+  '''scripts/builder-kit/''',
+]
+regexTarget = "secret"
+regexes = ['''^0x[0-9a-fA-F]{40}$''', '''^0x[0-9a-fA-F]{64}$''']
+
+[[allowlists]]
+description = "Contract addresses in recorded local-chain fixtures and evidence logs (a field named token holding a 0x address)"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = [
+  '''apps/web/e2e/fixtures/''',
+  '''packages/indexer/test/fixtures/''',
+  '''docs/evidence/''',
+  '''packages/chain/test/fixtures/create-v2/''',
+  '''packages/contracts/test/vectors/create-v2/''',
+  '''packages/indexer/test/core/stats-v2/''',
+  '''packages/chain/test/fixtures/create-starts/''',
+  '''packages/contracts/test/vectors/create-starts/''',
+]
+regexTarget = "secret"
+regexes = ['''^0x[0-9a-fA-F]{40}$''']
+
+[[allowlists]]
+description = "Contract addresses and code hashes in the set indexer's recorded startup snapshots (fields named token, SH-EXISTING-NFTS-E08B)"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = [
+  '''packages/indexer/test/core/set-v2/__snapshots__/''',
+]
+regexTarget = "secret"
+regexes = ['''^0x[0-9a-fA-F]{40}$''', '''^0x[0-9a-fA-F]{64}$''']
+
+[[allowlists]]
+description = "SHA-256 digests of test outputs in the indexer's RPC-load baseline (a field named api holding a 64-hex digest, SH-INDEXER-BATCH)"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = [
+  '''packages/indexer/test/core/rpc-load-baseline\.json''',
+]
+regexTarget = "secret"
+regexes = ['''^[0-9a-f]{64}$''']
+
+# Added 2026-11-18 (SH-213 package 13): the generated create-starts vectors, in the allowlist above (addresses) and
+# below (digests). Tested: the 140 findings in the package's commits (112 addresses in fields named token, 28 source
+# file digests in the two manifests) are skipped; two planted non-hex keys in the same folder, one of them inside
+# manifest.json, are still reported.
+[[allowlists]]
+description = "SHA-256 digests of source files in the create-starts vector manifests (a key that is a source file name such as PoolKey.sol or BoxTokenV2.sol holding a 64-hex digest, SH-213 package 13)"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = [
+  '''packages/chain/test/fixtures/create-starts/manifest\.json''',
+  '''packages/contracts/test/vectors/create-starts/manifest\.json''',
+  # Added 2026-11-19 (SH-213 package 16): the provenance record of the provisional factory inputs, source path to
+  # SHA-256 digest (16 findings on keys such as PoolKey.sol and BoxTokenV2.sol). Tested: the 16 are skipped; a planted
+  # non-hex key in the same file is still reported.
+  '''packages/chain/test/fixtures/release-starts/provisional-factory-inputs\.json''',
+]
+regexTarget = "secret"
+regexes = ['''^[0-9a-f]{64}$''']
+
+# Added 2026-11-20 (SH-213 package 19): two job keys in a keeper test fixture ("key: 'legacy-funded-1'" and
+# "key: 'legacy-residue-2'"), read by the generic rule as possible keys because the field is named key.
+# Tested: the two are skipped; a planted key of another shape in the same file is still reported.
+[[allowlists]]
+description = "Job keys of the live keeper's fixtures in the new keeper tests (a field named key holding legacy-<word>-<number>, SH-213 package 19)"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = [
+  '''packages/keeper/test/starts/process\.test\.ts''',
+]
+regexTarget = "secret"
+regexes = ['''^legacy-(funded|residue)-[0-9]+$''']
+
+# Added 2026-11-20 (SH-213 package 19, second design): one job key in a keeper test ("key: 'fixture/payFit'"), read by
+# the generic rule as a possible key because the field is named key. Tested: it is skipped; a planted key of another
+# shape in the same file is still reported.
+[[allowlists]]
+description = "Job keys in the reduced keeper's tests (a field named key holding fixture/<word>, SH-213 package 19 R2)"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = [
+  '''packages/keeper/test/starts/[a-z-]+\.test\.ts''',
+]
+regexTarget = "secret"
+regexes = ['''^fixture/[A-Za-z]+$''']
+
+# Added 2026-11-20 (SH-213 package 14): the SHA-256 of a source file in a guard table of the factory
+# ("sourceHashes": { "packages/contracts/src/.../PricingToken.sol": "<64 hex>" }), read by the generic rule as a
+# possible key because the file's name contains Token. Checked for the reported line: the value equals the SHA-256 of
+# the named file at that commit. Tested: the line is skipped; a planted key of another shape in the same file, and
+# 64 hex characters under a field that is not a source path, are still reported.
+[[allowlists]]
+description = "Source file hashes in the factory's guard tables (a repository path ending in .sol with its SHA-256, SH-213 package 14)"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = [
+  '''packages/contracts/test/box-v2/starts/[a-z0-9-]+-guards\.json''',
+]
+regexTarget = "line"
+regexes = ['''^\s*"packages/contracts/src/[A-Za-z0-9_./-]+\.sol":\s*"[0-9a-f]{64}",?\s*$''']

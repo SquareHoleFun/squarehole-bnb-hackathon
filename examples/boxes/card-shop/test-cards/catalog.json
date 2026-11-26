@@ -1,0 +1,187 @@
+{
+  "format": "squarehole.test-card-art/1",
+  "visibility": "public",
+  "pictureRule": "token id n shows picture (n - 1) mod 4 + 1",
+  "collections": [
+    {
+      "key": "common-cards",
+      "name": "Test Trading Cards Common",
+      "symbol": "tCARDC",
+      "tier": "0",
+      "rarity": "Common",
+      "items": [
+        {
+          "id": "1",
+          "name": "Pebble",
+          "number": "01/16",
+          "path": "art/common-cards/1.png",
+          "sha256": "0x2642d7cae96fa300cd7291fdab620441be1b176f8ecd215ad35b7b97bf9d24c8",
+          "cid": "bafkreibgill4v2lpumam24ur7wvwebcbxynro34ozuqvvu23pol37hjeza",
+          "bytes": 28368
+        },
+        {
+          "id": "2",
+          "name": "Acorn",
+          "number": "02/16",
+          "path": "art/common-cards/2.png",
+          "sha256": "0x7c8ee2ae02c1e4caadc7c9eff0df42a764fcfdf3fd078f81fa08fcc315bc533e",
+          "cid": "bafkreid4r3rk4awb4tfk3r6j57yn6qvhmt6p3475a6hyd6qi7tbrlpcthy",
+          "bytes": 27178
+        },
+        {
+          "id": "3",
+          "name": "Teacup",
+          "number": "03/16",
+          "path": "art/common-cards/3.png",
+          "sha256": "0xf6cb1add18af9bcc0bf32e2f1c593b755f7021aef62bb4c50ea3bacdf3ec7edc",
+          "cid": "bafkreihwzmnn2gfptpgax4zof4ofso3vl5ycdlxwfo2mkdvdxlg7h3d63q",
+          "bytes": 31175
+        },
+        {
+          "id": "4",
+          "name": "Paper Boat",
+          "number": "04/16",
+          "path": "art/common-cards/4.png",
+          "sha256": "0xcc49fee07ae72c5c31210d14a8137cb33d578dec9253568855f10e46318c74cc",
+          "cid": "bafkreigmjh7oa6xhfrodciincsubg7fthvly33esknliqvprbzddddduzq",
+          "bytes": 28518
+        }
+      ]
+    },
+    {
+      "key": "uncommon-cards",
+      "name": "Test Trading Cards Uncommon",
+      "symbol": "tCARDU",
+      "tier": "1",
+      "rarity": "Uncommon",
+      "items": [
+        {
+          "id": "1",
+          "name": "Lantern",
+          "number": "05/16",
+          "path": "art/uncommon-cards/1.png",
+          "sha256": "0x832c6270cb92a814d5f0460f4c01998ea4599e2409a5dc1aa3a4ba8512ca73c4",
+          "cid": "bafkreiedfrrhbs4svaknl4cgb5gadgmourmz4jajuxobvi5exkcrfsttyq",
+          "bytes": 31844
+        },
+        {
+          "id": "2",
+          "name": "Compass",
+          "number": "06/16",
+          "path": "art/uncommon-cards/2.png",
+          "sha256": "0xd8c3136380ee99cc8c9cc5bebad7713a1024e108b79db6985fd676ef7d73285b",
+          "cid": "bafkreigyymjwhahothgizhgfx25no4j2casoccfxtw3jqx6wo3xx24zilm",
+          "bytes": 38376
+        },
+        {
+          "id": "3",
+          "name": "Kite",
+          "number": "07/16",
+          "path": "art/uncommon-cards/3.png",
+          "sha256": "0xe251c378e0ac33252d5a67d4a41697b8a917d455e3015b24727ad89b5f358cf4",
+          "cid": "bafkreihckhbxryfmgmss2wth2ssbnf5yvel5ivpdafnsi4t23cnv6nmm6q",
+          "bytes": 30356
+        },
+        {
+          "id": "4",
+          "name": "Hourglass",
+          "number": "08/16",
+          "path": "art/uncommon-cards/4.png",
+          "sha256": "0x999435c237b8f2085f7b95e651d8680bbcc6da91e4782c1e613ef8ce81065ad7",
+          "cid": "bafkreiezsq24en5y6ief664v4zi5q2alxtdnvepepawb4yj67dhicbs224",
+          "bytes": 34878
+        }
+      ]
+    },
+    {
+      "key": "rare-cards",
+      "name": "Test Trading Cards Rare",
+      "symbol": "tCARDR",
+      "tier": "2",
+      "rarity": "Rare",
+      "items": [
+        {
+          "id": "1",
+          "name": "Comet",
+          "number": "09/16",
+          "path": "art/rare-cards/1.png",
+          "sha256": "0xda4853e74522df95e2afc085a0b700e2d7c59ee1210a4235173431593e5c5473",
+          "cid": "bafkreig2jbj6orjc36k6fl6aqwqloahc27cz5yjbbjbdkfzugfmt4xcuom",
+          "bytes": 30656
+        },
+        {
+          "id": "2",
+          "name": "Crystal",
+          "number": "10/16",
+          "path": "art/rare-cards/2.png",
+          "sha256": "0xf3eeaabfc13aa9001c4650cd9b4ebc15a8a6e71cc0e3b643e871a64edca3a233",
+          "cid": "bafkreiht52vl7qj2veabyrsqzwnu5pavvctoohga4o3eh2druzhnzi5cgm",
+          "bytes": 36670
+        },
+        {
+          "id": "3",
+          "name": "Lighthouse",
+          "number": "11/16",
+          "path": "art/rare-cards/3.png",
+          "sha256": "0x07e13037e63b86981ae1a4ed37dd8f8f20f5c50a6f7e5b8072be9f5d3d8859c3",
+          "cid": "bafkreiah4eydpzr3q2mbvyne5u353d4ped24kctppznya4v6t5ot3cczym",
+          "bytes": 31152
+        },
+        {
+          "id": "4",
+          "name": "Anchor",
+          "number": "12/16",
+          "path": "art/rare-cards/4.png",
+          "sha256": "0x1edbf31f89175358fa05940608bac416c3b115df86861465f2259ba536b4556f",
+          "cid": "bafkreia63pzr7cixknmpubmuayelvrawyoyrlx4gqykgl4rftostnncvn4",
+          "bytes": 30674
+        }
+      ]
+    },
+    {
+      "key": "legendary-cards",
+      "name": "Test Trading Cards Legendary",
+      "symbol": "tCARDL",
+      "tier": "3",
+      "rarity": "Legendary",
+      "items": [
+        {
+          "id": "1",
+          "name": "Sun Crown",
+          "number": "13/16",
+          "path": "art/legendary-cards/1.png",
+          "sha256": "0x9530ab80f8f03508f6614a1775050a0c02e18ee8092a751a5565db656e8c77f8",
+          "cid": "bafkreievgcvyb6hqguepmykkc52qkcqmalqy52ajfj2ruvlf3nsw5ddx7a",
+          "bytes": 93777
+        },
+        {
+          "id": "2",
+          "name": "Moon Key",
+          "number": "14/16",
+          "path": "art/legendary-cards/2.png",
+          "sha256": "0x102b1683470453ba52f0a0a2fc311bf845c985363c1f54ae4c42362a36efdbe6",
+          "cid": "bafkreiaqfmligryeko5ff4faul6dcg7yixeyknr4d5kk4tccgyvdn3634y",
+          "bytes": 100023
+        },
+        {
+          "id": "3",
+          "name": "Star Map",
+          "number": "15/16",
+          "path": "art/legendary-cards/3.png",
+          "sha256": "0x84a8b2549ee8b11d64e165d11ee7206c818b61f1b1386a15b7c72ad88ab3eb7f",
+          "cid": "bafkreieevczfjhxiweowjylf2epooidmqgfwd4nrhbvbln6hflmivm7lp4",
+          "bytes": 83149
+        },
+        {
+          "id": "4",
+          "name": "Storm Bell",
+          "number": "16/16",
+          "path": "art/legendary-cards/4.png",
+          "sha256": "0x8c738551c91e2703b0481923f38bca6322c1179dbc79675a19ea2a782387f86f",
+          "cid": "bafkreiemoocvdsi6e4b3asazepzyxstdelarphn4pftvugpkfj4chb7yn4",
+          "bytes": 93072
+        }
+      ]
+    }
+  ]
+}

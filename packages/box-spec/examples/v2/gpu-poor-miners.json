@@ -1,0 +1,57 @@
+{
+  "$schema": "./schema.json",
+  "version": 1,
+  "id": "gpu-poor-miners",
+  "name": "GPU Poor Miners",
+  "ticker": "MINERS",
+  "status": "ready",
+  "template": {
+    "id": "collection",
+    "name": "Collection"
+  },
+  "priceCoin": {
+    "symbol": "NVDAon",
+    "decimals": "18"
+  },
+  "logo": "packages/chain/scripts/local-art/holders-cover.png",
+  "contents": {
+    "kind": "collection",
+    "size": "100",
+    "label": "Miners",
+    "art": {
+      "mode": "open",
+      "source": "packages/chain/scripts/local-art/stock-cover.png"
+    },
+    "seed": null,
+    "pickFeeBps": "100"
+  },
+  "raise": {
+    "policy": "listing-fixed",
+    "amount": "42069800850000000000"
+  },
+  "deadline": {
+    "days": "30"
+  },
+  "royalties": {
+    "bps": "0",
+    "destination": "none"
+  },
+  "fees": {
+    "buyers": {
+      "choice": "items-t",
+      "inside": "keep"
+    },
+    "sellers": {
+      "choice": "items-t",
+      "inside": "keep"
+    }
+  },
+  "life": "graduate",
+  "properties": [
+    "fee-conservation",
+    "page-state",
+    "own-pictures",
+    "graduation",
+    "item-claim"
+  ]
+}

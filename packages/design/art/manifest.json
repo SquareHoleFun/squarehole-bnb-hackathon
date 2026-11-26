@@ -1,0 +1,302 @@
+{
+  "schemaVersion": 1,
+  "description": "Deterministic crops of the approved reference PNGs (ADR-0004). Presentation assets for mock data only; not proof of any on-chain collection, ownership or endorsement.",
+  "generator": "scripts/extract-art.py",
+  "sourceDir": "square-hole-handoff/design/reference",
+  "outputDir": "packages/design/art",
+  "encoding": {
+    "format": "webp",
+    "quality": 90,
+    "method": 6,
+    "lossless": false
+  },
+  "sources": {
+    "feed.png": {
+      "sha256": "5d3242973e7bee30564e3cba89744f51927be371c68062bd13ac6987068c668f",
+      "width": 1672,
+      "height": 941
+    },
+    "launch.png": {
+      "sha256": "a3cea15a090163165d7e7a874d2f13acd2e6a6ce2e85f692cfdba5e49863892c",
+      "width": 1672,
+      "height": 941
+    },
+    "detail.png": {
+      "sha256": "fe85dca88d947da46483e9a55515b87ded64f17a776140a4837eac73b1e25300",
+      "width": 1672,
+      "height": 941
+    }
+  },
+  "assets": [
+    {
+      "id": "orchard-tree",
+      "source": "launch.png",
+      "box": [730, 830, 814, 914],
+      "output": "orchard-tree.webp",
+      "cast": null,
+      "use": "ORCHARD demo avatar (ordinary orchard tree)",
+      "alt": "Cartoon apple tree",
+      "notes": "Artwork strip tile 1 (ordinary).",
+      "width": 84,
+      "height": 84,
+      "bytes": 2806,
+      "sha256": "9daea3b3ccf5c70748330b873f7d2d54b9004c4b0a84053be70a1069a519aeb2"
+    },
+    {
+      "id": "orchard-tree-sunglasses",
+      "source": "launch.png",
+      "box": [826, 830, 910, 914],
+      "output": "orchard-tree-sunglasses.webp",
+      "cast": null,
+      "use": "ORCHARD collection gallery variant",
+      "alt": "Cartoon apple tree wearing sunglasses",
+      "notes": "Artwork strip tile 2 (sunglasses).",
+      "width": 84,
+      "height": 84,
+      "bytes": 2854,
+      "sha256": "43cb7d941d93bb15bc18fe721ae7e6e492518a84bba2946617269b9cd5743232"
+    },
+    {
+      "id": "orchard-tree-blossom",
+      "source": "launch.png",
+      "box": [922, 830, 1006, 914],
+      "output": "orchard-tree-blossom.webp",
+      "cast": null,
+      "use": "LITTLE ORCHARD demo avatar; ORCHARD gallery variant",
+      "alt": "Cartoon tree in pink blossom",
+      "notes": "Artwork strip tile 3 (blossom).",
+      "width": 84,
+      "height": 84,
+      "bytes": 3098,
+      "sha256": "3c8ba2eca6580df6393f3ec9b07346e11cc143b7bf3d93a6b1a9a1fb1acbf747"
+    },
+    {
+      "id": "orchard-tree-winter",
+      "source": "launch.png",
+      "box": [1019, 830, 1103, 914],
+      "output": "orchard-tree-winter.webp",
+      "cast": null,
+      "use": "ORCHARD collection gallery variant",
+      "alt": "Cartoon tree covered in snow wearing ski goggles",
+      "notes": "Artwork strip tile 4 (winter).",
+      "width": 84,
+      "height": 84,
+      "bytes": 3210,
+      "sha256": "808f60871de17a2d4680652c368f624ecd7dba7765f22621711188e219023694"
+    },
+    {
+      "id": "orchard-hero",
+      "source": "detail.png",
+      "box": [276, 71, 458, 222],
+      "output": "orchard-hero.webp",
+      "cast": null,
+      "use": "ORCHARD detail header artwork (M2)",
+      "alt": "Smiling cartoon apple tree beside a box with a glowing square hole",
+      "notes": "Larger ORCHARD tree from the detail header.",
+      "width": 182,
+      "height": 151,
+      "bytes": 7712,
+      "sha256": "72c17598a5e6b2747618010ab2e7781d6cabcc3ca5d45cc945462cc15a0f8d2c"
+    },
+    {
+      "id": "sorter",
+      "source": "feed.png",
+      "box": [20, 736, 116, 852],
+      "output": "sorter.webp",
+      "cast": "sorter",
+      "use": "The Sorter: launch guidance, empty states, sidebar card; MISFIT STUDIO demo avatar",
+      "alt": "The Sorter, a smiling lavender cube",
+      "notes": "Sidebar mascot; crop stops before the handwritten caption.",
+      "width": 96,
+      "height": 116,
+      "bytes": 2016,
+      "sha256": "38a5c129a415aacf5363111075a3e92ecabeb62f50a586de615bd815ea02cfd5"
+    },
+    {
+      "id": "square-hole-box",
+      "source": "feed.png",
+      "box": [1130, 237, 1470, 320],
+      "output": "square-hole-box.webp",
+      "cast": null,
+      "use": "Square-hole motif for the not-found page and empty states",
+      "alt": "Wooden box labelled Square Hole with a square opening",
+      "notes": "Feed hero box below the excluded coin, apple and portrait; the green toy cube is cut off on the right.",
+      "width": 340,
+      "height": 83,
+      "bytes": 5190,
+      "sha256": "d1e65e3098cf60aaacce697997e951db336e5aa5035e52a22219c73e86a1d448"
+    },
+    {
+      "id": "logo-tile",
+      "source": "feed.png",
+      "box": [17, 10, 72, 65],
+      "output": "logo-tile.webp",
+      "cast": null,
+      "use": "Brand tile in the top bar",
+      "alt": "",
+      "notes": "Top-left brand tile; decorative next to the wordmark.",
+      "width": 55,
+      "height": 55,
+      "bytes": 746,
+      "sha256": "8b07b5d5b817a804fac491941266c65be01d815b6c086de4aacef3e9696faddb"
+    },
+    {
+      "id": "platform-tile",
+      "source": "feed.png",
+      "box": [240, 140, 405, 305],
+      "output": "platform-tile.webp",
+      "cast": null,
+      "use": "Platform pin avatar (root asset)",
+      "alt": "Dark square tile with a glowing square hole",
+      "notes": "Featured-platform 3D tile from the feed hero.",
+      "width": 165,
+      "height": 165,
+      "bytes": 4772,
+      "sha256": "2dc59e1c3088c5198a1e8199bd03542dc62095fd0f40503b018c7803a61a313d"
+    },
+    {
+      "id": "shape-sphere",
+      "source": "feed.png",
+      "box": [1364, 353, 1419, 408],
+      "output": "shape-sphere.webp",
+      "cast": null,
+      "use": "Demo avatar: ROUND TRIP, APPLEHOLE",
+      "alt": "Red toy sphere",
+      "notes": "Summary strip shape 1.",
+      "width": 55,
+      "height": 55,
+      "bytes": 780,
+      "sha256": "ce216e02a25deace063bb3daf957f65ec7e0c20dcb2059d24772eb775a4aeab2"
+    },
+    {
+      "id": "shape-cube",
+      "source": "feed.png",
+      "box": [1423, 350, 1479, 406],
+      "output": "shape-cube.webp",
+      "cast": null,
+      "use": "Demo avatar: SOFT CORNERS, NEW SHAPE",
+      "alt": "Yellow toy cube with rounded corners",
+      "notes": "Summary strip shape 2.",
+      "width": 56,
+      "height": 56,
+      "bytes": 722,
+      "sha256": "774f2b1969e80c41a130f4d1776cb59ffc5d8ff4091f768722dd3f1b392fdc1e"
+    },
+    {
+      "id": "shape-pyramid",
+      "source": "feed.png",
+      "box": [1485, 350, 1545, 410],
+      "output": "shape-pyramid.webp",
+      "cast": null,
+      "use": "Demo avatar: WRONG ANGLE",
+      "alt": "Blue toy pyramid",
+      "notes": "Summary strip shape 3.",
+      "width": 60,
+      "height": 60,
+      "bytes": 770,
+      "sha256": "8edf2622f5c2181d4d23880e19124a8f5c48f92686c6b800724c125178e33d70"
+    },
+    {
+      "id": "shape-gem",
+      "source": "feed.png",
+      "box": [1554, 350, 1616, 412],
+      "output": "shape-gem.webp",
+      "cast": null,
+      "use": "Demo avatar: COIN CONFETTI",
+      "alt": "Green faceted toy gem",
+      "notes": "Summary strip shape 4.",
+      "width": 62,
+      "height": 62,
+      "bytes": 834,
+      "sha256": "eba81d28213100d08f4c2fbdfc9b3d19297b40c5fc1ebe05cdc05313800ecb70"
+    },
+    {
+      "id": "collector-frame",
+      "source": "feed.png",
+      "box": [269, 696, 330, 757],
+      "output": "collector-frame.webp",
+      "cast": "collector",
+      "use": "The Collector stand-in; TINY FRAMES demo avatar",
+      "alt": "The Collector, an empty golden picture frame",
+      "notes": "GOLDFRAME row avatar. Stands in for The Collector until original art exists.",
+      "width": 61,
+      "height": 61,
+      "bytes": 1632,
+      "sha256": "991d9576a578f138152ca8d074a8011983468150c6a202366058788e2ead9108"
+    }
+  ],
+  "pending": [
+    {
+      "id": "the-coin",
+      "cast": "coin",
+      "status": "pending-original-art",
+      "notes": "The only coin in the references carries a Bitcoin mark; it is excluded. Needs original art."
+    },
+    {
+      "id": "the-stonk",
+      "cast": "stonk",
+      "status": "pending-original-art",
+      "notes": "Every apple-shaped character in the references carries the Apple logo shape; it is excluded. Needs original art (apple-shaped block in an oversized suit, no Apple logo)."
+    }
+  ],
+  "excluded": [
+    {
+      "what": "Bitcoin-marked coin (feed hero)",
+      "source": "feed.png",
+      "box": [1158, 108, 1270, 231],
+      "reason": "Brand look-alike (ADR-0004)."
+    },
+    {
+      "what": "Apple-logo apple (feed hero)",
+      "source": "feed.png",
+      "box": [1276, 94, 1386, 228],
+      "reason": "Brand look-alike (ADR-0004, REFERENCE_OVERRIDES)."
+    },
+    {
+      "what": "CryptoPunk-like portrait (feed hero)",
+      "source": "feed.png",
+      "box": [1378, 92, 1518, 237],
+      "reason": "Would read as a claim to a third-party NFT (02-DESIGN)."
+    },
+    {
+      "what": "CryptoPunk-like portrait (PUNK row)",
+      "source": "feed.png",
+      "box": [268, 620, 332, 684],
+      "reason": "Would read as a claim to a third-party NFT (02-DESIGN)."
+    },
+    {
+      "what": "Doge (DOGESQUARE row)",
+      "source": "feed.png",
+      "box": [268, 766, 332, 838],
+      "reason": "Brand/meme look-alike (ADR-0004)."
+    },
+    {
+      "what": "Apple-logo apple (APPLEHOLE row)",
+      "source": "feed.png",
+      "box": [268, 843, 332, 914],
+      "reason": "Brand look-alike (ADR-0004)."
+    },
+    {
+      "what": "CryptoPunk-like portrait (launch hero)",
+      "source": "launch.png",
+      "box": [1198, 86, 1352, 240],
+      "reason": "Would read as a claim to a third-party NFT (02-DESIGN)."
+    },
+    {
+      "what": "Apple-logo apple (launch hero)",
+      "source": "launch.png",
+      "box": [1418, 88, 1532, 222],
+      "reason": "Brand look-alike (ADR-0004)."
+    },
+    {
+      "what": "Apple-logo apple (detail header)",
+      "source": "detail.png",
+      "box": [1296, 92, 1404, 208],
+      "reason": "Brand look-alike (ADR-0004)."
+    }
+  ],
+  "toolchain": {
+    "pillow": "12.3.0",
+    "libwebp": "1.6.0"
+  }
+}

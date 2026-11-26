@@ -1,0 +1,290 @@
+/*
+ * SH-BOX-LIFE-VIEW: the top of a v2 box's page: the life strip, the market (figures, the raise bar, the chart) and the
+ * live activity (trades and holders). The state colours are the box interface's (box-base.css, on :root); every state is
+ * also said in words, and every moving part stops when motion is reduced (base.css, settings.css).
+ */
+.sh-life { padding: 14px 16px; }
+.sh-life[data-stage='scheduled'] { --sh-life-accent: var(--sh-box-upcoming); }
+.sh-life[data-stage='window'] { --sh-life-accent: var(--sh-box-window); }
+.sh-life[data-stage='raising'] { --sh-life-accent: var(--sh-box-bonding); }
+.sh-life[data-stage='graduating'] { --sh-life-accent: var(--sh-box-graduating); }
+.sh-life[data-stage='graduated'] { --sh-life-accent: var(--sh-box-graduated); }
+.sh-life[data-stage='failed'] { --sh-life-accent: var(--sh-box-failed); }
+/* A closed box's steps before the one it ended at were done; they keep a quiet mark, never the failure colour. */
+.sh-life[data-stage='failed'] .sh-life__step[data-status='done'] { --sh-life-accent: var(--sh-text-muted); }
+
+.sh-life__steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; }
+/* A stepper: each step's icon on one line, the line from one icon to the next, the words under the icon. */
+.sh-life__step { position: relative; display: grid; justify-items: start; align-content: start; gap: 8px; min-width: 0; color: var(--sh-text-muted); }
+.sh-life__step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 17px;
+  left: 44px;
+  right: 0;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--sh-border);
+  z-index: 0;
+}
+.sh-life__step[data-status='done']:not(:last-child)::after { background: var(--sh-life-accent); opacity: 0.55; }
+.sh-life__mark {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid var(--sh-border-strong);
+  border-radius: 50%;
+  background: var(--sh-surface);
+  color: var(--sh-text-muted);
+}
+.sh-life__step[data-status='done'] .sh-life__mark { border-color: var(--sh-life-accent); color: var(--sh-text-secondary); }
+.sh-life__step[data-status='current'] .sh-life__mark {
+  border-color: var(--sh-life-accent);
+  background: color-mix(in srgb, var(--sh-life-accent) 22%, var(--sh-surface));
+  color: var(--sh-text);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--sh-life-accent) 18%, transparent);
+  animation: sh-life-pulse 2.4s var(--sh-ease) infinite;
+}
+.sh-life__step[data-status='failed'] .sh-life__mark { border-color: var(--sh-box-failed); color: var(--sh-box-failed); }
+.sh-life__badge {
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--sh-surface);
+  border-radius: 50%;
+  background: var(--sh-life-accent);
+  color: var(--sh-canvas);
+}
+.sh-life__badge[data-failed] { background: var(--sh-box-failed); }
+.sh-life__text { display: grid; min-width: 0; line-height: 1.2; }
+.sh-life__label { font-size: var(--sh-type-caption); color: var(--sh-text-muted); }
+.sh-life__value { color: var(--sh-text-secondary); font-size: var(--sh-type-small); font-weight: 700; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.sh-life__sub { color: var(--sh-text-muted); font-size: var(--sh-type-caption); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.sh-life__step[data-status='current'] .sh-life__label { color: var(--sh-life-accent); font-weight: 700; }
+.sh-life__step[data-status='current'] .sh-life__value { color: var(--sh-text); font-size: var(--sh-type-body-lg); }
+.sh-life__step[data-status='next'] .sh-life__value { font-weight: 600; color: var(--sh-text-muted); }
+
+@keyframes sh-life-pulse {
+  0%, 100% { box-shadow: 0 0 0 4px color-mix(in srgb, var(--sh-life-accent) 18%, transparent); }
+  50% { box-shadow: 0 0 0 8px color-mix(in srgb, var(--sh-life-accent) 6%, transparent); }
+}
+
+/* The three cards of the box's life sit close together, apart from the page's other panels. */
+.sh-life-view { display: grid; gap: 12px; min-width: 0; }
+.sh-v2-page .sh-life-view > .sh-panel { margin-block: 0; }
+
+/* ── The market: the raise bar and the chart under the figures ───────────────────────── */
+.sh-life-market { --sh-life-accent: var(--sh-box-bonding); }
+.sh-life-raise { display: grid; gap: 6px; }
+.sh-life-raise__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin: 0; }
+.sh-life-raise__label { color: var(--sh-text-secondary); font-size: var(--sh-type-label); }
+.sh-life-raise__pct { color: var(--sh-text); font-size: var(--sh-type-body-lg); font-variant-numeric: tabular-nums; }
+.sh-life-raise__amount { color: var(--sh-text-muted); font-size: var(--sh-type-caption); font-variant-numeric: tabular-nums; }
+.sh-life-raise__full { display: inline-flex; align-items: center; gap: 4px; margin-left: auto; color: var(--sh-box-graduating); font-size: var(--sh-type-label); font-weight: 700; }
+.sh-life-raise__when { color: var(--sh-text-muted); font-weight: 500; }
+.sh-life-raise__track { position: relative; height: 10px; overflow: hidden; border-radius: var(--sh-radius-pill); background: rgba(201, 211, 230, 0.14); }
+.sh-life-raise__fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--sh-box-bonding) 70%, transparent), var(--sh-box-bonding));
+  transition: width var(--sh-duration) var(--sh-ease);
+}
+/* The goal: a notch at 100%. */
+.sh-life-raise__goal { position: absolute; top: 0; right: 0; bottom: 0; width: 3px; background: var(--sh-text-muted); opacity: 0.6; }
+.sh-life-raise[data-full='true'] .sh-life-raise__fill { background: linear-gradient(90deg, color-mix(in srgb, var(--sh-box-graduating) 70%, transparent), var(--sh-box-graduating)); animation: sh-life-full 1.2s var(--sh-ease) 1; }
+.sh-life-raise[data-full='true'] .sh-life-raise__goal { background: var(--sh-box-graduating); opacity: 1; }
+@keyframes sh-life-full {
+  0% { filter: brightness(1.8); }
+  100% { filter: none; }
+}
+
+.sh-life-chart { position: relative; margin: 0; min-width: 0; }
+/* A refuted box's one line in the chart's place (SH-TA-29 finding 3); the chart itself is candles-v2.css. */
+.sh-life-chart--empty { margin: 0; color: var(--sh-text-muted); font-size: var(--sh-type-small); }
+.sh-life-details summary { cursor: pointer; color: var(--sh-text-secondary); font-size: var(--sh-type-small); width: fit-content; }
+.sh-life-details > p { color: var(--sh-text-secondary); font-size: var(--sh-type-small); }
+
+/* A closed box's card: the claim price leads like the market's price, its unit quiet beside it. */
+.sh-life-closing h2 { margin: 0; }
+.sh-life-closing .sh-v2-value { margin: 0; color: var(--sh-text); font-weight: 700; }
+.sh-life-closing .sh-v2-unit { color: var(--sh-text-muted); font-size: var(--sh-type-small); font-weight: 500; }
+
+/* ── The activity: tabs, the live chip, the rows ────────────────────────────────────── */
+.sh-life-activity { display: grid; gap: 10px; padding: 14px 16px; min-width: 0; }
+.sh-life-activity__head { display: flex; align-items: center; justify-content: space-between; gap: 8px 12px; flex-wrap: wrap; }
+.sh-life-tabs { display: inline-flex; gap: 4px; padding: 3px; border: 1px solid var(--sh-border); border-radius: var(--sh-radius-pill); background: var(--sh-surface); }
+.sh-life-tabs__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: var(--sh-radius-pill);
+  background: none;
+  color: var(--sh-text-secondary);
+  font: inherit;
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+  cursor: pointer;
+}
+.sh-life-tabs__tab[aria-selected='true'] { background: var(--sh-selected); color: var(--sh-text); }
+.sh-life-tabs__count { min-width: 1.5em; padding: 0 6px; border-radius: var(--sh-radius-pill); background: var(--sh-surface-raised); color: var(--sh-text-secondary); font-size: var(--sh-type-caption); font-variant-numeric: tabular-nums; text-align: center; }
+.sh-life-live { display: inline-flex; align-items: center; gap: 6px; margin: 0; color: var(--sh-text-secondary); font-size: var(--sh-type-caption); font-weight: 650; }
+.sh-life-live__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sh-text-muted); }
+.sh-life-live[data-status='live'] .sh-life-live__dot { background: var(--sh-positive); animation: sh-life-blink 2s ease-in-out infinite; }
+.sh-life-live[data-status='reconnecting'] .sh-life-live__dot { background: var(--sh-warning); }
+.sh-life-live[data-status='unavailable'] .sh-life-live__dot { background: var(--sh-negative); }
+@keyframes sh-life-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.sh-life-empty { margin: 4px 0; color: var(--sh-text-muted); font-size: var(--sh-type-small); }
+
+.sh-life-rows, .sh-life-holders { display: grid; margin: 0; padding: 0; list-style: none; }
+.sh-life-row {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr) minmax(7rem, auto) minmax(6.5rem, auto) 5.5rem 1.75rem;
+  grid-template-areas: 'what detail p t when tx';
+  align-items: center;
+  gap: 4px 12px;
+  min-height: 44px;
+  padding: 6px 4px;
+  border-top: 1px solid var(--sh-border);
+  font-size: var(--sh-type-small);
+  font-variant-numeric: tabular-nums;
+}
+.sh-life-row[data-new] { animation: sh-life-arrive 2.4s var(--sh-ease) 1; }
+@keyframes sh-life-arrive {
+  0% { background: color-mix(in srgb, var(--sh-accent) 26%, transparent); }
+  100% { background: transparent; }
+}
+.sh-life-row__what { grid-area: what; min-width: 0; }
+.sh-life-row__detail { grid-area: detail; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; min-width: 0; color: var(--sh-text-muted); font-size: var(--sh-type-label); }
+.sh-life-row__p { grid-area: p; color: var(--sh-text); font-weight: 650; text-align: right; white-space: nowrap; }
+.sh-life-row__t { grid-area: t; color: var(--sh-text-secondary); text-align: right; white-space: nowrap; }
+.sh-life-row__note { color: var(--sh-text-muted); font-size: var(--sh-type-caption); font-weight: 500; }
+.sh-life-row__when { grid-area: when; color: var(--sh-text-muted); font-size: var(--sh-type-label); text-align: right; white-space: nowrap; }
+.sh-life-row__tx { grid-area: tx; display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: var(--sh-radius-small); color: var(--sh-text-muted); }
+.sh-life-row__tx:hover { color: var(--sh-accent); background: var(--sh-surface-raised); }
+/* A word and an arrow, never colour alone (VL-5). */
+.sh-life-side { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: var(--sh-radius-pill); font-weight: 700; }
+.sh-life-side[data-side='buy'] { background: color-mix(in srgb, var(--sh-accent) 16%, transparent); color: var(--sh-text); }
+.sh-life-side[data-side='sell'] { background: var(--sh-surface-raised); color: var(--sh-text-secondary); }
+.sh-life-event { display: inline-flex; align-items: center; gap: 6px; color: var(--sh-text-secondary); font-weight: 650; }
+.sh-life-event .sh-life-glyph { flex: none; color: var(--sh-text-muted); }
+.sh-life-row[data-event='graduated'] .sh-life-event, .sh-life-row[data-event='full'] .sh-life-event { color: var(--sh-box-graduating); }
+.sh-life-row[data-event='graduated'] .sh-life-glyph, .sh-life-row[data-event='full'] .sh-life-glyph { color: var(--sh-box-graduating); }
+.sh-life-row[data-event='created'] .sh-life-event, .sh-life-row[data-event='created'] .sh-life-glyph { color: var(--sh-box-bonding); }
+.sh-life-row[data-event='closed'] .sh-life-event, .sh-life-row[data-event='closed'] .sh-life-glyph { color: var(--sh-box-failed); }
+.sh-life-row[data-kind='event']:not([data-event='graduated']):not([data-event='full']):not([data-event='created']):not([data-event='closed']) { color: var(--sh-text-muted); }
+.sh-life-row[data-kind='event']:not([data-event='graduated']):not([data-event='full']):not([data-event='created']):not([data-event='closed']) .sh-life-row__p { color: var(--sh-text-secondary); font-weight: 500; }
+
+.sh-life-who { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 2px 6px; min-width: 0; }
+/* The short address and its copy button: one unit on one line, at every width. */
+.sh-life-who__id { display: inline-flex; flex-wrap: nowrap; align-items: center; gap: 2px; }
+.sh-life-who__address { color: var(--sh-text-secondary); font-size: var(--sh-type-label); white-space: nowrap; }
+a.sh-life-who__address { text-decoration: none; }
+a.sh-life-who__address:hover code { color: var(--sh-accent); text-decoration: underline; }
+.sh-life-who--unknown { color: var(--sh-text-muted); }
+/* The copy button as an icon in a row; its name says what it copies. */
+.sh-life-who .sh-copy__button { min-height: 26px; padding: 0 5px; border-color: transparent; background: none; color: var(--sh-text-muted); }
+.sh-life-who .sh-copy__button:hover { border-color: var(--sh-border-strong); color: var(--sh-text); }
+.sh-life-who .sh-copy__button > span { display: none; }
+.sh-life-chip { padding: 1px 7px; border: 1px solid var(--sh-border-strong); border-radius: var(--sh-radius-pill); color: var(--sh-text-secondary); font-size: var(--sh-type-caption); font-weight: 650; }
+.sh-life-chip[data-role='creator'] { border-color: var(--sh-box-bonding); color: var(--sh-box-bonding); }
+.sh-life-chip[data-role='pool'] { border-color: var(--sh-box-graduated); color: var(--sh-box-graduated); }
+
+.sh-life-holder {
+  display: grid;
+  grid-template-columns: 1.75rem minmax(0, 1fr) minmax(7rem, 12rem) minmax(6rem, auto);
+  align-items: center;
+  gap: 4px 12px;
+  min-height: 44px;
+  padding: 6px 4px;
+  border-top: 1px solid var(--sh-border);
+  font-size: var(--sh-type-small);
+  font-variant-numeric: tabular-nums;
+}
+.sh-life-holder__rank { color: var(--sh-text-muted); font-size: var(--sh-type-label); text-align: right; }
+.sh-life-holder__share { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 8px; color: var(--sh-text); font-weight: 650; }
+.sh-life-holder__bar { position: relative; height: 6px; overflow: hidden; border-radius: var(--sh-radius-pill); background: rgba(201, 211, 230, 0.12); }
+.sh-life-holder__bar > span { position: absolute; inset: 0 auto 0 0; border-radius: inherit; background: var(--sh-box-bonding); }
+.sh-life-holder[data-role='pool'] .sh-life-holder__bar > span { background: var(--sh-box-graduated); }
+.sh-life-holder[data-role='box'] .sh-life-holder__bar > span { background: var(--sh-text-muted); }
+.sh-life-holder__amount { color: var(--sh-text-secondary); text-align: right; white-space: nowrap; }
+/*
+ * SH-224 phase 4: the trades' wide row needs 33.5rem (its columns' minimums and gaps). From 641 px the page used it
+ * whatever the card's width, so between 641 and about 700 px it ran past the card and the screen (on the live site too,
+ * 24 px at 641). The card's own width decides now: narrower than 34rem, the rows take the phone's two-line layout.
+ * In the wide layout a long coin or box-token name after an amount (an 11-letter ticker, a price coin shown by its
+ * short address) may break onto the next line; the amount fits its column's 6 to 7rem minimum, so its digits keep one
+ * line.
+ */
+.sh-life-activity { container-type: inline-size; }
+@container (max-width: 34rem) {
+  .sh-life-row {
+    grid-template-columns: minmax(0, auto) minmax(0, 1fr) auto 1.75rem;
+    grid-template-areas:
+      'what detail when tx'
+      'p p t t';
+    row-gap: 2px;
+    padding: 8px 2px;
+  }
+  .sh-life-row__p { text-align: left; }
+  .sh-life-row[data-kind='event'][data-who] {
+    grid-template-areas:
+      'what what when tx'
+      'detail detail detail detail'
+      'p p t t';
+  }
+}
+@container (min-width: 34rem) {
+  .sh-life-row__p, .sh-life-row__t, .sh-life-holder__amount { white-space: normal; overflow-wrap: anywhere; }
+}
+.sh-life-more { margin: 4px 0 0; }
+
+@media (max-width: 640px) {
+  .sh-life { padding: 12px; }
+  /* Four narrow columns: each step as wide as its words need, the rest shared, so a long price ("0.00048058") keeps one
+     line instead of breaking between its digits; the box's own step leads, the others' numbers are quieter. */
+  .sh-life__steps { gap: 8px; grid-template-columns: repeat(4, minmax(0, auto)); }
+  .sh-life__step:not([data-status='current']) .sh-life__value { font-size: var(--sh-type-caption); }
+  .sh-life__step { gap: 6px; }
+  .sh-life__step:not(:last-child)::after { top: 14px; left: 34px; }
+  .sh-life__mark { width: 30px; height: 30px; }
+  .sh-life__mark .sh-life-glyph { width: 16px; height: 16px; }
+  .sh-life__step[data-status='current'] .sh-life__value { font-size: var(--sh-type-small); }
+  .sh-life-activity { padding: 12px; }
+  .sh-life-row {
+    grid-template-columns: minmax(0, auto) minmax(0, 1fr) auto 1.75rem;
+    grid-template-areas:
+      'what detail when tx'
+      'p p t t';
+    row-gap: 2px;
+    padding: 8px 2px;
+  }
+  .sh-life-row__p { text-align: left; }
+  /* An event that names someone (a graduation's caller, a closing's caller, a claim's holder): its event word is longer
+     than a trade's Buy, so the address and its copy button take a line of their own under it, whole. */
+  .sh-life-row[data-kind='event'][data-who] {
+    grid-template-areas:
+      'what what when tx'
+      'detail detail detail detail'
+      'p p t t';
+  }
+  .sh-life-holder { grid-template-columns: 1.25rem minmax(0, 1fr) auto; grid-template-areas: 'rank who amount' '. share share'; }
+  .sh-life-holder__rank { grid-area: rank; }
+  .sh-life-holder__who { grid-area: who; min-width: 0; }
+  .sh-life-holder__share { grid-area: share; }
+  .sh-life-holder__amount { grid-area: amount; }
+}

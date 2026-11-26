@@ -1,0 +1,101 @@
+/*
+ * Pair detail and risks at narrower widths. Container queries measure the page section (.sh-pair), not the viewport:
+ * the sidebar, icon rail and zoom all change the room available. Loaded after the other pair styles.
+ */
+/* ── Narrower containers ───────────────────────────────────── */
+@container (max-width: 1080px) {
+  .sh-metrics__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sh-metric:nth-child(4) {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+
+@container (max-width: 860px) {
+  /* One column in DOM order: price, routes and rewards, then the rest. */
+  .sh-pair-grid,
+  .sh-pair-loading {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sh-pair-grid {
+    grid-template-rows: none;
+    grid-template-areas:
+      'lead'
+      'side'
+      'main';
+  }
+}
+
+@container (max-width: 600px) {
+  .sh-pair-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sh-gap-4);
+    padding: 16px;
+  }
+
+  .sh-pair-art,
+  .sh-pair-head .sh-skeleton.sh-pair-art {
+    width: 120px;
+    height: 100px;
+  }
+
+  .sh-pair-head__nameline .sh-page__title {
+    font-size: var(--sh-type-title-compact);
+  }
+
+  .sh-detail-card {
+    padding: 16px;
+  }
+
+  /* A 42-character address fits one line of a phone-width card. */
+  .sh-identity__address code {
+    font-size: 12px;
+  }
+
+  .sh-metrics__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sh-metric:nth-child(odd) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .sh-metric:nth-child(4) {
+    padding-left: 12px;
+    border-left: 1px solid var(--sh-border);
+  }
+
+  .sh-activity__row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sh-activity__when {
+    text-align: left;
+  }
+
+  .sh-fractions {
+    flex-direction: column;
+  }
+
+  .sh-gallery__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .sh-risks__intro,
+  .sh-pair-missing {
+    flex-direction: column;
+    padding: var(--sh-gap-4);
+  }
+
+  .sh-gates th[scope='row'] {
+    white-space: normal;
+  }
+}

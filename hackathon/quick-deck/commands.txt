@@ -1,0 +1,85 @@
+# DO NOT RUN THIS FILE. Its sixteen mints are done by step 4 of hackathon/short-wait/commands.txt (ShortWaitCards: the
+# same ids 9 to 12 of each of the four collections to the deploy wallet). Kept as a record only.
+# SH-300 (lane d): the new card shop box "Quick Deck" (QDECK) on the SECOND release; gives open ten minutes after creation.
+# RPC=https://bsc-testnet-rpc.publicnode.com ; every send from hack-deployer (the cards' owner and the box's creator).
+# Ids 9 to 12 of all four collections were free at block 144,928,655 (1 to 8 minted). Never while another real run uses hack-deployer, hack-alice or hack-bob.
+
+# 1 mint common #9 (picture 1) to the creator
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 9 1 --rpc-url "$RPC"
+cast send 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 9 1 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'ownerOf(uint256)(address)' 9 --rpc-url "$RPC"   # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 2 mint common #10 (picture 2) to the creator
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 10 2 --rpc-url "$RPC"
+cast send 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 10 2 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'ownerOf(uint256)(address)' 10 --rpc-url "$RPC"   # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 3 mint common #11 (picture 3) to the creator
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 11 3 --rpc-url "$RPC"
+cast send 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 11 3 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'ownerOf(uint256)(address)' 11 --rpc-url "$RPC"   # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 4 mint common #12 (picture 4) to the creator
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 12 4 --rpc-url "$RPC"
+cast send 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 12 4 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174 'ownerOf(uint256)(address)' 12 --rpc-url "$RPC"   # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 5 mint uncommon #9 (picture 1) to the creator
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 9 1 --rpc-url "$RPC"
+cast send 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 9 1 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'ownerOf(uint256)(address)' 9 --rpc-url "$RPC"   # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 6 mint uncommon #10 (picture 2) to the creator
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 10 2 --rpc-url "$RPC"
+cast send 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 10 2 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'ownerOf(uint256)(address)' 10 --rpc-url "$RPC"   # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 7 mint uncommon #11 (picture 3) to the creator
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 11 3 --rpc-url "$RPC"
+cast send 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 11 3 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'ownerOf(uint256)(address)' 11 --rpc-url "$RPC"   # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 8 mint uncommon #12 (picture 4) to the creator
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 12 4 --rpc-url "$RPC"
+cast send 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 12 4 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577 'ownerOf(uint256)(address)' 12 --rpc-url "$RPC"   # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 9 mint rare #9 (picture 1) to the creator
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 9 1 --rpc-url "$RPC"
+cast send 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 9 1 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'ownerOf(uint256)(address)' 9 --rpc-url "$RPC"   # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 10 mint rare #10 (picture 2) to the creator
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 10 2 --rpc-url "$RPC"
+cast send 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 10 2 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'ownerOf(uint256)(address)' 10 --rpc-url "$RPC"   # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 11 mint rare #11 (picture 3) to the creator
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 11 3 --rpc-url "$RPC"
+cast send 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 11 3 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'ownerOf(uint256)(address)' 11 --rpc-url "$RPC"   # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 12 mint rare #12 (picture 4) to the creator
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 12 4 --rpc-url "$RPC"
+cast send 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 12 4 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC 'ownerOf(uint256)(address)' 12 --rpc-url "$RPC"   # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 13 mint legendary #9 (picture 1) to the creator
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 9 1 --rpc-url "$RPC"
+cast send 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 9 1 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'ownerOf(uint256)(address)' 9 --rpc-url "$RPC"   # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 14 mint legendary #10 (picture 2) to the creator
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 10 2 --rpc-url "$RPC"
+cast send 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 10 2 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'ownerOf(uint256)(address)' 10 --rpc-url "$RPC"   # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 15 mint legendary #11 (picture 3) to the creator
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 11 3 --rpc-url "$RPC"
+cast send 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 11 3 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'ownerOf(uint256)(address)' 11 --rpc-url "$RPC"   # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576
+
+# 16 mint legendary #12 (picture 4) to the creator
+cast call --from 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 12 4 --rpc-url "$RPC"
+cast send 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'mint(address,uint256,uint8)' 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 12 4 --account hack-deployer --password-file ~/.secrets/hack-deployer.pass --rpc-url "$RPC" --chain 97 --legacy --gas-price 100000000
+cast call 0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143 'ownerOf(uint256)(address)' 12 --rpc-url "$RPC"   # expect 0x2EF9A78074bbf674bEA16f21154a30c821A3C576

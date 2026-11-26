@@ -1,0 +1,119 @@
+{
+  "format": "squarehole.boxspec-draft/2",
+  "network": "demo",
+  "example": 2,
+  "brief": "Buyers: burn. Sellers: burn. Both fee sides use the pricing coin. Each box fixes the listing raise when it is created.",
+  "status": "ready",
+  "shows": [
+    "Buyers: burn. Sellers: burn. Both fee sides use the pricing coin. Each box fixes the listing raise when it is created."
+  ],
+  "differences": [
+    "CQ11 menu choices and full-range graduation."
+  ],
+  "deviations": [],
+  "converted": {
+    "from": "references/examples/ultrasound-owls.json",
+    "by": "docs/design/box-spec-v2-draft.md \u00a7 8"
+  },
+  "site": {
+    "links": []
+  },
+  "spec": {
+    "format": 2,
+    "version": 2,
+    "boxType": "NEW_COLLECTION",
+    "tokenName": "Ultrasound Owls",
+    "tokenSymbol": "HOOT",
+    "collectionName": "Ultrasound Owls",
+    "collectionSymbol": "HOOT",
+    "description": "Demo: 420 owls that only hoot about the burn. Every fee burns HOOT.",
+    "n": 420,
+    "firstId": "1",
+    "pricing": "ETH",
+    "raise": "LISTING",
+    "layout": "CURVE_V1",
+    "gradLayout": "FULL_RANGE",
+    "launchFormat": "CURVE",
+    "openAt": "2026-10-20T18:00:00Z",
+    "deadlineDays": 60,
+    "buyers": {
+      "split": "NoSplit",
+      "a": {
+        "leg": "BuyT",
+        "dest": "Eat"
+      }
+    },
+    "sellers": {
+      "split": "NoSplit",
+      "a": {
+        "leg": "BuyT",
+        "dest": "Eat"
+      }
+    },
+    "artMode": "HIDDEN",
+    "revealRoot": "FROM_LAUNCH_FLOW",
+    "metadataTable": {
+      "formatV1": {
+        "traitTypes": [
+          {
+            "name": "Eyes",
+            "values": [
+              "Wide",
+              "Sleepy",
+              "Laser"
+            ]
+          },
+          {
+            "name": "Feathers",
+            "values": [
+              "Night",
+              "Snow",
+              "Ember",
+              "Ultrasound"
+            ]
+          }
+        ]
+      }
+    },
+    "generatorHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coverSha256": "FROM_LAUNCH_FLOW",
+    "revealListId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "marketplaceOwner": "FROM_LAUNCH_FLOW",
+    "creatorFeeRecipient": "FROM_LAUNCH_FLOW",
+    "creatorBuy": "0",
+    "collectionCoverSha256": "FROM_LAUNCH_FLOW",
+    "addOns": [
+      {
+        "addOn": "placeholders",
+        "params": {
+          "placeholderName": "Ultrasound Owls ticket",
+          "placeholderSymbol": "HOOT-T",
+          "placeholderDescription": "Opens into one hidden owl once its number is drawn.",
+          "hiddenDescription": "This owl is not revealed yet.",
+          "hiddenSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\"/>"
+        }
+      },
+      {
+        "addOn": "royalties",
+        "params": {
+          "bps": 250,
+          "destination": "FEE_HANDLING"
+        }
+      },
+      {
+        "addOn": "collection-metadata",
+        "params": {
+          "bannerSha256": "FROM_LAUNCH_FLOW",
+          "teaserSha256s": [
+            "FROM_LAUNCH_FLOW",
+            "FROM_LAUNCH_FLOW",
+            "FROM_LAUNCH_FLOW"
+          ],
+          "externalLink": ""
+        }
+      }
+    ],
+    "contentsParams": "0x",
+    "pickFeeBps": 2500
+  }
+}

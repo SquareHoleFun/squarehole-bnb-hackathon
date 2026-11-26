@@ -1,0 +1,265 @@
+[
+  {
+    "label": "escrowPrincipal",
+    "offset": 0,
+    "slot": "0",
+    "type": {
+      "encoding": "inplace",
+      "label": "uint256",
+      "numberOfBytes": "32"
+    }
+  },
+  {
+    "label": "_counts",
+    "offset": 0,
+    "slot": "1",
+    "type": {
+      "encoding": "inplace",
+      "label": "struct BoxVaultV2.Counts",
+      "numberOfBytes": "32",
+      "members": [
+        {
+          "label": "inside",
+          "offset": 0,
+          "slot": "0",
+          "type": {
+            "encoding": "inplace",
+            "label": "uint32",
+            "numberOfBytes": "4"
+          }
+        },
+        {
+          "label": "hidden",
+          "offset": 4,
+          "slot": "0",
+          "type": {
+            "encoding": "inplace",
+            "label": "uint32",
+            "numberOfBytes": "4"
+          }
+        },
+        {
+          "label": "tickets",
+          "offset": 8,
+          "slot": "0",
+          "type": {
+            "encoding": "inplace",
+            "label": "uint32",
+            "numberOfBytes": "4"
+          }
+        },
+        {
+          "label": "gateOpenedAt",
+          "offset": 12,
+          "slot": "0",
+          "type": {
+            "encoding": "inplace",
+            "label": "uint40",
+            "numberOfBytes": "5"
+          }
+        },
+        {
+          "label": "since",
+          "offset": 17,
+          "slot": "0",
+          "type": {
+            "encoding": "inplace",
+            "label": "uint40",
+            "numberOfBytes": "5"
+          }
+        },
+        {
+          "label": "flags",
+          "offset": 22,
+          "slot": "0",
+          "type": {
+            "encoding": "inplace",
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        },
+        {
+          "label": "integral",
+          "offset": 23,
+          "slot": "0",
+          "type": {
+            "encoding": "inplace",
+            "label": "uint72",
+            "numberOfBytes": "9"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "_states",
+    "offset": 0,
+    "slot": "2",
+    "type": {
+      "encoding": "mapping",
+      "label": "mapping(uint256 => uint256)",
+      "numberOfBytes": "32",
+      "key": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "value": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  },
+  {
+    "label": "_releasedFailureReserves",
+    "offset": 0,
+    "slot": "3",
+    "type": {
+      "encoding": "inplace",
+      "label": "uint256",
+      "numberOfBytes": "32"
+    }
+  },
+  {
+    "label": "_items",
+    "offset": 0,
+    "slot": "4",
+    "type": {
+      "encoding": "inplace",
+      "label": "struct ItemTimes.State",
+      "numberOfBytes": "96",
+      "members": [
+        {
+          "label": "operations",
+          "offset": 0,
+          "slot": "0",
+          "type": {
+            "encoding": "dynamic_array",
+            "label": "struct ItemLifecycleV2[]",
+            "numberOfBytes": "32",
+            "base": {
+              "encoding": "inplace",
+              "label": "struct ItemLifecycleV2",
+              "numberOfBytes": "128",
+              "members": [
+                {
+                  "label": "ticketKey",
+                  "offset": 0,
+                  "slot": "0",
+                  "type": {
+                    "encoding": "inplace",
+                    "label": "bytes32",
+                    "numberOfBytes": "32"
+                  }
+                },
+                {
+                  "label": "itemId",
+                  "offset": 0,
+                  "slot": "1",
+                  "type": {
+                    "encoding": "inplace",
+                    "label": "uint256",
+                    "numberOfBytes": "32"
+                  }
+                },
+                {
+                  "label": "fundingCursor",
+                  "offset": 0,
+                  "slot": "2",
+                  "type": {
+                    "encoding": "inplace",
+                    "label": "uint256",
+                    "numberOfBytes": "32"
+                  }
+                },
+                {
+                  "label": "at",
+                  "offset": 0,
+                  "slot": "3",
+                  "type": {
+                    "encoding": "inplace",
+                    "label": "uint64",
+                    "numberOfBytes": "8"
+                  }
+                },
+                {
+                  "label": "kind",
+                  "offset": 8,
+                  "slot": "3",
+                  "type": {
+                    "encoding": "inplace",
+                    "label": "uint8",
+                    "numberOfBytes": "1"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "label": "times",
+          "offset": 0,
+          "slot": "1",
+          "type": {
+            "encoding": "mapping",
+            "label": "mapping(uint256 => struct ItemTimes.Times)",
+            "numberOfBytes": "32",
+            "key": {
+              "encoding": "inplace",
+              "label": "uint256",
+              "numberOfBytes": "32"
+            },
+            "value": {
+              "encoding": "inplace",
+              "label": "struct ItemTimes.Times",
+              "numberOfBytes": "32",
+              "members": [
+                {
+                  "label": "lastExit",
+                  "offset": 0,
+                  "slot": "0",
+                  "type": {
+                    "encoding": "inplace",
+                    "label": "uint64",
+                    "numberOfBytes": "8"
+                  }
+                },
+                {
+                  "label": "lastEntry",
+                  "offset": 8,
+                  "slot": "0",
+                  "type": {
+                    "encoding": "inplace",
+                    "label": "uint64",
+                    "numberOfBytes": "8"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "label": "tickets",
+          "offset": 0,
+          "slot": "2",
+          "type": {
+            "encoding": "mapping",
+            "label": "mapping(bytes32 => uint8)",
+            "numberOfBytes": "32",
+            "key": {
+              "encoding": "inplace",
+              "label": "bytes32",
+              "numberOfBytes": "32"
+            },
+            "value": {
+              "encoding": "inplace",
+              "label": "uint8",
+              "numberOfBytes": "1"
+            }
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,86 @@
+{
+  "collection": "ORCHARD",
+  "symbol": "ORCH",
+  "count": 1000,
+  "note": "Token counts per trait value over ids 1..count. Rarity is cosmetic and never changes fees or reward rights.",
+  "traits": {
+    "Season": [
+      {
+        "value": "Harvest",
+        "count": 520,
+        "percent": "52.00"
+      },
+      {
+        "value": "Summer",
+        "count": 200,
+        "percent": "20.00"
+      },
+      {
+        "value": "Spring",
+        "count": 180,
+        "percent": "18.00"
+      },
+      {
+        "value": "Winter",
+        "count": 100,
+        "percent": "10.00"
+      }
+    ],
+    "Accessory": [
+      {
+        "value": "None",
+        "count": 700,
+        "percent": "70.00"
+      },
+      {
+        "value": "Sunglasses",
+        "count": 200,
+        "percent": "20.00"
+      },
+      {
+        "value": "Ski Goggles",
+        "count": 100,
+        "percent": "10.00"
+      }
+    ],
+    "Fruit": [
+      {
+        "value": "Red Apples",
+        "count": 720,
+        "percent": "72.00"
+      },
+      {
+        "value": "Blossom",
+        "count": 180,
+        "percent": "18.00"
+      },
+      {
+        "value": "None",
+        "count": 100,
+        "percent": "10.00"
+      }
+    ],
+    "Variant": [
+      {
+        "value": "Ordinary",
+        "count": 520,
+        "percent": "52.00"
+      },
+      {
+        "value": "Sunglasses",
+        "count": 200,
+        "percent": "20.00"
+      },
+      {
+        "value": "Blossom",
+        "count": 180,
+        "percent": "18.00"
+      },
+      {
+        "value": "Winter",
+        "count": 100,
+        "percent": "10.00"
+      }
+    ]
+  }
+}

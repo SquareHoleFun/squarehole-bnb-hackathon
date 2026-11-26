@@ -1,0 +1,18 @@
+creator: address 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 (dry run)
+dry run on a fork of http://127.0.0.1:8574 (http://127.0.0.1:46713); nothing is sent to http://127.0.0.1:8574
+[dry] sent card-shop:create#0 approve: 0x899ab183aa43c893404445b172b38d07933441c51e75023ef04e547252590f30 at 1000000000 wei/gas (the network's 1000000000), nonce 380
+[dry] sent card-shop:create#1 createBox: 0x27447aa5c168861c7267905624aee893c000117e589cf8bbd8e8801e2683e4a5 at 1000000000 wei/gas (the network's 1000000000), nonce 381
+[dry] done card-shop:create
+{
+  "command": "create",
+  "dry": true,
+  "result": {
+    "box": "0xBfe1e7475ccAcFFbC72bdF4e37404F0e31792D09",
+    "specHash": "0xf926486de73c99f14eb896e4b45e1c25d234e4f7cd6734673a9eaf30c671dde5",
+    "bootstrapQ": "357",
+    "creatorBuyP": "100000",
+    "block": "144938645",
+    "createdAt": "1795677764",
+    "alreadyCreated": false
+  }
+}

@@ -1,0 +1,270 @@
+/*
+ * F161 (4), SH-ALPHA-SITE: the alpha's join page and desk, outside the app's frame. The same quiet canvas and centred
+ * window as the entry gate (features/legal/legal.css), so the step from the join page into the app looks like one site.
+ */
+.sh-join {
+  display: flex;
+  min-height: 100vh;
+  padding: var(--sh-gap-4);
+  background:
+    radial-gradient(90% 60% at 50% 0%, var(--sh-glow) 0%, transparent 70%),
+    var(--sh-canvas);
+  color: var(--sh-text);
+}
+
+.sh-join__card {
+  display: grid;
+  align-content: start;
+  gap: var(--sh-gap-4);
+  width: min(100%, 600px);
+  min-width: 0;
+  margin: auto;
+  padding: var(--sh-gap-6);
+  background-color: var(--sh-surface);
+  box-shadow: var(--sh-panel-edge), var(--sh-elevation-3);
+}
+
+.sh-join__header {
+  display: flex;
+  align-items: center;
+  gap: var(--sh-gap-3);
+  min-width: 0;
+}
+
+.sh-join__title {
+  margin: 0;
+  font-size: var(--sh-type-section);
+  line-height: var(--sh-leading-tight);
+  border-radius: var(--sh-radius-small);
+}
+
+.sh-join__title:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.sh-join__status {
+  margin: var(--sh-gap-1) 0 0;
+  color: var(--sh-warning);
+  font-size: var(--sh-type-small);
+}
+
+.sh-join__notice {
+  max-height: min(46vh, 420px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-radius: var(--sh-radius-small);
+}
+
+.sh-join__lede,
+.sh-join__subtle {
+  margin: 0;
+  color: var(--sh-text-secondary);
+}
+
+.sh-join__points {
+  display: grid;
+  gap: var(--sh-gap-2);
+  margin: var(--sh-gap-3) 0 0;
+  padding-left: 20px;
+  line-height: var(--sh-leading);
+}
+
+.sh-join__details > summary {
+  min-height: var(--sh-touch-target);
+  display: flex;
+  align-items: center;
+  color: var(--sh-accent);
+  font-weight: var(--sh-weight-bold);
+  cursor: pointer;
+}
+
+.sh-join__details .sh-join__details {
+  margin-top: var(--sh-gap-2);
+}
+
+.sh-join__check {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: var(--sh-gap-3);
+  min-height: var(--sh-touch-target);
+  padding: var(--sh-gap-3);
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-canvas);
+  font-weight: var(--sh-weight-medium);
+  cursor: pointer;
+}
+
+.sh-join__check:has(input:checked) {
+  border-color: var(--sh-accent);
+  background: var(--sh-selected);
+}
+
+.sh-join__check input {
+  width: 20px;
+  height: 20px;
+  margin: 1px 0 0;
+  accent-color: var(--sh-accent);
+}
+
+/*
+ * The app's button (shell/shell.css `.sh-button`), for these pages outside the app's frame, which load no shell styles.
+ * join-button.test.ts holds the two copies equal.
+ */
+.sh-join .sh-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sh-gap-2);
+  min-height: var(--sh-touch-target);
+  padding: 0 var(--sh-gap-4);
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-surface-raised);
+  color: var(--sh-text);
+  font-weight: 650;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color var(--sh-duration-fast) var(--sh-ease);
+}
+
+.sh-join .sh-button--primary {
+  border-color: transparent;
+  background: var(--sh-action);
+  color: var(--sh-on-action);
+  box-shadow: 0 6px 20px rgba(109, 74, 226, 0.35);
+}
+
+.sh-join .sh-button--primary:hover {
+  background: var(--sh-action-hover);
+}
+
+.sh-join .sh-button--primary:focus-visible {
+  box-shadow:
+    0 0 0 7px var(--sh-focus-halo),
+    0 6px 20px rgba(109, 74, 226, 0.35);
+}
+
+.sh-join .sh-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  box-shadow: none;
+}
+
+.sh-join__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sh-gap-2);
+}
+
+.sh-join__actions .sh-button {
+  min-width: 140px;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.sh-join__actions--quiet .sh-button {
+  min-width: 0;
+}
+
+.sh-join__state {
+  display: grid;
+  gap: var(--sh-gap-1);
+  padding: var(--sh-gap-4);
+  border-radius: var(--sh-radius-card);
+  background: var(--sh-canvas);
+}
+
+.sh-join__state[data-status='approved'] .sh-join__big {
+  color: var(--sh-positive);
+}
+
+.sh-join__state[data-status='removed'] .sh-join__big {
+  color: var(--sh-negative);
+}
+
+.sh-join__big {
+  margin: 0;
+  font-size: var(--sh-type-title-compact);
+  font-weight: var(--sh-weight-bold);
+  line-height: var(--sh-leading-tight);
+}
+
+.sh-join__handle {
+  margin: 0;
+  font-size: var(--sh-type-body-lg);
+  font-weight: var(--sh-weight-medium);
+  overflow-wrap: anywhere;
+}
+
+/*
+ * SH-220: the line under "Sign in with X" (JoinPage.tsx), quiet text of the page's own, on phones only: shown where the
+ * device's primary pointer is coarse, `display: none` everywhere else, so a desktop neither shows nor announces it.
+ */
+.sh-join__phone {
+  display: none;
+  font-size: var(--sh-type-small);
+  text-wrap: balance;
+}
+
+@media (pointer: coarse) {
+  .sh-join__phone {
+    display: block;
+  }
+}
+
+.sh-join__line {
+  margin: 0;
+  color: var(--sh-text);
+  font-weight: var(--sh-weight-medium);
+}
+
+.sh-join__meta {
+  margin: 0;
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  overflow-wrap: anywhere;
+}
+
+.sh-join__meta a {
+  color: var(--sh-accent);
+}
+
+@media (max-width: 640px) {
+  .sh-join__card {
+    gap: var(--sh-gap-3);
+    padding: var(--sh-gap-4);
+  }
+
+  .sh-join__title {
+    font-size: var(--sh-type-body-lg);
+  }
+
+  .sh-join__big {
+    font-size: var(--sh-type-section);
+  }
+
+  /* Each button keeps its words on one line and the row wraps: three buttons (the member view's "Sign in with X",
+     export and sign-out, XR-ALPHA-SITE af2) never squeeze each other's labels. */
+  .sh-join__actions .sh-button {
+    flex: 1 1 auto;
+  }
+}
+
+.sh-join__mark {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--sh-radius-control);
+  background: var(--sh-selected);
+  color: var(--sh-accent);
+}
+
+.sh-join__mark svg {
+  width: 28px;
+  height: 28px;
+}

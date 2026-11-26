@@ -1,0 +1,12 @@
+{
+  "beacon": "0x9b7c9ac2eDffed18Cf5204DfdE8285A70efD28f4",
+  "chainId": 97,
+  "deployBlock": 144982992,
+  "launcherFactory": "0x61873aD21f3E471910C976ef7993ED40b399eeC0",
+  "pileBeacon": "0xEC1f793Da1FdFAB58D67f045a04B252e5Af1bBE8",
+  "portal": "0x000042108465206185A077Edc3F3fd2b49060000",
+  "quote": "0x190C989D5665a0e404B444b53CAE9AbCfb600157",
+  "router": "0xc9D63ddCB9549578057EAB6A83a543DdFEE2b8c3",
+  "rulesVaultFactory": "0x73aBa498C5415bb587E8f249314c619a5C3a55a2",
+  "variant": "usdt"
+}

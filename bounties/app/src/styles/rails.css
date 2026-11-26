@@ -1,0 +1,6 @@
+/* SH-282: the row of the three lists (Home.tsx RailsRow), copied from the platform's Boxes page row (box-feed.css). */
+.rails-row { display: flex; margin-bottom: 8px; }
+.rails-row__switch { display: inline-flex; flex-wrap: wrap; border: 1px solid var(--sh-border-strong, #63769b); border-radius: 999px; padding: 2px; }
+.rails-row__option { display: inline-flex; align-items: center; min-height: 36px; padding: 0 14px; border-radius: 999px; color: var(--sh-text-secondary, #b5c0d5); text-decoration: none; font-weight: 700; font-size: 14px; }
+.rails-row__option[aria-current='page'] { background: var(--sh-selected, #241e4f); color: var(--sh-text, #f3f5fb); box-shadow: inset 0 -3px 0 var(--sh-accent, #a78bfa); }
+.rails-row__option:focus-visible { outline: 3px solid var(--sh-accent, #a78bfa); outline-offset: 2px; }

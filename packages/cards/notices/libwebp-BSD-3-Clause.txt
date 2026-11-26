@@ -1,0 +1,11 @@
+libwebp 1.6.0 — known notice gap
+
+The installed @img/sharp-libvips-linux-x64 1.3.4 versions.json lists
+webp 1.6.0. Its README.md lists libwebp under the New BSD License
+(BSD-3-Clause). Neither that package nor sharp ships libwebp's full
+copyright and licence text. The earlier system-library text was not
+verified against 1.6.0 and is superseded by this gap record.
+
+Upstream source: https://github.com/webmproject/libwebp/tree/v1.6.0
+The full text and any related notices must be obtained from that source
+before external distribution. A source URL is not a copy of the notice.

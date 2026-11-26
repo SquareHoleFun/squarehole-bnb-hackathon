@@ -1,0 +1,70 @@
+[
+  {
+    "id": "1",
+    "attributes": [
+      {
+        "trait_type": "Rarity",
+        "value": "Legendary"
+      },
+      {
+        "trait_type": "Card",
+        "value": "Sun Crown"
+      },
+      {
+        "trait_type": "Number",
+        "value": "13/16"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "attributes": [
+      {
+        "trait_type": "Rarity",
+        "value": "Legendary"
+      },
+      {
+        "trait_type": "Card",
+        "value": "Moon Key"
+      },
+      {
+        "trait_type": "Number",
+        "value": "14/16"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "attributes": [
+      {
+        "trait_type": "Rarity",
+        "value": "Legendary"
+      },
+      {
+        "trait_type": "Card",
+        "value": "Star Map"
+      },
+      {
+        "trait_type": "Number",
+        "value": "15/16"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "attributes": [
+      {
+        "trait_type": "Rarity",
+        "value": "Legendary"
+      },
+      {
+        "trait_type": "Card",
+        "value": "Storm Bell"
+      },
+      {
+        "trait_type": "Number",
+        "value": "16/16"
+      }
+    ]
+  }
+]

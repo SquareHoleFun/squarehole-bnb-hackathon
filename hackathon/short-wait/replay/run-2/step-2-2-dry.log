@@ -1,0 +1,28 @@
+No files changed, compilation skipped
+Script ran successfully.
+
+== Return ==
+factory: address 0xc66520D4897412766f8Fb120d351a7E39ca48d7C
+
+== Logs ==
+  BNB|factory|0xc66520D4897412766f8Fb120d351a7E39ca48d7C
+
+## Setting up 1 EVM.
+
+==========================
+
+Chain 97
+
+Estimated gas price: 0.1 gwei
+
+Estimated total gas used for script: 113426127
+
+Estimated amount required: 0.0113426127 BNB
+
+==========================
+
+SIMULATION COMPLETE. To broadcast these transactions, add --broadcast and wallet configuration(s) to the previous command. See forge script --help for more.
+
+Transactions saved to: /home/sh/work/c/packages/contracts/broadcast/DeployCoreV2BnbShortWait.s.sol/97/dry-run/run-latest.json
+
+Sensitive values saved to: /home/sh/work/c/packages/contracts/cache/DeployCoreV2BnbShortWait.s.sol/97/dry-run/run-latest.json

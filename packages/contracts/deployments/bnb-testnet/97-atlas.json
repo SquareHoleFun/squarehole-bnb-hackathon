@@ -1,0 +1,323 @@
+{
+  "schema": "square-hole-bnb-testnet-atlas/2",
+  "chainId": 97,
+  "recordedAtCommit": "28fddeba7a1deaa724436553a37242c103ee5346",
+  "readAtBlock": "144813122",
+  "deployer": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576",
+  "mirror": "0xE1F83eE5a2ba0f5Bf4Ff7737D9C879f716d2e912",
+  "source": "0x08857eEd51dEA7813c834d20eA6bA2fF06BcD7Eb",
+  "setter": "0x34A364Bd2E4129E92e1102245e582fe22aa266A8",
+  "setterOwner": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576",
+  "mirrorWriter": "0x920B1439BC0BF2f30f9E01B9Bb94d90A9ba35189",
+  "mirrorNote": "the mirror of the first deployment, reused as the new source's required mirror; never written again (every managed row reads Atlas directly)",
+  "targetUsdX18": "1000000000000000000",
+  "feeds": [
+    {
+      "id": "0x00000279",
+      "pair": "BNB/USD",
+      "feed": "0x3957d289ee9C38272377786787ea34F9dd29788D",
+      "maxAgeSeconds": 190,
+      "listingRow": 0,
+      "startRaise": "1854565578800516"
+    },
+    {
+      "id": "0x000003a6",
+      "pair": "NVDAB/USD",
+      "feed": "0x3eF39d6361EfA1E8Ca066751f438077dA81082A6",
+      "maxAgeSeconds": 910,
+      "listingRow": 2,
+      "startRaise": "6780224385222610"
+    },
+    {
+      "id": "0x58415500",
+      "pair": "XAU/USD",
+      "feed": "0xB3C87F255CE00b2692dc0eaf3e5985fBe2489764",
+      "maxAgeSeconds": 910,
+      "listingRow": 3,
+      "startRaise": "284958949859477"
+    },
+    {
+      "id": "0x00000278",
+      "pair": "ETH/USD",
+      "feed": "0x35369dEcD8c662954B3D24acc2A862C708A34fD2",
+      "maxAgeSeconds": 190,
+      "listingRow": 5,
+      "startRaise": "100000000000000000"
+    }
+  ],
+  "listingRegistry": "0xcCf0B8CC9257DB834d77F29EA9eB8e5554ba0170",
+  "holdingContract": "0x974d108cf896fb4b0981a13df759349d44296d27",
+  "listerHandedOver": true,
+  "lister": "0x34A364Bd2E4129E92e1102245e582fe22aa266A8",
+  "transactions": [
+    {
+      "nonce": "237",
+      "hash": "0xe96246f5f0f476c180c4f25e025a8e11841e3c20ff5b5916fb0cdecf2cd16dec",
+      "what": "create AtlasSource",
+      "gasUsed": "677254",
+      "block": "144811218"
+    },
+    {
+      "nonce": "238",
+      "hash": "0x3b2c0b922564295a5a9565c5d9934d03b55a02faf7e7330f134af67049495370",
+      "what": "call addDirectFeed(bytes4,address,uint256) on the source",
+      "gasUsed": "76724",
+      "block": "144811223"
+    },
+    {
+      "nonce": "239",
+      "hash": "0x8ba2805c1e88e7e99809a00227e7d87132621fe104837489c26f768979629650",
+      "what": "call addDirectFeed(bytes4,address,uint256) on the source",
+      "gasUsed": "76736",
+      "block": "144811227"
+    },
+    {
+      "nonce": "240",
+      "hash": "0x59167a6fa23bc6ee8d03cad93d6c35c727b7c0dca14f3474e9fe45ee127d27d3",
+      "what": "call addDirectFeed(bytes4,address,uint256) on the source",
+      "gasUsed": "76712",
+      "block": "144811232"
+    },
+    {
+      "nonce": "241",
+      "hash": "0xe0da862a2fa4a061c8b97ce678aad151160ff59b0d6abc00c344a1256e296c34",
+      "what": "create AtlasRaiseSetter",
+      "gasUsed": "1651892",
+      "block": "144811237"
+    }
+  ],
+  "handBack": {
+    "at": "2026-11-25T15:21:48.000Z",
+    "transactions": [
+      {
+        "nonce": "235",
+        "hash": "0x0b0e772ad760fcd1a0079d973edb246c33b28bc64c82beb541a6b358b4968b39",
+        "what": "call handBack() on 0x2d7be91672aa149f897064babf8ffdeebbf9b079",
+        "gasUsed": "51074",
+        "block": "144811129"
+      },
+      {
+        "nonce": "236",
+        "hash": "0x683188a50d7afcdaa23d1e6008d833ba5120b62ea0c372fc0f08077448cd789c",
+        "what": "call execute(address,uint256,bytes) on the holding contract",
+        "gasUsed": "39509",
+        "block": "144811134"
+      }
+    ]
+  },
+  "handover": {
+    "at": "2026-11-25T15:23:54.000Z",
+    "by": "the deployment driver (AtlasRaiseDeploy.handover), from the deployer",
+    "transactions": [
+      {
+        "nonce": "242",
+        "hash": "0x2388a9c52c5b91f41ba273c5394b242eb10fc17c33deac63bf7b53f709069ac4",
+        "what": "call execute(address,uint256,bytes) on the holding contract",
+        "gasUsed": "58832",
+        "block": "144811408"
+      },
+      {
+        "nonce": "243",
+        "hash": "0xf01ce8621f3e4f1e2c99348d391b614a43fcedda636dc306b204c05ec4ef4ccd",
+        "what": "call accept() on the setter",
+        "gasUsed": "54143",
+        "block": "144811413"
+      }
+    ]
+  },
+  "firstPokes": {
+    "at": "2026-11-25T15:35:15.000Z",
+    "rows": [
+      {
+        "listingRow": 2,
+        "from": "6780224385222610",
+        "to": "6961261242557455",
+        "priceUsdX18": "143652129284637525080",
+        "origin": "direct",
+        "hash": "0x73dcdd573f275f47e7b5f56186d526f145ff5c6e7d0fd00823e96e87146cb844"
+      },
+      {
+        "listingRow": 3,
+        "from": "284958949859477",
+        "to": "290735983734038",
+        "priceUsdX18": "3439546722619608691500",
+        "origin": "direct",
+        "hash": "0x467cd12c432735071f92e9678f7599fba9a9f5fa22a27ef9d9ceab67d81b387c"
+      },
+      {
+        "listingRow": 5,
+        "from": "100000000000000000",
+        "to": "608520608251760",
+        "priceUsdX18": "1643329718730370843100",
+        "origin": "direct",
+        "hash": "0x9475936e7c85e09f69baebba3ccd6b0e8270a52a9265e1914665f4c784760b11"
+      }
+    ]
+  },
+  "pokes": [
+    {
+      "listingRow": 2,
+      "event": "RaiseSet",
+      "direct": true,
+      "hash": "0x73dcdd573f275f47e7b5f56186d526f145ff5c6e7d0fd00823e96e87146cb844",
+      "block": "144812924"
+    },
+    {
+      "listingRow": 3,
+      "event": "RaiseSet",
+      "direct": true,
+      "hash": "0x467cd12c432735071f92e9678f7599fba9a9f5fa22a27ef9d9ceab67d81b387c",
+      "block": "144812940"
+    },
+    {
+      "listingRow": 5,
+      "event": "RaiseSet",
+      "direct": true,
+      "hash": "0x9475936e7c85e09f69baebba3ccd6b0e8270a52a9265e1914665f4c784760b11",
+      "block": "144812956"
+    }
+  ],
+  "retired": {
+    "why": "Atlas's first BNB/USD feed on chain 97 refused a contract caller and stopped updating on 25 November 2026; the source's feed per id is fixed, so a new source and setter read Atlas's open feeds (SH-272)",
+    "source": "0x44B187F89Ad9aa2f0526a553eBD36425490Bb01D",
+    "setters": [
+      "0xC3A0C62981fb5dEF1CDC546fdE67153727aB0479",
+      "0x2d7BE91672aa149F897064BabF8FfdeEBbf9B079"
+    ],
+    "bnbUsdFeed": "0xb3d1614Bf894E68ADd1EA50CA250C152BAd5256F",
+    "firstDeployment": {
+      "schema": "square-hole-bnb-testnet-atlas/1",
+      "chainId": 97,
+      "sourceCommit": "79f2abc0221d1821e300777024961147e41f37a1",
+      "deployer": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576",
+      "mirror": "0xE1F83eE5a2ba0f5Bf4Ff7737D9C879f716d2e912",
+      "source": "0x44B187F89Ad9aa2f0526a553eBD36425490Bb01D",
+      "setter": "0x2d7BE91672aa149F897064BabF8FfdeEBbf9B079",
+      "mirrorWriter": "0x920B1439BC0BF2f30f9E01B9Bb94d90A9ba35189",
+      "targetUsdX18": "1000000000000000000",
+      "feeds": [
+        {
+          "id": "0x00000279",
+          "pair": "BNB/USD",
+          "feed": "0xb3d1614Bf894E68ADd1EA50CA250C152BAd5256F",
+          "maxAgeSeconds": 180,
+          "listingRow": 0
+        },
+        {
+          "id": "0x000003a6",
+          "pair": "NVDAB/USD",
+          "feed": "0x3eF39d6361EfA1E8Ca066751f438077dA81082A6",
+          "maxAgeSeconds": 900,
+          "listingRow": 2
+        },
+        {
+          "id": "0x58415500",
+          "pair": "XAU/USD",
+          "feed": "0xB3C87F255CE00b2692dc0eaf3e5985fBe2489764",
+          "maxAgeSeconds": 900,
+          "listingRow": 3
+        }
+      ],
+      "listingRegistry": "0xcCf0B8CC9257DB834d77F29EA9eB8e5554ba0170",
+      "holdingContract": "0x974d108cf896fb4b0981a13df759349d44296d27",
+      "listerHandedOver": true,
+      "transactions": [
+        {
+          "nonce": "179",
+          "hash": "0xfe8c2cbcb9593bb2b61b75a6eb3277b1acb750035718b91148ccff62ec1ae96a",
+          "what": "create AtlasMirror",
+          "gasUsed": "643807"
+        },
+        {
+          "nonce": "180",
+          "hash": "0xb59b358c8dbd4d5237f0632bdbd292ef20391aba9b75df1e43867c7cccb54eff",
+          "what": "create AtlasSource",
+          "gasUsed": "677232"
+        },
+        {
+          "nonce": "181",
+          "hash": "0xd67597a72f45c7e4b535de87211e90902380b3f22befdb1780b2f5b4b8dd1093",
+          "what": "create AtlasSource",
+          "gasUsed": "76724"
+        },
+        {
+          "nonce": "182",
+          "hash": "0x8defa6916729b01bfc938644ea82b2b8c2e04b3ebdee835e9f5f449c359fe99c",
+          "what": "create AtlasSource",
+          "gasUsed": "76736"
+        },
+        {
+          "nonce": "183",
+          "hash": "0x738843fe7a12424f4f39f6b466b6fbc246302a45fd88358b26ca8036732b6ff8",
+          "what": "create AtlasRaiseSetter",
+          "gasUsed": "1902242"
+        },
+        {
+          "nonce": "211",
+          "hash": "0x3e025f3fa27f137d608fa2758edc7aab398060d4f9f89d6a7bc87cd4ad539d9a",
+          "what": "create AtlasRaiseSetter (rows fixed at construction)",
+          "gasUsed": "1578355"
+        }
+      ],
+      "setterSourceCommit": "a8d5f11449aacd6c44306086d5be57f01fc6c903",
+      "retiredSetter": {
+        "address": "0xC3A0C62981fb5dEF1CDC546fdE67153727aB0479",
+        "why": "replaced before it ever held the lister role: the new setter has no way to add a row after construction"
+      },
+      "handover": {
+        "at": "2026-11-25T12:24:28Z",
+        "by": "the deployment driver (AtlasRaiseDeploy.handover), from the deployer",
+        "transactions": [
+          {
+            "nonce": "212",
+            "hash": "0xf5d262371bd7441206bac8d7a07e9fe6ad16f55eeebb0b92128c254ae8bceb74",
+            "what": "call execute(address,uint256,bytes)",
+            "gasUsed": "58832",
+            "block": "144787524"
+          },
+          {
+            "nonce": "213",
+            "hash": "0xf53e44622eb81e6bade6b7135f3b62e568c7024a3148610179441b7952d53526",
+            "what": "call accept()",
+            "gasUsed": "54143",
+            "block": "144787529"
+          }
+        ]
+      },
+      "firstPokes": {
+        "at": "2026-11-25T12:35:00Z",
+        "by": "the operator tool (atlas-real.mjs), from the mirror writer",
+        "relays": [
+          "0x9add3dde4bb12a7b8257ec52170aacd50481cbab48aa94f55e35e703ee6f6b67",
+          "0xafd4b5b9acaa707dc35d5d71cb2a8c2e5adb1fd3fed25b28e5d5384c888ed05b"
+        ],
+        "rows": [
+          {
+            "listingRow": 0,
+            "from": "1000000000000000",
+            "to": "1854565578800516",
+            "priceUsdX18": "539209835139274584680",
+            "origin": "copy",
+            "hash": "0x2ea3dd333c8f756a0721215fcbd665bcbe4a90a5bbb2e42eb5c0986f85c8f88b"
+          },
+          {
+            "listingRow": 2,
+            "from": "1000000000000000",
+            "to": "6780224385222610",
+            "priceUsdX18": "147487744237415481530",
+            "origin": "direct",
+            "hash": "0x06b457894ee546e69b985d13bbe77bc1ef74a47deb38d98071f2aa3be942c748"
+          },
+          {
+            "listingRow": 3,
+            "from": "1000000000000000",
+            "to": "284958949859477",
+            "priceUsdX18": "3509277390631638141400",
+            "origin": "direct",
+            "hash": "0xa1bac8be3f0811cb2e8220a1004671e573fc886eedbbb6273595c22808d0deda"
+          }
+        ]
+      }
+    }
+  }
+}

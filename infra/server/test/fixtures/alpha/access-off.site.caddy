@@ -1,0 +1,65 @@
+# Generated from the checked app release; contains public data only.
+http://app.squarehole.fun, https://app.squarehole.fun {
+	import landing_headers
+	header Cache-Control no-store
+	respond "Mainnet app unavailable (G08)" 503
+}
+
+(app_security) {
+	header {
+
+		X-Sh-App-Release "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+	}
+}
+
+http://test-app.squarehole.fun, https://test-app.squarehole.fun {
+	root * /srv/app/releases/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/public
+	import app_security
+	@write not method GET HEAD
+	handle @write {
+		header Cache-Control no-store
+		respond "read-only" 405
+	}
+	@private path_regexp private (^|/)\.[^/]*|\.map$|^/_(headers|redirects|routes\.json)$
+	handle @private {
+		error 404
+	}
+	# Only existing fingerprinted files receive an immutable response. Old hashes stay in the asset pool.
+	@immutable {
+		path_regexp hashed ^/assets/[^/]+-[A-Za-z0-9_-]{8,}\.[A-Za-z0-9]+$
+		file {
+			root /srv/app/immutable
+			try_files {path}
+		}
+	}
+	handle @immutable {
+		root * /srv/app/immutable
+		header Cache-Control "public, max-age=31536000, immutable"
+		file_server
+	}
+	# SH-252: the examples' pictures never change within a release: kept a day in the browser, not fetched on every visit.
+	@examples_art {
+		path_regexp examples_art ^/examples/art/[A-Za-z0-9_.-]+$
+		file
+	}
+	handle @examples_art {
+		header Cache-Control "public, max-age=86400"
+		file_server
+	}
+	# Missing scripts/images must not receive index.html or an immutable 404.
+	@file path_regexp extension \.[^/]+$|^/assets(/|$)
+	handle @file {
+		header Cache-Control no-store
+		file_server
+	}
+	handle {
+		header Cache-Control no-store
+		try_files {path} /index.html
+		file_server
+	}
+	handle_errors 404 {
+		import app_security
+		header Cache-Control no-store
+		respond "" 404
+	}
+}

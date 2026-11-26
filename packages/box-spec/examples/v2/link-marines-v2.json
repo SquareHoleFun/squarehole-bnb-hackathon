@@ -1,0 +1,58 @@
+{
+  "$schema": "./schema.json",
+  "version": 1,
+  "id": "link-marines-v2",
+  "name": "Link Marines",
+  "ticker": "MARINE",
+  "status": "ready",
+  "template": {
+    "id": "collection",
+    "name": "Collection"
+  },
+  "priceCoin": {
+    "symbol": "LINK",
+    "decimals": "18"
+  },
+  "logo": "examples/boxes/link-marines-v2/art/logo.png",
+  "contents": {
+    "kind": "collection",
+    "size": "420",
+    "label": "Marines",
+    "art": {
+      "mode": "open",
+      "source": "examples/boxes/link-marines-v2/art/cover.png"
+    },
+    "seed": null,
+    "pickFeeBps": "100"
+  },
+  "raise": {
+    "policy": "listing-fixed",
+    "amount": "420698008500000000000"
+  },
+  "deadline": {
+    "days": "90"
+  },
+  "royalties": {
+    "bps": "250",
+    "destination": "fees"
+  },
+  "fees": {
+    "buyers": {
+      "choice": "items",
+      "inside": "depth"
+    },
+    "sellers": {
+      "choice": "items",
+      "inside": "depth"
+    }
+  },
+  "life": "graduate",
+  "properties": [
+    "fee-conservation",
+    "page-state",
+    "graduation",
+    "item-claim",
+    "own-pictures",
+    "pool-growth"
+  ]
+}

@@ -1,0 +1,94 @@
+/*
+ * Chain data sources (SH-C): the pool mid price under the pair line, quote-denominated figures in the metric cells,
+ * and the data-source chip next to the snapshot time. Figures are bounded in length instead of wrapping mid-number.
+ */
+.sh-chain-price {
+  display: block;
+  margin-top: 2px;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-label);
+  overflow-wrap: anywhere;
+}
+
+/* The price and its unit stay together on one line (6 significant digits keep it short). */
+.sh-chain-price .sh-numeric {
+  white-space: nowrap;
+}
+
+/*
+ * A quote figure is the amount, then its unit on its own line. The amount never breaks inside the number (a break in
+ * "1,071.61454" reads as two numbers); it is kept short enough for the fixed column instead (formatQuoteFigure: at
+ * most 6 significant digits, compact from a million). Only a long unit symbol may wrap.
+ */
+.sh-q-figure {
+  display: inline-block;
+  max-width: 100%;
+  white-space: normal;
+}
+
+.sh-q-figure .sh-numeric {
+  white-space: nowrap;
+}
+
+.sh-q-figure__unit {
+  display: block;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-label);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.sh-feed__source {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 0 8px;
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-pill);
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-label);
+  font-weight: 650;
+}
+
+.sh-chain-note {
+  margin: 0;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-label);
+}
+
+.sh-chain-market .sh-chain-note {
+  line-height: 1.45;
+}
+
+.sh-chain-market__facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--sh-gap-3);
+  margin: 0;
+}
+
+.sh-chain-market__facts > div {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.sh-chain-market__facts dt {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-label);
+  font-weight: 650;
+}
+
+.sh-chain-market__facts dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.sh-chain-market__disclosures {
+  display: grid;
+  gap: var(--sh-gap-1);
+  margin: 0;
+  padding-left: 1.2em;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-label);
+}

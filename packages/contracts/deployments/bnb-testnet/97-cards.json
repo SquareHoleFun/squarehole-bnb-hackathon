@@ -1,0 +1,37 @@
+{
+  "schema": "square-hole-bnb-testnet-cards/1",
+  "chainId": 97,
+  "sourceCommit": "4ee9c28d8b64d7c216bdec85c2b45f0abf3c4d2e",
+  "collections": {
+    "common": "0x675A3eCDd3e46eC716Af19179B36e6f4d6a2A174",
+    "uncommon": "0xF4F372F7c73D0D6D85da691856B24B9ea1f2B577",
+    "rare": "0xf7204bC0D744E4cF466c89fC7260e9506a50eBFC",
+    "legendary": "0x26C4f9298F88f203c7BC84e4eE3d9eA45680B143"
+  },
+  "stockTransactions": 36,
+  "starterHolder": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576",
+  "testerHolder": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0",
+  "box": {
+    "coordinator": "0x513019E1A60a1F8D9D8DfaFa85F0d62344382CC0",
+    "boxToken": "0x445A859675d9521167878FEe302dC83c6A5DDEb8",
+    "vault": "0x1c7Ec0EC2a959186176b616ab2825708fd4cE5fA",
+    "starterLoader": "0xeFEe29D6BE48E3C7a6592dD4f9F96b4a850611f7",
+    "hook": "0x773D144856d46CDfc5E217a5f5a3EDFeD083aae0",
+    "specHash": "0x74e622e4885572236baf9a1a0de024662c19a40113bb50690981725cdcc85d78",
+    "createBlock": "144781346",
+    "createdAt": "1795606679",
+    "priceCoin": "0x25C5789b269D8f76309CE961759d643dce291347",
+    "priceListing": "1",
+    "raise": "1000000",
+    "graduated": true
+  },
+  "starterCards": 16,
+  "picks": [
+    {
+      "collection": "legendary",
+      "id": "1",
+      "to": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0",
+      "pickPrice": "16000000000000000000000000"
+    }
+  ]
+}

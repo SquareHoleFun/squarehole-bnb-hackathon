@@ -1,0 +1,4 @@
+/* SH-294: a launch's picture (lib/pictures/read.tsx): a round thumb before the launch's name. */
+.launch-picture { border-radius: 50%; object-fit: cover; flex: none; vertical-align: middle; border: 1px solid var(--sh-border, #30415d); }
+.launch-picture--head { margin-right: 10px; }
+.launch-picture--row { margin-right: 8px; }

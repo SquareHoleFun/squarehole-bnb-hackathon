@@ -1,0 +1,9 @@
+# Hash-committed NFT outputs (SH-E): served and hashed byte-for-byte, so git must never convert their line endings
+# (a CRLF checkout would break build.mjs --check, the tests and the published manifest hashes).
+apps/web/public/nft/** -text
+scripts/nft/state/** -text
+# SH-252: the explainer's files the app serves at /examples/, checked byte for byte against their manifest.
+apps/web/public/examples/** -text
+
+# The v2 handoff (2026-09-28) is hash-checked byte-for-byte (pnpm check:handoff): never convert its line endings.
+square-hole-core-v2/** -text

@@ -1,0 +1,1792 @@
+{
+  "schema": "squarehole.demo-boxes-real-runs/1",
+  "chainId": 97,
+  "source": "the real runs' state and result files of 25 and 26 November 2026, read only",
+  "boxes": {
+    "stock": {
+      "coordinator": "0x3F420c889923964B703012c095571fED11F524FC",
+      "token": "0x734C884B480159B3c993f2A95a45e81A36a13a27",
+      "createTx": "0xe2d8bb2b5e8fd1c559355f09c3cb4a9bae3ced15221db892270cf52164c04716",
+      "readBack": "47 of 47 fields equal",
+      "transactions": [
+        {
+          "step": "raising: A buys a tenth#0",
+          "call": "approve",
+          "hash": "0x47197392703eca244bc746fe9d1572e33a3c9f1e4e1fdf32e53f5c7b10d27907",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "raising: A buys a tenth#1",
+          "call": "swap",
+          "hash": "0xed323daca9a68e0c9750c5ad58cd71e5c0e37c4bbf90172b6d5cd1ca56fedcb7",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "raising: A buys a tenth#2",
+          "call": "approve",
+          "hash": "0x2240b1714ca3789a9a4ca635b078f91a6bf6908976ac29bfdac488b94a60e699",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "raising: B buys a tenth#0",
+          "call": "approve",
+          "hash": "0xe76a9005dff9ec3ca134131060bf1fcfd438052097cdfbbddbae7bbec874beda",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "raising: B buys a tenth#1",
+          "call": "swap",
+          "hash": "0x6d13bb01e9c8c398a20b5a28a89a1561b4de27a1148755dc1f546fd7268237d5",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "raising: B buys a tenth#2",
+          "call": "approve",
+          "hash": "0x3bbe39d7c87cbdcc85fb2adf4d49283da836d8c5dedab26981e835f014000373",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "raising: A sells a quarter#0",
+          "call": "approve",
+          "hash": "0xa3bf3607b1753c8b53e6af0b76789f447e4497aaccdb6627571e0b30fad5767e",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "raising: A sells a quarter#1",
+          "call": "swap",
+          "hash": "0x379d55812bec376e2e4d66e902fcbcd2a56c85828b0f379485d5452679536907",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "collect raising#0",
+          "call": "collect",
+          "hash": "0x50180e5402b6609aee0a3fc8bae0ac8089dfab5ca256aa425b50df03116a095f",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "holders batch 1#0",
+          "call": "settleBatch",
+          "hash": "0x987d41c317199a7f0a9145417a384c9d345a2718a0bd46c9eaae3bbfbd25ee86",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "holders batch 1#1",
+          "call": "claim",
+          "hash": "0xe60b6ca1eb0710b93f9ff775526529936e0e3302bb83c20d1249e3f772106211",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 1#0",
+          "call": "approve",
+          "hash": "0x1243642edcce0c334c53f56bccd5ce42397847af8007c0ec67db432f9cb722fe",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 1#1",
+          "call": "swap",
+          "hash": "0xe36327a5e06545b389618d7fec2574ff247ebfa000f207a9585ab4d3e3771158",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 1#2",
+          "call": "approve",
+          "hash": "0x01c9c0db9c2c9b4f99abf7671981945fa2f3e4aabd77f33c4e5feff1ac828c71",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 2#0",
+          "call": "approve",
+          "hash": "0x7eea50a964430b787a50f2fad2697163081b0f1d55fcadeb9033bf05dd3f0b8a",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 2#1",
+          "call": "swap",
+          "hash": "0xd6c334ca25dd9f71261ef4b516175dec6fa023f912d81842fcd197860eec3dba",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 2#2",
+          "call": "approve",
+          "hash": "0x73eca60eeeee0f14f808f5a97398ef1080575c2d4e791bd767ea82a9cf206e6a",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 3#0",
+          "call": "approve",
+          "hash": "0x311e9a4e7cebcecd10ffef3b524657e1624108f21fcc138f95fdb8ae9972f7ec",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 3#1",
+          "call": "swap",
+          "hash": "0x5357ed5fab651861d33bb0751f8ff59322bddd11a6b49c601db1ce3298e832a6",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 3#2",
+          "call": "approve",
+          "hash": "0x9efee0434af49b5ba79222260556cf890a5ee4c91a0050dd7350dc0be75bdc65",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 4#0",
+          "call": "approve",
+          "hash": "0x446e40336221e24951216fbb0f47bbdf6b69a2be1c95e247f8827805e3f2307f",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 4#1",
+          "call": "swap",
+          "hash": "0x1f6ea5f2bbe2a2d7d8a62acb0a7a65591d6deb39d4dbebdfd1b1517bdc58cbbe",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 4#2",
+          "call": "approve",
+          "hash": "0x409d38429fa33b22ec7cdd9a2c868349ca366d0f02c87a8bde0f35c27e8530fb",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "collect filled#0",
+          "call": "collect",
+          "hash": "0xfa4ae94d6e43098afcece7f1d704cfc05f7d59a263797017685a9af6e9d6120d",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "holders batch 3#0",
+          "call": "settleBatch",
+          "hash": "0xdbad5bde72a3870cac6f1bf6b91599555fc23c2c3bf5d9d04036e27573b303cd",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "holders batch 3#1",
+          "call": "claim",
+          "hash": "0x50f06f28d07c029371438baae6fe54fe6acdf81b98cdfbc3d6964ac4a7d2899e",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "holders batch 3#2",
+          "call": "claim",
+          "hash": "0x22f490f66b4a6109f5cffa28aefed27b64a9d2af90e26e15af5299d1450a691c",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "graduate#0",
+          "call": "graduate",
+          "hash": "0xdf4aeab183c10427ff2d5ab82a830880fb0d44057eefdb347347d9f16d5c2597",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "collect graduated#0",
+          "call": "collect",
+          "hash": "0x6acc61e44e48550b752d85fc94018ed82d18e810526ff422176d6906c44a9d01",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "after graduation 1#0",
+          "call": "approve",
+          "hash": "0x2cb56d6c38d24bcdb51ec3cf4d1c72ab963be298e25d146d67fa9ad2d40952a8",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 1#1",
+          "call": "swap",
+          "hash": "0xbc909def91cd2a939526ff0e54bbc9e1af579146f497394f2592c47e6a4eb846",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 1#2",
+          "call": "approve",
+          "hash": "0x30d5cbc3a2141d5ab92f78820003a95bb5b9de758cae6707efa56c0fe73035c2",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 1#3",
+          "call": "approve",
+          "hash": "0x1e3462d14d52bbcbd6527ada0d91b41dbf822fb2a3e0347910550bad7e98d99c",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 1#4",
+          "call": "swap",
+          "hash": "0xaf880b38fd9d6c2f5ebe80ece125cee40723acb2f05861b050c667a08c57b76b",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 2#0",
+          "call": "sellFees",
+          "hash": "0xabe9471b4b4630419888cfda3dde2f1f0218ddd3b4a0f3c50abb46eebcf929ab",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "after graduation 3#0",
+          "call": "sellFees",
+          "hash": "0xdc17c92ea4267cea9b0de51af24b8c28016f23a22d81eaf776c30a48bbe4002c",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "after graduation 4#0",
+          "call": "sellFees",
+          "hash": "0x6a0da6d9fcace6d442e743675e0bb23376b7c45b3ae04a392479e0e07a4f68c8",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "after graduation 5#0",
+          "call": "sellFees",
+          "hash": "0xfa8697017629b1089ad3a8b3610259f4a3ef8c9a0bb5a6dcd8bc6f766938d4cf",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "collect after graduation#0",
+          "call": "collect",
+          "hash": "0x3048ef6d27ec7b298c82c2b142f079639e10519207667b962c9d0706794194df",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "holders batch 9#0",
+          "call": "settleBatch",
+          "hash": "0xce8408fbb2cec29e0212bc78b3a4bb2311c497e470e9c72c93132055f2f3ceb9",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "holders batch 9#1",
+          "call": "claim",
+          "hash": "0xcfa48afa0967aeb3424011c809ba7007ce86d67bf29bc2e2297e64ecbd379ab6",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "holders batch 9#2",
+          "call": "claim",
+          "hash": "0x4c0e83a26885ae6fd7406864b1d11fe20737a050d609a8070eb06738c71953dc",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        }
+      ],
+      "claims": [
+        {
+          "holder": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F",
+          "rawPriceCoin": "333926526308",
+          "hash": "0xe60b6ca1eb0710b93f9ff775526529936e0e3302bb83c20d1249e3f772106211"
+        },
+        {
+          "holder": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F",
+          "rawPriceCoin": "3984677053990",
+          "hash": "0x50f06f28d07c029371438baae6fe54fe6acdf81b98cdfbc3d6964ac4a7d2899e"
+        },
+        {
+          "holder": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0",
+          "rawPriceCoin": "1703018635837",
+          "hash": "0x22f490f66b4a6109f5cffa28aefed27b64a9d2af90e26e15af5299d1450a691c"
+        },
+        {
+          "holder": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F",
+          "rawPriceCoin": "5400039610278997",
+          "hash": "0xcfa48afa0967aeb3424011c809ba7007ce86d67bf29bc2e2297e64ecbd379ab6"
+        },
+        {
+          "holder": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0",
+          "rawPriceCoin": "1266627056387661",
+          "hash": "0x4c0e83a26885ae6fd7406864b1d11fe20737a050d609a8070eb06738c71953dc"
+        }
+      ],
+      "totalRawPriceCoin": "6672688288882793"
+    },
+    "rentfree": {
+      "coordinator": "0x216262834df5811ae0B4B7d7942F8bcC82c2641B",
+      "token": "0x5539280794dd81763afE9dCAf326EF6c52327863",
+      "createTx": "0x84f925e46b0fe3244f6685f0e4ae5939ec869413f4b9650e808117fe9a1694b1",
+      "readBack": "81 of 81 fields equal",
+      "transactions": [
+        {
+          "step": "reveals: batch 1 of 13#0",
+          "call": "aggregate3 reveal 1-40",
+          "hash": "0xe9275a40ce0461b991acb9bf652989449535d4414e624adefd6c347527b78ab7",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "reveals: batch 2 of 13#0",
+          "call": "aggregate3 reveal 41-80",
+          "hash": "0x0b51226e0964b91da289254f4db0db834464a0deb220751e20018472c2558dc9",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "reveals: batch 3 of 13#0",
+          "call": "aggregate3 reveal 81-120",
+          "hash": "0xdc5510ab85b236c3e0f084c11db4c4a47381ffec73f59ca7ae313063c3cdf49d",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "reveals: batch 4 of 13#0",
+          "call": "aggregate3 reveal 121-160",
+          "hash": "0x307a7fa02d0db4aba051a90b48610c609033fc05f427ae1da5c7862669634e8d",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "reveals: batch 5 of 13#0",
+          "call": "aggregate3 reveal 161-200",
+          "hash": "0xeaab5b98ffc098b4910a7d2d03608bb26a87568901ff09678218124bbdb2366b",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "reveals: batch 6 of 13#0",
+          "call": "aggregate3 reveal 201-240",
+          "hash": "0xd2b988870056a1995a874a765f7b1af4b851eb44cd07c29ec5f5106e1686a2a9",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "reveals: batch 7 of 13#0",
+          "call": "aggregate3 reveal 241-280",
+          "hash": "0x086b9611abaa5053fe89765afeb03c6057f59aaeb0c504c27b4c013b54c18b4f",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "reveals: batch 8 of 13#0",
+          "call": "aggregate3 reveal 281-320",
+          "hash": "0x27e3171546d9f73f837492d23a9df4a882d2d7b8f35711ba96ea143654fd05f5",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "reveals: batch 9 of 13#0",
+          "call": "aggregate3 reveal 321-360",
+          "hash": "0x8ab132e93237b74f39ff6f489ee9938c327eb4a741f83a13c977136c5f63b84a",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "reveals: batch 10 of 13#0",
+          "call": "aggregate3 reveal 361-400",
+          "hash": "0x0de3c41ce2ac48102d2a7cab5512cd6f6880ed85661c72e431e39a77ec158e90",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "reveals: batch 11 of 13#0",
+          "call": "aggregate3 reveal 401-440",
+          "hash": "0xbc4306976712108b37e38b904b07cdd04904c6ee0897c14d6e22b9082b99d97e",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "reveals: batch 12 of 13#0",
+          "call": "aggregate3 reveal 441-480",
+          "hash": "0x0303e4861467192a7f544328f9ababba278f7fdf15be7a439de02954f6a3ae6f",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "reveals: batch 13 of 13#0",
+          "call": "aggregate3 reveal 481-500",
+          "hash": "0xf00ac5f0f516b69eca01c3407bd09e8f17c4be4b87a051e15f8e278655e4fc83",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "raising: A buys a tenth#0",
+          "call": "approve",
+          "hash": "0xf37ba8038196f81715f9f699efcb98b15fe79868e453e611b0bca2d6d5064ba9",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "raising: A buys a tenth#1",
+          "call": "swap",
+          "hash": "0x05ea850bcb01b2f415cb8d530824cfff9bd0e838ad10ca5c72cb3f611a595b2f",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "raising: A buys a tenth#2",
+          "call": "approve",
+          "hash": "0x8a71e4631c22e8dbfd94e90d6dfa181027bfd294e5c18ce535191aa8d2314e6a",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "raising: B buys a tenth#0",
+          "call": "approve",
+          "hash": "0xfc45b878f6a554d82b497234261f7be386a1701deddc466e644f653e1cffd6f4",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "raising: B buys a tenth#1",
+          "call": "swap",
+          "hash": "0xf042ab095008afc9a240fba8202e338a04d1a50c4592ba6376eabecbd86182c9",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "raising: B buys a tenth#2",
+          "call": "approve",
+          "hash": "0x2509bb494da8ecfd60fb21600cc51bcbbb76f79ae23e75add5132aed8bfd8e62",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "raising: A sells a quarter#0",
+          "call": "approve",
+          "hash": "0x4a7510eda6cf0450d075ac4d54e2e0ae310dd7e82ca45d9dc128ed083cd7fb9d",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "raising: A sells a quarter#1",
+          "call": "swap",
+          "hash": "0xae4e7dee59b9ecdd0941a1f7a788e4ae561d8a994d0adab4e0c82a5aa0d42d26",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "collect raising#0",
+          "call": "collect",
+          "hash": "0xf51e61e9e5cb97ac7d2dbd00bb0227c455939a12b68a3e86bf421af97db7af2c",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 1#0",
+          "call": "approve",
+          "hash": "0xaa26a1947b08d305ae6bf744d4e72d2b741b66006db538361901efe5b79ef709",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 1#1",
+          "call": "swap",
+          "hash": "0xeb54fb9b9baa671436b077dbd22499354cd3d23c6530472b46011b9e5229b1ea",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 1#2",
+          "call": "approve",
+          "hash": "0x24bc6d55dd9a49e4f4bee60fec054dfeedbeb48442a108bdbad2b4297e894fb9",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 2#0",
+          "call": "approve",
+          "hash": "0xf2289719595e7790a4b0ecdc5994c671e8fc167bc881e7c430db0aaef70f3ac8",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 2#1",
+          "call": "swap",
+          "hash": "0x08c8c738c27167c8b77d18ead034de49f2ff1341bb7c590b5f25ed43b084fa9d",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 2#2",
+          "call": "approve",
+          "hash": "0x777450334eabb26eca2726bdab502887e5cfee3b64c93f0b6d57493442c4fdf2",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 3#0",
+          "call": "approve",
+          "hash": "0xe32910c41def65bbcd8482c79ce68014081c0969b8a227caf1cb9d5e47b0fa56",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 3#1",
+          "call": "swap",
+          "hash": "0x33ac4acbb439ff1aaafd3374b60d35d778a7085bb26b6a4c1b9a12e3963f29bf",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 3#2",
+          "call": "approve",
+          "hash": "0xb4c34737eda8bfa5ee4d2da99ed6ef22895277144a598ccb122ef8172db24c3b",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 4#0",
+          "call": "approve",
+          "hash": "0xe317b7fc004529009ed86ea4fa6ad11de9f9cc7d862a9a5c2102e33966abce2c",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 4#1",
+          "call": "swap",
+          "hash": "0xf38bf2605131be3a33a005c532a155dc7eb59f6a6bb8d512cd14f2a74f7d041d",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 4#2",
+          "call": "approve",
+          "hash": "0xca64434fec0f4779269ca4633aa08325a4fe06bea0f90fca0e1f45366aa1d1b9",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "collect filled#0",
+          "call": "collect",
+          "hash": "0xa577b4a31e47e95fdbd5aed9a237d31ee123447c8e5065b70d85f4eb156e0a72",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "graduate#0",
+          "call": "graduate",
+          "hash": "0xb9b48babf1f3a385a97e2fa768528ed3fc19f811c06cbd1815e42af81ed0eaaf",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "collect graduated#0",
+          "call": "collect",
+          "hash": "0x7d79b69b541275f464802b5216a0b79e1d020d5acb4ffa04853bad1f49329aa3",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "buy back and burn after graduation#0",
+          "call": "buyBack",
+          "hash": "0x315386613c07a43ef73ae3ef6f9094e04a83dd301f024dfd8e915ac6d07f8c5c",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "A takes house 1 out#0",
+          "call": "approve",
+          "hash": "0x5150fe5b5742355857b1fc3c0af112ed0b59d61fad120cbc3024b30466255976",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "A takes house 1 out#1",
+          "call": "withdraw",
+          "hash": "0x7c66aaef40823842b16453f7581e67604c60625e733e0a7eab143d872f8bb0b0",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "after graduation 1#0",
+          "call": "approve",
+          "hash": "0xd40f6b821176451b9215785c97fd833a099bf378c9bee822939cb7a621a3f060",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 1#1",
+          "call": "swap",
+          "hash": "0x2406bd152c44072e5c99be7a9a0f136361e8578b3372d2698e094111d9d66c01",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 1#2",
+          "call": "approve",
+          "hash": "0x8d34ba38655526f7efee8f1936ca24a93f982bcbd0a4e576aa4d2404ede854c2",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 1#3",
+          "call": "approve",
+          "hash": "0x58ac27c77efedcc4d1316ba7880196e39d8f0cf3391c87eddd01cf2988fa50c5",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 1#4",
+          "call": "swap",
+          "hash": "0x8b5c522e0430bd1e00e08ad3cf9063c5b2980ab3facc16a6c8a74390f23c8628",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 2#0",
+          "call": "sellFees",
+          "hash": "0x097104bf199a2094f360240bcfa5468173ff3af9965712424f1d3bbb50cf6179",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "after graduation 3#0",
+          "call": "sellFees",
+          "hash": "0x398dd5edeae6eb658ea558d82fd9a1e070377080270041b11df7bcd01ec7ab3e",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "after graduation 4#0",
+          "call": "sellFees",
+          "hash": "0xc8f6db03bde01f589f2d022c3f3fc856d49f79062ea3b8b9d9dfc7250935eb47",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "after graduation 5#0",
+          "call": "sellFees",
+          "hash": "0x1b42f593a05d88b630d981faad1cae9d7fc5aaa47f8759a42adc9257d50edc8f",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "collect after graduation#0",
+          "call": "collect",
+          "hash": "0xf008820458068a94b7f63f60ee2eaa1e97784c234097f94b6ed8dbc93167fab3",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "buy back and burn the inside share and the sellers' fees#0",
+          "call": "buyBack",
+          "hash": "0xd7e7e8ed6d96673dca8ee73719c47bbe900973d36ffc5561c44ff5f0c39f0725",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "A claims house 1#0",
+          "call": "sync",
+          "hash": "0x3352bca2605cdd9a80c1b9cfd876166499106ebdea211c10ee713469bc22fa98",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "A claims house 1#1",
+          "call": "claim",
+          "hash": "0xf91cbb8cac537cc419de39c8bd97f8c490cf58ceafc7704cd88d085e4cb85986",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        }
+      ],
+      "house1": {
+        "takenOutRawBoxTokens": "2015630258038032634430169",
+        "principalRawBoxTokens": "1995673522809933301416008",
+        "pickFeeBps": "100",
+        "claimedRawPriceCoin": "13333"
+      },
+      "burns": [
+        {
+          "hash": "0x315386613c07a43ef73ae3ef6f9094e04a83dd301f024dfd8e915ac6d07f8c5c",
+          "burnedRawBoxTokens": "492407270714763051377340"
+        },
+        {
+          "hash": "0xd7e7e8ed6d96673dca8ee73719c47bbe900973d36ffc5561c44ff5f0c39f0725",
+          "burnedRawBoxTokens": "123134545846851951004888"
+        }
+      ]
+    },
+    "converter": {
+      "coordinator": "0x3ce857cab35CCE08AE8cdDA23824C2a9Ca000dcC",
+      "token": "0x750a40A83A37d473211a270d0CC8Fc400Ed758bb",
+      "createTx": "0xa2512da758b6a356cfa66f71e22c69a45a20c5453b0ae4965f116b8bb1f6003f",
+      "readBack": "53 of 53 fields equal",
+      "transactions": [
+        {
+          "step": "raising: A buys a tenth#0",
+          "call": "raising: A buys a tenth#0 approve",
+          "hash": "0x4ce4e21a21a491105f49d06b585c45c962bd7317537e4a25bb1be08c372aa634",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "raising: A buys a tenth#1",
+          "call": "raising: A buys a tenth#1 swap",
+          "hash": "0x46e3d421f1fd2d9ee16aba36e4b1e1f1b789b3a30ef2de6b2cb0ac29c9750230",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "raising: A buys a tenth#2",
+          "call": "raising: A buys a tenth#2 approve",
+          "hash": "0x9699b8b9d6322d29d4c52f13cba175c5cc370d296202953dfbeae66ba758703a",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "raising: B buys a tenth#0",
+          "call": "raising: B buys a tenth#0 approve",
+          "hash": "0xed99e370a144740009c554a715e0619471446cbd621167fde6b76d74e2e5bb88",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "raising: B buys a tenth#1",
+          "call": "raising: B buys a tenth#1 swap",
+          "hash": "0x0998e9156d2a329f5fb6e1cce96b2fd938a893c3fdb85b3fba3f817465672ad0",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "raising: B buys a tenth#2",
+          "call": "raising: B buys a tenth#2 approve",
+          "hash": "0x2ee07f5bec61545e157c77648b82299b37ee112002f6bee35fd45f4cdb1e69e4",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "raising: A sells a quarter#0",
+          "call": "raising: A sells a quarter#0 approve",
+          "hash": "0xc80f96394b5d99a74643a5a8a6dbbf1d04d70560a95dc870d0f9c1fd02d15af1",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "raising: A sells a quarter#1",
+          "call": "raising: A sells a quarter#1 swap",
+          "hash": "0x759f8e6ef7205e41a50229d24733a6acec028a3dae228651acf235208f9422c4",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "collect raising#0",
+          "call": "collect raising#0 collect",
+          "hash": "0x077b95eb17954c3b007b79a26f89a7e9fe783bd732274167c2d42ee76294bff7",
+          "from": "0x920B1439BC0BF2f30f9E01B9Bb94d90A9ba35189"
+        },
+        {
+          "step": "fill 1#0",
+          "call": "fill 1#0 approve",
+          "hash": "0xbcba46c31c7e795f906602a2f331bf49946dc4643ddde61fc9975d8f821c51f0",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 1#1",
+          "call": "fill 1#1 swap",
+          "hash": "0xf5b6b9131dfc0e09c4832ccbac5f2432c56dc35f0fe65331784bcaf3dc50c3f3",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 1#2",
+          "call": "fill 1#2 approve",
+          "hash": "0x9e1a4ed740e42b460daf9f5a88883082cc04e17ba9d3237cbaa78967ea3bc7b8",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 2#0",
+          "call": "fill 2#0 approve",
+          "hash": "0x0786c76c919f9c8130e1fd21dfb97f2bb9638ac6b6ad10ea24fb52c82c369c04",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 2#1",
+          "call": "fill 2#1 swap",
+          "hash": "0x8582f914c1438a41d80c50c62b2fe50292b26d6adc7d7c607b6ff88b14f36cd2",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 2#2",
+          "call": "fill 2#2 approve",
+          "hash": "0x6549df230e51a2ff8eaa5d9d9a0e1b73a1f7f4d59603c6369990e248cf4dc1fc",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 3#0",
+          "call": "fill 3#0 approve",
+          "hash": "0x6d06f01d5f2f1b96d56e5e1a5e8201f8e5819280df31877ca830347271708fa1",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 3#1",
+          "call": "fill 3#1 swap",
+          "hash": "0x36c7174652a26f94371236cefcfc9736127096378abb4b1aa199914c0ea06de9",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 3#2",
+          "call": "fill 3#2 approve",
+          "hash": "0xf826dfe6e57297bc36f61d5de4b1de8aecd5bdbe7019ee7a6de0800b77c0e896",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 4#0",
+          "call": "fill 4#0 approve",
+          "hash": "0x947fc67daee99e9943f290ea652e52867ec91dd870f672e0278e3bd88ce18081",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 4#1",
+          "call": "fill 4#1 swap",
+          "hash": "0xd76aa461f84d7dd817e6429192761686808a978873aa222e3ac24b74330706fb",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 4#2",
+          "call": "fill 4#2 approve",
+          "hash": "0x37f2541c5e906feca64b3d902769f1a93f4d80c66828b98b100f117ec15aafb0",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "collect filled#0",
+          "call": "collect filled#0 collect",
+          "hash": "0xb400b59040c3e5a3b90beb5e85bd1277b0a1a1689cf496f88c4f44d478bff2fd",
+          "from": "0x920B1439BC0BF2f30f9E01B9Bb94d90A9ba35189"
+        },
+        {
+          "step": "graduate#0",
+          "call": "graduate#0 graduate",
+          "hash": "0x026b1e9fec2cb2f07278091713795f3c66a5e81de7046d96bb1293ff416fab73",
+          "from": "0x920B1439BC0BF2f30f9E01B9Bb94d90A9ba35189"
+        },
+        {
+          "step": "collect graduated#0",
+          "call": "collect graduated#0 collect",
+          "hash": "0xdb6659ce7cce059a6a44d1e401b3284a5951b3f060c8480e9eeaefabaf93bfd8",
+          "from": "0x920B1439BC0BF2f30f9E01B9Bb94d90A9ba35189"
+        },
+        {
+          "step": "after graduation, pass 1 1: B buys#0",
+          "call": "after graduation, pass 1 1: B buys#0 approve",
+          "hash": "0xa725cc376d18ca5c86a908f0eb269faa3ee7af10e9d07a60809efb9f71cf5312",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 1 1: B buys#1",
+          "call": "after graduation, pass 1 1: B buys#1 swap",
+          "hash": "0x9680abba7794fe5494e73f8a731b52ecf003609ca79aded199fdcab7a3497211",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 1 1: B buys#2",
+          "call": "after graduation, pass 1 1: B buys#2 approve",
+          "hash": "0x4fc1de0ae30c5511246958e9495efbd6e8b952c92a8fd9f49bcdc1280feb3088",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 1 1: B sells a quarter#0",
+          "call": "after graduation, pass 1 1: B sells a quarter#0 approve",
+          "hash": "0x71d7979808e5f53183aef97fde3300188bb5d326172b5de77dcf0f888189ca46",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 1 1: B sells a quarter#1",
+          "call": "after graduation, pass 1 1: B sells a quarter#1 swap",
+          "hash": "0x465dd1fefe5253c9c6e2241ee1299f6f953856cc5b9b76674e16d301539177aa",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 1 2: B buys#0",
+          "call": "after graduation, pass 1 2: B buys#0 approve",
+          "hash": "0xcd57d5ccad8e952ca65ce5a73ebd2a3da3d6bc6961e0ed1c08fc0a590e7191f0",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 1 2: B buys#1",
+          "call": "after graduation, pass 1 2: B buys#1 swap",
+          "hash": "0x75f4b5ae810e840930a21cdb1f01f269a7223642d7481a5b73626806ccd5b312",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 1 2: B buys#2",
+          "call": "after graduation, pass 1 2: B buys#2 approve",
+          "hash": "0xd03f132957dd0674b8346de3c20c5657b9d2e93c28118fdc439177c04775757e",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 1 2: B sells a quarter#0",
+          "call": "after graduation, pass 1 2: B sells a quarter#0 approve",
+          "hash": "0xa736e8f595a4b156a0a227cb43120d198eed312bfdb1cb85002d7eb387fbc94c",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 1 2: B sells a quarter#1",
+          "call": "after graduation, pass 1 2: B sells a quarter#1 swap",
+          "hash": "0x0b68e133dfdf9b15eed37148e744c2bba8fd4c2c721a3170fbab50eca7d97c0c",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 1 3: B buys#0",
+          "call": "after graduation, pass 1 3: B buys#0 approve",
+          "hash": "0x2c4f3b2c80ce51b0567a71dc02319dead9cadd03cb94d8a124e16220e622c3ba",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 1 3: B buys#1",
+          "call": "after graduation, pass 1 3: B buys#1 swap",
+          "hash": "0xc74f984c1dc7b0f2019baade2d1ca7d2ab0f05ad4171355089afe080e73e0ca6",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 1 3: B buys#2",
+          "call": "after graduation, pass 1 3: B buys#2 approve",
+          "hash": "0x45dbc80fc14fedb34783452f2a2f7684a581453cdb4192e3af10dde347c03bc8",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 1 3: B sells a quarter#0",
+          "call": "after graduation, pass 1 3: B sells a quarter#0 approve",
+          "hash": "0x321a7cf0ca5f95edc72fdf524a08e3fa07e9c277ebf437b861a126d4006f32b5",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 1 3: B sells a quarter#1",
+          "call": "after graduation, pass 1 3: B sells a quarter#1 swap",
+          "hash": "0x33c3f43897b7179bbf89e71b96e046ad5cdb85d2ea229d795506d8d72c392bf8",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 1 4: B buys#0",
+          "call": "after graduation, pass 1 4: B buys#0 approve",
+          "hash": "0x2b9f55f86e9570d9a3a58a19b9e6946e7ac0db8f7ab939869cee5383dec84e60",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 1 4: B buys#1",
+          "call": "after graduation, pass 1 4: B buys#1 swap",
+          "hash": "0xb196650ca8395af21447bc5f135782018c7ef214c2a6050a50a275ae7c1644d7",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 1 4: B buys#2",
+          "call": "after graduation, pass 1 4: B buys#2 approve",
+          "hash": "0x29ddc2dadc437ffa871045411edd72fa076682347f3fce1d379e4e4866a3d6f0",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 1 4: B sells a quarter#0",
+          "call": "after graduation, pass 1 4: B sells a quarter#0 approve",
+          "hash": "0xc80a35ca8e4a53e820df4d588ce483225ba42683f901ae03fa5d0be7196c6743",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 1 4: B sells a quarter#1",
+          "call": "after graduation, pass 1 4: B sells a quarter#1 swap",
+          "hash": "0x2e6fb56957928da4562dd1ef114364e021c79345b0ec0f62b2c98ad29c5b3981",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 1 5: sell fees#0",
+          "call": "after graduation, pass 1 5: sell fees#0 sellFees",
+          "hash": "0x6c1ecda31b67707622d1c97da9b1db307cacc3a009a28c68de944deb3efbe5a4",
+          "from": "0x920B1439BC0BF2f30f9E01B9Bb94d90A9ba35189"
+        },
+        {
+          "step": "collect after graduation, pass 1#0",
+          "call": "collect after graduation, pass 1#0 collect",
+          "hash": "0x48b03805385dde42f865c101a2fc108088c5464cd21f925b6ace9abd77e6bab8",
+          "from": "0x920B1439BC0BF2f30f9E01B9Bb94d90A9ba35189"
+        },
+        {
+          "step": "after graduation, pass 2 1: B buys#0",
+          "call": "after graduation, pass 2 1: B buys#0 approve",
+          "hash": "0x922aaa1fb6c402873ba41e57e460bdf5e96e5e7d527bdce9bdf5d8851fc5e09c",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 2 1: B buys#1",
+          "call": "after graduation, pass 2 1: B buys#1 swap",
+          "hash": "0x5a7af067215a09bc88811f253ccb67fd6109354b0717a7a25eccccbde00562ee",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 2 1: B buys#2",
+          "call": "after graduation, pass 2 1: B buys#2 approve",
+          "hash": "0xcb077eb3b8e8c4fe299eb4598dad92913cb5dd38489f8a3ddbbd33172462d263",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 2 1: B sells a quarter#0",
+          "call": "after graduation, pass 2 1: B sells a quarter#0 approve",
+          "hash": "0x9ff7ee75d53d96df2d08076a5e5531e0bd346254f334c4bfdd0297995eb60ffc",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 2 1: B sells a quarter#1",
+          "call": "after graduation, pass 2 1: B sells a quarter#1 swap",
+          "hash": "0x26262f720121c76a54d48e24fdf8a7f2a7e023e8ddeced8b30f32b0e72bb2dbb",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 2 2: B buys#0",
+          "call": "after graduation, pass 2 2: B buys#0 approve",
+          "hash": "0xf3b84cb5974049cbc397ec9749b58d17a8590f31351af210bccba8607591fc6a",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 2 2: B buys#1",
+          "call": "after graduation, pass 2 2: B buys#1 swap",
+          "hash": "0x7402418fbfc4a83feebb3811683c12e0f84311590ac9d7b123af0e4d9dcf7756",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 2 2: B buys#2",
+          "call": "after graduation, pass 2 2: B buys#2 approve",
+          "hash": "0xbac8b05f0556efc8929a87969162d6bb3af05dd7ca66b5b2cda9e1d81e13489c",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 2 2: B sells a quarter#0",
+          "call": "after graduation, pass 2 2: B sells a quarter#0 approve",
+          "hash": "0x6ca915d14bccb1457ac6f733a6d8d017cd7a588f60d2ff1f52f49247e1187322",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 2 2: B sells a quarter#1",
+          "call": "after graduation, pass 2 2: B sells a quarter#1 swap",
+          "hash": "0xa9fe04edaf5943a2167a850a30f02831235044eb44e1cd473946b3b178b6fcf0",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 2 3: B buys#0",
+          "call": "after graduation, pass 2 3: B buys#0 approve",
+          "hash": "0x9480c7475caccbebbb636fccce7814af8564589fc878359764e235926f805bc4",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 2 3: B buys#1",
+          "call": "after graduation, pass 2 3: B buys#1 swap",
+          "hash": "0x4feca92951d5a60178b79a800dadbcdb99c58dba83981952d775b03da1d5330e",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 2 3: B buys#2",
+          "call": "after graduation, pass 2 3: B buys#2 approve",
+          "hash": "0xbb09b7251bb077591c2bb1b8664db991245a614fd3cb8fa5a34cda10c4fd6e2e",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 2 3: B sells a quarter#0",
+          "call": "after graduation, pass 2 3: B sells a quarter#0 approve",
+          "hash": "0x6861f95ec075226f47e6ead2ec92dee3051a9b34f3473ea47b8bbbdd4283f005",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 2 3: B sells a quarter#1",
+          "call": "after graduation, pass 2 3: B sells a quarter#1 swap",
+          "hash": "0xdf32f70c818dfcdc453d31ccdf8d519c105f572d2197abe14a15a2928a9e046a",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 2 4: B buys#0",
+          "call": "after graduation, pass 2 4: B buys#0 approve",
+          "hash": "0xa51fb7522a5893816c7f6d03e240e4831556194c5a6d364417cbccffdf4cb437",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 2 4: B buys#1",
+          "call": "after graduation, pass 2 4: B buys#1 swap",
+          "hash": "0x4c421a0c22f45add7e2164602d3ec827578b5b448da3a5432bb26761f7a36806",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 2 4: B buys#2",
+          "call": "after graduation, pass 2 4: B buys#2 approve",
+          "hash": "0x2071931546ec901605939d351eca839bf80d21eefd43e5478f0cb9413fd9e613",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 2 4: B sells a quarter#0",
+          "call": "after graduation, pass 2 4: B sells a quarter#0 approve",
+          "hash": "0xbbcbda2b7d029f947cae5a0b08673fe1ee5a3ca43f0603a045280838e48507e6",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 2 4: B sells a quarter#1",
+          "call": "after graduation, pass 2 4: B sells a quarter#1 swap",
+          "hash": "0x38b3917e22fac35553e96c610b37e5c98c083011d834633e9596f1519ac150f3",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation, pass 2 5: sell fees#0",
+          "call": "after graduation, pass 2 5: sell fees#0 sellFees",
+          "hash": "0x52744b1d093d579e95551d83a99ba62bd01727e8739b1536a39740dd8b517799",
+          "from": "0x920B1439BC0BF2f30f9E01B9Bb94d90A9ba35189"
+        },
+        {
+          "step": "collect after graduation, pass 2#0",
+          "call": "collect after graduation, pass 2#0 collect",
+          "hash": "0x3f99c5a9ae9ea1b4f7b38e7442c978b227ee9e15a049bcff6ae35d2da163fc5b",
+          "from": "0x920B1439BC0BF2f30f9E01B9Bb94d90A9ba35189"
+        },
+        {
+          "step": "convert into the pile#0",
+          "call": "convert into the pile#0 executeModule",
+          "hash": "0xfc97394046709938742720e176e3c4a4192fcba257e58c2a82410008c45f0c1b",
+          "from": "0x920B1439BC0BF2f30f9E01B9Bb94d90A9ba35189"
+        },
+        {
+          "step": "buy back and burn the sellers' fees#0",
+          "call": "buy back and burn the sellers' fees#0 buyBack",
+          "hash": "0x6ae5da06591eba9675e0337c5098f89fa8ce9fa62cbce23cb2cc781e59ab7042",
+          "from": "0x920B1439BC0BF2f30f9E01B9Bb94d90A9ba35189"
+        },
+        {
+          "step": "A redeems a quarter#0",
+          "call": "A redeems a quarter#0 approve",
+          "hash": "0xa22a752b9660a9df8063a4b2739eb38010e132c5108678db21732e46a6134f16",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "A redeems a quarter#1",
+          "call": "A redeems a quarter#1 redeem",
+          "hash": "0x380acd99e77c0b158eefd3e252fbf6cc820f90925e4e9bc93bf7749dc6e53c72",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        }
+      ],
+      "conversion": {
+        "hash": "0xfc97394046709938742720e176e3c4a4192fcba257e58c2a82410008c45f0c1b",
+        "amountIn": "11690",
+        "amountOut": "11640434237939105",
+        "pileAfter": "11640434237939105"
+      },
+      "burned": {
+        "hash": "0x6ae5da06591eba9675e0337c5098f89fa8ce9fa62cbce23cb2cc781e59ab7042",
+        "pSpent": "1550",
+        "tBought": "124389129308597206926001",
+        "tBurned": "124389129308597206926001"
+      },
+      "redeemed": {
+        "amount": "161411706941321861175883082",
+        "supply": "998204779546372816552455309",
+        "held": "11640434237939105",
+        "quoted": "1788167396574597",
+        "coins": "1004494655055515240",
+        "received": "1788167396574597"
+      }
+    },
+    "railholders": {
+      "coordinator": "0xE687F50Da7F26D59baDC40b7500a959f82b5E617",
+      "token": "0xBebc586C0c03e9e52875d21fa8d25808B15ad2D9",
+      "createTx": "0x33621406768233dbd671b7cf480cf6222ba7a0effb64224beb0d9bd4eebdc785",
+      "readBack": "47 of 47 fields equal",
+      "transactions": [
+        {
+          "step": "raising: A buys a tenth#0",
+          "call": "raising: A buys a tenth#0 approve",
+          "hash": "0x218d0c5a8bf99852dc24f37e79fecd86f572e0995b091af4a1f59719142a5bc9",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "raising: A buys a tenth#1",
+          "call": "raising: A buys a tenth#1 swap",
+          "hash": "0xa35c37a286db16f9465da1e4fae789a740f12e36f5e0c28fd034d88ddd558e8d",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "raising: A buys a tenth#2",
+          "call": "raising: A buys a tenth#2 approve",
+          "hash": "0xecf0712d367f30bb1fba58b64c011f7ff24a28a9020d26831bb2d99abcebd8a4",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "raising: B buys a tenth#0",
+          "call": "raising: B buys a tenth#0 approve",
+          "hash": "0x713a98c0ef0f09e625af21640e41ea2f72a0ee9568bceb754faf4cbc38e18118",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "raising: B buys a tenth#1",
+          "call": "raising: B buys a tenth#1 swap",
+          "hash": "0x6c1a881602dd0043e78c03f6eacfcf0a908efbe7b61ea8bfc5d7e4c21daeef1a",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "raising: B buys a tenth#2",
+          "call": "raising: B buys a tenth#2 approve",
+          "hash": "0x805bfdd83e3800408323c72ff5d5647b5edad09b7769167456cc5c6e55ad9da3",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "raising: A sells a quarter#0",
+          "call": "raising: A sells a quarter#0 approve",
+          "hash": "0xb0405d334296c5ff0567a0fbcec32956b6be0362796dbbeb0817b3a88470d15a",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "raising: A sells a quarter#1",
+          "call": "raising: A sells a quarter#1 swap",
+          "hash": "0x06dd7295037fbef0c4c890bd3a55a6e3696df47823b47e1684e0afb4d43a3faf",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "collect raising#0",
+          "call": "collect raising#0 collect",
+          "hash": "0x061d49dbb5b7bbdddb7463cbec2c139b939ef0dafa97397d01dc1965e7a0c3ee",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "holders batch 1#0",
+          "call": "holders batch 1#0 settleBatch",
+          "hash": "0xc621dfde253eb13ad1071da8e444dc25348d9e9a738209a1fd1ebd56a616bfad",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "holders batch 1#1",
+          "call": "holders batch 1#1 claim",
+          "hash": "0xac812c689c4b5ae3498d3df0935f3d0fdba3e810e9a9c6199a0320c843755994",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 1#0",
+          "call": "fill 1#0 approve",
+          "hash": "0x032046d714eb28047574cf5fc9ae5ee0cff292d6ac8d1e5b55804e9891eb3e8e",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 1#1",
+          "call": "fill 1#1 swap",
+          "hash": "0x7c05e1181a92dde14c94db94d5e85b0054e8dc10c3b3983978f23df54735004f",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 1#2",
+          "call": "fill 1#2 approve",
+          "hash": "0x7c59525f7b1b9c53c6f7449bdd3ac4ecd736a47aaf52ae684873c138c3113878",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 2#0",
+          "call": "fill 2#0 approve",
+          "hash": "0xa9059ec6d0c2823acd99ecde939c79219ec5d1cd9cd0e02a21a26f4985c5306b",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 2#1",
+          "call": "fill 2#1 swap",
+          "hash": "0xa31bad7c0cdf2208bb8f1d877185d7d73c4468f2193e873990f84bdb07d7d047",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 2#2",
+          "call": "fill 2#2 approve",
+          "hash": "0xec577f3fed8b48f668f59102bc3b06456da8592adc36bd46f0dc7c24040285fa",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 3#0",
+          "call": "fill 3#0 approve",
+          "hash": "0xa09e0c97615a89fa2c9a388dee7e7d011ed2a06552687e681041ba56ed1356fa",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 3#1",
+          "call": "fill 3#1 swap",
+          "hash": "0xaff3dfb6c2bad90fc345ef5177e2e0f0ce5a4117735c8e62415f8030b3a40715",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 3#2",
+          "call": "fill 3#2 approve",
+          "hash": "0x7482b213bcfabd18c9ae09f5bf29bb3455ccf72dae82d6f118e21e695bbcacf6",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 4#0",
+          "call": "fill 4#0 approve",
+          "hash": "0xf2a35a0cac2b2a9bce17e81e77fab23d39bee005b7552af90a56526dcf65f844",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 4#1",
+          "call": "fill 4#1 swap",
+          "hash": "0x4b2b903da6284365467e0f0c9144d9cfddf61a5a2873b30e03c6c5e2a9ddf4aa",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 4#2",
+          "call": "fill 4#2 approve",
+          "hash": "0xe5e6b2dcf703f90c88a7f69c6a999bb0d9ed7f3608e576fdadac67761810ae62",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "collect filled#0",
+          "call": "collect filled#0 collect",
+          "hash": "0xe3ddfbd0d961d0069e22e6394a8cd4c35207a1b9771dcfab331bec8d4b0ed2e7",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "holders batch 3#0",
+          "call": "holders batch 3#0 settleBatch",
+          "hash": "0x3092180e295fe3a205c4fd161065dae89096ccca597e84cf09f552a865048139",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "holders batch 3#1",
+          "call": "holders batch 3#1 claim",
+          "hash": "0xdc4c764527c804d3e8c445349d6a73732228f75f00243bdd00826c225c7f8ca6",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "holders batch 3#2",
+          "call": "holders batch 3#2 claim",
+          "hash": "0xf5ef885ad2283226a8f0e0199e7f17de18daa1fa20e1cc9572ff188d5f92b2b5",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "graduate#0",
+          "call": "graduate#0 graduate",
+          "hash": "0x7da6ca8d1ef0a9c3f7c6edc940428e49dbc9f17ea911d73e996f23b91cc0c8dc",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "collect graduated#0",
+          "call": "collect graduated#0 collect",
+          "hash": "0xf1a16b1a5f377f5d11ee01ac129adf29cc33dc796783bb2693a05af8b0fb8f54",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "after graduation 1: B buys#0",
+          "call": "after graduation 1: B buys#0 approve",
+          "hash": "0x3ac6832bd5b6848702481e4b8305e55a8a84d802b35e3609daa2910a0b609c16",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 1: B buys#1",
+          "call": "after graduation 1: B buys#1 swap",
+          "hash": "0x7e96f9c4078d7281f36249dbd965c80038f08bdaf5019057db5017d2dba9ba3c",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 1: B buys#2",
+          "call": "after graduation 1: B buys#2 approve",
+          "hash": "0x453076b3d7553924570ad1ad12973e0e64d3e8556bdf4f74171af7d228ef25bd",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 1: B sells a quarter#0",
+          "call": "after graduation 1: B sells a quarter#0 approve",
+          "hash": "0xd604f9e558dd1a55f28f7b1bf6f6b08369f56ed884645548beebe6508a5f2a15",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 1: B sells a quarter#1",
+          "call": "after graduation 1: B sells a quarter#1 swap",
+          "hash": "0x029926f3161b8af60b32428b7e875ef72380f0d84c45e083546aa14a54f5156b",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 2: B buys#0",
+          "call": "after graduation 2: B buys#0 approve",
+          "hash": "0x6864c1acdb07c40480960da5c2a947fcc41e1c5f2ffa3675e2a790b17544fee4",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 2: B buys#1",
+          "call": "after graduation 2: B buys#1 swap",
+          "hash": "0xfded0870ba8c12741404a40a2ac4ada177aeaeddff32c1f093ac18b4e40ce8e3",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 2: B buys#2",
+          "call": "after graduation 2: B buys#2 approve",
+          "hash": "0xdee6018bf262e910b60823d42b9af349dc485b336a5cd610f32f18e74e5c7f62",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 2: B sells a quarter#0",
+          "call": "after graduation 2: B sells a quarter#0 approve",
+          "hash": "0x3b72a8c9241cf75527970250fc2ea1f2214a74240ddde3bf0379fd96931174a9",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 2: B sells a quarter#1",
+          "call": "after graduation 2: B sells a quarter#1 swap",
+          "hash": "0xea4bba3e7b846ff4993e16e304009004667e2f6b2c40f5aa9fe682deaea01655",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 3: B buys#0",
+          "call": "after graduation 3: B buys#0 approve",
+          "hash": "0xb8ddf7660b028755f2e3d0fc4c438f13078e18788f8c757978b16c8e83a79e53",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 3: B buys#1",
+          "call": "after graduation 3: B buys#1 swap",
+          "hash": "0xd2974292afbf4d121cad300cbf0040244b2920fe7a8b6fc09fd5d4c0d6dd3526",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 3: B buys#2",
+          "call": "after graduation 3: B buys#2 approve",
+          "hash": "0x59a8db3fb01c291c5d119c5114d7993992fcc6a451c5ad7a4c90eeb26e4963a6",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 3: B sells a quarter#0",
+          "call": "after graduation 3: B sells a quarter#0 approve",
+          "hash": "0xb612375cde8453f03629401e73804d5be8f8369263fad5baa53be6e1a44c8ade",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 3: B sells a quarter#1",
+          "call": "after graduation 3: B sells a quarter#1 swap",
+          "hash": "0x47ee8cc174e43adbadffef4324871427d7433e074dd8d7c38c33a04ea74882ec",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 4: B buys#0",
+          "call": "after graduation 4: B buys#0 approve",
+          "hash": "0xd9665f589dc5b298cd61c8cd9907eb399794ce360a2ea9ca11a34ddafc11c4d7",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 4: B buys#1",
+          "call": "after graduation 4: B buys#1 swap",
+          "hash": "0x93f951102c05a0a4007b68bc2988b3bcc2e5e399172e27553a3fa6231cf274ff",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 4: B buys#2",
+          "call": "after graduation 4: B buys#2 approve",
+          "hash": "0xdeb63a66276a1800961f94f489dd027d4b1b6269a8049bbe6e4097d420b6ee6f",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 4: B sells a quarter#0",
+          "call": "after graduation 4: B sells a quarter#0 approve",
+          "hash": "0x04bf0d9e46315a6ddeb4146c3cd4cda38ea86cb5628d53f3640b721c1a3d2557",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 4: B sells a quarter#1",
+          "call": "after graduation 4: B sells a quarter#1 swap",
+          "hash": "0xd4724fb589a921ad8fe2bb081b025f7045df80a317d1c4054d79a873845e6f7e",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 5: sell fees#0",
+          "call": "after graduation 5: sell fees#0 sellFees",
+          "hash": "0x2591280c509f5b94ec6df2269f39bfc839318f5576ffad5f3cb0ed63e3251031",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "collect after graduation#0",
+          "call": "collect after graduation#0 collect",
+          "hash": "0xd177ee653aeb22d6469e04065fa78f982112ebeeeaa992534b9bd998c9096cf2",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "holders batch 9#0",
+          "call": "holders batch 9#0 settleBatch",
+          "hash": "0x902f79c84b325ef4dd925811f013fca706f615f0672ead588d9889e44829b52f",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "holders batch 9#1",
+          "call": "holders batch 9#1 claim",
+          "hash": "0x749e31b6f41528dde4810a40dd3335c4dad17011551e7bf8595727ee9b7effb9",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "holders batch 9#2",
+          "call": "holders batch 9#2 claim",
+          "hash": "0x38e3d15d51378a3b8d58cdceca794644d458e34deb7fd16bba4d3228654b7bd6",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "holders batch 10#0",
+          "call": "holders batch 10#0 settleBatch",
+          "hash": "0xdeac79811e5a51ebd46cf61c135e85dfc50564c73d3ee278c1124292c5341745",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "holders batch 10#1",
+          "call": "holders batch 10#1 claim",
+          "hash": "0xb16e573620c588f2f4e1a95797e310265959a05a750fbc90000e0b77bb987241",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "holders batch 10#2",
+          "call": "holders batch 10#2 claim",
+          "hash": "0xc7c340133b06e6417983762811cc87e574c3a3e73423ab6e91aaa0eb20da027d",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        }
+      ],
+      "claims": [
+        {
+          "holder": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F",
+          "rawPriceCoin": "133570610525260080801",
+          "hash": "0xac812c689c4b5ae3498d3df0935f3d0fdba3e810e9a9c6199a0320c843755994"
+        },
+        {
+          "holder": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F",
+          "rawPriceCoin": "1593870821599173177916",
+          "hash": "0xdc4c764527c804d3e8c445349d6a73732228f75f00243bdd00826c225c7f8ca6"
+        },
+        {
+          "holder": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0",
+          "rawPriceCoin": "681207454336304845431",
+          "hash": "0xf5ef885ad2283226a8f0e0199e7f17de18daa1fa20e1cc9572ff188d5f92b2b5"
+        },
+        {
+          "holder": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F",
+          "rawPriceCoin": "843844850451830292652",
+          "hash": "0x749e31b6f41528dde4810a40dd3335c4dad17011551e7bf8595727ee9b7effb9"
+        },
+        {
+          "holder": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0",
+          "rawPriceCoin": "222821816214836374005",
+          "hash": "0x38e3d15d51378a3b8d58cdceca794644d458e34deb7fd16bba4d3228654b7bd6"
+        },
+        {
+          "holder": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F",
+          "rawPriceCoin": "246099780533267311527",
+          "hash": "0xb16e573620c588f2f4e1a95797e310265959a05a750fbc90000e0b77bb987241"
+        },
+        {
+          "holder": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0",
+          "rawPriceCoin": "70255992539730974222",
+          "hash": "0xc7c340133b06e6417983762811cc87e574c3a3e73423ab6e91aaa0eb20da027d"
+        }
+      ],
+      "totalRawPriceCoin": "3791671326200403056554"
+    },
+    "rail": {
+      "coordinator": "0x8bEA8Ca943e9Bc2BEb940e43b3B06E8A46384864",
+      "token": "0x8E9dF2A6b9Fb8EC7772A9afD2E59b7E6A5B6614E",
+      "createTx": "0x289a6a9cf9ee0f27a9efe97cd4c0cc8b7eb1da3e13cd4fb8b09c83df7810540b",
+      "readBack": "47 of 47 fields equal",
+      "transactions": [
+        {
+          "step": "raising: A buys a tenth#0",
+          "call": "raising: A buys a tenth#0 approve",
+          "hash": "0x9d632f2b83c5dc04369bd6fa27684bec07f1b96c4baf2dee282b9cc3ce5a090a",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "raising: A buys a tenth#1",
+          "call": "raising: A buys a tenth#1 swap",
+          "hash": "0x51df5514c9401121d08adf5967fd620e22eec47bf65b7beca8b4a47554d87854",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "raising: A buys a tenth#2",
+          "call": "raising: A buys a tenth#2 approve",
+          "hash": "0x693c8d33e0ab37269d297b5bb3296b209745b9db534cfda05515d9a848aba538",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "raising: B buys a tenth#0",
+          "call": "raising: B buys a tenth#0 approve",
+          "hash": "0xd7bad81cdb7d04668a978e782c10ecb51d763bff7e5c971d0a1d4eb9036ce07e",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "raising: B buys a tenth#1",
+          "call": "raising: B buys a tenth#1 swap",
+          "hash": "0x599309e70a61b664f58c40f21513c44ebe5183f37dc0b9288099b27f8292dad7",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "raising: B buys a tenth#2",
+          "call": "raising: B buys a tenth#2 approve",
+          "hash": "0xfcdee5ef7f1809ec982dfeb15d49a4673a9a7ae1753d239d426a0f5a510956d5",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "raising: A sells a quarter#0",
+          "call": "raising: A sells a quarter#0 approve",
+          "hash": "0xa8b7388600d3d737410db4e64b14a7e6a6de2c2a16b6954e3630cd1894c0b540",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "raising: A sells a quarter#1",
+          "call": "raising: A sells a quarter#1 swap",
+          "hash": "0xc1f13b3369fee07e310d9610336cdce850873c21a5017b37c44f21eddeece1ee",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "collect raising#0",
+          "call": "collect raising#0 collect",
+          "hash": "0x1378283430f55fdf1ea52afc121027f764925c686ab5272068be763c76ed48b7",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "fill 1#0",
+          "call": "fill 1#0 approve",
+          "hash": "0xe7f678a3dc11e098f9b7b71a3634e4c7787d6f5add75121792dc94b7f2c551ff",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 1#1",
+          "call": "fill 1#1 swap",
+          "hash": "0x9a89d1b6e437b1f2c5738d54fbfec708e49967992c916e1c29d7b24548aeff35",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 1#2",
+          "call": "fill 1#2 approve",
+          "hash": "0x6a5ac62d09f8c217856bc88f29497a6a4a26b2a1ee8b09859552a8c64b016dbe",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 2#0",
+          "call": "fill 2#0 approve",
+          "hash": "0x0325cb549b8051f1be4ea245521f70399f424633c797ea26f4de336f03955e30",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 2#1",
+          "call": "fill 2#1 swap",
+          "hash": "0xa2a727234e8c28e6c91f36341f103fe8cb0b61fb401a1ae8146ea2b6eb220e4c",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 2#2",
+          "call": "fill 2#2 approve",
+          "hash": "0x5346db21ef19ac5a82893e0e694226759cec2cfe2c840a9d9caa68397af554e0",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 3#0",
+          "call": "fill 3#0 approve",
+          "hash": "0xc082767434120b711774555149d97d75f4d67aa8de3e4151c01c0344e2c2f2ff",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 3#1",
+          "call": "fill 3#1 swap",
+          "hash": "0x3c05927021902d5ff59896bad2824c8a09e03ab53abc94738905c9d5d2991362",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 3#2",
+          "call": "fill 3#2 approve",
+          "hash": "0xe481d985e18b4118ca0d50aea013ffb7b9f332fd5af06ba6cb2867de19912cec",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 4#0",
+          "call": "fill 4#0 approve",
+          "hash": "0xafa406953931dc54cb00918d4543ad8bca26b5efc8b5b18bca92982791361b73",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 4#1",
+          "call": "fill 4#1 swap",
+          "hash": "0x010456074a2ac44573e3b94c43b9467a664c936c1acc893d835ab06f315f7e1d",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "fill 4#2",
+          "call": "fill 4#2 approve",
+          "hash": "0x87a73febfc1a198c98fe029a6d0b2d2827056d56a68a7d432e258a15b72e98c2",
+          "from": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F"
+        },
+        {
+          "step": "collect filled#0",
+          "call": "collect filled#0 collect",
+          "hash": "0x92b2cfe2ada57ed9577d26c4c783381e17e15cc1cfbfc547c385e3ac2c0d42d5",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "graduate#0",
+          "call": "graduate#0 graduate",
+          "hash": "0x6faacb66f46d8ec621e334f414a233364c61e3be725bf9c05da480c3d2b70c81",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "collect graduated#0",
+          "call": "collect graduated#0 collect",
+          "hash": "0x73088f2fdfbf27751b669b6d07998e754cf5e8c52fc11ce32d32bf91731213d8",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "eat the fees of the raise#0",
+          "call": "eat the fees of the raise#0 eatPriceCoin",
+          "hash": "0xe7b5b21fd630d85d210e971644a990ebf67e065ee6766cdebbe56c55465aad55",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "after graduation 1: B buys#0",
+          "call": "after graduation 1: B buys#0 approve",
+          "hash": "0x320ff84ae35885ff7cb0306053729a8e357e1ca205936c7e577e09ee78ac72c4",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 1: B buys#1",
+          "call": "after graduation 1: B buys#1 swap",
+          "hash": "0x4c2752255881d01c0a25e35fdf1864839eb77ace09a4defb9dfbe636b748e542",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 1: B buys#2",
+          "call": "after graduation 1: B buys#2 approve",
+          "hash": "0x7465ded7869d8b2bc243e8d62c44a5a4d50c09c6ddf3e9f6711e4847f656f5b2",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 1: B sells a quarter#0",
+          "call": "after graduation 1: B sells a quarter#0 approve",
+          "hash": "0x7ee394f740de9335b7d048fce45d32592de905bb8c25a827761ad58d62a96cdf",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 1: B sells a quarter#1",
+          "call": "after graduation 1: B sells a quarter#1 swap",
+          "hash": "0x9669909d8c5340a37e9afaf370f0720b6ec40e92993078851b4d48befbb42323",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 2: B buys#0",
+          "call": "after graduation 2: B buys#0 approve",
+          "hash": "0x5101e2d9f04f62fae5880a694485b8bf9a2629cfd485c3b2086c17d41614e687",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 2: B buys#1",
+          "call": "after graduation 2: B buys#1 swap",
+          "hash": "0xc3f3a9130afa60c0a3f6be4031a3c7da35c69f6615cfe3755cdc89019c42c923",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 2: B buys#2",
+          "call": "after graduation 2: B buys#2 approve",
+          "hash": "0xc66c0664974bdf13d143e53ee87b8e8606b860e3a557d6a21d4396cd17ad691d",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 2: B sells a quarter#0",
+          "call": "after graduation 2: B sells a quarter#0 approve",
+          "hash": "0x899491922eca245c9c7938df7633fd176860583441c5e757552578c05c87f763",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 2: B sells a quarter#1",
+          "call": "after graduation 2: B sells a quarter#1 swap",
+          "hash": "0x0edb846dbd62a525a742652450ee08dbf9d86cfab2d7ad2b761f412671a1d5ef",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 3: B buys#0",
+          "call": "after graduation 3: B buys#0 approve",
+          "hash": "0x408ec153a5657c238a8e9e4b7c0b2f8b0c2b61650dc26686e15e2dc01ee93191",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 3: B buys#1",
+          "call": "after graduation 3: B buys#1 swap",
+          "hash": "0xbf3bc700a6e47825d0c70e60a6e082a2115b1240dc3a6d148cdf8c138cfd0baf",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 3: B buys#2",
+          "call": "after graduation 3: B buys#2 approve",
+          "hash": "0x09f78859d8523ce3464c4ddd832cab9836dc4e792450102669b9f3f2d84c4c24",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 3: B sells a quarter#0",
+          "call": "after graduation 3: B sells a quarter#0 approve",
+          "hash": "0x245444ac0981f485647361944e12e452764298f7ab948860149a2bc261cffd34",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 3: B sells a quarter#1",
+          "call": "after graduation 3: B sells a quarter#1 swap",
+          "hash": "0xbe5a045087c53ce622019bb254c452321e2030d1524a3dc6c9100a9b72608eb8",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 4: B buys#0",
+          "call": "after graduation 4: B buys#0 approve",
+          "hash": "0x1505ec75add3c90a01afb37fc5a62267ef900a5ff0640347e0af67268a09f3c9",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 4: B buys#1",
+          "call": "after graduation 4: B buys#1 swap",
+          "hash": "0x779f8618f0c56eb5c2f00a0e16710a64bdf04b8bdba6e08bca282e7daef3f59c",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 4: B buys#2",
+          "call": "after graduation 4: B buys#2 approve",
+          "hash": "0xdf33c0f780274793d9593161f3add622a025fad79bec0ed9431b95440c42eb7a",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 4: B sells a quarter#0",
+          "call": "after graduation 4: B sells a quarter#0 approve",
+          "hash": "0x560298fb371cb48f986325f09ae534e2cba60f42ad401793e89fd09a6c1880d0",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 4: B sells a quarter#1",
+          "call": "after graduation 4: B sells a quarter#1 swap",
+          "hash": "0x9367357d24f7b2220d7587f7d59ed703d4b80dcc2a52851920251bbad3daf63b",
+          "from": "0xc979F6Cb8902f56f76b926358dC451cBF8f310F0"
+        },
+        {
+          "step": "after graduation 5: sell fees#0",
+          "call": "after graduation 5: sell fees#0 sellFees",
+          "hash": "0x8c3276a092375ef2788dc3ea5e94b2f6bcdcf27db4de1f3c019f95ff588c7c8e",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "collect after graduation#0",
+          "call": "collect after graduation#0 collect",
+          "hash": "0x7554b4e8ff898bb679a34f1e62daa1944032311e53dfaaa54a251e47f5d8bffb",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        },
+        {
+          "step": "eat the fees after graduation#0",
+          "call": "eat the fees after graduation#0 eatPriceCoin",
+          "hash": "0xebb764cf072b7166de76d99db2fab734a4348453c1ff954b06f920fc10501694",
+          "from": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576"
+        }
+      ],
+      "toDeadAddress": [
+        {
+          "rawPriceCoin": "2542695743394918112430",
+          "hash": "0xe7b5b21fd630d85d210e971644a990ebf67e065ee6766cdebbe56c55465aad55"
+        },
+        {
+          "rawPriceCoin": "1383022439739664952410",
+          "hash": "0xebb764cf072b7166de76d99db2fab734a4348453c1ff954b06f920fc10501694"
+        }
+      ],
+      "totalRawPriceCoinToDeadAddress": "3925718183134583064840"
+    }
+  }
+}

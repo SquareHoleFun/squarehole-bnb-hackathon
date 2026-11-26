@@ -1,0 +1,122 @@
+/* F166 (SH-ALPHA-ONBOARDING): "Set me up" (SetupPanel.tsx), on the app's pages (AlphaWelcome.tsx) and in the Claim card.
+   Sepolia builds only. Numbers first; four ticks for the steps; one line. */
+.sh-setup { display: grid; gap: .75rem; min-width: 0; }
+.sh-setup[data-view='run']:focus { outline: none; box-shadow: none; }
+/* The welcome step on the app's pages (af1): a sheet fixed at the bottom of the window, over the page (below dialogs and
+   the menu), so its late arrival moves nothing under a finger; the document keeps room below its end (after the footer,
+   so nothing on the page moves either) as tall as the sheet (AlphaWelcome.tsx sets --sh-welcome-room while it shows). */
+.sh-panel.sh-welcome {
+  position: fixed; z-index: calc(var(--sh-z-drawer) - 1); right: var(--sh-main-pad); bottom: var(--sh-main-pad);
+  display: grid; gap: .5rem; width: min(26rem, calc(100vw - 2 * var(--sh-main-pad))); max-height: min(70vh, 34rem);
+  margin: 0; padding: var(--sh-gap-4); overflow: auto; overscroll-behavior: contain;
+  box-shadow: var(--sh-panel-edge), var(--sh-elevation-3);
+}
+body { padding-bottom: var(--sh-welcome-room, 0px); }
+.sh-welcome__title { font-size: 1.125rem; font-weight: 700; line-height: var(--sh-leading-tight); }
+.sh-welcome__lead { color: var(--sh-text-secondary); }
+@media (max-width: 640px) {
+  .sh-panel.sh-welcome { left: var(--sh-main-pad-compact); right: var(--sh-main-pad-compact); bottom: var(--sh-main-pad-compact); width: auto; }
+  /* A box page's phone bar (box-head.css) stays in view below the sheet. */
+  .sh-app:has(.sh-box-phonebar) .sh-panel.sh-welcome { bottom: calc(60px + env(safe-area-inset-bottom, 0px) + 8px); }
+}
+.sh-setup__note { font-weight: 650; }
+.sh-setup__actions { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; }
+.sh-setup .sh-setup__go { min-width: 12rem; }
+/* The small way to today's steps: a quiet text button, still a full touch target. */
+.sh-setup__manual {
+  display: inline-flex; align-items: center; min-height: var(--sh-touch-target); padding: 0 .25rem; border: 0; background: none;
+  color: var(--sh-text-secondary); font-size: var(--sh-type-small); font-weight: 600; text-decoration: underline; text-underline-offset: 3px;
+  cursor: pointer;
+}
+.sh-setup__manual:hover { color: var(--sh-text); }
+/* Not armed yet (a moment after the panel appears), or a wallet's own window is asking: shown, not pressable. */
+.sh-setup button:disabled, .sh-setup [aria-disabled='true'] { cursor: default; opacity: .55; }
+.sh-setup__what { display: grid; gap: .25rem; margin: 0; padding-left: 1.1rem; color: var(--sh-text-secondary); }
+
+/* The four ticks, on one line at every width, joined by a rule behind them. */
+.sh-setup__steps { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .25rem; margin: 0; padding: 0; list-style: none; }
+.sh-setup__steps::before { content: ''; position: absolute; top: 1rem; left: 12.5%; right: 12.5%; height: 2px; background: var(--sh-border); }
+.sh-setup__step { position: relative; display: grid; justify-items: center; gap: .25rem; min-width: 0; color: var(--sh-text-muted); font-size: var(--sh-type-small); font-weight: 650; text-align: center; }
+.sh-setup__step[data-mark='done'], .sh-setup__step[data-mark='active'] { color: var(--sh-text); }
+.sh-setup__step[data-mark='failed'] { color: var(--sh-negative); }
+.sh-setup__step[data-mark='test'] { color: var(--sh-warning); }
+.sh-setup__dot { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: var(--sh-surface); }
+.sh-setup__dot svg { display: block; width: 2rem; height: 2rem; overflow: visible; }
+.sh-setup__ring { fill: none; stroke: var(--sh-border-strong); stroke-width: 2; }
+.sh-setup__glyph { fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.sh-setup__arc { fill: none; stroke: var(--sh-accent); stroke-width: 3; stroke-linecap: round; transform-origin: 16px 16px; animation: sh-setup-turn 1s linear infinite; }
+.sh-setup__step[data-mark='done'] .sh-setup__ring { fill: var(--sh-positive); stroke: var(--sh-positive); }
+.sh-setup__step[data-mark='done'] .sh-setup__glyph { stroke: var(--sh-canvas); }
+.sh-setup__step[data-mark='active'] .sh-setup__ring { stroke: var(--sh-border); }
+.sh-setup__step[data-mark='failed'] .sh-setup__ring { stroke: var(--sh-negative); }
+.sh-setup__step[data-mark='test'] .sh-setup__ring { stroke: var(--sh-warning); }
+@keyframes sh-setup-turn { to { transform: rotate(360deg); } }
+
+.sh-setup__line { font-weight: 650; }
+/* The end: the two figures in large type, above the ticks. */
+.sh-setup__figures { display: flex; flex-wrap: wrap; gap: .5rem 2.5rem; margin: 0; }
+.sh-setup__figures dt { color: var(--sh-text-secondary); font-size: var(--sh-type-small); font-weight: 650; }
+.sh-setup__figures dd { margin: 0; font-size: 2rem; font-weight: 700; line-height: 1.15; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.sh-setup__facts { display: grid; gap: .5rem; margin: 0; }
+.sh-setup__facts dt { color: var(--sh-text-secondary); font-size: var(--sh-type-small); }
+.sh-setup__facts dd { display: flex; flex-wrap: wrap; gap: .25rem 1rem; margin: 0; font-variant-numeric: tabular-nums; }
+@media (max-width: 30rem) {
+  .sh-panel.sh-welcome { padding: .75rem; }
+  .sh-setup .sh-setup__go { width: 100%; }
+  .sh-welcome .sh-setup__steps { gap: 0; }
+  .sh-setup__step { font-size: var(--sh-type-label); }
+}
+
+/* The run's chip in the top bar (af2): four tiny ticks, and a few words where the bar has room; a tap opens its details
+   under the bar (SetupChip.tsx). */
+.sh-setup-chip { display: inline-flex; }
+.sh-setup-chip__button {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-width: var(--sh-touch-target);
+  min-height: var(--sh-touch-target); padding: 0 .875rem; border: 1px solid var(--sh-border-strong); border-radius: var(--sh-radius-pill);
+  background: var(--sh-surface); color: var(--sh-text); font: inherit; font-size: var(--sh-type-small); font-weight: 650; cursor: pointer;
+}
+.sh-setup-chip__button:hover { background: var(--sh-surface-raised); }
+.sh-setup-chip__button[aria-disabled='true'] { cursor: default; }
+.sh-setup-chip__button[aria-expanded='true'] { border-color: var(--sh-accent); }
+.sh-setup-chip[data-phase='stopped'] .sh-setup-chip__button { border-color: var(--sh-negative); }
+.sh-setup-chip__ticks { display: inline-grid; grid-auto-flow: column; gap: 3px; }
+.sh-setup-chip__tick { width: 7px; height: 7px; border-radius: 50%; background: var(--sh-border-strong); }
+.sh-setup-chip__tick[data-mark='done'] { background: var(--sh-positive); }
+.sh-setup-chip__tick[data-mark='active'] { background: var(--sh-accent); animation: sh-setup-pulse 1.2s ease-in-out infinite; }
+.sh-setup-chip__tick[data-mark='failed'] { background: var(--sh-negative); }
+.sh-setup-chip__tick[data-mark='test'] { background: var(--sh-warning); }
+.sh-setup-chip__text { white-space: nowrap; }
+@keyframes sh-setup-pulse { 50% { opacity: .35; } }
+/* Its details: a panel under the bar, at the bar's end (the bar is its frame). */
+.sh-setup-chip__panel {
+  position: absolute; z-index: var(--sh-z-popover); top: calc(100% + 8px); right: var(--sh-main-pad);
+  width: min(24rem, calc(100vw - 2 * var(--sh-main-pad))); max-height: min(70vh, 34rem); padding: var(--sh-gap-4);
+  overflow: auto; overscroll-behavior: contain; box-shadow: var(--sh-panel-edge), var(--sh-elevation-3);
+}
+@media (max-width: 640px) {
+  /* The phone's bar has room for the ticks only; the wordmark gives way to the logo while the chip shows. */
+  .sh-setup-chip__text { display: none; }
+  .sh-setup-chip__button { padding: 0; }
+  .sh-app .sh-topbar:has(.sh-setup-chip) { position: relative; }
+  .sh-app .sh-topbar:has(.sh-setup-chip) .sh-brand__text { display: none; }
+  .sh-setup-chip__panel { right: var(--sh-main-pad-compact); left: var(--sh-main-pad-compact); width: auto; }
+}
+
+/* The end, said once: a toast at the bottom centre, above the page (af2). */
+.sh-setup-toasts {
+  position: fixed; z-index: var(--sh-z-toast); left: 50%; bottom: var(--sh-main-pad); transform: translateX(-50%);
+  width: min(26rem, calc(100vw - 2 * var(--sh-main-pad-compact))); pointer-events: none;
+}
+.sh-setup-toast {
+  display: flex; align-items: center; gap: .75rem; padding: .5rem .5rem .5rem 1rem; pointer-events: auto;
+  box-shadow: var(--sh-panel-edge), var(--sh-elevation-3);
+}
+.sh-setup-toast__text { flex: 1; min-width: 0; font-weight: 650; }
+.sh-setup-toast__close {
+  display: inline-grid; place-items: center; min-width: var(--sh-touch-target); min-height: var(--sh-touch-target); border: 0;
+  border-radius: var(--sh-radius-control); background: none; color: var(--sh-text-secondary); font: inherit; font-size: 1.25rem; cursor: pointer;
+}
+.sh-setup-toast__close:hover { color: var(--sh-text); }
+@media (prefers-reduced-motion: reduce) {
+  .sh-setup-chip__tick[data-mark='active'] { animation: none; }
+}

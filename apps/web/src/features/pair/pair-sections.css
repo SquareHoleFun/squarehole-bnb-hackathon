@@ -1,0 +1,345 @@
+/* Pair detail: supply, rewards, activity, about, gallery and the not-found/loading states (SH-012). */
+/* ── Supply ────────────────────────────────────────────────── */
+.sh-supply__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+  gap: 10px;
+  margin: 0;
+}
+
+.sh-supply__row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-control);
+  background: rgba(8, 13, 22, 0.3);
+}
+
+.sh-supply__row dt {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-label);
+  font-weight: 700;
+}
+
+.sh-supply__row dt > .sh-glyph {
+  width: 14px;
+  height: 14px;
+  color: var(--sh-warning);
+}
+
+.sh-supply__row dd {
+  margin: 0;
+}
+
+.sh-supply__value {
+  color: var(--sh-text);
+  font-size: var(--sh-type-body-lg);
+  font-weight: 750;
+}
+
+.sh-supply__basis {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  line-height: 1.4;
+}
+
+.sh-fractions {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid rgba(167, 139, 250, 0.4);
+  border-radius: var(--sh-radius-control);
+  background: rgba(36, 30, 79, 0.45);
+}
+
+/* The Collector keeps its size beside the text (flex would otherwise squeeze it to ~20 px). */
+.sh-fractions__art {
+  flex-shrink: 0;
+}
+
+.sh-fractions__body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  font-size: var(--sh-type-small);
+}
+
+.sh-fractions__body strong {
+  color: var(--sh-text);
+}
+
+/* ── Rewards ───────────────────────────────────────────────── */
+.sh-rewards {
+  background:
+    radial-gradient(90% 80% at 100% 0%, rgba(109, 74, 226, 0.25) 0%, transparent 60%),
+    var(--sh-panel-gradient);
+}
+
+.sh-rewards__payout {
+  color: var(--sh-text);
+  font-size: var(--sh-type-body-lg);
+  font-weight: 750;
+}
+
+.sh-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.sh-rewards__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-rewards__row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-control);
+  background: rgba(8, 13, 22, 0.35);
+}
+
+.sh-rewards__asset {
+  color: var(--sh-text);
+  font-weight: 750;
+}
+
+.sh-rewards__role {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  line-height: 1.35;
+}
+
+.sh-rewards__figures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 130px), 1fr));
+  gap: 6px 12px;
+  margin: 6px 0 0;
+}
+
+.sh-rewards__figures dt {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 650;
+}
+
+.sh-rewards__figures dd {
+  margin: 0;
+  color: var(--sh-text);
+  font-size: var(--sh-type-small);
+  font-weight: 700;
+}
+
+.sh-rewards__asof {
+  font-size: var(--sh-type-caption);
+}
+
+/* ── Activity ──────────────────────────────────────────────── */
+.sh-activity__list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-activity__row {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.8fr) minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 4px 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--sh-border);
+  font-size: var(--sh-type-label);
+}
+
+.sh-activity__row:last-child {
+  border-bottom: 0;
+}
+
+.sh-activity__kind {
+  color: var(--sh-text);
+  font-weight: 700;
+}
+
+.sh-activity__row[data-activity='burn'] .sh-activity__kind {
+  color: var(--sh-warning);
+}
+
+.sh-activity__amounts {
+  color: var(--sh-text);
+}
+
+.sh-activity__when {
+  color: var(--sh-text-muted);
+  text-align: right;
+}
+
+/* ── About ─────────────────────────────────────────────────── */
+.sh-about__description {
+  color: var(--sh-text);
+}
+
+.sh-about__note {
+  padding: 10px 12px;
+  border-left: 3px solid var(--sh-accent);
+  background: var(--sh-surface-raised);
+  border-radius: 0 var(--sh-radius-control) var(--sh-radius-control) 0;
+  font-size: var(--sh-type-label);
+}
+
+.sh-about__source {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+}
+
+.sh-about__source dd {
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-label);
+}
+
+/* ── Gallery ───────────────────────────────────────────────── */
+.sh-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-gallery__item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-control);
+  background: rgba(8, 13, 22, 0.3);
+}
+
+.sh-gallery__figure {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+}
+
+.sh-gallery__img {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  border-radius: 12px;
+  background: var(--sh-surface-raised);
+  object-fit: contain;
+}
+
+.sh-gallery__img--unavailable {
+  border: 1px dashed var(--sh-border-strong);
+  color: var(--sh-text-muted);
+}
+
+.sh-gallery__glyph {
+  width: 36px;
+  height: 36px;
+}
+
+.sh-gallery__caption {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  font-size: var(--sh-type-label);
+}
+
+.sh-gallery__name {
+  color: var(--sh-text);
+  font-weight: 750;
+  overflow-wrap: anywhere;
+}
+
+.sh-gallery__id,
+.sh-gallery__na {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+}
+
+.sh-gallery__attrs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 0;
+}
+
+.sh-gallery__attrs > div {
+  display: inline-flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  gap: 0 4px;
+  padding: 2px 8px;
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-pill);
+  font-size: var(--sh-type-caption);
+}
+
+.sh-gallery__attrs dt {
+  color: var(--sh-text-muted);
+}
+
+.sh-gallery__attrs dd {
+  margin: 0;
+  color: var(--sh-text);
+  font-weight: 650;
+  overflow-wrap: break-word;
+}
+
+/* ── Not found / loading ───────────────────────────────────── */
+.sh-pair-missing {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sh-gap-6);
+  max-width: 720px;
+  padding: var(--sh-gap-6);
+}
+
+.sh-pair-missing__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-3);
+  min-width: 0;
+  color: var(--sh-text-secondary);
+}
+
+.sh-pair-loading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.75fr) minmax(300px, 1fr);
+  gap: var(--sh-gap-4);
+}
+
+.sh-pair-loading__block {
+  display: block;
+  height: 280px;
+  border-radius: var(--sh-radius-card);
+}
+
+.sh-pair-head .sh-skeleton.sh-pair-art {
+  width: 164px;
+  height: 136px;
+}

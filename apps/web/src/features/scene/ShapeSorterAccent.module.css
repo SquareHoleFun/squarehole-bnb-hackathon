@@ -1,0 +1,95 @@
+/* Decorative accent. Size comes from the parent width + a fixed aspect-ratio (inline), so no layout shift. */
+.root {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  contain: layout paint;
+}
+
+.stage {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.poster,
+.host {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.poster {
+  display: block;
+  object-fit: contain;
+  user-select: none;
+  transition: opacity 160ms ease-out;
+}
+
+.poster[data-hidden='true'] {
+  opacity: 0;
+}
+
+.host {
+  opacity: 0;
+  transition: opacity 160ms ease-out;
+  /* Shapes hopping above the frame fade out instead of clipping on a hard edge. */
+  mask-image: linear-gradient(to bottom, transparent 0, #000 12%);
+}
+
+.host[data-visible='true'] {
+  opacity: 1;
+}
+
+.canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.replay {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--sh-border, #30415d);
+  border-radius: 999px;
+  background: rgb(17 27 41 / 86%);
+  color: var(--sh-text, #f3f5fb);
+  font: 600 13px/1 var(--sh-font, ui-sans-serif, system-ui, sans-serif);
+  cursor: pointer;
+}
+
+/* 44px-class touch target without growing the visual pill. */
+.replay::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+}
+
+.replay:hover {
+  background: var(--sh-surface-raised, #18253a);
+}
+
+.replay:focus-visible {
+  outline: 3px solid var(--sh-accent, #a78bfa);
+  outline-offset: 2px;
+}
+
+.icon {
+  width: 14px;
+  height: 14px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .poster,
+  .host {
+    transition: none;
+  }
+}

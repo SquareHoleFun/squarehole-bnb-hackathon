@@ -1,0 +1,37 @@
+{
+  "name": "@squarehole/chain",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "description": "Chain adapters (Stage C). Read side: typed ABIs from the pinned contracts, per-chain config from the deployment manifest, viem public clients, a rebuildable browser log indexer, and FeedProvider / AccountProvider / AssetRegistryProvider over RPC. Write side (src/write): injected wallet session, transaction executor, createLaunch and claim writers (four allowlisted calls only; no swaps).",
+  "exports": {
+    ".": "./src/index.ts",
+    "./abi": "./src/abi/index.ts",
+    "./node": "./src/node.ts",
+    "./write": "./src/write/index.ts",
+    "./write/wallet": "./src/write/wallet-entry.ts",
+    "./write/test-support": "./src/write/test-support/index.ts",
+    "./core/test-support": "./src/core/test-support.ts",
+    "./core/set-v2": "./src/core/set-v2/index.ts",
+    "./trade-sepolia": "./src/trade-sepolia/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p .",
+    "abi:export": "node scripts/export-abis.mjs",
+    "abi:check": "node scripts/export-abis.mjs --check",
+    "test:integration": "vitest run --config vitest.integration.config.ts",
+    "test:integration:write": "SH_CHAIN_WRITE_INTEGRATION=1 vitest run src/write/integration",
+    "core-manifest:write": "node --experimental-transform-types --no-warnings=ExperimentalWarning --import ./scripts/register-ts.mjs scripts/write-core-manifest.mjs",
+    "core-v2-release:write": "node --experimental-transform-types --no-warnings=ExperimentalWarning --import ./scripts/register-ts.mjs scripts/write-sepolia-v2-release.mjs"
+  },
+  "dependencies": {
+    "@squarehole/box-spec": "workspace:*",
+    "@squarehole/domain": "workspace:*",
+    "viem": "2.56.8",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "fake-indexeddb": "6.2.5"
+  }
+}

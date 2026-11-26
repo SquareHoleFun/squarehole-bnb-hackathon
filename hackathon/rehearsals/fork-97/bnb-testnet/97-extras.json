@@ -1,0 +1,224 @@
+{
+  "schema": "square-hole-bnb-testnet-extras/1",
+  "chainId": 97,
+  "evidence": {
+    "block": {
+      "number": "144750252",
+      "hash": "0x5070cc244abb01e270722d6f2d15ba761b2474b9e2a2fd26adfd6d1c4b97cb0e"
+    },
+    "finality": "finalized"
+  },
+  "deployer": "0x2ef9a78074bbf674bea16f21154a30c821a3c576",
+  "feeModuleDirectory": {
+    "address": "0xc4cf337484488ca377d111ea1e81d77eec57f62c",
+    "codeHash": "0xd2667e0faf60f166dd8fb94f7d497ae99b506ed3def2eb134ffac4286e1acf36",
+    "delaySeconds": "86400",
+    "modules": [
+      {
+        "id": 0,
+        "name": "eat",
+        "module": "0x47e26d022b631673a270c7db34a2b627cb49d50a",
+        "codeHash": "0xf568aed67bdc6bd821fb7959445cebbc223d609752db8863e6385940ee4aebbf",
+        "readyAt": "1795678975",
+        "withdrawn": false
+      },
+      {
+        "id": 1,
+        "name": "holdersT",
+        "module": "0x30fe81114f79187b44b611015128a4e7e49be1d3",
+        "codeHash": "0xc0e220b2f9fe443abfed3606be05a979c4233584e2bc01fe4c983177e041ecae",
+        "readyAt": "1795678975",
+        "withdrawn": false
+      },
+      {
+        "id": 2,
+        "name": "itemsT",
+        "module": "0x314b1be4bdf0c8bc07ed3317c0b144bf6cd4b9d8",
+        "codeHash": "0xf05d0a538d61188900861c8810e946c940f3c79007ab31fb58b4ecc0712da6d0",
+        "readyAt": "1795678975",
+        "withdrawn": false
+      },
+      {
+        "id": 3,
+        "name": "pile",
+        "module": "0x36f7ffedaf5e9b7492eb179999c214dd2443fa40",
+        "codeHash": "0xdc25d610e443e71f9f78b4d9aa4ad1b9be25360aee43f0ced8f48a1a6157e408",
+        "readyAt": "1795678975",
+        "withdrawn": false
+      },
+      {
+        "id": 4,
+        "name": "converter BNB to tNVDA",
+        "module": "0x11597fdc64a5761557f5c9ac648c710b59e30e93",
+        "codeHash": "0xed7ad7c508731339a38c19ec36b7bbf2ffd35185a334b93552993108198389a3",
+        "readyAt": "1795678988",
+        "withdrawn": false
+      },
+      {
+        "id": 5,
+        "name": "converter BNB to tGOLD",
+        "module": "0xf7179bbb5cb34c702dbb39ce356b177920c05a2c",
+        "codeHash": "0x3dacd783eb3099aece04a472d115cf3d6504dbb135ca7c55b30b02a7a5ae8321",
+        "readyAt": "1795678989",
+        "withdrawn": false
+      },
+      {
+        "id": 6,
+        "name": "converter tUSDC to tNVDA",
+        "module": "0x13b5cfb0215743c9205dfcdb9d10bd024c3201cc",
+        "codeHash": "0x02b0c60f8089969c47a9bc937151a481e21323fda7dd3f31a325f96a327bf405",
+        "readyAt": "1795678989",
+        "withdrawn": false
+      }
+    ]
+  },
+  "listings": [
+    {
+      "id": 0,
+      "token": "0x0000000000000000000000000000000000000000",
+      "symbol": "BNB",
+      "decimals": 18,
+      "class": "NATIVE",
+      "raise": "1000000000000000",
+      "bootstrapQ": "356550297291",
+      "batchMinQ": "1188500990967",
+      "tipMaxQ": "118850099097",
+      "swapStepMinQ": "1188500990967"
+    },
+    {
+      "id": 1,
+      "token": "0x25c5789b269d8f76309ce961759d643dce291347",
+      "symbol": "tUSDC",
+      "decimals": 6,
+      "class": "STABLE",
+      "raise": "1000000",
+      "bootstrapQ": "357",
+      "batchMinQ": "1189",
+      "tipMaxQ": "119",
+      "swapStepMinQ": "1189"
+    },
+    {
+      "id": 2,
+      "token": "0x2f8029a6447663e0881b0e21f5e4ad0f1717627e",
+      "symbol": "tNVDA",
+      "decimals": 18,
+      "class": "STOCK",
+      "raise": "1000000000000000",
+      "bootstrapQ": "356550297291",
+      "batchMinQ": "1188500990967",
+      "tipMaxQ": "118850099097",
+      "swapStepMinQ": "1188500990967"
+    },
+    {
+      "id": 3,
+      "token": "0x4ba04db6044a6f442bdb29b032cb019f663ab164",
+      "symbol": "tGOLD",
+      "decimals": 18,
+      "class": "OTHER",
+      "raise": "1000000000000000",
+      "bootstrapQ": "356550297291",
+      "batchMinQ": "1188500990967",
+      "tipMaxQ": "118850099097",
+      "swapStepMinQ": "1188500990967"
+    },
+    {
+      "id": 4,
+      "token": "0xf4f59ecf2221c9c07ca8fcf47a2652008fea2ed8",
+      "symbol": "tPEPE",
+      "decimals": 18,
+      "class": "OTHER",
+      "raise": "1000000000000000",
+      "bootstrapQ": "356550297291",
+      "batchMinQ": "1188500990967",
+      "tipMaxQ": "118850099097",
+      "swapStepMinQ": "1188500990967"
+    },
+    {
+      "id": 5,
+      "token": "0x860822580d4eb2529de0c74c3e2b1d6d7c183302",
+      "symbol": "tETH",
+      "decimals": 18,
+      "class": "OTHER",
+      "raise": "100000000000000000",
+      "bootstrapQ": "35655029729004",
+      "batchMinQ": "118850099096678",
+      "tipMaxQ": "11885009909668",
+      "swapStepMinQ": "118850099096678"
+    }
+  ],
+  "routes": {
+    "nvdaFromBnb": "0x11597fdc64a5761557f5c9ac648c710b59e30e93",
+    "goldFromBnb": "0xf7179bbb5cb34c702dbb39ce356b177920c05a2c",
+    "nvdaFromUsdc": "0x13b5cfb0215743c9205dfcdb9d10bd024c3201cc"
+  },
+  "coins": {
+    "tUSDC": {
+      "address": "0x25c5789b269d8f76309ce961759d643dce291347",
+      "codeHash": "0x5837487a0e4a1474c40c1e21e37f318dc24c716f1cc70fca32fb00d125ded928"
+    },
+    "tNVDA": {
+      "address": "0x2f8029a6447663e0881b0e21f5e4ad0f1717627e",
+      "codeHash": "0xcd10e4a3585ed7988888c647416aa7dc2d03416bef9a4f1c1a7b775e2379d650"
+    },
+    "tGOLD": {
+      "address": "0x4ba04db6044a6f442bdb29b032cb019f663ab164",
+      "codeHash": "0x9a27ae2b73983ba987c573588e58db35225f8e0ca8894f454c5c48d71ef43501"
+    },
+    "tPEPE": {
+      "address": "0xf4f59ecf2221c9c07ca8fcf47a2652008fea2ed8",
+      "codeHash": "0xcd10e4a3585ed7988888c647416aa7dc2d03416bef9a4f1c1a7b775e2379d650"
+    },
+    "tETH": {
+      "address": "0x860822580d4eb2529de0c74c3e2b1d6d7c183302",
+      "codeHash": "0xd505c35f935774b06c15d563b72fc31ddab453a4c83c3e4297e2e1ba76a3ee6c"
+    }
+  },
+  "nativePoolHelper": {
+    "address": "0xf5373e33f6900e608950c9031e345f060af671ab",
+    "codeHash": "0xc7182cb7f85c66acd8ea52cc4ed10906b1d00a96d968b24ae62710e134615445"
+  },
+  "nativePools": [
+    {
+      "coin": "0x2f8029a6447663e0881b0e21f5e4ad0f1717627e",
+      "symbol": "tNVDA",
+      "decimals": 18,
+      "fee": "3000",
+      "tickSpacing": 60,
+      "hooks": "0x0000000000000000000000000000000000000000",
+      "tickLower": -887220,
+      "tickUpper": 887220,
+      "currency0": "0x0000000000000000000000000000000000000000"
+    },
+    {
+      "coin": "0x4ba04db6044a6f442bdb29b032cb019f663ab164",
+      "symbol": "tGOLD",
+      "decimals": 18,
+      "fee": "3000",
+      "tickSpacing": 60,
+      "hooks": "0x0000000000000000000000000000000000000000",
+      "tickLower": -887220,
+      "tickUpper": 887220,
+      "currency0": "0x0000000000000000000000000000000000000000"
+    }
+  ],
+  "otherPairs": [
+    {
+      "coin": "0x25c5789b269d8f76309ce961759d643dce291347",
+      "symbol": "tUSDC",
+      "decimals": 6,
+      "fee": "3000",
+      "tickSpacing": 60,
+      "hooks": "0x0000000000000000000000000000000000000000",
+      "tickLower": -887220,
+      "tickUpper": 887220,
+      "other": "0x2f8029a6447663e0881b0e21f5e4ad0f1717627e",
+      "otherSymbol": "tNVDA"
+    }
+  ],
+  "trade": {
+    "poolManager": "0xb0fd2d66040d310ed6bffbf8dba9ffcef39f52a4",
+    "poolSwapTest": "0x95c8aa9ad318a897259e1910a9f1ad31bec40c35",
+    "poolSwapTestCodeHash": "0x8e062c4d9381d36ce7b1e4ac94d810f01ef2b72db6d549757b4286be8605b58f",
+    "swapper": "0xd0a5872737d4dec8c7e33dff205ab74bd43b4a3e"
+  }
+}

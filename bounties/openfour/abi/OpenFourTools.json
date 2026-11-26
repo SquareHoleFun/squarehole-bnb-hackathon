@@ -1,0 +1,533 @@
+[
+  {
+    "type": "function",
+    "name": "getPresetEncodeSchemas",
+    "constant": true,
+    "stateMutability": "view",
+    "payable": false,
+    "inputs": [
+      {
+        "type": "uint256",
+        "name": ""
+      }
+    ],
+    "outputs": [
+      {
+        "type": "tuple",
+        "name": "",
+        "components": [
+          {
+            "type": "string",
+            "name": "kind"
+          },
+          {
+            "type": "uint8",
+            "name": "version"
+          },
+          {
+            "type": "tuple[]",
+            "name": "params",
+            "components": [
+              {
+                "type": "string",
+                "name": "name"
+              },
+              {
+                "type": "string",
+                "name": "abiType"
+              },
+              {
+                "type": "uint8",
+                "name": "decimals"
+              },
+              {
+                "type": "bool",
+                "name": "optional"
+              },
+              {
+                "type": "string",
+                "name": "title"
+              },
+              {
+                "type": "string",
+                "name": "defaultValue"
+              },
+              {
+                "type": "string",
+                "name": "hint"
+              },
+              {
+                "type": "string",
+                "name": "minValue"
+              },
+              {
+                "type": "string",
+                "name": "maxValue"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "tuple",
+        "name": "",
+        "components": [
+          {
+            "type": "string",
+            "name": "kind"
+          },
+          {
+            "type": "uint8",
+            "name": "version"
+          },
+          {
+            "type": "tuple[]",
+            "name": "params",
+            "components": [
+              {
+                "type": "string",
+                "name": "name"
+              },
+              {
+                "type": "string",
+                "name": "abiType"
+              },
+              {
+                "type": "uint8",
+                "name": "decimals"
+              },
+              {
+                "type": "bool",
+                "name": "optional"
+              },
+              {
+                "type": "string",
+                "name": "title"
+              },
+              {
+                "type": "string",
+                "name": "defaultValue"
+              },
+              {
+                "type": "string",
+                "name": "hint"
+              },
+              {
+                "type": "string",
+                "name": "minValue"
+              },
+              {
+                "type": "string",
+                "name": "maxValue"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "tuple",
+        "name": "",
+        "components": [
+          {
+            "type": "string",
+            "name": "kind"
+          },
+          {
+            "type": "uint8",
+            "name": "version"
+          },
+          {
+            "type": "tuple[]",
+            "name": "params",
+            "components": [
+              {
+                "type": "string",
+                "name": "name"
+              },
+              {
+                "type": "string",
+                "name": "abiType"
+              },
+              {
+                "type": "uint8",
+                "name": "decimals"
+              },
+              {
+                "type": "bool",
+                "name": "optional"
+              },
+              {
+                "type": "string",
+                "name": "title"
+              },
+              {
+                "type": "string",
+                "name": "defaultValue"
+              },
+              {
+                "type": "string",
+                "name": "hint"
+              },
+              {
+                "type": "string",
+                "name": "minValue"
+              },
+              {
+                "type": "string",
+                "name": "maxValue"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "tuple",
+        "name": "",
+        "components": [
+          {
+            "type": "string",
+            "name": "kind"
+          },
+          {
+            "type": "uint8",
+            "name": "version"
+          },
+          {
+            "type": "tuple[]",
+            "name": "params",
+            "components": [
+              {
+                "type": "string",
+                "name": "name"
+              },
+              {
+                "type": "string",
+                "name": "abiType"
+              },
+              {
+                "type": "uint8",
+                "name": "decimals"
+              },
+              {
+                "type": "bool",
+                "name": "optional"
+              },
+              {
+                "type": "string",
+                "name": "title"
+              },
+              {
+                "type": "string",
+                "name": "defaultValue"
+              },
+              {
+                "type": "string",
+                "name": "hint"
+              },
+              {
+                "type": "string",
+                "name": "minValue"
+              },
+              {
+                "type": "string",
+                "name": "maxValue"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "tuple",
+        "name": "",
+        "components": [
+          {
+            "type": "string",
+            "name": "kind"
+          },
+          {
+            "type": "uint8",
+            "name": "version"
+          },
+          {
+            "type": "tuple[]",
+            "name": "params",
+            "components": [
+              {
+                "type": "string",
+                "name": "name"
+              },
+              {
+                "type": "string",
+                "name": "abiType"
+              },
+              {
+                "type": "uint8",
+                "name": "decimals"
+              },
+              {
+                "type": "bool",
+                "name": "optional"
+              },
+              {
+                "type": "string",
+                "name": "title"
+              },
+              {
+                "type": "string",
+                "name": "defaultValue"
+              },
+              {
+                "type": "string",
+                "name": "hint"
+              },
+              {
+                "type": "string",
+                "name": "minValue"
+              },
+              {
+                "type": "string",
+                "name": "maxValue"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "tuple",
+        "name": "",
+        "components": [
+          {
+            "type": "string",
+            "name": "kind"
+          },
+          {
+            "type": "uint8",
+            "name": "version"
+          },
+          {
+            "type": "tuple[]",
+            "name": "params",
+            "components": [
+              {
+                "type": "string",
+                "name": "name"
+              },
+              {
+                "type": "string",
+                "name": "abiType"
+              },
+              {
+                "type": "uint8",
+                "name": "decimals"
+              },
+              {
+                "type": "bool",
+                "name": "optional"
+              },
+              {
+                "type": "string",
+                "name": "title"
+              },
+              {
+                "type": "string",
+                "name": "defaultValue"
+              },
+              {
+                "type": "string",
+                "name": "hint"
+              },
+              {
+                "type": "string",
+                "name": "minValue"
+              },
+              {
+                "type": "string",
+                "name": "maxValue"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "function",
+    "name": "estimateBuy",
+    "constant": false,
+    "payable": false,
+    "inputs": [
+      {
+        "type": "address",
+        "name": "token"
+      },
+      {
+        "type": "address",
+        "name": "trader"
+      },
+      {
+        "type": "uint256",
+        "name": "amount"
+      },
+      {
+        "type": "uint256",
+        "name": "options"
+      },
+      {
+        "type": "bytes",
+        "name": "proof"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "tuple",
+        "name": "",
+        "components": [
+          {
+            "type": "uint256",
+            "name": "curveQuote"
+          },
+          {
+            "type": "uint256",
+            "name": "totalFee"
+          },
+          {
+            "type": "uint256",
+            "name": "userPays"
+          },
+          {
+            "type": "uint256",
+            "name": "userReceives"
+          },
+          {
+            "type": "uint256",
+            "name": "tokenAmount"
+          },
+          {
+            "type": "uint256",
+            "name": "executionPrice"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "function",
+    "name": "estimateBuyByBudget",
+    "constant": false,
+    "payable": false,
+    "inputs": [
+      {
+        "type": "address",
+        "name": "token"
+      },
+      {
+        "type": "address",
+        "name": "trader"
+      },
+      {
+        "type": "uint256",
+        "name": "maxQuotePayAmount"
+      },
+      {
+        "type": "uint256",
+        "name": "options"
+      },
+      {
+        "type": "bytes",
+        "name": "proof"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "tuple",
+        "name": "",
+        "components": [
+          {
+            "type": "uint256",
+            "name": "curveQuote"
+          },
+          {
+            "type": "uint256",
+            "name": "totalFee"
+          },
+          {
+            "type": "uint256",
+            "name": "userPays"
+          },
+          {
+            "type": "uint256",
+            "name": "userReceives"
+          },
+          {
+            "type": "uint256",
+            "name": "tokenAmount"
+          },
+          {
+            "type": "uint256",
+            "name": "executionPrice"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "function",
+    "name": "estimateSell",
+    "constant": false,
+    "payable": false,
+    "inputs": [
+      {
+        "type": "address",
+        "name": "token"
+      },
+      {
+        "type": "address",
+        "name": "trader"
+      },
+      {
+        "type": "uint256",
+        "name": "amount"
+      },
+      {
+        "type": "uint256",
+        "name": "options"
+      },
+      {
+        "type": "bytes",
+        "name": "proof"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "tuple",
+        "name": "",
+        "components": [
+          {
+            "type": "uint256",
+            "name": "curveQuote"
+          },
+          {
+            "type": "uint256",
+            "name": "totalFee"
+          },
+          {
+            "type": "uint256",
+            "name": "userPays"
+          },
+          {
+            "type": "uint256",
+            "name": "userReceives"
+          },
+          {
+            "type": "uint256",
+            "name": "tokenAmount"
+          },
+          {
+            "type": "uint256",
+            "name": "executionPrice"
+          }
+        ]
+      }
+    ]
+  }
+]

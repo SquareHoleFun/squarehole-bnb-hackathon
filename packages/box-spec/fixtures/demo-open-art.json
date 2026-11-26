@@ -1,0 +1,46 @@
+{
+  "name": "demo-open-art",
+  "title": "Demo: a third-party box with open art (version 2)",
+  "about": [
+    "DEMO data, not a real collection. A creator's box in version 2 with open art: the reveal list is published and stored at creation (plan § 3.1).",
+    "Fees: the reward side goes to FIT (ALL_TO_FIT), no creator buy; the royalties add-on sends 1% of secondary NFT sales into the box's own pool depth (F65)."
+  ],
+  "spec": {
+    "version": 2,
+    "boxType": "NEW_COLLECTION",
+    "tokenName": "Demo Open Token",
+    "tokenSymbol": "DEMOO",
+    "collectionName": "Demo Open Box",
+    "collectionSymbol": "DEMOOBOX",
+    "description": "Demo only, not a real collection: a third-party box with open art. Every item's art is published at creation.",
+    "n": 10000,
+    "firstId": "1",
+    "q": "0x0000000000000000000000000000000000000000",
+    "raise": "4206980085000000000",
+    "layout": "CURVE_V1",
+    "gradLayout": "ASK_FULL_BID_SENTINEL",
+    "launchFormat": "CURVE",
+    "openAt": 0,
+    "deadlineDays": 90,
+    "qStream": "ALL_TO_FIT",
+    "tStream": "BURN_T",
+    "artMode": "OPEN",
+    "revealRoot": { "keccakOfText": "DEMO open-art box revealRoot" },
+    "metadataTable": {
+      "formatV1": {
+        "description": "Demo only: a third-party box with open art.",
+        "traitTypes": [{ "name": "Colour", "values": ["Red", "Green", "Blue"] }]
+      }
+    },
+    "generatorHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coverSha256": { "sha256OfText": "DEMO open-art box cover" },
+    "revealListId": { "keccakOfText": "DEMO open-art box reveal list" },
+    "marketplaceOwner": { "addressOfText": "DEMO creator of the open-art box" },
+    "creatorFeeRecipient": "0x0000000000000000000000000000000000000000",
+    "creatorBuy": "0",
+    "collectionCoverSha256": { "sha256OfText": "DEMO open-art box collection cover" },
+    "addOns": [
+      { "addOn": "royalties", "params": { "bps": 100, "destination": "POOL_DEPTH" } }
+    ]
+  }
+}

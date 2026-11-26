@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`E08B-REORG history Postgres > rolls back orphan pages and picks, reapplies, and deep-rebuilds without contaminating the v2 feed 1`] = `"{"schema":"sh.core-feed.v2","chainId":31337,"asOf":{"block":"57","hash":"0x97a004ab94c113147efc1ca1cc8d4f1197fe795dd6cf6975db337df378d20b8b","timestamp":"1800000684","tier":"head"},"cards":[],"hidden":[],"platform":[{"registry":"0xa97971faf91a65584cea5d32c195998b71da6e48","paidByToken":{}}]}"`;
+
+exports[`E08B-REORG history memory > rolls back orphan pages and picks, reapplies, and deep-rebuilds without contaminating the v2 feed 1`] = `"{"schema":"sh.core-feed.v2","chainId":31337,"asOf":{"block":"57","hash":"0x97a004ab94c113147efc1ca1cc8d4f1197fe795dd6cf6975db337df378d20b8b","timestamp":"1800000684","tier":"head"},"cards":[],"hidden":[],"platform":[{"registry":"0xa97971faf91a65584cea5d32c195998b71da6e48","paidByToken":{}}]}"`;

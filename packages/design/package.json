@@ -1,0 +1,31 @@
+{
+  "name": "@squarehole/design",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./styles.css": "./src/styles/index.css",
+    "./tokens.css": "./src/styles/tokens.css"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p .",
+    "art": "python3 ../../scripts/extract-art.py",
+    "art:check": "python3 ../../scripts/extract-art.py --check"
+  },
+  "peerDependencies": {
+    "react": "19.3.0"
+  },
+  "dependencies": {
+    "@fontsource-variable/plus-jakarta-sans": "5.3.0",
+    "@squarehole/domain": "workspace:*"
+  },
+  "devDependencies": {
+    "@testing-library/react": "16.3.3",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "jsdom": "30.1.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  }
+}

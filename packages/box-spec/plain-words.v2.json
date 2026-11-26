@@ -1,0 +1,239 @@
+{
+  "name": "BoxSpecV2 in plain words",
+  "about": [
+    "Plain words for the CQ11 v2 menu (F119-F123). The site shows one button per side: keep, burn, grow the pool; eat the price coin; pay holders in {P}; or pay every item of your own collection in {P}. Legacy wire labels are for refusals, never extra choices.",
+    "A failed box pays its closing price through a claim. Both fee sides use the price coin. Royalties in another coin go through the conversion Safe and return in the price coin.",
+    "Placeholders: {P} the price coin symbol; {T} the box coin ticker. Never show those letters on their own."
+  ],
+  "placeholders": {
+    "{P}": "the pricing token's symbol",
+    "{T}": "the box token's ticker"
+  },
+  "fields": {
+    "format": {"label": "Format", "what": "The spec's format: 2.", "tell": "Nothing to choose."},
+    "version": {"label": "Version", "what": "The core release: 2.", "tell": "Nothing to choose."},
+    "boxType": {"label": "Contents", "what": "What the box holds besides its token.", "tell": "Just the token, a new collection, a shop, or a seeded coin pile."},
+    "tokenName": {"label": "Token name", "what": "The token's full name.", "tell": "Up to 32 characters, printable ASCII, no quotes or backslashes."},
+    "tokenSymbol": {"label": "Ticker", "what": "The token's symbol.", "tell": "Up to 11 characters."},
+    "collectionName": {"label": "Collection name", "what": "The collection's name.", "tell": "Up to 32 characters; empty for just the token or a shop or pile."},
+    "collectionSymbol": {"label": "Collection symbol", "what": "The collection's symbol.", "tell": "Up to 11 characters; empty for just the token or a shop or pile."},
+    "description": {"label": "Description", "what": "A short description.", "tell": "Up to 1,024 characters."},
+    "n": {"label": "Items", "what": "How many items the collection has.", "tell": "10 to 10,000; 0 for just the token or a shop or pile."},
+    "firstId": {"label": "First item", "what": "The first item's number.", "tell": "1; 0 for just the token or a shop or pile."},
+    "pricing": {"label": "Price coin", "what": "The coin the box is priced in, by its listing.", "tell": "Pick a listed coin. Graduated box coins also need a listing."},
+    "raise": {
+      "label": "Raise",
+      "what": "What the curve raises, in {P}.",
+      "tell": "The lister sets the raise. Updates apply only to new boxes; this box keeps the raise recorded at creation."
+    },
+    "layout": {"label": "Curve", "what": "The curve's shape.", "tell": "Set by the release."},
+    "gradLayout": {"label": "Pool after graduation", "what": "One full-range pool position.", "tell": "Set by the release."},
+    "launchFormat": {"label": "Launch", "what": "How the token launches.", "tell": "A curve."},
+    "openAt": {"label": "Opens", "what": "When trading opens.", "tell": "Now, or a time within 14 days."},
+    "deadlineDays": {"label": "Deadline", "what": "Days to graduate before the box closes.", "tell": "30, 60, 90 or 180 days."},
+    "buyers": {"label": "Buyers' fees", "what": "Where buyers' fees go, paid in {P}.", "tell": "Keep, burn, grow the pool, eat the price coin, pay holders in {P}, or pay every own-collection item in {P}."},
+    "sellers": {"label": "Sellers' fees", "what": "Where sellers' fees go, paid in {P}.", "tell": "Keep, burn, grow the pool, eat the price coin, pay holders in {P}, or pay every own-collection item in {P}."},
+    "artMode": {"label": "Art", "what": "Open or hidden art.", "tell": "Open: shown at creation. Hidden: revealed by draws."},
+    "revealRoot": {"label": "Art fingerprint", "what": "The art's fingerprint.", "tell": "Set by the launch flow."},
+    "metadataTable": {"label": "Traits", "what": "The trait table.", "tell": "Up to 24,575 bytes; loaded after creation."},
+    "generatorHash": {"label": "Generator", "what": "The art generator's fingerprint, if any.", "tell": "Optional."},
+    "coverSha256": {"label": "Logo", "what": "The logo's fingerprint.", "tell": "Required."},
+    "revealListId": {"label": "Reveal list", "what": "The public list of the art.", "tell": "Open art only."},
+    "marketplaceOwner": {"label": "Owner", "what": "The collection's owner on marketplaces.", "tell": "Required for a collection."},
+    "creatorFeeRecipient": {"label": "Payout address", "what": "Where your share is paid.", "tell": "Needed when you pick keep or send royalties to yourself."},
+    "creatorBuy": {"label": "Your buy at start", "what": "What you buy before anyone else, in {P}.", "tell": "Below the raise."},
+    "collectionCoverSha256": {"label": "Collection cover", "what": "The collection cover's fingerprint.", "tell": "Required for a collection."},
+    "addOns": {"label": "Add-ons", "what": "Extras for the box.", "tell": "Up to 8."},
+    "contentsParams": {"label": "Contents settings", "what": "Settings for a shop or a pile.", "tell": "For shops: seed in {T}, four fixed give prices, a pick price of 1.25x, 1.5x, 2x or 3x, weekly allowances, list delay, curator and collections. For piles: one listed seed coin, an exact seed amount including zero, and 0 or 500 basis points left for remaining holders on redemption. The last holder takes all. Empty for other box types."},
+    "pickFeeBps": {"label": "Pick fee", "what": "The fee for picking a named item.", "tell": "1%, 5% or 25%; 0 for just the token or a shop or pile."}
+  },
+  "subFields": {
+    "a.leg": {"label": "Choice action"},
+    "a.dest": {"label": "Choice destination"},
+    "a.legParams": {"label": "Choice action settings"},
+    "a.destParams": {"label": "Choice destination settings"},
+    "b.leg": {"label": "Second action (leave empty)"},
+    "b.dest": {"label": "Second destination (leave empty)"},
+    "b.legParams": {"label": "Second action settings (leave empty)"},
+    "b.destParams": {"label": "Second destination settings (leave empty)"},
+    "split": {"label": "One whole choice"},
+    "splitParams": {"label": "Split settings (leave empty)"}
+  },
+  "enums": {
+    "BoxType": {
+      "NEW_COLLECTION": {"label": "A new collection", "plain": "A new NFT collection in the box's vault."},
+      "EXISTING": {"label": "Existing NFTs", "plain": "NFTs that already exist.", "notOffered": "later version"},
+      "TOKEN_ONLY": {"label": "Just the token", "plain": "No NFTs and no vault."},
+      "SHOP": {"label": "A shop", "plain": "Give or pick NFTs at fixed prices in {T}. Seed and pick receipts fund the shop. Sellers can choose Into the shop: fees fill the shop up to a ceiling, then go to holders."},
+      "PILE": {"label": "A coin pile", "plain": "One listed coin, funded by your seed after creation. After graduation, hand in {T} for a share. A To the pile choice adds the price coin after graduation when it is the same coin."}
+    },
+    "Layout": {"CURVE_V1": {"label": "Curve v1", "plain": "About 80% of the token on a curve."}},
+    "GradLayout": {
+      "RESERVED_1": {"label": "Old layout", "plain": "Kept as a name only.", "notOffered": "never"},
+      "RESERVED_2": {"label": "Old pool layout", "plain": "Not offered for v2 boxes.", "notOffered": "never"},
+      "FULL_RANGE": {"label": "Full range", "plain": "One pool position across the full price range."}
+    },
+    "LaunchFormat": {"CURVE": {"label": "Curve", "plain": "The token sells on a curve."}},
+    "ArtMode": {"OPEN": {"label": "Open art", "plain": "Every item shown at creation."}, "HIDDEN": {"label": "Hidden art", "plain": "Items revealed by draws."}},
+    "Leg": {
+      "AsPaid": {"label": "In {P}", "plain": "Keeps the fee in the price coin for its chosen destination."},
+      "BuyT": {"label": "Buy back to burn", "plain": "The burn button buys {T} after graduation, on either fee side."},
+      "RESERVED_3": {"label": "Sell the box coin", "plain": "Not offered. Both fee sides already arrive in {P}.", "notOffered": "this release"},
+      "RESERVED_4": {"label": "Convert", "plain": "No conversion choice in this release.", "notOffered": "this release"},
+      "RESERVED_5": {"label": "Plug-in", "plain": "Plug-ins wait for a later version.", "notOffered": "later version"}
+    },
+    "Dest": {
+      "Eat": {"label": "Burn", "plain": "BuyT burns the purchased {T}; AsPaid burns checked {P}, otherwise locks it at the dead address. Both wait for graduation."},
+      "Creator": {"label": "Keep", "plain": "Claim your share in {P} after graduation."},
+      "RESERVED_3": {"label": "To FIT", "plain": "FIT receives its fixed share; this is not an extra button.", "notOffered": "this release"},
+      "Depth": {"label": "Grow the pool", "plain": "Adds to this box's pool after graduation, for good."},
+      "RESERVED_5": {"label": "To another box", "plain": "Gifts to another box wait for a later version.", "notOffered": "later version"},
+      "Holders": {"label": "To holders", "plain": "Your eligible holdings of {T} at each trade earn {P}. Claim funded credits with no expiry, including after failure."},
+      "BudgetOrPile": {"label": "Into the shop or to the pile", "plain": "The chosen fee share waits as {P}; anyone moves it into the same-coin pile after graduation. Failed pending fees join the closing pot, separately from the seed."},
+      "Items": {"label": "To items", "plain": "Each item has equal weight. Outside items earn {P}; inside shares are kept with the item, buy back and burn {T}, or grow this box’s own pool, as chosen for that side. Before graduation, shares wait; if the box fails they join the closing claim.", "insidePolicy": "Choose Keep, buy back and burn, or grow the pool; Keep is the default."}
+    },
+    "Split": {
+      "NoSplit": {"label": "One whole choice", "plain": "The whole share follows one button."},
+      "RESERVED_2": {"label": "Split", "plain": "Splits are not offered. Pick one whole choice.", "notOffered": "this release"},
+      "RESERVED_3": {"label": "Creator cap", "plain": "Creator caps wait for a later version.", "notOffered": "later version"},
+      "RESERVED_4": {"label": "Rule plug-in", "plain": "Plug-ins wait for a later version.", "notOffered": "later version"}
+    },
+    "ItemsInsidePolicy": {"Keep": {"label": "Keep", "plain": "Keep each inside share with its item; its current owner can claim after picking it."}, "BuyBackBurn": {"label": "Buy back and burn", "plain": "Use inside shares to buy and burn {T} in this box’s pool. Shares held before graduation all follow this burn choice."}, "Depth": {"label": "Grow the pool", "plain": "Inside shares stay in {P} and go to this box’s own liquidity pool, for good. Shares held before graduation all go to the pool. With the box token, only outside shares buy {T}."}},
+    "HoldersCurrency": {"P": {"label": "In {P}", "plain": "Holders are paid in {P}."}},
+    "ListingClass": {
+      "NATIVE": {"label": "ETH", "plain": "Native ETH."},
+      "STANDARD": {"label": "Token", "plain": "A standard token."},
+      "STABLE": {"label": "Stablecoin", "plain": "A major stablecoin."},
+      "STOCK": {"label": "Stock", "plain": "A tokenized stock; its issuer can pause it."},
+      "OTHER": {"label": "Other", "plain": "Another token."}
+    },
+    "ListingKind": {"LISTED": {"label": "Listed", "plain": "Listed by Square Hole."}, "BOX_TOKEN": {"label": "A box's token", "plain": "A graduated box coin admitted by the lister."}},
+    "RoyaltyDestination": {
+      "FEE_HANDLING": {"label": "Like fees", "plain": "Split in {P} like buyers' fees, using the buyers' button. A holders button sends these royalties to the pool."},
+      "CREATOR": {"label": "To you", "plain": "Paid whole to your payout address in {P}, after graduation."},
+      "POOL_DEPTH": {"label": "Into the pool", "plain": "Adds to this box's pool in {P}, after graduation."}
+    }
+  },
+  "addOns": {
+    "placeholders": {
+      "label": "Hidden art (placeholders)",
+      "what": "Tickets during the curve; items revealed by draws.",
+      "params": {
+        "placeholderName": {"label": "Ticket name", "what": "The ticket's name."},
+        "placeholderSymbol": {"label": "Ticket symbol", "what": "The ticket's symbol."},
+        "placeholderDescription": {"label": "Ticket text", "what": "The ticket's description."},
+        "hiddenDescription": {"label": "Hidden item text", "what": "A hidden item's description."},
+        "hiddenSvg": {"label": "Hidden picture", "what": "A hidden item's picture (SVG)."}
+      }
+    },
+    "edition-specials": {
+      "label": "Edition specials",
+      "what": "Named series of special items, shown as counts.",
+      "params": {"label": {"label": "Series name", "what": "The series' name."}, "count": {"label": "How many", "what": "Items in the series."}}
+    },
+    "royalties": {
+      "label": "Royalties",
+      "what": "A suggested rate on item resales. Marketplaces may choose whether to pay it.",
+      "params": {"bps": {"label": "Rate", "what": "0%, 1%, 2.5% or 5%."}, "destination": {"label": "Where", "what": "Like fees, to you, or into the pool."}},
+      "beforeGraduation": "Royalties in {P} wait until graduation, then follow your chosen destination.",
+      "otherCoin": "Royalties in another coin go to the conversion Safe. The bot converts them to the price coin and pays them back to this box as royalties, following your chosen destination.",
+      "conversionSafe": "The conversion Safe has a fixed address. Two of its three owners must sign: bot, founder and backup. A failed transfer can be retried without stopping the box.",
+      "failure": "Held royalties in {P} join the closing claim. Money arriving after the last claim goes to the FIT Safe."
+    },
+    "collection-metadata": {
+      "label": "Collection page",
+      "what": "A banner, teasers and a link.",
+      "params": {
+        "bannerSha256": {"label": "Banner", "what": "The banner's fingerprint."},
+        "teaserSha256s": {"label": "Teasers", "what": "Up to 4 teaser pictures."},
+        "externalLink": {"label": "Link", "what": "An https:// link."}
+      }
+    },
+    "collection-list": {"label": "Collection list", "what": "The shop accepts listed collections at fixed tiers. A curator may only add, at most weekly; renouncing freezes the list. Entries wait 7, 14 or 30 days.", "params": {}},
+    "starter-set": {"label": "Starter set", "what": "Load the committed NFTs from your approvals after creation. The full set and the seed must arrive before completion opens trading. A seed-only shop uses an empty set.", "params": {"setHash": {"label": "Set fingerprint", "what": "Commits the ordered items and tiers; empty for a seed-only set."}, "count": {"label": "Items", "what": "10 to 10,000, or 0 for a seed-only set."}}},
+    "held-item-earnings": {
+      "label": "Earnings of held items",
+      "what": "Earnings in the price coin arrive with M2. Earnings in another coin wait for a later version.",
+      "notOffered": "M2; another coin in a later version",
+      "params": {}
+    },
+    "humble-creator": {
+      "label": "Creator cap",
+      "what": "Creator caps are not offered in this release.",
+      "notOffered": "later version",
+      "params": {"preset": {"label": "Old cap setting", "what": "Not offered in this release."}}
+    }
+  },
+  "reasons": {
+    "OK": "The spec passes every check.",
+    "UNSUPPORTED_VERSION": "This format or version is not known.",
+    "NOT_A_MEMBER": "That value is not one of the choices.",
+    "NOT_OFFERED": "Not offered here yet.",
+    "OUT_OF_RANGE": "The number is out of range.",
+    "LENGTH_OUT_OF_RANGE": "Too short or too long.",
+    "BAD_CHARACTER": "A character that is not allowed.",
+    "ZERO_VALUE": "This must be set.",
+    "MUST_BE_ZERO": "This must be empty here.",
+    "Q_NOT_LISTED": "Format 1 only.",
+    "RAISE_NOT_A_PRESET": "The raise must match the listing when the box is created.",
+    "MENU_RULE": "Pick keep, burn, grow the pool, eat the price coin, pay holders in {P}, or pay your own collection items in {P}.",
+    "DEADLINE_RULE": "The deadline must be 30, 60, 90 or 180 days.",
+    "TOO_MANY_ADD_ONS": "At most 8 add-ons.",
+    "ADD_ON_ORDER": "Add-ons out of order, or one twice.",
+    "ADD_ON_UNKNOWN": "An add-on this format does not know.",
+    "ADD_ON_NOT_AVAILABLE": "This add-on is not available yet.",
+    "ADD_ON_PARAMS_MALFORMED": "The add-on's settings are not encoded correctly.",
+    "ADD_ON_REQUIRED": "A choice needs an add-on that is missing.",
+    "ADD_ON_CONFLICT": "This add-on does not fit the box.",
+    "METADATA_TABLE_MALFORMED": "The trait table is not in the right format.",
+    "LISTING_UNKNOWN": "That listing does not exist.",
+    "LISTING_MISMATCH": "The token does not match its listing.",
+    "RECIPE_RULE": "That setting does not fit a menu choice.",
+    "SPLIT_RULE": "Pick one whole choice; splits and caps are not offered.",
+    "PLUG_IN_MALFORMED": "Plug-ins are not offered in this release.",
+    "GAS_BUDGET": "These old plug-in settings are not offered."
+  },
+  "rules": {
+    "open art publishes its reveal list": {"sentence": "Open art needs its reveal list.", "fix": "Set the reveal list, or pick hidden art."},
+    "hidden art keeps its reveal list private": {"sentence": "Hidden art keeps its reveal list private.", "fix": "Leave the reveal list empty."},
+    "hidden art needs the placeholders add-on": {"sentence": "Hidden art needs placeholders.", "fix": "Add placeholders."},
+    "a creator payout names its recipient": {"sentence": "Something pays you, so set a payout address.", "fix": "Set the payout address."},
+    "no fee recipient without a creator payout": {"sentence": "Nothing pays you, so leave the payout address empty.", "fix": "Clear it, or send something to you."},
+    "items require the own new collection": {"sentence": "Item payouts need this box’s own new collection.", "fix": "Use a new collection or choose another fee destination."},
+    "a shop commits its collection list": {"sentence": "A shop needs its collection list.", "fix": "Add the collection list and its shop settings."},
+    "the creator buy cannot fill the curve": {"sentence": "Your buy at start must stay below the raise.", "fix": "Buy less."},
+    "one whole choice per side": {"sentence": "Each side takes one whole choice.", "fix": "Remove the split and leave the second choice empty."},
+    "only menu combinations": {"sentence": "That combination is not a menu button.", "fix": "Pick keep, burn, grow the pool, eat the price coin, pay holders in {P}, or pay your own collection items in {P}."}
+  },
+  "menu": {
+    "keep": {"label": "Keep", "plain": "Your share waits until graduation, then you can claim it in {P}."},
+    "eat": {"label": "Eat the price coin", "plain": "After graduation, Burn {P} when its listing records a checked burn; Lock {P} otherwise, including ETH. The Eaten counter adds only successful amounts. Pending money joins the failure claim pot."},
+    "burn": {"label": "Burn", "plain": "Your share buys {T} in small steps after graduation and burns it. The buy pays the usual fee."},
+    "grow": {"label": "Grow the pool", "plain": "Your share grows this box's pool after graduation, for good."},
+    "holders": {"label": "To holders", "plain": "Your eligible holdings of {T} at each trade earn {P}. Claim funded credits with no expiry, including after failure."},
+    "items": {"label": "To items", "plain": "Each item has equal weight. Outside items earn {P}; inside shares are kept with the item, buy back and burn {T}, or grow this box’s own pool, as chosen for that side. Before graduation, shares wait; if the box fails they join the closing claim.", "insidePolicy": "Choose Keep, buy back and burn, or grow the pool; Keep is the default."},
+    "fees": "1% of every buy and every sale, in {P}.",
+    "shares": "Of each fee split: 2/15 to FIT, 1/15 to the platform, 2/15 to the pool and 10/15 to your choice.",
+    "shop": {"label": "Into the shop", "plain": "Sellers only, for every shop: fees fill the shop up to a ceiling, then go to holders. Fix the ceiling at creation to 2x, 4x or 8x the seed, counting fees. Only what the shop wants buys its token after graduation; the rest pays holders in the price coin, also before graduation. whoever picks the collections decides who can sell into a budget the fees pay for", "timing": "Collection time decides the destination, not trade time. Weeks are anchored to graduation. The first give, pick or fee intake in a week snapshots the budget before it; after idle weeks the live budget is used. Purchases also check the live ceiling. Pending shares and small tails that cannot buy go to the original trade holders; failure sends still-pending fees to the closing pot."},
+    "oneChoice": "Pick one button for buyers and one for sellers. Each choice takes the whole share."
+  },
+  "lifecycle": {
+    "graduation": "The curve graduates into one full-range pool position.",
+    "graduationEscape": "If the curve filled but graduation has not succeeded for 7 days, anyone can close the box into the same closing claim.",
+    "claim": "Claim {P} at the closing price by handing in {T}. Each claim takes its share of the remaining pot; the last takes the remainder. Claims have no expiry.",
+    "graduationReserve": "If the box fails, the graduation reserve is split like fees.",
+    "heldBurnMoney": "If the box fails, waiting buy-back money joins the claim.",
+    "heldItemsMoney": "If the box fails, waiting item earnings join the claim.",
+    "afterLastClaim": "Money arriving after the last claim goes to the FIT Safe."
+  },
+  "pile": {
+    "seed": "Choose one listed coin other than this box’s own {T}, and an exact seed amount. You are the seeder. Load it after creation; a nonzero seed must arrive before trading opens. It is separate from the creation payment.",
+    "redemption": "After graduation, hand in {T} to receive its share of the pile’s live balance. Fixed-coin gifts join that balance.",
+    "failure": "After failure, only the recorded seed returns to you, with retry if the coin refuses payment. Unsolicited surplus and unrelated assets have no recovery path."
+  },
+  "operations": {
+    "fitSafe": "FIT shares go to a fixed Safe. Two of three owners must sign: bot, founder and backup. The bot cannot move money alone.",
+    "platformCap": "The platform keeps at most 32 ETH per 30 days under its off-chain policy. This is not a creator cap.",
+    "pricing": "Use the listed price coin. Route other coins through Uniswap before creating or buying into a box."
+  }
+}

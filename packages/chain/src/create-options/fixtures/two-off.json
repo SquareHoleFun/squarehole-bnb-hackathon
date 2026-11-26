@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "chainId": 11155111,
+  "factory": "0xfae1e6cff43cadcbe01885bdd0aa6218263de393",
+  "registry": "0x5d2866ef084d801ae734d3a2a6e4f7179898737c",
+  "versionCodeHash": "0x31927f086fff14638c18ca1194dc874c12d6faec88b9356fc939d066f485baaa",
+  "revision": 2,
+  "off": [
+    {
+      "key": "fee.buyers.holders-p",
+      "issueId": "holder-notice-gas"
+    },
+    {
+      "key": "template.holders"
+    }
+  ]
+}

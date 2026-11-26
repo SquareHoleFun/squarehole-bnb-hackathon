@@ -1,0 +1,157 @@
+{
+  "format": "squarehole.boxspec-draft/2",
+  "network": "demo",
+  "example": 6,
+  "brief": "Worked The Junkyard example from the base registry. TRASH shop with holder payouts, sellers filling the shop to twice its seed, and ten starter NFTs, ids 1 and 2 of five demo collections standing in for the five Test Junk collections. Use kits/junkyard.md for the app settings file and Sepolia bindings; this draft uses the offline demo menu. A creator Safe supplies seed and starters; the founder signs offline batches. Creator buy is the rounded-down demo-menu quote of the registry ETH-equivalent policy; re-quote on Sepolia.",
+  "status": "Demo example",
+  "site": {
+    "links": []
+  },
+  "spec": {
+    "format": 2,
+    "version": 2,
+    "boxType": "SHOP",
+    "tokenName": "The Junkyard",
+    "tokenSymbol": "TRASH",
+    "collectionName": "",
+    "collectionSymbol": "",
+    "description": "Demo: TRASH shop with holder payouts, sellers filling the shop to twice its seed, and ten local-life starter NFTs.",
+    "n": "0",
+    "firstId": "0",
+    "pricing": "PAXG",
+    "raise": "LISTING",
+    "layout": "CURVE_V1",
+    "gradLayout": "FULL_RANGE",
+    "launchFormat": "CURVE",
+    "openAt": 0,
+    "deadlineDays": "30",
+    "buyers": {
+      "split": "NoSplit",
+      "a": {
+        "leg": "AsPaid",
+        "dest": "Holders",
+        "destParams": {
+          "currency": "P"
+        }
+      }
+    },
+    "sellers": {
+      "split": "NoSplit",
+      "a": {
+        "leg": "BuyT",
+        "dest": "BudgetOrPile",
+        "destParams": {
+          "ceilingPreset": "2"
+        }
+      }
+    },
+    "artMode": 0,
+    "revealRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "metadataTable": "0x",
+    "generatorHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coverSha256": "FROM_LAUNCH_FLOW",
+    "revealListId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "marketplaceOwner": "0x0000000000000000000000000000000000000000",
+    "creatorFeeRecipient": "0x0000000000000000000000000000000000000000",
+    "creatorBuy": "221061184319820710",
+    "collectionCoverSha256": "0x0",
+    "addOns": [
+      {
+        "addOn": "collection-list"
+      },
+      {
+        "addOn": "starter-set",
+        "params": {
+          "setHash": "0x127396d9ee333dbf1b341997832709f5ab3a36b5c8206e2b6f2f52ede4e271e1",
+          "count": 10
+        }
+      }
+    ],
+    "contentsParams": {
+      "seedT": "180000000000000000000000000",
+      "givePricesT": [
+        "1000000000000000000000000",
+        "2000000000000000000000000",
+        "4000000000000000000000000",
+        "8000000000000000000000000"
+      ],
+      "pickBps": "20000",
+      "weeklyBps": "1000",
+      "collectionBps": "250",
+      "listDelay": "604800",
+      "curator": "FROM_LAUNCH_FLOW",
+      "collections": [
+        "0x0000000000000000000000000000000000000721",
+        "0x0000000000000000000000000000000000000722",
+        "0x0000000000000000000000000000000000000723",
+        "0x0000000000000000000000000000000000000724",
+        "0x0000000000000000000000000000000000000725"
+      ],
+      "tiers": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    "pickFeeBps": "0"
+  },
+  "starterSet": [
+    {
+      "collection": "0x0000000000000000000000000000000000000721",
+      "id": "1",
+      "tier": "0"
+    },
+    {
+      "collection": "0x0000000000000000000000000000000000000721",
+      "id": "2",
+      "tier": "0"
+    },
+    {
+      "collection": "0x0000000000000000000000000000000000000722",
+      "id": "1",
+      "tier": "0"
+    },
+    {
+      "collection": "0x0000000000000000000000000000000000000722",
+      "id": "2",
+      "tier": "0"
+    },
+    {
+      "collection": "0x0000000000000000000000000000000000000723",
+      "id": "1",
+      "tier": "0"
+    },
+    {
+      "collection": "0x0000000000000000000000000000000000000723",
+      "id": "2",
+      "tier": "0"
+    },
+    {
+      "collection": "0x0000000000000000000000000000000000000724",
+      "id": "1",
+      "tier": "0"
+    },
+    {
+      "collection": "0x0000000000000000000000000000000000000724",
+      "id": "2",
+      "tier": "0"
+    },
+    {
+      "collection": "0x0000000000000000000000000000000000000725",
+      "id": "1",
+      "tier": "0"
+    },
+    {
+      "collection": "0x0000000000000000000000000000000000000725",
+      "id": "2",
+      "tier": "0"
+    }
+  ],
+  "creatorPolicy": {
+    "kind": "safe",
+    "buyEthEquivalent": "300000000000000000",
+    "registerHolder": true
+  }
+}

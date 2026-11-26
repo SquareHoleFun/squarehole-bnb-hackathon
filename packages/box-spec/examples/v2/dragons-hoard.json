@@ -1,0 +1,60 @@
+{
+  "$schema": "./schema.json",
+  "version": 1,
+  "id": "dragons-hoard",
+  "name": "Dragon's Hoard",
+  "ticker": "HOARD",
+  "status": "ready",
+  "template": {
+    "id": "pile",
+    "name": "Coin pile"
+  },
+  "priceCoin": {
+    "symbol": "ETH",
+    "decimals": "18"
+  },
+  "logo": "examples/boxes/dragons-hoard/art/logo.png",
+  "contents": {
+    "kind": "pile",
+    "size": "0",
+    "label": "ETH pile",
+    "art": {
+      "mode": "none",
+      "source": null
+    },
+    "seed": {
+      "symbol": "ETH",
+      "amount": "1000000000000000000"
+    },
+    "pickFeeBps": "0",
+    "leaveBehindBps": "500"
+  },
+  "raise": {
+    "policy": "listing-fixed",
+    "amount": "4206980085000000000"
+  },
+  "deadline": {
+    "days": "30"
+  },
+  "royalties": {
+    "bps": "0",
+    "destination": "none"
+  },
+  "fees": {
+    "buyers": {
+      "choice": "pile"
+    },
+    "sellers": {
+      "choice": "burn"
+    }
+  },
+  "life": "graduate",
+  "properties": [
+    "fee-conservation",
+    "page-state",
+    "own-pictures",
+    "graduation",
+    "supply-burn",
+    "pile-pro-rata"
+  ]
+}

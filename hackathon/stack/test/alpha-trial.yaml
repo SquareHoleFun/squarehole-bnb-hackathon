@@ -1,0 +1,46 @@
+# SH-275's container trial of the alpha (test/alpha-trial.sh): a third --file over compose.yaml and alpha.compose.yaml.
+# Adds only what a trial needs: a local chain 97 (the machine's own Anvil binary, a block a second) on the sender's
+# network as chain97; a Caddy with the trial's Caddyfile answers as trial.example.org on the network alpha; a driver
+# signs in and claims through it. No published port; fixture keys only; nothing here reaches a real network.
+services:
+  trial-chain:
+    profiles: [alpha]
+    image: node:24.22.1-trixie-slim@sha256:43b9ba1142b8dcf33fa8f922ca1be85714adc444e0586c7cf7726daaeabc1bea
+    user: "1000:1000"
+    entrypoint: ["/usr/local/bin/anvil", "--host", "0.0.0.0", "--port", "8621", "--chain-id", "97", "--block-time", "1", "--accounts", "0"]
+    command: []
+    volumes:
+      - ${SH_TRIAL_ANVIL}:/usr/local/bin/anvil:ro
+    networks:
+      alpha_sender:
+        aliases: [chain97]
+
+  trial-caddy:
+    profiles: [alpha]
+    image: caddy:2.11.6@sha256:907efba736324e43f891ccb9d760fe5abe545e313419b3d18d63d4ec670dad8d
+    environment:
+      SH_BNB_HOST: trial.example.org
+      SH_BNB_CADDY_TRIAL: local_certs
+      SH_BNB_ALPHA: "1"
+    volumes:
+      - ${SH_TRIAL_DIR}/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ${SH_TRIAL_DIR}/app:/srv/app:ro
+    networks:
+      alpha:
+        aliases: [trial.example.org]
+
+  trial-driver:
+    profiles: [trial]
+    image: node:24.22.1-trixie-slim@sha256:43b9ba1142b8dcf33fa8f922ca1be85714adc444e0586c7cf7726daaeabc1bea
+    user: "1000:1000"
+    working_dir: /repo
+    command: ["node", "hackathon/stack/test/alpha-trial-driver.mjs"]
+    environment:
+      NODE_TLS_REJECT_UNAUTHORIZED: "0" # Caddy's own trial certificate
+      SH_TRIAL_RPC: http://chain97:8621
+      SH_TRIAL_CLAIMS: ${SH_TRIAL_CLAIMS:-3}
+      SH_TRIAL_DESK: ${SH_TRIAL_DESK}
+    volumes:
+      - ../..:/repo:ro
+      - ${SH_TRIAL_DIR}/fixture:/fixture:ro
+    networks: [alpha, alpha_sender]

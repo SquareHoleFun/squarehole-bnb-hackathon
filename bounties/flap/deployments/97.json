@@ -1,0 +1,9 @@
+{
+  "chainId": 97,
+  "curveLauncherFactory": "0x151e43d81b3Ac5DBf566A1d01B5674cc2C4c7594",
+  "curveLauncherImplementation": "0xEF3db45d399DA742410f7651E43264bBadA393Aa",
+  "deployBlock": 144770777,
+  "pileVaultFactory": "0xdF5078057836CAd4e733C591645c3a221786E869",
+  "portal": "0x000042108465206185A077Edc3F3fd2b49060000",
+  "tokenImpl": "0x7777c57ff7dc441c1715b2e36fa581c48B782222"
+}

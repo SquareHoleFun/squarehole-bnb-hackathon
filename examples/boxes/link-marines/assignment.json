@@ -1,0 +1,2615 @@
+{
+  "edition": "link-marines",
+  "firstId": "1",
+  "count": "420",
+  "squads": "35",
+  "rule": "variant = ((id - 1) mod 12) + 1, as two digits; squad = ((id - 1) div 12) + 1",
+  "variants": [
+    {
+      "variant": "01",
+      "name": "Private",
+      "count": "35",
+      "image": "art/items/variant-01.png",
+      "svg": "art/items/variant-01.svg"
+    },
+    {
+      "variant": "02",
+      "name": "Sergeant",
+      "count": "35",
+      "image": "art/items/variant-02.png",
+      "svg": "art/items/variant-02.svg"
+    },
+    {
+      "variant": "03",
+      "name": "Cook",
+      "count": "35",
+      "image": "art/items/variant-03.png",
+      "svg": "art/items/variant-03.svg"
+    },
+    {
+      "variant": "04",
+      "name": "Bugler",
+      "count": "35",
+      "image": "art/items/variant-04.png",
+      "svg": "art/items/variant-04.svg"
+    },
+    {
+      "variant": "05",
+      "name": "Pilot",
+      "count": "35",
+      "image": "art/items/variant-05.png",
+      "svg": "art/items/variant-05.svg"
+    },
+    {
+      "variant": "06",
+      "name": "Diver",
+      "count": "35",
+      "image": "art/items/variant-06.png",
+      "svg": "art/items/variant-06.svg"
+    },
+    {
+      "variant": "07",
+      "name": "Jungle",
+      "count": "35",
+      "image": "art/items/variant-07.png",
+      "svg": "art/items/variant-07.svg"
+    },
+    {
+      "variant": "08",
+      "name": "Arctic",
+      "count": "35",
+      "image": "art/items/variant-08.png",
+      "svg": "art/items/variant-08.svg"
+    },
+    {
+      "variant": "09",
+      "name": "Officer",
+      "count": "35",
+      "image": "art/items/variant-09.png",
+      "svg": "art/items/variant-09.svg"
+    },
+    {
+      "variant": "10",
+      "name": "Mechanic",
+      "count": "35",
+      "image": "art/items/variant-10.png",
+      "svg": "art/items/variant-10.svg"
+    },
+    {
+      "variant": "11",
+      "name": "Scout",
+      "count": "35",
+      "image": "art/items/variant-11.png",
+      "svg": "art/items/variant-11.svg"
+    },
+    {
+      "variant": "12",
+      "name": "Night watch",
+      "count": "35",
+      "image": "art/items/variant-12.png",
+      "svg": "art/items/variant-12.svg"
+    }
+  ],
+  "items": [
+    {
+      "id": "1",
+      "squad": "1",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "2",
+      "squad": "1",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "3",
+      "squad": "1",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "4",
+      "squad": "1",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "5",
+      "squad": "1",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "6",
+      "squad": "1",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "7",
+      "squad": "1",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "8",
+      "squad": "1",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "9",
+      "squad": "1",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "10",
+      "squad": "1",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "11",
+      "squad": "1",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "12",
+      "squad": "1",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "13",
+      "squad": "2",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "14",
+      "squad": "2",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "15",
+      "squad": "2",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "16",
+      "squad": "2",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "17",
+      "squad": "2",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "18",
+      "squad": "2",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "19",
+      "squad": "2",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "20",
+      "squad": "2",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "21",
+      "squad": "2",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "22",
+      "squad": "2",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "23",
+      "squad": "2",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "24",
+      "squad": "2",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "25",
+      "squad": "3",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "26",
+      "squad": "3",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "27",
+      "squad": "3",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "28",
+      "squad": "3",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "29",
+      "squad": "3",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "30",
+      "squad": "3",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "31",
+      "squad": "3",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "32",
+      "squad": "3",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "33",
+      "squad": "3",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "34",
+      "squad": "3",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "35",
+      "squad": "3",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "36",
+      "squad": "3",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "37",
+      "squad": "4",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "38",
+      "squad": "4",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "39",
+      "squad": "4",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "40",
+      "squad": "4",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "41",
+      "squad": "4",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "42",
+      "squad": "4",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "43",
+      "squad": "4",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "44",
+      "squad": "4",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "45",
+      "squad": "4",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "46",
+      "squad": "4",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "47",
+      "squad": "4",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "48",
+      "squad": "4",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "49",
+      "squad": "5",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "50",
+      "squad": "5",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "51",
+      "squad": "5",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "52",
+      "squad": "5",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "53",
+      "squad": "5",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "54",
+      "squad": "5",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "55",
+      "squad": "5",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "56",
+      "squad": "5",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "57",
+      "squad": "5",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "58",
+      "squad": "5",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "59",
+      "squad": "5",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "60",
+      "squad": "5",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "61",
+      "squad": "6",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "62",
+      "squad": "6",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "63",
+      "squad": "6",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "64",
+      "squad": "6",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "65",
+      "squad": "6",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "66",
+      "squad": "6",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "67",
+      "squad": "6",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "68",
+      "squad": "6",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "69",
+      "squad": "6",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "70",
+      "squad": "6",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "71",
+      "squad": "6",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "72",
+      "squad": "6",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "73",
+      "squad": "7",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "74",
+      "squad": "7",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "75",
+      "squad": "7",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "76",
+      "squad": "7",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "77",
+      "squad": "7",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "78",
+      "squad": "7",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "79",
+      "squad": "7",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "80",
+      "squad": "7",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "81",
+      "squad": "7",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "82",
+      "squad": "7",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "83",
+      "squad": "7",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "84",
+      "squad": "7",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "85",
+      "squad": "8",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "86",
+      "squad": "8",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "87",
+      "squad": "8",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "88",
+      "squad": "8",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "89",
+      "squad": "8",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "90",
+      "squad": "8",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "91",
+      "squad": "8",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "92",
+      "squad": "8",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "93",
+      "squad": "8",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "94",
+      "squad": "8",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "95",
+      "squad": "8",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "96",
+      "squad": "8",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "97",
+      "squad": "9",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "98",
+      "squad": "9",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "99",
+      "squad": "9",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "100",
+      "squad": "9",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "101",
+      "squad": "9",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "102",
+      "squad": "9",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "103",
+      "squad": "9",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "104",
+      "squad": "9",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "105",
+      "squad": "9",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "106",
+      "squad": "9",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "107",
+      "squad": "9",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "108",
+      "squad": "9",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "109",
+      "squad": "10",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "110",
+      "squad": "10",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "111",
+      "squad": "10",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "112",
+      "squad": "10",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "113",
+      "squad": "10",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "114",
+      "squad": "10",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "115",
+      "squad": "10",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "116",
+      "squad": "10",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "117",
+      "squad": "10",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "118",
+      "squad": "10",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "119",
+      "squad": "10",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "120",
+      "squad": "10",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "121",
+      "squad": "11",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "122",
+      "squad": "11",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "123",
+      "squad": "11",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "124",
+      "squad": "11",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "125",
+      "squad": "11",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "126",
+      "squad": "11",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "127",
+      "squad": "11",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "128",
+      "squad": "11",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "129",
+      "squad": "11",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "130",
+      "squad": "11",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "131",
+      "squad": "11",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "132",
+      "squad": "11",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "133",
+      "squad": "12",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "134",
+      "squad": "12",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "135",
+      "squad": "12",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "136",
+      "squad": "12",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "137",
+      "squad": "12",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "138",
+      "squad": "12",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "139",
+      "squad": "12",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "140",
+      "squad": "12",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "141",
+      "squad": "12",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "142",
+      "squad": "12",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "143",
+      "squad": "12",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "144",
+      "squad": "12",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "145",
+      "squad": "13",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "146",
+      "squad": "13",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "147",
+      "squad": "13",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "148",
+      "squad": "13",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "149",
+      "squad": "13",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "150",
+      "squad": "13",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "151",
+      "squad": "13",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "152",
+      "squad": "13",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "153",
+      "squad": "13",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "154",
+      "squad": "13",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "155",
+      "squad": "13",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "156",
+      "squad": "13",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "157",
+      "squad": "14",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "158",
+      "squad": "14",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "159",
+      "squad": "14",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "160",
+      "squad": "14",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "161",
+      "squad": "14",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "162",
+      "squad": "14",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "163",
+      "squad": "14",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "164",
+      "squad": "14",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "165",
+      "squad": "14",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "166",
+      "squad": "14",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "167",
+      "squad": "14",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "168",
+      "squad": "14",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "169",
+      "squad": "15",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "170",
+      "squad": "15",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "171",
+      "squad": "15",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "172",
+      "squad": "15",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "173",
+      "squad": "15",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "174",
+      "squad": "15",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "175",
+      "squad": "15",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "176",
+      "squad": "15",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "177",
+      "squad": "15",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "178",
+      "squad": "15",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "179",
+      "squad": "15",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "180",
+      "squad": "15",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "181",
+      "squad": "16",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "182",
+      "squad": "16",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "183",
+      "squad": "16",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "184",
+      "squad": "16",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "185",
+      "squad": "16",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "186",
+      "squad": "16",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "187",
+      "squad": "16",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "188",
+      "squad": "16",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "189",
+      "squad": "16",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "190",
+      "squad": "16",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "191",
+      "squad": "16",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "192",
+      "squad": "16",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "193",
+      "squad": "17",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "194",
+      "squad": "17",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "195",
+      "squad": "17",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "196",
+      "squad": "17",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "197",
+      "squad": "17",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "198",
+      "squad": "17",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "199",
+      "squad": "17",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "200",
+      "squad": "17",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "201",
+      "squad": "17",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "202",
+      "squad": "17",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "203",
+      "squad": "17",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "204",
+      "squad": "17",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "205",
+      "squad": "18",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "206",
+      "squad": "18",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "207",
+      "squad": "18",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "208",
+      "squad": "18",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "209",
+      "squad": "18",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "210",
+      "squad": "18",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "211",
+      "squad": "18",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "212",
+      "squad": "18",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "213",
+      "squad": "18",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "214",
+      "squad": "18",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "215",
+      "squad": "18",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "216",
+      "squad": "18",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "217",
+      "squad": "19",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "218",
+      "squad": "19",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "219",
+      "squad": "19",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "220",
+      "squad": "19",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "221",
+      "squad": "19",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "222",
+      "squad": "19",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "223",
+      "squad": "19",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "224",
+      "squad": "19",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "225",
+      "squad": "19",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "226",
+      "squad": "19",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "227",
+      "squad": "19",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "228",
+      "squad": "19",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "229",
+      "squad": "20",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "230",
+      "squad": "20",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "231",
+      "squad": "20",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "232",
+      "squad": "20",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "233",
+      "squad": "20",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "234",
+      "squad": "20",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "235",
+      "squad": "20",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "236",
+      "squad": "20",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "237",
+      "squad": "20",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "238",
+      "squad": "20",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "239",
+      "squad": "20",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "240",
+      "squad": "20",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "241",
+      "squad": "21",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "242",
+      "squad": "21",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "243",
+      "squad": "21",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "244",
+      "squad": "21",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "245",
+      "squad": "21",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "246",
+      "squad": "21",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "247",
+      "squad": "21",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "248",
+      "squad": "21",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "249",
+      "squad": "21",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "250",
+      "squad": "21",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "251",
+      "squad": "21",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "252",
+      "squad": "21",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "253",
+      "squad": "22",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "254",
+      "squad": "22",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "255",
+      "squad": "22",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "256",
+      "squad": "22",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "257",
+      "squad": "22",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "258",
+      "squad": "22",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "259",
+      "squad": "22",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "260",
+      "squad": "22",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "261",
+      "squad": "22",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "262",
+      "squad": "22",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "263",
+      "squad": "22",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "264",
+      "squad": "22",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "265",
+      "squad": "23",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "266",
+      "squad": "23",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "267",
+      "squad": "23",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "268",
+      "squad": "23",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "269",
+      "squad": "23",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "270",
+      "squad": "23",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "271",
+      "squad": "23",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "272",
+      "squad": "23",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "273",
+      "squad": "23",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "274",
+      "squad": "23",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "275",
+      "squad": "23",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "276",
+      "squad": "23",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "277",
+      "squad": "24",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "278",
+      "squad": "24",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "279",
+      "squad": "24",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "280",
+      "squad": "24",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "281",
+      "squad": "24",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "282",
+      "squad": "24",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "283",
+      "squad": "24",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "284",
+      "squad": "24",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "285",
+      "squad": "24",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "286",
+      "squad": "24",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "287",
+      "squad": "24",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "288",
+      "squad": "24",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "289",
+      "squad": "25",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "290",
+      "squad": "25",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "291",
+      "squad": "25",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "292",
+      "squad": "25",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "293",
+      "squad": "25",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "294",
+      "squad": "25",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "295",
+      "squad": "25",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "296",
+      "squad": "25",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "297",
+      "squad": "25",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "298",
+      "squad": "25",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "299",
+      "squad": "25",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "300",
+      "squad": "25",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "301",
+      "squad": "26",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "302",
+      "squad": "26",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "303",
+      "squad": "26",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "304",
+      "squad": "26",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "305",
+      "squad": "26",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "306",
+      "squad": "26",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "307",
+      "squad": "26",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "308",
+      "squad": "26",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "309",
+      "squad": "26",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "310",
+      "squad": "26",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "311",
+      "squad": "26",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "312",
+      "squad": "26",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "313",
+      "squad": "27",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "314",
+      "squad": "27",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "315",
+      "squad": "27",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "316",
+      "squad": "27",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "317",
+      "squad": "27",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "318",
+      "squad": "27",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "319",
+      "squad": "27",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "320",
+      "squad": "27",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "321",
+      "squad": "27",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "322",
+      "squad": "27",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "323",
+      "squad": "27",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "324",
+      "squad": "27",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "325",
+      "squad": "28",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "326",
+      "squad": "28",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "327",
+      "squad": "28",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "328",
+      "squad": "28",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "329",
+      "squad": "28",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "330",
+      "squad": "28",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "331",
+      "squad": "28",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "332",
+      "squad": "28",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "333",
+      "squad": "28",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "334",
+      "squad": "28",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "335",
+      "squad": "28",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "336",
+      "squad": "28",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "337",
+      "squad": "29",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "338",
+      "squad": "29",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "339",
+      "squad": "29",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "340",
+      "squad": "29",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "341",
+      "squad": "29",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "342",
+      "squad": "29",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "343",
+      "squad": "29",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "344",
+      "squad": "29",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "345",
+      "squad": "29",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "346",
+      "squad": "29",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "347",
+      "squad": "29",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "348",
+      "squad": "29",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "349",
+      "squad": "30",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "350",
+      "squad": "30",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "351",
+      "squad": "30",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "352",
+      "squad": "30",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "353",
+      "squad": "30",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "354",
+      "squad": "30",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "355",
+      "squad": "30",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "356",
+      "squad": "30",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "357",
+      "squad": "30",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "358",
+      "squad": "30",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "359",
+      "squad": "30",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "360",
+      "squad": "30",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "361",
+      "squad": "31",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "362",
+      "squad": "31",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "363",
+      "squad": "31",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "364",
+      "squad": "31",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "365",
+      "squad": "31",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "366",
+      "squad": "31",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "367",
+      "squad": "31",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "368",
+      "squad": "31",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "369",
+      "squad": "31",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "370",
+      "squad": "31",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "371",
+      "squad": "31",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "372",
+      "squad": "31",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "373",
+      "squad": "32",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "374",
+      "squad": "32",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "375",
+      "squad": "32",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "376",
+      "squad": "32",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "377",
+      "squad": "32",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "378",
+      "squad": "32",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "379",
+      "squad": "32",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "380",
+      "squad": "32",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "381",
+      "squad": "32",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "382",
+      "squad": "32",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "383",
+      "squad": "32",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "384",
+      "squad": "32",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "385",
+      "squad": "33",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "386",
+      "squad": "33",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "387",
+      "squad": "33",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "388",
+      "squad": "33",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "389",
+      "squad": "33",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "390",
+      "squad": "33",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "391",
+      "squad": "33",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "392",
+      "squad": "33",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "393",
+      "squad": "33",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "394",
+      "squad": "33",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "395",
+      "squad": "33",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "396",
+      "squad": "33",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "397",
+      "squad": "34",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "398",
+      "squad": "34",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "399",
+      "squad": "34",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "400",
+      "squad": "34",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "401",
+      "squad": "34",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "402",
+      "squad": "34",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "403",
+      "squad": "34",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "404",
+      "squad": "34",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "405",
+      "squad": "34",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "406",
+      "squad": "34",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "407",
+      "squad": "34",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "408",
+      "squad": "34",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    },
+    {
+      "id": "409",
+      "squad": "35",
+      "variant": "01",
+      "image": "art/items/variant-01.png"
+    },
+    {
+      "id": "410",
+      "squad": "35",
+      "variant": "02",
+      "image": "art/items/variant-02.png"
+    },
+    {
+      "id": "411",
+      "squad": "35",
+      "variant": "03",
+      "image": "art/items/variant-03.png"
+    },
+    {
+      "id": "412",
+      "squad": "35",
+      "variant": "04",
+      "image": "art/items/variant-04.png"
+    },
+    {
+      "id": "413",
+      "squad": "35",
+      "variant": "05",
+      "image": "art/items/variant-05.png"
+    },
+    {
+      "id": "414",
+      "squad": "35",
+      "variant": "06",
+      "image": "art/items/variant-06.png"
+    },
+    {
+      "id": "415",
+      "squad": "35",
+      "variant": "07",
+      "image": "art/items/variant-07.png"
+    },
+    {
+      "id": "416",
+      "squad": "35",
+      "variant": "08",
+      "image": "art/items/variant-08.png"
+    },
+    {
+      "id": "417",
+      "squad": "35",
+      "variant": "09",
+      "image": "art/items/variant-09.png"
+    },
+    {
+      "id": "418",
+      "squad": "35",
+      "variant": "10",
+      "image": "art/items/variant-10.png"
+    },
+    {
+      "id": "419",
+      "squad": "35",
+      "variant": "11",
+      "image": "art/items/variant-11.png"
+    },
+    {
+      "id": "420",
+      "squad": "35",
+      "variant": "12",
+      "image": "art/items/variant-12.png"
+    }
+  ]
+}

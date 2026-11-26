@@ -1,0 +1,7 @@
+{
+  "round": "33257816",
+  "roundTime": "1792576812",
+  "start": {"startedAt":"1793008813","targetBlock":"10000","fixedAt":"0","mix":"0"},
+  "fixed": {"startedAt":"1793008813","targetBlock":"10000","fixedAt":"1793012412","mix":"123"},
+  "unstarted": {"startedAt":"0","targetBlock":"0","fixedAt":"0","mix":"0"}
+}

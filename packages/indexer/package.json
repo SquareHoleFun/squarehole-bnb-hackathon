@@ -1,0 +1,35 @@
+{
+  "name": "@squarehole/indexer",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "description": "Live curve indexer and SSE gateway (proof of concept, branch sh-realtime-poc; F38 (2)). Optional accelerator (C19, UI-12): the service is read-only, with no keys, no transactions and no swap code. Test tooling only (scripts/fork-e2e.ts) sends router buys and PoolSwapTest swaps, to a LOCAL anvil fork with impersonated accounts; it is never part of the service or of any bundle. Follows one v4 pool over a websocket head feed with a polling fallback, derives the curve state with exact v4 math, keeps hot state in Redis (or an in-memory store behind the same interface) and serves a snapshot endpoint and an SSE stream.",
+  "exports": {
+    ".": "./src/index.ts",
+    "./client": "./src/client.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p .",
+    "start": "node --experimental-transform-types --no-warnings=ExperimentalWarning --import ./scripts/register-ts.mjs src/main.ts",
+    "record:fixture": "node --experimental-transform-types --no-warnings=ExperimentalWarning --import ./scripts/register-ts.mjs scripts/record-fixture.ts",
+    "measure:latency": "node --experimental-transform-types --no-warnings=ExperimentalWarning --import ./scripts/register-ts.mjs scripts/measure-latency.ts",
+    "measure:fanout": "node --experimental-transform-types --no-warnings=ExperimentalWarning --import ./scripts/register-ts.mjs scripts/load-sse.ts",
+    "record:web-fixture": "node --experimental-transform-types --no-warnings=ExperimentalWarning --import ./scripts/register-ts.mjs scripts/record-web-fixture.ts",
+    "start:core": "node --experimental-transform-types --no-warnings=ExperimentalWarning --import ./scripts/register-ts.mjs src/core/core-main.ts",
+    "record:core-fixture": "node --experimental-transform-types --no-warnings=ExperimentalWarning --import ./scripts/register-ts.mjs scripts/record-core-fixture.ts",
+    "test:history": "SH_HISTORY_PG=1 vitest run --maxWorkers 4 test/history test/links test/pictures test/core/set-v2"
+  },
+  "dependencies": {
+    "@squarehole/box-spec": "workspace:*",
+    "@squarehole/chain": "workspace:*",
+    "@squarehole/domain": "workspace:*",
+    "ioredis": "6.0.0",
+    "pg": "8.23.0",
+    "viem": "2.56.8",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@types/pg": "8.23.0"
+  }
+}

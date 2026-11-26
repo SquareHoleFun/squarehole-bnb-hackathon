@@ -1,0 +1,25 @@
+{
+  "name": "@squarehole/keeper",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "description": "Core v2 keeper with failure exits, pool steps, royalty retries and owner-only payouts; preserves Box 0 maintenance. Keys only from the environment; dry run by default.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p .",
+    "test": "pnpm -w exec vitest run --maxWorkers 4 --project keeper",
+    "lock": "node --experimental-transform-types --no-warnings=ExperimentalWarning --import ./scripts/register-ts.mjs src/state-lock.ts",
+    "sent": "node --experimental-transform-types --no-warnings=ExperimentalWarning --import ./scripts/register-ts.mjs src/sent-report.ts",
+    "start": "node --experimental-transform-types --no-warnings=ExperimentalWarning --import ./scripts/register-ts.mjs src/main.ts",
+    "ours:write": "node --experimental-transform-types --no-warnings=ExperimentalWarning --import ./scripts/register-ts.mjs scripts/write-ours.ts",
+    "poke-history": "node --experimental-transform-types --no-warnings=ExperimentalWarning --import ./scripts/register-ts.mjs scripts/poke-history.ts",
+    "income:dry": "node --experimental-transform-types --no-warnings=ExperimentalWarning --import ./scripts/register-ts.mjs scripts/income-dry.ts"
+  },
+  "dependencies": {
+    "viem": "2.56.8",
+    "zod": "4.6.5"
+  }
+}

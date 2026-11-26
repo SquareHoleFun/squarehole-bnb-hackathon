@@ -1,0 +1,156 @@
+# Square Hole contracts (SH-B1, SH-B2). Local Foundry tests by default: no RPC endpoints, no keys, no broadcasts.
+# Opt-in fork tests (test/fork) read public keyless RPCs at pinned blocks (SH_FORK_SEPOLIA / SH_FORK_MAINNET).
+# Rationale for every pin: DEPENDENCIES.md and docs/decisions/0010-contracts-core-design.md, 0011-v4-hook-launcher-converter.md.
+
+[profile.default]
+src = "src"
+test = "test"
+out = "out"
+libs = ["lib"]
+cache_path = "cache"
+remappings = [
+  "dn404/=lib/dn404/src/",
+  "forge-std/=lib/forge-std/src/",
+  "v4-core/=lib/v4-core/",
+  "@uniswap/v4-core/=lib/v4-core/",
+  "v4-periphery/=lib/v4-periphery/",
+  "solmate/=lib/v4-core/lib/solmate/",
+  # The v2 public names (src/v2/names/launch/PublicNames.sol): FIT, The Misfits, the Misfit placeholder. The profile
+  # `sepolia-neutral` below points this at the neutral set instead.
+  "sh-public-names/=src/v2/names/launch/",
+  # Core v1's build profile (F78; packages/box-spec/build-profiles.v1.json): the mainnet build's raise and fixed ETH
+  # amounts and an empty BoxBuildGuard. The profile `rehearsal` below points this at the 1/10 testnet build instead.
+  "sh-box-build/=src/box/build/mainnet/",
+]
+auto_detect_remappings = false
+
+# Compiler. 0.8.26 is the newest solc that compiles DN404 (^0.8.4) *and* all of Uniswap v4-core
+# (PoolManager.sol pins `pragma solidity 0.8.26`), which B2's local non-fork tests build from source.
+solc = "0.8.26"
+auto_detect_solc = false
+# Cancun: the newest target solc 0.8.26 supports; active on Sepolia (2024-01-30) and mainnet (2024-03-13),
+# and every later fork (Prague/Pectra, Osaka/Fusaka) runs Cancun bytecode unchanged. Needed for TSTORE/TLOAD.
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 1_000
+via_ir = false
+bytecode_hash = "none"
+# The Uniswap v4 PoolManager (BUSL-1.1) is compiled from the pinned source ONLY for local tests. Build it the way
+# upstream does (lib/v4-core/foundry.toml: via-IR, 44,444,444 optimizer runs) so in-test PoolManager gas is close to
+# the canonical deployment; every other file keeps the settings above.
+additional_compiler_profiles = [{ name = "v4-upstream", via_ir = true, optimizer_runs = 44_444_444 }]
+compilation_restrictions = [{ paths = "lib/v4-core/src/PoolManager.sol", via_ir = true, optimizer_runs = 44_444_444 }]
+# 2394: "transient storage" composability warning; TSTORE is used only for the reentrancy lock.
+ignored_error_codes = [2394]
+# The v2 brief sets dynamic_test_linking = false (COL-P01; Foundry's default is true). See
+# docs/evidence/SH-V2-T08.md limitation 6: with linking on, `new` in tests may not meter deployment gas.
+dynamic_test_linking = false
+
+# Safety: no FFI; the only file access is read-only on committed differential vectors.
+ffi = false
+# Script/tests read the per-chain deployment config and write deployment manifests (script/Deploy.s.sol); the
+# read-only finalizer (script/WriteManifest.s.sol) reads forge's broadcast record.
+fs_permissions = [
+  # RC4 dust logs: normal tests read/compare; SH_WRITE_DUST_FIXTURE=1 explicitly regenerates this vector.
+  { access = "read-write", path = "../burn-bot/test/vectors" },
+  { access = "read", path = "./test/vectors" },
+  { access = "read", path = "./out" },
+  # Standalone 31337 alpha: artifact-only deployCode/getCode reads from the runner's isolated build output.
+  { access = "read", path = "../../.cache/alpha-forge-out" },
+  { access = "read", path = "./script/config" },
+  # Core v2's size budget (ticket M1-00, ADR-0017 § 12), read by test/box-v2/shape/SizeBudget.t.sol and M1's size gates.
+  { access = "read", path = "./size-budget.v2.json" },
+  # NFT metadata manifests committed by the web app under apps/web/public/nft (keccak256 = a launch's
+  # metadataManifestHash; script/Deploy.s.sol). The parent directory is allowed because Foundry cannot resolve a
+  # permission for a directory that does not exist yet (before the metadata lane is merged).
+  { access = "read", path = "../../apps/web/public" },
+  # The FIT icon master that MisfitsCollection embeds as its collection image (F26 4); a test compares the bytes.
+  { access = "read", path = "../design/art/fit" },
+  { access = "read", path = "./broadcast" },
+  { access = "read-write", path = "./deployments" },
+]
+
+[fuzz]
+runs = 1_000
+seed = "0x5348423130" # "SHB10"; fixed so every fuzz and invariant campaign is reproducible
+max_test_rejects = 262_144
+
+[invariant]
+runs = 256
+depth = 128
+fail_on_revert = true
+shrink_run_limit = 5_000
+
+# The Sepolia rehearsal of the whole v2 system with neutral public names (F30 Q2; docs/v2/sepolia-full.md):
+#   FOUNDRY_PROFILE=sepolia-neutral forge script script/v2/DeploySepoliaFull.s.sol ...
+# The same sources, compiler and settings as the default profile; only `sh-public-names/` points at
+# src/v2/names/neutral/, so the token, collection and placeholder show neutral names and texts. Its own build output and
+# cache, so the default (launch-name) build is never overwritten. Everything else is inherited from the default profile.
+[profile.sepolia-neutral]
+out = "out-neutral"
+cache_path = "cache-neutral"
+remappings = [
+  "dn404/=lib/dn404/src/",
+  "forge-std/=lib/forge-std/src/",
+  "v4-core/=lib/v4-core/",
+  "@uniswap/v4-core/=lib/v4-core/",
+  "v4-periphery/=lib/v4-periphery/",
+  "solmate/=lib/v4-core/lib/solmate/",
+  "sh-public-names/=src/v2/names/neutral/",
+  "sh-box-build/=src/box/build/mainnet/",
+]
+
+# F78: the rehearsal build of core v1 for testnets (docs/runbooks/sepolia-core-v1.md; DECISION-LOG F78):
+#   FOUNDRY_PROFILE=rehearsal forge script script/DeployCoreV1.s.sol ...
+# The same sources, compiler and settings as the default profile; only `sh-box-build/` points at
+# src/box/build/rehearsal/: the raise is 0.4206980085 ETH (1/10) and BOOTSTRAP_ETH, FEE_BATCH_MIN_ETH,
+# FEE_BATCH_TIP_MAX_ETH, SWAP_STEP_MIN_Q, DEPTH_CONVERT_MIN_Q and PLATFORM_CAP_WEI are 1/10 too, and BoxBuildGuard makes
+# the factory's, the planner's and every implementation's constructor refuse chain id 1. Its own build output and cache,
+# so the default (mainnet) build is never overwritten. The rehearsal's suites: docs/evidence/SH-rehearsal-build.md.
+[profile.rehearsal]
+out = "out-rehearsal"
+cache_path = "cache-rehearsal"
+remappings = [
+  "dn404/=lib/dn404/src/",
+  "forge-std/=lib/forge-std/src/",
+  "v4-core/=lib/v4-core/",
+  "@uniswap/v4-core/=lib/v4-core/",
+  "v4-periphery/=lib/v4-periphery/",
+  "solmate/=lib/v4-core/lib/solmate/",
+  "sh-public-names/=src/v2/names/launch/",
+  "sh-box-build/=src/box/build/rehearsal/",
+]
+# The default profile's file access, with this profile's own build output (deployCode reads the PoolManager from it).
+fs_permissions = [
+  { access = "read", path = "./test/vectors" },
+  { access = "read", path = "./out-rehearsal" },
+  { access = "read", path = "./script/config" },
+  { access = "read", path = "../../apps/web/public" },
+  { access = "read", path = "../design/art/fit" },
+  { access = "read", path = "./broadcast" },
+  { access = "read-write", path = "./deployments" },
+]
+
+# `FOUNDRY_PROFILE=deep forge test --match-path 'test/invariant/*'` for a longer campaign.
+[profile.deep.fuzz]
+runs = 10_000
+
+[profile.deep.invariant]
+runs = 1_024
+depth = 256
+
+# Offline core-v2 whole-release chronology: deployments, salt searches, all lives and
+# recorded-log assertions share one test budget. This is never a transaction limit.
+# Use on either EVM; bytecode/compiler settings and production stipends are unchanged.
+[profile.sepolia-rehearsal]
+gas_limit = 10_000_000_000
+
+# forge-lint (Foundry 1.8.3) exhausts memory on src/box-v2/BoxHookV2.sol in its missing-events-arithmetic pass: 11.7 GB
+# within 2 s when linting that file alone, 52 GB during `forge build`, which was then killed (exit 137 on the RC6
+# plain-hook lane; SH-V21-RC6-INT part 2). An inline disable does not stop the pass, so the rule is excluded here;
+# every other lint still runs on build. Remove this once a Foundry release lints the hook in bounded memory.
+[lint]
+exclude_lints = ["missing-events-arithmetic"]
+
+[fmt]
+line_length = 120

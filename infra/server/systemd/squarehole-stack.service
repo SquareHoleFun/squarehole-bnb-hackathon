@@ -1,0 +1,20 @@
+# The indexer stack (compose.yaml) at boot and on demand: `systemctl restart squarehole-stack` re-applies the current
+# release (/srv/squarehole/current). The containers' own restart policy (unless-stopped) brings back a crashed one.
+[Unit]
+Description=Square Hole stack (hosting, keeper and drand, burn bot, reveal)
+Requires=docker.service
+After=docker.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/srv/squarehole/current/infra/server
+ExecStart=/usr/bin/docker compose up --detach --no-build --remove-orphans
+ExecReload=/usr/bin/docker compose up --detach --no-build --remove-orphans
+ExecStop=/usr/bin/docker compose stop
+TimeoutStartSec=600
+TimeoutStopSec=180
+
+[Install]
+WantedBy=multi-user.target

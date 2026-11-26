@@ -1,0 +1,947 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Square Hole</title>
+    <meta name="description" content="Square Hole is for making tokens on BNB Chain, each in its own box." />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#080d16" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://squarehole.fun/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Square Hole" />
+    <meta property="og:title" content="Square Hole" />
+    <meta property="og:description" content="Square Hole is for making tokens on BNB Chain, each in its own box." />
+    <meta property="og:url" content="https://squarehole.fun/" />
+    <meta property="og:image" content="https://squarehole.fun/art/card-1200x630.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="The Square Hole logo and the words “Different shapes. Same hole.” above a smiling lavender cube in the glowing square hole of a wooden toy box, with a heart and a star on either side." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Square Hole" />
+    <meta name="twitter:description" content="Square Hole is for making tokens on BNB Chain, each in its own box." />
+    <meta name="twitter:image" content="https://squarehole.fun/art/card-1200x630.jpg" />
+    <meta name="twitter:image:alt" content="The Square Hole logo and the words “Different shapes. Same hole.” above a smiling lavender cube in the glowing square hole of a wooden toy box, with a heart and a star on either side." />
+
+    <link rel="icon" href="/examples/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/examples/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/examples/apple-touch-icon.png" />
+    <link rel="manifest" href="/examples/site.webmanifest" />
+
+    <link rel="preload" href="/examples/fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/examples/styles.css" />
+    
+    <script src="/examples/pager.js" defer></script>
+  </head>
+  <body>
+    <main class="page">
+      <a class="elsewhere" href="/create"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 12H5M11.5 5.5 5 12l6.5 6.5"/></svg><span>Launch a box</span></a>
+      <div class="hero">
+        <header class="intro">
+          
+          <div class="mark" aria-hidden="true">
+            <svg class="mark__layer" viewBox="-48 -48 352 352" focusable="false">
+              <defs>
+                <linearGradient id="mf" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#1D2B46" />
+                  <stop offset="1" stop-color="#0B111D" />
+                </linearGradient>
+                <linearGradient id="mg" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#FFFFFF" stop-opacity=".09" />
+                  <stop offset=".45" stop-color="#FFFFFF" stop-opacity="0" />
+                </linearGradient>
+                <linearGradient id="mr" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#C4B2FF" stop-opacity=".8" />
+                  <stop offset=".5" stop-color="#6D4AE2" stop-opacity=".35" />
+                  <stop offset="1" stop-color="#6D4AE2" stop-opacity=".6" />
+                </linearGradient>
+                <linearGradient id="mw" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#2A1D3A" />
+                  <stop offset=".6" stop-color="#05070C" />
+                </linearGradient>
+              </defs>
+              <rect width="256" height="256" rx="58" fill="url(#mf)" />
+              <rect width="256" height="256" rx="58" fill="url(#mg)" />
+              <rect x="1.5" y="1.5" width="253" height="253" rx="56.5" fill="none" stroke="url(#mr)" stroke-width="3" />
+              <rect x="76" y="76" width="104" height="104" rx="6" fill="url(#mw)" />
+            </svg>
+            <svg class="mark__layer mark__glow" viewBox="-48 -48 352 352" focusable="false">
+              <defs>
+                <radialGradient id="ms" cx=".5" cy=".5" r=".5">
+                  <stop offset=".45" stop-color="#A78BFA" stop-opacity=".32" />
+                  <stop offset="1" stop-color="#A78BFA" stop-opacity="0" />
+                </radialGradient>
+                <filter id="mb" x="-40%" y="-40%" width="180%" height="180%">
+                  <feGaussianBlur stdDeviation="7" />
+                </filter>
+              </defs>
+              <path d="M20 20H236V236H20ZM82 76H174A6 6 0 0 1 180 82V174A6 6 0 0 1 174 180H82A6 6 0 0 1 76 174V82A6 6 0 0 1 82 76Z" fill="url(#ms)" fill-rule="evenodd" />
+              <rect x="71" y="71" width="114" height="114" rx="11" fill="none" stroke="#A78BFA" stroke-width="10" filter="url(#mb)" />
+            </svg>
+            <svg class="mark__layer mark__flash" viewBox="-48 -48 352 352" focusable="false">
+              <defs>
+                <radialGradient id="mh" cx=".5" cy=".58" r=".55">
+                  <stop offset="0" stop-color="#C4B2FF" stop-opacity=".7" />
+                  <stop offset="1" stop-color="#A78BFA" stop-opacity="0" />
+                </radialGradient>
+              </defs>
+              <rect x="76" y="76" width="104" height="104" rx="6" fill="url(#mh)" />
+            </svg>
+            <svg class="mark__layer" viewBox="-48 -48 352 352" focusable="false">
+              <defs>
+                <filter id="mc" x="-10%" y="-10%" width="120%" height="120%">
+                  <feGaussianBlur stdDeviation="1.1" />
+                </filter>
+              </defs>
+              <rect x="71" y="71" width="114" height="114" rx="11" fill="none" stroke="#A78BFA" stroke-width="10" />
+              <rect x="71" y="71" width="114" height="114" rx="11" fill="none" stroke="#F4F0FF" stroke-width="3.5" filter="url(#mc)" />
+            </svg>
+            <svg class="mark__layer mark__shape mark__shape--1" viewBox="-48 -48 352 352" focusable="false">
+              <g transform="translate(128 128)" stroke-linejoin="round" stroke-width="3">
+                <path d="M0-37L32-18.5L0 0L-32-18.5Z" fill="#CFC8FF" stroke="#CFC8FF" />
+                <path d="M-32-18.5L0 0V37L-32 18.5Z" fill="#9F93F2" stroke="#9F93F2" />
+                <path d="M32-18.5L0 0V37L32 18.5Z" fill="#7C6FDB" stroke="#7C6FDB" />
+              </g>
+            </svg>
+            <svg class="mark__layer mark__shape mark__shape--2" viewBox="-48 -48 352 352" focusable="false">
+              <g transform="translate(128 128)">
+                <circle r="36" fill="#3F98DE" />
+                <circle cx="-4" cy="-4" r="31" fill="#6CC4FF" />
+                <ellipse cx="-13" cy="-15" rx="9" ry="6" transform="rotate(-30 -13 -15)" fill="#E3F4FF" />
+              </g>
+            </svg>
+            <svg class="mark__layer mark__shape mark__shape--3" viewBox="-48 -48 352 352" focusable="false">
+              <g transform="translate(128 128)" stroke-linejoin="round" stroke-width="3">
+                <path d="M0-38L-38 24L4 36Z" fill="#FF9A55" stroke="#FF9A55" />
+                <path d="M0-38L4 36L38 22Z" fill="#DB6A26" stroke="#DB6A26" />
+              </g>
+            </svg>
+            <svg class="mark__layer mark__shape mark__shape--4" viewBox="-48 -48 352 352" focusable="false">
+              <g transform="translate(128 131.8)" stroke-linejoin="round">
+                <path d="M0-40L9.99-13.75L38.04-12.36L16.17 5.25L23.51 32.36L0 17L-23.51 32.36L-16.17 5.25L-38.04-12.36L-9.99-13.75Z" fill="#22C3C9" stroke="#22C3C9" stroke-width="7" />
+                <path d="M0-40L9.99-13.75L38.04-12.36L16.17 5.25L23.51 32.36L0 17L-23.51 32.36L-16.17 5.25L-38.04-12.36L-9.99-13.75Z" transform="translate(-3 -4) scale(.42)" fill="#7FE3E6" stroke="#7FE3E6" stroke-width="7" />
+              </g>
+            </svg>
+            <svg class="mark__layer mark__shape mark__shape--5" viewBox="-48 -48 352 352" focusable="false">
+              <g transform="translate(128 130)">
+                <path d="M0 34C-30 14-40-2-40-14C-40-30-26-38-16-38C-7-38-2-32 0-26C2-32 7-38 16-38C26-38 40-30 40-14C40-2 30 14 0 34Z" fill="#FF7EB6" />
+                <ellipse cx="-19" cy="-21" rx="8" ry="5" transform="rotate(-35 -19 -21)" fill="#FFD3E6" />
+              </g>
+            </svg>
+          </div>
+          <h1 class="name"><img src="/examples/brand/wordmark.svg" width="885" height="141" alt="Square Hole" /></h1>
+          <p class="tagline">Different shapes. Same hole.</p>
+          
+          <p class="lede"><span>Square Hole is for making tokens on BNB Chain, each in its own box.</span> <span>You pick what's inside, the coin it's priced in and where most of its fees go.</span> <span>Then nobody can change the rules. Not even us.</span></p>
+        </header>
+
+        <picture class="stage">
+          <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/stage-crop-800x400.avif 800w, /examples/art/stage-crop-1200x600.avif 1200w" sizes="(min-width: 1232px) 1200px, calc(100vw - 32px)" width="800" height="400" />
+          <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/stage-crop-800x400.webp 800w, /examples/art/stage-crop-1200x600.webp 1200w" sizes="(min-width: 1232px) 1200px, calc(100vw - 32px)" width="800" height="400" />
+          <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/stage-crop-800x400.png" width="800" height="400" />
+          <source type="image/avif" srcset="/examples/art/stage-1600x400.avif 1600w, /examples/art/stage-2800x700.avif 2800w" sizes="(min-width: 1600px) 1600px, 100vw" width="1600" height="400" />
+          <source type="image/webp" srcset="/examples/art/stage-1600x400.webp 1600w, /examples/art/stage-2800x700.webp 2800w" sizes="(min-width: 1600px) 1600px, 100vw" width="1600" height="400" />
+          <img src="/examples/art/stage-1600x400.png" width="1600" height="400" decoding="async" fetchpriority="high" alt="A smiling lavender cube sits in the glowing square hole of a wooden toy box, under a soft spotlight. Plain lavender shapes stand in line on either side: a pentagon, an egg, a ball, a triangle and a heart on the left; a star, an arch, a cylinder, a hexagon and a pyramid on the right." />
+        </picture>
+      </div>
+
+      
+      
+      <section class="pager" aria-label="How it works, and examples">
+        <a class="pager__skip" href="#after-pager">Skip the examples</a>
+        <nav class="pager__tabs" aria-label="Pages">
+          <a class="pager__tab pager__tab--basics" href="#basics" aria-label="Basics" title="Basics"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#k-cat-pool"/></svg><span class="pager__label">Basics</span></a>
+          <a class="pager__tab pager__tab--how-it-works" href="#how-it-works" aria-label="How it works" title="How it works"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#k-cat-box"/></svg><span class="pager__label">How it works</span></a>
+          <a class="pager__tab pager__tab--gpu-poor" href="#gpu-poor" aria-label="GPU Poor, Burn" title="GPU Poor"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#k-cat-burn"/></svg><span class="pager__label">Burn</span></a>
+          <a class="pager__tab pager__tab--one-dollar" href="#one-dollar" aria-label="One Dollar is all you need, Coin pile" title="One Dollar is all you need"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#k-cat-pile"/></svg><span class="pager__label">Coin pile</span></a>
+          <a class="pager__tab pager__tab--rent-free" href="#rent-free" aria-label="Rent Free, Collection that burns" title="Rent Free"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#k-cat-collection-burn"/></svg><span class="pager__label">Collection that burns</span></a>
+          <a class="pager__tab pager__tab--bag-holders" href="#bag-holders" aria-label="Bag Holders, Collection" title="Bag Holders"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#k-cat-collection"/></svg><span class="pager__label">Collection</span></a>
+          <a class="pager__tab pager__tab--exit-liquidity" href="#exit-liquidity" aria-label="Exit Liquidity, Liquidity token" title="Exit Liquidity"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#k-cat-liquidity"/></svg><span class="pager__label">Liquidity token</span></a>
+          <a class="pager__tab pager__tab--link-marines" href="#link-marines" aria-label="Link Marines, Collection" title="Link Marines"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#k-cat-collection"/></svg><span class="pager__label">Collection</span></a>
+          <a class="pager__tab pager__tab--frog-kiln" href="#frog-kiln" aria-label="Frog Kiln, Collection that burns" title="Frog Kiln"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#k-cat-collection-burn"/></svg><span class="pager__label">Collection that burns</span></a>
+          <a class="pager__tab pager__tab--paper-certificates" href="#paper-certificates" aria-label="Paper Certificates, Collection that burns" title="Paper Certificates"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#k-cat-collection-burn"/></svg><span class="pager__label">Collection that burns</span></a>
+          <a class="pager__tab pager__tab--dragons-hoard" href="#dragons-hoard" aria-label="Dragon's Hoard, Coin pile" title="Dragon's Hoard"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#k-cat-pile"/></svg><span class="pager__label">Coin pile</span></a>
+          <a class="pager__tab pager__tab--junkyard" href="#junkyard" aria-label="The Junkyard, Shop" title="The Junkyard"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#k-cat-shop"/></svg><span class="pager__label">Shop</span></a>
+        </nav>
+        <svg class="pager__drawings" aria-hidden="true" focusable="false"><defs><symbol id="k-cat-pool" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="8" width="19" height="10.5" rx="2.2"/><path d="M2.5 12.6c1.2 0 1.2-.9 2.4-.9s1.2.9 2.4.9 1.2-.9 2.4-.9 1.2.9 2.3.9 1.2-.9 2.4-.9 1.2.9 2.4.9 1.2-.9 2.4-.9 1.2.9 2.4.9"/><circle cx="8.6" cy="15.3" r="1.5"/><circle cx="15.4" cy="15.3" r="1.5"/></symbol><symbol id="k-cat-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11.5h17v7.4a1.6 1.6 0 0 1-1.6 1.6H5.1a1.6 1.6 0 0 1-1.6-1.6z"/><path d="M3.5 11.5 6.2 6.5h11.6l2.7 5"/><path d="M9.4 10.1l.7-2.1h3.8l.7 2.1z"/></symbol><symbol id="k-cat-burn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8c.6 3.1 5.2 5 5.2 10.2a5.2 5.2 0 0 1-10.4 0c0-2.6 1.3-4.4 2.6-5.6.2 2.1 1.1 3.3 2.3 3.8-.7-2.8-.6-5.6.3-8.4z"/><path d="M12 21v-3.2"/></symbol><symbol id="k-cat-pile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="9.5" cy="9.5" rx="5.5" ry="2"/><path d="M4 9.5v9c0 1.1 2.5 2 5.5 2s5.5-.9 5.5-2v-9"/><path d="M4 12.5c0 1.1 2.5 2 5.5 2s5.5-.9 5.5-2M4 15.5c0 1.1 2.5 2 5.5 2s5.5-.9 5.5-2"/><circle cx="18.5" cy="17.5" r="3"/></symbol><symbol id="k-cat-collection-burn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><path d="M16.5 12.6c.4 1.6 3 2.6 3 5.3a3 3 0 0 1-6 0c0-1.3.7-2.3 1.4-2.9.1 1.1.6 1.7 1.2 2-.4-1.4-.3-2.9.4-4.4z"/></symbol><symbol id="k-cat-collection" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></symbol><symbol id="k-cat-liquidity" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.5" r="5"/><circle cx="12" cy="8.5" r="2.6"/><path d="M3 16.5c1.5 0 1.5-1.2 3-1.2s1.5 1.2 3 1.2 1.5-1.2 3-1.2 1.5 1.2 3 1.2 1.5-1.2 3-1.2 1.5 1.2 3 1.2"/><path d="M3 20.5c1.5 0 1.5-1.2 3-1.2s1.5 1.2 3 1.2 1.5-1.2 3-1.2 1.5 1.2 3 1.2 1.5-1.2 3-1.2 1.5 1.2 3 1.2"/></symbol><symbol id="k-cat-shop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h16l-1.5-5h-13zM5 10v9h14v-9M10 19v-5h4v5"/></symbol><symbol id="k-fig-creator" viewBox="0 0 99 96"><path d="M44.2 1.5L50.5 1.1L56.5 6.7L65.5 25.7L88.5 28.1L95.5 33.3L97.8 36.5L98 40.5L95.7 44.5L78 61.5L82.2 84.5L81.6 88.5L78.5 91.8L74.5 92.7L71.5 91.9L50.5 81.9L30.5 93.9L25.5 95.3L20.5 93L17.2 86.5L16.4 81.5L20.5 61.5L4.3 47.5L1.2 41.5L1 35.5L5.5 31.2L30.5 27.2L41.1 4.5Z" fill="#8d78ea"/><path d="M60.3 49.5L63.5 49.1L66 52.5L65.8 57.5L64.5 59.5L62.5 60.8L59.5 59.7L58.2 57.5L58.2 52.5ZM39.4 50.5L41.5 49.9L43.5 50.4L45.7 54.5L44.7 59.5L43.5 60.9L41.5 61.8L38.5 60.2L37.2 57.5L37.3 53.5ZM45.1 66.5L45.5 66.2L51.5 68.8L54.5 67.8L57.5 65.8L58.8 66.5L56.5 68.9L51.5 70.5L46.5 68.9L45 67.5Z" fill="#10121a"/></symbol><symbol id="k-fig-visitor" viewBox="0 0 102 96"><path d="M48.3 0.5L54.5 2L64.9 13.5L99.9 73.5L101.4 79.5L100.8 84.5L95.5 89.9L91.5 91L27.5 94.9L10.5 94.8L6.5 92.7L3.2 88.5L0.5 79.5L1.1 73.5L38.2 7.5L43.5 2Z" fill="#8d78ea"/><path d="M65.5 55.5L67.5 56.1L68.8 57.5L69.8 59.5L69.9 63.5L68.7 66.5L67.5 67.7L64.5 68.5L62.7 67.5L61 65.5L60.7 61.5L62 57.5L63.5 56ZM42.5 56.5L45.5 57.9L46.7 59.5L47.2 61.5L46.7 66.5L44.5 69L42.5 69.8L39.5 68.2L38.2 66.5L37.8 64.5L38.1 60.5L39.1 58.5L40.5 57.2ZM59.9 74.5L60.5 74L61.5 74.5L60.5 76.6L57.3 78.5L54.5 79.1L49.8 78.5L46.2 75.5L47.5 74.8L50.5 76.7L53.5 77.4L56.5 76.8Z" fill="#10121a"/></symbol><symbol id="k-fig-holder" viewBox="0 0 103 96"><path d="M60.5 1.5L73.5 1.1L86.5 7.1L94.9 14.5L99.1 20.5L101.9 27.5L102.6 36.5L99.9 47.5L91.8 59.5L53.5 95.2L19.5 67.7L11.3 59.5L4 47.5L1.1 39.5L0.5 32.5L1.3 26.5L4.3 18.5L10.9 10.5L18.5 5.1L27.5 2.1L36.5 2L43.5 4L49.5 7.6Z" fill="#8d78ea"/><path d="M64.9 44.5L67.5 43.8L69.4 44.5L70.6 45.5L72 48.5L71.9 53.5L70.9 55.5L68.5 57.9L65.5 58L62.3 54.5L62.1 48.5ZM39.9 45.5L43.5 44.9L45.6 46.5L46.8 48.5L47.3 51.5L46.7 55.5L43.5 58.9L39.8 58.5L38.5 57.4L37.2 54.5L37.2 49.5L38 47.5ZM61.1 64.5L62.5 64.2L62.9 65.5L60.9 67.5L55.5 69.8L53.5 69.8L49.5 68.5L46.7 66.5L46.3 65.5L47.5 64.9L50.5 66.7L54.5 67.8L57.5 66.9Z" fill="#10121a"/></symbol><symbol id="k-fig-item-owner" viewBox="0 0 103 96"><path d="M40.8 1.5L57.5 1.1L71.5 5.3L81.5 12.2L93.9 25.5L98.9 34.5L101.8 45.5L101.5 89.7L4 94.5L1.3 86.5L0.8 48.5L1.3 41.5L4.1 31.5L8.1 23.5L19.5 11.2L31.5 4.1ZM51.5 67.5L57.5 68.1L57.5 71.9L45.6 72.5L48.5 68.9Z" fill="#8d78ea"/><path d="M65.2 32.5L66.5 32.2L68.9 33.5L71 38.5L70.6 41.5L69.6 43.5L68.5 44.9L66.5 45.8L63.1 44.5L61.3 40.5L61.3 37.5L62.2 35.5L63.5 33.3ZM41.7 33.5L43.5 33.2L45.5 34.1L47 36.5L47.8 39.5L46.6 44.5L45.5 45.9L43.5 46.8L41.5 46.7L39.5 45L38 40.5L39.4 35.5ZM60.5 51.5L61.9 51.5L62.4 52.5L61.5 53.8L58.5 55.7L54.5 56.7L50.5 55.9L47 53.5L47.5 51.9L50.5 53.8L54.5 54.8L57.5 53.9Z" fill="#10121a"/></symbol><symbol id="k-fig-crowd" viewBox="0 0 96 96"><path d="M38.8 1.5L49.5 0.8L60.5 2.2L75.5 9.3L86.6 20.5L93.8 36.5L94.7 54.5L91.9 65.5L88.8 71.5L82.1 80.5L75.2 86.5L67.5 90.9L59.5 93.7L41.5 94.7L30.5 91.9L22.5 87.7L9.4 75.5L4.3 66.5L2.1 59.5L1.2 40.5L4.2 29.5L9.1 20.5L20.5 9.1L29.5 4.1Z" fill="#8d78ea"/><path d="M70.5 38.5L72.5 38.8L74.9 40.5L76.8 44.5L77 46.5L76.8 50.5L75.6 53.5L73.5 55.6L71.5 56.2L69.5 56L67.2 54.5L65.5 50.5L65 47.5L66.2 41.5L68.5 39ZM37.5 40.5L40.5 39.6L43.2 40.5L45.7 43.5L46.8 47.5L46.8 50.5L45.5 54.5L43.5 56.8L40.5 57.8L37.5 56.8L36.1 55.5L34.1 50.5L34.3 45.5L36.2 41.5ZM64.9 64.5L65.5 64.2L66.8 65.5L65.3 67.5L60.5 70.6L56.5 71.5L51.5 70.8L46.5 67.7L45.8 66.5L46.5 65.2L47.5 65.1L51.5 67.7L56.5 68.7L60.5 67.5Z" fill="#10121a"/></symbol><symbol id="k-fig-pool-keeper" viewBox="0 0 90 96"><path d="M42.2 1.5L43.5 1.5L45.7 5.5L86.9 85.5L88.5 90.8L9 94.5L0.9 70.5Z" fill="#8d78ea"/><path d="M56.1 47.5L58.5 46.7L60.5 47L62.8 49.5L63.7 51.5L63.7 56.5L61.9 59.5L59.5 60.8L56.5 59.7L54.1 55.5L54.3 50.5ZM32.7 48.5L34.5 47.8L36.5 48.1L38.9 50.5L39.8 52.5L39.8 57.5L38.5 60L36.5 61.7L34.5 61.8L32.5 60.8L30.4 57.5L30.1 52.5ZM54.3 68.5L55.5 67.9L56.1 68.5L56 69.5L54.5 71.3L52.5 72.7L48.5 74L43.5 72.7L40.5 70.5L40.1 69.5L41.5 68.8L44.5 70.9L48.5 71.9L51.5 70.9Z" fill="#10121a"/></symbol><symbol id="k-fig-curator" viewBox="0 0 98 96"><path d="M45.5 0.5L54.5 2.3L86.2 24.5L95.6 34.5L96.9 38.5L96.9 44.5L84 82.5L78.5 89.8L70.5 93L27.5 94.9L20.7 91.5L16.2 85.5L1.2 44.5L1.1 34.5L5.5 27.8L17.5 18.3L37.5 3.3Z" fill="#8d78ea"/><path d="M61.2 50.5L64.5 50.5L66.9 53.5L66.8 59.5L65.7 61.5L63.5 62.9L60.9 62.5L58.9 60.5L58.2 58.5L58.3 54.5L59.1 52.5ZM38.8 51.5L41.5 51.1L44 53.5L44.8 55.5L44.8 59.5L43.5 62.1L41.5 63.8L38.5 63.7L36 60.5L36.1 54.5ZM58.1 68.5L59 69.5L56.5 71.9L51.5 73.7L47.5 72.8L44.1 70.5L44 69.5L45.5 69.1L48.5 71L51.5 71.7L54.5 70.8Z" fill="#10121a"/></symbol><symbol id="k-fig-stock-coin" viewBox="0 0 85 96"><path d="M41.7 0.5L52.5 2L58 5.5L62 10.5L63.9 16.5L63.8 24.5L59.8 44.5L56.9 50.5L77.5 52.3L83.7 55.5L84.6 58.5L83.1 61.5L84.1 84.5L79.5 87.7L74.5 86.8L66.5 91.9L55.5 93.8L25.5 94.9L21.5 94L14.5 89.1L11.5 92.8L6.5 93.8L1.9 90.5L2.9 67.5L1 64.5L0.9 61.5L3.5 58.5L10.5 55.2L31 51.5L26.2 42.5L22.2 20.5L22.2 14.5L24 8.5L27.5 4.3L33.5 1.3Z" fill="#8d78ea"/><path d="M52.4 27.5L53.5 27.3L54.5 28.1L55.6 30.5L54.9 33.5L52.5 35L51.4 34.5L50.1 31.5L51.1 28.5ZM38.2 28.5L40.5 28.1L42.2 30.5L41.6 34.5L39.5 35.7L37.1 33.5L37 30.5ZM44 38.5L46.5 38.9L47.5 38.3L48.6 38.5L47.5 39.9L46.5 40.1L44.5 39.6Z" fill="#10121a"/></symbol><symbol id="k-fig-dollar-coin" viewBox="0 0 94 96"><path d="M36.5 1.5L47.5 0.9L55.5 2.1L63.5 5L72.5 10.4L84.7 23.5L89.8 33.5L91.8 40.5L92.8 49.5L92 59.5L86.8 73.5L76.5 85.7L68.5 90.8L60.5 93.9L42.5 94.8L31.5 91.7L24.5 88L17.5 82.6L11 75.5L5.1 65.5L2.3 57.5L1 50.5L1.2 38.5L3.1 30.5L7.2 21.5L18.5 9.2L27.5 4.1Z" fill="#8d78ea"/><path d="M39.5 22.5L42 23.5L43.3 27.5L42.8 30.5L40.5 32.8L37.5 31.8L36.2 28.5L36.8 24.5L37.5 23.4ZM57.3 25.5L58.5 24.9L60.5 25L62.8 27.5L63 31.5L61.5 34L58.5 34L57 32.5L56.2 28.5ZM44.2 38.5L45.5 38L54.5 38.2L54.8 39.5L52.5 42.1L49.5 42.5L46.5 41.6Z" fill="#10121a"/></symbol><symbol id="k-fig-gold" viewBox="0 0 114 96"><path d="M51.8 1.5L87.5 0.9L93.7 6.5L99.7 17.5L110.8 69.5L113.2 84.5L110.5 90.2L101.5 91.8L11.5 95L6.6 93.5L4.2 90.5L1.1 75.5L1.1 67.5L13.1 11.5L15.2 6.5L21.5 2.2Z" fill="#8d78ea"/><path d="M75.8 26.5L78.5 27L80.4 28.5L81.8 30.5L82.9 34.5L82.8 38.5L81.6 41.5L79.5 44.3L77.5 45.2L74.5 44.9L72.5 43.8L71 41.5L70 38.5L70.2 32.5L71.4 29.5L73.5 27.4ZM43.3 27.5L46.5 27.9L48.5 29.4L50 31.5L50.8 34.5L50.8 39.5L49.9 42.5L47.5 45.2L45.5 46L42.5 45.8L40.5 44.5L38.3 40.5L37.8 37.5L38.9 31.5L40.5 29.1ZM70.1 53.5L71 53.5L71.8 54.5L70.5 56.5L65.5 59.9L62.5 60.5L56.5 60L52.5 57.8L50.2 55.5L50.5 54.5L51.5 54L56.5 56.9L61.5 57.9L64.5 57.1Z" fill="#10121a"/></symbol><symbol id="k-fig-items" viewBox="0 0 76 96"><path d="M63.7 1.5L67.5 1.9L71.5 0.6L75 3.5L73.8 8.5L74.1 81.5L75.1 87.5L71.5 89.8L68.5 88.6L60.5 89.1L4.7 94.5L3 92.5L2.1 84.5L0.6 11.5L1.5 5.6L4.5 3.8Z" fill="#8d78ea"/><path d="M50.5 19.5L55.5 19.2L56.5 20.5L56.8 72.5L20.5 75.3L19.3 21.5ZM48.4 35.5L51.5 36L54.1 40.5L53.8 45.5L49.5 49.2L46.1 47.5L44.5 42.5L45.3 38.5ZM24.3 37.5L27.5 37.1L31 42.5L29.9 48.5L26.5 51L23.1 49.5L21.2 45.5L22.3 39.5ZM44.1 55.5L46 55.5L45.5 57.1L39.5 60.8L35.5 60.6L30.2 57.5L31.5 56L38.5 58.7Z" fill="#b5a7f1"/><path d="M48.4 35.5L49.5 35.2L51.5 36L53 37.5L54.1 40.5L53.8 45.5L51.5 48.5L49.5 49.2L47.5 48.8L46.1 47.5L44.5 42.5L45.3 38.5ZM24.3 37.5L27.5 37.1L30 39.5L31 42.5L31 45.5L29.9 48.5L26.5 51L24.5 50.7L23.1 49.5L21.2 45.5L21.2 42.5L22.3 39.5ZM44.1 55.5L45.5 55L46 55.5L45.5 57.1L42.5 59.5L39.5 60.8L35.5 60.6L30.2 57.5L30.4 56.5L31.5 56L34.5 57.9L38.5 58.7L41.5 57.6Z" fill="#10121a"/></symbol><symbol id="k-fig-square-hole" viewBox="0 0 85 96"><path d="M47 1.5L59.5 1.1L66.5 4.1L79.9 19.5L81.7 26.5L83.7 75.5L78.5 85.3L70.5 89.9L24.5 94.8L18.5 92.7L12.5 87.3L4.2 69.5L1.1 18.5L4.5 11.1L13.5 5.1Z" fill="#9f93f2"/><path d="M62.2 26.5L64.5 25.8L67.5 26.5L70.6 29.5L71.8 33.5L71.8 37.5L69.8 42.5L67.5 44.8L64.5 45.8L61.5 44.8L60.3 43.5L57.9 38.5L58.4 31.5L59.3 29.5ZM29.2 27.5L31.5 27.3L34.3 28.5L35.5 29.7L37.8 34.5L37.6 39.5L37 41.5L34.8 45.5L31.5 47L28.5 46.7L26.8 45.5L25 43.5L23.8 39.5L24.3 32.5L26 29.5ZM37.4 54.5L38.5 54.6L43.5 57.9L45.5 58.3L50.5 57.9L57.5 53.6L59.3 54.5L59.3 55.5L55.5 58.9L52.5 60.5L45.5 61.3L40.5 59.9L37.5 57.8L36.3 55.5Z" fill="#10121a"/></symbol><symbol id="k-sym-token" viewBox="0 0 40 40"><circle cx="20" cy="20.3" r="15" fill="#3B2893"/><circle cx="20" cy="18.5" r="15" fill="#6D4AE2"/><circle cx="20" cy="18.5" r="11.1" fill="none" stroke="#E2DAFF" stroke-opacity=".5" stroke-width="1.13"/><path d="M11 15.2A9.6 9.6 0 0 1 21.2 9.2" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.5" stroke-linecap="round"/></symbol><symbol id="k-sym-coin" viewBox="0 0 40 40"><circle cx="20" cy="20.3" r="15" fill="#7C889C"/><circle cx="20" cy="18.5" r="15" fill="#CFD5DD"/><circle cx="20" cy="18.5" r="11.7" fill="none" stroke="#7C889C" stroke-opacity=".35" stroke-width="0.9"/></symbol><symbol id="k-sym-coin-stock" viewBox="0 0 40 40"><circle cx="20" cy="20.3" r="15" fill="#2B6E8A"/><circle cx="20" cy="18.5" r="15" fill="#6CD8FF"/><circle cx="20" cy="18.5" r="11.7" fill="none" stroke="#123A4D" stroke-opacity=".35" stroke-width="0.9"/><path d="M13.25 16.25L20 11.75L26.75 16.25Z" fill="#123A4D"/><rect x="14.49" y="17.38" width="1.65" height="5.25" fill="#123A4D"/><rect x="17.6" y="17.38" width="1.65" height="5.25" fill="#123A4D"/><rect x="20.75" y="17.38" width="1.65" height="5.25" fill="#123A4D"/><rect x="23.86" y="17.38" width="1.65" height="5.25" fill="#123A4D"/><rect x="12.88" y="23" width="14.25" height="1.69" fill="#123A4D"/></symbol><symbol id="k-sym-coin-dollar" viewBox="0 0 40 40"><circle cx="20" cy="20.3" r="15" fill="#7C889C"/><circle cx="20" cy="18.5" r="15" fill="#CFD5DD"/><circle cx="20" cy="18.5" r="11.7" fill="none" stroke="#4E5A6E" stroke-opacity=".35" stroke-width="0.9"/><rect x="12.5" y="14.38" width="15" height="8.25" rx="1.13" fill="none" stroke="#4E5A6E" stroke-width="1.2"/><ellipse cx="20" cy="18.5" rx="2.06" ry="2.44" fill="none" stroke="#4E5A6E" stroke-width="1.13"/></symbol><symbol id="k-sym-coin-gold" viewBox="0 0 40 40"><circle cx="20" cy="20.3" r="15" fill="#8A6A22"/><circle cx="20" cy="18.5" r="15" fill="#D8AD4B"/><circle cx="20" cy="18.5" r="11.7" fill="none" stroke="#5C4512" stroke-opacity=".35" stroke-width="0.9"/><path d="M13.63 21.88L16.25 15.5L23.75 15.5L26.38 21.88Z" fill="#5C4512" fill-opacity=".85"/></symbol><symbol id="k-sym-pool" viewBox="0 0 64 40"><defs><clipPath id="k-pool-ov-tank-1"><rect x="3" y="7" width="58" height="29" rx="6.96"/></clipPath></defs><rect x="3" y="7" width="58" height="29" rx="6.96" fill="#DDE6F2" fill-opacity=".1"/><g clip-path="url(#k-pool-ov-tank-1)"><path d="M1 18.02Q10.25 17.15 17.5 18.02Q24.75 18.89 32 18.02Q39.25 17.15 46.5 18.02Q53.75 18.89 61 18.02V38H1Z" fill="#6CD8FF" fill-opacity=".78"/></g><circle cx="17.5" cy="23.94" r="5.8" fill="#3B2893"/><circle cx="17.5" cy="23.24" r="5.8" fill="#6D4AE2"/><circle cx="17.5" cy="23.24" r="4.29" fill="none" stroke="#E2DAFF" stroke-opacity=".5" stroke-width="0.44"/><path d="M14.02 21.96A3.71 3.71 0 0 1 17.96 19.64" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="0.58" stroke-linecap="round"/><circle cx="46.5" cy="29.74" r="5.8" fill="#7C889C"/><circle cx="46.5" cy="29.04" r="5.8" fill="#CFD5DD"/><circle cx="46.5" cy="29.04" r="4.52" fill="none" stroke="#7C889C" stroke-opacity=".35" stroke-width="0.35"/><rect x="3" y="7" width="58" height="29" rx="6.96" fill="none" stroke="#F3F5FB" stroke-opacity=".75" stroke-width="3"/></symbol><symbol id="k-sym-burn" viewBox="0 0 40 44"><defs><filter id="k-burn-sb-blur-4_56" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="4.56"/></filter></defs><ellipse cx="20" cy="26.56" rx="14.44" ry="16.72" fill="#6D4AE2" opacity=".4" filter="url(#k-burn-sb-blur-4_56)"/><path d="M20 41C7.84 41 4.04 31.88 5.56 24.28C7.46 15.92 14.3 12.88 15.44 3.76C20.76 8.32 22.66 13.26 21.9 17.44C24.94 14.4 26.46 11.74 26.84 8.7C34.06 15.16 37.48 23.14 34.82 30.74C32.54 37.96 26.84 41 20 41Z" fill="#6D4AE2"/><path d="M20 41C11.08 41 8.3 34.31 9.41 28.74C10.8 22.61 15.82 20.38 16.66 13.69C20.56 17.03 21.95 20.66 21.39 23.72C23.62 21.49 24.74 19.54 25.02 17.31C30.31 22.05 32.82 27.9 30.87 33.48C29.2 38.77 25.02 41 20 41Z" fill="#A78BFA"/><path d="M20 41C14.33 41 12.55 36.74 13.26 33.2C14.15 29.3 17.34 27.88 17.87 23.62C20.35 25.75 21.24 28.05 20.89 30.01C22.31 28.59 23.01 27.35 23.19 25.93C26.56 28.94 28.16 32.67 26.92 36.21C25.85 39.58 23.19 41 20 41Z" fill="#F4F0FF"/></symbol><symbol id="k-sym-shop" viewBox="0 0 44 44"><rect x="5.28" y="10.6" width="33.44" height="30.4" rx="1.52" fill="#18253A" stroke="#30415D" stroke-width="2.5"/><path d="M3 6.04H10.6V12.12A3.8 3.8 0 0 1 3 12.12Z" fill="#C4B2FF"/><path d="M10.6 6.04H18.2V12.12A3.8 3.8 0 0 1 10.6 12.12Z" fill="#8D78EA"/><path d="M18.2 6.04H25.8V12.12A3.8 3.8 0 0 1 18.2 12.12Z" fill="#C4B2FF"/><path d="M25.8 6.04H33.4V12.12A3.8 3.8 0 0 1 25.8 12.12Z" fill="#8D78EA"/><path d="M33.4 6.04H41V12.12A3.8 3.8 0 0 1 33.4 12.12Z" fill="#C4B2FF"/><rect x="3.76" y="29.6" width="36.48" height="2.28" rx="3" fill="#A78BFA"/><path d="M10.6 29.6Q10.22 22 15.16 22Q20.1 22 19.72 29.6Z" fill="#E8B57A"/><path d="M19.72 25.04L23.52 22.76M13.26 21.62H17.06" stroke="#E8B57A" stroke-width="1.14" stroke-linecap="round"/><path d="M26.56 29.6L25.8 25.04H33.4L32.64 29.6Z" fill="#B57A52"/><path d="M29.6 25.04V20.48M29.6 22Q26.56 18.96 25.8 21.24M29.6 21.24Q32.64 18.2 33.4 20.48" fill="none" stroke="#6FBF8A" stroke-width="0.95" stroke-linecap="round"/></symbol><symbol id="k-sym-pile" viewBox="0 0 44 44"><ellipse cx="14" cy="38.8" rx="6.4" ry="2.4" fill="#7C889C"/><ellipse cx="14" cy="37.6" rx="6.4" ry="2.4" fill="#CFD5DD" stroke="#7C889C" stroke-width="1.5"/><ellipse cx="14" cy="36" rx="6.4" ry="2.4" fill="#7C889C"/><ellipse cx="14" cy="34.8" rx="6.4" ry="2.4" fill="#CFD5DD" stroke="#7C889C" stroke-width="1.5"/><ellipse cx="14" cy="33.2" rx="6.4" ry="2.4" fill="#7C889C"/><ellipse cx="14" cy="32" rx="6.4" ry="2.4" fill="#CFD5DD" stroke="#7C889C" stroke-width="1.5"/><ellipse cx="30" cy="38.8" rx="6.4" ry="2.4" fill="#7C889C"/><ellipse cx="30" cy="37.6" rx="6.4" ry="2.4" fill="#CFD5DD" stroke="#7C889C" stroke-width="1.5"/><ellipse cx="30" cy="36" rx="6.4" ry="2.4" fill="#7C889C"/><ellipse cx="30" cy="34.8" rx="6.4" ry="2.4" fill="#CFD5DD" stroke="#7C889C" stroke-width="1.5"/><ellipse cx="22" cy="38.8" rx="6.4" ry="2.4" fill="#7C889C"/><ellipse cx="22" cy="37.6" rx="6.4" ry="2.4" fill="#CFD5DD" stroke="#7C889C" stroke-width="1.5"/><ellipse cx="22" cy="36" rx="6.4" ry="2.4" fill="#7C889C"/><ellipse cx="22" cy="34.8" rx="6.4" ry="2.4" fill="#CFD5DD" stroke="#7C889C" stroke-width="1.5"/><ellipse cx="22" cy="33.2" rx="6.4" ry="2.4" fill="#7C889C"/><ellipse cx="22" cy="32" rx="6.4" ry="2.4" fill="#CFD5DD" stroke="#7C889C" stroke-width="1.5"/><ellipse cx="22" cy="30.4" rx="6.4" ry="2.4" fill="#7C889C"/><ellipse cx="22" cy="29.2" rx="6.4" ry="2.4" fill="#CFD5DD" stroke="#7C889C" stroke-width="1.5"/><ellipse cx="22" cy="27.6" rx="6.4" ry="2.4" fill="#7C889C"/><ellipse cx="22" cy="26.4" rx="6.4" ry="2.4" fill="#CFD5DD" stroke="#7C889C" stroke-width="1.5"/><path d="M4.4 40V20A17.6 17.6 0 0 1 39.6 20V40Z" fill="#DDE6F2" fill-opacity=".14" stroke="#DDE6F2" stroke-opacity=".75" stroke-width="2.5"/><path d="M10 15.2A12 12 0 0 1 19.6 5.6" fill="none" stroke="#FFFFFF" stroke-opacity=".6" stroke-width="1" stroke-linecap="round"/><rect x="2" y="39.2" width="40" height="3.2" rx="1.2" fill="#30415D"/></symbol><symbol id="k-sym-items" viewBox="0 0 44 44"><rect x="2.4" y="2.4" width="18.4" height="18.4" rx="2.94" fill="#F3F5FB" stroke="#30415D" stroke-width="2.5"/><g fill="#899AB6"><circle cx="11.6" cy="11.6" r="4.42"/></g><rect x="23.2" y="2.4" width="18.4" height="18.4" rx="2.94" fill="#F3F5FB" stroke="#30415D" stroke-width="2.5"/><g fill="#899AB6"><path d="M32.4 6.82L37.37 15.28H27.43Z"/></g><rect x="2.4" y="23.2" width="18.4" height="18.4" rx="2.94" fill="#F3F5FB" stroke="#30415D" stroke-width="2.5"/><g fill="#899AB6"><path d="M6.82 36.45V32.4A4.78 4.78 0 0 1 16.38 32.4V36.45Z"/></g><rect x="23.2" y="23.2" width="18.4" height="18.4" rx="2.94" fill="#F3F5FB" stroke="#30415D" stroke-width="2.5"/><g fill="#899AB6"><path d="M27.98 36.08L32.4 27.98L36.82 36.08L34.24 36.08L32.4 32.4L30.56 36.08Z"/></g></symbol><symbol id="k-sym-buys" viewBox="0 0 64 24"><path d="M5 12L57 12" fill="none" stroke="#A78BFA" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M47.29 19.05L57 12L47.29 4.95" fill="none" stroke="#A78BFA" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="k-sym-sells" viewBox="0 0 64 24"><path d="M5 12L57 12" fill="none" stroke="#A78BFA" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8.8 6"/><path d="M47.29 19.05L57 12L47.29 4.95" fill="none" stroke="#A78BFA" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="k-sym-fee" viewBox="0 0 60 40"><defs><pattern id="k-fee-dots" x="4" y="9" width="2.8" height="2.8" patternUnits="userSpaceOnUse"><circle cx="1.4" cy="1.4" r="1.12" fill="#CFD5DD"/></pattern><filter id="k-fee-sb-blur-3_08" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="3.08"/></filter></defs><rect x="4" y="11.8" width="28" height="25.2" fill="url(#k-fee-dots)"/><g fill="#CFD5DD"><circle cx="5.4" cy="10.4" r="1.12"/><circle cx="8.2" cy="10.4" r="1.12"/><circle cx="11" cy="10.4" r="1.12"/><circle cx="13.8" cy="10.4" r="1.12"/><circle cx="16.6" cy="10.4" r="1.12"/><circle cx="19.4" cy="10.4" r="1.12"/><circle cx="22.2" cy="10.4" r="1.12"/><circle cx="25" cy="10.4" r="1.12"/><circle cx="27.8" cy="10.4" r="1.12"/></g><circle cx="30.6" cy="10.4" r="1.12" fill="none" stroke="#CFD5DD" stroke-width="0.4" stroke-dasharray="0.56 0.45"/><path d="M30.6 10.4Q36.69 16.01 44.05 12.2" fill="none" stroke="#F3F5FB" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="0.1 6"/><circle cx="49" cy="10" r="7.7" fill="#C4B2FF" opacity="0.6" filter="url(#k-fee-sb-blur-3_08)"/><circle cx="49" cy="10.66" r="5.5" fill="#7C889C"/><circle cx="49" cy="10" r="5.5" fill="#CFD5DD"/><circle cx="49" cy="10" r="4.29" fill="none" stroke="#7C889C" stroke-opacity=".35" stroke-width="0.33"/></symbol><symbol id="k-sym-funnel" viewBox="0 0 40 36"><path d="M2 3H38L24.32 18.84V31.8H15.68V18.84Z" fill="#10172A" stroke="#F3F5FB" stroke-width="2" stroke-linejoin="round"/></symbol><symbol id="k-sym-mark" viewBox="0 0 256 256"><defs><linearGradient id="k-mark-shm-face" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D2B46"/><stop offset="1" stop-color="#0B111D"/></linearGradient><linearGradient id="k-mark-shm-gloss" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".09"/><stop offset=".45" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient><linearGradient id="k-mark-shm-rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C4B2FF" stop-opacity=".8"/><stop offset=".5" stop-color="#6D4AE2" stop-opacity=".35"/><stop offset="1" stop-color="#6D4AE2" stop-opacity=".6"/></linearGradient><radialGradient id="k-mark-shm-spill" cx=".5" cy=".5" r=".5"><stop offset=".45" stop-color="#A78BFA" stop-opacity=".32"/><stop offset="1" stop-color="#A78BFA" stop-opacity="0"/></radialGradient><linearGradient id="k-mark-shm-well" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A1D3A"/><stop offset=".6" stop-color="#05070C"/></linearGradient><filter id="k-mark-shm-glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="7"/></filter><filter id="k-mark-shm-soft" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="1.1"/></filter></defs><rect width="256" height="256" rx="58" fill="url(#k-mark-shm-face)"/><rect width="256" height="256" rx="58" fill="url(#k-mark-shm-gloss)"/><rect x="20" y="20" width="216" height="216" fill="url(#k-mark-shm-spill)"/><rect x="1.5" y="1.5" width="253" height="253" rx="56.5" fill="none" stroke="url(#k-mark-shm-rim)" stroke-width="3"/><rect x="76" y="76" width="104" height="104" rx="6" fill="url(#k-mark-shm-well)"/><rect x="71" y="71" width="114" height="114" rx="11" fill="none" stroke="#A78BFA" stroke-width="10" filter="url(#k-mark-shm-glow)"/><rect x="71" y="71" width="114" height="114" rx="11" fill="none" stroke="#A78BFA" stroke-width="10"/><rect x="71" y="71" width="114" height="114" rx="11" fill="none" stroke="#F4F0FF" stroke-width="3.5" filter="url(#k-mark-shm-soft)"/></symbol><symbol id="k-sym-box" viewBox="0 0 44 30"><rect x="2" y="2.6" width="40" height="24.8" rx="3.97" fill="#E0A869" stroke="#F3F5FB" stroke-opacity=".55" stroke-width="1.5"/><rect x="12.4" y="7.56" width="19.2" height="7.44" rx="2.4" fill="#05070C" stroke="#A78BFA" stroke-width="2"/></symbol><symbol id="k-sym-tray" viewBox="0 0 300 50"><rect x="2" y="2" width="296" height="46" rx="13.8" fill="#080D16" fill-opacity=".85" stroke="#30415D" stroke-width="2"/><rect x="6.54" y="10.28" width="15.13" height="29.44" rx="3.33" fill="#A78BFA"/><rect x="24.4" y="10.28" width="15.13" height="29.44" rx="3.33" fill="#A78BFA"/><rect x="42.25" y="10.28" width="15.13" height="29.44" rx="3.33" fill="#A78BFA"/><rect x="60.11" y="10.28" width="15.13" height="29.44" rx="3.33" fill="#A78BFA"/><rect x="77.97" y="10.28" width="15.13" height="29.44" rx="3.33" fill="#A78BFA"/><rect x="95.82" y="10.28" width="15.13" height="29.44" rx="3.33" fill="#A78BFA"/><rect x="113.68" y="10.28" width="15.13" height="29.44" rx="3.33" fill="#A78BFA"/><rect x="131.54" y="10.28" width="15.13" height="29.44" rx="3.33" fill="#A78BFA"/><rect x="149.39" y="10.28" width="15.13" height="29.44" rx="3.33" fill="#A78BFA"/><rect x="167.25" y="10.28" width="15.13" height="29.44" rx="3.33" fill="#A78BFA"/><rect x="196" y="10.28" width="15.13" height="29.44" rx="3.33" fill="#6CD8FF"/><rect x="213.86" y="10.28" width="15.13" height="29.44" rx="3.33" fill="#6CD8FF"/><rect x="242.61" y="10.28" width="15.13" height="29.44" rx="3.33" fill="#1D2B46" stroke="#A78BFA" stroke-width="2"/><rect x="260.47" y="10.28" width="15.13" height="29.44" rx="3.33" fill="#1D2B46" stroke="#A78BFA" stroke-width="2"/><rect x="278.33" y="10.28" width="15.13" height="29.44" rx="3.33" fill="#1D2B46" stroke="#A78BFA" stroke-width="2"/></symbol><symbol id="k-sym-door-burn" viewBox="0 0 116 116"><circle cx="58" cy="58" r="54" fill="#241E4F" stroke="#A78BFA" stroke-width="5"/><g transform="translate(27.76 27.76) scale(2.52)" fill="none" stroke="#C4B2FF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8c.6 3.1 5.2 5 5.2 10.2a5.2 5.2 0 0 1-10.4 0c0-2.6 1.3-4.4 2.6-5.6.2 2.1 1.1 3.3 2.3 3.8-.7-2.8-.6-5.6.3-8.4z"/><path d="M12 21v-3.2"/></g></symbol><symbol id="k-sym-door-grow" viewBox="0 0 116 116"><circle cx="58" cy="58" r="54" fill="#241E4F" stroke="#A78BFA" stroke-width="5"/><g transform="translate(27.76 27.76) scale(2.52)" fill="none" stroke="#C4B2FF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M4 9.5c1.3 0 1.3-1 2.7-1s1.3 1 2.7 1 1.3-1 2.6-1 1.3 1 2.7 1 1.3-1 2.6-1 1.4 1 2.7 1"/><path d="M7 15.5h10" stroke-dasharray="1.6 2.2"/></g></symbol><symbol id="k-sym-door-holders" viewBox="0 0 116 116"><circle cx="58" cy="58" r="54" fill="#241E4F" stroke="#A78BFA" stroke-width="5"/><g transform="translate(27.76 27.76) scale(2.52)" fill="none" stroke="#C4B2FF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17c-2.1-1.4-3.2-2.6-3.2-4a1.7 1.7 0 0 1 3.2-.9 1.7 1.7 0 0 1 3.2.9c0 1.4-1.1 2.6-3.2 4z"/><path d="M12 17c-2.1-1.4-3.2-2.6-3.2-4a1.7 1.7 0 0 1 3.2-.9 1.7 1.7 0 0 1 3.2.9c0 1.4-1.1 2.6-3.2 4z"/><path d="M19 17c-2.1-1.4-3.2-2.6-3.2-4a1.7 1.7 0 0 1 3.2-.9 1.7 1.7 0 0 1 3.2.9c0 1.4-1.1 2.6-3.2 4z"/><path d="M2.5 20.5h5M9.5 20.5h5M16.5 20.5h5"/></g></symbol><symbol id="k-sym-door-items" viewBox="0 0 116 116"><circle cx="58" cy="58" r="54" fill="#241E4F" stroke="#A78BFA" stroke-width="5"/><g transform="translate(27.76 27.76) scale(2.52)" fill="none" stroke="#C4B2FF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></g></symbol><symbol id="k-sym-door-creator" viewBox="0 0 116 116"><circle cx="58" cy="58" r="54" fill="#241E4F" stroke="#A78BFA" stroke-width="5"/><g transform="translate(27.76 27.76) scale(2.52)" fill="none" stroke="#C4B2FF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4l1.53 3.9 4.18.25-3.24 2.65 1.06 4.05L9 12.6l-3.53 2.25 1.06-4.05-3.24-2.65 4.18-.25z"/><circle cx="17.5" cy="17" r="3.5"/><circle cx="17.5" cy="17" r="1.8"/></g></symbol><symbol id="k-sym-glyph-shop" viewBox="0 0 24 24"><g transform="translate(0 0) scale(1)" fill="none" stroke="#A78BFA" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h16l-1.5-5h-13zM5 10v9h14v-9M10 19v-5h4v5"/></g></symbol></defs></svg>
+        <section class="pager__key" id="key" aria-labelledby="key-title">
+          <h2 class="pager__keytitle" id="key-title">Legend</h2>
+          <ul class="key" role="list">
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="37.1" height="36"><use href="#k-fig-creator"/></svg></span><span class="key__words">creator</span></li>
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="38.3" height="36"><use href="#k-fig-visitor"/></svg></span><span class="key__words">visitor</span></li>
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="38.6" height="36"><use href="#k-fig-holder"/></svg></span><span class="key__words">holder</span></li>
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="38.6" height="36"><use href="#k-fig-item-owner"/></svg></span><span class="key__words">item owner</span></li>
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="36" height="36"><use href="#k-fig-crowd"/></svg></span><span class="key__words">crowd</span></li>
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="33.8" height="36"><use href="#k-fig-pool-keeper"/></svg></span><span class="key__words">pool keeper</span></li>
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="36.8" height="36"><use href="#k-fig-curator"/></svg></span><span class="key__words">curator</span></li>
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="31.9" height="36"><use href="#k-fig-stock-coin"/></svg><svg width="29" height="29"><use href="#k-sym-coin-stock"/></svg></span><span class="key__words">stock coin</span></li>
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="35.3" height="36"><use href="#k-fig-dollar-coin"/></svg><svg width="29" height="29"><use href="#k-sym-coin-dollar"/></svg></span><span class="key__words">dollar coin</span></li>
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="42.8" height="36"><use href="#k-fig-gold"/></svg><svg width="29" height="29"><use href="#k-sym-coin-gold"/></svg></span><span class="key__words">gold</span></li>
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="28.5" height="36"><use href="#k-fig-items"/></svg><svg width="29" height="29"><use href="#k-sym-items"/></svg></span><span class="key__words">items</span></li>
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="31.9" height="36"><use href="#k-fig-square-hole"/></svg><svg width="29" height="29"><use href="#k-sym-mark"/></svg></span><span class="key__words">Square Hole</span></li>
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="32.3" height="22"><use href="#k-sym-box"/></svg></span><span class="key__words">box</span></li>
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="32" height="32"><use href="#k-sym-token"/></svg></span><span class="key__words">token</span></li>
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="32" height="32"><use href="#k-sym-coin"/></svg></span><span class="key__words">price coin</span></li>
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="51.2" height="32"><use href="#k-sym-pool"/></svg></span><span class="key__words">pool</span></li>
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="32" height="32"><use href="#k-sym-pile"/></svg></span><span class="key__words">coin pile</span></li>
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="32" height="32"><use href="#k-sym-shop"/></svg><svg width="28" height="28"><use href="#k-sym-glyph-shop"/></svg></span><span class="key__words">shop</span></li>
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="58.7" height="22"><use href="#k-sym-buys"/></svg></span><span class="key__words">buys</span></li>
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="58.7" height="22"><use href="#k-sym-sells"/></svg></span><span class="key__words">sells</span></li>
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="48" height="32"><use href="#k-sym-fee"/></svg><svg width="27.8" height="25"><use href="#k-sym-funnel"/></svg></span><span class="key__words">1 of every 100</span></li>
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="72" height="12"><use href="#k-sym-tray"/></svg></span><span class="key__words">15 parts</span></li>
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="36" height="36"><use href="#k-sym-door-burn"/></svg><svg width="29.1" height="32"><use href="#k-sym-burn"/></svg></span><span class="key__words">burn</span></li>
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="36" height="36"><use href="#k-sym-door-grow"/></svg></span><span class="key__words">pool grows</span></li>
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="36" height="36"><use href="#k-sym-door-holders"/></svg></span><span class="key__words">to holders</span></li>
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="36" height="36"><use href="#k-sym-door-items"/></svg></span><span class="key__words">to items</span></li>
+            <li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="36" height="36"><use href="#k-sym-door-creator"/></svg></span><span class="key__words">to creator</span></li>
+          </ul>
+        </section>
+        <section class="pager__page pager__page--basics" id="basics" aria-labelledby="basics-name">
+          <header class="pager__head">
+            <span class="pager__symbol"><svg width="48" height="48" aria-hidden="true" focusable="false"><use href="#k-cat-pool"/></svg></span>
+            <h2 class="pager__name" id="basics-name">Basics</h2>
+          </header>
+          <figure class="slide slide--steps" id="basics-1">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-basics-1-tall-540x675.avif 540w, /examples/art/slide-basics-1-tall-720x900.avif 720w, /examples/art/slide-basics-1-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-basics-1-tall-540x675.webp 540w, /examples/art/slide-basics-1-tall-720x900.webp 720w, /examples/art/slide-basics-1-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-basics-1-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-basics-1-wide-960x540.avif 960w, /examples/art/slide-basics-1-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-basics-1-wide-960x540.webp 960w, /examples/art/slide-basics-1-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-basics-1-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="The old way. A violet star shape waits outside a long counter whose barrier is down, a violet token on top of it, and pushes three silver coins, the top one marked BNB, onto the counter as a fee. Behind the counter, small round shapes wait in two queues facing each other at a blank board, one queue carrying silver coins and the other carrying violet tokens." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">For years, a new token needed an exchange to list it. The exchange chose which tokens got in, and some asked the creator for a fee.</p><p class="slide__matters">So a gatekeeper decided which tokens people could get.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">New tokens needed an exchange (CEX) for buyers.</p>
+              <ul class="slide__new" role="list" aria-label="First seen here"><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="26.8" height="26"><use href="#k-fig-creator"/></svg></span><span class="key__words">creator</span></li><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="26" height="26"><use href="#k-fig-crowd"/></svg></span><span class="key__words">crowd</span></li><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="23" height="23"><use href="#k-sym-token"/></svg></span><span class="key__words">token</span></li><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="23" height="23"><use href="#k-sym-coin"/></svg></span><span class="key__words">price coin</span></li></ul>
+            </figcaption>
+          </figure>
+          <figure class="slide slide--steps" id="basics-2">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-basics-2-tall-540x675.avif 540w, /examples/art/slide-basics-2-tall-720x900.avif 720w, /examples/art/slide-basics-2-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-basics-2-tall-540x675.webp 540w, /examples/art/slide-basics-2-tall-720x900.webp 720w, /examples/art/slide-basics-2-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-basics-2-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-basics-2-wide-960x540.avif 960w, /examples/art/slide-basics-2-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-basics-2-wide-960x540.webp 960w, /examples/art/slide-basics-2-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-basics-2-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Then came the pool. A low glass tank of water holds violet tokens and silver coins. On the top lane, drawn solid, a violet triangle shape drops a silver coin marked BNB into the tank and a token comes out to it. On the dashed lane below, the same shape puts a token in and a coin comes out. A violet pyramid shape stands by the tank, and round shapes walk up with no queue. Far behind, the old counter stands empty." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">Then came pools. A pool holds a token and BNB together. Anyone can put BNB in and take tokens out, or the other way round, any time.</p><p class="slide__matters">Nobody chooses who gets in, and the pool never closes.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">Then the pool (DEX). No gate, no queue.</p>
+              <ul class="slide__new" role="list" aria-label="First seen here"><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="27.6" height="26"><use href="#k-fig-visitor"/></svg></span><span class="key__words">visitor</span></li><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="24.4" height="26"><use href="#k-fig-pool-keeper"/></svg></span><span class="key__words">pool keeper</span></li><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="36.8" height="23"><use href="#k-sym-pool"/></svg></span><span class="key__words">pool</span></li><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="42.7" height="16"><use href="#k-sym-buys"/></svg></span><span class="key__words">buys</span></li><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="42.7" height="16"><use href="#k-sym-sells"/></svg></span><span class="key__words">sells</span></li></ul>
+            </figcaption>
+          </figure>
+          <figure class="slide slide--steps" id="basics-3">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-basics-3-tall-540x675.avif 540w, /examples/art/slide-basics-3-tall-720x900.avif 720w, /examples/art/slide-basics-3-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-basics-3-tall-540x675.webp 540w, /examples/art/slide-basics-3-tall-720x900.webp 720w, /examples/art/slide-basics-3-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-basics-3-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-basics-3-wide-960x540.avif 960w, /examples/art/slide-basics-3-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-basics-3-wide-960x540.webp 960w, /examples/art/slide-basics-3-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-basics-3-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Four glass tanks of water stand side by side, each holding violet tokens with a different coin. The first holds silver coins marked BNB, the second silver coins with a small bill for a dollar coin, the third gold coins with a small bar, and the fourth light blue coins with a small building for a stock coin. A violet figure stands beside each of the last three." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">A token's price coin can be more than BNB. It can be a dollar coin, gold, or a stock coin following one company's shares.</p><p class="slide__matters">The pool then holds that coin.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">Priced in BNB, dollars, gold or stocks.</p>
+              <ul class="slide__new" role="list" aria-label="First seen here"><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="23" height="26"><use href="#k-fig-stock-coin"/></svg><svg width="21" height="21"><use href="#k-sym-coin-stock"/></svg></span><span class="key__words">stock coin</span></li><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="25.5" height="26"><use href="#k-fig-dollar-coin"/></svg><svg width="21" height="21"><use href="#k-sym-coin-dollar"/></svg></span><span class="key__words">dollar coin</span></li><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="30.9" height="26"><use href="#k-fig-gold"/></svg><svg width="21" height="21"><use href="#k-sym-coin-gold"/></svg></span><span class="key__words">gold</span></li></ul>
+            </figcaption>
+          </figure>
+          <figure class="slide slide--steps" id="basics-4">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-basics-4-tall-540x675.avif 540w, /examples/art/slide-basics-4-tall-720x900.avif 720w, /examples/art/slide-basics-4-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-basics-4-tall-540x675.webp 540w, /examples/art/slide-basics-4-tall-720x900.webp 720w, /examples/art/slide-basics-4-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-basics-4-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-basics-4-wide-960x540.avif 960w, /examples/art/slide-basics-4-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-basics-4-wide-960x540.webp 960w, /examples/art/slide-basics-4-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-basics-4-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Where the fee goes. First, in dim light, a pool with a violet pyramid shape beside it, and one coin of the fee dropping into a closed tray at its feet. Then, lit, a lane where one coin of every 100 drops out into a funnel. A thick line runs from the funnel to the lit burn door, one of five round doors for burn, grow the pool, to holders, to items and to the creator. Two short lines run to a small pool and to the Square Hole mark." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">Before, the fee went to whoever filled the pool. Here it is 1% or 1 of every 100, and the creator picks where most goes.</p><p class="slide__matters">It can burn tokens, deepen the pool, or go to holders, items or the creator.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">The fee can go somewhere useful.</p>
+              <p class="slide__more"><a href="#how-it-works-1">See the exact parts</a></p>
+              <ul class="slide__new" role="list" aria-label="First seen here"><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="21" height="21"><use href="#k-sym-mark"/></svg></span><span class="key__words">Square Hole</span></li><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="34.5" height="23"><use href="#k-sym-fee"/></svg><svg width="20" height="18"><use href="#k-sym-funnel"/></svg></span><span class="key__words">1 of every 100</span></li><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="26" height="26"><use href="#k-sym-door-burn"/></svg></span><span class="key__words">burn</span></li><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="26" height="26"><use href="#k-sym-door-grow"/></svg></span><span class="key__words">pool grows</span></li><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="26" height="26"><use href="#k-sym-door-holders"/></svg></span><span class="key__words">to holders</span></li><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="26" height="26"><use href="#k-sym-door-creator"/></svg></span><span class="key__words">to creator</span></li></ul>
+            </figcaption>
+          </figure>
+          <figure class="slide slide--steps" id="basics-5">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-basics-5-tall-540x675.avif 540w, /examples/art/slide-basics-5-tall-720x900.avif 720w, /examples/art/slide-basics-5-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-basics-5-tall-540x675.webp 540w, /examples/art/slide-basics-5-tall-720x900.webp 720w, /examples/art/slide-basics-5-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-basics-5-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-basics-5-wide-960x540.avif 960w, /examples/art/slide-basics-5-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-basics-5-wide-960x540.webp 960w, /examples/art/slide-basics-5-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-basics-5-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="A wooden toy box with a glowing square hole on top. A violet star shape stands beside it, and a plain violet coin, the box's own token, rises out of the hole under a full bar with a tick, so the box has graduated. Next to the box sits its own pool, a glass tank of water with tokens and silver coins in it. In a round slot on the front of the box sits a silver coin, the coin the box is priced in. By the pool wait a violet triangle, a ball and a heart." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">A creator makes a box for a new token. People pay in until the raise is full. Then the box graduates and its pool opens.</p><p class="slide__matters">If it misses its deadline, holders claim what is left, with no time limit.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">A box starts a token and its pool.</p>
+              <ul class="slide__new" role="list" aria-label="First seen here"><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="27.9" height="26"><use href="#k-fig-holder"/></svg></span><span class="key__words">holder</span></li><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="23.5" height="16"><use href="#k-sym-box"/></svg></span><span class="key__words">box</span></li></ul>
+            </figcaption>
+          </figure>
+          <figure class="slide slide--steps" id="basics-6">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-basics-6-tall-540x675.avif 540w, /examples/art/slide-basics-6-tall-720x900.avif 720w, /examples/art/slide-basics-6-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-basics-6-tall-540x675.webp 540w, /examples/art/slide-basics-6-tall-720x900.webp 720w, /examples/art/slide-basics-6-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-basics-6-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-basics-6-wide-960x540.avif 960w, /examples/art/slide-basics-6-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-basics-6-wide-960x540.webp 960w, /examples/art/slide-basics-6-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-basics-6-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Four toy boxes of the same size side by side, each with a glowing square hole and its own violet token floating above it. The first holds the token. The second also holds a pile of coins under a glass dome. The third also holds a collection, four item tiles, and a violet figure stands in front of it. The fourth also holds a little shop with an awning and a shelf." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">Every box has its token. Some also hold a coin pile, a collection or a shop. After graduation, tokens can be exchanged for an item or a slice of the pile.</p><p class="slide__matters">So the token opens what is inside.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">Every box has a token. Some hold more.</p>
+              <ul class="slide__new" role="list" aria-label="First seen here"><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="20.6" height="26"><use href="#k-fig-items"/></svg><svg width="21" height="21"><use href="#k-sym-items"/></svg></span><span class="key__words">items</span></li><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="23" height="23"><use href="#k-sym-pile"/></svg></span><span class="key__words">coin pile</span></li><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="23" height="23"><use href="#k-sym-shop"/></svg><svg width="20" height="20"><use href="#k-sym-glyph-shop"/></svg></span><span class="key__words">shop</span></li></ul>
+            </figcaption>
+          </figure>
+          <p class="pager__aside">Stock coins follow the shares of one company. The stock coins we checked are offered only to people outside the United States, and the SEC's staff says a share in token form is still a security. Check the rules where you live before using a box priced in one.</p>
+          <a class="pager__down" href="#how-it-works" aria-label="Next: How it works"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5.5 12.5 12 19l6.5-6.5"/></svg></a>
+        </section>
+        <section class="pager__page pager__page--how-it-works" id="how-it-works" aria-labelledby="how-it-works-name">
+          <header class="pager__head">
+            <span class="pager__symbol"><svg width="48" height="48" aria-hidden="true" focusable="false"><use href="#k-cat-box"/></svg></span>
+            <h2 class="pager__name" id="how-it-works-name">How it works</h2>
+            <a class="pager__up" href="#basics" aria-label="Back to Basics"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg></a>
+          </header>
+          <figure class="slide slide--steps" id="how-it-works-1">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-how-it-works-1-tall-540x675.avif 540w, /examples/art/slide-how-it-works-1-tall-720x900.avif 720w, /examples/art/slide-how-it-works-1-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-how-it-works-1-tall-540x675.webp 540w, /examples/art/slide-how-it-works-1-tall-720x900.webp 720w, /examples/art/slide-how-it-works-1-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-how-it-works-1-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-how-it-works-1-wide-960x540.avif 960w, /examples/art/slide-how-it-works-1-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-how-it-works-1-wide-960x540.webp 960w, /examples/art/slide-how-it-works-1-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-how-it-works-1-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Where the fee goes. On each lane the fee, 1 of every 100, is shared out in 15 small parts in a tray, grouped 10, 2 and 3. The 10 parts, 0.667 of every 100, go to the place the box chose for that side, one of five doors, which are burn, grow the pool, to holders, to items and to the creator. Here the top lane lights the burn door and the bottom lane lights the items door. The 2 parts, 0.133, go to the box's own pool. The 3 parts, 0.200, go to Square Hole." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">The fee is shared in 15 parts. 2 go into the box's pool, 3 to Square Hole, and 10 to one of five places the creator picked, one for buys and one for sells.</p><p class="slide__matters">Those two picks set boxes apart.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">10 parts go where the box says.</p>
+              <ul class="slide__new" role="list" aria-label="First seen here"><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="54" height="9"><use href="#k-sym-tray"/></svg></span><span class="key__words">15 parts</span></li><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="26" height="26"><use href="#k-sym-door-items"/></svg></span><span class="key__words">to items</span></li></ul>
+            </figcaption>
+          </figure>
+          <figure class="slide slide--steps" id="how-it-works-2">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-how-it-works-2-tall-540x675.avif 540w, /examples/art/slide-how-it-works-2-tall-720x900.avif 720w, /examples/art/slide-how-it-works-2-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-how-it-works-2-tall-540x675.webp 540w, /examples/art/slide-how-it-works-2-tall-720x900.webp 720w, /examples/art/slide-how-it-works-2-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-how-it-works-2-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-how-it-works-2-wide-960x540.avif 960w, /examples/art/slide-how-it-works-2-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-how-it-works-2-wide-960x540.webp 960w, /examples/art/slide-how-it-works-2-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-how-it-works-2-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="The toy box with its two dials sealed under a clear lid and a padlock with no keyhole. On the floor lie three crossed out keys. One has a star for the creator, one has a gear for an admin, and one lies next to the Square Hole mark. Nobody can change the box's rules after it is made." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">Once the box is made, its name, price coin, raise, fee and two picks are fixed. Nobody can change them, not the creator and not Square Hole, and there is no admin.</p><p class="slide__matters">So the rules you read stay the rules.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">Set once. Never changed.</p>
+            </figcaption>
+          </figure>
+          <p class="pager__note">Examples, to show how a box works. None of them is live.</p>
+          <a class="pager__down" href="#gpu-poor" aria-label="Next: GPU Poor"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5.5 12.5 12 19l6.5-6.5"/></svg></a>
+        </section>
+        <section class="pager__page pager__page--gpu-poor" id="gpu-poor" aria-labelledby="gpu-poor-name">
+          <header class="pager__head">
+            <span class="pager__symbol"><svg width="48" height="48" aria-hidden="true" focusable="false"><use href="#k-cat-burn"/></svg></span>
+            <img class="pager__logo" src="/examples/art/logo-gpu-poor-48.webp" srcset="/examples/art/logo-gpu-poor-48.webp 1x, /examples/art/logo-gpu-poor-96.webp 2x" width="48" height="48" loading="lazy" decoding="async" alt="" />
+            <h2 class="pager__name" id="gpu-poor-name">GPU Poor</h2>
+            <a class="pager__up" href="#how-it-works" aria-label="Back to How it works"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg></a>
+          </header>
+          <figure class="slide slide--steps" id="gpu-poor-1">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-gpu-poor-1-tall-540x675.avif 540w, /examples/art/slide-gpu-poor-1-tall-720x900.avif 720w, /examples/art/slide-gpu-poor-1-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-gpu-poor-1-tall-540x675.webp 540w, /examples/art/slide-gpu-poor-1-tall-720x900.webp 720w, /examples/art/slide-gpu-poor-1-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-gpu-poor-1-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-gpu-poor-1-wide-960x540.avif 960w, /examples/art/slide-gpu-poor-1-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-gpu-poor-1-wide-960x540.webp 960w, /examples/art/slide-gpu-poor-1-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-gpu-poor-1-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="GPU Poor. The box is a small computer case on a cold night, seen as if through a heat camera, with a glowing square hole on top. Orange memory chips, VRAM, the box's token, float above the hole. A light blue stock coin with a small building on it sits in the round slot on the front, the coin the box is priced in. Inside the case, the slot for a graphics card is empty, and three graphics cards glow far away behind frosted glass, out of reach." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">GPU Poor's token is VRAM. Its price coin is a stock coin. People pay stock coins into the box's pool for VRAM, or hand VRAM in for stock coins.</p><p class="slide__matters">The stock coin follows a company's shares and can lose value.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">VRAM, priced in a stock coin.</p>
+            </figcaption>
+          </figure>
+          <figure class="slide slide--steps" id="gpu-poor-2">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-gpu-poor-2-tall-540x675.avif 540w, /examples/art/slide-gpu-poor-2-tall-720x900.avif 720w, /examples/art/slide-gpu-poor-2-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-gpu-poor-2-tall-540x675.webp 540w, /examples/art/slide-gpu-poor-2-tall-720x900.webp 720w, /examples/art/slide-gpu-poor-2-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-gpu-poor-2-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-gpu-poor-2-wide-960x540.avif 960w, /examples/art/slide-gpu-poor-2-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-gpu-poor-2-wide-960x540.webp 960w, /examples/art/slide-gpu-poor-2-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-gpu-poor-2-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Both sides feed one fire. On the top lane, drawn solid, a triangle shape puts stock coins into the box and gets VRAM chips out. On the dashed lane below, it puts chips in and gets coins out. On each lane one coin of the fee drops into the box's pool and comes out as a VRAM chip, which falls into a small fire and breaks into sparks. Two shapes warm themselves by the fire, while the graphics cards still glow behind the glass." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">The creator picked burn for buys and for sells. After the box graduates, the fee's 10 parts buy back VRAM in its pool and burn it. The stock coins stay in the pool.</p><p class="slide__matters">Burned VRAM is gone for good.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">Buys and sells both feed the fire.</p>
+              <ul class="slide__new" role="list" aria-label="First seen here"><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="20.9" height="23"><use href="#k-sym-burn"/></svg></span><span class="key__words">burn</span></li></ul>
+            </figcaption>
+          </figure>
+          <figure class="slide slide--steps" id="gpu-poor-3">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-gpu-poor-3-tall-540x675.avif 540w, /examples/art/slide-gpu-poor-3-tall-720x900.avif 720w, /examples/art/slide-gpu-poor-3-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-gpu-poor-3-tall-540x675.webp 540w, /examples/art/slide-gpu-poor-3-tall-720x900.webp 720w, /examples/art/slide-gpu-poor-3-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-gpu-poor-3-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-gpu-poor-3-wide-960x540.avif 960w, /examples/art/slide-gpu-poor-3-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-gpu-poor-3-wide-960x540.webp 960w, /examples/art/slide-gpu-poor-3-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-gpu-poor-3-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Where the fees go. Buys and sells each pay a fee of 1 on every 100 of the stock coin, shared out in 15 parts. On both sides, 10 parts, 0.667, buy back VRAM in the box's own pool and burn it. On both, 2 parts, 0.133, go to the box's own pool and 3 parts, 0.200, go to Square Hole." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">On 100 stock coins, buys and sells each pay 1. On both sides, 0.667 buys back and burns VRAM, 0.133 goes into the box's pool and 0.200 to Square Hole.</p><p class="slide__matters">Holders get no fees. No buys or sells, no burns.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">Every fee burns VRAM.</p>
+            </figcaption>
+          </figure>
+          <a class="pager__down" href="#one-dollar" aria-label="Next: One Dollar is all you need"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5.5 12.5 12 19l6.5-6.5"/></svg></a>
+        </section>
+        <section class="pager__page pager__page--one-dollar" id="one-dollar" aria-labelledby="one-dollar-name">
+          <header class="pager__head">
+            <span class="pager__symbol"><svg width="48" height="48" aria-hidden="true" focusable="false"><use href="#k-cat-pile"/></svg></span>
+            <img class="pager__logo" src="/examples/art/logo-one-dollar-48.webp" srcset="/examples/art/logo-one-dollar-48.webp 1x, /examples/art/logo-one-dollar-96.webp 2x" width="48" height="48" loading="lazy" decoding="async" alt="" />
+            <h2 class="pager__name" id="one-dollar-name">One Dollar is all you need</h2>
+            <a class="pager__up" href="#gpu-poor" aria-label="Back to GPU Poor"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg></a>
+          </header>
+          <figure class="slide slide--steps" id="one-dollar-1">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-one-dollar-1-tall-540x675.avif 540w, /examples/art/slide-one-dollar-1-tall-720x900.avif 720w, /examples/art/slide-one-dollar-1-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-one-dollar-1-tall-540x675.webp 540w, /examples/art/slide-one-dollar-1-tall-720x900.webp 720w, /examples/art/slide-one-dollar-1-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-one-dollar-1-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-one-dollar-1-wide-960x540.avif 960w, /examples/art/slide-one-dollar-1-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-one-dollar-1-wide-960x540.webp 960w, /examples/art/slide-one-dollar-1-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-one-dollar-1-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="One Dollar is all you need. In a dark red gallery, a low glass case on a wooden stand is the box, with a glowing square hole in its glass top. Inside it, under a spotlight, lies one framed green dollar bill marked 1. Next to it rises a heap of gold coins stamped with a 1, the box's token, many times taller than the bill. A silver coin, USDC, sits in the round slot on the front, the coin the box is priced in." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">Before the box opens, its creator puts in one USDC of their own. That dollar is the box's coin pile, shared by all its tokens.</p><p class="slide__matters">A billion tokens at the start means tiny shares. A token is not a dollar.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">One dollar in the box.</p>
+            </figcaption>
+          </figure>
+          <figure class="slide slide--steps" id="one-dollar-2">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-one-dollar-2-tall-540x675.avif 540w, /examples/art/slide-one-dollar-2-tall-720x900.avif 720w, /examples/art/slide-one-dollar-2-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-one-dollar-2-tall-540x675.webp 540w, /examples/art/slide-one-dollar-2-tall-720x900.webp 720w, /examples/art/slide-one-dollar-2-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-one-dollar-2-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-one-dollar-2-wide-960x540.avif 960w, /examples/art/slide-one-dollar-2-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-one-dollar-2-wide-960x540.webp 960w, /examples/art/slide-one-dollar-2-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-one-dollar-2-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="After the box graduates, a heart shape drops one gold coin stamped with a 1, the box's token, into the hole, and a hair thin sliver of the framed dollar comes out to it. A full bar with a tick on the stand shows the box has graduated. Nearby, another gold token burns in a marble fireplace." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">After the box graduates, holders can drop tokens into the hole. The tokens are burned and their share of the dollar comes out. A tenth of all tokens gets a tenth.</p><p class="slide__matters">A burn is final, and there is no deadline.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">After it graduates, one token takes a sliver.</p>
+            </figcaption>
+          </figure>
+          <figure class="slide slide--steps" id="one-dollar-3">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-one-dollar-3-tall-540x675.avif 540w, /examples/art/slide-one-dollar-3-tall-720x900.avif 720w, /examples/art/slide-one-dollar-3-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-one-dollar-3-tall-540x675.webp 540w, /examples/art/slide-one-dollar-3-tall-720x900.webp 720w, /examples/art/slide-one-dollar-3-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-one-dollar-3-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-one-dollar-3-wide-960x540.avif 960w, /examples/art/slide-one-dollar-3-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-one-dollar-3-wide-960x540.webp 960w, /examples/art/slide-one-dollar-3-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-one-dollar-3-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Where the fees go. Buys and sells each pay a fee of 1 on every 100 USDC, shared out in 15 parts. On both sides, 10 parts, 0.667 USDC, buy back the box's token and burn it. On both, 2 parts, 0.133, go to the box's own pool and 3 parts, 0.200, go to Square Hole. No fee ever goes to the framed dollar." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">On 100 USDC, buys and sells each pay 1. On both sides, 0.667 buys back and burns the token, 0.133 goes into the box's pool and 0.200 to Square Hole.</p><p class="slide__matters">Neither the dollar nor holders get any fee.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">Every fee burns the token.</p>
+            </figcaption>
+          </figure>
+          <a class="pager__down" href="#rent-free" aria-label="Next: Rent Free"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5.5 12.5 12 19l6.5-6.5"/></svg></a>
+        </section>
+        <section class="pager__page pager__page--rent-free" id="rent-free" aria-labelledby="rent-free-name">
+          <header class="pager__head">
+            <span class="pager__symbol"><svg width="48" height="48" aria-hidden="true" focusable="false"><use href="#k-cat-collection-burn"/></svg></span>
+            <img class="pager__logo" src="/examples/art/logo-rent-free-48.webp" srcset="/examples/art/logo-rent-free-48.webp 1x, /examples/art/logo-rent-free-96.webp 2x" width="48" height="48" loading="lazy" decoding="async" alt="" />
+            <h2 class="pager__name" id="rent-free-name">Rent Free</h2>
+            <a class="pager__up" href="#one-dollar" aria-label="Back to One Dollar is all you need"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg></a>
+          </header>
+          <figure class="slide slide--steps" id="rent-free-1">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-rent-free-1-tall-540x675.avif 540w, /examples/art/slide-rent-free-1-tall-720x900.avif 720w, /examples/art/slide-rent-free-1-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-rent-free-1-tall-540x675.webp 540w, /examples/art/slide-rent-free-1-tall-720x900.webp 720w, /examples/art/slide-rent-free-1-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-rent-free-1-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-rent-free-1-wide-960x540.avif 960w, /examples/art/slide-rent-free-1-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-rent-free-1-wide-960x540.webp 960w, /examples/art/slide-rent-free-1-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-rent-free-1-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Rent Free. A cardboard toy box with a glowing square hole on top, full of little green houses, 500 in all. Above the hole floats a clay hexagon, RENT, the box's token. In a round slot on the front sits a sky blue circle, USDC, the coin it is priced in. An arch shape drops a hexagon into the hole and one house comes up out of it onto a sunny street, where two more houses already stand." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">After the box graduates, someone drops RENT, its token, into the hole and picks a house to take out. The house is theirs to keep, pass on or put back for RENT.</p><p class="slide__matters">Houses outside collect &quot;rent&quot;, part of buyers' fees.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">500 houses. RENT takes one out.</p>
+              <ul class="slide__new" role="list" aria-label="First seen here"><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="27.9" height="26"><use href="#k-fig-item-owner"/></svg></span><span class="key__words">item owner</span></li></ul>
+            </figcaption>
+          </figure>
+          <figure class="slide slide--steps" id="rent-free-2">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-rent-free-2-tall-540x675.avif 540w, /examples/art/slide-rent-free-2-tall-720x900.avif 720w, /examples/art/slide-rent-free-2-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-rent-free-2-tall-540x675.webp 540w, /examples/art/slide-rent-free-2-tall-720x900.webp 720w, /examples/art/slide-rent-free-2-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-rent-free-2-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-rent-free-2-wide-960x540.avif 960w, /examples/art/slide-rent-free-2-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-rent-free-2-wide-960x540.webp 960w, /examples/art/slide-rent-free-2-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-rent-free-2-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="&quot;Rent&quot; day on the street. On buys, part of every fee is shared by all the houses. One line from the fee branches into equal lines, one down onto each house and one into the box. Each house on the street gets an envelope with a blue seal under its door, waiting for its owner, and an arch shape stands by its own envelope, which opens. The shares of the houses still in the box run down into a small fire in a green tray, where a clay hexagon, RENT, burns." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">On buys, the fee's 10 parts are shared equally by all 500 houses. A house outside keeps its share in USDC, the &quot;rent&quot;. A house inside burns RENT with it.</p><p class="slide__matters">Owners claim it. Unclaimed &quot;rent&quot; goes with the house.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">Houses on the street get their share.</p>
+            </figcaption>
+          </figure>
+          <figure class="slide slide--steps" id="rent-free-3">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-rent-free-3-tall-540x675.avif 540w, /examples/art/slide-rent-free-3-tall-720x900.avif 720w, /examples/art/slide-rent-free-3-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-rent-free-3-tall-540x675.webp 540w, /examples/art/slide-rent-free-3-tall-720x900.webp 720w, /examples/art/slide-rent-free-3-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-rent-free-3-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-rent-free-3-wide-960x540.avif 960w, /examples/art/slide-rent-free-3-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-rent-free-3-wide-960x540.webp 960w, /examples/art/slide-rent-free-3-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-rent-free-3-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Where the fees go. Buys and sells each pay a fee of 1 on every 100 USDC, shared out in 15 parts. On buys, 10 parts, 0.667 USDC, go to the 500 houses. A house out of the box keeps its share for its owner to claim, and a house still in the box burns RENT with it. On sells, 10 parts, 0.667 USDC, buy back RENT and burn it. On both, 2 parts, 0.133, go to the box's own pool and 3 parts, 0.200, go to Square Hole." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">On 100 USDC, buys and sells each pay 1. On buys, 0.667 goes to the houses. On sells, 0.667 buys back and burns RENT. Both send 0.133 into the box's pool and 0.200 to Square Hole.</p><p class="slide__matters">No buys, no &quot;rent&quot;.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">Buys go to the houses. Sells burn RENT.</p>
+            </figcaption>
+          </figure>
+          <a class="pager__down" href="#bag-holders" aria-label="Next: Bag Holders"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5.5 12.5 12 19l6.5-6.5"/></svg></a>
+        </section>
+        <section class="pager__page pager__page--bag-holders" id="bag-holders" aria-labelledby="bag-holders-name">
+          <header class="pager__head">
+            <span class="pager__symbol"><svg width="48" height="48" aria-hidden="true" focusable="false"><use href="#k-cat-collection"/></svg></span>
+            <img class="pager__logo" src="/examples/art/logo-bag-holders-48.webp" srcset="/examples/art/logo-bag-holders-48.webp 1x, /examples/art/logo-bag-holders-96.webp 2x" width="48" height="48" loading="lazy" decoding="async" alt="" />
+            <h2 class="pager__name" id="bag-holders-name">Bag Holders</h2>
+            <a class="pager__up" href="#rent-free" aria-label="Back to Rent Free"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg></a>
+          </header>
+          <figure class="slide slide--steps" id="bag-holders-1">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-bag-holders-1-tall-540x675.avif 540w, /examples/art/slide-bag-holders-1-tall-720x900.avif 720w, /examples/art/slide-bag-holders-1-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-bag-holders-1-tall-540x675.webp 540w, /examples/art/slide-bag-holders-1-tall-720x900.webp 720w, /examples/art/slide-bag-holders-1-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-bag-holders-1-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-bag-holders-1-wide-960x540.avif 960w, /examples/art/slide-bag-holders-1-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-bag-holders-1-wide-960x540.webp 960w, /examples/art/slide-bag-holders-1-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-bag-holders-1-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Bag Holders. On a plum pegboard wall stands a cardboard box with a glowing square hole on top, full of bags, 420 in all. Above the hole floats a red chip with a little bag on it, TOTE, the box's token. A plain gold coin, LINK, sits in the round slot on the front, the coin it is priced in. An arch shape drops a red chip into the hole, and a canvas bag comes up out of it onto a hook on the wall." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">After the box graduates, someone drops TOTE, its token, into the hole and picks a bag to take out. The bag is theirs to keep, pass on or put back for TOTE.</p><p class="slide__matters">Holding TOTE gets no fees. A bag does.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">420 bags. TOTE takes one out.</p>
+            </figcaption>
+          </figure>
+          <figure class="slide slide--steps" id="bag-holders-2">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-bag-holders-2-tall-540x675.avif 540w, /examples/art/slide-bag-holders-2-tall-720x900.avif 720w, /examples/art/slide-bag-holders-2-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-bag-holders-2-tall-540x675.webp 540w, /examples/art/slide-bag-holders-2-tall-720x900.webp 720w, /examples/art/slide-bag-holders-2-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-bag-holders-2-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-bag-holders-2-wide-960x540.avif 960w, /examples/art/slide-bag-holders-2-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-bag-holders-2-wide-960x540.webp 960w, /examples/art/slide-bag-holders-2-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-bag-holders-2-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="The same for every bag. Gold coins from buys and sells drop into every bag, one each, shared equally by all 420 bags. Bags on hooks keep their coins in a closed pocket until their owner opens it, and an arch shape opens one. A bag still in the box keeps its coins inside, so whoever takes it out gets them with it." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">Every fee's 10 parts are shared equally by all 420 bags. A bag outside keeps its share for its owner, a bag inside for whoever takes it out.</p><p class="slide__matters">Owners claim it in LINK. Unclaimed LINK goes with the bag.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">Every bag gets the same share.</p>
+            </figcaption>
+          </figure>
+          <figure class="slide slide--steps" id="bag-holders-3">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-bag-holders-3-tall-540x675.avif 540w, /examples/art/slide-bag-holders-3-tall-720x900.avif 720w, /examples/art/slide-bag-holders-3-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-bag-holders-3-tall-540x675.webp 540w, /examples/art/slide-bag-holders-3-tall-720x900.webp 720w, /examples/art/slide-bag-holders-3-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-bag-holders-3-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-bag-holders-3-wide-960x540.avif 960w, /examples/art/slide-bag-holders-3-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-bag-holders-3-wide-960x540.webp 960w, /examples/art/slide-bag-holders-3-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-bag-holders-3-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Where the fees go. Buys and sells each pay a fee of 1 on every 100 LINK, shared out in 15 parts. On both sides, 10 parts, 0.667 LINK, are shared equally by the 420 bags. A bag out of the box keeps its share for its owner to claim, and a bag still in the box keeps it inside. On both, 2 parts, 0.133, go to the box's own pool and 3 parts, 0.200, go to Square Hole." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">On 100 LINK, buys and sells each pay 1. On both sides, 0.667 goes to the 420 bags, 0.133 into the box's pool and 0.200 to Square Hole.</p><p class="slide__matters">No buys or sells, nothing new for the bags.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">Buys and sells both reach the bags.</p>
+            </figcaption>
+          </figure>
+          <a class="pager__down" href="#exit-liquidity" aria-label="Next: Exit Liquidity"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5.5 12.5 12 19l6.5-6.5"/></svg></a>
+        </section>
+        <section class="pager__page pager__page--exit-liquidity" id="exit-liquidity" aria-labelledby="exit-liquidity-name">
+          <header class="pager__head">
+            <span class="pager__symbol"><svg width="48" height="48" aria-hidden="true" focusable="false"><use href="#k-cat-liquidity"/></svg></span>
+            <img class="pager__logo" src="/examples/art/logo-exit-liquidity-48.webp" srcset="/examples/art/logo-exit-liquidity-48.webp 1x, /examples/art/logo-exit-liquidity-96.webp 2x" width="48" height="48" loading="lazy" decoding="async" alt="" />
+            <h2 class="pager__name" id="exit-liquidity-name">Exit Liquidity</h2>
+            <a class="pager__up" href="#bag-holders" aria-label="Back to Bag Holders"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg></a>
+          </header>
+          <figure class="slide slide--steps" id="exit-liquidity-1">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-exit-liquidity-1-tall-540x675.avif 540w, /examples/art/slide-exit-liquidity-1-tall-720x900.avif 720w, /examples/art/slide-exit-liquidity-1-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-exit-liquidity-1-tall-540x675.webp 540w, /examples/art/slide-exit-liquidity-1-tall-720x900.webp 720w, /examples/art/slide-exit-liquidity-1-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-exit-liquidity-1-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-exit-liquidity-1-wide-960x540.avif 960w, /examples/art/slide-exit-liquidity-1-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-exit-liquidity-1-wide-960x540.webp 960w, /examples/art/slide-exit-liquidity-1-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-exit-liquidity-1-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Exit Liquidity. In a dark hallway lit only by its signs, a slate crate with a glowing square hole on top holds small lit signs, 404 in all, their arrows pointing every which way. Above the hole floats a green square with an arrow, EXIT, the box's token. An amber coin, USDC, sits in the round slot on the front, the coin it is priced in. An arch shape drops a green square into the hole, and one sign comes up out of it and hangs on the wall, where two signs already point at each other." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">After the box graduates, someone drops EXIT, its token, into the hole and picks a sign to take out. The sign is theirs to keep, pass on or put back for EXIT.</p><p class="slide__matters">Signs outside get part of the sellers' fees.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">404 signs. EXIT takes one out.</p>
+            </figcaption>
+          </figure>
+          <figure class="slide slide--steps" id="exit-liquidity-2">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-exit-liquidity-2-tall-540x675.avif 540w, /examples/art/slide-exit-liquidity-2-tall-720x900.avif 720w, /examples/art/slide-exit-liquidity-2-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-exit-liquidity-2-tall-540x675.webp 540w, /examples/art/slide-exit-liquidity-2-tall-720x900.webp 720w, /examples/art/slide-exit-liquidity-2-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-exit-liquidity-2-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-exit-liquidity-2-wide-960x540.avif 960w, /examples/art/slide-exit-liquidity-2-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-exit-liquidity-2-wide-960x540.webp 960w, /examples/art/slide-exit-liquidity-2-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-exit-liquidity-2-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Buys make the box's pool deeper, for good. On the top lane a triangle shape puts amber coins in, and its fee drops into a glass tank of water, which stands above a dashed line. The tank's drain has a padlock with no keyhole. On the lane below, the same shape takes coins out, and the water stays above the line. Overhead, the signs still point at each other." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">On buys, the fee's 10 parts go to grow the pool. After the box graduates, they are added to its pool and stay there for good.</p><p class="slide__matters">Nobody can take them out, so the pool only gets deeper.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">Buys grow the pool for good.</p>
+            </figcaption>
+          </figure>
+          <figure class="slide slide--steps" id="exit-liquidity-3">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-exit-liquidity-3-tall-540x675.avif 540w, /examples/art/slide-exit-liquidity-3-tall-720x900.avif 720w, /examples/art/slide-exit-liquidity-3-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-exit-liquidity-3-tall-540x675.webp 540w, /examples/art/slide-exit-liquidity-3-tall-720x900.webp 720w, /examples/art/slide-exit-liquidity-3-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-exit-liquidity-3-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-exit-liquidity-3-wide-960x540.avif 960w, /examples/art/slide-exit-liquidity-3-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-exit-liquidity-3-wide-960x540.webp 960w, /examples/art/slide-exit-liquidity-3-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-exit-liquidity-3-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Where the fees go. Buys and sells each pay a fee of 1 on every 100 USDC, shared out in 15 parts. On buys, 10 parts, 0.667 USDC, go into the box's own pool and stay there for good. On sells, 10 parts, 0.667 USDC, go to the 404 signs. A sign out of the box keeps its share for its owner to claim, and a sign still in the box burns EXIT with it. On both, 2 parts, 0.133, go to the box's own pool and 3 parts, 0.200, go to Square Hole." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">On 100 USDC, buys and sells each pay 1. On buys, 0.667 grows the box's pool. On sells, 0.667 goes to the signs. Both send 0.133 into the pool and 0.200 to Square Hole.</p><p class="slide__matters">Signs inside burn EXIT with theirs.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">Buys grow the pool. Sells reach the signs.</p>
+            </figcaption>
+          </figure>
+          <a class="pager__down" href="#link-marines" aria-label="Next: Link Marines"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5.5 12.5 12 19l6.5-6.5"/></svg></a>
+        </section>
+        <section class="pager__page pager__page--link-marines" id="link-marines" aria-labelledby="link-marines-name">
+          <header class="pager__head">
+            <span class="pager__symbol"><svg width="48" height="48" aria-hidden="true" focusable="false"><use href="#k-cat-collection"/></svg></span>
+            <img class="pager__logo" src="/examples/art/logo-link-marines-48.webp" srcset="/examples/art/logo-link-marines-48.webp 1x, /examples/art/logo-link-marines-96.webp 2x" width="48" height="48" loading="lazy" decoding="async" alt="" />
+            <h2 class="pager__name" id="link-marines-name">Link Marines</h2>
+            <a class="pager__up" href="#exit-liquidity" aria-label="Back to Exit Liquidity"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg></a>
+          </header>
+          <figure class="slide slide--steps" id="link-marines-1">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-link-marines-1-tall-540x675.avif 540w, /examples/art/slide-link-marines-1-tall-720x900.avif 720w, /examples/art/slide-link-marines-1-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-link-marines-1-tall-540x675.webp 540w, /examples/art/slide-link-marines-1-tall-720x900.webp 720w, /examples/art/slide-link-marines-1-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-link-marines-1-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-link-marines-1-wide-960x540.avif 960w, /examples/art/slide-link-marines-1-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-link-marines-1-wide-960x540.webp 960w, /examples/art/slide-link-marines-1-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-link-marines-1-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Link Marines. In a panelled mess hall stands a wooden crate with a glowing square hole on top, full of white caps, one for each of its 420 marines. Above the hole floats an orange dog tag, MARINE, the box's token. A plain gold coin, LINK, sits in the round slot on the front, the coin it is priced in. An arch shape drops an orange tag into the hole, and one white cap comes up out of it to the first place at a long table set with white plates." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">After the box graduates, someone drops MARINE, its token, into the hole and picks a marine to take out. The marine is theirs to keep, pass on or put back for MARINE.</p><p class="slide__matters">Holding MARINE gets no ration. A marine does.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">420 marines. MARINE takes one out.</p>
+            </figcaption>
+          </figure>
+          <figure class="slide slide--steps" id="link-marines-2">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-link-marines-2-tall-540x675.avif 540w, /examples/art/slide-link-marines-2-tall-720x900.avif 720w, /examples/art/slide-link-marines-2-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-link-marines-2-tall-540x675.webp 540w, /examples/art/slide-link-marines-2-tall-720x900.webp 720w, /examples/art/slide-link-marines-2-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-link-marines-2-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-link-marines-2-wide-960x540.avif 960w, /examples/art/slide-link-marines-2-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-link-marines-2-wide-960x540.webp 960w, /examples/art/slide-link-marines-2-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-link-marines-2-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Rations for every marine. From buys and sells, one line runs above a mess table and drops one gold coin onto every plate, shared equally by all 420 marines. At the table the Private's plain cap, an officer's corded cap and the General's widest cap each sit behind an identical plate under a closed steel cloche, and an arch shape opens its own. The rations of the marines still in the box run through a pipe into the box's pool, a glass tank whose water stands above a dashed old line. Its drain has a padlock with no keyhole." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">Every fee's 10 parts are shared equally by all 420 marines. Owned marines keep their rations. Marines still in the box add theirs to the pool.</p><p class="slide__matters">Owners claim theirs in LINK. What goes into the pool stays there for good.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">Marines still in the box grow the pool.</p>
+            </figcaption>
+          </figure>
+          <figure class="slide slide--steps" id="link-marines-3">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-link-marines-3-tall-540x675.avif 540w, /examples/art/slide-link-marines-3-tall-720x900.avif 720w, /examples/art/slide-link-marines-3-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-link-marines-3-tall-540x675.webp 540w, /examples/art/slide-link-marines-3-tall-720x900.webp 720w, /examples/art/slide-link-marines-3-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-link-marines-3-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-link-marines-3-wide-960x540.avif 960w, /examples/art/slide-link-marines-3-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-link-marines-3-wide-960x540.webp 960w, /examples/art/slide-link-marines-3-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-link-marines-3-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Where the fees go. Buys and sells each pay a fee of 1 on every 100 LINK, shared out in 15 parts. On both sides, 10 parts, 0.667 LINK, are shared equally by the 420 marines. A marine out of the box keeps its share under a closed cloche for its owner to claim, and the share of a marine still in the box goes into the box's own pool. On both, 2 parts, 0.133, go to the box's own pool and 3 parts, 0.200, go to Square Hole." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">On 100 LINK, buys and sells each pay 1. On both sides, 0.667 goes to the 420 marines, 0.133 into the box's pool and 0.200 to Square Hole.</p><p class="slide__matters">No fees, no rations.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">Every fee goes to the 420 marines.</p>
+            </figcaption>
+          </figure>
+          <p class="pager__aside">Link Marines is a joke box on Square Hole. The people behind LINK did not make it, approve it or endorse it.</p>
+          <a class="pager__down" href="#frog-kiln" aria-label="Next: Frog Kiln"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5.5 12.5 12 19l6.5-6.5"/></svg></a>
+        </section>
+        <section class="pager__page pager__page--frog-kiln" id="frog-kiln" aria-labelledby="frog-kiln-name">
+          <header class="pager__head">
+            <span class="pager__symbol"><svg width="48" height="48" aria-hidden="true" focusable="false"><use href="#k-cat-collection-burn"/></svg></span>
+            <img class="pager__logo" src="/examples/art/logo-frog-kiln-48.webp" srcset="/examples/art/logo-frog-kiln-48.webp 1x, /examples/art/logo-frog-kiln-96.webp 2x" width="48" height="48" loading="lazy" decoding="async" alt="" />
+            <h2 class="pager__name" id="frog-kiln-name">Frog Kiln</h2>
+            <a class="pager__up" href="#link-marines" aria-label="Back to Link Marines"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg></a>
+          </header>
+          <figure class="slide slide--steps" id="frog-kiln-1">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-frog-kiln-1-tall-540x675.avif 540w, /examples/art/slide-frog-kiln-1-tall-720x900.avif 720w, /examples/art/slide-frog-kiln-1-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-frog-kiln-1-tall-540x675.webp 540w, /examples/art/slide-frog-kiln-1-tall-720x900.webp 720w, /examples/art/slide-frog-kiln-1-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-frog-kiln-1-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-frog-kiln-1-wide-960x540.avif 960w, /examples/art/slide-frog-kiln-1-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-frog-kiln-1-wide-960x540.webp 960w, /examples/art/slide-frog-kiln-1-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-frog-kiln-1-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Frog Kiln. In a potter's studio, a low stoneware chest with a glowing square hole on top is the box, full of clay toads wrapped in paper, 420 in all. Above the hole floats an orange clay tile, KILN, the box's token. A plain green coin, the frog coin, sits in the round slot on the front, the coin it is priced in. An arch shape drops a clay tile into the hole, and one toad comes up out of it onto a shelf, its paper open beside it. Behind, a brick kiln glows." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">After the box graduates, anyone can drop KILN, its token, into the hole to draw a toad. A public random number picks which one.</p><p class="slide__matters">Nobody behind the frog coin made, approved or backs this box.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">420 clay toads. KILN draws one.</p>
+            </figcaption>
+          </figure>
+          <figure class="slide slide--steps" id="frog-kiln-2">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-frog-kiln-2-tall-540x675.avif 540w, /examples/art/slide-frog-kiln-2-tall-720x900.avif 720w, /examples/art/slide-frog-kiln-2-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-frog-kiln-2-tall-540x675.webp 540w, /examples/art/slide-frog-kiln-2-tall-720x900.webp 720w, /examples/art/slide-frog-kiln-2-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-frog-kiln-2-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-frog-kiln-2-wide-960x540.avif 960w, /examples/art/slide-frog-kiln-2-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-frog-kiln-2-wide-960x540.webp 960w, /examples/art/slide-frog-kiln-2-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-frog-kiln-2-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="The kiln burns the frog coin. On the top lane a triangle shape puts green coins into the box and gets clay tiles out, and one coin of the fee drops into a clay bowl by a brick kiln. A full bar with a tick shows the box has graduated. A ball shape pushes a long wooden paddle that slides the bowl's green coins into the burning kiln, where they turn to grey ash and rise with the smoke from its chimney." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">On buys, the fee's 10 parts wait by the kiln in frog coins. After the box graduates, anyone can fire the kiln, burning them with the frog coin's own burn.</p><p class="slide__matters">The burn is final and gives nothing back to anyone.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">Buys burn the frog coin itself.</p>
+            </figcaption>
+          </figure>
+          <figure class="slide slide--steps" id="frog-kiln-3">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-frog-kiln-3-tall-540x675.avif 540w, /examples/art/slide-frog-kiln-3-tall-720x900.avif 720w, /examples/art/slide-frog-kiln-3-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-frog-kiln-3-tall-540x675.webp 540w, /examples/art/slide-frog-kiln-3-tall-720x900.webp 720w, /examples/art/slide-frog-kiln-3-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-frog-kiln-3-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-frog-kiln-3-wide-960x540.avif 960w, /examples/art/slide-frog-kiln-3-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-frog-kiln-3-wide-960x540.webp 960w, /examples/art/slide-frog-kiln-3-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-frog-kiln-3-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Where the fees go. Buys and sells each pay a fee of 1 on every 100 frog coins, shared out in 15 parts. On buys, 10 parts, 0.667 frog coins, go into the kiln and are burned. On sells, 10 parts, 0.667, are spent on KILN in the box's own pool, shared equally by the 420 toads. A toad out of the box keeps its share for its owner to claim, and the share of a toad still in the box is burned. On both, 2 parts, 0.133, go to the box's own pool and 3 parts, 0.200, go to Square Hole." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">On 100 frog coins, buys and sells each pay 1. Buys burn 0.667 frog coins. Sells spend 0.667 on KILN for the 420 toads. Both send 0.133 to the pool, 0.200 to Square Hole.</p><p class="slide__matters">Toads in the box burn theirs.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">Buys burn frog coins. Sells reach the toads.</p>
+            </figcaption>
+          </figure>
+          <p class="pager__aside">Frog Kiln is a joke box on Square Hole. The people behind the frog coin did not make it, approve it or endorse it.</p>
+          <a class="pager__down" href="#paper-certificates" aria-label="Next: Paper Certificates"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5.5 12.5 12 19l6.5-6.5"/></svg></a>
+        </section>
+        <section class="pager__page pager__page--paper-certificates" id="paper-certificates" aria-labelledby="paper-certificates-name">
+          <header class="pager__head">
+            <span class="pager__symbol"><svg width="48" height="48" aria-hidden="true" focusable="false"><use href="#k-cat-collection-burn"/></svg></span>
+            <img class="pager__logo" src="/examples/art/logo-paper-certificates-48.webp" srcset="/examples/art/logo-paper-certificates-48.webp 1x, /examples/art/logo-paper-certificates-96.webp 2x" width="48" height="48" loading="lazy" decoding="async" alt="" />
+            <h2 class="pager__name" id="paper-certificates-name">Paper Certificates</h2>
+            <a class="pager__up" href="#frog-kiln" aria-label="Back to Frog Kiln"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg></a>
+          </header>
+          <figure class="slide slide--steps" id="paper-certificates-1">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-paper-certificates-1-tall-540x675.avif 540w, /examples/art/slide-paper-certificates-1-tall-720x900.avif 720w, /examples/art/slide-paper-certificates-1-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-paper-certificates-1-tall-540x675.webp 540w, /examples/art/slide-paper-certificates-1-tall-720x900.webp 720w, /examples/art/slide-paper-certificates-1-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-paper-certificates-1-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-paper-certificates-1-wide-960x540.avif 960w, /examples/art/slide-paper-certificates-1-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-paper-certificates-1-wide-960x540.webp 960w, /examples/art/slide-paper-certificates-1-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-paper-certificates-1-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Paper Certificates. In an old office drawn like an engraving, a low iron strongbox with a glowing square hole on top is the box, full of sealed envelopes, 1,929 certificates in all. Above the hole floats a lilac paper slip, SCRIP, the box's token. A gold coin with a small bar sits in the round slot on the front, the coin the box is priced in. An arch shape drops a slip into the hole, and a paper certificate of a company that never existed comes up out of it to a clip on the wall, where two more hang." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">After the box graduates, someone drops SCRIP, its token, into the hole and takes out a certificate. A public draw decides which one.</p><p class="slide__matters">A certificate is a picture, no share in any company and no claim on gold.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">1,929 certificates. SCRIP takes one out.</p>
+            </figcaption>
+          </figure>
+          <figure class="slide slide--steps" id="paper-certificates-2">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-paper-certificates-2-tall-540x675.avif 540w, /examples/art/slide-paper-certificates-2-tall-720x900.avif 720w, /examples/art/slide-paper-certificates-2-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-paper-certificates-2-tall-540x675.webp 540w, /examples/art/slide-paper-certificates-2-tall-720x900.webp 720w, /examples/art/slide-paper-certificates-2-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-paper-certificates-2-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-paper-certificates-2-wide-960x540.avif 960w, /examples/art/slide-paper-certificates-2-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-paper-certificates-2-wide-960x540.webp 960w, /examples/art/slide-paper-certificates-2-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-paper-certificates-2-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Sellers' fees bring SCRIP to every certificate. On the dashed lane a triangle shape hands in lilac slips and gets gold coins. Its fee, a gold coin, drops into the box's pool, a glass tank of water, and stays there, while a lilac slip, SCRIP, comes up out of it. One line carries the SCRIP over the certificates with an equal drop onto each, 1,929 in all. Each certificate on the wall has a closed tray, and an arch shape stands by its own tray, which opens. The shares of the certificates still sealed in the box run down into an iron stove, where a slip burns." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">After the box graduates, the sellers' share of each fee buys back SCRIP in the box's pool. Every certificate gets an equal part, and one still in the box burns it.</p><p class="slide__matters">Owners claim it. Unclaimed SCRIP goes with the certificate.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">Sellers' fees bring SCRIP to every certificate.</p>
+            </figcaption>
+          </figure>
+          <figure class="slide slide--steps" id="paper-certificates-3">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-paper-certificates-3-tall-540x675.avif 540w, /examples/art/slide-paper-certificates-3-tall-720x900.avif 720w, /examples/art/slide-paper-certificates-3-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-paper-certificates-3-tall-540x675.webp 540w, /examples/art/slide-paper-certificates-3-tall-720x900.webp 720w, /examples/art/slide-paper-certificates-3-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-paper-certificates-3-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-paper-certificates-3-wide-960x540.avif 960w, /examples/art/slide-paper-certificates-3-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-paper-certificates-3-wide-960x540.webp 960w, /examples/art/slide-paper-certificates-3-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-paper-certificates-3-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Where the fees go. Buys and sells each pay a fee of 1 on every 100 of the gold coin, shared out in 15 parts. On buys, 10 parts, 0.667, buy back SCRIP in the box's own pool and burn it. On sells, 10 parts, 0.667, buy back SCRIP for the 1,929 certificates. A certificate out of the box keeps its share for its owner to claim, and a certificate still in the box burns its share. On both, 2 parts, 0.133, go to the box's own pool and 3 parts, 0.200, go to Square Hole. No fee ever burns the gold coin." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">On 100 gold coins, buys and sells each pay 1. On buys, 0.667 buys back and burns SCRIP. On sells, 0.667 buys back SCRIP for certificates. Both send 0.133 to the pool, 0.200 to Square Hole.</p><p class="slide__matters">Gold coins never burn.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">Buys burn SCRIP. Sells reach the certificates.</p>
+            </figcaption>
+          </figure>
+          <p class="pager__aside">Paper Certificates is a joke box on Square Hole. Its companies never existed, and the issuers of the gold coin and the index coin did not make, approve or endorse it.</p>
+          <p class="pager__aside">These certificates are pictures. They are no share in any company and no claim on gold, a stock or a fund.</p>
+          <a class="pager__down" href="#dragons-hoard" aria-label="Next: Dragon's Hoard"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5.5 12.5 12 19l6.5-6.5"/></svg></a>
+        </section>
+        <section class="pager__page pager__page--dragons-hoard" id="dragons-hoard" aria-labelledby="dragons-hoard-name">
+          <header class="pager__head">
+            <span class="pager__symbol"><svg width="48" height="48" aria-hidden="true" focusable="false"><use href="#k-cat-pile"/></svg></span>
+            <img class="pager__logo" src="/examples/art/logo-dragons-hoard-48.webp" srcset="/examples/art/logo-dragons-hoard-48.webp 1x, /examples/art/logo-dragons-hoard-96.webp 2x" width="48" height="48" loading="lazy" decoding="async" alt="" />
+            <h2 class="pager__name" id="dragons-hoard-name">Dragon's Hoard</h2>
+            <a class="pager__up" href="#paper-certificates" aria-label="Back to Paper Certificates"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg></a>
+          </header>
+          <figure class="slide slide--steps" id="dragons-hoard-1">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-dragons-hoard-1-tall-540x675.avif 540w, /examples/art/slide-dragons-hoard-1-tall-720x900.avif 720w, /examples/art/slide-dragons-hoard-1-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-dragons-hoard-1-tall-540x675.webp 540w, /examples/art/slide-dragons-hoard-1-tall-720x900.webp 720w, /examples/art/slide-dragons-hoard-1-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-dragons-hoard-1-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-dragons-hoard-1-wide-960x540.avif 960w, /examples/art/slide-dragons-hoard-1-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-dragons-hoard-1-wide-960x540.webp 960w, /examples/art/slide-dragons-hoard-1-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-dragons-hoard-1-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Dragon's Hoard. In a dark blue lair, a low stone box with a glowing square hole on top is filled with gold coins, the box's pile of BNB. A green tail covered in scales curls around the box, the only part of the dragon ever seen. Above the hole float green tokens with scales, HOARD, the box's token. A plain gold coin, BNB, sits in the round slot on the front, the coin it is priced in. A star shape drops one gold coin, 1 BNB, into the hole, the first coin of the pile, and a ball shape leans back to keep an eye on the tail." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">Dragon's Hoard's token is HOARD, priced in BNB. Before the box opens, its creator puts 1 BNB of their own on the pile.</p><p class="slide__matters">The pile is shared by all HOARD there is, even the HOARD in the box's pool.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">HOARD, with a pile of BNB inside.</p>
+            </figcaption>
+          </figure>
+          <figure class="slide slide--steps" id="dragons-hoard-2">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-dragons-hoard-2-tall-540x675.avif 540w, /examples/art/slide-dragons-hoard-2-tall-720x900.avif 720w, /examples/art/slide-dragons-hoard-2-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-dragons-hoard-2-tall-540x675.webp 540w, /examples/art/slide-dragons-hoard-2-tall-720x900.webp 720w, /examples/art/slide-dragons-hoard-2-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-dragons-hoard-2-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-dragons-hoard-2-wide-960x540.avif 960w, /examples/art/slide-dragons-hoard-2-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-dragons-hoard-2-wide-960x540.webp 960w, /examples/art/slide-dragons-hoard-2-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-dragons-hoard-2-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="After the box graduates, a heart shape drops green HOARD tokens into the hole, and their share of the pile comes up out of it, 20 gold coins. Nineteen go to the heart. The twentieth falls back into the hole onto the pile, under the tip of the dragon's tail. A full bar with a tick on the box shows it has graduated." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">After the box graduates, HOARD dropped into the hole burns, and its share of the pile comes out, less one coin in twenty.</p><p class="slide__matters">That coin stays on the pile for everyone still holding. A burn is final.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">HOARD takes its share. One in twenty stays.</p>
+            </figcaption>
+          </figure>
+          <figure class="slide slide--steps" id="dragons-hoard-3">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-dragons-hoard-3-tall-540x675.avif 540w, /examples/art/slide-dragons-hoard-3-tall-720x900.avif 720w, /examples/art/slide-dragons-hoard-3-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-dragons-hoard-3-tall-540x675.webp 540w, /examples/art/slide-dragons-hoard-3-tall-720x900.webp 720w, /examples/art/slide-dragons-hoard-3-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-dragons-hoard-3-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-dragons-hoard-3-wide-960x540.avif 960w, /examples/art/slide-dragons-hoard-3-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-dragons-hoard-3-wide-960x540.webp 960w, /examples/art/slide-dragons-hoard-3-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-dragons-hoard-3-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Where the fees go. Buys and sells each pay a fee of 1 on every 100 BNB, shared out in 15 parts. On buys, 10 parts, 0.667 BNB, go onto the box's pile of BNB once the box graduates. On sells, 10 parts, 0.667 BNB, buy back HOARD and burn it. On both, 2 parts, 0.133, go to the box's own pool and 3 parts, 0.200, go to Square Hole." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">On 100 BNB, each side pays 1. On buys, 0.667 goes to the pile. On sells, 0.667 buys back and burns HOARD. Both send 0.133 to the box's pool, 0.200 to Square Hole.</p><p class="slide__matters">No buys, nothing new for the pile.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">Buys go to the pile. Sells burn HOARD.</p>
+            </figcaption>
+          </figure>
+          <a class="pager__down" href="#junkyard" aria-label="Next: The Junkyard"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5.5 12.5 12 19l6.5-6.5"/></svg></a>
+        </section>
+        <section class="pager__page pager__page--junkyard" id="junkyard" aria-labelledby="junkyard-name">
+          <header class="pager__head">
+            <span class="pager__symbol"><svg width="48" height="48" aria-hidden="true" focusable="false"><use href="#k-cat-shop"/></svg></span>
+            <img class="pager__logo" src="/examples/art/logo-junkyard-48.webp" srcset="/examples/art/logo-junkyard-48.webp 1x, /examples/art/logo-junkyard-96.webp 2x" width="48" height="48" loading="lazy" decoding="async" alt="" />
+            <h2 class="pager__name" id="junkyard-name">The Junkyard</h2>
+            <a class="pager__up" href="#dragons-hoard" aria-label="Back to Dragon's Hoard"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg></a>
+          </header>
+          <figure class="slide slide--steps" id="junkyard-1">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-junkyard-1-tall-540x675.avif 540w, /examples/art/slide-junkyard-1-tall-720x900.avif 720w, /examples/art/slide-junkyard-1-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-junkyard-1-tall-540x675.webp 540w, /examples/art/slide-junkyard-1-tall-720x900.webp 720w, /examples/art/slide-junkyard-1-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-junkyard-1-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-junkyard-1-wide-960x540.avif 960w, /examples/art/slide-junkyard-1-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-junkyard-1-wide-960x540.webp 960w, /examples/art/slide-junkyard-1-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-junkyard-1-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="The Junkyard. The box is a dented tin crate on warm paper with a glowing square hole on top, and beside it stands a little shop. On its shelf sit things that almost work, a chipped teapot, a wind-up bird and a cart with one wheel. Pale green coins, TRASH, the box's token, float above the hole and fill a glass jar on the counter, the shop's budget. A gold coin sits in the round slot on the front, the coin the box is priced in. At the gate three pentagon shapes stand by a list board and choose which collections the shop takes." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">The Junkyard's token is TRASH. Its price coin is a gold coin. Inside is a shop for items from the collections its curators list.</p><p class="slide__matters">The gold coin has an issuer that can freeze or pause it.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">A shop for things that almost work.</p>
+              <ul class="slide__new" role="list" aria-label="First seen here"><li class="key__item"><span class="key__drawings" aria-hidden="true"><svg width="26.5" height="26"><use href="#k-fig-curator"/></svg></span><span class="key__words">curator</span></li></ul>
+            </figcaption>
+          </figure>
+          <figure class="slide slide--steps" id="junkyard-2">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-junkyard-2-tall-540x675.avif 540w, /examples/art/slide-junkyard-2-tall-720x900.avif 720w, /examples/art/slide-junkyard-2-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-junkyard-2-tall-540x675.webp 540w, /examples/art/slide-junkyard-2-tall-720x900.webp 720w, /examples/art/slide-junkyard-2-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-junkyard-2-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-junkyard-2-wide-960x540.avif 960w, /examples/art/slide-junkyard-2-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-junkyard-2-wide-960x540.webp 960w, /examples/art/slide-junkyard-2-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-junkyard-2-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Give and pick. On the left, an arch shape nudges a chipped teapot up onto the shop's counter, and one bundle of pale green coins, TRASH, comes back to it from the jar. On the right, another arch shape picks the wind-up bird it can see. A pointer marks that bird, two bundles go into the jar, and the bird comes down to it. Nothing is hidden and nothing is left to chance." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">After graduation, someone gives a listed item for a fixed amount of TRASH from the jar. Picking an exact item costs twice its give amount, paid into the jar.</p><p class="slide__matters">Gives use only a little of the jar each week.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">Give for 1×, pick for 2×.</p>
+            </figcaption>
+          </figure>
+          <figure class="slide slide--steps" id="junkyard-3">
+            <div class="slide__frame">
+              <picture>
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/avif" srcset="/examples/art/slide-junkyard-3-tall-540x675.avif 540w, /examples/art/slide-junkyard-3-tall-720x900.avif 720w, /examples/art/slide-junkyard-3-tall-1080x1350.avif 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" type="image/webp" srcset="/examples/art/slide-junkyard-3-tall-540x675.webp 540w, /examples/art/slide-junkyard-3-tall-720x900.webp 720w, /examples/art/slide-junkyard-3-tall-1080x1350.webp 1080w" sizes="(max-width: 640px) and (orientation: portrait) min(100vw - 32px, 80vh - 109px), min(100vw - 32px, 80vh - 320px)" />
+                <source media="(max-width: 640px), (orientation: portrait)" srcset="/examples/art/slide-junkyard-3-tall-540x675.jpg" />
+                <source type="image/avif" srcset="/examples/art/slide-junkyard-3-wide-960x540.avif 960w, /examples/art/slide-junkyard-3-wide-1920x1080.avif 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <source type="image/webp" srcset="/examples/art/slide-junkyard-3-wide-960x540.webp 960w, /examples/art/slide-junkyard-3-wide-1920x1080.webp 1920w" sizes="min(100vw - 32px, 1200px, 177.78vh - 644px)" />
+                <img src="/examples/art/slide-junkyard-3-wide-960x540.jpg" width="960" height="540" loading="lazy" decoding="async" alt="Where the fees go. Buys and sells each pay a fee of 1 on every 100 of the gold coin, shared out in 15 parts. On buys, 10 parts, 0.667, go to holders in gold and wait in closed trays until each holder claims its own. On sells, 10 parts, 0.667, buy back TRASH for the shop's jar, up to a full line at twice what the jar started with. Once the jar is full, the sellers' 10 parts go to holders in gold too. On both, 2 parts, 0.133, go to the box's own pool and 3 parts, 0.200, go to Square Hole." />
+              </picture>
+              <details class="slide__words"><summary aria-label="In words"><span aria-hidden="true">?</span></summary><div class="slide__panel"><p class="slide__step">Buys send 0.667 of every 100 to holders in gold. On sells, 0.667 buys back TRASH for the shop's jar until it is full, then goes to holders.</p><p class="slide__matters">The curators choose whose items the fee-filled jar pays for.</p></div></details>
+            </div>
+            <figcaption class="slide__caption">
+              <p class="slide__line">Buys reach holders. Sells fill the shop first.</p>
+            </figcaption>
+          </figure>
+        </section>
+      </section>
+
+
+      <footer class="outro" id="after-pager">
+        <p class="note">Square Hole is in development.</p>
+
+        
+        <a class="elsewhere" href="https://x.com/squarehole_" rel="me noopener" aria-label="Follow @squarehole_ on X">
+          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false">
+            <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" fill="currentColor" />
+          </svg>
+          <span>Follow @squarehole_</span>
+        </a>
+      </footer>
+    </main>
+  </body>
+</html>

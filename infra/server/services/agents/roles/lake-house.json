@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "chainId": "11155111",
+  "safe": null,
+  "module": null,
+  "token": null,
+  "inbox": null,
+  "pricingReviewed": false,
+  "manager": {
+    "model": "claude-haiku-4-5-20251001",
+    "address": null,
+    "weeklyCapRaw": "300000000",
+    "payees": { "cleaner": null, "repairs": null },
+    "inputUsdPerMillion": "1",
+    "outputUsdPerMillion": "5"
+  },
+  "bookkeeper": {
+    "model": "claude-sonnet-5-5",
+    "inputUsdPerMillion": "3",
+    "outputUsdPerMillion": "15"
+  }
+}

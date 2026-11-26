@@ -1,0 +1,52 @@
+{
+  "format": "squarehole.boxspec-draft/1",
+  "context": "v2",
+  "example": 8,
+  "brief": "Demo example 8. The rug-pull meme, literally carpets: the box made to miss its deadline. A plain token with nothing inside, the one raise (4.206980085 ETH) in 30 days, the creator's fees held during the curve and put into the refund range when it fails.",
+  "status": "ready",
+  "shows": [
+    "a plain token: just the token, no NFTs and no vault",
+    "a box that fails its deadline: every token sells back from the refund range",
+    "creator fees held until graduation, into the refund range on failure",
+    "the one raise (4.206980085 ETH), 30 days"
+  ],
+  "differences": [
+    "Founder question: let it fail for real on Sepolia (30 days) or show the failure only in the Demo."
+  ],
+  "site": {
+    "links": []
+  },
+  "spec": {
+    "version": 2,
+    "boxType": "TOKEN_ONLY",
+    "tokenName": "Rug Rugs",
+    "tokenSymbol": "RUGS",
+    "collectionName": "",
+    "collectionSymbol": "",
+    "description": "Demo: the rug-pull meme, literally carpets. This box is made to miss its deadline, so every RUGS sells back from the refund range.",
+    "n": 0,
+    "firstId": "1",
+    "q": "ETH",
+    "raise": {
+      "decimal": "4.206980085"
+    },
+    "layout": "CURVE_V1",
+    "gradLayout": "ASK_FULL_BID_SENTINEL",
+    "launchFormat": "CURVE",
+    "openAt": 0,
+    "deadlineDays": 30,
+    "qStream": "TO_CREATOR",
+    "tStream": "TO_CREATOR",
+    "artMode": 0,
+    "revealRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "metadataTable": "0x",
+    "generatorHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coverSha256": "FROM_LAUNCH_FLOW",
+    "revealListId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "marketplaceOwner": "0x0000000000000000000000000000000000000000",
+    "creatorFeeRecipient": "FROM_LAUNCH_FLOW",
+    "creatorBuy": "0",
+    "collectionCoverSha256": "0x0",
+    "addOns": []
+  }
+}

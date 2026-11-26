@@ -1,0 +1,65 @@
+{
+  "chainId": 97,
+  "rpcUrls": [
+    "https://bsc-testnet-rpc.publicnode.com",
+    "https://bsc-testnet-dataseed.bnbchain.org"
+  ],
+  "fromBlock": "144790997",
+  "runWallet": "0xd5D5633737f2fFd8E79E0AAf008795aB43215530",
+  "registry": "0xB9820Ee9F400E3beD21495cf10aF6D39da1480c2",
+  "core": "0xC7A76fEcec11e1F2290Eb60B0E14671e2FEb2f82",
+  "tools": "0xB96E1091A99a9b9AD35E570c0761438cBC4236eD",
+  "feeRouter": "0x3C659B8e331f6e800313B640F56d7857ca7D7F99",
+  "wbnb": "0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd",
+  "presetId": "1778027700001",
+  "taxPresetId": "1778027615723",
+  "taxTemplate": "0x9A665580052C37A235Fb3Bf914319BCD4C386036",
+  "rulesTemplate": "0x0B41E31f8D98796fE1DB09fB8d3c4B26aCe4502A",
+  "tradeModuleImplementation": "0xB2e3C6C68b76B1cBc39311eF03433abC33558fBA",
+  "presetValidator": "0x45522cEf5F67c2eFA8FE295C348fE2626FAf0B9e",
+  "quotes": [
+    "0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd",
+    "0x860822580d4EB2529DE0C74c3E2B1D6D7C183302"
+  ],
+  "tokens": [
+    {
+      "token": "0x64019AEA4e0322Dc6cd4e314315Cf08385C23AfC",
+      "kind": "preset",
+      "quote": "0x860822580d4EB2529DE0C74c3E2B1D6D7C183302",
+      "pile": "0x4586b51076B99e0480bB8144B28087571358aDe0",
+      "tradeModule": "0xEa589785d6db4F1b278BDB5fd5e08a01Cbe43694",
+      "vault": "0xB84e222cC3f82Ee60e40F2b721b2637BE0Ceda7B",
+      "createTx": "0x88ea4f8fa43b5fc2681b1f6b631000a88cc430acc5bfe1de6ab8e3a2a0378b68"
+    },
+    {
+      "token": "0x00C80DFaC0465F10E9a8D3eFB9cEf8750a733835",
+      "kind": "tax",
+      "quote": "0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd",
+      "pile": "0x80E4A7FDD8bd8ADf02F41aB458f41806dB67DD73",
+      "taxVaultClone": "0x492C16Bf3Ee5092647811f2EC4aD4c494116Bfb7",
+      "forwardVault": "0x257A9613Ac2BAF4dE3471341B5EFa6066D492Cf0",
+      "vault": "0x084c71E87f7334ECdd91AfA58eE3B4c2e4e84f09",
+      "createTx": "0xb8dd0aac82cc749b32e3cecb2cde4bc9beaa4892ea675bca60d94c7018565a6f"
+    },
+    {
+      "token": "0xdc787179a96bC8A826F5D5b618B6361c90e4215A",
+      "kind": "tax-rules",
+      "quote": "0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd",
+      "splitter": "0x422805D2135A99302728D3201a2c33b2303f79F1",
+      "pile": "0x7d167fba8b90f4823097CBcF3d65A56922B39B01",
+      "taxVaultClone": "0x2dEBd754FDE1Eab70EB8447377BaC058e795d074",
+      "forwardVault": "0x61C2cA08910a3F14ef59B40960aeF27D2aE01cA3",
+      "vault": "0xF99DC4Da8F806F58431CB6218f662772F30172c3",
+      "rules": {
+        "creator": "0xd5D5633737f2fFd8E79E0AAf008795aB43215530",
+        "creatorBps": 2000,
+        "pileBps": 5000,
+        "burnBps": 3000
+      },
+      "name": "Snip",
+      "symbol": "SNIP",
+      "tokenUri": "https://arweave.net/NsBB0qXX3l8SNYmdBaOQNKUhPRf6NkG4EA3ReWI3BGU#sha256=c7d2bf3b151db24a1a637b51728842bdd7f1cc4cc35f9216926688cf15dff09f",
+      "createTx": "0x2620e1b10308d01fe4a30c44766fa598ef98549bdbfea420367ef493f1a43680"
+    }
+  ]
+}

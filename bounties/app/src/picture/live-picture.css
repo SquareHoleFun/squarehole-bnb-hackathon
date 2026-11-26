@@ -1,0 +1,16 @@
+/* SH-319: a launched token's picture at the top of its page, beside the sale's chart and numbers on a wide screen. */
+.sh-live-top { display: grid; gap: var(--sh-gap-3, 12px); grid-template-columns: minmax(0, 1fr); align-items: start; }
+.sh-live-top__rest { min-width: 0; display: grid; gap: var(--sh-gap-3, 12px); align-content: start; }
+.sh-live { gap: 0; }
+.sh-live .sh-pic { max-height: none; }
+@media (min-width: 760px) {
+  .sh-live-top { grid-template-columns: minmax(0, 400px) minmax(0, 1fr); }
+}
+/* SH-321: the tray cells of rules paying the holders' stake (green) and a card shop (pink). */
+.sh-pic-cell--holders { fill: #4fcf8e; background: #4fcf8e; }
+.sh-pic-cell--shop { fill: #f07cb4; background: #f07cb4; }
+/* The card shop's two cards in the corner. */
+.sh-pic-card { fill: #241e4f; stroke: #8d78ea; stroke-width: 2; }
+.sh-pic-card--front { fill: #f2c886; stroke: #b0742c; }
+/* A panel the picture led to: lit for a moment. */
+.sh-live-lit { outline: 3px solid var(--sh-focus-ring, #a78bfa); outline-offset: 3px; }

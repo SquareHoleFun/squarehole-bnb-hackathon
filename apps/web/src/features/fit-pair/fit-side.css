@@ -1,0 +1,110 @@
+/*
+ * The v2 FIT / Misfits pair page (T19), the side cards (vault, fees, contracts). Reuses the pair detail's cards, copy
+ * button and notice card. Colour rules (BOX-SYSTEM § 1.3, realtime § 10): lavender belongs to the FIT mark only; state
+ * is always also in words. Layout: container queries on the page section, like the pair detail. Split by card:
+ * fit-head.css, fit-curve.css, fit-window-tape.css, fit-side.css (imported in that order by main.tsx).
+ */
+
+/* ── Vault ─────────────────────────────────────────────────── */
+.sh-fit-vault__counts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sh-gap-3);
+}
+
+.sh-fit-vault__count {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-control);
+  background: rgba(8, 13, 22, 0.35);
+}
+
+.sh-fit-vault__count dt {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 750;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.sh-fit-vault__count dd {
+  margin: 0;
+  font-size: var(--sh-type-caption);
+}
+
+.sh-fit-vault__count strong {
+  color: var(--sh-text);
+  font-size: 22px;
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+}
+
+.sh-fit-vault__shutter {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px dashed var(--sh-border-strong);
+  border-radius: var(--sh-radius-pill);
+  color: var(--sh-text);
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+}
+
+.sh-fit-vault__shutter > .sh-glyph {
+  flex: none;
+  color: var(--sh-text-muted);
+}
+
+.sh-fit-vault__shutter[data-open='true'] {
+  border-style: solid;
+}
+
+.sh-fit-vault__source,
+.sh-fit-contracts__note {
+  font-size: var(--sh-type-caption);
+}
+
+/* ── Fees ──────────────────────────────────────────────────── */
+.sh-fit-fees__line {
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+}
+
+.sh-fit-fees__line strong {
+  color: var(--sh-text);
+}
+
+.sh-fit-fees__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sh-gap-2);
+  margin: 0;
+}
+
+.sh-fit-fees__list dt {
+  color: var(--sh-text);
+  font-size: var(--sh-type-small);
+  font-weight: 750;
+}
+
+.sh-fit-fees__list dd {
+  margin: 0;
+  font-size: var(--sh-type-small);
+}
+
+/* ── Contracts ─────────────────────────────────────────────── */
+.sh-fit-contracts__list {
+  margin-top: var(--sh-gap-2);
+}
+
+/* A deployed pool whose hook still opens to outside liquidity (until the D3 rebuild): one factual line. */
+.sh-fit-fees__outside {
+  margin-top: 6px;
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-small);
+}

@@ -1,0 +1,76 @@
+{
+  "started": "2026-11-26T06:35:57.558Z",
+  "complete": true,
+  "forkBlock": "144932780",
+  "deployerAtStart": {
+    "nonce": "284",
+    "balance": "1080337455900812077"
+  },
+  "release": {
+    "factory": "0x2Ca9B6D94c702Dd73eaf8891F36E757e9fEDdfbc",
+    "startBlock": "144932781"
+  },
+  "files": {
+    "staged": {
+      "manifest": "/home/sh/work/c/.cache/short-wait/fork-4/files/core-v1/97.json",
+      "extras": "/home/sh/work/c/.cache/short-wait/fork-4/files/bnb-testnet/97-extras.json",
+      "createOptions": "/home/sh/work/c/.cache/short-wait/fork-4/files/create-options/data/97/0x2ca9b6d94c702dd73eaf8891f36e757e9feddfbc.json"
+    },
+    "check": {
+      "releases": 2,
+      "onChainProblems": [],
+      "createOptions": "parses for the second release, off: addon.1"
+    },
+    "published": null,
+    "evidence": "144933060"
+  },
+  "box": {
+    "box": "0x50742Bf673181A1761ec938BB779d983BDED16d8",
+    "specHash": "0x35a55ba3c1addcb095c1b9df8dc25947cdea35ad8c7154b681a0e2fe6894995a",
+    "bootstrapQ": "357",
+    "creatorBuyP": "100000",
+    "block": "144933143",
+    "createdAt": "1795675187",
+    "alreadyCreated": false,
+    "activeAt": "1795675787",
+    "listedAt": "1795675187",
+    "listingRegistry": "0xbf386b81939974a93787c4da6ad2c09d0c5af5b3"
+  },
+  "give": {
+    "triedAt": "1795675680",
+    "activeAt": "1795675787",
+    "earlyRefused": true,
+    "givenAt": "1795675797",
+    "paidT": "1000000000000000000000000"
+  },
+  "costs": {
+    "release": {
+      "transactions": "31",
+      "tBNB": "8725102100000000"
+    },
+    "listings": {
+      "transactions": "9",
+      "tBNB": "366607700000000"
+    },
+    "cards": {
+      "transactions": "16",
+      "tBNB": "90864000000000"
+    },
+    "box": {
+      "transactions": "26",
+      "tBNB": "9779814000000000"
+    },
+    "pick": {
+      "transactions": "2",
+      "tBNB": "394797000000000"
+    },
+    "give": {
+      "transactions": "1",
+      "tBNB": "364308000000000"
+    }
+  },
+  "deployerAtEnd": {
+    "nonce": "370",
+    "balance": "1060567311100812077"
+  }
+}

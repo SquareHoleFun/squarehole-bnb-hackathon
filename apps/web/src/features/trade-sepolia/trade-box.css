@@ -1,0 +1,65 @@
+/* F156 (SH-ALPHA-TRADE-BOX): the buy/sell box on a v2 box page, Sepolia builds only. Numbers first, one line at most. */
+.sh-trade-box { display: grid; gap: .75rem; min-width: 0; }
+/* Buy or Sell: two native radios drawn as one segmented control. */
+.sh-trade-box__sides { display: grid; grid-template-columns: 1fr 1fr; width: min(100%, 20rem); margin: 0; padding: 0; border: 0; min-width: 0; }
+.sh-trade-box__side {
+  position: relative; display: flex; align-items: center; justify-content: center; min-height: var(--sh-touch-target);
+  border: 1px solid var(--sh-border-strong); background: var(--sh-surface-raised); font-weight: 650; cursor: pointer;
+}
+.sh-trade-box__side:first-of-type { border-radius: var(--sh-radius-control) 0 0 var(--sh-radius-control); }
+.sh-trade-box__side:last-of-type { border-radius: 0 var(--sh-radius-control) var(--sh-radius-control) 0; margin-left: -1px; }
+.sh-trade-box__side[data-checked] { z-index: 1; background: var(--sh-selected); border-color: var(--sh-accent); box-shadow: inset 0 0 0 1px var(--sh-accent); }
+.sh-panel.sh-trade-box .sh-trade-box__side > input { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; margin: 0; opacity: 0; cursor: pointer; }
+.sh-trade-box__side:has(> input:focus-visible) { outline: 3px solid var(--sh-focus-ring); outline-offset: 2px; box-shadow: 0 0 0 7px var(--sh-focus-halo); }
+.sh-trade-box__sides:disabled .sh-trade-box__side { opacity: .6; cursor: default; }
+.sh-trade-box__amount { display: flex; align-items: center; gap: .5rem; width: min(100%, 28rem); min-width: 0; }
+/* Above the v2 page's own panel input rule (.sh-v2-page .sh-panel input: a block of 24rem). */
+.sh-panel.sh-trade-box .sh-trade-box__input {
+  flex: 1 1 auto; min-width: 0; max-width: none; padding: .6rem .75rem;
+  border: 1px solid var(--sh-border-strong); border-radius: var(--sh-radius-control); background: var(--sh-surface-raised);
+  font-size: 1.5rem; font-variant-numeric: tabular-nums;
+}
+.sh-trade-box__unit { color: var(--sh-text-secondary); font-weight: 650; white-space: nowrap; }
+.sh-trade-box__amount > .sh-trade-box__unit { flex: none; }
+.sh-trade-box__balance { color: var(--sh-text-secondary); font-size: var(--sh-type-small); font-variant-numeric: tabular-nums; }
+/* F157 Q1: the launch tax in large type, with the moment its step ends. */
+.sh-trade-box__tax { display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem .75rem; margin: 0; }
+.sh-trade-box__tax-label { color: var(--sh-text-secondary); font-weight: 650; }
+.sh-trade-box__tax-value { color: var(--sh-warning); font-size: 2.5rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.sh-trade-box__tax-until { color: var(--sh-text-secondary); font-variant-numeric: tabular-nums; }
+.sh-trade-box .sh-trade-box__figures { display: flex; flex-wrap: wrap; gap: .5rem 2rem; margin: 0; }
+.sh-trade-box__figures dt { color: var(--sh-text-secondary); font-size: var(--sh-type-small); }
+.sh-trade-box__out { font-size: 1.5rem; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.sh-trade-box__note, .sh-trade-box__warning { color: var(--sh-text-secondary); font-size: var(--sh-type-small); }
+.sh-trade-box__warning { color: var(--sh-warning); font-weight: 650; }
+.sh-trade-box__actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+.sh-trade-box .sh-trade-box__go { min-width: 12rem; }
+.sh-trade-box__line { font-weight: 650; }
+.sh-trade-box__tolerance { display: flex; align-items: center; gap: .5rem; }
+.sh-panel.sh-trade-box .sh-trade-box__tolerance input { width: 6rem; max-width: 6rem; padding: .4rem .5rem; border: 1px solid var(--sh-border-strong); border-radius: var(--sh-radius-control); background: var(--sh-surface-raised); font-variant-numeric: tabular-nums; }
+.sh-trade-box__receipts { display: grid; gap: .25rem; margin: 0; padding: 0; list-style: none; font-size: var(--sh-type-small); }
+.sh-trade-box__receipt { display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem .75rem; }
+.sh-trade-box__receipt[data-status='reverted'] { color: var(--sh-negative); }
+/* A trade that took less than its call offered: the colour of the box's "Can fill in part" warning. */
+.sh-trade-box__receipt[data-fill='part'] > span { color: var(--sh-warning); font-weight: 650; }
+.sh-trade-box__receipt code { font-variant-numeric: tabular-nums; }
+/* SH-ONE-PRESS-TRADE: a press that needed an approval, on one line: two small ticks, Approve and the trade (Steps.tsx). */
+.sh-trade-steps { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem 1.25rem; margin: 0; padding: 0; list-style: none; color: var(--sh-text-secondary); font-size: var(--sh-type-small); }
+.sh-trade-steps__step { display: inline-flex; align-items: center; gap: .4rem; }
+.sh-trade-steps__mark {
+  display: inline-grid; place-items: center; width: 1.25rem; height: 1.25rem; border: 1px solid var(--sh-border-strong);
+  border-radius: 50%; font-size: .75rem; line-height: 1;
+}
+.sh-trade-steps__step[data-state='active'] { color: var(--sh-text); font-weight: 650; }
+.sh-trade-steps__step[data-state='active'] .sh-trade-steps__mark { border-color: var(--sh-accent); color: var(--sh-accent); animation: sh-trade-steps-pulse 1.2s ease-in-out infinite; }
+.sh-trade-steps__step[data-state='done'] { color: var(--sh-text); }
+.sh-trade-steps__step[data-state='done'] .sh-trade-steps__mark { border-color: var(--sh-positive); color: var(--sh-positive); font-weight: 700; }
+.sh-trade-steps__step[data-state='stopped'] .sh-trade-steps__mark { border-color: var(--sh-negative); color: var(--sh-negative); }
+@keyframes sh-trade-steps-pulse { 50% { opacity: .35; } }
+@media (prefers-reduced-motion: reduce) { .sh-trade-steps__step[data-state='active'] .sh-trade-steps__mark { animation: none; } }
+@media (max-width: 30rem) {
+  .sh-trade-box__sides { width: 100%; }
+  .sh-trade-box__amount { width: 100%; }
+  .sh-trade-box .sh-trade-box__go { width: 100%; }
+  .sh-trade-box__tax-value { font-size: 2rem; }
+}

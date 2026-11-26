@@ -1,0 +1,68 @@
+{
+  "chainId": 97,
+  "deployer": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576",
+  "startBlock": "144754031",
+  "note": "reconstructed from the orchestrator's reports of the real steps 1 to 8 (25 November 2026), for a fork rehearsal",
+  "dependencies": {
+    "manager": "0xb0fd2d66040d310ed6bffbf8dba9ffcef39f52a4",
+    "weth": "0xae13d989dac2f0debff460ac112a837c89baa7cd",
+    "drand": "0x4d1fdc8838ddb913779b9c5e79e2b2a82c58a264",
+    "firstFee": "0x9573d4ae9fe9b779d0ba05848d70af641c415b1d",
+    "platform": "0x974d108cf896fb4b0981a13df759349d44296d27",
+    "swapper": "0xd0a5872737d4dec8c7e33dff205ab74bd43b4a3e",
+    "poolSwapTest": "0x95c8aa9ad318a897259e1910a9f1ad31bec40c35"
+  },
+  "factory": "0xB954a0db33a6351e76E519b4830489531C39d4F0",
+  "coins": {
+    "usdc": "0x25c5789b269d8f76309ce961759d643dce291347",
+    "nvda": "0x2f8029a6447663e0881b0e21f5e4ad0f1717627e",
+    "gold": "0x4ba04db6044a6f442bdb29b032cb019f663ab164",
+    "pepe": "0xf4f59ecf2221c9c07ca8fcf47a2652008fea2ed8",
+    "teth": "0x860822580d4eb2529de0c74c3e2b1d6d7c183302"
+  },
+  "routes": {
+    "nvdaFromBnb": "0x11597fdc64a5761557f5c9ac648c710b59e30e93",
+    "goldFromBnb": "0xf7179bbb5cb34c702dbb39ce356b177920c05a2c",
+    "nvdaFromUsdc": "0x13b5cfb0215743c9205dfcdb9d10bd024c3201cc"
+  },
+  "directory": "0xc4cf337484488Ca377d111eA1E81d77eEc57F62C",
+  "gas": {
+    "dependencies": {
+      "transactions": [],
+      "note": "real run: 6 transactions, 10,932,186 gas"
+    },
+    "release": {
+      "transactions": [],
+      "note": "real run: 39 transactions, 95,338,087 gas"
+    },
+    "coins": {
+      "transactions": [],
+      "note": "real run: 5 transactions, 3,869,808 gas"
+    },
+    "routes": {
+      "transactions": [],
+      "note": "real run: 6 transactions, 14,720,293 gas"
+    },
+    "listings": {
+      "transactions": [],
+      "note": "real run: 11 transactions, 3,845,065 gas"
+    },
+    "helpers": {
+      "transactions": [],
+      "note": "real run: 2 transactions, 4,569,139 gas"
+    },
+    "pools": {
+      "transactions": [],
+      "note": "real run: 31 transactions, 3,098,921 gas, 0.0002 tBNB sent"
+    },
+    "faucet": {
+      "transactions": [],
+      "note": "real run: 1 transaction"
+    }
+  },
+  "listingRegistry": "0xcCf0B8CC9257DB834d77F29EA9eB8e5554ba0170",
+  "helpers": {
+    "pairs": "0xfda3cdcef22ca647a4d77c4a5f150600bffcb06c",
+    "nativePools": "0xf5373e33f6900e608950c9031e345f060af671ab"
+  }
+}

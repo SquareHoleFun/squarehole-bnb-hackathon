@@ -1,0 +1,121 @@
+{
+  "format": "squarehole.test-junk-art/1",
+  "visibility": "public",
+  "collections": [
+    {
+      "key": "bent-cans",
+      "name": "Test Junk Bent Cans",
+      "symbol": "tJCAN",
+      "color": "#d47b43",
+      "material": "Tin",
+      "items": [
+        {
+          "id": "1",
+          "path": "art/bent-cans/1.png",
+          "sha256": "0x3f4b05edc0f65f1a57239516c16f19e15a4759e26f7bd2a59d5e8695e230ca9d",
+          "cid": "bafkreib7jmc63qhwl4nfoi4vc3aw6gpbljdvtytpppjklhk6q2k6emgktu",
+          "bytes": 22219
+        },
+        {
+          "id": "2",
+          "path": "art/bent-cans/2.png",
+          "sha256": "0x24131053b99e98a6f52937c584fb8133f0c1649ec5cfba245f88f4df482e5dc2",
+          "cid": "bafkreibecmifhom6tctpkkjxywcpxajt6dawjhwfz65cix4i6tpuqls5yi",
+          "bytes": 23106
+        }
+      ]
+    },
+    {
+      "key": "lost-cogs",
+      "name": "Test Junk Lost Cogs",
+      "symbol": "tJCOG",
+      "color": "#baa059",
+      "material": "Iron",
+      "items": [
+        {
+          "id": "1",
+          "path": "art/lost-cogs/1.png",
+          "sha256": "0x46e924eca463a8d3549ba7d72b09e2f2b3900fc667c76c4b700e1e3e913fd8b6",
+          "cid": "bafkreicg5esozjddvdjvjg5h24vqtyxswoia7rthy5wew4aody7jcp6ywy",
+          "bytes": 28469
+        },
+        {
+          "id": "2",
+          "path": "art/lost-cogs/2.png",
+          "sha256": "0xcef7fae588af8f8cbadb35569194960844f9f0c4d85ff6d8e201287ded214ce5",
+          "cid": "bafkreigo675olcfpr6glvwzvk2izjfqiit47brgyl73nryqbfb662ikm4u",
+          "bytes": 27990
+        }
+      ]
+    },
+    {
+      "key": "split-boots",
+      "name": "Test Junk Split Boots",
+      "symbol": "tJBOOT",
+      "color": "#8c9b76",
+      "material": "Rubber",
+      "items": [
+        {
+          "id": "1",
+          "path": "art/split-boots/1.png",
+          "sha256": "0xfec715a72c46034b9fef8a993c00b6ff2981cf776ffc4d85e7714bd84bde9378",
+          "cid": "bafkreih6y4k2olcganfz734kte6abnx7fga4653p7rgylz3rjpmexxutpa",
+          "bytes": 22658
+        },
+        {
+          "id": "2",
+          "path": "art/split-boots/2.png",
+          "sha256": "0x193ce5160ec7af039fba9b4914422d159fa0cc5d9664c3d6eee3d38615a91e2a",
+          "cid": "bafkreiazhtsrmdwhv4bz7ou3jekeelivt6qmyxmwmtb5n3xd2odblki6fi",
+          "bytes": 22387
+        }
+      ]
+    },
+    {
+      "key": "cracked-mugs",
+      "name": "Test Junk Cracked Mugs",
+      "symbol": "tJMUG",
+      "color": "#73a7ac",
+      "material": "Ceramic",
+      "items": [
+        {
+          "id": "1",
+          "path": "art/cracked-mugs/1.png",
+          "sha256": "0x3cf28fa6712b09b7b64cca7a75d450d4e8df2d3dd4ecb4e92aa3eb5451d12c2f",
+          "cid": "bafkreib46kh2m4jlbg33mtgkpj25iugu5dps2pou5s2oskvd5nkfdujmf4",
+          "bytes": 22964
+        },
+        {
+          "id": "2",
+          "path": "art/cracked-mugs/2.png",
+          "sha256": "0xa66dbabaa2e927190a1a017ed86b7ba5d94dcdf1ef850294e5f2c0508273baca",
+          "cid": "bafkreifgnw5lvixje4mqugqbp3mgw65f3fg434ppqubjjzpsybiie452zi",
+          "bytes": 22202
+        }
+      ]
+    },
+    {
+      "key": "tangled-wires",
+      "name": "Test Junk Tangled Wires",
+      "symbol": "tJWIRE",
+      "color": "#b48791",
+      "material": "Copper",
+      "items": [
+        {
+          "id": "1",
+          "path": "art/tangled-wires/1.png",
+          "sha256": "0x39196e76c4b3b697e3b6076ef27b48562931c5e3fdf3c9fc9ec6d24d4b56862f",
+          "cid": "bafkreibzdfxhnrftw2l6hnqhn3zhwscwfey4ly756pe7zhwg2jguwvugf4",
+          "bytes": 35514
+        },
+        {
+          "id": "2",
+          "path": "art/tangled-wires/2.png",
+          "sha256": "0xf6bcc359970fd234bb6d258063035f7e291d484935bdac7bda0db63e27382fff",
+          "cid": "bafkreihwxtbvtfyp2i2lw3jfqbrqgx36feouqsjvxwwhxwqnwy7coobp74",
+          "bytes": 36738
+        }
+      ]
+    }
+  ]
+}

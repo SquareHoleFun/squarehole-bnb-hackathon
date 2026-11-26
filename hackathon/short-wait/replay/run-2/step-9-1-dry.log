@@ -1,0 +1,21 @@
+picker: address 0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F (dry run)
+payer: address 0x2EF9A78074bbf674bEA16f21154a30c821A3C576 (dry run)
+dry run on a fork of http://127.0.0.1:8574 (http://127.0.0.1:38465); nothing is sent to http://127.0.0.1:8574
+[dry] sent card-shop:pick:1:0x13d7f4f2454ee9f84cbba9befaaf4dc96a0932b0d1231b24d3b7d2c5dc10ba43#0 transfer: 0x0eaa9a1cd5ff93a11e2fcf93a6c53e8e12735e60d338debb7d032ebe6f2c21a2 at 1000000000 wei/gas (the network's 1000000000), nonce 406
+[dry] sent card-shop:pick:1:0x13d7f4f2454ee9f84cbba9befaaf4dc96a0932b0d1231b24d3b7d2c5dc10ba43#1 approve: 0x791b0518d3eb8430fceffd84e0ca87223b6b40ce85c53d51f31d5552f5ccf3a8 at 1000000000 wei/gas (the network's 1000000000), nonce 111
+[dry] sent card-shop:pick:1:0x13d7f4f2454ee9f84cbba9befaaf4dc96a0932b0d1231b24d3b7d2c5dc10ba43#2 pick: 0x89c337f5faa01026e11d5a304575004d6faf546d4a64667ef97570eb334b364e at 1000000000 wei/gas (the network's 1000000000), nonce 112
+[dry] done card-shop:pick:1:0x13d7f4f2454ee9f84cbba9befaaf4dc96a0932b0d1231b24d3b7d2c5dc10ba43
+{
+  "command": "pick",
+  "dry": true,
+  "result": {
+    "box": "0xBfe1e7475ccAcFFbC72bdF4e37404F0e31792D09",
+    "card": "common-cards",
+    "id": "9",
+    "picker": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F",
+    "to": "0x2908E3351ec8F20a8a6746773e42EA1D2FFb3c7F",
+    "payer": "0x2EF9A78074bbf674bEA16f21154a30c821A3C576",
+    "pickT": "2000000000000000000000000",
+    "operation": "1"
+  }
+}

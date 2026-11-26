@@ -1,0 +1,100 @@
+{
+  "format": "squarehole.boxspec-draft/2",
+  "network": "demo",
+  "example": 1,
+  "brief": "Buyers: keep. Sellers: keep. Both fee sides use the pricing coin. Each box fixes the listing raise when it is created.",
+  "status": "ready",
+  "shows": [
+    "Buyers: keep. Sellers: keep. Both fee sides use the pricing coin. Each box fixes the listing raise when it is created."
+  ],
+  "differences": [
+    "CQ11 menu choices and full-range graduation."
+  ],
+  "deviations": [],
+  "converted": {
+    "from": "references/examples/gas-guzzlers.json",
+    "by": "docs/design/box-spec-v2-draft.md \u00a7 8"
+  },
+  "site": {
+    "links": []
+  },
+  "spec": {
+    "format": 2,
+    "version": 2,
+    "boxType": "NEW_COLLECTION",
+    "tokenName": "Gas Guzzlers",
+    "tokenSymbol": "GUZZ",
+    "collectionName": "Gas Guzzlers",
+    "collectionSymbol": "GUZZ",
+    "description": "Demo: 100 toy fuel cans from the 2021 gas wars. Every trade pays the creator a little gas money.",
+    "n": 100,
+    "firstId": "1",
+    "pricing": "ETH",
+    "raise": "LISTING",
+    "layout": "CURVE_V1",
+    "gradLayout": "FULL_RANGE",
+    "launchFormat": "CURVE",
+    "openAt": 0,
+    "deadlineDays": 30,
+    "buyers": {
+      "split": "NoSplit",
+      "a": {
+        "leg": "AsPaid",
+        "dest": "Creator"
+      }
+    },
+    "sellers": {
+      "split": "NoSplit",
+      "a": {
+        "leg": "AsPaid",
+        "dest": "Creator"
+      }
+    },
+    "artMode": "OPEN",
+    "revealRoot": "FROM_LAUNCH_FLOW",
+    "metadataTable": {
+      "formatV1": {
+        "traitTypes": [
+          {
+            "name": "Fuel",
+            "values": [
+              "Regular",
+              "Premium",
+              "Diesel",
+              "Jet"
+            ]
+          },
+          {
+            "name": "Gwei",
+            "values": [
+              "10",
+              "100",
+              "1000",
+              "9001"
+            ]
+          }
+        ]
+      }
+    },
+    "generatorHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coverSha256": "FROM_LAUNCH_FLOW",
+    "revealListId": "FROM_LAUNCH_FLOW",
+    "marketplaceOwner": "FROM_LAUNCH_FLOW",
+    "creatorFeeRecipient": "FROM_LAUNCH_FLOW",
+    "creatorBuy": {
+      "decimal": "0.1"
+    },
+    "collectionCoverSha256": "FROM_LAUNCH_FLOW",
+    "addOns": [
+      {
+        "addOn": "royalties",
+        "params": {
+          "bps": 500,
+          "destination": "FEE_HANDLING"
+        }
+      }
+    ],
+    "contentsParams": "0x",
+    "pickFeeBps": 2500
+  }
+}

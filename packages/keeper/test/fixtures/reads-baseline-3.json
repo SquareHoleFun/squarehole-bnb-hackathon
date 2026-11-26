@@ -1,0 +1,2774 @@
+[
+  {
+    "decisions": {
+      "report": {
+        "block": "12005000",
+        "sent": [
+          {
+            "job": "receiverPayFit",
+            "key": "receiverPayFit:2:0x0000000000000000000000000000000000000065",
+            "asOurs": true,
+            "gas": "250000"
+          }
+        ],
+        "skipped": [
+          {
+            "job": "collect",
+            "key": "collect:2:0x0000000000000000000000000000000000000065",
+            "why": "nothing to do"
+          },
+          {
+            "job": "routerSweep",
+            "key": "routerSweep:2:0x0000000000000000000000000000000000000065",
+            "why": "nothing to do"
+          },
+          {
+            "job": "collect",
+            "key": "collect:2:0x0000000000000000000000000000000000000079",
+            "why": "nothing to do"
+          },
+          {
+            "job": "routerSweep",
+            "key": "routerSweep:2:0x0000000000000000000000000000000000000079",
+            "why": "nothing to do"
+          },
+          {
+            "job": "collect",
+            "key": "collect:2:0x000000000000000000000000000000000000008d",
+            "why": "nothing to do"
+          },
+          {
+            "job": "routerSweep",
+            "key": "routerSweep:2:0x000000000000000000000000000000000000008d",
+            "why": "nothing to do"
+          },
+          {
+            "job": "deepen",
+            "key": "deepen:1:0",
+            "why": "nothing to do"
+          },
+          {
+            "job": "buyBack",
+            "key": "buyBack:2:0x0000000000000000000000000000000000000065",
+            "why": "nothing to do"
+          },
+          {
+            "job": "buyBack",
+            "key": "buyBack:2:0x0000000000000000000000000000000000000079",
+            "why": "nothing to do"
+          },
+          {
+            "job": "buyBack",
+            "key": "buyBack:2:0x000000000000000000000000000000000000008d",
+            "why": "nothing to do"
+          },
+          {
+            "job": "executorTopUp",
+            "key": "executorTopUp:1:0",
+            "why": "nothing to do"
+          }
+        ]
+      },
+      "state": {
+        "drandBounties": {},
+        "drandLog": {},
+        "mem": {
+          "cadence": {
+            "0x0000000000000000000000000000000000000002": {
+              "deepenSentSlot": null,
+              "deepenTriedSlot": "497584",
+              "deepenTriedBlock": "12005000",
+              "collectedAt": null,
+              "collectSlot": null
+            }
+          },
+          "pokes": {},
+          "attempts": {
+            "receiverPayFit:2:0x0000000000000000000000000000000000000065": {
+              "block": "12005000",
+              "next": "12005002"
+            },
+            "collect:2:0x0000000000000000000000000000000000000065": {
+              "block": "12005000",
+              "next": "12005002"
+            },
+            "routerSweep:2:0x0000000000000000000000000000000000000065": {
+              "block": "12005000",
+              "next": "12005002"
+            },
+            "collect:2:0x0000000000000000000000000000000000000079": {
+              "block": "12005000",
+              "next": "12005002"
+            },
+            "routerSweep:2:0x0000000000000000000000000000000000000079": {
+              "block": "12005000",
+              "next": "12005002"
+            },
+            "collect:2:0x000000000000000000000000000000000000008d": {
+              "block": "12005000",
+              "next": "12005002"
+            },
+            "routerSweep:2:0x000000000000000000000000000000000000008d": {
+              "block": "12005000",
+              "next": "12005002"
+            },
+            "buyBack:2:0x0000000000000000000000000000000000000065": {
+              "block": "12005000",
+              "next": "12005002"
+            },
+            "buyBack:2:0x0000000000000000000000000000000000000079": {
+              "block": "12005000",
+              "next": "12005002"
+            },
+            "buyBack:2:0x000000000000000000000000000000000000008d": {
+              "block": "12005000",
+              "next": "12005002"
+            }
+          },
+          "steps": {
+            "0x0000000000000000000000000000000000000065": {
+              "job": "buyBack",
+              "block": "12005000",
+              "sent": false
+            },
+            "0x0000000000000000000000000000000000000079": {
+              "job": "buyBack",
+              "block": "12005000",
+              "sent": false
+            },
+            "0x000000000000000000000000000000000000008d": {
+              "job": "buyBack",
+              "block": "12005000",
+              "sent": false
+            }
+          },
+          "buyBackSince": {
+            "0x0000000000000000000000000000000000000065": "12005000",
+            "0x0000000000000000000000000000000000000079": "12005000",
+            "0x000000000000000000000000000000000000008d": "12005000"
+          }
+        },
+        "budget": {
+          "day": "20732",
+          "oursWei": "750000",
+          "pokesWei": "0",
+          "totalWei": "750000",
+          "drandRescueWei": "0",
+          "block": "12005000",
+          "txInBlock": 1,
+          "pending": [
+            {
+              "costWei": "750000",
+              "ours": "ours"
+            }
+          ]
+        },
+        "skipLog": {
+          "collect|nothing to do": {
+            "at": "1791302400",
+            "repeats": 2
+          },
+          "routerSweep|nothing to do": {
+            "at": "1791302400",
+            "repeats": 2
+          },
+          "deepen|nothing to do": {
+            "at": "1791302400",
+            "repeats": 0
+          },
+          "buyBack|nothing to do": {
+            "at": "1791302400",
+            "repeats": 2
+          },
+          "executorTopUp|nothing to do": {
+            "at": "1791302400",
+            "repeats": 0
+          }
+        },
+        "m2Scan": {},
+        "incomeSpend": []
+      },
+      "income": {
+        "at": "1791302400",
+        "platformWei": "0",
+        "boxes": {
+          "0x0000000000000000000000000000000000000066": {
+            "shareWei": "0",
+            "tipsWei": "0"
+          },
+          "0x000000000000000000000000000000000000007a": {
+            "shareWei": "0",
+            "tipsWei": "0"
+          },
+          "0x000000000000000000000000000000000000008e": {
+            "shareWei": "0",
+            "tipsWei": "0"
+          }
+        },
+        "mined": {}
+      },
+      "simulations": [
+        {
+          "job": "receiverPayFit",
+          "key": "receiverPayFit:2:0x0000000000000000000000000000000000000065",
+          "result": {
+            "ok": true,
+            "tipWei": null,
+            "estimate": "100000"
+          }
+        },
+        {
+          "job": "collect",
+          "key": "collect:2:0x0000000000000000000000000000000000000065",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "routerSweep",
+          "key": "routerSweep:2:0x0000000000000000000000000000000000000065",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "collect",
+          "key": "collect:2:0x0000000000000000000000000000000000000079",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "routerSweep",
+          "key": "routerSweep:2:0x0000000000000000000000000000000000000079",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "collect",
+          "key": "collect:2:0x000000000000000000000000000000000000008d",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "routerSweep",
+          "key": "routerSweep:2:0x000000000000000000000000000000000000008d",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "deepen",
+          "key": "deepen:1:0",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "buyBack",
+          "key": "buyBack:2:0x0000000000000000000000000000000000000065",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "buyBack",
+          "key": "buyBack:2:0x0000000000000000000000000000000000000079",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "buyBack",
+          "key": "buyBack:2:0x000000000000000000000000000000000000008d",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "executorTopUp",
+          "key": "executorTopUp:1:0",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        }
+      ],
+      "snapshots": [
+        {
+          "block": {
+            "number": "12005000",
+            "timestamp": "1791302400",
+            "baseFeePerGas": "1"
+          },
+          "fitGraduated": true,
+          "boxes": [
+            {
+              "id": "0",
+              "version": 1,
+              "coordinator": "0x0000000000000000000000000000000000000001",
+              "hook": "0x0000000000000000000000000000000000000002",
+              "receiver": "0x0000000000000000000000000000000000000003",
+              "priceSource": "0x0000000000000000000000000000000000000005",
+              "graduated": true,
+              "failed": false,
+              "curveClosed": true,
+              "gateOpen": true,
+              "openAt": "0",
+              "deadline": "0",
+              "spotTick": 0,
+              "sampleTick": 0,
+              "checkpointTime": "1791298800",
+              "fitOwed": "0",
+              "platformOwed": "0",
+              "qPerEthX18": "1000000000000000000",
+              "executor": {
+                "budget": "0",
+                "batchThreshold": "100",
+                "twapReady": true
+              }
+            },
+            {
+              "id": "0",
+              "version": 2,
+              "coordinator": "0x0000000000000000000000000000000000000064",
+              "hook": "0x0000000000000000000000000000000000000065",
+              "receiver": "0x0000000000000000000000000000000000000066",
+              "priceSource": null,
+              "graduated": true,
+              "failed": false,
+              "gateOpen": true,
+              "openAt": "1791302300",
+              "deadline": "1792202400",
+              "curveClosed": true,
+              "fitOwed": "1",
+              "platformOwed": "0",
+              "spotTick": null,
+              "sampleTick": null,
+              "checkpointTime": "0",
+              "qPerEthX18": "1000000000000000000",
+              "v2": {
+                "rewardsPendingP": "0",
+                "rewardBurnPendingT": "0",
+                "router": "0x0000000000000000000000000000000000000067",
+                "q": "0x0000000000000000000000000000000000000000",
+                "qDecimals": 18,
+                "closedAt": "1791302300",
+                "lastProtocolBlock": "0",
+                "depthBudget": "1000",
+                "graduationSettled": true,
+                "buyBackP": "1000",
+                "eatPendingP": "0",
+                "pilePendingP": "0",
+                "shopPendingP": "0",
+                "modulePendingP": [
+                  "0",
+                  "0"
+                ],
+                "tBurnPending": "0",
+                "reward": "0",
+                "pot": "0",
+                "tLeft": "1",
+                "royalty": {
+                  "address": "0x0000000000000000000000000000000000000068",
+                  "eth": "0",
+                  "wrapped": "0",
+                  "price": "0",
+                  "coins": [
+                    {
+                      "coin": "0x00000000000000000000000000000000000002BC",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002bd",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002be",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002Bf",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002C0",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002c1",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    }
+                  ]
+                },
+                "m2": [],
+                "m3": [],
+                "sources": {
+                  "buyerLag": "0",
+                  "sellerRun": "0"
+                }
+              }
+            },
+            {
+              "id": "1",
+              "version": 2,
+              "coordinator": "0x0000000000000000000000000000000000000078",
+              "hook": "0x0000000000000000000000000000000000000079",
+              "receiver": "0x000000000000000000000000000000000000007a",
+              "priceSource": null,
+              "graduated": true,
+              "failed": false,
+              "gateOpen": true,
+              "openAt": "1791302300",
+              "deadline": "1792202400",
+              "curveClosed": true,
+              "fitOwed": "0",
+              "platformOwed": "0",
+              "spotTick": null,
+              "sampleTick": null,
+              "checkpointTime": "0",
+              "qPerEthX18": "1000000000000000000",
+              "v2": {
+                "rewardsPendingP": "0",
+                "rewardBurnPendingT": "0",
+                "router": "0x000000000000000000000000000000000000007B",
+                "q": "0x0000000000000000000000000000000000000000",
+                "qDecimals": 18,
+                "closedAt": "1791302300",
+                "lastProtocolBlock": "0",
+                "depthBudget": "1000",
+                "graduationSettled": true,
+                "buyBackP": "1000",
+                "eatPendingP": "0",
+                "pilePendingP": "0",
+                "shopPendingP": "0",
+                "modulePendingP": [
+                  "0",
+                  "0"
+                ],
+                "tBurnPending": "0",
+                "reward": "0",
+                "pot": "0",
+                "tLeft": "1",
+                "royalty": {
+                  "address": "0x000000000000000000000000000000000000007c",
+                  "eth": "0",
+                  "wrapped": "0",
+                  "price": "0",
+                  "coins": [
+                    {
+                      "coin": "0x00000000000000000000000000000000000002BC",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002bd",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002be",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002Bf",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002C0",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002c1",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    }
+                  ]
+                },
+                "m2": [],
+                "m3": [],
+                "sources": {
+                  "buyerLag": "0",
+                  "sellerRun": "0"
+                }
+              }
+            },
+            {
+              "id": "2",
+              "version": 2,
+              "coordinator": "0x000000000000000000000000000000000000008C",
+              "hook": "0x000000000000000000000000000000000000008D",
+              "receiver": "0x000000000000000000000000000000000000008e",
+              "priceSource": null,
+              "graduated": true,
+              "failed": false,
+              "gateOpen": true,
+              "openAt": "1791302300",
+              "deadline": "1792202400",
+              "curveClosed": true,
+              "fitOwed": "0",
+              "platformOwed": "0",
+              "spotTick": null,
+              "sampleTick": null,
+              "checkpointTime": "0",
+              "qPerEthX18": "1000000000000000000",
+              "v2": {
+                "rewardsPendingP": "0",
+                "rewardBurnPendingT": "0",
+                "router": "0x000000000000000000000000000000000000008F",
+                "q": "0x0000000000000000000000000000000000000000",
+                "qDecimals": 18,
+                "closedAt": "1791302300",
+                "lastProtocolBlock": "0",
+                "depthBudget": "1000",
+                "graduationSettled": true,
+                "buyBackP": "1000",
+                "eatPendingP": "0",
+                "pilePendingP": "0",
+                "shopPendingP": "0",
+                "modulePendingP": [
+                  "0",
+                  "0"
+                ],
+                "tBurnPending": "0",
+                "reward": "0",
+                "pot": "0",
+                "tLeft": "1",
+                "royalty": {
+                  "address": "0x0000000000000000000000000000000000000090",
+                  "eth": "0",
+                  "wrapped": "0",
+                  "price": "0",
+                  "coins": [
+                    {
+                      "coin": "0x00000000000000000000000000000000000002BC",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002bd",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002be",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002Bf",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002C0",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002c1",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    }
+                  ]
+                },
+                "m2": [],
+                "m3": [],
+                "sources": {
+                  "buyerLag": "0",
+                  "sellerRun": "0"
+                }
+              }
+            }
+          ],
+          "drand": [],
+          "m2Scan": {}
+        }
+      ]
+    },
+    "count": 434
+  },
+  {
+    "decisions": {
+      "report": {
+        "block": "12005002",
+        "sent": [
+          {
+            "job": "receiverPayFit",
+            "key": "receiverPayFit:2:0x0000000000000000000000000000000000000065",
+            "asOurs": true,
+            "gas": "250000"
+          }
+        ],
+        "skipped": [
+          {
+            "job": "collect",
+            "key": "collect:2:0x0000000000000000000000000000000000000065",
+            "why": "nothing to do"
+          },
+          {
+            "job": "routerSweep",
+            "key": "routerSweep:2:0x0000000000000000000000000000000000000065",
+            "why": "nothing to do"
+          },
+          {
+            "job": "collect",
+            "key": "collect:2:0x0000000000000000000000000000000000000079",
+            "why": "nothing to do"
+          },
+          {
+            "job": "routerSweep",
+            "key": "routerSweep:2:0x0000000000000000000000000000000000000079",
+            "why": "nothing to do"
+          },
+          {
+            "job": "collect",
+            "key": "collect:2:0x000000000000000000000000000000000000008d",
+            "why": "nothing to do"
+          },
+          {
+            "job": "routerSweep",
+            "key": "routerSweep:2:0x000000000000000000000000000000000000008d",
+            "why": "nothing to do"
+          },
+          {
+            "job": "deepen",
+            "key": "deepen:1:0",
+            "why": "nothing to do"
+          },
+          {
+            "job": "buyBack",
+            "key": "buyBack:2:0x0000000000000000000000000000000000000065",
+            "why": "nothing to do"
+          },
+          {
+            "job": "buyBack",
+            "key": "buyBack:2:0x0000000000000000000000000000000000000079",
+            "why": "nothing to do"
+          },
+          {
+            "job": "buyBack",
+            "key": "buyBack:2:0x000000000000000000000000000000000000008d",
+            "why": "nothing to do"
+          },
+          {
+            "job": "executorTopUp",
+            "key": "executorTopUp:1:0",
+            "why": "nothing to do"
+          }
+        ]
+      },
+      "state": {
+        "drandBounties": {},
+        "drandLog": {},
+        "mem": {
+          "cadence": {
+            "0x0000000000000000000000000000000000000002": {
+              "deepenSentSlot": null,
+              "deepenTriedSlot": "497584",
+              "deepenTriedBlock": "12005002",
+              "collectedAt": null,
+              "collectSlot": null
+            }
+          },
+          "pokes": {},
+          "attempts": {
+            "receiverPayFit:2:0x0000000000000000000000000000000000000065": {
+              "block": "12005002",
+              "next": "12005004"
+            },
+            "collect:2:0x0000000000000000000000000000000000000065": {
+              "block": "12005002",
+              "next": "12005004"
+            },
+            "routerSweep:2:0x0000000000000000000000000000000000000065": {
+              "block": "12005002",
+              "next": "12005004"
+            },
+            "collect:2:0x0000000000000000000000000000000000000079": {
+              "block": "12005002",
+              "next": "12005004"
+            },
+            "routerSweep:2:0x0000000000000000000000000000000000000079": {
+              "block": "12005002",
+              "next": "12005004"
+            },
+            "collect:2:0x000000000000000000000000000000000000008d": {
+              "block": "12005002",
+              "next": "12005004"
+            },
+            "routerSweep:2:0x000000000000000000000000000000000000008d": {
+              "block": "12005002",
+              "next": "12005004"
+            },
+            "buyBack:2:0x0000000000000000000000000000000000000065": {
+              "block": "12005002",
+              "next": "12005004"
+            },
+            "buyBack:2:0x0000000000000000000000000000000000000079": {
+              "block": "12005002",
+              "next": "12005004"
+            },
+            "buyBack:2:0x000000000000000000000000000000000000008d": {
+              "block": "12005002",
+              "next": "12005004"
+            }
+          },
+          "steps": {
+            "0x0000000000000000000000000000000000000065": {
+              "job": "buyBack",
+              "block": "12005002",
+              "sent": false
+            },
+            "0x0000000000000000000000000000000000000079": {
+              "job": "buyBack",
+              "block": "12005002",
+              "sent": false
+            },
+            "0x000000000000000000000000000000000000008d": {
+              "job": "buyBack",
+              "block": "12005002",
+              "sent": false
+            }
+          },
+          "buyBackSince": {
+            "0x0000000000000000000000000000000000000065": "12005002",
+            "0x0000000000000000000000000000000000000079": "12005002",
+            "0x000000000000000000000000000000000000008d": "12005002"
+          }
+        },
+        "budget": {
+          "day": "20732",
+          "oursWei": "750000",
+          "pokesWei": "0",
+          "totalWei": "750000",
+          "drandRescueWei": "0",
+          "block": "12005002",
+          "txInBlock": 1,
+          "pending": [
+            {
+              "costWei": "750000",
+              "ours": "ours"
+            }
+          ]
+        },
+        "skipLog": {
+          "collect|nothing to do": {
+            "at": "1791302424",
+            "repeats": 2
+          },
+          "routerSweep|nothing to do": {
+            "at": "1791302424",
+            "repeats": 2
+          },
+          "deepen|nothing to do": {
+            "at": "1791302424",
+            "repeats": 0
+          },
+          "buyBack|nothing to do": {
+            "at": "1791302424",
+            "repeats": 2
+          },
+          "executorTopUp|nothing to do": {
+            "at": "1791302424",
+            "repeats": 0
+          }
+        },
+        "m2Scan": {},
+        "incomeSpend": []
+      },
+      "income": {
+        "at": "1791302424",
+        "platformWei": "0",
+        "boxes": {
+          "0x0000000000000000000000000000000000000066": {
+            "shareWei": "0",
+            "tipsWei": "0"
+          },
+          "0x000000000000000000000000000000000000007a": {
+            "shareWei": "0",
+            "tipsWei": "0"
+          },
+          "0x000000000000000000000000000000000000008e": {
+            "shareWei": "0",
+            "tipsWei": "0"
+          }
+        },
+        "mined": {}
+      },
+      "simulations": [
+        {
+          "job": "receiverPayFit",
+          "key": "receiverPayFit:2:0x0000000000000000000000000000000000000065",
+          "result": {
+            "ok": true,
+            "tipWei": null,
+            "estimate": "100000"
+          }
+        },
+        {
+          "job": "collect",
+          "key": "collect:2:0x0000000000000000000000000000000000000065",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "routerSweep",
+          "key": "routerSweep:2:0x0000000000000000000000000000000000000065",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "collect",
+          "key": "collect:2:0x0000000000000000000000000000000000000079",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "routerSweep",
+          "key": "routerSweep:2:0x0000000000000000000000000000000000000079",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "collect",
+          "key": "collect:2:0x000000000000000000000000000000000000008d",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "routerSweep",
+          "key": "routerSweep:2:0x000000000000000000000000000000000000008d",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "deepen",
+          "key": "deepen:1:0",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "buyBack",
+          "key": "buyBack:2:0x0000000000000000000000000000000000000065",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "buyBack",
+          "key": "buyBack:2:0x0000000000000000000000000000000000000079",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "buyBack",
+          "key": "buyBack:2:0x000000000000000000000000000000000000008d",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "executorTopUp",
+          "key": "executorTopUp:1:0",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        }
+      ],
+      "snapshots": [
+        {
+          "block": {
+            "number": "12005002",
+            "timestamp": "1791302424",
+            "baseFeePerGas": "1"
+          },
+          "fitGraduated": true,
+          "boxes": [
+            {
+              "id": "0",
+              "version": 1,
+              "coordinator": "0x0000000000000000000000000000000000000001",
+              "hook": "0x0000000000000000000000000000000000000002",
+              "receiver": "0x0000000000000000000000000000000000000003",
+              "priceSource": "0x0000000000000000000000000000000000000005",
+              "graduated": true,
+              "failed": false,
+              "curveClosed": true,
+              "gateOpen": true,
+              "openAt": "0",
+              "deadline": "0",
+              "spotTick": 0,
+              "sampleTick": 0,
+              "checkpointTime": "1791298800",
+              "fitOwed": "0",
+              "platformOwed": "0",
+              "qPerEthX18": "1000000000000000000",
+              "executor": {
+                "budget": "0",
+                "batchThreshold": "100",
+                "twapReady": true
+              }
+            },
+            {
+              "id": "0",
+              "version": 2,
+              "coordinator": "0x0000000000000000000000000000000000000064",
+              "hook": "0x0000000000000000000000000000000000000065",
+              "receiver": "0x0000000000000000000000000000000000000066",
+              "priceSource": null,
+              "graduated": true,
+              "failed": false,
+              "gateOpen": true,
+              "openAt": "1791302300",
+              "deadline": "1792202400",
+              "curveClosed": true,
+              "fitOwed": "1",
+              "platformOwed": "0",
+              "spotTick": null,
+              "sampleTick": null,
+              "checkpointTime": "0",
+              "qPerEthX18": "1000000000000000000",
+              "v2": {
+                "rewardsPendingP": "0",
+                "rewardBurnPendingT": "0",
+                "router": "0x0000000000000000000000000000000000000067",
+                "q": "0x0000000000000000000000000000000000000000",
+                "qDecimals": 18,
+                "closedAt": "1791302300",
+                "lastProtocolBlock": "0",
+                "depthBudget": "1000",
+                "graduationSettled": true,
+                "buyBackP": "1000",
+                "eatPendingP": "0",
+                "pilePendingP": "0",
+                "shopPendingP": "0",
+                "modulePendingP": [
+                  "0",
+                  "0"
+                ],
+                "tBurnPending": "0",
+                "reward": "0",
+                "pot": "0",
+                "tLeft": "1",
+                "royalty": {
+                  "address": "0x0000000000000000000000000000000000000068",
+                  "eth": "0",
+                  "wrapped": "0",
+                  "price": "0",
+                  "coins": [
+                    {
+                      "coin": "0x00000000000000000000000000000000000002BC",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002bd",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002be",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002Bf",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002C0",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002c1",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    }
+                  ]
+                },
+                "m2": [],
+                "m3": [],
+                "sources": {
+                  "buyerLag": "0",
+                  "sellerRun": "0"
+                }
+              }
+            },
+            {
+              "id": "1",
+              "version": 2,
+              "coordinator": "0x0000000000000000000000000000000000000078",
+              "hook": "0x0000000000000000000000000000000000000079",
+              "receiver": "0x000000000000000000000000000000000000007a",
+              "priceSource": null,
+              "graduated": true,
+              "failed": false,
+              "gateOpen": true,
+              "openAt": "1791302300",
+              "deadline": "1792202400",
+              "curveClosed": true,
+              "fitOwed": "0",
+              "platformOwed": "0",
+              "spotTick": null,
+              "sampleTick": null,
+              "checkpointTime": "0",
+              "qPerEthX18": "1000000000000000000",
+              "v2": {
+                "rewardsPendingP": "0",
+                "rewardBurnPendingT": "0",
+                "router": "0x000000000000000000000000000000000000007B",
+                "q": "0x0000000000000000000000000000000000000000",
+                "qDecimals": 18,
+                "closedAt": "1791302300",
+                "lastProtocolBlock": "0",
+                "depthBudget": "1000",
+                "graduationSettled": true,
+                "buyBackP": "1000",
+                "eatPendingP": "0",
+                "pilePendingP": "0",
+                "shopPendingP": "0",
+                "modulePendingP": [
+                  "0",
+                  "0"
+                ],
+                "tBurnPending": "0",
+                "reward": "0",
+                "pot": "0",
+                "tLeft": "1",
+                "royalty": {
+                  "address": "0x000000000000000000000000000000000000007c",
+                  "eth": "0",
+                  "wrapped": "0",
+                  "price": "0",
+                  "coins": [
+                    {
+                      "coin": "0x00000000000000000000000000000000000002BC",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002bd",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002be",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002Bf",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002C0",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002c1",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    }
+                  ]
+                },
+                "m2": [],
+                "m3": [],
+                "sources": {
+                  "buyerLag": "0",
+                  "sellerRun": "0"
+                }
+              }
+            },
+            {
+              "id": "2",
+              "version": 2,
+              "coordinator": "0x000000000000000000000000000000000000008C",
+              "hook": "0x000000000000000000000000000000000000008D",
+              "receiver": "0x000000000000000000000000000000000000008e",
+              "priceSource": null,
+              "graduated": true,
+              "failed": false,
+              "gateOpen": true,
+              "openAt": "1791302300",
+              "deadline": "1792202400",
+              "curveClosed": true,
+              "fitOwed": "0",
+              "platformOwed": "0",
+              "spotTick": null,
+              "sampleTick": null,
+              "checkpointTime": "0",
+              "qPerEthX18": "1000000000000000000",
+              "v2": {
+                "rewardsPendingP": "0",
+                "rewardBurnPendingT": "0",
+                "router": "0x000000000000000000000000000000000000008F",
+                "q": "0x0000000000000000000000000000000000000000",
+                "qDecimals": 18,
+                "closedAt": "1791302300",
+                "lastProtocolBlock": "0",
+                "depthBudget": "1000",
+                "graduationSettled": true,
+                "buyBackP": "1000",
+                "eatPendingP": "0",
+                "pilePendingP": "0",
+                "shopPendingP": "0",
+                "modulePendingP": [
+                  "0",
+                  "0"
+                ],
+                "tBurnPending": "0",
+                "reward": "0",
+                "pot": "0",
+                "tLeft": "1",
+                "royalty": {
+                  "address": "0x0000000000000000000000000000000000000090",
+                  "eth": "0",
+                  "wrapped": "0",
+                  "price": "0",
+                  "coins": [
+                    {
+                      "coin": "0x00000000000000000000000000000000000002BC",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002bd",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002be",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002Bf",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002C0",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002c1",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    }
+                  ]
+                },
+                "m2": [],
+                "m3": [],
+                "sources": {
+                  "buyerLag": "0",
+                  "sellerRun": "0"
+                }
+              }
+            }
+          ],
+          "drand": [],
+          "m2Scan": {}
+        }
+      ]
+    },
+    "count": 432
+  },
+  {
+    "decisions": {
+      "report": {
+        "block": "12005004",
+        "sent": [
+          {
+            "job": "receiverPayFit",
+            "key": "receiverPayFit:2:0x0000000000000000000000000000000000000065",
+            "asOurs": true,
+            "gas": "250000"
+          }
+        ],
+        "skipped": [
+          {
+            "job": "collect",
+            "key": "collect:2:0x0000000000000000000000000000000000000065",
+            "why": "nothing to do"
+          },
+          {
+            "job": "routerSweep",
+            "key": "routerSweep:2:0x0000000000000000000000000000000000000065",
+            "why": "nothing to do"
+          },
+          {
+            "job": "collect",
+            "key": "collect:2:0x0000000000000000000000000000000000000079",
+            "why": "nothing to do"
+          },
+          {
+            "job": "routerSweep",
+            "key": "routerSweep:2:0x0000000000000000000000000000000000000079",
+            "why": "nothing to do"
+          },
+          {
+            "job": "collect",
+            "key": "collect:2:0x000000000000000000000000000000000000008d",
+            "why": "nothing to do"
+          },
+          {
+            "job": "routerSweep",
+            "key": "routerSweep:2:0x000000000000000000000000000000000000008d",
+            "why": "nothing to do"
+          },
+          {
+            "job": "deepen",
+            "key": "deepen:1:0",
+            "why": "nothing to do"
+          },
+          {
+            "job": "buyBack",
+            "key": "buyBack:2:0x0000000000000000000000000000000000000065",
+            "why": "nothing to do"
+          },
+          {
+            "job": "buyBack",
+            "key": "buyBack:2:0x0000000000000000000000000000000000000079",
+            "why": "nothing to do"
+          },
+          {
+            "job": "buyBack",
+            "key": "buyBack:2:0x000000000000000000000000000000000000008d",
+            "why": "nothing to do"
+          },
+          {
+            "job": "executorTopUp",
+            "key": "executorTopUp:1:0",
+            "why": "nothing to do"
+          }
+        ]
+      },
+      "state": {
+        "drandBounties": {},
+        "drandLog": {},
+        "mem": {
+          "cadence": {
+            "0x0000000000000000000000000000000000000002": {
+              "deepenSentSlot": null,
+              "deepenTriedSlot": "497584",
+              "deepenTriedBlock": "12005004",
+              "collectedAt": null,
+              "collectSlot": null
+            }
+          },
+          "pokes": {},
+          "attempts": {
+            "receiverPayFit:2:0x0000000000000000000000000000000000000065": {
+              "block": "12005004",
+              "next": "12005006"
+            },
+            "collect:2:0x0000000000000000000000000000000000000065": {
+              "block": "12005004",
+              "next": "12005006"
+            },
+            "routerSweep:2:0x0000000000000000000000000000000000000065": {
+              "block": "12005004",
+              "next": "12005006"
+            },
+            "collect:2:0x0000000000000000000000000000000000000079": {
+              "block": "12005004",
+              "next": "12005006"
+            },
+            "routerSweep:2:0x0000000000000000000000000000000000000079": {
+              "block": "12005004",
+              "next": "12005006"
+            },
+            "collect:2:0x000000000000000000000000000000000000008d": {
+              "block": "12005004",
+              "next": "12005006"
+            },
+            "routerSweep:2:0x000000000000000000000000000000000000008d": {
+              "block": "12005004",
+              "next": "12005006"
+            },
+            "buyBack:2:0x0000000000000000000000000000000000000065": {
+              "block": "12005004",
+              "next": "12005006"
+            },
+            "buyBack:2:0x0000000000000000000000000000000000000079": {
+              "block": "12005004",
+              "next": "12005006"
+            },
+            "buyBack:2:0x000000000000000000000000000000000000008d": {
+              "block": "12005004",
+              "next": "12005006"
+            }
+          },
+          "steps": {
+            "0x0000000000000000000000000000000000000065": {
+              "job": "buyBack",
+              "block": "12005004",
+              "sent": false
+            },
+            "0x0000000000000000000000000000000000000079": {
+              "job": "buyBack",
+              "block": "12005004",
+              "sent": false
+            },
+            "0x000000000000000000000000000000000000008d": {
+              "job": "buyBack",
+              "block": "12005004",
+              "sent": false
+            }
+          },
+          "buyBackSince": {
+            "0x0000000000000000000000000000000000000065": "12005004",
+            "0x0000000000000000000000000000000000000079": "12005004",
+            "0x000000000000000000000000000000000000008d": "12005004"
+          }
+        },
+        "budget": {
+          "day": "20732",
+          "oursWei": "750000",
+          "pokesWei": "0",
+          "totalWei": "750000",
+          "drandRescueWei": "0",
+          "block": "12005004",
+          "txInBlock": 1,
+          "pending": [
+            {
+              "costWei": "750000",
+              "ours": "ours"
+            }
+          ]
+        },
+        "skipLog": {
+          "collect|nothing to do": {
+            "at": "1791302448",
+            "repeats": 2
+          },
+          "routerSweep|nothing to do": {
+            "at": "1791302448",
+            "repeats": 2
+          },
+          "deepen|nothing to do": {
+            "at": "1791302448",
+            "repeats": 0
+          },
+          "buyBack|nothing to do": {
+            "at": "1791302448",
+            "repeats": 2
+          },
+          "executorTopUp|nothing to do": {
+            "at": "1791302448",
+            "repeats": 0
+          }
+        },
+        "m2Scan": {},
+        "incomeSpend": []
+      },
+      "income": {
+        "at": "1791302448",
+        "platformWei": "0",
+        "boxes": {
+          "0x0000000000000000000000000000000000000066": {
+            "shareWei": "0",
+            "tipsWei": "0"
+          },
+          "0x000000000000000000000000000000000000007a": {
+            "shareWei": "0",
+            "tipsWei": "0"
+          },
+          "0x000000000000000000000000000000000000008e": {
+            "shareWei": "0",
+            "tipsWei": "0"
+          }
+        },
+        "mined": {}
+      },
+      "simulations": [
+        {
+          "job": "receiverPayFit",
+          "key": "receiverPayFit:2:0x0000000000000000000000000000000000000065",
+          "result": {
+            "ok": true,
+            "tipWei": null,
+            "estimate": "100000"
+          }
+        },
+        {
+          "job": "collect",
+          "key": "collect:2:0x0000000000000000000000000000000000000065",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "routerSweep",
+          "key": "routerSweep:2:0x0000000000000000000000000000000000000065",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "collect",
+          "key": "collect:2:0x0000000000000000000000000000000000000079",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "routerSweep",
+          "key": "routerSweep:2:0x0000000000000000000000000000000000000079",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "collect",
+          "key": "collect:2:0x000000000000000000000000000000000000008d",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "routerSweep",
+          "key": "routerSweep:2:0x000000000000000000000000000000000000008d",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "deepen",
+          "key": "deepen:1:0",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "buyBack",
+          "key": "buyBack:2:0x0000000000000000000000000000000000000065",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "buyBack",
+          "key": "buyBack:2:0x0000000000000000000000000000000000000079",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "buyBack",
+          "key": "buyBack:2:0x000000000000000000000000000000000000008d",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "executorTopUp",
+          "key": "executorTopUp:1:0",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        }
+      ],
+      "snapshots": [
+        {
+          "block": {
+            "number": "12005004",
+            "timestamp": "1791302448",
+            "baseFeePerGas": "1"
+          },
+          "fitGraduated": true,
+          "boxes": [
+            {
+              "id": "0",
+              "version": 1,
+              "coordinator": "0x0000000000000000000000000000000000000001",
+              "hook": "0x0000000000000000000000000000000000000002",
+              "receiver": "0x0000000000000000000000000000000000000003",
+              "priceSource": "0x0000000000000000000000000000000000000005",
+              "graduated": true,
+              "failed": false,
+              "curveClosed": true,
+              "gateOpen": true,
+              "openAt": "0",
+              "deadline": "0",
+              "spotTick": 0,
+              "sampleTick": 0,
+              "checkpointTime": "1791298800",
+              "fitOwed": "0",
+              "platformOwed": "0",
+              "qPerEthX18": "1000000000000000000",
+              "executor": {
+                "budget": "0",
+                "batchThreshold": "100",
+                "twapReady": true
+              }
+            },
+            {
+              "id": "0",
+              "version": 2,
+              "coordinator": "0x0000000000000000000000000000000000000064",
+              "hook": "0x0000000000000000000000000000000000000065",
+              "receiver": "0x0000000000000000000000000000000000000066",
+              "priceSource": null,
+              "graduated": true,
+              "failed": false,
+              "gateOpen": true,
+              "openAt": "1791302300",
+              "deadline": "1792202400",
+              "curveClosed": true,
+              "fitOwed": "1",
+              "platformOwed": "0",
+              "spotTick": null,
+              "sampleTick": null,
+              "checkpointTime": "0",
+              "qPerEthX18": "1000000000000000000",
+              "v2": {
+                "rewardsPendingP": "0",
+                "rewardBurnPendingT": "0",
+                "router": "0x0000000000000000000000000000000000000067",
+                "q": "0x0000000000000000000000000000000000000000",
+                "qDecimals": 18,
+                "closedAt": "1791302300",
+                "lastProtocolBlock": "0",
+                "depthBudget": "1000",
+                "graduationSettled": true,
+                "buyBackP": "1000",
+                "eatPendingP": "0",
+                "pilePendingP": "0",
+                "shopPendingP": "0",
+                "modulePendingP": [
+                  "0",
+                  "0"
+                ],
+                "tBurnPending": "0",
+                "reward": "0",
+                "pot": "0",
+                "tLeft": "1",
+                "royalty": {
+                  "address": "0x0000000000000000000000000000000000000068",
+                  "eth": "0",
+                  "wrapped": "0",
+                  "price": "0",
+                  "coins": [
+                    {
+                      "coin": "0x00000000000000000000000000000000000002BC",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002bd",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002be",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002Bf",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002C0",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002c1",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    }
+                  ]
+                },
+                "m2": [],
+                "m3": [],
+                "sources": {
+                  "buyerLag": "0",
+                  "sellerRun": "0"
+                }
+              }
+            },
+            {
+              "id": "1",
+              "version": 2,
+              "coordinator": "0x0000000000000000000000000000000000000078",
+              "hook": "0x0000000000000000000000000000000000000079",
+              "receiver": "0x000000000000000000000000000000000000007a",
+              "priceSource": null,
+              "graduated": true,
+              "failed": false,
+              "gateOpen": true,
+              "openAt": "1791302300",
+              "deadline": "1792202400",
+              "curveClosed": true,
+              "fitOwed": "0",
+              "platformOwed": "0",
+              "spotTick": null,
+              "sampleTick": null,
+              "checkpointTime": "0",
+              "qPerEthX18": "1000000000000000000",
+              "v2": {
+                "rewardsPendingP": "0",
+                "rewardBurnPendingT": "0",
+                "router": "0x000000000000000000000000000000000000007B",
+                "q": "0x0000000000000000000000000000000000000000",
+                "qDecimals": 18,
+                "closedAt": "1791302300",
+                "lastProtocolBlock": "0",
+                "depthBudget": "1000",
+                "graduationSettled": true,
+                "buyBackP": "1000",
+                "eatPendingP": "0",
+                "pilePendingP": "0",
+                "shopPendingP": "0",
+                "modulePendingP": [
+                  "0",
+                  "0"
+                ],
+                "tBurnPending": "0",
+                "reward": "0",
+                "pot": "0",
+                "tLeft": "1",
+                "royalty": {
+                  "address": "0x000000000000000000000000000000000000007c",
+                  "eth": "0",
+                  "wrapped": "0",
+                  "price": "0",
+                  "coins": [
+                    {
+                      "coin": "0x00000000000000000000000000000000000002BC",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002bd",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002be",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002Bf",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002C0",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002c1",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    }
+                  ]
+                },
+                "m2": [],
+                "m3": [],
+                "sources": {
+                  "buyerLag": "0",
+                  "sellerRun": "0"
+                }
+              }
+            },
+            {
+              "id": "2",
+              "version": 2,
+              "coordinator": "0x000000000000000000000000000000000000008C",
+              "hook": "0x000000000000000000000000000000000000008D",
+              "receiver": "0x000000000000000000000000000000000000008e",
+              "priceSource": null,
+              "graduated": true,
+              "failed": false,
+              "gateOpen": true,
+              "openAt": "1791302300",
+              "deadline": "1792202400",
+              "curveClosed": true,
+              "fitOwed": "0",
+              "platformOwed": "0",
+              "spotTick": null,
+              "sampleTick": null,
+              "checkpointTime": "0",
+              "qPerEthX18": "1000000000000000000",
+              "v2": {
+                "rewardsPendingP": "0",
+                "rewardBurnPendingT": "0",
+                "router": "0x000000000000000000000000000000000000008F",
+                "q": "0x0000000000000000000000000000000000000000",
+                "qDecimals": 18,
+                "closedAt": "1791302300",
+                "lastProtocolBlock": "0",
+                "depthBudget": "1000",
+                "graduationSettled": true,
+                "buyBackP": "1000",
+                "eatPendingP": "0",
+                "pilePendingP": "0",
+                "shopPendingP": "0",
+                "modulePendingP": [
+                  "0",
+                  "0"
+                ],
+                "tBurnPending": "0",
+                "reward": "0",
+                "pot": "0",
+                "tLeft": "1",
+                "royalty": {
+                  "address": "0x0000000000000000000000000000000000000090",
+                  "eth": "0",
+                  "wrapped": "0",
+                  "price": "0",
+                  "coins": [
+                    {
+                      "coin": "0x00000000000000000000000000000000000002BC",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002bd",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002be",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002Bf",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002C0",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002c1",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    }
+                  ]
+                },
+                "m2": [],
+                "m3": [],
+                "sources": {
+                  "buyerLag": "0",
+                  "sellerRun": "0"
+                }
+              }
+            }
+          ],
+          "drand": [],
+          "m2Scan": {}
+        }
+      ]
+    },
+    "count": 431
+  },
+  {
+    "decisions": {
+      "report": {
+        "block": "12005006",
+        "sent": [
+          {
+            "job": "receiverPayFit",
+            "key": "receiverPayFit:2:0x0000000000000000000000000000000000000065",
+            "asOurs": true,
+            "gas": "250000"
+          }
+        ],
+        "skipped": [
+          {
+            "job": "collect",
+            "key": "collect:2:0x0000000000000000000000000000000000000065",
+            "why": "nothing to do"
+          },
+          {
+            "job": "routerSweep",
+            "key": "routerSweep:2:0x0000000000000000000000000000000000000065",
+            "why": "nothing to do"
+          },
+          {
+            "job": "collect",
+            "key": "collect:2:0x0000000000000000000000000000000000000079",
+            "why": "nothing to do"
+          },
+          {
+            "job": "routerSweep",
+            "key": "routerSweep:2:0x0000000000000000000000000000000000000079",
+            "why": "nothing to do"
+          },
+          {
+            "job": "collect",
+            "key": "collect:2:0x000000000000000000000000000000000000008d",
+            "why": "nothing to do"
+          },
+          {
+            "job": "routerSweep",
+            "key": "routerSweep:2:0x000000000000000000000000000000000000008d",
+            "why": "nothing to do"
+          },
+          {
+            "job": "deepen",
+            "key": "deepen:1:0",
+            "why": "nothing to do"
+          },
+          {
+            "job": "buyBack",
+            "key": "buyBack:2:0x0000000000000000000000000000000000000065",
+            "why": "nothing to do"
+          },
+          {
+            "job": "buyBack",
+            "key": "buyBack:2:0x0000000000000000000000000000000000000079",
+            "why": "nothing to do"
+          },
+          {
+            "job": "buyBack",
+            "key": "buyBack:2:0x000000000000000000000000000000000000008d",
+            "why": "nothing to do"
+          },
+          {
+            "job": "executorTopUp",
+            "key": "executorTopUp:1:0",
+            "why": "nothing to do"
+          }
+        ]
+      },
+      "state": {
+        "drandBounties": {},
+        "drandLog": {},
+        "mem": {
+          "cadence": {
+            "0x0000000000000000000000000000000000000002": {
+              "deepenSentSlot": null,
+              "deepenTriedSlot": "497584",
+              "deepenTriedBlock": "12005006",
+              "collectedAt": null,
+              "collectSlot": null
+            }
+          },
+          "pokes": {},
+          "attempts": {
+            "receiverPayFit:2:0x0000000000000000000000000000000000000065": {
+              "block": "12005006",
+              "next": "12005008"
+            },
+            "collect:2:0x0000000000000000000000000000000000000065": {
+              "block": "12005006",
+              "next": "12005008"
+            },
+            "routerSweep:2:0x0000000000000000000000000000000000000065": {
+              "block": "12005006",
+              "next": "12005008"
+            },
+            "collect:2:0x0000000000000000000000000000000000000079": {
+              "block": "12005006",
+              "next": "12005008"
+            },
+            "routerSweep:2:0x0000000000000000000000000000000000000079": {
+              "block": "12005006",
+              "next": "12005008"
+            },
+            "collect:2:0x000000000000000000000000000000000000008d": {
+              "block": "12005006",
+              "next": "12005008"
+            },
+            "routerSweep:2:0x000000000000000000000000000000000000008d": {
+              "block": "12005006",
+              "next": "12005008"
+            },
+            "buyBack:2:0x0000000000000000000000000000000000000065": {
+              "block": "12005006",
+              "next": "12005008"
+            },
+            "buyBack:2:0x0000000000000000000000000000000000000079": {
+              "block": "12005006",
+              "next": "12005008"
+            },
+            "buyBack:2:0x000000000000000000000000000000000000008d": {
+              "block": "12005006",
+              "next": "12005008"
+            }
+          },
+          "steps": {
+            "0x0000000000000000000000000000000000000065": {
+              "job": "buyBack",
+              "block": "12005006",
+              "sent": false
+            },
+            "0x0000000000000000000000000000000000000079": {
+              "job": "buyBack",
+              "block": "12005006",
+              "sent": false
+            },
+            "0x000000000000000000000000000000000000008d": {
+              "job": "buyBack",
+              "block": "12005006",
+              "sent": false
+            }
+          },
+          "buyBackSince": {
+            "0x0000000000000000000000000000000000000065": "12005006",
+            "0x0000000000000000000000000000000000000079": "12005006",
+            "0x000000000000000000000000000000000000008d": "12005006"
+          }
+        },
+        "budget": {
+          "day": "20732",
+          "oursWei": "750000",
+          "pokesWei": "0",
+          "totalWei": "750000",
+          "drandRescueWei": "0",
+          "block": "12005006",
+          "txInBlock": 1,
+          "pending": [
+            {
+              "costWei": "750000",
+              "ours": "ours"
+            }
+          ]
+        },
+        "skipLog": {
+          "collect|nothing to do": {
+            "at": "1791302472",
+            "repeats": 2
+          },
+          "routerSweep|nothing to do": {
+            "at": "1791302472",
+            "repeats": 2
+          },
+          "deepen|nothing to do": {
+            "at": "1791302472",
+            "repeats": 0
+          },
+          "buyBack|nothing to do": {
+            "at": "1791302472",
+            "repeats": 2
+          },
+          "executorTopUp|nothing to do": {
+            "at": "1791302472",
+            "repeats": 0
+          }
+        },
+        "m2Scan": {},
+        "incomeSpend": []
+      },
+      "income": {
+        "at": "1791302472",
+        "platformWei": "0",
+        "boxes": {
+          "0x0000000000000000000000000000000000000066": {
+            "shareWei": "0",
+            "tipsWei": "0"
+          },
+          "0x000000000000000000000000000000000000007a": {
+            "shareWei": "0",
+            "tipsWei": "0"
+          },
+          "0x000000000000000000000000000000000000008e": {
+            "shareWei": "0",
+            "tipsWei": "0"
+          }
+        },
+        "mined": {}
+      },
+      "simulations": [
+        {
+          "job": "receiverPayFit",
+          "key": "receiverPayFit:2:0x0000000000000000000000000000000000000065",
+          "result": {
+            "ok": true,
+            "tipWei": null,
+            "estimate": "100000"
+          }
+        },
+        {
+          "job": "collect",
+          "key": "collect:2:0x0000000000000000000000000000000000000065",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "routerSweep",
+          "key": "routerSweep:2:0x0000000000000000000000000000000000000065",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "collect",
+          "key": "collect:2:0x0000000000000000000000000000000000000079",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "routerSweep",
+          "key": "routerSweep:2:0x0000000000000000000000000000000000000079",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "collect",
+          "key": "collect:2:0x000000000000000000000000000000000000008d",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "routerSweep",
+          "key": "routerSweep:2:0x000000000000000000000000000000000000008d",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "deepen",
+          "key": "deepen:1:0",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "buyBack",
+          "key": "buyBack:2:0x0000000000000000000000000000000000000065",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "buyBack",
+          "key": "buyBack:2:0x0000000000000000000000000000000000000079",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "buyBack",
+          "key": "buyBack:2:0x000000000000000000000000000000000000008d",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        },
+        {
+          "job": "executorTopUp",
+          "key": "executorTopUp:1:0",
+          "result": {
+            "ok": false,
+            "tipWei": null,
+            "estimate": "0"
+          }
+        }
+      ],
+      "snapshots": [
+        {
+          "block": {
+            "number": "12005006",
+            "timestamp": "1791302472",
+            "baseFeePerGas": "1"
+          },
+          "fitGraduated": true,
+          "boxes": [
+            {
+              "id": "0",
+              "version": 1,
+              "coordinator": "0x0000000000000000000000000000000000000001",
+              "hook": "0x0000000000000000000000000000000000000002",
+              "receiver": "0x0000000000000000000000000000000000000003",
+              "priceSource": "0x0000000000000000000000000000000000000005",
+              "graduated": true,
+              "failed": false,
+              "curveClosed": true,
+              "gateOpen": true,
+              "openAt": "0",
+              "deadline": "0",
+              "spotTick": 0,
+              "sampleTick": 0,
+              "checkpointTime": "1791298800",
+              "fitOwed": "0",
+              "platformOwed": "0",
+              "qPerEthX18": "1000000000000000000",
+              "executor": {
+                "budget": "0",
+                "batchThreshold": "100",
+                "twapReady": true
+              }
+            },
+            {
+              "id": "0",
+              "version": 2,
+              "coordinator": "0x0000000000000000000000000000000000000064",
+              "hook": "0x0000000000000000000000000000000000000065",
+              "receiver": "0x0000000000000000000000000000000000000066",
+              "priceSource": null,
+              "graduated": true,
+              "failed": false,
+              "gateOpen": true,
+              "openAt": "1791302300",
+              "deadline": "1792202400",
+              "curveClosed": true,
+              "fitOwed": "1",
+              "platformOwed": "0",
+              "spotTick": null,
+              "sampleTick": null,
+              "checkpointTime": "0",
+              "qPerEthX18": "1000000000000000000",
+              "v2": {
+                "rewardsPendingP": "0",
+                "rewardBurnPendingT": "0",
+                "router": "0x0000000000000000000000000000000000000067",
+                "q": "0x0000000000000000000000000000000000000000",
+                "qDecimals": 18,
+                "closedAt": "1791302300",
+                "lastProtocolBlock": "0",
+                "depthBudget": "1000",
+                "graduationSettled": true,
+                "buyBackP": "1000",
+                "eatPendingP": "0",
+                "pilePendingP": "0",
+                "shopPendingP": "0",
+                "modulePendingP": [
+                  "0",
+                  "0"
+                ],
+                "tBurnPending": "0",
+                "reward": "0",
+                "pot": "0",
+                "tLeft": "1",
+                "royalty": {
+                  "address": "0x0000000000000000000000000000000000000068",
+                  "eth": "0",
+                  "wrapped": "0",
+                  "price": "0",
+                  "coins": [
+                    {
+                      "coin": "0x00000000000000000000000000000000000002BC",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002bd",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002be",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002Bf",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002C0",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002c1",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    }
+                  ]
+                },
+                "m2": [],
+                "m3": [],
+                "sources": {
+                  "buyerLag": "0",
+                  "sellerRun": "0"
+                }
+              }
+            },
+            {
+              "id": "1",
+              "version": 2,
+              "coordinator": "0x0000000000000000000000000000000000000078",
+              "hook": "0x0000000000000000000000000000000000000079",
+              "receiver": "0x000000000000000000000000000000000000007a",
+              "priceSource": null,
+              "graduated": true,
+              "failed": false,
+              "gateOpen": true,
+              "openAt": "1791302300",
+              "deadline": "1792202400",
+              "curveClosed": true,
+              "fitOwed": "0",
+              "platformOwed": "0",
+              "spotTick": null,
+              "sampleTick": null,
+              "checkpointTime": "0",
+              "qPerEthX18": "1000000000000000000",
+              "v2": {
+                "rewardsPendingP": "0",
+                "rewardBurnPendingT": "0",
+                "router": "0x000000000000000000000000000000000000007B",
+                "q": "0x0000000000000000000000000000000000000000",
+                "qDecimals": 18,
+                "closedAt": "1791302300",
+                "lastProtocolBlock": "0",
+                "depthBudget": "1000",
+                "graduationSettled": true,
+                "buyBackP": "1000",
+                "eatPendingP": "0",
+                "pilePendingP": "0",
+                "shopPendingP": "0",
+                "modulePendingP": [
+                  "0",
+                  "0"
+                ],
+                "tBurnPending": "0",
+                "reward": "0",
+                "pot": "0",
+                "tLeft": "1",
+                "royalty": {
+                  "address": "0x000000000000000000000000000000000000007c",
+                  "eth": "0",
+                  "wrapped": "0",
+                  "price": "0",
+                  "coins": [
+                    {
+                      "coin": "0x00000000000000000000000000000000000002BC",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002bd",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002be",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002Bf",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002C0",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002c1",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    }
+                  ]
+                },
+                "m2": [],
+                "m3": [],
+                "sources": {
+                  "buyerLag": "0",
+                  "sellerRun": "0"
+                }
+              }
+            },
+            {
+              "id": "2",
+              "version": 2,
+              "coordinator": "0x000000000000000000000000000000000000008C",
+              "hook": "0x000000000000000000000000000000000000008D",
+              "receiver": "0x000000000000000000000000000000000000008e",
+              "priceSource": null,
+              "graduated": true,
+              "failed": false,
+              "gateOpen": true,
+              "openAt": "1791302300",
+              "deadline": "1792202400",
+              "curveClosed": true,
+              "fitOwed": "0",
+              "platformOwed": "0",
+              "spotTick": null,
+              "sampleTick": null,
+              "checkpointTime": "0",
+              "qPerEthX18": "1000000000000000000",
+              "v2": {
+                "rewardsPendingP": "0",
+                "rewardBurnPendingT": "0",
+                "router": "0x000000000000000000000000000000000000008F",
+                "q": "0x0000000000000000000000000000000000000000",
+                "qDecimals": 18,
+                "closedAt": "1791302300",
+                "lastProtocolBlock": "0",
+                "depthBudget": "1000",
+                "graduationSettled": true,
+                "buyBackP": "1000",
+                "eatPendingP": "0",
+                "pilePendingP": "0",
+                "shopPendingP": "0",
+                "modulePendingP": [
+                  "0",
+                  "0"
+                ],
+                "tBurnPending": "0",
+                "reward": "0",
+                "pot": "0",
+                "tLeft": "1",
+                "royalty": {
+                  "address": "0x0000000000000000000000000000000000000090",
+                  "eth": "0",
+                  "wrapped": "0",
+                  "price": "0",
+                  "coins": [
+                    {
+                      "coin": "0x00000000000000000000000000000000000002BC",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002bd",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002be",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002Bf",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002C0",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    },
+                    {
+                      "coin": "0x00000000000000000000000000000000000002c1",
+                      "lot": "100",
+                      "balance": "0",
+                      "allowance": "0",
+                      "approved": "0",
+                      "oldestUnsoldAt": "0",
+                      "registered": true
+                    }
+                  ]
+                },
+                "m2": [],
+                "m3": [],
+                "sources": {
+                  "buyerLag": "0",
+                  "sellerRun": "0"
+                }
+              }
+            }
+          ],
+          "drand": [],
+          "m2Scan": {}
+        }
+      ]
+    },
+    "count": 425
+  }
+]

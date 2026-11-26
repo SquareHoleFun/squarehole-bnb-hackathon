@@ -1,0 +1,55 @@
+{
+  "$schema": "./schema.json",
+  "version": 1,
+  "id": "gpu-poor",
+  "name": "GPU Poor",
+  "ticker": "VRAM",
+  "status": "ready",
+  "template": {
+    "id": "burn",
+    "name": "Burn"
+  },
+  "priceCoin": {
+    "symbol": "NVDAon",
+    "decimals": "18"
+  },
+  "logo": "examples/boxes/gpu-poor/art/logo.png",
+  "contents": {
+    "kind": "token",
+    "size": "0",
+    "label": "Token",
+    "art": {
+      "mode": "none",
+      "source": null
+    },
+    "seed": null,
+    "pickFeeBps": "0"
+  },
+  "raise": {
+    "policy": "listing-fixed",
+    "amount": "42069800850000000000"
+  },
+  "deadline": {
+    "days": "30"
+  },
+  "royalties": {
+    "bps": "0",
+    "destination": "none"
+  },
+  "fees": {
+    "buyers": {
+      "choice": "burn"
+    },
+    "sellers": {
+      "choice": "burn"
+    }
+  },
+  "life": "graduate",
+  "properties": [
+    "fee-conservation",
+    "page-state",
+    "own-pictures",
+    "graduation",
+    "supply-burn"
+  ]
+}

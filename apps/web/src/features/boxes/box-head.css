@@ -1,0 +1,751 @@
+/*
+ * The box interface (SH-BOX-UI-launch; docs/design/box-concept/BOX-INTERFACE-v0.2.md): the box header (the mock-up's
+ * `.boxhead.v2`): the cover with the state band, the name column, the peek strip and "Owning one" on the right, the
+ * stats, the counters, and the phone's bar with the counters sheet. A wallet box uses the same header without the
+ * right-hand side. Every class is prefixed `sh-box-` (css-scope.test.ts); the shared tokens and parts are in
+ * box-base.css.
+ */
+
+.sh-box-page {
+  gap: var(--sh-gap-4);
+}
+
+.sh-box-head {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr) minmax(0, 320px);
+  grid-template-areas:
+    'visual id side'
+    'stats stats stats'
+    'counters counters counters';
+  gap: var(--sh-gap-4) var(--sh-gap-6);
+  padding: 20px;
+  border: 1px solid var(--sh-border);
+  border-radius: var(--sh-radius-card);
+  background: var(--sh-panel-gradient);
+  box-shadow: var(--sh-panel-edge), var(--sh-elevation-1);
+  color: var(--sh-text-secondary);
+}
+
+.sh-box-head--wallet {
+  grid-template-columns: 200px minmax(0, 1fr);
+  grid-template-areas:
+    'visual id'
+    'stats stats';
+}
+
+/* A collection page's banner (F71 (2)): a strip across the whole top of the header (cropped to fit, never narrower). */
+.sh-box-head--banner {
+  grid-template-areas:
+    'banner banner banner'
+    'visual id side'
+    'stats stats stats'
+    'counters counters counters';
+}
+
+.sh-box-head__banner {
+  grid-area: banner;
+  overflow: hidden;
+  width: 100%;
+  height: clamp(80px, 16vw, 220px);
+  border-radius: 14px;
+}
+
+.sh-box-head__banner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* The cover and the state band under it, one rounded block */
+.sh-box-head__visual {
+  display: flex;
+  flex-direction: column;
+  grid-area: visual;
+  overflow: hidden;
+  border-radius: 14px;
+  align-self: start;
+}
+
+.sh-box-head__cover {
+  position: relative;
+  overflow: hidden;
+}
+
+.sh-box-head__id {
+  display: flex;
+  flex-direction: column;
+  grid-area: id;
+  gap: 8px;
+  min-width: 0;
+}
+
+.sh-box-head__side {
+  display: flex;
+  flex-direction: column;
+  grid-area: side;
+  gap: 12px;
+  min-width: 0;
+}
+
+.sh-box-head__chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.sh-box-kind {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 22px;
+  padding: 0 8px;
+  border: 1px solid var(--sh-border-strong);
+  border-radius: var(--sh-radius-pill);
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-caption);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.sh-box-head__title {
+  color: var(--sh-text);
+  line-height: var(--sh-leading-tight);
+}
+
+.sh-box-head__line {
+  color: var(--sh-text-secondary);
+  font-size: var(--sh-type-body);
+}
+
+.sh-box-phase {
+  color: var(--sh-text);
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+}
+
+/* The launch tax and graduation pending are warnings, said in words too. */
+.sh-box-phase[data-state='upcoming'],
+.sh-box-phase[data-state='window'],
+.sh-box-phase[data-state='graduating'],
+.sh-box-phase[data-state='failed'],
+.sh-box-phase[data-window='before_open'] {
+  color: var(--sh-warning);
+}
+
+.sh-box-notice {
+  width: fit-content;
+  padding: 4px 10px;
+  border: 1px dashed var(--sh-warning);
+  border-radius: var(--sh-radius-control);
+  color: var(--sh-warning);
+  font-size: var(--sh-type-small);
+  font-weight: 650;
+}
+
+/* Peek strip: a few small pictures and the count of the rest; a tap opens "What's in the box?" */
+.sh-box-peekstrip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 6px 14px 6px 6px;
+  border: 1px solid var(--sh-border);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--sh-text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sh-box-peekstrip:hover {
+  border-color: var(--sh-accent);
+}
+
+.sh-box-peekstrip__thumb {
+  display: grid;
+  flex: none;
+  place-items: center;
+  overflow: hidden;
+  width: 48px;
+  height: 48px;
+  border-radius: 9px;
+  background: #111b2b;
+  color: var(--sh-text-muted);
+}
+
+.sh-box-peekstrip__thumb img,
+.sh-box-peekstrip__thumb .sh-box-toy,
+.sh-box-peekstrip__thumb > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sh-box-peekstrip__thumb > span {
+  display: grid;
+  place-items: center;
+}
+
+/* Teasers in the strip: dashed frames, so they never pass for item peeks (F71 (2)). */
+.sh-box-peekstrip[data-kind='teasers'] .sh-box-peekstrip__thumb {
+  border: 1.5px dashed var(--sh-border-strong);
+}
+
+/* Just the token: one tile, the logo and its words. */
+.sh-box-peekstrip[data-kind='token'] .sh-box-peekstrip__thumb {
+  border-radius: 50%;
+  background: none;
+}
+
+/*
+ * SH-BOX-PICTURE-FIT fix round af2 (review M2): a round mark cuts the logo to its circle, as token marks do everywhere;
+ * when the cover stands in for a logo it is drawn whole, so the tile takes the coin's rounded square instead of the
+ * circle (which would cut a wide cover's ends).
+ */
+.sh-box-peekstrip[data-kind='token'] .sh-box-peekstrip__thumb:has(> img.sh-box-coin--cover) {
+  border-radius: 22%;
+}
+
+.sh-box-peekstrip__text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding-left: 4px;
+  line-height: 1.2;
+}
+
+.sh-box-peekstrip__text strong {
+  font-size: 16px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.sh-box-peekstrip__text small {
+  color: var(--sh-text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* "Owning one": four icons with a few words */
+.sh-box-own {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sh-box-own__label {
+  align-self: flex-start;
+  min-height: 28px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--sh-text-muted);
+  font: inherit;
+  font-size: var(--sh-type-caption);
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.sh-box-own__label:hover {
+  color: var(--sh-text);
+  text-decoration: underline;
+}
+
+.sh-box-own__row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh-box-own__row li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 5px 8px 5px 5px;
+  border: 1px solid var(--sh-border);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--sh-text);
+  font-size: var(--sh-type-caption);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.sh-box-own__icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: var(--sh-selected);
+  color: var(--sh-accent);
+}
+
+.sh-box-own__row li[data-off] {
+  color: var(--sh-text-secondary);
+}
+
+.sh-box-own__row li[data-off] .sh-box-own__icon {
+  background: var(--sh-surface-raised);
+  color: var(--sh-text-muted);
+}
+
+/* Stats */
+.sh-box-stats {
+  display: grid;
+  grid-area: stats;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid var(--sh-border);
+  border-radius: 12px;
+  background: var(--sh-border);
+}
+
+.sh-box-stats--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* A v2 box's five market figures (SH-224): one row; on a phone the price (its unit the longest) across, then 2 × 2. */
+.sh-box-stats--five {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.sh-box-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  padding: 10px 14px;
+  background: var(--sh-surface);
+  container-type: inline-size;
+}
+
+.sh-box-stat dt {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 28px;
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.sh-box-stat dd {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  color: var(--sh-text);
+  font-size: 18px;
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+/* The exact raise ("4.206980085", F74 U5): one line, never broken mid-number, its size fitted to the cell's width. */
+.sh-box-stat dd[data-fit] {
+  font-size: min(18px, 14.5cqi);
+  white-space: nowrap;
+}
+
+.sh-box-stat dd[data-fit] .sh-info-panel {
+  white-space: normal;
+}
+
+.sh-box-stat dd small {
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-caption);
+  font-weight: 600;
+}
+
+.sh-box-stat .sh-info-panel {
+  font-size: var(--sh-type-small);
+  font-weight: 400;
+}
+
+/* ── Counters ──────────────────────────────────────────────── */
+.sh-box-counters {
+  display: grid;
+  grid-area: counters;
+  /* One equal column per counter (three; two for a token-only box, which has no Conversion). */
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
+  gap: var(--sh-gap-3);
+}
+
+.sh-box-counter {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--sh-border);
+  border-radius: 12px;
+  background: var(--sh-surface);
+}
+
+.sh-box-counter[data-open='false'] {
+  border-style: dashed;
+}
+
+.sh-box-counter__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sh-box-counter__icon {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--sh-surface-raised);
+  color: var(--sh-text-secondary);
+}
+
+.sh-box-counter__title {
+  flex: 1;
+  color: var(--sh-text);
+  font-size: var(--sh-type-body);
+  font-weight: 750;
+}
+
+.sh-box-counter__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sh-box-action {
+  min-height: 38px;
+  padding: 0 12px;
+  font-size: var(--sh-type-small);
+}
+
+.sh-box-counter__reason {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--sh-text-muted);
+  font-size: var(--sh-type-small);
+}
+
+.sh-box-counter__soon {
+  color: var(--sh-text-secondary);
+  font-weight: 650;
+}
+
+.sh-box-phonebar {
+  display: none;
+}
+
+/* The counters in the phone's sheet: one column */
+.sh-box-sheet .sh-box-counters {
+  grid-template-columns: minmax(0, 1fr);
+  grid-auto-flow: row;
+}
+
+@media (max-width: 1024px) {
+  .sh-box-head {
+    grid-template-columns: 160px minmax(0, 1fr);
+    grid-template-areas:
+      'visual id'
+      'visual side'
+      'stats stats'
+      'counters counters';
+  }
+
+  .sh-box-head--wallet {
+    grid-template-columns: 160px minmax(0, 1fr);
+    grid-template-areas:
+      'visual id'
+      'stats stats';
+  }
+
+  .sh-box-head--banner {
+    grid-template-areas:
+      'banner banner'
+      'visual id'
+      'visual side'
+      'stats stats'
+      'counters counters';
+  }
+}
+
+@media (max-width: 640px) {
+  .sh-box-page {
+    padding-bottom: 76px;
+  }
+
+  /*
+   * The phone leads with pictures: a 96 px cover with the peek strip beside it (a Misfit on the first screen), the
+   * state band under both, then the name.
+   */
+  .sh-box-head {
+    grid-template-columns: 96px minmax(0, 1fr);
+    grid-template-areas:
+      'cover strip'
+      'band band'
+      'id id'
+      'stats stats';
+    gap: 10px 12px;
+    padding: 12px;
+  }
+
+  .sh-box-head--wallet {
+    grid-template-columns: 96px minmax(0, 1fr);
+    grid-template-areas:
+      'cover id'
+      'stats stats';
+  }
+
+  .sh-box-head--banner {
+    grid-template-areas:
+      'banner banner'
+      'cover strip'
+      'band band'
+      'id id'
+      'stats stats';
+  }
+
+  .sh-box-head__banner {
+    border-radius: 10px;
+  }
+
+  .sh-box-head__visual,
+  .sh-box-head__side {
+    display: contents;
+    overflow: visible;
+  }
+
+  .sh-box-head__cover {
+    grid-area: cover;
+    width: 96px;
+    height: 96px;
+    border-radius: 10px;
+  }
+
+  .sh-box-head__cover .sh-box-cover {
+    height: 100%;
+  }
+
+  .sh-box-head__cover .sh-box-tape {
+    right: -38px;
+    bottom: 8px;
+    width: 110px;
+    font-size: 9px;
+  }
+
+  .sh-box-head__band {
+    grid-area: band;
+    border-top: 0;
+    border-left: 3px solid var(--sh-box-band);
+    border-radius: 8px;
+  }
+
+  .sh-box-peekstrip {
+    flex-wrap: wrap;
+    grid-area: strip;
+    align-self: center;
+    gap: 4px;
+    padding: 6px;
+  }
+
+  .sh-box-peekstrip__thumb {
+    width: 44px;
+    height: 44px;
+  }
+
+  .sh-box-peekstrip__text {
+    flex-basis: 100%;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 6px;
+    padding-left: 2px;
+  }
+
+  /* Just the token: the logo and its two lines side by side (one tile, nothing to wrap). */
+  .sh-box-peekstrip[data-kind='token'] {
+    flex-wrap: nowrap;
+  }
+
+  .sh-box-peekstrip[data-kind='token'] .sh-box-peekstrip__text {
+    flex-basis: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .sh-box-own {
+    display: none;
+  }
+
+  /* Text diet: the strip's count and its pictures say it on a phone ("Sneak peek" heads the section below); the
+     address's Copy is its icon (the button keeps its name). */
+  .sh-box-peekstrip[data-kind='peek'] .sh-box-peekstrip__text small,
+  .sh-box-head .sh-fit-ca--compact .sh-copy__button > span[aria-hidden='true'] {
+    display: none;
+  }
+
+  /* The icon-only Copy keeps a 44 px hit area (its ::before adds 2 px a side). */
+  .sh-box-head .sh-fit-ca--compact .sh-copy__button {
+    padding: 0 13px;
+  }
+
+  /* Text diet on the phone's first screen: the tagline is under About. */
+  .sh-box-head__line {
+    display: none;
+  }
+
+  .sh-box-head__title {
+    font-size: 24px;
+  }
+
+  .sh-box-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sh-box-stats--three {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sh-box-stats--five > :first-child {
+    grid-column: 1 / -1;
+  }
+
+  .sh-box-stat {
+    padding: 8px 10px;
+  }
+
+  /* A v2 box's three figures, one row each: label (and its (i)) on the left, the figure and its unit on the right, so
+     "Closing price", "USDC per 1M HATS" and "at the deadline" keep one line at 375 px instead of breaking in a third of
+     the width (SH-V2-FE3). An open (i) takes the row's full width under them. A wallet's three ("Claims ready" and an
+     unread "Not available") follow the same rule (SH-V2-FE4). */
+  :is(.sh-box-head[data-v2], .sh-box-head.sh-v2-head, .sh-box-head--wallet) .sh-box-stats--three {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  :is(.sh-box-head[data-v2], .sh-box-head.sh-v2-head, .sh-box-head--wallet) .sh-box-stats--three .sh-box-stat {
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0 var(--sh-gap-2);
+    padding: 4px 8px;
+  }
+
+  :is(.sh-box-head[data-v2], .sh-box-head.sh-v2-head, .sh-box-head--wallet) .sh-box-stats--three .sh-box-stat dt {
+    flex: none;
+  }
+
+  :is(.sh-box-head[data-v2], .sh-box-head.sh-v2-head, .sh-box-head--wallet) .sh-box-stats--three .sh-box-stat dd {
+    flex: 1 1 0;
+    min-width: 0;
+    flex-flow: row wrap;
+    align-items: baseline;
+    justify-content: flex-end;
+    gap: 0 var(--sh-gap-1);
+    text-align: right;
+  }
+
+  :is(.sh-box-head[data-v2], .sh-box-head.sh-v2-head, .sh-box-head--wallet) .sh-box-stats--three .sh-box-stat dd:has(> .sh-info-panel:not([hidden])) {
+    flex-basis: 100%;
+  }
+
+  :is(.sh-box-head[data-v2], .sh-box-head.sh-v2-head, .sh-box-head--wallet) .sh-box-stats--three .sh-box-stat dd .sh-info-panel {
+    flex-basis: 100%;
+    text-align: left;
+  }
+
+  .sh-box-stat dd {
+    font-size: 16px;
+  }
+
+  .sh-box-stat dd[data-fit] {
+    font-size: min(16px, 14.5cqi);
+  }
+
+  /* The counters row folds into the bar; its icon opens all three in a sheet. */
+  .sh-box-head > .sh-box-counters {
+    display: none;
+  }
+
+  .sh-box-phonebar {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: var(--sh-z-header);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 60px;
+    padding: 8px 16px calc(8px + env(safe-area-inset-bottom, 0px)) 8px;
+    border-top: 1px solid var(--sh-border-strong);
+    background: var(--sh-surface);
+    color: var(--sh-text-secondary);
+    font-size: var(--sh-type-small);
+  }
+
+  .sh-box-phonebar__text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .sh-box-phonebar__text strong {
+    color: var(--sh-text);
+  }
+
+  .sh-box-phonebar__all {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    gap: 6px;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0 10px;
+    border: 0;
+    border-radius: var(--sh-radius-pill);
+    background: transparent;
+    color: var(--sh-text);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  /* Nothing to do in the app: the 44 px counters button instead of a bar (a failed box adds its refund note). */
+  .sh-box-phonebar[data-compact='true'] {
+    left: auto;
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    min-height: 44px;
+    padding: 0;
+    border: 1px solid var(--sh-border-strong);
+    border-radius: var(--sh-radius-pill);
+    box-shadow: var(--sh-elevation-2);
+  }
+
+  .sh-box-phonebar[data-compact='true'] .sh-box-phonebar__text {
+    padding-right: 14px;
+  }
+}
